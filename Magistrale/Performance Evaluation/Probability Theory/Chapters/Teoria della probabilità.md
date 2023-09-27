@@ -62,7 +62,7 @@ Si può ovviamente associare un evento a ciascun outcome ma bisogna mantenere i 
 Gli assiomi su cui si basa la definizione di probabilità sono:
 1. $0 \le P(E) \le 1$ 
 2. $P(S) = 1$
-3. Se $E_i$ ed $E_j$ sono due eventi tali che $E_iE_j = \emptyset$ se $i \not= j$ (ovvero sono eventi disgiunti, cioè la cui intersezione è nulla) allora $P(U_iE_i) = \sum_{i} P(E_i)$
+	1. Se $E_i$ ed $E_j$ sono due eventi tali che $E_iE_j = \emptyset$ se $i \not= j$ (ovvero sono eventi disgiunti, cioè la cui intersezione è nulla) allora $P(\bigcup_iE_i) = \sum_{i} P(E_i)$
 
 Esempio dell’ultimo assioma:
 $P(E_i \cup E_j) = P(E_i) + P(E_j)$

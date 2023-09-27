@@ -11,8 +11,12 @@
             "id": "39c45de923204548",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md"
+              }
             }
           },
           {
@@ -151,9 +159,9 @@
   },
   "active": "39c45de923204548",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters",

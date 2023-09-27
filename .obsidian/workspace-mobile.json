@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+            "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+            "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md"
+            "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md"
           }
         }
       },
@@ -144,8 +144,8 @@
   },
   "active": "64f230a15555b0f5",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
