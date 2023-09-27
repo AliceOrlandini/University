@@ -1,0 +1,10 @@
+{
+  "accentColor": "#4a8af2",
+  "theme": "system",
+  "cssTheme": "Things",
+  "baseFontSize": 18,
+  "enabledCssSnippets": [
+    "text_style"
+  ],
+  "textFontFamily": "Hanken Grotesk"
+}

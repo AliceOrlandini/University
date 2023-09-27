@@ -1,0 +1,174 @@
+{
+  "main": {
+    "id": "a6186cb21fe5a142",
+    "type": "split",
+    "children": [
+      {
+        "id": "3477e23d9cb31acc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "39c45de923204548",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4e61c7cac76cdaee",
+    "type": "split",
+    "children": [
+      {
+        "id": "08d656a528fb1452",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "366444bc2598c1d9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d72b1ce7c51b352b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "46f9c86b6df2e47e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f9f3ecc287144cb5",
+    "type": "split",
+    "children": [
+      {
+        "id": "bd2ad0db45247c55",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0ef4a7daf3c0a130",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6503ca0d7193cdfb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "548956d218e122e5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "b55a8c2ab05cd1e4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "0ecf8d67b5908b9d",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-full-calendar:Open Full Calendar": false
+    }
+  },
+  "active": "39c45de923204548",
+  "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
+    "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+    "Magistrale/Large Scale Databases/Table of Contents.md",
+    "Magistrale/Large Scale Databases/Chapters",
+    "TODO.md",
+    "Prova.md",
+    "2023-09-23.md",
+    "Magistrale/Electronics And Communication",
+    "Magistrale/Large Scale Databases",
+    "Magistrale/Performance Evaluation",
+    "Appunti/Capitolo 2.md",
+    "Appunti/Capitolo 1.md",
+    "2023-09-16.md",
+    "Elettronica Digitale/Cose da rivedere.md",
+    "Grafo.canvas",
+    "Elettronica Digitale",
+    "Magistrale"
+  ]
+}

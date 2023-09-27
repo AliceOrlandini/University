@@ -1,0 +1,176 @@
+{
+  "main": {
+    "id": "ff768e4f9d949ac8",
+    "type": "split",
+    "children": [
+      {
+        "id": "5ce74e2461b733a2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "64f230a15555b0f5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "291450f31cbe9d0f",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "47d227c15ee73dd2",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "a7513c939216fb99",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "d678530da3b27491",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "40e86611b62f98e2",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "e4eb7f2f4547aa51",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "bf37afb42e6385b6",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "ab2ab4874bd25e44",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "57e32f64ef893a12",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md"
+          }
+        }
+      },
+      {
+        "id": "6119c02d21b7f6e3",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "templater-obsidian:Templater": false,
+      "switcher:Apri selezione rapida": false,
+      "graph:Apri vista grafo": false,
+      "canvas:Crea nuova lavagna": false,
+      "daily-notes:Apri nota del giorno": false,
+      "templates:Inserisci modello": false,
+      "command-palette:Apri riquadro comandi": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-full-calendar:Open Full Calendar": false
+    }
+  },
+  "active": "64f230a15555b0f5",
+  "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+    "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+    "Magistrale/Large Scale Databases/Table of Contents.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
+    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Introduction.md",
+    "Magistrale/Large Scale Databases/Chapters",
+    "TODO.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters",
+    "Magistrale/Performance Evaluation/Probability Theory",
+    "Magistrale/Electronics And Communication/Electronics/Chapters",
+    "Magistrale/Electronics And Communication/Communication/Chapters",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Analog Communication.md",
+    "Prova.md",
+    "Magistrale/Electronics And Communication/Communication",
+    "Magistrale/Electronics And Communication/Electronics",
+    "Electronics",
+    "Reti Sequenziali/Reti Sequenziali e Memorie.md",
+    "Elettronica Digitale/Domande Orale.md",
+    "@today.md",
+    "Reti Sequenziali/SRAM.md",
+    "Reti Sequenziali",
+    "Grafo.canvas",
+    "2023-09-16.md",
+    "Appunti/Capitolo 2.md",
+    "Appunti/Capitolo 1.md"
+  ]
+}

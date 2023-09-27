@@ -1,0 +1,16 @@
+{
+  "calendarSources": [
+    {
+      "type": "local",
+      "color": "#d03a20",
+      "directory": "/"
+    }
+  ],
+  "defaultCalendar": 0,
+  "firstDay": 1,
+  "initialView": {
+    "desktop": "timeGridWeek",
+    "mobile": "timeGrid3Days"
+  },
+  "timeFormat24h": true
+}
