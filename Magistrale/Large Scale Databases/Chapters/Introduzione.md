@@ -111,6 +111,40 @@ Una transazione ACID ha le seguenti caratteristiche:
 3. **Isolata**: la transazione non deve influenzare altre transazioni.
 4. **Durable**: una volta che la transazione è stata salvata nel database i suoi effetti devono rimanere salvati anche in presenza di errori al sistema operativo o hardware.
 
+Vedremo che invece nei database NoSQL le transazioni saranno di tipo BASE.
+
 > eventually: prima o poi
 > possibly: eventualmente
 
+## Proprietà da garantire
+
+Un database su larga scala e mutistrutturato deve *garantire*:
+1. **Scalabilità**
+2. **Flessibilità**
+3. **Disponibilità** (Avaiability)
+4. **Costi ridotti**
+
+### Scalabilità
+
+Immaginiamo di avere un sito web hostato su un singolo sever. Ipotizziamo che arrivino improvvisamente moltissime richieste.
+Per garantire risposte immediate agli utenti si duplicano i server per redistribuire il carico di lavoro. 
+
+### Flessibilità
+
+Ipotizziamo di avere un e-commerce con molti prodotti. Ognuno di essi avrà caratteristiche diverse (descrizioni diverse ad esempio) e non dobbiamo essere in grado di gestire tutti gli attributi. 
+Ad esempio il formato JSON è molto più flessibile rispetto alla normalizzazione effettuata dallo schema relazionale.
+
+### Disponibilità
+
+Se un server si guasta gli altri devono essere in grado di bilanciare il carico, per garantire il servizio nonostante il traffico. 
+Questo serve anche per diminuire il tempo di risposta.
+
+### Costi ridotti
+
+Realizzare un server non rappresenta un costo perché molte infrastrutture sono open-source. Il vero costo è rappresentato dall’hosting tramite servizi offerti da compagnie private.
+
+## NoSQL Databases
+
+*NoSQL* è l’acronimo di *Not Only* SQL.
+Notiamo immediatamente che è un’ampliamento dell’SQL.
+In questa tipologia di database non è detto che le transazioni ACID siano supportate tuttavia la maggior parte di questi database assicurano la scalabilità, disponibilità e flessibilità. 
