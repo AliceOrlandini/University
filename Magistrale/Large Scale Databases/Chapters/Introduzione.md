@@ -79,7 +79,7 @@ Spark è un'alternativa ad Hadoop più veloce in caso di applicazioni online e i
 
 Questo è lo schema di funzionamento di Spark:
 
-![Spark_funzionamento](https://spark.apache.org/docs/latest/img/cluster-overview.png)
+![Spark_funzionamento | center | 700](https://spark.apache.org/docs/latest/img/cluster-overview.png)
 
 - **Driver Program**: prepara il task da eseguire, chiede al cluster manager un worker al quale assegnare tale task. Dopo che il cluster manager assegna un worker al task, il driver program comunicherà direttamente col worker.
 - **Worker**: esegue i task con i dati presenti in cache, può comunicare anche con altri Workers.
@@ -87,10 +87,10 @@ Questo è lo schema di funzionamento di Spark:
 
 Spark è compatibile con tutti i principali framework:
 
-![Spark](https://www.zdnet.com/a/img/resize/d26dbe5b8b669db1ff5e77a09668c92b558e2757/2017/11/01/d17912b7-7717-4a71-9b09-573460970f94/sparkecosystem.png?auto=webp&width=1280)
+![Spark | center | 700](https://www.zdnet.com/a/img/resize/d26dbe5b8b669db1ff5e77a09668c92b558e2757/2017/11/01/d17912b7-7717-4a71-9b09-573460970f94/sparkecosystem.png?auto=webp&width=1280)
 ### Resilient Distributed Dataset (RDD)
 
-È l’astrazione principale offerta da Spark.
+È l’astrazione principale offerta da Spark. *Da cercare su Internet che a lezione non ho capito nulla...*
 
 # Storia dei database
 
@@ -126,25 +126,26 @@ Un database su larga scala e mutistrutturato deve *garantire*:
 
 ### Scalabilità
 
-Immaginiamo di avere un sito web hostato su un singolo sever. Ipotizziamo che arrivino improvvisamente moltissime richieste.
-Per garantire risposte immediate agli utenti si duplicano i server per redistribuire il carico di lavoro. 
+Immaginiamo di avere un sito web hostato su un singolo sever e ipotizziamo che arrivino improvvisamente moltissime richieste.
+Per garantire risposte immediate, si duplicano i server per redistribuire il carico di lavoro. Un sistema si dice scalabile se l'operazione di ampliamento delle risorse computazionali è facile da effettuare.
 
 ### Flessibilità
 
-Ipotizziamo di avere un e-commerce con molti prodotti. Ognuno di essi avrà caratteristiche diverse (descrizioni diverse ad esempio) e non dobbiamo essere in grado di gestire tutti gli attributi. 
+Ipotizziamo di avere un e-commerce con molti prodotti. Ognuno di essi avrà caratteristiche diverse (descrizioni diverse ad esempio). Un sistema è flessibile se è in grado di gestire dati con attributi diversi tra loro. 
 Ad esempio il formato JSON è molto più flessibile rispetto alla normalizzazione effettuata dallo schema relazionale.
 
 ### Disponibilità
 
-Se un server si guasta gli altri devono essere in grado di bilanciare il carico, per garantire il servizio nonostante il traffico. 
+Se ad esempio un server si guasta, altri server devono essere in grado di bilanciare il carico, per garantire il servizio nonostante il guasto. 
 Questo serve anche per diminuire il tempo di risposta.
 
 ### Costi ridotti
 
-Realizzare un server non rappresenta un costo perché molte infrastrutture sono open-source. Il vero costo è rappresentato dall’hosting tramite servizi offerti da compagnie private.
+Realizzare un server a livello di codice non rappresenta un costo perché molte infrastrutture sono open-source. Il vero costo è rappresentato dall’hosting tramite servizi offerti da compagnie private.
 
 ## NoSQL Databases
 
 *NoSQL* è l’acronimo di *Not Only* SQL.
-Notiamo immediatamente che è un’ampliamento dell’SQL.
-In questa tipologia di database non è detto che le transazioni ACID siano supportate tuttavia la maggior parte di questi database assicurano la scalabilità, disponibilità e flessibilità. 
+Dal nome notiamo quindi immediatamente che esso è un’ampliamento dell’SQL e non una sostituzione.
+In questa tipologia di database non è detto che le transazioni ACID siano supportate.
+La maggior parte di questi database assicurano la scalabilità, disponibilità e flessibilità. 

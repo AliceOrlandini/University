@@ -23,3 +23,10 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/* align image center */
+img[alt*="center"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

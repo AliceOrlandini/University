@@ -11,9 +11,11 @@
             "id": "39c45de923204548",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md"
               }
             }
           },
@@ -155,19 +157,18 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "366444bc2598c1d9",
+  "active": "39c45de923204548",
   "lastOpenFiles": [
+    "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
+    "Magistrale/Large Scale Databases/Table of Contents.md",
+    "TODO.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
-    "TODO.md",
-    "TODO.md",
     "Untitled.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
-    "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
-    "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters",
     "Prova.md",
     "2023-09-23.md",
