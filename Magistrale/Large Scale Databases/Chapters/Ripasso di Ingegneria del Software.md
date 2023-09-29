@@ -76,3 +76,47 @@ Per esempio, il professore preferisce un modello:
 - **browse**: per trovare tutti gli utenti.
 - **find**: per trovare un utente specifico.
 - **view**: per visualizzare i dettagli di quell'utente.
+
+## Esercizio
+
+Data la seguente descrizione da parte del cliente:
+1. definire i requisiti funzionali e non funzionali.
+2. disegnare il diagramma dei casi d’uso.
+3. disegnare il modello dei dati.
+
+Il sistema consente all’azienda di vendere i propri prodotti online.
+Possono essere venduti diversi tipi di prodotti e ciascun prodotto è descritto da alcuni attributi comuni, come prezzo, ID prodotto e numero di pezzi disponibili, e da alcuni attributi specifici. 
+Il manager dell’azienda può aggiungere, rimuovere e aggiornare i prodotti. 
+Gli utenti non registrati possono solo sfogliare i prodotti venduti nel sistema e visualizzarne le descrizioni.
+Gli utenti registrati possono inoltre selezionare i prodotti ed inserirli nel carrello. 
+I prodotti potrebbero essere rimossi dal carrello. 
+Quando un utente registrato decide di acquistare i prodotti inseriti nel carrello, viene creato un ordine, viene richiesto all’utente di effettuare il pagamento finale e il carrello viene svuotato. 
+Ogni utente registrato può visualizzare l'elenco dei propri ordini. 
+Ogni ordine può avere uno stato diverso (bozza, pagato, in preparazione, spedito, consegnato, annullato). 
+Il sistema può offrire alcuni servizi di analisi relativi a prodotti, ordini e utenti.
+
+### Soluzione
+
+I *requisiti funzionali* sono:
+- Il sistema consente di visualizzare l’elenco dei prodotti venduti dall’azienda.
+- Il sistema consente di visualizzare le descrizioni, i prezzi e altri attributi specifici dei prodotti venduti dall’azienda. 
+- Il sistema consente di aggiungere al carrello i prodotti.
+- Il sistema consente di rimuovere dal carrello i prodotti.
+- Il sistema consente di comprare i prodotti presenti nel carrello.
+- Il sistema consente di visualizzare l’elenco dei propri ordini.
+- Il sistema consente di visualizzare lo stato di un ordine.
+- Il sistema consente di aggiungere prodotti.
+- Il sistema consente di rimuovere prodotti.
+- Il sistema consente di aggiornare i prodotti. 
+- Il sistema consente di visualizzare analisi sui prodotti, ordini e utenti. 
+
+I *requisiti non funzionali* sono: 
+- Un utente per aggiungere un prodotto al carrello deve essere registrato. 
+- Un utente per rimuovere un prodotto dal carrello deve essere registrato. 
+- Un utente per comprare un prodotto presente nel carrello deve essere registrato. 
+- Un utente per visualizzare l’elenco degli ordini deve essere registrato. 
+- Un utente per visualizzare lo stato di un suo ordine deve essere registrato.
+- Per aggiungere i prodotti bisogna essere manager.
+- Per rimuovere i prodotti bisogna essere manager.
+- Per aggiornare i prodotti bisogna essere manager.
+- Per visualizzare le analisi su prodotti, ordini e utenti bisogna essere manager. 

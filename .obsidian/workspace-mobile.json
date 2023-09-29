@@ -11,8 +11,12 @@
             "id": "bb842f665ba77288",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -107,7 +113,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md"
+          }
         }
       },
       {
@@ -136,13 +144,13 @@
   },
   "active": "bb842f665ba77288",
   "lastOpenFiles": [
+    "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
-    "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "TODO.md",
