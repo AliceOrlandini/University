@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+            "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+            "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md"
+            "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md"
           }
         }
       },
@@ -144,6 +144,7 @@
   },
   "active": "bb842f665ba77288",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
@@ -157,7 +158,6 @@
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "TODO.md",
     "Magistrale/Performance Evaluation/Laboratory",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduction.md",
     "Magistrale/Large Scale Databases/Chapters",
