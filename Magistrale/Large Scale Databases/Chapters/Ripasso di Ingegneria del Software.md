@@ -80,9 +80,9 @@ Per esempio, il professore preferisce un modello:
 ## Esercizio
 
 Data la seguente descrizione da parte del cliente:
-1. definire i requisiti funzionali e non funzionali.
-2. disegnare il diagramma dei casi d’uso.
-3. disegnare il modello dei dati.
+1. definire i [[#Requisiti funzionali|requisiti funzionali]] e [[#Requisiti non funzionali|requisiti non funzionali]].
+2. disegnare il diagramma dei [[#Casi d’uso|casi d’uso]].
+3. disegnare il [[#Data Modelling|modello dei dati]].
 
 Il sistema consente all’azienda di vendere i propri prodotti online.
 Possono essere venduti diversi tipi di prodotti e ciascun prodotto è descritto da alcuni attributi comuni, come prezzo, ID prodotto e numero di pezzi disponibili, e da alcuni attributi specifici. 
