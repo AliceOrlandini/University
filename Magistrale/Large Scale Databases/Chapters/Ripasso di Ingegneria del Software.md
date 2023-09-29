@@ -120,3 +120,5 @@ I *requisiti non funzionali* sono:
 - Per rimuovere i prodotti bisogna essere manager.
 - Per aggiornare i prodotti bisogna essere manager.
 - Per visualizzare le analisi su prodotti, ordini e utenti bisogna essere manager. 
+
+Il diagramma dei casi d’uso e il modello dei dati sono sulle slide.
