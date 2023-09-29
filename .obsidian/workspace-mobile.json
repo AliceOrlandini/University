@@ -4,35 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "5ce74e2461b733a2",
+        "id": "9d423c2ad9e1416a",
         "type": "tabs",
         "children": [
           {
-            "id": "64f230a15555b0f5",
+            "id": "bb842f665ba77288",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bde465b19053aeca",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +81,6 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -115,7 +97,6 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -126,9 +107,7 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md"
-          }
+          "state": {}
         }
       },
       {
@@ -155,7 +134,7 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "bde465b19053aeca",
+  "active": "bb842f665ba77288",
   "lastOpenFiles": [
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
