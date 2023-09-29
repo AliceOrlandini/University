@@ -19,12 +19,19 @@ Infine, si applica un altro filtro, questa volta un bassa basso per estrarre il 
 
 # Analog Quadrature Amplitude Modulation (QAM)
 
-La modulazione precedente ha il vantaggio di essere molto semplice ma non è particolarmente efficiente perché la banda del segnale raddoppia. È uno spreco perché il segnale è sempre simmetrico quindi basterebbe mandarne solo una parte. 
+La Amplitude Modulation ha il vantaggio di essere molto semplice da implementare ma non è particolarmente efficiente perché la banda del segnale raddoppia. Ciò costituisce uno spreco di risorse perché il segnale, essendo simmetrico, potrebbe essere inviato solo in parte (ad esempio solo la parte destra che tanto la sinistra è uguale). 
 
-Vediamo allora la QAM, possiamo moltiplicare un primo segnale per il coseno (canale in fase) e un secondo segnale per un seno (canale in quadratura). 
-sfruttiamo il fatto che il coseno e il seno sono ortogonali.
-Il motivo del meno lo vediamo tra un momento. 
-$v_I(t) = s_{QAM}(t) 2cos(2\pi f_c t) = 2m_1(t)cos^2(2 \pi f_c t) - 2 m_2(t)sin(2 \pi f_c t) = m_1(t) + m_1(t)cos(2*2\pi f_c t) - m_2(t) sin(2 * 2 \pi f_c t)$
+Vediamo allora un altro tipo di modulazione chiamato **QAM** (acronimo di *Analog Quadrature Amplitude Modulator*). Ipotizziamo di voler inviare 2 segnali $m_1(t)$ ed $m_2(t)$. Moltiplichiamo il primo segnale per il coseno di una frequenza $f_c$ (*canale in fase*) e il secondo segnale per un *meno* seno (capiremo presto il perché di questo meno) sempre con frequenza $f_c$ (*canale in quadratura*). Infine, sfruttando il fatto che il coseno e il seno sono ortogonali, sommiamo i risultati in un unico segnale: $$s(t) = m_1(t)cos(2\pi f_c t) - m_2(t)sin(2\pi f_c t)$$
+da inviare attraverso il canale.
+Lato ricevente l’operazione di demodulazione si effettua nel seguente modo: 
+- per ricavare $m_1(t)$ avendo $s(t)$ moltiplico per $2cos(2\pi f_c t)$
+- per ricavare $m_2(t)$ avendo $s(t)$ moltiplico per $-2sin(2\pi f_c t)$
+
+Vediamo i calcoli del primo:
+
+$v_I(t) = s_{QAM}(t) 2cos(2\pi f_c t) =\\2m_1(t)cos^2(2 \pi f_c t) - 2 m_2(t)sin(2 \pi f_c t) = m_1(t) + m_1(t)cos(2*2\pi f_c t) - m_2(t) sin(2 * 2 \pi f_c t)$
+
+
 
 Poi semplifico con il filtro in banda base il seno e il coseno e mi rimane solo $m_1(t)$.
 La stessa cosa si può fare per l’elemento in quadratura. I calcoli si trovano sugli appunti del prof. (TODO: scaricare OneNote)

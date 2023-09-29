@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bde465b19053aeca",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +127,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md"
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md"
           }
         }
       },
@@ -142,12 +155,13 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "64f230a15555b0f5",
+  "active": "bde465b19053aeca",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
