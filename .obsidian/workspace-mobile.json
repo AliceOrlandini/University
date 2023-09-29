@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md"
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md"
           }
         }
       },
@@ -144,17 +144,17 @@
   },
   "active": "bb842f665ba77288",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
-    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "TODO.md",
-    "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
