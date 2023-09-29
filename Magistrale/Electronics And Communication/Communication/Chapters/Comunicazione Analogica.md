@@ -56,13 +56,17 @@ Una proprietà importante di un segnale passa banda è che possiamo sempre rappr
 
 Qui ci sono dei passaggi che fanno vedere come dall’inviluppo complesso si ricava la modulazione QAM.
 
-Dai passaggi vediamo il perché di quel meno che mettevamo nella modulazione QAM. 
-Per ogni segnale in passa banda esiste l’inviluppo complesso e quindi posso scriverlo in termini di $m_1(t)$ e $m_2(t)$.
-$s_{QAM}$ è un numero reale perché $m_1(t)$ ed $m_2(t)$ sono reali.
-$\tilde{s} _{QAM}(t)$ però non è reale ma complesso e non è simmetrico rispetto all’origine. (disegno sulle slide).
-Ricordarsi: lavoriamo con astrazioni matematiche che possono essere complesse. Nel mondo fisico non esistono segnali complessi ma è molto utile per noi scrivere ciò per rappresentare i segnali in banda passante. 
-L’inviluppo complesso ha il vantaggio di racchiudere tutte le informazioni che ci servono. 
+Notiamo immediatamente il motivo per cui nella modulazione QAM mettevamo un meno davanti al seno. 
 
+Per ogni segnale in banda passante esiste l’inviluppo complesso e quindi posso scriverlo in termini di $m_1(t)$ e $m_2(t)$.
+#Attenzione 
+$s_{QAM}$ è un segnale reale perché $m_1(t)$ ed $m_2(t)$ sono reali e la somma di segnali reali è un segnale reale.
+$\tilde{s} _{QAM}(t)$ non è un segnale reale ma complesso e quindi non è detto che goda della proprietà Hermitiana che gli garantirebbe la simmetria rispetto all’origine. (disegno sulle slide).
+Quindi dobbiamo sempre ricordare che lavoriamo con astrazioni matematiche che, in quanto tali, possono essere complesse. Tuttavia, nel mondo fisico non esistono segnali complessi per cui questa per noi sarà solo una semplificazione di notazione col fine di agevolarci con la trattazione di segnali in banda passante.
+In questo modo, utilizzando l’inviluppo complesso abbiamo il vantaggio di racchiudere tutte le informazioni che ci servono (i due segnali) in un unica espressione. 
+
+Gli inviluppi complessi delle modulazioni che abbiamo visto precedentemente sono:
+- DSB: 
 Qual è l’inviluppo complesso della modulazione DSB? $s_{DSB}(t) = m(t)cos(2 \pi f_c t)$ il suo inviluppo complesso sarà esattamente $m(t)$.
 
 Vediamo perché abbiamo speso tutto sto tempo per una notazione. 
