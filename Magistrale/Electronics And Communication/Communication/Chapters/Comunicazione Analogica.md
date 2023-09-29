@@ -27,29 +27,39 @@ Lato ricevente l’operazione di demodulazione si effettua nel seguente modo:
 - per ricavare $m_1(t)$ avendo $s(t)$ moltiplico per $2cos(2\pi f_c t)$
 - per ricavare $m_2(t)$ avendo $s(t)$ moltiplico per $-2sin(2\pi f_c t)$
 
-Vediamo i calcoli del primo:
+Vediamo i calcoli del primo ricordando che: $cos(\alpha) = \frac{1 + cos^2(2\alpha)}{2}$
+e che $cos(\alpha)*sin(\alpha) = \frac{sin(2\alpha)}{2}$:
 
-$v_I(t) = s_{QAM}(t) 2cos(2\pi f_c t) =\\2m_1(t)cos^2(2 \pi f_c t) - 2 m_2(t)sin(2 \pi f_c t) = m_1(t) + m_1(t)cos(2*2\pi f_c t) - m_2(t) sin(2 * 2 \pi f_c t)$
+$v_I(t) = s(t) 2cos(2\pi f_c t) =$
+$= m_1(t)2cos^2(2 \pi f_c t) - m_2(t)sin(2 \pi f_c t)2cos(2\pi f_c t) =$
+$= m_1(t) + m_1(t)cos(2*2\pi f_c t) - m_2(t) sin(2 * 2 \pi f_c t)$
 
+Poi, applicando un filtro in banda base, semplifico il seno e il coseno in modo da isolare solo $m_1(t)$.
+La stessa cosa si può fare per l’elemento in quadratura ricordando che $cos^2(\alpha) + sin^2(\alpha) = 1$:
 
+$v_Q(t) = s(t)(-2)sin(2\pi f_c t)) =$
+$= m_1(t)(-2)cos(2\pi f_c t)sin(2\pi f_c t) - m_2(t)(-2)sin^2(2\pi f_c t) =$
+$= m_1(t) sin(2*2\pi f_c t) + 2m_2(t) - 2m_2(t)cos^2(2\pi f_c t) =$
+$= m_1(t)sin(4\pi f_c t) + 2m_2(t) -m_2(t) -m_2(t)cos(2*2\pi f_c t)$
+$= m_1(t)sin(4\pi f_c t) + m_2(t) - m_2(t)cos(4\pi f_c t)$
 
-Poi semplifico con il filtro in banda base il seno e il coseno e mi rimane solo $m_1(t)$.
-La stessa cosa si può fare per l’elemento in quadratura. I calcoli si trovano sugli appunti del prof. (TODO: scaricare OneNote)
-Con la stessa banda inviamo 2 segnali invece che uno.
+Anche qui con un filtro preleviamo solo $m_2(t)$.
 
-Questa notazione può essere semplificata. La prima cosa che dobbiamo fare è dare delle definizioni:
-> *Segnale passa banda*: un segnale la quale *energia* è concentrata in una banda pari a 2B centrata in un intorno di $f_c$ diversa da zero e tale che $f_c >> 2B$.
+Siamo quindi riusciti, con la stessa quantità di banda, ad inviare due segnali invece che uno.
+## Inviluppo Complesso
 
-Proprietà di un segnale passa banda: possiamo rappresentarlo tramite *l’inviluppo complesso*. 
-> L’inviluppo complesso è una rappresentazione del segnale in banda base. 
+La notazione che abbiamo utilizzato può essere semplificata. Diamo delle definizioni:
+> Un segnale si dice *segnale passa banda* se la sua *energia* è concentrata in una banda pari a *2B* centrata in un intorno di $f_c$ diversa da zero e tale che $f_c >> 2B$.
 
-Nota: questa è un’astrazione matematica (?).
+Una proprietà importante di un segnale passa banda è che possiamo sempre rappresentarlo tramite il suo *inviluppo complesso*. 
+> *L’inviluppo complesso* è una rappresentazione puramente matematica del segnale in banda base. 
 
 Qui ci sono dei passaggi che fanno vedere come dall’inviluppo complesso si ricava la modulazione QAM.
+
 Dai passaggi vediamo il perché di quel meno che mettevamo nella modulazione QAM. 
 Per ogni segnale in passa banda esiste l’inviluppo complesso e quindi posso scriverlo in termini di $m_1(t)$ e $m_2(t)$.
 $s_{QAM}$ è un numero reale perché $m_1(t)$ ed $m_2(t)$ sono reali.
-$s \tilde_{QAM}(t)$ però non è reale ma complesso e non è simmetrico rispetto all’origine. (disegno sulle slide).
+$\tilde{s} _{QAM}(t)$ però non è reale ma complesso e non è simmetrico rispetto all’origine. (disegno sulle slide).
 Ricordarsi: lavoriamo con astrazioni matematiche che possono essere complesse. Nel mondo fisico non esistono segnali complessi ma è molto utile per noi scrivere ciò per rappresentare i segnali in banda passante. 
 L’inviluppo complesso ha il vantaggio di racchiudere tutte le informazioni che ci servono. 
 
