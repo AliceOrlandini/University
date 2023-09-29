@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "3477e23d9cb31acc",
+        "id": "4eb231c3488463ab",
         "type": "tabs",
         "children": [
           {
-            "id": "39c45de923204548",
+            "id": "677eae62206fd8d7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md"
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md"
               }
             }
           },
@@ -157,18 +157,20 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "39c45de923204548",
+  "active": "677eae62206fd8d7",
   "lastOpenFiles": [
-    "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
+    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
-    "TODO.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
-    "Untitled.md",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
-    "Magistrale/Performance Evaluation/Laboratory",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
-    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
+    "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
+    "TODO.md",
+    "Untitled.md",
+    "Magistrale/Performance Evaluation/Laboratory",
+    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters",
     "Prova.md",
     "2023-09-23.md",

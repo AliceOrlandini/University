@@ -1,3 +1,3 @@
-1. [[Magistrale/Electronics And Communication/Communication/Chapters/Introduction|Introduzione]]
-2. [[Analog Communication]]
+1. [[Magistrale/Electronics And Communication/Communication/Chapters/Introduzione|Introduzione]]
+2. [[Comunicazione Analogica]]
 3. 
