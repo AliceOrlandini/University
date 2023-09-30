@@ -88,30 +88,27 @@ Il problema è che se il BackOff è grande avrò un amplificatore che non viene 
 Per risolvere questo problema, introduciamo un tipo di modulazione che invece di modulare in ampiezza lo fa *in fase*.
 
 In questo tipo di modulazione il segnale $m(t)$ viene modulato nel seguente modo: $$s_{FM}(t) = cos(2\pi f_c t + 2 \pi k_f \int_{-\infty}^{t}m(\tau) d\tau)$$Domanda: che tipo di segnale è? 
-È un segnale *passa banda* perché compare $f_c$ quindi ha un inviluppo complesso che vale: $$\tilde{s}_{FM}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau}$$Facciamo una riprova sostituendo l'inviluppo complesso nella definizione di segnale passa banda:
+È un segnale *passa banda* perché compare $f_c$ quindi ha un inviluppo complesso che vale: $$\tilde{s}_{FM}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau}$$Facciamo una riprova sostituendo l'inviluppo complesso nella definizione di segnale passa banda, se l'inviluppo che abbiamo scritto è corretto dovremmo trovare la definizione di $s_{FM}(t)$:
 $$s(t) = Re\{\tilde{s}_{FM}(t) e^{j2\pi f_c t}\} = $$
 $$= Re\{e^{j2\pi f_c t}e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau}\} =$$
 $$= Re\{e^{j(2\pi f_c t+ 2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau)}\} =$$
-	$$= cos(2\pi f_c t + 2\pi k_f \int_{-infty}^{t}m(\tau)d\tau)$$
-
+$$= cos(2\pi f_c t + 2\pi k_f \int_{-infty}^{t}m(\tau)d\tau) = s_{FM}(t)$$
 Proviamo ora a studiare la banda occupata dal segnale modulato in FM, *but, there is a but (cit. Moretti)* questa non si può calcolare con la trasformata di Fourier perché quest'ultima non ha una forma chiusa. Quindi ne cercheremo un’approssimazione. 
 
-Dalla fisica sappiamo che la frequenza è la derivata della fase quindi calcolo la derivata di $\phi(t)$ trovando: 
+L'inviluppo complesso lo possiamo scrivere anche in questo modo: $$\tilde{s}_{FM}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau} = e^{j\tilde{\phi}(t)}$$Dalla fisica sappiamo che la frequenza è la derivata della fase quindi calcolo la derivata di $\phi(t)$ trovando: 
 $$f_d(t) = \frac{1}{2\pi}\frac{d}{dt}\phi(t) -f_c=$$
 $$= \frac{1}{2\pi}\frac{d}{dt}\tilde{\phi}(t)=$$
 $$=k_fm(t)$$
 
 Definiamo la *frequency deviation* di un segnale come: $$f_d(t) = f_i(t) - f_c = k_f m(t)$$
 #Attenzione da ora in poi avremo 2 tipi di frequenze, la prima sarà la frequenza istantanea $f_i(t)$ e la seconda sarà la frequency deviation $f_d(t)$, sono ovviamente correlate ma diverse. 
-Definiamo la *frequenza massima* della frequency deviation come: $$\Delta f = max\{|f_d(t)|\} = k_f max\{|m(t)|\}$$
-definiamo infine l'*indice di modulazione* come: $$m_f = \frac{\Delta f}{B_m}$$
-Torniamo al calcolo della banda occupata dal segnale modulato, quella del segnale trasmesso $m(t)$ la conosco. 
+Definiamo la *frequenza massima* della frequency deviation come: $$\Delta f = max\{|f_d(t)|\} = k_f max\{|m(t)|\}$$definiamo infine l'*indice di modulazione* come: $$m_f = \frac{\Delta f}{B_m}$$Torniamo al calcolo della banda occupata dal segnale modulato, quella del segnale trasmesso $m(t)$ la conosco. 
 L'approssimazione consiste nel concentrare tutta l’energia del segnale in un punto e considerare quindi $m(t)$ come un impulso di valore pari al valore massimo assunto dal segnale. 
-Nel caso in cui $m(t) = V_mcos(2\pi f_c t)$ ho che $max\{|m(t)|\} = V_m$ e quindi ipotizzo che tutto il segnale sia concentrato in $V_m \delta(f)$ che, nel dominio del tempo diventa pari a $V_m$.
-Calcolo $s_{FM}$ applicando la definizione e risolvendo l’integrale:
-Calcoli su OneNote. 
+Nel caso in cui $m(t) = V_mcos(2\pi f_m t)$ ho che $max\{|m(t)|\} = V_m$ e quindi ipotizzo che tutto il segnale sia concentrato in $V_m \delta(f)$ in corrispondenza di $f_m$ (la banda del segnale è $B_m = f_m$), che nel dominio del tempo diventa pari a $V_m$.
+Calcolo $s_{FM}(t)$ applicando la definizione e risolvendo l’integrale: $$s_{FM}(t) = cos(2\pi f_c t +2\pi k_f\int_{-\infty}^{t}V_mcos(2\pi f_m \tau) d\tau)=$$$$= cos(2\pi f_c t + 2\pi k_f V_m \frac{1}{2\pi f_m}sin(2\pi f_m t))=$$$$= cos(2\pi f_c t + \frac{k_fV_m}{f_m}sin(2\pi f_m t)) =$$
+$$= cos(2\pi f_c t + m_fsin(2\pi f_mt))$$
+E ricavo facilmente anche l’inviluppo complesso come: $$\tilde{s}_{FM}(t) = e^{jm_fsin(2\pi f_m t)}$$Nell'immagine è rappresentato il risultato di questa tipologia di modulazione:
 
-E ricavo facilmente anche l’inviluppo complesso. 
-
-Nell'immagine è rappresentato il risultato di questa tipologia di modulazione:
 ![[FM Modulation.png]]
+
+Il primo segnale è un $cos(2\pi f_ct)$. Il secondo è $m(t)$ che quando è positivo allora $f_m$ *cresce* e quindi il terzo segnale che è quello modulato $s_{FM}(t)$ sarà più "denso". L'opposto accade per $m(t)$ negativo.
