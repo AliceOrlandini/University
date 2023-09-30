@@ -80,8 +80,10 @@ Nel disegno si vede che usare l’inviluppo complesso semplifica i disegni quind
 # Frequency Modulation (FM)
 
 Nelle modulazioni che abbiamo visto, prima della trasmissione vera e propria, è necessario *amplificare* il segnale. 
-Come abbiamo visto ad esempio ad elettronica digitale l’amplificatore amplifica il segnale in modo *lineare* fino a raggiungere la *saturazione*. Se l'amplificatore va in saturazione il segnale viene disturbato (credo che il prof intendesse distorto). Per evitare ciò, si impone che il segnale non raggiunga mai il valore tale per cui l'amplificatore va in saturazione. La distanza tra il punto in cui inizia la saturazione e il valore massimo del segnale da amplificare si chiama BakeOff (con Benedetta Parodi?). 
-Il problema è che se il BakeOff è grande avrò un amplificatore che non viene usato al massimo (ed è uno spreco perché l'amplificatore è uno degli elementi del sistema di comunicazione più costosi quindi andrebbe utilizzato al massimo delle sue potenzialità). 
+Come abbiamo visto ad esempio ad elettronica digitale l’amplificatore amplifica il segnale in modo *lineare* fino a raggiungere la *saturazione*. Se l'amplificatore va in saturazione il segnale viene disturbato (credo che il prof intendesse distorto). Per evitare ciò, si impone che il segnale non raggiunga mai il valore tale per cui l'amplificatore va in saturazione. La distanza tra il punto in cui inizia la saturazione e il valore massimo del segnale da amplificare si chiama *BakeOff* (IBO). 
+Il problema è che se il BackOff è grande avrò un amplificatore che non viene usato al massimo (ed è uno spreco perché l'amplificatore è uno degli elementi del sistema di comunicazione più costosi quindi andrebbe utilizzato al massimo delle sue potenzialità). 
+![Amplificatore|center|300](https://www.researchgate.net/publication/337266039/figure/fig4/AS:1095929276968961@1638301309865/Amplitude-amplitude-transfer-characteristic-of-a-basic-nonlinear-high-power-amplifier.png)
+
 Per risolvere questo problema, introduciamo un tipo di modulazione che invece di modulare in ampiezza lo fa *in fase*!
 
 In questo tipo di modulazione: $$s_{FM}(t) = cos(2\pi f_c t + 2 \pi k_f \int_{-\infty}^{t}m(\tau) d\tau)$$
@@ -108,3 +110,6 @@ Calcolo $s_{FM}$ applicando la definizione e risolvendo l’integrale:
 Calcoli su OneNote. 
 
 E ricavo facilmente anche l’inviluppo complesso. 
+
+Nell'immagine è rappresentato il risultato di questa tipologia di modulazione:
+![[FM Modulation.png]]
