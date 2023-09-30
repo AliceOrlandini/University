@@ -86,32 +86,54 @@ Si può modellare un sistema continuo in uno discreto e viceversa ma bisogna sta
 ### Deterministici vs Stocastici
 
 > Un sistema è **deterministico** se *non* ci sono componenti *aleatorie*. 
+> Un sistema è **stocastico** se ci sono componenti *aleatorie*. 
 
-Esempio: Per esempio se voglio prendere un mutuo e voglio sapere quando finirò di pagarlo se ho un tasso di interesse fisso sarò in una situazione deterministica e so esattamente quando finirò mentre se il tasso di interesse è variabile non lo posso sapere in anticipo quindi userò random variables. 
+Esempio: se voglio prendere un mutuo e voglio sapere quando finirò di pagarlo, se ho un tasso di interesse fisso, sarò in una situazione deterministica e quindi so esattamente quando finirò le rate; mentre, se il tasso di interesse è variabile, non posso saperlo in anticipo. 
 
-DES: Discrete Event Simulators
-Questi simulatori trattano sistemi dinamici, discreti e stocastici. Sono perfetti per noi informatici. 
+### DES (Discrete Event Simulators)
+
+Questi sono una categoria di simulatori che trattano sistemi *dinamici*, *discreti* e *stocastici*. Sono perfetti per noi informatici perché ad esempio se consideriamo un network avrò:
+- un'evoluzione nel tempo -> modello dinamico
+- i pacchetti arrivano ad intervalli di tempo discreti -> modello discreto
+- l'intervallo di tempo tra un pacchetto e l'altro è casuale -> modello stocastico
 
 # Come fare un BUON simulatore
 
-Buon significa che vogliamo ottenere:
-- risultati accurati del tipo che non si riescono a distinguere risultati simulati da risultati reali. 
-- efficienza
-- flessibilità in modo da permetterci di cambiare parametri, scenari e di estendere il simulatore con nuove funzionalità.
+**Buon Simulatore** significa che vogliamo ottenere:
+- *accuratezza*, a tal punto che non si riescono a distinguere risultati simulati da risultati reali. 
+- *efficienza*, ad esempio i risultati devono essere prodotti in tempi brevi.
+- *flessibilità*, in modo da permetterci di cambiare parametri, scenari e di estendere il simulatore con nuove funzionalità.
 
-Quali strutture ci servono per fare un simulatore?
-1. Una collezione di variabili che descrivono il sistema in un determinato momento e che cambiano valore nel tempo.
-2. Una variabile particolare chiamata *simulation clock* che rappresenta il **tempo di simulazione**. Per esempio questa variabile può valere 10 secondi. A seconda del tempo le variabili cambiano valore. 
+## Quali strutture ci servono per fare un simulatore?
+
+Le strutture di cui abbiamo bisogno per fare un simulatore sono:
+1. Una **collezione di $N$ variabili** che descrivono lo *stato* del sistema in un determinato momento e che cambiano valore nel tempo.
+2. Una variabile particolare chiamata **simulation clock** che rappresenta il *tempo di simulazione* e che contiene il valore dell'attuale tempo simulato. 
 Quindi il numero totale di variabili è $N + 1$.
 
-Real time vs simulation time 
-Se il sistema si evolve nel tempo anche lo stato dovrà evolversi.
-Quando nella simulazione avanziamo di tempo (per esempio 1 secondo) in realtà eseguiamo delle istruzioni sul PC (ricordarsi che il simulatore è un software) e la CPU necessita di tempo per eseguire le istruzioni di 1 secondo di simulazione. Questo tempo NON è quello di simulazione ma è quello dell’orologio che ho al polso e si chiama wall-clock time. Si ha:
-wall-clock time $\not=$ simulation time
-e non c’è una costante di proporzionalità tra le due. 
-Quale dei due è maggiore dell’altro? Dipende dallo scenario simulato.
+## Real time vs simulation time 
 
-Gli eventi fanno cambiare lo stato del sistema. 
+Se il sistema è *dinamico* allora il suo stato si evolverà nel tempo.
+Quando nella simulazione avanziamo di 1 secondo *simulato*, in realtà stiamo eseguendo delle istruzioni sul calcolatore (ricordarsi che il simulatore è un software) e la CPU necessita di tempo *reale* per eseguire le istruzioni vere e proprie. Questo tempo si chiama **wall-clock time** ed è quello reale. 
+In generale si ha wall-clock time $\not=$ simulation time e tra i due non c'è nessun tipo di proporzionalità.
+
+Quale dei due è maggiore dell’altro? Dipende dallo scenario simulato, ad esempio: se si verificano tanti cambiamenti di stato in pochissimo tempo *simulato* avremo bisogno di molto tempo *reale* per eseguire le istruzioni.
+### Esempio
+
+1. Ipotizziamo di avere un computer in grado di eseguire *4 istruzioni al secondo*.
+2. Il programma che voglio eseguire è composto da *4 istruzioni*.
+3. Di quanto tempo reale ho bisogno per eseguire tutto il programma? 1 secondo.
+4. Se invece il computer fosse in grado di eseguire *8 istruzioni al secondo* allora quanto tempo reale servirebbe per eseguire il programma composto da 4 istruzioni? Considerando che ho raddoppiato le istruzioni al secondo allora avrò bisogno della metà del tempo per eseguire il programma, ovvero 0.5 secondi.
+5. Ora mettiamoci in un ambiente simulato. Il computer è in grado di eseguire 4 istruzioni al secondo e il simulatore è in grado di eseguire 4 istruzioni al secondo. Il programma è composto da 4 istruzioni.
+6. Di quanto tempo reale ho bisogno per eseguire il programma? 1 secondo perché sto simulando 4 istruzioni su un computer che è in grado di eseguire proprio 4 istruzioni al secondo.
+7. Ora ipotizzo che il simulatore possa eseguire 8 istruzioni al secondo. Il programma rimane sempre di 4 istruzioni e il computer può eseguire sempre 4 istruzioni al secondo.
+8. Di quanto tempo reale avrò bisogno per eseguire il programma? Sempre di 1 secondo perché il fatto che il simulatore vada più veloce non cambia le prestazioni.
+9. Infine, in quest'ultimo caso, quanto tempo sto simulando? 0.5 secondi perché il simulatore sarebbe in grado di eseguire 8 istruzioni in un secondo mentre io ne sto eseguendo solo 4. 
+Sì, ti si rivolta il cervello. 
+
+> Un **evento** è qualsiasi cosa che fa *cambiare* lo *stato* del sistema. 
+
+
 Ad esempio l’arrivo di una nuova richiesta ad un server è un evento perché lo stato del server cambia. Gli eventi esistono nel tempo.
 Abbiamo due opzioni: 
 1. Next-event time advance: se ho molti eventi il tempo di simulazione avanzerà molto velocemente perché ad ogni evento si avanza di $t$. (?)
