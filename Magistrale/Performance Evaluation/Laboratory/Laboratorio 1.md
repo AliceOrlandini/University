@@ -4,23 +4,31 @@ Ci sarà una prima parte teorica e solo dopo andremo a smanettare con OMNeT++. S
 In questa prima lezione andremo innanzitutto a definire che cos’è una *simulazione*.
 Prima domanda: performance evaluation di che cosa?
 Ad esempio, come facciamo a decidere se un nuovo algoritmo/protocollo o metodo è migliore di uno già esistente? Dobbiamo valutarne la performance.
-Quindi idefiniamo un sistema:
-> Un *sistema* è una collezione di entità che interagiscono per raggiungere un obiettivo. 
+Quindi definiamo per prima cosa un sistema:
+> Un *sistema* è una **collezione di entità** che interagiscono tra loro per raggiungere un **obiettivo**. 
 
-Collezione di entità: in un network abbiamo per esempio un PC, un Server, Router e Switch. La loro totalità costituisce un sistema. L’obiettivo è ad esempio la comunicazione tra PC e Server. 
-Può succedere che non si vogliano considerare tutte le entità, per esempio possiamo tralasciare la presenza di router, la *collection* dipende dall’osservatore. Ad esempio un telecomunicazionista potrebbe interessato ai livelli inferiori mentre un informatico al livello applicativo. Per cui la collection cambia a seconda dell’osservatore.
+Vediamo di capire cosa significa "collezione di entità" tramite un esempio: in un network abbiamo per esempio un PC, un Server, Router e Switch. Se l’obiettivo del nostro studio è, ad esempio, la comunicazione tra PC e Server allora le entità che compongono il nostro sistema sono proprio PC e Server e potremo dunque tralasciare la presenza di Switch e Router. 
+Se invece consideriamo il punto di vista di un telecomunicazionista probabilmente per lui il sistema sarà prevalentemente composto da Switch e Router. 
+Questo esempio serve per evidenziare il fatto che **la collezione di entità dipende dall’osservatore**.
 
-Un sistema in un certo momento ha un certo *stato* ovvero un set di variabili col relativo valore che rappresentano il sistema. Lo stato dipende dal tempo e potrà cambiare in modo continuo o discreto.
+Un sistema in un certo momento è caratterizzato da un determinato **stato**:
+> Lo **stato** di un sistema è un *set di variabili* che, col proprio valore, rappresentano il sistema in un certo istante. Lo stato può cambiare nel tempo in modo *continuo* o *discreto*.
 
-La performance evaluation va a valutare come lo stato di un sistema cambia nel tempo tramite statistiche (ad esempio il valor medio) cercando anche di capire quali sono il limiti del sistema.
+La procedura di performance evaluation va a valutare come lo stato di un sistema cambia nel tempo osservando le *statistiche* (ad esempio il valor medio) o cercando anche di capire quali sono i valori *limite* del sistema.
 
-Come lo facciamo?
-1. **Misurazione**: prendiamo un sistema reale e misuriamo gli output dati degli input. Il problema è che molte volte il sistema non lo abbiamo oppure anche se lo abbiamo non possiamo testarlo con input particolari. Per risolvere il primo problema si può costruire un prototipo che però è costoso.
-2. **Metodo analitico**: scrivere delle equazioni che descrivono il sistema. In teoria è il metodo migliore, il problema è che fare un sistema analitico è molto difficile, a volte impossibile. Oppure anche se è possibile e troviamo le equazioni magari ci vogliono anni per risolverla (anche con computer potenti). C’è il rischio di semplificare troppo il sistema per ottenere equazioni semplificate.
-3. **Simulazione**: creiamo un software replica del modello che rappresenta solo gli aspetti rilevanti del sistema reale. È una soluzione intermedia tra le prime due. 
+Come facciamo valutiamo le performance di un sistema?
+1. **Misurazioni**: prendiamo *un sistema reale* e misuriamo gli output dati degli input. Il problema di questo metodo è che molte volte il sistema non lo abbiamo a disposizione oppure, anche se lo avessimo, non potremmo testarlo con input particolari. Per risolvere il problema dell'assenza del sistema si può costruire un prototipo che però è un'operazione molto costosa.
+2. **Modello analitico**: si scrivono delle *equazioni matematiche* che descrivono il sistema. In teoria è il metodo migliore, il problema è che fare un sistema analitico è molto difficile, a volte impossibile. Oppure, anche se fosse possibile trovare le equazioni magari ci vorrebbero anni per risolverle. Per evitare ciò, generalmente si semplifica il sistema col rischio di semplificare troppo per ottenere equazioni semplificate che però non descrivono più il sistema in modo soddisfacente.
+3. **Simulazioni**: si crea un *software* che replica solo gli aspetti rilevanti del sistema reale (o quelli che in quel momento vogliamo studiare). È una soluzione intermedia tra le prime due. 
 
-Quale dei tre è il migliore? Dipende.
-Possono essere combinati, un approccio non esclude l’altro. Esempio sulle slide. 
+Quale dei tre metodi è il migliore? Dipende, vediamo la seguente tabella:
+
+|                      | Misurazioni | Modello Analitico | Simulazioni |
+| -------------------- | ----------- | ----------------- | ----------- |
+| Livello di dettaglio |      ✅     |          ❌       |      ❓     |
+| Costo                |      ❌     |          ✅       |      ❓     |
+
+Questi metodi possono comunque essere combinati, un approccio non esclude l’altro. Ad esempio potremmo realizzare un software di simulazione 
 
 Noi parleremo di Simulazione:
 > Simulazione significa imitare il comportamento di un sistema reale usando un computer.
