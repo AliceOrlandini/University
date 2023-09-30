@@ -11,9 +11,11 @@
             "id": "bb842f665ba77288",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
+                "mode": "preview",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "TODO.md",
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "TODO.md",
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -112,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "TODO.md"
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md"
           }
         }
       },
@@ -140,9 +142,11 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "47d227c15ee73dd2",
+  "active": "bb842f665ba77288",
   "lastOpenFiles": [
     "TODO.md",
+    "Magistrale/Performance Evaluation/Laboratory/Images/Azioni Simulatore.png",
+    "Magistrale/Electronics And Communication/Communication/Images/Modello con inviluppo complesso.png",
     "2023-09-30.md",
     "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
     "README.md",

@@ -130,6 +130,7 @@ Quale dei due è maggiore dell’altro? Dipende dallo scenario simulato, ad esem
 8. Ora ipotizzo che il simulatore possa eseguire *8 istruzioni al secondo*. Il programma rimane sempre di *4 istruzioni* e il computer può eseguire sempre *4 istruzioni al secondo*.
 9. Di quanto tempo reale avrò bisogno per eseguire il programma? Sempre di 1 secondo perché il fatto che il simulatore vada più veloce non cambia le prestazioni.
 10. Infine, in quest'ultimo caso, quanto tempo simulato è trascorso? 0.5 secondi perché il simulatore sarebbe in grado di eseguire 8 istruzioni in un secondo mentre io ne sto eseguendo solo 4. 
+
 Sì lo so, ti si rivolta il cervello. 
 
 ## Evento 
