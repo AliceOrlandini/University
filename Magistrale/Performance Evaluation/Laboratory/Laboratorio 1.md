@@ -1,13 +1,11 @@
-Ci sarà una prima parte teorica e solo dopo andremo a smanettare con OMNeT++.
-Circa verso il primo di novembre parleremo dei progetti.
-
+Ci sarà una prima parte teorica e solo dopo andremo a smanettare con OMNeT++. Solo verso il primo di novembre parleremo dei progetti.
 ## Introduzione alla simulazione
 
-In questa lezione andremo innanzitutto a definire che cos’è una simulazione.
+In questa prima lezione andremo innanzitutto a definire che cos’è una *simulazione*.
 Prima domanda: performance evaluation di che cosa?
-Ad esempio, come facciamo a decidere se un nuovo algoritmo/protocollo o metodo è migliore di uno già esistente? 
-Dobbiamo valutarne la performance.
-> Un sistema è una collezione di entità che interagiscono per raggiungere un obiettivo. 
+Ad esempio, come facciamo a decidere se un nuovo algoritmo/protocollo o metodo è migliore di uno già esistente? Dobbiamo valutarne la performance.
+Quindi idefiniamo un sistema:
+> Un *sistema* è una collezione di entità che interagiscono per raggiungere un obiettivo. 
 
 Collezione di entità: in un network abbiamo per esempio un PC, un Server, Router e Switch. La loro totalità costituisce un sistema. L’obiettivo è ad esempio la comunicazione tra PC e Server. 
 Può succedere che non si vogliano considerare tutte le entità, per esempio possiamo tralasciare la presenza di router, la *collection* dipende dall’osservatore. Ad esempio un telecomunicazionista potrebbe interessato ai livelli inferiori mentre un informatico al livello applicativo. Per cui la collection cambia a seconda dell’osservatore.

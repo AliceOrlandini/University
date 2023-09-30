@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-                "mode": "preview",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md"
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md"
               }
             }
           },
@@ -157,13 +157,14 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "93d73d694be734c7",
+  "active": "366444bc2598c1d9",
   "lastOpenFiles": [
+    "TODO.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Images/Modello con inviluppo complesso.png",
     "Magistrale/Electronics And Communication/Communication/Images/FM Modulation.png",
     "Magistrale/Electronics And Communication/Communication/Images",
     "Schermata 2023-09-27 alle 20.50.14.png",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "README.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
@@ -177,7 +178,6 @@
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
-    "TODO.md",
     "Untitled.md",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
