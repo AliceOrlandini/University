@@ -123,31 +123,32 @@ Quale dei due è maggiore dell’altro? Dipende dallo scenario simulato, ad esem
 1. Ipotizziamo di avere un computer in grado di eseguire *4 istruzioni al secondo*.
 2. Il programma che voglio eseguire è composto da *4 istruzioni*.
 3. Di quanto tempo reale ho bisogno per eseguire tutto il programma? 1 secondo.
-4. Se invece il computer fosse in grado di eseguire *8 istruzioni al secondo* allora quanto tempo reale servirebbe per eseguire il programma composto da 4 istruzioni? Considerando che ho raddoppiato le istruzioni al secondo allora avrò bisogno della metà del tempo per eseguire il programma, ovvero 0.5 secondi.
-5. Ora mettiamoci in un ambiente simulato. Il computer è in grado di eseguire 4 istruzioni al secondo e il simulatore è in grado di eseguire 4 istruzioni al secondo. Il programma è composto da 4 istruzioni.
+4. Se invece il computer fosse in grado di eseguire *8 istruzioni al secondo* allora quanto tempo reale servirebbe per eseguire il programma composto da *4 istruzioni*? Considerando che ho raddoppiato le istruzioni al secondo allora avrò bisogno della metà del tempo per eseguire il programma, ovvero 0.5 secondi.
+5. Ora mettiamoci in un ambiente simulato. Il computer è in grado di eseguire *4 istruzioni al secondo* e il simulatore è in grado di *eseguire 4 istruzioni al secondo*. Il programma è composto da *4 istruzioni*.
 6. Di quanto tempo reale ho bisogno per eseguire il programma? 1 secondo perché sto simulando 4 istruzioni su un computer che è in grado di eseguire proprio 4 istruzioni al secondo.
-7. Ora ipotizzo che il simulatore possa eseguire 8 istruzioni al secondo. Il programma rimane sempre di 4 istruzioni e il computer può eseguire sempre 4 istruzioni al secondo.
-8. Di quanto tempo reale avrò bisogno per eseguire il programma? Sempre di 1 secondo perché il fatto che il simulatore vada più veloce non cambia le prestazioni.
-9. Infine, in quest'ultimo caso, quanto tempo sto simulando? 0.5 secondi perché il simulatore sarebbe in grado di eseguire 8 istruzioni in un secondo mentre io ne sto eseguendo solo 4. 
-Sì, ti si rivolta il cervello. 
+7. E invece quanto tempo simulato è trascorso? 1 secondo perché anche il simulatore esegue 4 istruzioni al secondo.
+8. Ora ipotizzo che il simulatore possa eseguire *8 istruzioni al secondo*. Il programma rimane sempre di *4 istruzioni* e il computer può eseguire sempre *4 istruzioni al secondo*.
+9. Di quanto tempo reale avrò bisogno per eseguire il programma? Sempre di 1 secondo perché il fatto che il simulatore vada più veloce non cambia le prestazioni.
+10. Infine, in quest'ultimo caso, quanto tempo simulato è trascorso? 0.5 secondi perché il simulatore sarebbe in grado di eseguire 8 istruzioni in un secondo mentre io ne sto eseguendo solo 4. 
+Sì lo so, ti si rivolta il cervello. 
+
+## Evento 
 
 > Un **evento** è qualsiasi cosa che fa *cambiare* lo *stato* del sistema. 
 
+Un esempio di evento potrebbe essere l’arrivo di una nuova richiesta ad un server perché lo stato del server cambia. 
+Il tempo di simulazione, salvato nella variabile *simulation clock*, può avanzare in due modi:
+1. **Next-event:** è di tipo event-based e avanzo solo quando arriva un evento. Quindi se ho molti eventi il tempo di simulazione avanzerà molto velocemente. 
+2. **Fixed-increment**: divido il tempo in slot di dimensione fissa. Gli eventi arrivano in momenti casuali ma non vengono eseguiti immediatamente. Al tempo fissato $D$ verranno processati *tutti* gli eventi arrivati nello slot da $D - 1$ a $D$. Quindi, nella simulazione gli eventi appariranno come se fossero tutti arrivati nello stesso momento. In questo caso, la simulazione viene eseguita sempre a intervalli prefissati anche se non c’è un evento scatenante. 
 
-Ad esempio l’arrivo di una nuova richiesta ad un server è un evento perché lo stato del server cambia. Gli eventi esistono nel tempo.
-Abbiamo due opzioni: 
-1. Next-event time advance: se ho molti eventi il tempo di simulazione avanzerà molto velocemente perché ad ogni evento si avanza di $t$. (?)
-2. Fixed-increment time advance: divido il tempo in fixed slot. Gli eventi continueranno ad arrivare in momenti casuali. Al tempo $D$ processo *tutti* gli eventi arrivati nello slot precedente. Se non ci sono eventi non faccio nulla. Quindi nella simulazione degli eventi appariranno come se fossero arrivati nello stesso momento.
-Se gli eventi sono frequenti e arrivano molto vicini l’uno all’altro allora a 3D posso processarli tutti in una volta. Però se non arrivano eventi perdo tempo perché ad esempio a 2D perdo tempo.
-La scelta dipenda dal tipo di sistema, se è intrinsicamente time slotted userò il secondo, altrimenti userò il primo. 
-Se ho un next-event time advance volendo ricreare un time slotted time advance semplicemente creando eventi con un clock. 
-La simulazione verrà eseguita solo quando arrivano eventi nel primo tipo. Nel secondo tipo la simulazione viene eseguita sempre a intervalli prefissati anche se non c’è un evento scatenante. 
-Ma scusa non basta un if(ci sono eventi) {eseguo}?
+La scelta dipende dal tipo di sistema, generalmente però il secondo tipo si utilizza con sistemi che sono intrinsicamente discreti perché in caso contrario questo tipo di avanzamento porta più problemi che benefici.
+Potenzialmente, se ho un simulatore di tipo next-event, posso convertirlo in un fixed-increment semplicemente inviando eventi con un clock. 
+Noi useremo l'avanzamento di tipo next-event.
 
 Esistono però eventi che richiedono tempo per arrivare, per esempio il salvataggio di un file sul disco. Se nel simulatore vogliamo emulare un pc che salva dati sul disco possiamo:
-- assumere che il salvataggio richieda zero secondi. (è una forte supposizione però)
-- si trasforma in 2 eventi: un primo evento è il premere il tasto salva sul pc mentre l’altro è quando il il file è effettivamente salvato.
-Ma quando aggiorniamo le variabili? Dipende da noi, possiamo aggiornare alla file di entrambi gli eventi o all’inizio del primo. L’handler dell’evento è colui che fa l’upgrade del sistema.
+- assumere che il salvataggio richieda zero secondi, questa tuttavia è una forte supposizione.
+- trasformare questo evento in 2 eventi separati: un primo evento è il premere il tasto salva sul pc mentre l’altro è quando il il file è stato effettivamente salvato.
+Ma quando aggiorniamo le variabili? Lo decidiamo noi, possiamo aggiornare alla fine di entrambi gli eventi o all’inizio del primo, dipende dall'implementa.
 Come gestire eventi multipli dipende dall’implementazione dell’handler.
 
 Event queue
