@@ -1,5 +1,5 @@
 Ci sarà una prima parte teorica e solo dopo andremo a smanettare con OMNeT++. Solo verso il primo di novembre parleremo dei progetti.
-## Introduzione alla simulazione
+# Introduzione alla simulazione
 
 In questa prima lezione andremo innanzitutto a definire che cos’è una *simulazione*.
 Prima domanda: performance evaluation di che cosa?
@@ -16,7 +16,9 @@ Un sistema in un certo momento è caratterizzato da un determinato **stato**:
 
 La procedura di performance evaluation va a valutare come lo stato di un sistema cambia nel tempo osservando le *statistiche* (ad esempio il valor medio) o cercando anche di capire quali sono i valori *limite* del sistema.
 
-Come facciamo valutiamo le performance di un sistema?
+## Come facciamo valutiamo le performance di un sistema?
+
+Ci sono essenzialmente 3 modi:
 1. **Misurazioni**: prendiamo *un sistema reale* e misuriamo gli output dati degli input. Il problema di questo metodo è che molte volte il sistema non lo abbiamo a disposizione oppure, anche se lo avessimo, non potremmo testarlo con input particolari. Per risolvere il problema dell'assenza del sistema si può costruire un prototipo che però è un'operazione molto costosa.
 2. **Modello analitico**: si scrivono delle *equazioni matematiche* che descrivono il sistema. In teoria è il metodo migliore, il problema è che fare un sistema analitico è molto difficile, a volte impossibile. Oppure, anche se fosse possibile trovare le equazioni magari ci vorrebbero anni per risolverle. Per evitare ciò, generalmente si semplifica il sistema col rischio di semplificare troppo per ottenere equazioni semplificate che però non descrivono più il sistema in modo soddisfacente.
 3. **Simulazioni**: si crea un *software* che replica solo gli aspetti rilevanti del sistema reale (o quelli che in quel momento vogliamo studiare). È una soluzione intermedia tra le prime due. 
@@ -28,45 +30,64 @@ Quale dei tre metodi è il migliore? Dipende, vediamo la seguente tabella:
 | Livello di dettaglio |      ✅     |          ❌       |      ❓     |
 | Costo                |      ❌     |          ✅       |      ❓     |
 
-Questi metodi possono comunque essere combinati, un approccio non esclude l’altro. Ad esempio potremmo realizzare un software di simulazione 
+Questi metodi possono comunque essere combinati, un approccio non esclude l’altro. Ad esempio potremmo realizzare un software di simulazione e poi validare i risultati prodotti tramite il software con equazioni matematiche. 
 
-Noi parleremo di Simulazione:
-> Simulazione significa imitare il comportamento di un sistema reale usando un computer.
+Noi in questo corso parleremo di simulazione:
+> Con il termine **simulazione** indichiamo *l'imitazione del comportamento* di un sistema reale tramite un *software*.
 
-Questo preclude che per fare una simulazione serve un software. Questo non è facile ma ce la faremo.
-
-Come passiamo da un Sistema ad un Simulatore? Modellando sia gli input (semplificandoli, per esempio nel simulatore come input avrò una richiesta di pagine web basata su una media) che il sistema (replicando gli elementi essenziali essenziali del sistema nel simulatore). 
-Eseguendo il simulatore avrò un’approssimazione dell’output, questo è ovvio perché ho semplificato il sistema e anche gli input. Il nostro obiettivo sarà quello di ottenere gli output approssimati il più vicini possibili a quelli reali (devono essere “statistically equivalent”).
+Ma come passiamo da un sistema ad un simulatore? 
+Dobbiamo *modellare* sia gli input (semplificandoli) che il sistema, replicando gli elementi essenziali nel simulatore. 
+Eseguendo il simulatore avrò *un’approssimazione* dell’output (è ovvio ma è bene specificarlo) e il motivo è che abbiamo semplificato sia il sistema che gli input. 
+Il nostro obiettivo sarà quello di ottenere degli output che, seppur approssimati, sono statisticamente equivalenti a quelli reali.
 
 **Vantaggi**
 - Praticamente tutto può essere simulato.
 - Ci permette di valutare design alternativi prima di effettuare la produzione.
-- Ho il controllo completo delle impostazioni del sistema. Per esempio se testassi un’antenna wireless nel mondo reale avrei dispositivi che entrano nel sistema falsando i risultati. Se invece sono in un sistema simulato posso decidere esattamente quanti dispositivi saranno nel range dell’antenna. Inoltre, posso variare i parametri del sistema per vedere come variano gli output.
+- Si ha il controllo completo delle impostazioni del sistema. Per esempio, se il nostro obiettivo è il test di un’antenna wireless, nel mondo reale potrei avere dei dispositivi che, entrando nel sistema, vanno a falsare i risultati; se invece sono in un sistema simulato posso decidere esattamente quanti dispositivi saranno nel range dell’antenna. Inoltre, posso variare i parametri del sistema per vedere come variano gli output.
 - La simulazione permette di modellare il sistema alla scala di tempo di cui abbiamo bisogno. Per esempio possiamo analizzare i nanosecondi. 
 
 **Insidie**
-- Dobbiamo eseguire la simulazione varie volte per avere un campione di dati.
-- Spesso è costoso e time consuming.
-- Bisogna essere esperti.
-- Se non si progetta il simulatore *bene* si ottengono risultati sbagliati ed è facile sbagliare. Per esempio, posso avere giga di dati dati dalla simulazione ma se il modello non era corretto posso cestinarli. Possiamo essere certi dei dati solo dopo la validazione. 
+- Dobbiamo eseguire la simulazione varie volte per avere un campione di dati attendibile.
+- Spesso è costoso e richiede tempo.
+- Bisogna essere esperti in materia perché questo lavoro non consiste solo nella scrittura del software ma anche nell'analisi dei dati quindi sono richieste competenze di statistica e teoria della probabilità.
+- Se non si progetta il simulatore *bene* si ottengono risultati sbagliati (ed è facile sbagliare). Per esempio, posso avere giga di dati dati relativi ad una simulazione ma, se il modello non era corretto, posso cestinarli. Infatti, possiamo essere certi dei dati solo dopo la validazione ed il test sul sistema reale. 
 
-Ci sono 3 categorie principali di simulazioni:
-- Statiche vs Dinamiche
-- Continue vs Discrete
-- Deterministiche vs Stocastiche
+Esistono 3 categorie principali di modello di simulazioni:
+- Statico vs Dinamico
+- Continuo vs Discreto
+- Deterministico vs Stocastico
 
-Statiche vs Dinamiche
-Qual è il peso massimo che un ponte può sopportare? Statico.
-Quali sono le caratteristiche del traffico? Qui posso considerare il tempo, quindi è dinamico perché il sistema si evolve.
+### Statiche vs Dinamiche
 
-Continuo vs Discreto
-Qual è la velocità massima di una macchina? La velocità è un valore continuo.
-Quante persone ci sono in coda alle poste? 
+> Un modello di un sistema è **statico** se il *tempo* *non* è un fattore rilevante.
 
-Si può modellare un sistema continuo in uno discreto e viceversa ma i risultati saranno leggermente inaccurati.
+In questa tipologia di sistemi generalmente l'output si ottiene tramite un'equazione del tipo $y = f(x)$ dove $f$ è il modello e $x$ è l'input e, come si può notare da questa scrittura, il tempo non è un fattore. È un modello utile per capire la relazione tra input ed output in sistemi complessi.
+Esempio: qual è il peso massimo che un ponte può sopportare? Statico, non dipende dal tempo.
 
-Deterministici vs Stocastici
-Qui consideriamo gli eventi randomici. Per esempio se voglio prendere un mutuo e voglio sapere quando finirò di pagarlo se ho un tasso di interesse fisso sarò in una situazione deterministica e so esattamente quando finirò mentre se il tasso di interesse è variabile non lo posso sapere in anticipo quindi userò random variables. 
+> Un modello di un sistema è **dinamico** se il *tempo* è un fattore rilevante. 
+
+In questo caso, vogliamo valutare come il modello del sistema cambia nel tempo.
+Esempio: quali sono le caratteristiche del traffico? Dinamico perché il sistema si evolve.
+
+### Continuo vs Discreto
+
+> Un modello di un sistema è **continuo** se i valori assunti sono *continui*.
+
+Esempio: qual è la velocità massima di una macchina? Continuo perché la velocità è un valore continuo.
+
+> Un modello di un sistema è **discreto** se i valori assunti sono *discreti*.
+
+Esempio: quante persone ci sono in coda alle poste? Discreto, per ovvie ragioni.
+
+Si può modellare un sistema continuo in uno discreto e viceversa ma bisogna stare molto attenti perché:
+- se si modella la velocità della macchina con un sistema discreto potrei avere risultati inaccurati.
+- se si modella il numero di persone in fila come un valore continuo potrei avere 3.4 persone in fila.
+
+### Deterministici vs Stocastici
+
+> Un sistema è **deterministico** se *non* ci sono componenti *aleatorie*. 
+
+Esempio: Per esempio se voglio prendere un mutuo e voglio sapere quando finirò di pagarlo se ho un tasso di interesse fisso sarò in una situazione deterministica e so esattamente quando finirò mentre se il tasso di interesse è variabile non lo posso sapere in anticipo quindi userò random variables. 
 
 DES: Discrete Event Simulators
 Questi simulatori trattano sistemi dinamici, discreti e stocastici. Sono perfetti per noi informatici. 
