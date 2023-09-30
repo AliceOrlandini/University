@@ -148,19 +148,49 @@ Noi useremo l'avanzamento di tipo next-event.
 Esistono però eventi che richiedono tempo per arrivare, per esempio il salvataggio di un file sul disco. Se nel simulatore vogliamo emulare un pc che salva dati sul disco possiamo:
 - assumere che il salvataggio richieda zero secondi, questa tuttavia è una forte supposizione.
 - trasformare questo evento in 2 eventi separati: un primo evento è il premere il tasto salva sul pc mentre l’altro è quando il il file è stato effettivamente salvato.
-Ma quando aggiorniamo le variabili? Lo decidiamo noi, possiamo aggiornare alla fine di entrambi gli eventi o all’inizio del primo, dipende dall'implementa.
-Come gestire eventi multipli dipende dall’implementazione dell’handler.
+Ma quando aggiorniamo le variabili? Lo decidiamo noi, possiamo aggiornare alla fine di entrambi gli eventi o all’inizio del primo, dipende dall'implementazione che vogliamo usare.
 
-Event queue
-Prima di tutto bisogna definire che cos’è un evento nel simulatore:
-> Un evento è una struttura dati con un *firing time* che specifica quando quell’evento si verificherà
+E se invece due eventi arrivano nello stesso momento? Basta *serializzarli*, ovvero eseguirli uno alla volta. 
 
-Avranno anche un event type per differenziarli l’uno dall’altro.
-Tra gli altri dati possiamo avere ad esempio la priorità dell’evento. 
+## Event queue
 
-Poi aggiungeremo l’evento ad una coda degli eventi ordinata per firing time (in caso di parimerito in base alla priorità).
-Per fare la coda possiamo usare un’array ma non è efficiente. (non conosciamo a priori gli eventi che abbiamo ma lo vedremo in futuro).
-Un modo più efficiente sono le liste. 
-Non useremo nemmeno le liste ma strutture ancora più efficienti che vedremo la prossima volta. (l’efficienza è fondamentale)
+Diamo una seconda definizione di evento:
+> Un **evento** è una *struttura dati* composta da un *firing time* che specifica quando quell’evento si verificherà, un *event type* che specifica il tipo di evento e *other data* come ad esempio la priorità.
 
-Ora ci mancano solo le statistical counters ovvero variabili o qualcosa di più complesso che racchiudono i risultati delle simulazioni. 
+Ogni evento viene aggiunto in una **coda degli eventi** ordinata per *firing time* (e, in caso di parimerito, in base alla priorità).
+Con quale struttura dati che conosciamo possiamo rappresentare la coda degli eventi?
+Un primo modo per farlo è tramite un’array ma ci possiamo rendere presto conto che non è efficiente considerando che non conosciamo a priori gli eventi (questo perché un evento può scatenarne altri). Quindi ogni volta che arriva un nuovo evento bisognerebbe rimaneggiare tutto il vettore. 
+Un modo più efficiente sono le liste ma nel nostro non le useremo. 
+Useremo infatti strutture ancora più efficienti che vedremo la prossima volta.
+
+## Statistical Counters 
+
+Lo scopo di un simulatore è quello di valutare le performance di un sistema quindi dovremo raccogliere i risultati delle simulazioni.
+Per fare ciò si usano le statistical counters:
+> Le **statistical counters** sono variabili o qualcosa di più complesso che racchiudono i *risultati* delle simulazioni. 
+
+Queste possono contenere valori scalari come massimo, minimo o medie, oppure possono contenere una variazione nel tempo di un parametro oppure ancora possono contenere grafici complessi come istogrammi. 
+
+## Componenti di un simulatore
+
+Quindi, un simulatore è composto da:
+- **Strutture dati**:
+	- $N$ variabili di stato
+	- 1 simulation clock
+	- 1 coda degli eventi
+	- $M$ statistical counters
+- **Funzioni**:
+	- di inizializzazione: per esempio per resettare tutti i contatori.
+	- event scheduler: per estrarre l'evento in cima alla coda degli eventi.
+	- event handlers: per eseguire l'evento schedulato aggiornando lo stato e le statistical variables. Essi possono inoltre inserire nuovi eventi nella coda.
+	- per il calcolo delle statistiche e per la loro visualizzazione.
+
+L'attività del simulatore consiste in un ciclo infinito in cui:
+1. Si estrae l'evento in cima alla coda degli eventi e si avanza il simulation clock.
+2. Si processa l'evento tramite l'event handler:
+	1. Si aggiorna lo stato del simulatore
+	2. Si aggiornano le statistical variables
+	3. Eventualmente, si generano altri eventi che vengono aggiunti alla coda.
+3. Alla fine di tutta la simulazione, si visualizzano le statistiche di interesse.
+
+![[Azioni Simulatore.png|center|400]]
