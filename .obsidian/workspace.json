@@ -18,21 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "8044eaa906d0f59f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -99,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md"
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md"
               }
             }
           },
@@ -171,10 +158,10 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "8044eaa906d0f59f",
+  "active": "93d73d694be734c7",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images/Bayes 2.png",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images/Bayes.png",
     "Untitled.md",
