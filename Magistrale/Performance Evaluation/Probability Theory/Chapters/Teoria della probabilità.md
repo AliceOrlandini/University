@@ -274,4 +274,28 @@ Trovare:
 2. la probabilità che, preso a caso uno studente, considerando che è una studentessa, faccia Ingegneria Informatica. 
 	Anche qui basta applicare la formula $P(C|F) = \frac{P(CF)}{P(F)} = \frac{1}{26}$.
 
-## Legge della probabilità totale (o formula di B)
+## Legge della probabilità totale
+
+Un evento E può sempre essere scritto in termini di un altro evento F nel seguente modo: $$E = (E\cap F)\cup(E\cap F^\complement)$$
+come si può vedere dalla seguente immagine: 
+
+![[Bayes.png|center|400]]
+
+I due eventi che compongono l'unione sono disgiunti quindi la probabilità di E può essere scritta come: $$P(E) = P(EF) + P(EF^\complement)$$Ora, sostituendo la formula della probabilità condizionata troviamo: $$P(E) = P(E|F)*P(F) + P(E|F^\complement)*P(F^\complement) =$$$$= P(E|F)*P(F) + P(E|F^\complement)*(1-P(F))$$
+Questa espressione può essere generalizzata nel seguente modo:
+> Dati $F_1,...,F_N$ insiemi tali che $\bigcup_{i=1}^{N}F_i = S$ e $F_i \cap F_j = \emptyset$ se $i \not= j$ allora possiamo calcolare la probabilità di $E$ come:
+> $$P(E) = \sum_{i=1}^{N}P(EF_i) = \sum_{i=1}^{N}P(E|F_i)*P(F_i)$$
+![[Bayes 2.png|center|400]]
+### Esercizio 9
+
+Ci sono due tipi di persone, coloro che sono inclini agli incidenti e quelli che non lo sono. Una compagnia di assicurazioni sa che:
+- le persone inclini agli incidenti che ha una probabilità di avere un incidente del 40%
+- le persone non inclini agli incidenti hanno una probabilità di avere un incidente è del 20%.
+- il 30% dei guidatori sono inclini agli incidenti. 
+Qual è la probabilità che un nuovo cliente della compagnia avrà un incidente?
+
+Chiamiamo A = { avere un incidente } e B = { inclini agli incidenti }. Vogliamo trovare P(A). Conosciamo P(B), P(A|B) e anche P(A|$B^\complement$) per cui possiamo applicare la legge della probabilità totale: $P(A) = P(A|B)*P(B) + P(A|B^\complement) * P(B^\complement) = 0.26$.
+
+## Teorema di Bayes
+
+> Dati $F_1,...,F_N$ tali che $\bigcup_{i=1}^{N}F_i = S$ e $F_i \cap F_j = \emptyset$ se $i \not= j$. Ipotizziamo di conoscere a priori $P(F_j)$. Se si verifica l'evento $E$ allora 
