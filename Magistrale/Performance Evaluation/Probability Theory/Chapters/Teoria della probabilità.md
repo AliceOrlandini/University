@@ -206,7 +206,7 @@ Un gruppo di 5 maschi e di 10 femmine sono allineati in ordine casuale.
 	Per cui $|E| = 1 * 14!$ e il risultato finale sarà $P(E) = \frac{14!}{15!} = \frac{1}{15}$ anche questo risultato è ragionevole. 
 
 Quando si fanno gli esercizi ricordarsi sempre questo schema: 
-![[Modellazione.svg|center|600]]
+![[Modellazione.svg|center|500]]
 
 Spesso gli studenti si dimenticano di fare l'ultimo passaggio, l'interpretazione dei risultati ottenuti.
 
@@ -232,6 +232,16 @@ Supponiamo di avere un insieme di $n$ persone e si vuole creare una fila di $k$ 
 
 ### Esercizio 7
 
-Una squadra di basket è composta da 6 giocatori neri e da 5 bianchi. Durante una trasferta alloggiano in un hotel e vengono assegnati nelle stanze a coppie di 2 giocatori.
+Una squadra di basket è composta da 6 giocatori neri e da 6 bianchi. Durante una trasferta alloggiano in un hotel e vengono assegnati nelle stanze a coppie di 2 giocatori.
 1. Qual è la probabilità che tutte le stanze abbiano giocatori dello stesso colore?
-	In questo caso, l'outcome non è una sequenza ma un set
+	In questo caso, l'outcome non è una sequenza ma un *set* perché l'ordine non cambia il risultato, ad esempio l'outcome composto da $\{3,12\}$ è uguale a $\{12,3\}$, quindi l'outcome avrà questa forma: $\{\{3,12\};\{1,9\};...;\{...\}\}$.
+	Siamo in un modello UPM? Sì.
+	Troviamo le cardinalità:
+	- Per quanto riguarda S divido in sotto-esperimenti del tipo: numero di permutazioni per la prima stanza, numero di permutazioni per la seconda stanza e così via. Quindi potremmo scrivere una cosa del genere $|S| = \binom{12}{2}*\binom{10}{2}*...*\binom{2}{2}$. Questa scrittura è corretta? NO. Perché scrivendo così stiamo considerando anche l'ordine. Dividiamo quindi per la permutazione delle stanze per togliere tutti i duplicati. Il risultato corretto è dunque $|S| = \frac{\binom{12}{2}*\binom{10}{2}*...*\binom{2}{2}}{6!} = \frac{12!}{2^6*6!}$.
+	- Ora vediamo la cardinalità di E:
+		- $C_1$ tutti i possibili modi di porre 6 giocatori neri in 3 stanze. Quanti modi ci sono? $N_1 = \frac{\binom{6}{3}*\binom{3}{3}}{3!} = \frac{6!}{2^3*3!}$
+		- $C_2$ tutti i possibili modi di porre 6 giocatori bianchi in 3 stanze. In questo caso, $N_2 = N_1$
+	 Infine, $P(E) = \frac{|E|}{|S|} = \frac{5}{231}$.
+
+# Probabilità Condizionata
+
