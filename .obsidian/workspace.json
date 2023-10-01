@@ -4,45 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "ae0fda5cbb26b603",
-        "type": "split",
+        "id": "f6c88fdc9b75e725",
+        "type": "tabs",
         "children": [
           {
-            "id": "f6c88fdc9b75e725",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "93d73d694be734c7",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
+            "id": "93d73d694be734c7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "mode": "source",
+                "source": false
               }
-            ]
-          },
-          {
-            "id": "3bce5823b80e0581",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "5812a2c0b97e5a66",
-                "type": "leaf",
-                "state": {
-                  "type": "diagram-edit",
-                  "state": {
-                    "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Untitled Diagram.svg"
-                  }
-                }
-              }
-            ]
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -183,9 +160,9 @@
   "active": "93d73d694be734c7",
   "lastOpenFiles": [
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Untitled Diagram.svg",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "Magistrale/Performance Evaluation/Laboratory/Images/Azioni Simulatore.png",
     "Magistrale/Performance Evaluation/Laboratory/Images",

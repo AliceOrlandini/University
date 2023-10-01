@@ -54,7 +54,7 @@ Un evento è un **subset** del sample space.
 Si può ovviamente associare un evento a ciascun outcome ma bisogna mantenere i due concetti separati.
 ### Esercizio 1
 
-![[Magistrale/Performance Evaluation/Probability Theory/Chapters/Untitled Diagram.svg]]# Assiomi della probabilità
+# Assiomi della probabilità
 
 > La *probabilità* è un *numero* associato ad un *evento* che descrive la *frequenza* con cui si verifica tale evento.
 
@@ -153,3 +153,27 @@ Ogni permutazione ha la stessa probabilità di uscire rispetto alle altre quindi
 
 ## Permutazioni e subset di cardinalità nota
 
+Il principio base del conteggio può anche essere usato per risolvere un problema di questo tipo: 
+"quante **permutazioni** di $k$ elementi posso fare partendo da un set di $n$ elementi (con $n \ge k$)?".
+Come al solito dividiamo in sotto-esperimenti:
+1. Per il primo elemento avremo $n$ possibilità quindi $N_1 = n$
+2. Per il secondo elemento avremo $N_2 = n - 1$
+3. ...
+4. Per il $k$-esimo esperimento avremo $N_k = n - (k - 1)$.
+Per cui potrò fare $S_{k,n} = n * (n-1)* ... * (n - (k-1)) = \frac{n!}{(n-k)!}$ permutazioni di $k$ elementi dato un set di $n$ elementi.
+Notare che se fosse $k = n$ otterrei il risultato del precedente esercizio.
+
+Ora proviamo a rispondere alla seguente domanda, leggermente differente:
+"quanti **subset** di $k$ elementi posso fare un un set di $n$ elementi (con $n \ge k$)?"
+Questa domanda è differente dalla precedente perché in questo caso l'ordine degli elementi non ha importanza. Infatti, se un set è composto da 3 elementi, non importa come questi sono permutati perché costituiranno comunque un unico set. 
+Questo significa che l'espressione $S_{k,n}$ conta gli stessi set più volte, quindi per rispondere a questa domanda dovremo dividere l'espressione per qualcosa. Arriviamoci tramite un esempio:
+Consideriamo il set delle lettere dell'alfabeto, le lettere sono $n = 26$ e ipotizziamo di voler contare:
+1. il numero di permutazioni di $k = 3$ lettere.
+2. il numero di set con $k = 3$ lettere.
+La prima è facile perché basta applicare $S_{k,n} = \frac{n!}{(n-k)!}$.
+Ora vediamo la seconda, facciamolo con un esempio:
+Se ad esempio le lettere sono $\{ABC\}$ avrò le seguenti permutazioni:
+$\langle ABC \rangle, \langle ACB \rangle, \langle BAC \rangle, \langle BCA \rangle, \langle CAB \rangle, \langle CBA \rangle$  
+*Quante permutazioni sono relative allo stesso subset?* In questo caso 6 cioè 3!.
+Generalizzando troviamo che **il numero di permutazioni che producono lo stesso subset è esattamente il numero di permutazioni di $k$ elementi** ovvero $k*(k-1)*...*2*1 = k!$.
+Quindi la risposta alla seconda domanda è: $\frac{S_{k,n}}{k!} = \frac{n!}{k!()}$
