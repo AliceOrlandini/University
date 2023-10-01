@@ -298,4 +298,8 @@ Chiamiamo A = { avere un incidente } e B = { inclini agli incidenti }. Vogliamo 
 
 ## Teorema di Bayes
 
-> Dati $F_1,...,F_N$ tali che $\bigcup_{i=1}^{N}F_i = S$ e $F_i \cap F_j = \emptyset$ se $i \not= j$. Ipotizziamo di conoscere a priori $P(F_j)$. Se si verifica l'evento $E$ allora 
+> Dati $F_1,...,F_N$ tali che $\bigcup_{i=1}^{N}F_i = S$ e $F_i \cap F_j = \emptyset$ se $i \not= j$. Ipotizziamo di conoscere *la probabilità a priori* $P(F_j)$. Se si verifica l'evento $E$ allora la probabilità di $F_j$ si modificherà nel seguente modo (*probabilità a posteriori*): $$P(F_j|E) = \frac{P(EF_j)}{P(E)} = \frac{P(E|F_j)*P(F_j)}{\sum_{i=1}^{N}P(E|F_i)*P(F_i)}$$
+
+Questa formula descrive come *la fiducia* su un'ipotesi $F_j$ si modifica in base al fatto che un evento $E$ si è verificato, considerando che $E$ era influenzato da tali ipotesi. 
+
+
