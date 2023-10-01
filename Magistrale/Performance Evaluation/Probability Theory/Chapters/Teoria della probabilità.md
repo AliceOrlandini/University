@@ -205,3 +205,33 @@ Un gruppo di 5 maschi e di 10 femmine sono allineati in ordine casuale.
 	2. $C_2$ tutti gli altri ovvero $N_2 = 14!$
 	Per cui $|E| = 1 * 14!$ e il risultato finale sarà $P(E) = \frac{14!}{15!} = \frac{1}{15}$ anche questo risultato è ragionevole. 
 
+Quando si fanno gli esercizi ricordarsi sempre questo schema: 
+![[Modellazione.svg|center|600]]
+
+Spesso gli studenti si dimenticano di fare l'ultimo passaggio, l'interpretazione dei risultati ottenuti.
+
+### Esercizio 6
+
+Supponiamo di avere un insieme di $n$ persone e si vuole creare una fila di $k$ persone (con $k \le n$) prendendole a caso dal set di $n$ persone. Rispondere alle seguenti domande:
+1. qual è la probabilità che Adam sia in prima posizione?
+	La cardinalità di S sarà $|S| = S_{k,n}$ per quanto detto precedentemente.
+	La cardinalità di E sarà $|E| = N_1 * N_2 = 1 * S_{k-1,n-1}$ sarebbe il problema di prima ma generalizzato con $n$.
+	Da cui la soluzione è: $P(E) = \frac{|E|}{|S|} = 1*\frac{(n-1)!}{((n-1)-(k-1))!}*\frac{(n-k)!}{n!} = \frac{1}{n}$
+	
+	Notiamo che la soluzione non dipende da $k$ e il motivo è che si chiedeva specificatamente la probabilità che Adam si trovi in prima posizione che non dipende da quanto è lunga la fila. 
+1. è la stessa probabilità che qualsiasi persona si trovi in una qualsiasi posizione? Sì.
+2. qual è la probabilità che una persona (facciamo per esempio Adam) entri a far parte della coda?
+	Ecco, qui la situazione cambia perché la lunghezza della coda è importante visto che più la coda è lunga e più ci saranno probabilità di farne parte. Poi notiamo anche il fatto che se $n = k$ allora la probabilità di farne parte sarà 1, mentre se $k = 0$ allora la probabilità di farne parte sarà nulla. Queste sono tutte riprove che possiamo fare quando avremo trovato la soluzione.
+	
+	Procediamo come al solito trovando le cardinalità:
+	$|S| = S_{k,n}$ una permutazione di $k$ persone prese da un set di $n$.
+	$|E| = k * S_{k-1,n-1}$ perché $k$ sono tutte le posizioni possibili in cui Adam può stare mentre $S_{k-1,n-1}$ sono tutte le permutazioni degli altri membri della coda una volta escluso Adam.
+	
+	Quindi $P(E) = \frac{|E|}{|S|} = \frac{k * S_{k-1,n-1}}{S_{k,n}} = ... = \frac{k}{n}$.
+	Facciamo in fine le riprove: se $n = k$ allora $P(E) = 1$ mentre se $k = 0$ allora $P(E) = 0$, tutto torna. 
+
+### Esercizio 7
+
+Una squadra di basket è composta da 6 giocatori neri e da 5 bianchi. Durante una trasferta alloggiano in un hotel e vengono assegnati nelle stanze a coppie di 2 giocatori.
+1. Qual è la probabilità che tutte le stanze abbiano giocatori dello stesso colore?
+	In questo caso, l'outcome non è una sequenza ma un set
