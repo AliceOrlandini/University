@@ -52,7 +52,6 @@ Attenzione! Non confondersi tra *evento* ed *outcome*.
 Un outcome è un **elemento** del sample space. 
 Un evento è un **subset** del sample space. 
 Si può ovviamente associare un evento a ciascun outcome ma bisogna mantenere i due concetti separati.
-
 ### Esercizio 1
 
 # Assiomi della probabilità
@@ -62,7 +61,7 @@ Si può ovviamente associare un evento a ciascun outcome ma bisogna mantenere i 
 Gli assiomi su cui si basa la definizione di probabilità sono:
 1. $0 \le P(E) \le 1$ 
 2. $P(S) = 1$
-	1. Se $E_i$ ed $E_j$ sono due eventi tali che $E_iE_j = \emptyset$ se $i \not= j$ (ovvero sono eventi disgiunti, cioè la cui intersezione è nulla) allora $P(\bigcup_iE_i) = \sum_{i} P(E_i)$
+3. Se $E_i$ ed $E_j$ sono due eventi tali che $E_iE_j = \emptyset$ se $i \not= j$ (ovvero sono eventi disgiunti, cioè la cui intersezione è nulla) allora $P(\bigcup_iE_i) = \sum_{i} P(E_i)$
 
 Esempio dell’ultimo assioma:
 $P(E_i \cup E_j) = P(E_i) + P(E_j)$
@@ -77,6 +76,18 @@ Ecco alcune proprietà derivanti dagli assiomi:
 
 ### Esercizio 2
 
+Il 28% degli americani fuma sigarette.
+Il 7% degli americani fuma sigari.
+Il 5% degli americani fuma sia sigari che sigarette.
+Qual è la percentuale di non fumatori?
+
+1. Definire gli eventi:
+	- E = { fumatori di sigarette } P(E) = 0.28
+	- F = { fumatori di sigari } P(F) = 0.07
+	- EF = { fumatori sia di sigari che di sigarette } P(EF) = 0.05
+	- G = { non fumatori }
+	- S = { americani } P(S) = 1
+2. Scrivere l'equazione: P(G) = P($(E\cup F)^\complement$) = 1 - P($E\cup F$) = 1 - (P(E) + P(F) - P(EF)) = 0.7
 # Sample space con eventi ugualmente equiprobabili
 
 In alcuni casi il sample space di un esperimento casuale ha due proprietà:
@@ -101,4 +112,24 @@ Il *principio base del conteggio* afferma che:
 
 Questa definizione può essere generalizzata da 2 a $k$ esperimenti: $$C = \prod_{i = 1}^{k}N_i$$
 ### Esercizio 3
+
+Consideriamo un'urna contenente 6 palline nere e 5 bianche. Qual è la probabilità che, estraendo due palline (senza reinserimento), si ottengano una pallina bianca ed una nera? (l'ordine non è importante).
+
+1. Definisco il sample space (ovvero la struttura degli outcomes):
+	Numero le palline: 
+	- Da 1 a 6 saranno palline nere
+	- Da 7 a 11 saranno palline bianche
+	L'outcome sarà una coppia $(b_i;b_j)$ tali che $0 \le i \le 11$ e $0 \le j \le 11$ con $i \not= j$ (perché non c'è il reinserimento).
+1. Definisco l'evento favorevole:
+$E = \{(b_i;b_j), 1 \le i \le 6; 7 \le j \le 11\} \cup \{(b_i;b_j) 1 \le j \le 6; 7 \le i \le 11\}$ 
+3. L'insieme S ha cardinalità finita? Sì
+4. Gli eventi sono ugualmente equiprobabili? Sì, proprio per come abbiamo definito l'outcome, infatti, *la probabilità che esca una qualsiasi coppia è uguale a quella delle altre coppie*.
+5. Determino la cardinalità di S e di E utilizzando il **principio base del conteggio**:
+	- Inizio da S, divido in 2 esperimenti e poi calcolo $|S| = N_1 * N_2$:
+		1. $C_1$ prima estrazione, quanti elementi ho? $N_1 = 6 + 5 = 11$.
+		2. $C_2$ seconda estrazione, quanti elementi ho? Ho una pallina in meno quindi $N_2 = 5 + 5 = 10$ oppure $N_2 = 6 + 4 = 10$.
+	- I due eventi di E sono disgiunti? Sì perché non possono verificarsi entrambi, quindi considero i due eventi come separati e poi vado a sommarli $|E| = |E_1| + |E_2|$. Per ogni evento posso applicare il principio base del conteggio:
+		1. $|E_1| = N_{11} * N_{12} = 6 * 5 = 30$ 
+		2. $|E_2| = N_{21} * N_{22} = 5 * 6 = 30$
+6. Infine, calcolo $P(E) = \frac{|E|}{|S|} = \frac{60}{110} = \frac{6}{11}$
 

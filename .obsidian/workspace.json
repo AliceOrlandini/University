@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md"
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md"
               }
             }
           },
@@ -159,10 +159,13 @@
   },
   "active": "93d73d694be734c7",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "Magistrale/Performance Evaluation/Laboratory/Images/Azioni Simulatore.png",
     "Magistrale/Performance Evaluation/Laboratory/Images",
     "Untitled.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "TODO.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Images/Modello con inviluppo complesso.png",
@@ -170,8 +173,6 @@
     "Magistrale/Electronics And Communication/Communication/Images",
     "Schermata 2023-09-27 alle 20.50.14.png",
     "README.md",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
-    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
@@ -180,7 +181,6 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
     "Prova.md",
