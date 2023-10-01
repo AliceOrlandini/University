@@ -128,8 +128,28 @@ $E = \{(b_i;b_j), 1 \le i \le 6; 7 \le j \le 11\} \cup \{(b_i;b_j) 1 \le j \le 6
 	- Inizio da S, divido in 2 esperimenti e poi calcolo $|S| = N_1 * N_2$:
 		1. $C_1$ prima estrazione, quanti elementi ho? $N_1 = 6 + 5 = 11$.
 		2. $C_2$ seconda estrazione, quanti elementi ho? Ho una pallina in meno quindi $N_2 = 5 + 5 = 10$ oppure $N_2 = 6 + 4 = 10$.
-	- I due eventi di E sono disgiunti? Sì perché non possono verificarsi entrambi, quindi considero i due eventi come separati e poi vado a sommarli $|E| = |E_1| + |E_2|$. Per ogni evento posso applicare il principio base del conteggio:
+	- I due eventi che compongono E sono disgiunti? Sì perché non possono verificarsi entrambi, quindi considero i due eventi come separati e poi vado a sommarli $|E| = |E_1| + |E_2|$. Per ogni evento posso applicare il principio base del conteggio:
 		1. $|E_1| = N_{11} * N_{12} = 6 * 5 = 30$ 
 		2. $|E_2| = N_{21} * N_{22} = 5 * 6 = 30$
 6. Infine, calcolo $P(E) = \frac{|E|}{|S|} = \frac{60}{110} = \frac{6}{11}$
+
+### Esercizio 4
+
+Si vogliono allineare su uno scaffale 10 libri di 4 diverse materie. Qual è la probabilità che ponendoli a caso sullo scaffale lo si faccia raggruppandoli per materia (ovvero, prima tutti quelli di matematica, poi tutti quelli di chimica e così via)? (l'ordine delle materie non è importante).
+I libri sono:
+- 4 di matematica
+- 3 di fisica
+- 2 di informatica
+- 1 di chimica
+
+Anche in questo caso assegno numeri ai libri da 1 a 10, l'outcome sarà una permutazione di libri (non scriviamo gli insiemi come prima perché è troppo lungo).
+Ogni permutazione ha la stessa probabilità di uscire rispetto alle altre quindi sono nel modello ad egual probabilità.
+1. Contiamo gli outcome del sample space, possiamo considerare 10 sotto-esperimenti, ognuno dei quali ha cardinalità inferiore al precedente (perché la prima volta ho 10 libri, la seconda 9 e così via):
+	$|S| = 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1 = 10!$
+2. Ora calcoliamo la cardinalità di E:
+	I libri di matematica possono essere disposti in 4! modi, i libri di fisica in 3! e così via. Poi, devo considerare che l'ordine delle materie non è importante, ovvero per ogni materia avrò 4! possibili modi di ordinarle. Quindi la cardinalità di E sarà:
+	$|E| = (4! * 3! * 2! * 1!) * 4!$ 
+3. Infine, $P(E) = \frac{|E|}{|S|} = \frac{(4! * 3! * 2! * 1!) * 4!}{10!}$
+
+## Permutazioni e subset di cardinalità nota
 
