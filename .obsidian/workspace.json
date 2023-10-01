@@ -36,9 +36,9 @@
             "id": "366444bc2598c1d9",
             "type": "leaf",
             "state": {
-              "type": "file-explorer",
+              "type": "diagram-edit",
               "state": {
-                "sortOrder": "alphabetical"
+                "file": "Untitled Diagram.svg"
               }
             }
           },
@@ -63,6 +63,16 @@
             "state": {
               "type": "bookmarks",
               "state": {}
+            }
+          },
+          {
+            "id": "611f52b9f1839d1e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
             }
           }
         ]
@@ -159,8 +169,9 @@
   },
   "active": "93d73d694be734c7",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Untitled Diagram.svg",
+    "Untitled Diagram.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Untitled Diagram.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
