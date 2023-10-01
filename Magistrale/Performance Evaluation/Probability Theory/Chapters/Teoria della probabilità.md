@@ -245,3 +245,33 @@ Una squadra di basket è composta da 6 giocatori neri e da 6 bianchi. Durante un
 
 # Probabilità Condizionata
 
+In molti casi è utile trovare la probabilità di un evento E *sapendo che* un altro evento F si è verificato. In questo caso si parla di **probabilità condizionata** $P(E|F)$.
+
+Ad esempio, lanciamo due dadi, qual è la probabilità che la somma di due facce sia maggiore o uguale a 10? 
+In questo caso, $P(E) = \frac{|E|}{|S|} = \frac{|\{(5,5),(5,6),(6,5),(6,6),(6,4)(4,6)\}|}{|\{(x,y): 1 \le x \le 6, 1 \le y \le 6\}|} = \frac{1}{6}$.
+Ora, supponiamo che il risultato del primo lancio sia 2, qual è la probabilità che la somma delle facce sia maggiore o uguale a 10? Zero. 
+Oppure, supponiamo che il risultato del primo lancio sia 5, in questo caso la probabilità andrà ad aumentare, ma di quanto? 
+Dovrò calcolare gli outcome presenti nell'intersezione tra l'evento 
+E = { somma delle facce maggiore di 9 } e l'evento 
+F = { Primo dato uguale a 5 } perché sicuramente possiamo escludere tutti gli outcome di $F^\complement$.
+Posso quindi definire: $$P(E|F) = \frac{P(EF)}{P(F)}$$
+Che, in questo caso, sarà uguale a: $P(E|F) = \frac{2/36}{1/6} = \frac{1}{3}$.
+Notiamo che $P(E|F) > P(E)$ come avevamo intuito. 
+
+### Esercizio 8
+
+In un'Università abbiamo:
+- 52% di studentesse
+- 5% di studenti di Ingegneria Informatica
+- 2% di studentesse che fanno Ingegneria Informatica
+Trovare:
+1. la probabilità che, preso a caso uno studente, considerando che fa Ingegneria Informatica, sia una studentessa.
+	Definisco:
+	- F = { studentesse dell'Università } -> P(F) = 0.52
+	- C = { studenti di Ingegneria Informatica } -> P(F) = 0.05
+	- FC = { studentesse dell'università che fanno Ingegneria Informatica } -> P(F) = 0.02
+	Basta quindi applicare la formula, $P(F|C) = \frac{P(FC)}{P(C)} = \frac{2}{5}$.
+2. la probabilità che, preso a caso uno studente, considerando che è una studentessa, faccia Ingegneria Informatica. 
+	Anche qui basta applicare la formula $P(C|F) = \frac{P(CF)}{P(F)} = \frac{1}{26}$.
+
+## Legge della probabilità totale (o formula di B)
