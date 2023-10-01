@@ -160,7 +160,7 @@ Come al solito dividiamo in sotto-esperimenti:
 2. Per il secondo elemento avremo $N_2 = n - 1$
 3. ...
 4. Per il $k$-esimo esperimento avremo $N_k = n - (k - 1)$.
-Per cui potrò fare $S_{k,n} = n * (n-1)* ... * (n - (k-1)) = \frac{n!}{(n-k)!}$ permutazioni di $k$ elementi dato un set di $n$ elementi.
+Per cui potrò fare: $$S_{k,n} = n * (n-1)* ... * (n - (k-1)) = \frac{n!}{(n-k)!}$$permutazioni di $k$ elementi dato un set di $n$ elementi.
 Notare che se fosse $k = n$ otterrei il risultato del precedente esercizio.
 
 Ora proviamo a rispondere alla seguente domanda, leggermente differente:
@@ -176,4 +176,32 @@ Se ad esempio le lettere sono $\{ABC\}$ avrò le seguenti permutazioni:
 $\langle ABC \rangle, \langle ACB \rangle, \langle BAC \rangle, \langle BCA \rangle, \langle CAB \rangle, \langle CBA \rangle$  
 *Quante permutazioni sono relative allo stesso subset?* In questo caso 6 cioè 3!.
 Generalizzando troviamo che **il numero di permutazioni che producono lo stesso subset è esattamente il numero di permutazioni di $k$ elementi** ovvero $k*(k-1)*...*2*1 = k!$.
-Quindi la risposta alla seconda domanda è: $\frac{S_{k,n}}{k!} = \frac{n!}{k!()}$
+Quindi la risposta alla seconda domanda è: $$\frac{S_{k,n}}{k!} = \frac{n!}{k!(n-k)!} = \binom{n}{k}$$
+Chiamato **coefficiente binomiale**.
+
+### Proprietà del coefficiente binomiale 
+
+1. $\binom{n}{k} = 0$ se $k > n$ 
+2. $\binom{n}{k} = \binom{n}{n-k}$ con $n\ge k$ perché se trovi il modo di estrarre $k$ elementi da un set di $n$ allora hai trovato il modo anche di estrarre i rimanenti $n-k$ elementi. Quindi i due numeri saranno uguali.
+3. $\binom{n}{0} = \binom{n}{n} = 1$ deriva dalla definizione che 0! = 1.
+4. $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$ con $n \ge k$ cioè posso calcolare il coefficiente binomiale come somma di binomi più piccoli. È comodo quando si utilizzano programmi ricorsivi. 
+
+### Esercizio 5
+
+Un gruppo di 5 maschi e di 10 femmine sono allineati in ordine casuale.
+1. Qual è la probabilità che *la persona in quarta posizione sia un maschio*?
+	Intuitivamente potremmo rispondere $P(E) = \frac{5}{15}$ perché il fatto che la posizione sia la quarta non influisce (se il testo avesse detto "dodicesima posizione" sarebbe cambiato qualcosa? No) ma proviamo a farlo in modo analitico. 
+	Siamo in un modello ad ugual probabilità? Sì quindi come al solito calcoliamo le cardinalità di S e di E.
+	$|S| = 15!$ perché il numero di persone è 15 e quindi dobbiamo considerare 15! possibili permutazioni di esse.
+	La cardinalità di E la troviamo dividendo in due sotto-esperimenti:
+	1. $C_1$ maschio in quarta posizione, quante possibilità ho? Considerando che i maschi sono 5 avrò $N_1$ = 5.
+	2. $C_2$ tutte le altre possibili combinazioni ovvero $N_2 = 14!$ perché ho tolto quella in quarta posizione.
+	Quindi $|E| = 5 * 14!$, infine posso calcolare: $P(E) = \frac{15!}{5*14!} = \frac{5}{15}$ come avevamo intuito.
+2. Qual è la probabilità che *la persona in dodicesima posizione sia un maschio*? 
+	Come visto prima, la posizione specifica non ha importanza quindi la risposta a questa domanda è la stessa della precedente.
+3. Qual è la probabilità *che Adam* (un maschio) *sia in terza posizione*?
+	Ora, riflettiamo. Cos'è cambiato rispetto a prima? Sicuramente la cardinalità di E diminuirà perché non mi va più bene un maschio a caso tra i 5 presenti ma voglio proprio Adam. Quindi: 
+	1. $C_1$ Adam in terza posizione, quante possibilità ho? $N_1 = 1$.
+	2. $C_2$ tutti gli altri ovvero $N_2 = 14!$
+	Per cui $|E| = 1 * 14!$ e il risultato finale sarà $P(E) = \frac{14!}{15!} = \frac{1}{15}$ anche questo risultato è ragionevole. 
+
