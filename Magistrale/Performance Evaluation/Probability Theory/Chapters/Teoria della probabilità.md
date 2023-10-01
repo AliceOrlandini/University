@@ -54,7 +54,7 @@ Un evento è un **subset** del sample space.
 Si può ovviamente associare un evento a ciascun outcome ma bisogna mantenere i due concetti separati.
 ### Esercizio 1
 
-# Assiomi della probabilità
+![[Magistrale/Performance Evaluation/Probability Theory/Chapters/Untitled Diagram.svg]]# Assiomi della probabilità
 
 > La *probabilità* è un *numero* associato ad un *evento* che descrive la *frequenza* con cui si verifica tale evento.
 
