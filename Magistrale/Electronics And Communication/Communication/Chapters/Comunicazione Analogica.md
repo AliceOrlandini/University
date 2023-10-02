@@ -134,22 +134,22 @@ Questo integrale non ha una forma chiusa ma può essere scritto come una **funzi
 ![Bessel|center|500](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Bessel_Functions_%281st_Kind%2C_n%3D0%2C1%2C2%29.svg/1920px-Bessel_Functions_%281st_Kind%2C_n%3D0%2C1%2C2%29.svg.png)
 
 Più grande è $X$ e più devo considerare il contributo delle funzioni. 
-Se $X=0$ allora posso considerare solo la funzione di ordine zero, cioé $J_0(X)$ ovvero quella rossa ma se $X \gg 0$ devo considerarle tutte e tre. (non ho capito molto bene questa parte)
-$\delta _n = J_n(m_f)$ ovvero la Bessel function calcolata in $m_f$.
-Più $m_f$ è grande e più ho coefficienti. $n$ è l’ordine della Bessel Function. Non ho capito un cazzo.
+Se $X=0$ allora posso considerare solo la funzione di ordine zero, cioé $J_0(X)$ (quella rossa) ma se $X \gg 0$ devo considerarle tutti i contributi dati dagli altri ordini (non ho capito molto bene questa parte).
+Alla fine comunque mi basta sapere che $\delta _n = J_n(m_f)$ ovvero il coefficiente è pari alla funzione Bessel calcolata in $m_f$.
+Quindi, più $m_f$ è grande e più ho coefficienti. (???)
+Il segnale sarà quindi: $$s_{FM}(t) = Re\{\tilde{s}_{FM}(t)e^{j2\pi f_c t}\} =$$
+$$= \sum_{n}J_n(m_f)cos(2\pi(f_c+nf_m)t)$$
+Che, nel dominio della frequenza, sarà $S_{FM}(f)$ fatta in questo modo:
 
-Più delta ho più lo spettro è grande perché ho tanti picchi.
-Quindi la banda dipende da $m_f$, quanto sono distanti tra loro i picchi? Sarà pari a $\frac{1}{T_m} = f_m$.
+![FM|center|500](https://rolandkuit.com/FM%20Tutorial/Pictures/FM%20Sidebands.jpg)
+
+Noto che più termini ho e più lo spettro è esteso, quindi la banda dipenderà da $m_f$ e dalla distanza tra i picchi.
+La distanza tra i picchi è pari a $\frac{1}{T_m} = f_m$ (questo lo sapevamo già da Comunicazioni Numeriche).
 Quindi lo spettro dipenderà da $f_m$ e da $m_f$ il primo per la distanza tra i picchi e il secondo per il numero di picchi. 
 
-La banda sarà quindi all’incirca:
-$B_{FM} = 2(m_f + 1) = 2(\Delta f + B)$
-Il due c’è perché sono in passa banda quindi nell’asse positivo.
-La maggior parte dell’energia è concentrata in questa banda (il 98% dell’energia per la legge di Carson). 
-
-In AM la banda occupata era 2B, in FM quindi sarà maggiore la banda occupata.
-Il vantaggio però è che è più resistente alle interferenze date dal rumore, lato ricevente si riesce a demodulare molto più efficientemente ma non ho capito perché.
-Che inglese di merda che ha Moretti porcodio non si capisce nulla. 
+Una buona approssimazione della banda si ottiene applicando la **regola di Carson** (non scenderemo nei dettagli):
+$B_{FM} \simeq 2(m_f + 1) = 2(\Delta f + B)$
+Inoltre, si può dimostrare che la maggior parte dell’energia (il 98% circa) è concentrata nella banda trovata con la regola di Carson quindi questa è una buona approssimazione della banda.
 
 B = 2(2+5)= 15 kHz
 delta F = 75kHz
@@ -158,20 +158,13 @@ Bfm = 2  6 16 = 180 kHz
 
 All’esame questi numeri li chiede. 
 
-Vediamo cosa succede lato ricevente. Vogliamo estrarre $m(t)$ dal segnale ricevuto. 
-Calcoliamo l’inviluppo complesso del segnale ricevuto (trascurando il rumore):
-$\tilde{v}(t) = e^{j2\pi k_f} \int_{-\infty}^{t}m(\tau)d\tau$
-Devo fare l’operazione opposta di quella che facevo lato ricevente quindi faccio la derivata:
-Se ci fosse una extra fase, l’operazione di derivata la andrebbe ad eliminare, questo è il motivo perché la FM è meno sensibile al rumore. 
-$m(t) = \frac{1}{2\pi k_f}\frac{d}{dt} fase \tilde{v}(t)$
-Quindi ho utilizzato più banda ma ho più qualità lato ricevente. Qui $k_f$ è al denominatore.
-Poi, non dimentichiamoci da dove eravamo partiti, posso usare l’amplificatore molto vicino alla zona di saturazione perché non amplificando in ampiezza non andremo mai in saturazione. 
-Più banda -> più energia. 
+In AM la banda occupata era $B_{AM} = 2B$, quindi in FM tecnicamente la banda occupata è maggiore. Il vantaggio di questa modulazione però sono due:
+1. posso usare l’amplificatore molto vicino alla zona di saturazione perché amplificando in fase non ci sarà mai il rischio di entrare nella zona di saturazione dell'amplificatore. 
+2. questa modulazione è più resistente al rumore. Vediamo perché andando a studiare la demodulazione lato ricevente. 
 
-# Laboratorio
-
-Prima cosa: il segnale deve essere digitale, la frequenza di campionamento sarà 48kHz. 
-$f_s >> 2f_{max}$ 
-nel nostro caso se consideriamo il ricevitore avrò $f_{max} = 2f_c + \frac{f_{s}^{audio}}{2}$ 
-quindi alla fine avrò come minimo $f_s = 4f_c + f_s^{audio}$
- 
+Lato ricevente il nostro obiettivo è quello di estrarre $m(t)$ dal segnale ricevuto:
+$$\tilde{v}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau}$$
+In generale, lato ricevente si effettua sempre l'operazione opposta rispetto a quella del trasmettitore quindi in questo caso dovrò effettuare *un'operazione di derivazione*:
+$\widehat{m}(t) = \frac{1}{2\pi k_f}\frac{d}{dt} fase \angle \tilde{v}(t)$
+Se ci fosse stata un'extra fase in questo modo: $$\tilde{v}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau + \varphi_0}$$
+l’operazione di derivata la andrebbe ad eliminare, ecco perché la modulazione FM è meno sensibile al rumore. 
