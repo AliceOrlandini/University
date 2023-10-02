@@ -7,7 +7,7 @@ Per questo motivo, questo corso si focalizzerà sulle comunicazioni Wireless, st
 
 Lo spettro negli anni è stato partizionato da degli enti per evitare sovrapposizioni nelle trasmissioni. Per esempio, lo spettro Americano è stato diviso in blocchi di frequenze secondo il seguente schema: 
 
-![Spettro | center | 500](https://upload.wikimedia.org/wikipedia/commons/c/c7/United_States_Frequency_Allocations_Chart_2016_-_The_Radio_Spectrum.pdf)
+![Spettro](https://upload.wikimedia.org/wikipedia/commons/c/c7/United_States_Frequency_Allocations_Chart_2016_-_The_Radio_Spectrum.pdf)
 
 Si nota che più le frequenze aumentano in termini di unità di misura più si possono aggiungere blocchi di banda perché più si aumenta più si ha disponibilità di allocazione delle risorse.
 Potremmo chiederci quale sia il limite maggiore di frequenze assegnabili e la risposta è che questo limite è imposto solo dalla tecnologia di cui siamo in possesso. 

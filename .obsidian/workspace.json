@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md"
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md"
               }
             }
           },
@@ -159,9 +159,9 @@
   },
   "active": "93d73d694be734c7",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",

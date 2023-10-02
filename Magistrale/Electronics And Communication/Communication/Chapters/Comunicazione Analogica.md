@@ -148,15 +148,14 @@ La distanza tra i picchi è pari a $\frac{1}{T_m} = f_m$ (questo lo sapevamo gi�
 Quindi lo spettro dipenderà da $f_m$ e da $m_f$ il primo per la distanza tra i picchi e il secondo per il numero di picchi. 
 
 Una buona approssimazione della banda si ottiene applicando la **regola di Carson** (non scenderemo nei dettagli):
-$B_{FM} \simeq 2(m_f + 1) = 2(\Delta f + B)$
+$B_{FM} \simeq 2(m_f + 1)B = 2(\Delta f + B)$
 Inoltre, si può dimostrare che la maggior parte dell’energia (il 98% circa) è concentrata nella banda trovata con la regola di Carson quindi questa è una buona approssimazione della banda.
 
-B = 2(2+5)= 15 kHz
-delta F = 75kHz
-mf = 5
-Bfm = 2  6 16 = 180 kHz
-
-All’esame questi numeri li chiede. 
+In ambito commerciale si ha una $B_{FM} \approx 180kHz$ perché:
+- $B = 2(2+5)= 15 kHz$ (non lo so da dove escono questi numeri)
+- $\Delta f = 75kHz$
+- $m_f = \frac{\Delta f}{B} = 5$
+Quindi $B_{FM} = 2\cdot(1 + 5) \cdot 15 = 2 \cdot 6 \cdot 16 = 180 kHz$ (all’esame questi numeri li chiede).
 
 In AM la banda occupata era $B_{AM} = 2B$, quindi in FM tecnicamente la banda occupata è maggiore. Il vantaggio di questa modulazione però sono due:
 1. posso usare l’amplificatore molto vicino alla zona di saturazione perché amplificando in fase non ci sarà mai il rischio di entrare nella zona di saturazione dell'amplificatore. 
