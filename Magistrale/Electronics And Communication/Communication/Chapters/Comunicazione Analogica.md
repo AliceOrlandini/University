@@ -107,8 +107,61 @@ L'approssimazione consiste nel concentrare tutta l’energia del segnale in un p
 Nel caso in cui $m(t) = V_mcos(2\pi f_m t)$ ho che $max\{|m(t)|\} = V_m$ e quindi ipotizzo che tutto il segnale sia concentrato in $V_m \delta(f)$ in corrispondenza di $f_m$ (la banda del segnale è $B_m = f_m$), che nel dominio del tempo diventa pari a $V_m$.
 Calcolo $s_{FM}(t)$ applicando la definizione e risolvendo l’integrale: $$s_{FM}(t) = cos(2\pi f_c t +2\pi k_f\int_{-\infty}^{t}V_mcos(2\pi f_m \tau) d\tau)=$$$$= cos(2\pi f_c t + 2\pi k_f V_m \frac{1}{2\pi f_m}sin(2\pi f_m t))=$$$$= cos(2\pi f_c t + \frac{k_fV_m}{f_m}sin(2\pi f_m t)) =$$
 $$= cos(2\pi f_c t + m_fsin(2\pi f_mt))$$
-E ricavo facilmente anche l’inviluppo complesso come: $$\tilde{s}_{FM}(t) = e^{jm_fsin(2\pi f_m t)}$$Nell'immagine è rappresentato il risultato di questa tipologia di modulazione:
+L’integrale lo risolvo solo per $t$ perché il termine in $t$ è l’unico che ci interessa. 
+E ricavo facilmente anche l’inviluppo complesso come (i passaggi non ci sono perché sono identici a quelli che abbiamo fatto nell’inviluppo complesso di prima): $$\tilde{s}_{FM}(t) = e^{jm_fsin(2\pi f_m t)}$$Nell'immagine è rappresentato il risultato di questa tipologia di modulazione:
 
 ![[FM Modulation.png]]
 
 Il primo segnale è un $cos(2\pi f_ct)$. Il secondo è $m(t)$ che quando è positivo allora $f_m$ *cresce* e quindi il terzo segnale che è quello modulato $s_{FM}(t)$ sarà più "denso". L'opposto accade per $m(t)$ negativo.
+Si vede bene perchè si chiama “frequency modulation”, la fase cambia ma l’amplitude rimane la stessa.
+
+Ripartiamo da questa espressione: $s_{FM} = cos(2\pi f_c t + m_fsin(2\pi f_mt))$ e dal suo inviluppo complesso: $\tilde{s}_{FM}(t) = e^{jm_fsin(2\pi f_m t)}$
+Cosa possiamo dire? La caratteristica principale di questo segnale è che è *periodico* di periodo $T_m$. Infatti, $s(t) = s(t + kT_m)$ per ogni $k \in Z$.
+$\tilde{s}_{FM}(t+kT_m) =e^{jm_fsin(2\pi f_m (t+kT_m))}$
+Possiamo usare la trasformata serie di Fourier essendo il segnale periodico: 
+$\tilde{s}_{FM}(t) = \sum^{n} \delta _n e^{j2\pi f_m t}$ con $\delta _n = \frac{1}{T_m} \int_{-T_m/2}^{T_m/2} \tilde{s}_{FM}(t) e^{j2\pi f_m t} dt$ 
+calcoli sulle slide. 
+Questo integrale non ha una forma chiusa ma può essere scritto come una funzione *Bessel* del primo tipo (è una funzione tabulata):
+![Bessel|center|500](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Bessel_Functions_%281st_Kind%2C_n%3D0%2C1%2C2%29.svg/1920px-Bessel_Functions_%281st_Kind%2C_n%3D0%2C1%2C2%29.svg.png)
+
+Più grande è $X$ e più devo considerare il contributo delle funzioni. Se $X=0$ posso considerare solo quella rossa ma se $X>>0$ devo considerarle tutte.
+$\delta _n = J_n(m_f)$ ovvero la Bessel function calcolata in $m_f$.
+Più $m_f$ è grande e più ho coefficienti. $n$ è l’ordine della Bessel Function. Non ho capito un cazzo.
+
+Più delta ho più lo spettro è grande perché ho tanti picchi.
+Quindi la banda dipende da $m_f$, quanto sono distanti tra loro i picchi? Sarà pari a $\frac{1}{T_m} = f_m$.
+Quindi lo spettro dipenderà da $f_m$ e da $m_f$ il primo per la distanza tra i picchi e il secondo per il numero di picchi. 
+
+La banda sarà quindi all’incirca:
+$B_{FM} = 2(m_f + 1) = 2(\Delta f + B)$
+Il due c’è perché sono in passa banda quindi nell’asse positivo.
+La maggior parte dell’energia è concentrata in questa banda (il 98% dell’energia per la legge di Carson). 
+
+In AM la banda occupata era 2B, in FM quindi sarà maggiore la banda occupata.
+Il vantaggio però è che è più resistente alle interferenze date dal rumore, lato ricevente si riesce a demodulare molto più efficientemente ma non ho capito perché.
+Che inglese di merda che ha Moretti porcodio non si capisce nulla. 
+
+B = 2(2+5)= 15 kHz
+delta F = 75kHz
+mf = 5
+Bfm = 2  6 16 = 180 kHz
+
+All’esame questi numeri li chiede. 
+
+Vediamo cosa succede lato ricevente. Vogliamo estrarre $m(t)$ dal segnale ricevuto. 
+Calcoliamo l’inviluppo complesso del segnale ricevuto (trascurando il rumore):
+$\tilde{v}(t) = e^{j2\pi k_f} \int_{-\infty}^{t}m(\tau)d\tau$
+Devo fare l’operazione opposta di quella che facevo lato ricevente quindi faccio la derivata:
+Se ci fosse una extra fase, l’operazione di derivata la andrebbe ad eliminare, questo è il motivo perché la FM è meno sensibile al rumore. 
+$m(t) = \frac{1}{2\pi k_f}\frac{d}{dt} fase \tilde{v}(t)$
+Quindi ho utilizzato più banda ma ho più qualità lato ricevente. Qui $k_f$ è al denominatore.
+Poi, non dimentichiamoci da dove eravamo partiti, posso usare l’amplificatore molto vicino alla zona di saturazione perché non amplificando in ampiezza non andremo mai in saturazione. 
+Più banda -> più energia. 
+
+# Laboratorio
+
+Prima cosa: il segnale deve essere digitale, la frequenza di campionamento sarà 48kHz. 
+$f_s >> 2f_{max}$ 
+nel nostro caso se consideriamo il ricevitore avrò $f_{max} = 2f_c + \frac{f_{s}^{audio}}{2}$ 
+quindi alla fine avrò come minimo $f_s = 4f_c + f_s^{audio}$
+ 
