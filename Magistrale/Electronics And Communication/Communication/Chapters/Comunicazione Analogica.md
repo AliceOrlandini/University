@@ -128,4 +128,35 @@ Più grande è $X$ e più devo considerare il contributo delle funzioni. Se $X=0
 $\delta _n = J_n(m_f)$ ovvero la Bessel function calcolata in $m_f$.
 Più $m_f$ è grande e più ho coefficienti. $n$ è l’ordine della Bessel Function. Non ho capito un cazzo.
 
+Più delta ho più lo spettro è grande perché ho tanti picchi.
+Quindi la banda dipende da $m_f$, quanto sono distanti tra loro i picchi? Sarà pari a $\frac{1}{T_m} = f_m$.
+Quindi lo spettro dipenderà da $f_m$ e da $m_f$ il primo per la distanza tra i picchi e il secondo per il numero di picchi. 
+
+La banda sarà quindi all’incirca:
+$B_{FM} = 2(m_f + 1) = 2(\Delta f + B)$
+Il due c’è perché sono in passa banda quindi nell’asse positivo.
+La maggior parte dell’energia è concentrata in questa banda (il 98% dell’energia per la legge di Carson). 
+
+In AM la banda occupata era 2B, in FM quindi sarà maggiore la banda occupata.
+Il vantaggio però è che è più resistente alle interferenze date dal rumore, lato ricevente si riesce a demodulare molto più efficientemente ma non ho capito perché.
+Che inglese di merda che ha Moretti porcodio non si capisce nulla. 
+
+B = 2(2+5)= 15 kHz
+delta F = 75kHz
+mf = 5
+Bfm = 2  6 16 = 180 kHz
+
+All’esame questi numeri li chiede. 
+
+Vediamo cosa succede lato ricevente. Vogliamo estrarre $m(t)$ dal segnale ricevuto. 
+Calcoliamo l’inviluppo complesso del segnale ricevuto (trascurando il rumore):
+$\tilde{v}(t) = e^{j2\pi k_f} \int_{-\infty}^{t}m(\tau)d\tau$
+Devo fare l’operazione opposta di quella che facevo lato ricevente quindi faccio la derivata:
+Se ci fosse una extra fase, l’operazione di derivata la andrebbe ad eliminare, questo è il motivo perché la FM è meno sensibile al rumore. 
+$m(t) = \frac{1}{2\pi k_f}\frac{d}{dt} \phase \tilde{v}(t)$
+Quindi ho utilizzato più banda ma ho più qualità lato ricevente. Qui $k_f$ è al denominatore.
+Poi, non dimentichiamoci da dove eravamo partiti, posso usare l’amplificatore molto vicino alla zona di saturazione perché non amplificando in ampiezza non andremo mai in saturazione. 
+Più banda -> più energia. 
+
+# Laboratorio
 
