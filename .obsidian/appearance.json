@@ -2,7 +2,7 @@
   "accentColor": "#4a8af2",
   "theme": "system",
   "cssTheme": "Things",
-  "baseFontSize": 19,
+  "baseFontSize": 18,
   "enabledCssSnippets": [
     "text_style"
   ],

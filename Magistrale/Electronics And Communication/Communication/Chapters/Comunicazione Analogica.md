@@ -75,6 +75,7 @@ Vediamo perché abbiamo speso tutto sto tempo per una notazione:
 2. La simulazione di un segnale passa banda è meno computazionalmente impegnativa perché il sample rate è minore. Infatti, per Nyquist $\frac{1}{T} \ge 2B_s$ e nel caso di segnale passa banda avrei $B_s = f_c + W$ per cui il sample rate sarebbe molto elevato. Invece se si utilizza l’inviluppo complesso avrò $B_s = W$ e quindi $\frac{1}{T} > 2W$ molto più piccolo rispetto a prima. 
 
 Nel disegno si vede che usare l’inviluppo complesso semplifica i disegni quindi lo useremo:
+
 ![[Modello con inviluppo complesso.png]]
 
 # Frequency Modulation (FM)
@@ -94,14 +95,13 @@ $$= Re\{e^{j(2\pi f_c t+ 2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau)}\} =$$
 $$= cos(2\pi f_c t + 2\pi k_f \int_{-infty}^{t}m(\tau)d\tau) = s_{FM}(t)$$
 Proviamo ora a studiare la banda occupata dal segnale modulato in FM, *but, there is a but (cit. Moretti)* questa non si può calcolare con la trasformata di Fourier perché quest'ultima non ha una forma chiusa. Quindi ne cercheremo un’approssimazione. 
 
-L'inviluppo complesso lo possiamo scrivere anche in questo modo: $$\tilde{s}_{FM}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau} = e^{j\tilde{\phi}(t)}$$Dalla fisica sappiamo che la frequenza è la derivata della fase quindi calcolo la derivata di $\phi(t)$ trovando: 
-$$f_d(t) = \frac{1}{2\pi}\frac{d}{dt}\phi(t) -f_c=$$
+L'inviluppo complesso lo possiamo scrivere anche in questo modo: $$\tilde{s}_{FM}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau} = e^{j\tilde{\phi}(t)}$$Dalla fisica sappiamo che la frequenza è la derivata della fase quindi calcolo la derivata di $\phi(t)$ trovando: $$f_d(t) = \frac{1}{2\pi}\frac{d}{dt}\phi(t) -f_c=$$
 $$= \frac{1}{2\pi}\frac{d}{dt}\tilde{\phi}(t)=$$
 $$=k_fm(t)$$
 
 Definiamo la *frequency deviation* di un segnale come: $$f_d(t) = f_i(t) - f_c = k_f m(t)$$
 #Attenzione da ora in poi avremo 2 tipi di frequenze, la prima sarà la frequenza istantanea $f_i(t)$ e la seconda sarà la frequency deviation $f_d(t)$, sono ovviamente correlate ma diverse. 
-Definiamo la *frequenza massima* della frequency deviation come: $$\Delta f = max\{|f_d(t)|\} = k_f max\{|m(t)|\}$$definiamo infine l'*indice di modulazione* come: $$m_f = \frac{\Delta f}{B_m}$$Torniamo al calcolo della banda occupata dal segnale modulato, quella del segnale trasmesso $m(t)$ la conosco. 
+Definiamo la *frequenza massima* della frequency deviation come: $$\Delta f = max\{|f_d(t)|\} = k_f max\{|m(t)|\}$$definiamo infine *l'indice di modulazione* come: $$m_f = \frac{\Delta f}{B_m}$$Torniamo al calcolo della banda occupata dal segnale modulato, quella del segnale trasmesso $m(t)$ la conosco. 
 L'approssimazione consiste nel concentrare tutta l’energia del segnale in un punto e considerare quindi $m(t)$ come un impulso di valore pari al valore massimo assunto dal segnale. 
 Nel caso in cui $m(t) = V_mcos(2\pi f_m t)$ ho che $max\{|m(t)|\} = V_m$ e quindi ipotizzo che tutto il segnale sia concentrato in $V_m \delta(f)$ in corrispondenza di $f_m$ (la banda del segnale è $B_m = f_m$), che nel dominio del tempo diventa pari a $V_m$.
 Calcolo $s_{FM}(t)$ applicando la definizione e risolvendo l’integrale: $$s_{FM}(t) = cos(2\pi f_c t +2\pi k_f\int_{-\infty}^{t}V_mcos(2\pi f_m \tau) d\tau)=$$$$= cos(2\pi f_c t + 2\pi k_f V_m \frac{1}{2\pi f_m}sin(2\pi f_m t))=$$$$= cos(2\pi f_c t + \frac{k_fV_m}{f_m}sin(2\pi f_m t)) =$$
@@ -112,7 +112,7 @@ E ricavo facilmente anche l’inviluppo complesso come (i passaggi non ci sono p
 ![[FM Modulation.png]]
 
 Il primo segnale è un $cos(2\pi f_ct)$. Il secondo è $m(t)$ che quando è positivo allora $f_m$ *cresce* e quindi il terzo segnale che è quello modulato $s_{FM}(t)$ sarà più "denso". L'opposto accade per $m(t)$ negativo.
-Si vede bene perchè si chiama “**frequency modulation**”, la fase cambia ma l’ampiezza rimane la stessa.
+Si vede bene perchè si chiama **“frequency modulation”**, la fase cambia ma l’ampiezza rimane la stessa.
 
 Ma torniamo alla domanda iniziale: quanto vale la banda del segnale trasmesso?
 Ripartiamo dall'espressione che abbiamo trovato risolvendo l'integrale: $$s_{FM}(t) = cos(2\pi f_c t + m_fsin(2\pi f_mt))$$e dal suo inviluppo complesso: $$\tilde{s}_{FM}(t) = e^{jm_fsin(2\pi f_m t)}$$La caratteristica principale di questo segnale è che è *periodico* di periodo $T_m = \frac{1}{f_m}$. 
@@ -135,7 +135,7 @@ Questo integrale non ha una forma chiusa ma può essere scritto come una **funzi
 Più grande è $X$ e più devo considerare il contributo delle funzioni. 
 Se $X=0$ allora posso considerare solo la funzione di ordine zero, cioé $J_0(X)$ (quella rossa) ma se $X \gg 0$ devo considerarle tutti i contributi dati dagli altri ordini (non ho capito molto bene questa parte).
 Alla fine comunque mi basta sapere che $\delta _n = J_n(m_f)$ ovvero il coefficiente è pari alla funzione Bessel calcolata in $m_f$.
-Quindi, più $m_f$ è grande e più ho coefficienti. (???)
+
 Il segnale sarà quindi: $$s_{FM}(t) = Re\{\tilde{s}_{FM}(t)e^{j2\pi f_c t}\} =$$
 $$= \sum_{n}J_n(m_f)cos(2\pi(f_c+nf_m)t)$$
 Che, nel dominio della frequenza, sarà $S_{FM}(f)$ fatta in questo modo:
@@ -163,6 +163,9 @@ In AM la banda occupata era $B_{AM} = 2B$, quindi in FM tecnicamente la banda oc
 Lato ricevente il nostro obiettivo è quello di estrarre $m(t)$ dal segnale ricevuto:
 $$\tilde{v}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau}$$
 In generale, lato ricevente si effettua sempre l'operazione opposta rispetto a quella del trasmettitore quindi in questo caso dovrò effettuare *un'operazione di derivazione*:
-$\widehat{m}(t) = \frac{1}{2\pi k_f}\frac{d}{dt} fase \angle \tilde{v}(t)$
-Se ci fosse stata un'extra fase in questo modo: $$\tilde{v}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau + \varphi_0}$$
-l’operazione di derivata la andrebbe ad eliminare, ecco perché la modulazione FM è meno sensibile al rumore. 
+$$\widehat{m}(t) = \frac{1}{2\pi k_f}\frac{d}{dt} \angle \tilde{v}(t)$$
+Se ci fosse stata un'extra fase in questo modo: $$\tilde{v}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau + \varphi_0}$$l’operazione di derivata la andrebbe ad eliminare, ecco perché la modulazione FM è meno sensibile al rumore. 
+Quest'ultima operazione, darebbe un fattore $2\pi k_f$ a causa dell'esponenziale, per eliminarlo ed ottenere solo $\widehat{m}(t)$ moltiplico per $\frac{1}{2\pi k_f}$.
+Lo schema finale del ricevitore è il seguente: 
+
+![[Ricevitore FM.png|center|600]]
