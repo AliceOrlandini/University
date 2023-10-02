@@ -1,4 +1,3 @@
-
 # Amplitude Modulation dual side band (AM-DSB)
 
 La modulazione di ampiezza sfrutta la proprietà dei segnali *reali* di avere una trasformata di Fourier con *simmetria hermitiana*.
