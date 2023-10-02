@@ -113,18 +113,28 @@ E ricavo facilmente anche l’inviluppo complesso come (i passaggi non ci sono p
 ![[FM Modulation.png]]
 
 Il primo segnale è un $cos(2\pi f_ct)$. Il secondo è $m(t)$ che quando è positivo allora $f_m$ *cresce* e quindi il terzo segnale che è quello modulato $s_{FM}(t)$ sarà più "denso". L'opposto accade per $m(t)$ negativo.
-Si vede bene perchè si chiama “frequency modulation”, la fase cambia ma l’amplitude rimane la stessa.
+Si vede bene perchè si chiama “**frequency modulation**”, la fase cambia ma l’ampiezza rimane la stessa.
 
-Ripartiamo da questa espressione: $s_{FM} = cos(2\pi f_c t + m_fsin(2\pi f_mt))$ e dal suo inviluppo complesso: $\tilde{s}_{FM}(t) = e^{jm_fsin(2\pi f_m t)}$
-Cosa possiamo dire? La caratteristica principale di questo segnale è che è *periodico* di periodo $T_m$. Infatti, $s(t) = s(t + kT_m)$ per ogni $k \in Z$.
-$\tilde{s}_{FM}(t+kT_m) =e^{jm_fsin(2\pi f_m (t+kT_m))}$
-Possiamo usare la trasformata serie di Fourier essendo il segnale periodico: 
-$\tilde{s}_{FM}(t) = \sum^{n} \delta _n e^{j2\pi f_m t}$ con $\delta _n = \frac{1}{T_m} \int_{-T_m/2}^{T_m/2} \tilde{s}_{FM}(t) e^{j2\pi f_m t} dt$ 
-calcoli sulle slide. 
-Questo integrale non ha una forma chiusa ma può essere scritto come una funzione *Bessel* del primo tipo (è una funzione tabulata):
+Ma torniamo alla domanda iniziale: quanto vale la banda del segnale trasmesso?
+Ripartiamo dall'espressione che abbiamo trovato risolvendo l'integrale: $$s_{FM}(t) = cos(2\pi f_c t + m_fsin(2\pi f_mt))$$e dal suo inviluppo complesso: $$\tilde{s}_{FM}(t) = e^{jm_fsin(2\pi f_m t)}$$La caratteristica principale di questo segnale è che è *periodico* di periodo $T_m = \frac{1}{f_m}$. 
+> Un segnale è **periodico** se $s(t) = s(t + kT_m)$ $\forall k \in Z$.
+
+Quindi riscriviamo l'inviluppo complesso nel seguente modo:
+$$\tilde{s}_{FM}(t+kT_m) =e^{jm_fsin(2\pi f_m (t+kT_m))}$$
+Essendo il segnale periodico, possiamo usare la **trasformata serie di Fourier** per rappresentarlo: 
+$$\tilde{s}_{FM}(t) = \sum_{n} \delta _n e^{j2\pi nf_m t}$$
+In cui:
+$$\delta _n = \frac{1}{T_m} \int_{-T_m/2}^{T_m/2} \tilde{s}_{FM}(t) e^{j2\pi nf_m t} dt = $$
+$$= \frac{1}{T_m}\int_{-T_m/2}^{T_m/2} e^{jm_fsin(2\pi f_m t) e^{j2\pi n f_m t}} dt =$$
+$$= \frac{1}{T_m}\int_{-T_m/2}^{T_m/2} e^{j(m_fsin(2\pi f_m t)-2\pi nf_mt)}dt$$
+$$= \frac{1}{2\pi}\int_{-\pi}^{\pi}e^{jm_fsin(\vartheta)-n\vartheta}d\vartheta$$
+$$= J_n(m_f)$$
+Questo integrale non ha una forma chiusa ma può essere scritto come una **funzione Bessel** del primo tipo ordine (una funzione tabulata) fatta in questo modo:
+
 ![Bessel|center|500](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Bessel_Functions_%281st_Kind%2C_n%3D0%2C1%2C2%29.svg/1920px-Bessel_Functions_%281st_Kind%2C_n%3D0%2C1%2C2%29.svg.png)
 
-Più grande è $X$ e più devo considerare il contributo delle funzioni. Se $X=0$ posso considerare solo quella rossa ma se $X>>0$ devo considerarle tutte.
+Più grande è $X$ e più devo considerare il contributo delle funzioni. 
+Se $X=0$ allora posso considerare solo la funzione di ordine zero, cioé $J_0(X)$ ovvero quella rossa ma se $X \gg 0$ devo considerarle tutte e tre. (non ho capito molto bene questa parte)
 $\delta _n = J_n(m_f)$ ovvero la Bessel function calcolata in $m_f$.
 Più $m_f$ è grande e più ho coefficienti. $n$ è l’ordine della Bessel Function. Non ho capito un cazzo.
 
