@@ -153,10 +153,15 @@ Calcoliamo l’inviluppo complesso del segnale ricevuto (trascurando il rumore):
 $\tilde{v}(t) = e^{j2\pi k_f} \int_{-\infty}^{t}m(\tau)d\tau$
 Devo fare l’operazione opposta di quella che facevo lato ricevente quindi faccio la derivata:
 Se ci fosse una extra fase, l’operazione di derivata la andrebbe ad eliminare, questo è il motivo perché la FM è meno sensibile al rumore. 
-$m(t) = \frac{1}{2\pi k_f}\frac{d}{dt} \phase \tilde{v}(t)$
+$m(t) = \frac{1}{2\pi k_f}\frac{d}{dt} fase \tilde{v}(t)$
 Quindi ho utilizzato più banda ma ho più qualità lato ricevente. Qui $k_f$ è al denominatore.
 Poi, non dimentichiamoci da dove eravamo partiti, posso usare l’amplificatore molto vicino alla zona di saturazione perché non amplificando in ampiezza non andremo mai in saturazione. 
 Più banda -> più energia. 
 
 # Laboratorio
 
+Prima cosa: il segnale deve essere digitale, la frequenza di campionamento sarà 48kHz. 
+$f_s >> 2f_{max}$ 
+nel nostro caso se consideriamo il ricevitore avrò $f_{max} = 2f_c + \frac{f_{s}^{audio}}{2}$ 
+quindi alla fine avrò come minimo $f_s = 4f_c + f_s^{audio}$
+ 
