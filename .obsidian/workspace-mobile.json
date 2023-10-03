@@ -11,9 +11,11 @@
             "id": "fc4c5f811f272eef",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "TODO.md",
+            "file": "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "TODO.md",
+            "file": "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -112,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "TODO.md"
+            "file": "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md"
           }
         }
       },
@@ -140,8 +142,11 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "47d227c15ee73dd2",
+  "active": "fc4c5f811f272eef",
   "lastOpenFiles": [
+    "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
+    "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
+    "TODO.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
@@ -150,7 +155,6 @@
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
-    "TODO.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images/Modellazione.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
@@ -165,7 +169,6 @@
     "Magistrale/Electronics And Communication/Communication/Images/FM Modulation.png",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
-    "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduction.md",
