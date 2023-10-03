@@ -70,7 +70,23 @@ Voglio consistenza ma se una parte del sistema non funziona voglio che il sistem
 
 # BASE
 
-Basically Avaiable
+Basically Avaiable: utilizzando la replicazione dei dati il sistema è sempre disponibile. (?)
 Soft State: se faccio un’operazione di lettura su qualsiasi server posso ricevere una risposta che non corrisponde al valore più recente. 
 Eventually Consistent: da qualche parte nel futuro tutte le copie saranno allineate. 
+
+Queste proprietà si trovano nei database NoSQL. Nel triangolo sarei nel lato degli AP. 
+
+Disponibilità -> Repliche -> ma vanno aggiornate quindi serve un sistema che garantisca la consistenza -> Latenza. 
+
+La consistenza deve essere fatta il più velocemente possibile. 
+Il 20% delle domande del test scritto è estratto da questa parte, non bisogna ricopiare il trafiletto ma argomentare (ricordarsi di scrivere che abbiamo un database distribuito e in che contesto siamo, perché dobbiamo occuparci di questa cosa):
+Tipi di eventual consistenza:
+- read-your-writes consistency
+- session consistency 
+- monotonic read consistency
+- monotonic write consistency
+- casual consistency: la causalità è una dipendenza di due azioni, non è una sequenza di azioni. se io faccio un’azione un’altra può partire, anche tardi ma partirà. C’è una relazione causale tra le due. Se un’azione ha una relazione causale con un’altra allora sono in questo caso. (il prof ha detto che questa domanda la sbaglia il 50% della gente che fa l’esame, sarà magari che la spiega lui da cane? Nooo mi dissocio)
+	Se Mike risponde a un post di Pietro allora ho una relazione causare tra le due azioni. Non è una causa temporale ma causale. La memorizzazione deve rispettare la causalità.
+	Attenzione! Non è un ordinamento temporale ma causale!
+	Lui vuole vedere la causalità, sennò da metà punti.
 
