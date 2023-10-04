@@ -93,5 +93,5 @@ Per l’eliminazione di un evento bisogna controllare tutto l’albero, quindi l
 
 ## Calendar queue
 
-
+Sulle slide. 
 
