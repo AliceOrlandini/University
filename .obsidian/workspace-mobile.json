@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md"
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md"
           }
         }
       },
@@ -144,8 +144,14 @@
   },
   "active": "fc4c5f811f272eef",
   "lastOpenFiles": [
-    "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
     "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Images/CDF.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/nmos.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/mosfet.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/pmos.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/nmos R.png",
+    "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 2.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 1.svg",
     "Magistrale/Large Scale Databases/Chapters/Ripasso Java.md",
@@ -164,13 +170,9 @@
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images/Bayes.png",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images/Bayes 2.png",
-    "Magistrale/Performance Evaluation/Laboratory/Images/Azioni Simulatore.png",
-    "Magistrale/Electronics And Communication/Communication/Images/Modello con inviluppo complesso.png",
     "2023-09-30.md",
     "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
     "README.md",
-    "Magistrale/Electronics And Communication/Communication/Images/FM Modulation.png",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory",
@@ -188,7 +190,6 @@
     "Reti Sequenziali/Reti Sequenziali e Memorie.md",
     "Elettronica Digitale/Domande Orale.md",
     "@today.md",
-    "Reti Sequenziali/SRAM.md",
     "Grafo.canvas"
   ]
 }
