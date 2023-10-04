@@ -412,4 +412,19 @@ Consideriamo l'esperimento lancio di due dadi, il sample space è $S = \{(d_1, d
 - $X$ somma dei valori usciti: $X:S \rightarrow \mathbb{R}, X((d_1,d_2)) = d_1 + d_2$.
 - $Y$ valore massimo uscito: $Y:S \rightarrow \mathbb{R}, Y((d_1,d_2)) = max\{d_1, d_2\}$.
 
-$X$ assumerà i seguenti valori: {2,3,...,11,12} mentre $Y$ i valori {1,2,.}
+$X$ assumerà i seguenti valori: {2,3,...,11,12} mentre $Y$ i valori {1,2,...,6}.
+Proviamo a calcolare alcune probabilità: 
+- $P\{Y = 1\} = \frac{1}{36}$ perché l'unico outcome favorevole è (1,1)
+- $P\{Y = 2\} = \frac{3}{36}$ perché gli outcome favorevoli sono (1,2),(2,1),(2,2)
+- $P\{Y = 3\} = \frac{5}{36}$
+
+## Comulative Distribution Function
+
+Una variabile aleatoria $X$ (discreta o continua) è completamente caratterizzata dalla sua **Comulative Distribution Function (CDF)**, detta anche semplicemente *distribuzione*, definita come segue: $$F(\omega) = P\{X \le \omega\}$$
+Notare che $\omega$ è scritta in minuscolo ad indicare il fatto che essa è un valore.
+La CDF essendo una probabilità assumerà valori compresi tra 0 e 1, inoltre è *monotona non decrescente* (può solo salire o rimanere costante).
+Inoltre, $\lim_{\omega \rightarrow -\infty} F(\omega) = 0$ e $\lim_{\omega \rightarrow +\infty} F(\omega) = 1$ che vale per qualsiasi variabile aleatoria. 
+
+### Esercizio 16
+
+## Probability Mass Function
