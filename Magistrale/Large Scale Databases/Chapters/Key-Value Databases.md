@@ -27,6 +27,37 @@ Dipende tutto da ciò che si deve fare: se devo scrivere la lista della spesa us
 
 La maggior parte di questi database vengono copiati interamente in cache quindi le operazioni di lettura e scrittura sono molto veloci. Poi a un certo punto verranno effettuate le operazioni sul DB allocato sul disco. 
 
-Anche nei DB relazionali c’è un sistema di caching ma qui i database sono stati ottimizzati per fare ciò.
+Anche nei DB relazionali c’è un sistema di caching ma qui i database sono stati ottimizzati per la cache.
 
+Dobbiamo però prestare attenzione al fatto che la memoria non è infinita, il DBMS dovrà occuparsi della gestione della memoria
+in modo da eliminare dati vecchi e sostituirli con quelli più usati (algoritmo LRU last recently used).
+Ad esempio: il carrello di un e-commerce sarà salvato in cache poi al checkout si può fare il flush. 
 
+## Scalabilità 
+
+La scalabilità è la capacità di un database di aggiungere o rimuovere server da un insieme di server se necessario per accogliere il carico del sistema. 
+
+Qui non abbiamo operazioni di join quindi possiamo tranquillamente dividere il database. In questo modo se serve un nuovo server lo si aggiunge.
+
+Ci sono due possibilità:
+1. Master slave replication: 
+	Il master è un server che accetta richieste di lettura e scrittura. Le operazioni di scrittura verranno effettuate su tutti gli slave dal master.
+	Gli slave può rispondere solo a operazioni di lettura. 
+	Questa architettura si utilizza con servizi che hanno operazioni di lettura crescenti. 
+	Pro:
+	- l’architettura è molto semplice perché solo il master comunica con gli slaves
+	- non c’è bisogno di coordinare le operazioni di lettura (conflitti)
+	Contro:
+	- se il master diventa fuori uso allora il nodo non può accettare nuove scritture. In questo caso, il sistema collassa o comunque perde la capacità di scrittura. 
+2. Masterless replication:
+	Si ha una struttura ad anello tra i server, tutti i server possono rispondere alle richieste e i server aiutano i propri vicini per propagare le informazioni. 
+	Si può anche fare una struttura semi-stella. 
+	Pro:
+	- non c’è un unico point of failure.
+
+## Come fare il design di un key-value database
+
+Il problema principale è quello di trovare un set di chiavi uniche.
+È bene che il nome delle chiave (la maggior parte delle volte è una stringa) non cambi nel tempo, deve essere immutabile nel tempo.
+Inoltre, è bene che abbiano un significato e non siano semplici ID.
+Non fare l’errore di usare relazioni con questi tipi di database, se si ha la sensazione di usare database allora usare database relazionali. 
