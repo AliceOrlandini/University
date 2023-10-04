@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md"
               }
             }
           },
@@ -160,9 +159,17 @@
   },
   "active": "c07d066acd9faf4e",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "TODO.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
+    "().md",
+    "Magistrale/Electronics And Communication/Electronics/Images/pmos.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/nmos.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/nmos R.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/mosfet.png",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Performance Evaluation/Probability Theory/Images/CDF.png",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 2.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 1.svg",
     "Untitled.canvas",
@@ -177,19 +184,12 @@
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images/Bayes 2.png",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images/Bayes.png",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images/Modellazione.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Untitled Diagram.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
-    "Magistrale/Performance Evaluation/Laboratory/Images/Azioni Simulatore.png",
     "Magistrale/Performance Evaluation/Laboratory/Images",
-    "TODO.md",
-    "Magistrale/Electronics And Communication/Communication/Images/Modello con inviluppo complesso.png",
     "Magistrale/Electronics And Communication/Communication/Images",
     "README.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
-    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
