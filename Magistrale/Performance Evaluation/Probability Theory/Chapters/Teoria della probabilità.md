@@ -381,7 +381,35 @@ Consideriamo il seguente sistema parallelo:
 Ogni switch $i$ ha una probabilità di essere chiuso pari a $p_i$. 
 Trovare la probabilità che scorra corrente da A a B.
 
-Definisco l'evento $A_i$ come l'evento "switch i-esimo chiuso" e calcolo: $$P(scorre corrente) = 1 - P(tutti chiusi) =$$
-$$P()$$
+Definisco l'evento $A_i$ come l'evento "switch i-esimo chiuso" che avrà $P(A_i) = p_i$ e calcolo: $$P(scorre corrente) = 1 - P(tutti aperti) =$$
+$$= 1 - P(A_1^\complement \cdot A_2^\complement ... A_n^\complement ) = $$
+$$= 1 - \prod_{i = 1}^{n} P(A_i^\complement)$$
+$$= 1 - \prod_{i = 1}^{n} (1-p_i)$$
+### Esercizio 14
+
+Consideriamo il seguente sistema parallelo: 
+
+![[Sistemi paralleli 2.svg|center|500]]
+
+Il nodo che ci da problemi è il 3 quindi semplifichiamo utilizzando la probabilità condizionata: 
+- 3 aperto -> stesso problema di prima: [[#Sistemi Paralleli#Esercizio 13|esercizio 13]]
+- 3 chiuso -> il circuito si semplifica con un cortocircuito su 3.
+In fine: $$P(scorre corrente) = P(scorre|3 aperto)P(3aperto) + P(scorre|3chiuso)P(3chiuso) =$$
+$$= (1-(1-p_1 p_4)(1- p_2 p_5))(1-p_3) + \{(1- (1-p_1)(1-p_2))(1-(1-p_4)(1-p_5))p_3\}$$
 # Variabili Aleatorie 
 
+> Dato un esperimento casuale il cui sample space è $S$, si dice che $X$ è una **variabile aleatoria** di $S$ se è una funzione reale tale che $X:S\rightarrow \mathbb{R}$
+
+Notiamo che la funzione $X$ è deterministica, è il risultato dell'esperimento casuale ad essere aleatorio. 
+
+![variabile aleatoria|center|500](https://miro.medium.com/v2/resize:fit:720/format:webp/1*AxzRBWY2L-WRUlJrtyil_A.png)
+
+La probabilità associata alla variabile aleatoria si indica in questo modo: $P\{X = 1\} = P\{X = 0\} = 1/2$.
+
+### Esercizio 15
+
+Consideriamo l'esperimento lancio di due dadi, il sample space è $S = \{(d_1, d_2)|1 \le d_1 d_2 \le 6\}$ e definiamo le seguenti variabili aleatorie:
+- $X$ somma dei valori usciti: $X:S \rightarrow \mathbb{R}, X((d_1,d_2)) = d_1 + d_2$.
+- $Y$ valore massimo uscito: $Y:S \rightarrow \mathbb{R}, Y((d_1,d_2)) = max\{d_1, d_2\}$.
+
+$X$ assumerà i seguenti valori: {2,3,...,11,12} mentre $Y$ i valori {1,2,.}

@@ -18,16 +18,6 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "448fac2af67078dd",
-            "type": "leaf",
-            "state": {
-              "type": "diagram-edit",
-              "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 1.svg"
-              }
-            }
           }
         ]
       }
@@ -79,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -169,11 +160,12 @@
   },
   "active": "0866c25c7599b926",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 2.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 1.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Untitled Kanban.md",
-    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Performance Evaluation/Probability Theory/Images",
     "Magistrale/Large Scale Databases/Chapters/Ripasso Java.md",
     "Untitled.md",
@@ -195,7 +187,6 @@
     "Magistrale/Electronics And Communication/Communication/Images/Modello con inviluppo complesso.png",
     "Magistrale/Electronics And Communication/Communication/Images/FM Modulation.png",
     "Magistrale/Electronics And Communication/Communication/Images",
-    "Schermata 2023-09-27 alle 20.50.14.png",
     "README.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
