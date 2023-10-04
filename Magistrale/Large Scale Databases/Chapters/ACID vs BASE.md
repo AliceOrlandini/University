@@ -80,7 +80,7 @@ Disponibilità -> Repliche -> ma vanno aggiornate quindi serve un sistema che ga
 
 La consistenza deve essere fatta il più velocemente possibile. 
 Il 20% delle domande del test scritto è estratto da questa parte, non bisogna ricopiare il trafiletto ma argomentare (ricordarsi di scrivere che abbiamo un database distribuito e in che contesto siamo, perché dobbiamo occuparci di questa cosa):
-Tipi di eventual consistenza:
+Tipi di eventual consistenza (ovvero consistenza garantita solo in alcuni casi):
 - read-your-writes consistency
 - session consistency 
 - monotonic read consistency
@@ -89,4 +89,6 @@ Tipi di eventual consistenza:
 	Se Mike risponde a un post di Pietro allora ho una relazione causare tra le due azioni. Non è una causa temporale ma causale. La memorizzazione deve rispettare la causalità.
 	Attenzione! Non è un ordinamento temporale ma causale!
 	Lui vuole vedere la causalità, sennò da metà punti.
+	Se ci fossero stati più commenti allora quelli possono essere salvati come si vuole. Se invece c’è una risposta ad una risposta si deve rispettare la causalità.
 
+Queste eventual consistency possono anche essere combinate, del tipo che per quell’entità si vuole una write consistency mentre per l’altra una casual consistency. 

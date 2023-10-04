@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
+            "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
+            "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md"
+            "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md"
           }
         }
       },
@@ -144,8 +144,12 @@
   },
   "active": "fc4c5f811f272eef",
   "lastOpenFiles": [
-    "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
+    "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 2.svg",
+    "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 1.svg",
+    "Magistrale/Large Scale Databases/Chapters/Ripasso Java.md",
+    "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "TODO.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
@@ -185,8 +189,6 @@
     "Elettronica Digitale/Domande Orale.md",
     "@today.md",
     "Reti Sequenziali/SRAM.md",
-    "Grafo.canvas",
-    "2023-09-16.md",
-    "Appunti/Capitolo 2.md"
+    "Grafo.canvas"
   ]
 }
