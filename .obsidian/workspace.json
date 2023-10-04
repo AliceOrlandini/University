@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ca73d2b0a18fb5c6",
+        "id": "cba0378ed7ef5a10",
         "type": "tabs",
         "children": [
           {
-            "id": "0866c25c7599b926",
+            "id": "c07d066acd9faf4e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -158,12 +158,13 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "0866c25c7599b926",
+  "active": "c07d066acd9faf4e",
   "lastOpenFiles": [
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Images/CDF.png",
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 2.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 1.svg",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Untitled Kanban.md",
     "Magistrale/Performance Evaluation/Probability Theory/Images",
@@ -185,7 +186,6 @@
     "Magistrale/Performance Evaluation/Laboratory/Images",
     "TODO.md",
     "Magistrale/Electronics And Communication/Communication/Images/Modello con inviluppo complesso.png",
-    "Magistrale/Electronics And Communication/Communication/Images/FM Modulation.png",
     "Magistrale/Electronics And Communication/Communication/Images",
     "README.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",

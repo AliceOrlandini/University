@@ -424,7 +424,18 @@ Una variabile aleatoria $X$ (discreta o continua) è completamente caratterizzat
 Notare che $\omega$ è scritta in minuscolo ad indicare il fatto che essa è un valore.
 La CDF essendo una probabilità assumerà valori compresi tra 0 e 1, inoltre è *monotona non decrescente* (può solo salire o rimanere costante).
 Inoltre, $\lim_{\omega \rightarrow -\infty} F(\omega) = 0$ e $\lim_{\omega \rightarrow +\infty} F(\omega) = 1$ che vale per qualsiasi variabile aleatoria. 
-
 ### Esercizio 16
 
+Considerare una variabile aleatoria $X$ con la seguente CDF: 
+$F(\omega) = 1- e^{-w^2}$ per $\omega > 0$ e pari a zero per $\omega$ negativi. 
+
+![[CDF.png|center|600]]
+
+Calcolare P{X > 1}:
+per risolvere questo esercizio bisogna prima di tutto disegnare la funzione e assicurarsi che rispetti le proprietà di una CDF.
+Poi, notiamo che P{ X > 1 } = 1 - P{ X $\le$ 1 } = 1 - F(1) = 1 - (1 - $e^{-1}$) = 1/e.
+
+Calcolare P{ 1 < X $\le$ 2 }:
+si nota che: P{ X $\le$ 2 } = P{X $\le$ 1 } + P{1 < X $\le$ 2 } 
+da cui si ricava che: P{1 < X $\le$ 2 } = F(2) - F(1) = 1/e - 1/$e^4$
 ## Probability Mass Function
