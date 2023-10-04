@@ -20,14 +20,12 @@
             }
           },
           {
-            "id": "ac505bbb302663b8",
+            "id": "448fac2af67078dd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "diagram-edit",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
-                "mode": "source",
-                "source": false
+                "file": "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 1.svg"
               }
             }
           }
@@ -81,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -172,8 +169,12 @@
   },
   "active": "0866c25c7599b926",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 1.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+    "Untitled.canvas",
+    "Magistrale/Performance Evaluation/Probability Theory/Images/Untitled Kanban.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
+    "Magistrale/Performance Evaluation/Probability Theory/Images",
     "Magistrale/Large Scale Databases/Chapters/Ripasso Java.md",
     "Untitled.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
@@ -214,7 +215,6 @@
     "2023-09-16.md",
     "Elettronica Digitale/Cose da rivedere.md",
     "Grafo.canvas",
-    "Elettronica Digitale",
-    "Magistrale"
+    "Elettronica Digitale"
   ]
 }

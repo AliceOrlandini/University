@@ -345,11 +345,43 @@ Una moneta viene lanciata 5 volte in condizioni indipendenti. Trovare la probabi
 	Con l'indipendenza devo calcolare la probabilità dell'evento $F\cup L$ dove F = {3 lanci uguali all'inizio} ed L = {3 lanci uguali alla fine}. 
 	Quindi $FL$ = {5 risultati uguali} e posso trovare: 
 	$P(F\cup L) = P(F) + P(L) - P(FL) = 1/4 + 1/4 - 1/16 = 7/16$ 
-	Usando 
-1. Ci siano almeno 2 teste nei primi 3 lanci e 2 croci negli ultimi 3. 
-
+	Usando UPM avremmo ottenuto lo stesso risultato ma con un percorso più tortuoso. 
+3. Ci siano almeno 2 teste nei primi 3 lanci e 2 croci negli ultimi 3. 
+	In questo caso, è preferibile usare UPM perché possiamo scrivere tutti i possibili outcomes favorevoli che sono: HHxTT, HxHTT, xHHTT, HHTxT, HHTTx e, per ognuno di questi capiamo cosa può assumere x in modo da evitare i duplicati: 
+	1.  x può assumere T
+	2. x può assumere T
+	3. x può assumere T o H
+	4. x può assumere H
+	5. x può assumere H
+	Quindi avrò 6 outcomes favorevoli e 32 outcomes totali ($2^5$) da cui P = 6/32 = 3/16.
 
 Notare che se la moneta fosse stata truccata il metodo UPM sarebbe stato inutilizzabile e avremmo dovuto per forza usare l'indipendenza.
+
+### Esercizio 12
+
+Il signor Rossi ha un mazzo di $n > 1$ chiavi.
 ## Sistemi Paralleli
 
+> Un sistema è **parallelo** se è composto da $n$ sottosistemi e funziona se *almeno uno* di questi sottosistemi funziona. 
+
+Per visualizzare il modello possiamo pensare alla corrente che scorre tra due terminali e i vari sottosistemi come degli switch. La corrente scorrerà solo se almeno uno degli switch è chiuso.
+
+![Sistema Parallelo|center|400](https://cdnintech.com/media/chapter/41421/1512345123/media/image2.png)
+
+Quanto un problema viene posto come *"almeno uno"* ci deve scattare un trigger che ci suggerisce che forse è meglio usare il **complemento**, infatti: 
+P(corrente scorre) = 1 - P(corrente non scorre) = 1 - P(tutti gli switch aperti)
+e la probabilità che tutti gli switch siano aperti si calcola abbastanza facilmente. 
+
+### Esercizio 13
+
+Consideriamo il seguente sistema parallelo: 
+
+![[Sistemi paralleli 1.svg|center|700]]
+
+Ogni switch $i$ ha una probabilità di essere chiuso pari a $p_i$. 
+Trovare la probabilità che scorra corrente da A a B.
+
+Definisco l'evento $A_i$ come l'evento "switch i-esimo chiuso" e calcolo: $$P(scorre corrente) = 1 - P(tutti chiusi) =$$
+$$P()$$
 # Variabili Aleatorie 
+
