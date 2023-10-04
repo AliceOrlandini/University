@@ -61,3 +61,31 @@ Il problema principale è quello di trovare un set di chiavi uniche.
 È bene che il nome delle chiave (la maggior parte delle volte è una stringa) non cambi nel tempo, deve essere immutabile nel tempo.
 Inoltre, è bene che abbiano un significato e non siano semplici ID.
 Non fare l’errore di usare relazioni con questi tipi di database, se si ha la sensazione di usare database allora usare database relazionali. 
+Non dobbiamo usare due bucket ma nello stesso possiamo mettere tutte le informazioni. 
+Esempio:
+Chiave formata da: 
+customer: nome dell’entity
+1838010: entity id
+firstName: nome dell’attributo
+
+Così abbiamo una sola entità senza usare relazioni.
+Poi vedremo che con l’entity id si possono fare delle concatenazioni. 
+
+Se le analisi sono molto complicati e le query vengono complicate allora molto probabilmente abbiamo scelto il database sbagliato.
+
+A basso livello la stringa che rappresenta la chiave viene convertita in una tramite una funzione hash: è una funzione che prende in input una stringa e restituiscce un valore intero in formato esadecimale.
+
+Distribuzione delle richieste:
+le hash possono essere anche utilizzate per capire quale server deve rispondere alla richiesta. Ad esempio assegno le hash in modo che facendone il modulo 8 ottengo un numero da 0 a 7 che identifica il server che deve rispondere alla richiesta. 
+#Attenzione questo non significa che si ha una sola copia, ci possono essere le repliche ma il server che risponderà alla richiesta sarà sempre lo stesso. 
+
+Per quanto riguarda i value la maggior parte dei DB ammettono tutti i tipi di dati. 
+
+Quali operazioni si possono fare?
+- Prelevare dati per chiave
+- Impostare il value relativo ad una chiave
+- Eliminare valori per chiave
+Per fare operazioni più complesse bisogna lavorare col codice.
+
+
+Un index è una struttura in cui la key è una parola specifica e il value è la lista di chiavi il cui relativo value contiene quella parola.
