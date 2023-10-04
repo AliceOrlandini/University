@@ -54,10 +54,44 @@ Un evento è qualcosa che cambia lo stato del sistema, in questo sistema quali s
 4. Evento di fine simulazione perché se i pacchetti continuano ad arrivare e vogliamo terminare la simulazione abbiamo bisogno di un evento. Questo è stabilito da un parametro di configurazione che racchiude il tempo massimo di simulazione. 
 
 Tutti questi eventi hanno una funzione associata che costituiranno l’event handler (è il codice associato ad un evento).
+#Domanda Esistono eventi senza handler? 
 
+Vediamo cosa fanno gli handler:
 
+Poi dobbiamo calcolare la average delay le statistiche facendo $\frac{D}{k}$ 
+Possiamo misurare la varianza? Con questi numeri no, dovremmo memorizzare tutti i delay in un array e non solo la somma D.
 
+# Implementazione della event queue
 
+È importante capire come questa è fatta è importante per capire le performance del nostro sistema. 
+Viene implementata in due modi:
+1. Min-heap tree
+2. Calendar queue
+
+## Min-heap tree
+
+È un albero binario tale che:
+1. il parent node è sempre più grande o al massimo uguale ai figli. 
+2. Ogni livello è riempito da sinistra a destra. 
+
+Queste condizioni sono importanti perché il primo nodo è sempre il minimo: quando vogliamo prendere l’evento vogliamo quello con minimo firing time e sarà $O(1)$ perché basta estrarre il primo nodo. 
+Inoltre, la profondità sarà $log_2(\#nodes)$ e questa sarà la complessità di tutte le funzioni che lavorano sull’albero. 
+
+#Domanda Ma se estraggo il primo, poi non devo anche riorganizzare l’albero? Quindi la complessità è O(1) o O(log(n))?
+
+Può essere implementata tramite un array (no con i puntatori):
+- posizione del figlio: 2j + 1, 2j +2
+- posizione del padre floor((j-1)/2)
+
+Per estrarre il prossimo evento dobbiamo fare un’operazione chiamata *rehepification* la complessità finale sarà $O(1) + O(log(n)) = O(log(n))$ 
+
+Per inserire un nuovo elemento lo inseriamo nell’ultima posizione e poi rifare la *rehepification*, la complessità sarà $O(1) + O(log(n)) = O(log(n))$ 
+
+Per l’eliminazione di un evento bisogna controllare tutto l’albero, quindi la complessità è $O(n)$ e poi rifare la *rehepification*, quindi avrei $O(n) + O(log(n)) = O(n)$.
+
+#Domanda se avessi l’indice sarebbe $O(log(n))$?
+
+## Calendar queue
 
 
 

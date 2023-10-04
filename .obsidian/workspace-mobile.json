@@ -73,7 +73,7 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 1
   },
   "right": {
     "id": "e4eb7f2f4547aa51",
@@ -142,7 +142,7 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "fc4c5f811f272eef",
+  "active": "a7513c939216fb99",
   "lastOpenFiles": [
     "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
