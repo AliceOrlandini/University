@@ -422,3 +422,9 @@ Proviamo a calcolare alcune probabilità:
 
 Una variabile aleatoria $X$ (discreta o continua) è completamente caratterizzata dalla sua **Comulative Distribution Function (CDF)**, detta anche semplicemente *distribuzione*, definita come segue: $$F(\omega) = P\{X \le \omega\}$$
 Notare che $\omega$ è scritta in minuscolo ad indicare il fatto che essa è un valore.
+La CDF essendo una probabilità assumerà valori compresi tra 0 e 1, inoltre è *monotona non decrescente* (può solo salire o rimanere costante).
+Inoltre, $\lim_{\omega \rightarrow -\infty} F(\omega) = 0$ e $\lim_{\omega \rightarrow +\infty} F(\omega) = 1$ che vale per qualsiasi variabile aleatoria. 
+
+### Esercizio 16
+
+## Probability Mass Function
