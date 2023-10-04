@@ -302,4 +302,54 @@ Chiamiamo A = { avere un incidente } e B = { inclini agli incidenti }. Vogliamo 
 
 Questa formula descrive come *la fiducia* su un'ipotesi $F_j$ si modifica in base al fatto che un evento $E$ si è verificato, considerando che $E$ era influenzato da tali ipotesi. 
 
+### Esercizio 10
 
+Un laboratorio effettua dei test per una malattia rara. Se una persona ha la malattia allora il test lo rileva nel 99% dei casi, invece per l'1% il test da falsi positivi (dice che hai la malattia ma non ce l'hai).
+Il 5% della popolazione ha quella malattia. 
+Considerando che il test è risultato positivo, qual è la probabilità che si sia effettivamente malati? 
+	Definisco:
+	- P(D) = probabilità di essere malati = 0.005
+	- P(P) = probabilità di risultare positivi al test
+	- P(P|D) = probabilità di risultare positivi al test considerando che si ha la malattia = 0.99
+	- P(P|$D^\complement$) = probabilità di risultare positivi al test considerando che non si ha la malattia = 0.01
+	Una volta definiti i parametri posso calcolare:
+	P(P) = P(P|D) P(D) + P(P|$D^\complement$) (1-P(D)) = 0.332
+	Sembrerebbe un risultato sorprendente ma ha del tutto senso se poniamo attenzione al fatto che la probabilità di avere effettivamente la malattia è molto bassa, questo indipendentemente dal test.
+	Il test è comunque un buono strumento di misurazione perché da un risultato di 0.332 che è molto maggiore di 0.005. 
+	
+## Eventi Indipendenti
+
+> Due eventi $E$ ed $F$ sono indipendenti *se e solo se* $P(EF) = P(E) \cdot P(F)$
+
+In questo caso, il verificarsi dell'evento F non ha alcuna influenza sull'evento E, quindi i due sono **indipendenti**. 
+Scriviamo la definizione in termini di probabilità condizionata:
+$$P(E|F)= \frac{P(EF)}{P(F)} = \frac{P(E)\cdot P(F)}{P(F)} = P(E)$$
+Di seguito alcune proprietà:
+- Se l'evento E è indipendente dall'evento F, allora E sarà indipendente anche da $F^\complement$.
+- L'indipendenza è **simmetrica**: se E è indipendente da F allora anche F sarà indipendente da E.
+- Se E è indipendente sia da F che da G *non* è necessariamente vero che sia indipendente anche da FG.
+## Prove Ripetute
+
+L'esperimento delle prove ripetute è un tipico caso in cui si assume che gli esperimenti siano indipendenti l'uno dall'altro. "Condizioni indipendenti" in questo caso significa che il risultato dell'esperimento j-esimo non influenza i risultati degli esperimenti precedenti o successivi.
+
+### Esercizio 11
+
+Una moneta viene lanciata 5 volte in condizioni indipendenti. Trovare la probabilità che:
+1. I primi 3 lanci diano lo stesso risultato.
+	Consideriamo ogni lancio come un sottoesperimento: 
+	- lanciamo la prima volta, la probabilità di ottenere un outcome è p = 1.
+	- lanciamo la seconda volta, la probabilità di ottenere un outcome uguale al primo lancio è pari a p = 1/2.
+	- lanciamo la terza volta, la probabilità di ottenere un outcome uguale ai primi due è sempre p = 1/2.
+	Questo perché i tre eventi sono indipendenti. La probabilità finale sarà quindi P = 1 * 1/2 * 1/2 = 1/4. 
+2. O i primi 3 o gli ultimi 3 lanci diano lo stesso risultato (anche se si verificano entrambi gli eventi va bene).
+	Con l'indipendenza devo calcolare la probabilità dell'evento $F\cup L$ dove F = {3 lanci uguali all'inizio} ed L = {3 lanci uguali alla fine}. 
+	Quindi $FL$ = {5 risultati uguali} e posso trovare: 
+	$P(F\cup L) = P(F) + P(L) - P(FL) = 1/4 + 1/4 - 1/16 = 7/16$ 
+	Usando 
+1. Ci siano almeno 2 teste nei primi 3 lanci e 2 croci negli ultimi 3. 
+
+
+Notare che se la moneta fosse stata truccata il metodo UPM sarebbe stato inutilizzabile e avremmo dovuto per forza usare l'indipendenza.
+## Sistemi Paralleli
+
+# Variabili Aleatorie 
