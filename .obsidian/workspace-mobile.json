@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
                 "mode": "source",
                 "source": false
               }
@@ -73,7 +73,7 @@
         }
       }
     ],
-    "currentTab": 1
+    "currentTab": 0
   },
   "right": {
     "id": "e4eb7f2f4547aa51",
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md"
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md"
           }
         }
       },
@@ -142,10 +142,12 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "a7513c939216fb99",
+  "active": "47d227c15ee73dd2",
   "lastOpenFiles": [
-    "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
+    "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+    "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
     "Magistrale/Performance Evaluation/Probability Theory/Images/CDF.png",
     "Magistrale/Electronics And Communication/Electronics/Images/nmos.png",
     "Magistrale/Electronics And Communication/Electronics/Images/mosfet.png",
@@ -171,7 +173,6 @@
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images/Bayes.png",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "2023-09-30.md",
-    "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
     "README.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
@@ -189,7 +190,6 @@
     "Electronics",
     "Reti Sequenziali/Reti Sequenziali e Memorie.md",
     "Elettronica Digitale/Domande Orale.md",
-    "@today.md",
     "Grafo.canvas"
   ]
 }
