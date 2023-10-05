@@ -20,3 +20,25 @@ Poi moltiplicando di nuovo per un coseno lato ricevitore il segnale ritorna la c
 Ma porcodio ho dato la risposta giusta e mi ha detto di no, la dice uguale un altro e dice che va bene. 
 $x_{db} = 10\cdot log_{10}(x)$
 
+Infine, dopo il filtro devo fare il resampling di nuovo per riportarlo a 48 kHz. 
+
+Questa parte l’ha spiegata decisamente meglio Saguinetti, studiala dai suoi appunti. 
+
+Ascoltando la canzone, non c’è distorsione. 
+
+# Laboratorio 2
+
+Le frequenze del coseno del trasmettitore e del ricevitore non saranno mai le stesse perché è praticamente impossibile sincronizzarli completamente.
+Ci sarà una extra fase $\phi_R$  tale che il coseno del ricevitore sia: $2cos(2\pi f_c t + \phi_R)$ 
+
+Il segnale sarà $v(t) = s_{DSB}(t) 2cos(2\pi f_c t + \phi_R)$ = 
+$2cos\alpha cos\beta = cos(\alpha + \beta) + cos(\alpha - \beta)$
+$$= 2m(t)cos(2\pi f_c t)cos(2\pi f_ct + \phi_R) =$$
+$$= m(t)[cos(2\pi \Delta f t + \Delta \phi) + cos(2\pi(f_c+f_c)t + \Delta \phi)]= $$
+Il secondo termine puo essere eliminato ma il primo può dare problema. 
+
+Se $\Delta f = 0$ e $\Delta \phi \not = 0$ allora $m(t) = m(t)cos(\Delta \phi)$
+Se $\Delta f \not= 0$ e $\Delta \phi = 0$ allora $m(t) = m(t)cos(2\pi \Delta ft)$
+
+Quando usiamo sistemi wireless dobbiamo tenere in considerazione questa questione. 
+Non vedremo come risolverlo. 
