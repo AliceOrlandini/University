@@ -8,7 +8,7 @@ Il campionamento la fa un’entità sola.
 
 Origini storiche.
 
-![Servizi di telecomunicazione in base alla banda|center|500](https://digitalregulation.org/wp-content/uploads/word-image-141.png)
+![Servizi di telecomunicazione in base alla banda|center|700](https://digitalregulation.org/wp-content/uploads/word-image-141.png)
 
 Ci interessano 3 parti: 
 1. Analog processing of the signal 

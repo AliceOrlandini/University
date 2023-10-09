@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "cba0378ed7ef5a10",
+        "id": "4aaa465a140bea28",
         "type": "tabs",
         "children": [
           {
-            "id": "c07d066acd9faf4e",
+            "id": "d2b8a4eb2b0de21e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SpuntiTesi.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SpuntiTesi.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SpuntiTesi.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "SpuntiTesi.md"
-              }
+              "state": {}
             }
           },
           {
@@ -157,12 +149,15 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "d2b8a4eb2b0de21e",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+    "SpuntiTesi.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
-    "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "TODO.md",
     "().md",
@@ -177,9 +172,7 @@
     "Magistrale/Performance Evaluation/Probability Theory/Images/Untitled Kanban.md",
     "Magistrale/Performance Evaluation/Probability Theory/Images",
     "Magistrale/Large Scale Databases/Chapters/Ripasso Java.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images/Bayes 2.png",
@@ -204,7 +197,6 @@
     "Appunti/Capitolo 2.md",
     "Appunti/Capitolo 1.md",
     "2023-09-16.md",
-    "Elettronica Digitale/Cose da rivedere.md",
     "Grafo.canvas",
     "Elettronica Digitale"
   ]
