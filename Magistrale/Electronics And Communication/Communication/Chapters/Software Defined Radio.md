@@ -36,4 +36,7 @@ Esiste ad esempio una classe che rappresenta il RTL-SDR e si installa andando ne
 
 La classe si chiama *radio = comm.SDRRTLSReciver*
 uno degli attributi della classe è CenterFrequency, un altro è la Band Width del segnale, per impostarlo sfrutto il SampleRate e il teorema di Nyquist. 
-SDR manda l’inviluppo complesso al computer, per prendere l’FM signal bisogna campionarlo almeno alla frequenza di campionamento minima, la fm manda il segale a 50kHz signal, qual è la frequenza minima? 
+SDR manda l’inviluppo complesso al computer, per prendere l’FM signal bisogna campionarlo almeno alla frequenza di campionamento minima, la fm manda il segale a 50kHz signal, qual è la frequenza minima? Nessuno risponde perché nessuno ha capito la domanda. Bisogna considerare la regola di Carson:
+$B_{FM} \simeq 2(m_f + 1)B$
+= 6 2 50 = 600
+
