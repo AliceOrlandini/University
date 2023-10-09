@@ -464,3 +464,31 @@ Questa operazione presuppone che la CDF sia differenziabile, per i nostri scopi 
 ## Jointly distributed random variables
 
 Spesso siamo interessati all'interazione tra due o più variabili aleatorie. Per esempio se consideriamo l'esperimento "lancio di una freccia su un bersaglio" e applichiamo un piano cartesiano in corrispondenza del centro del bersaglio, non è sufficiente conoscere la CDF di $X$ o la CDF di $Y$ ma dovremo studiarle congiuntamente l'una all'altra. 
+> Date due variabili aleatorie (*discrete* o *continue*), la loro **Joint Comulative Distribution Function** (JCDF) è definita come: $F(x,y) = P\{X \le z, Y \le y\}$
+
+Dove la virgola sta per *and* logico, infatti si sta considerando l'intersezione degli eventi $X \le x$ e $Y \le y$.
+
+A partire dalla JCDF si possono calcolare le rispettive CDFs, basta osservare che: $$F_{X}(x)= P\{X \le x\} = P\{X \le x, Y \le +\infty\} = F(x,+\infty)$$
+È importante ricordare che non vale il contrario, infatti, in generale, non si possono ottenere informazioni su una JCDF a partire dalle singole distribuzioni. 
+
+> Date due variabili aleatorie *discrete*, $X$ e $Y$ si può definire la **Joint Probability Mass Function** (JPMF) come $p(x,y) = P\{X = x, Y = y\}$.
+
+Anche in questo caso, possiamo ottenere le PMFs a partire dalla JPMF: $$p(x) = P\{X = x\} = P\{\bigcup_{i} (X = x, Y = y_{i})\}$$
+Questi eventi sono *mutuamente disgiunti* quindi dall'unione posso passare alla somma di probabilità:
+$$= \sum_{i} P(X = x, Y = y_{i)}= \sum\limits_{i} p(x, y_i)$$
+Dalla JCDF si può ottenere la JPMF nel seguente modo: $$F(x,y) = P\{X \le x, Y \le y\} = \sum\limits_{x_{i}\le x} \sum\limits_{y_{j} \le y} p(x_{i}, y_{j})$$
+Le probabilità $P\{X = x\}$ e $P\{Y = y\}$ vengono anche chiamate *probabilità marginali*.
+
+> Date due variabili aleatorie *continue*, per ogni set $C \subseteq \mathbb{R}^{2}$ di numeri reali $(x,y)$ si può definire la **Joint Probability Density Function** nel seguente modo: $$P\{(X,Y) \in C\} = \int_{(x,y) \in C} \int f(x,y) dx dy$$
+
+Inoltre, quando $C$ può essere separato in due set di numeri reali $C = \{(x,y)|x \in A, y \in B\}$ allora possiamo riscrivere il precedente integrale nel seguente modo: $$P\{(X,Y) \in C\} = P\{X \in A, Y \in B\} = \int_{A} \int_{B} f(x,y) dy dx$$
+Non spaventarsi per la presenza degli integrali, la maggior parte dei conti che bisognerà fare saranno con esponenziali o equazioni semplici, inoltre ricordarsi che gli integrali possono essere risolti in qualsiasi ordine quindi è fondamentale scegliere quello che semplifica di più i calcoli. 
+
+Dalla definizione di JCDF, possiamo ottenere: $$F(a,b) = P\{X \le a, Y \le b\} = $$
+$$P\{X \in (-\infty, a], Y \in (-\infty, b]\} = $$
+$$= \int_{-\infty}^{a} \int_{-\infty}^{b} f(x,y) dy dx$$
+abbiamo quindi dimostrato che si può ottenere la JCDF a partire dalla JPDF tramite un'operazione di integrazione.
+Possiamo ottenere la relazione inversa derivando: $$f(a,b) = \frac{\partial ^{2}}{\partial a \partial b} F(a,b)$$
+la JCDF per noi sarà sempre differenziabile. 
+
+Se esiste la JPDF possiamo anche ottenere le singole PDFs 
