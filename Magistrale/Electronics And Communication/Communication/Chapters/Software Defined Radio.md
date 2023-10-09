@@ -20,3 +20,7 @@ Un sistema SDR si compone dei seguenti blocchi:
 ![SDR diagramma a blocchi](https://www.researchgate.net/profile/Stephen-Ugwuanyi/publication/328164022/figure/fig1/AS:701214731796481@1544194028671/Simple-SDR-Architecture.ppm)
 
 RF part of the reciver,
+
+Da design si ha che $2f_{IF} + B \le f_s$ con $f_s$ la sampling frequency. 
+28.8MHz è la sampling frequency.
+$f_{IF} + B \le 28’800 Hz$
