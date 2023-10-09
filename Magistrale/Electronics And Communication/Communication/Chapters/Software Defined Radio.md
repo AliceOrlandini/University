@@ -23,4 +23,17 @@ RF part of the reciver,
 
 Da design si ha che $2f_{IF} + B \le f_s$ con $f_s$ la sampling frequency. 
 28.8MHz è la sampling frequency.
-$f_{IF} + B \le 28’800 Hz$
+$2(f_{IF} + B) \le 28.8 MHz$
+$f_{IF} + B \le 14.4 MHz$
+Il segnale starà tra -14.4 e +14.4 MHz. 
+
+Mi sa che questa lezione va riascoltata, non smetterò mai di dire che l’inglese di Moretti rende la lezione particolarmente ostica. 
+
+# Programmare un RTL-SDR con MATLAB
+
+MATLAB è un linguaggio di programmazione orientato agli oggetti, permette infatti di creare classi per strutture dati complesse con un set di operazioni che si possono effettuare su tali strutture dati. 
+Esiste ad esempio una classe che rappresenta il RTL-SDR e si installa andando nella sezione *add-ons* e, per alcuni PC (Windows più che altro), per usarla bisogna installare i driver. 
+
+La classe si chiama *radio = comm.SDRRTLSReciver*
+uno degli attributi della classe è CenterFrequency, un altro è la Band Width del segnale, per impostarlo sfrutto il SampleRate e il teorema di Nyquist. 
+SDR manda l’inviluppo complesso al computer, per prendere l’FM signal bisogna campionarlo almeno alla frequenza di campionamento minima, la fm manda il segale a 50kHz signal, qual è la frequenza minima? 
