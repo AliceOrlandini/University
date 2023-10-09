@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "file": "SpuntiTesi.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "file": "SpuntiTesi.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
+                "file": "SpuntiTesi.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md"
+                "file": "SpuntiTesi.md"
               }
             }
           },
@@ -158,8 +157,9 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "c07d066acd9faf4e",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "SpuntiTesi.md",
@@ -170,7 +170,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images/nmos.png",
     "Magistrale/Electronics And Communication/Electronics/Images/nmos R.png",
     "Magistrale/Electronics And Communication/Electronics/Images/mosfet.png",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Probability Theory/Images/CDF.png",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 2.svg",
     "Magistrale/Performance Evaluation/Probability Theory/Images/Sistemi paralleli 1.svg",

@@ -121,6 +121,8 @@ In summary, LiDAR technology works by emitting laser pulses, measuring the time 
 # Altri siti
 
 [[https://www.synopsys.com/glossary/what-is-lidar.html|What is LiDAR]]
+[[https://www.blickfeld.com/blog/the-beginnings-of-lidar/|LiDAR Story]]
+
 
 # Brain Storming
 
