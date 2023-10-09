@@ -491,4 +491,8 @@ abbiamo quindi dimostrato che si può ottenere la JCDF a partire dalla JPDF tram
 Possiamo ottenere la relazione inversa derivando: $$f(a,b) = \frac{\partial ^{2}}{\partial a \partial b} F(a,b)$$
 la JCDF per noi sarà sempre differenziabile. 
 
-Se esiste la JPDF possiamo anche ottenere le singole PDFs 
+Se esiste la JPDF possiamo anche ottenere le singole PDFs di $X$ e di $Y$ nel seguente modo: $$P\{X \in A\} = P\{X \in A, Y \in (-\infty, + \infty]\} = $$
+$$= \int_{A} \int_{-\infty}^{+\infty} f(x,y) dy dx$$
+Sapendo che $P\{X \in A\} = \int_{A} f_{X}(x) dx$ allora: $$f_{X}(x) = \int_{-\infty}^{+\infty} f(x,y) dy$$
+### TODO schema di come passare da una all'altra
+
