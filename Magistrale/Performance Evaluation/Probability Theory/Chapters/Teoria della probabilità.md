@@ -439,3 +439,28 @@ Calcolare P{ 1 < X $\le$ 2 }:
 si nota che: P{ X $\le$ 2 } = P{X $\le$ 1 } + P{1 < X $\le$ 2 } 
 da cui si ricava che: P{1 < X $\le$ 2 } = F(2) - F(1) = 1/e - 1/$e^4$
 ## Probability Mass Function
+
+> Per variabili aleatorie *discrete*, si può definire la **Probability Mass Function** (PMF) nel seguente modo: $p(a) = P\{X = a\}$.
+
+È sempre valida la *condizione di normalizzazione* che sostiene che $\sum_{-\infty}^{+\infty} p(a) = 1$
+
+Dalla PMF si può passare alla CDF nel seguente modo: $$\sum_{x\le a} p(x)$$
+Ma si può fare anche il contrario, dalla CDF si ricava la PMF nel seguente modo: $$p(a) = F(a)-F(a^-)$$
+## Probability Density Function
+
+Per variabili aleatorie continua non ha alcun senso definire la probability mass function perché è impossibile che una variabile di questo tipo assuma *esattamente* un valore (con infinita precisione) in uno spazio continuo.
+
+> Per variabili aleatorie *continue*, si può definire la **Probability Density Function** (PDF) $f(x)$ che è una funzione *non negativa* con la seguente proprietà: $f(x)$ è una PDF se, dato un set $B$ di numeri reali, allora $P\{X \in B\} = \int_{B}f(x) dx$.
+
+Anche per questa funzione è valida la condizione di *normalizzazione*: $$P\{X \in (-\infty, +\infty)\} = \int_{-\infty}^{+\infty} f(x) dx = 1$$
+Se $B$ è un intervallo $[a,b]$ allora si ottiene: $$P\{a \le X \le b\} = \int_{a}^{b} f(x) dx = F(b) - F(a)$$
+Questa funzione dal punto di vista fisico misura la probabilità che la variabile aleatoria $X$ assuma un valore *intorno* ad $[a,b]$. Ma non possiamo sapere la probabilità che $X$ sia esattamente $a$ o esattamente $b$ perché ci troviamo nel dominio continuo. Facciamo una riprova: $$P\{X = a\} = P\{a \le X \le a\} = \int_{a}^{a} f(x) dx = F(a) - F(a) = 0$$
+Come abbiamo visto, integrando la PDF si ottiene la CDF nel seguente modo: $$F(a) = P\{X \le a\} = P\{-\infty \le X \le a\}= \int_{-\infty}^{a}f(x) dx$$
+La proprietà impostante è che si può ottenere anche PDF a partire dalla CDF semplicemente facendo un'operazione di derivazione: $$f(a)= \frac{\partial}{\partial a} F(a)$$
+Questa operazione presuppone che la CDF sia differenziabile, per i nostri scopi lo sarà sempre. 
+
+### Esercizi
+
+## Jointly distributed random variables
+
+Spesso siamo interessati all'interazione tra due o più variabili aleatorie. Per esempio se consideriamo l'esperimento "lancio di una freccia su un bersaglio" e applichiamo un piano cartesiano in corrispondenza del centro del bersaglio, non è sufficiente conoscere la CDF di $X$ o la CDF di $Y$ ma dovremo studiarle congiuntamente l'una all'altra. 
