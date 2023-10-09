@@ -111,7 +111,7 @@ In summary, LiDAR technology works by emitting laser pulses, measuring the time 
 ## Medium
 
 [[https://medium.com/predict/the-lidar-revolution-52e888a0ce41|The LiDAR Revolution]]
-[[https://medium.com/@KentaItakura/3d-scanning-with-iphone-lidar-using-dot3d-65445674c280|3D scanning with iPhone LiDAR using Dot3D]]
+[3D scanning with iPhone LiDAR using Dot3D](https://medium.com/@KentaItakura/3d-scanning-with-iphone-lidar-using-dot3d-65445674c280)
 [[https://medium.com/@kidargueta/creating-a-point-cloud-lidar-data-dataset-for-3d-deep-learning-61684b1fc043|Creating a Point Cloud Dataset for 3D Deep Learning]]
 [[https://medium.com/@shashankag14/lidar-camera-fusion-a-short-guide-34115a3055da|LiDAR-Camera Fusion: A Beginner’s Guide]]
 [[https://medium.com/@OttoYu/technical-discussions-about-point-cloud-data-63ef3a285982|Technical discussions about Point Cloud Data]]
@@ -120,10 +120,8 @@ In summary, LiDAR technology works by emitting laser pulses, measuring the time 
 
 # Altri siti
 
-[[https://www.synopsys.com/glossary/what-is-lidar.html|What is LiDAR]]
-[[https://www.blickfeld.com/blog/the-beginnings-of-lidar/|LiDAR Story]]
-
-
+[What is LiDAR](https://www.synopsys.com/glossary/what-is-lidar.html)
+[LiDAR Story](https://www.blickfeld.com/blog/the-beginnings-of-lidar/)
 # Brain Storming
 
 - Spiegare il funzionamento del LiDAR usando anche i calcoli di Sanguinetti. 
