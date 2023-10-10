@@ -4,31 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "4aaa465a140bea28",
+        "id": "eee95e66dfdfe43f",
         "type": "tabs",
         "children": [
           {
-            "id": "d2b8a4eb2b0de21e",
+            "id": "d28f0b527fbae90d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f6df0f8efce2eaba",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -97,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md"
-              }
+              "state": {}
             }
           },
           {
@@ -169,13 +149,13 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "d2b8a4eb2b0de21e",
+  "active": "d28f0b527fbae90d",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Electronics/Images/IC Design Styles and Flows.png",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",

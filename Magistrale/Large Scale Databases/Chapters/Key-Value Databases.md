@@ -89,3 +89,31 @@ Per fare operazioni più complesse bisogna lavorare col codice.
 
 
 Un index è una struttura in cui la key è una parola specifica e il value è la lista di chiavi il cui relativo value contiene quella parola.
+
+Continuiamo la trattazione dei database key-value. 
+Oggi studieremo ulteriori dettagli riguardanti il mantenimento di server distribuiti quindi lavorando con partizioni e repliche utilizzando strutture hash.
+
+Un database key value “its very speed” cit.Ducange. 
+La funzione hash possono essere usate per distribuire il carico sui server. 
+
+Se scegliamo chiavi lunghe allora ci sarà più occupazione di memoria.
+Se invece scegliamo chiavi corte ci sarà più probabilità di collisione usando le funzioni hash.
+Per decidere bisogna considerare i requisiti e la documentazione ufficiale del db che stiamo considerando.
+
+Per i valori invece abbiamo oggetti quindi un insieme di bytes associati ad una singola chiave.
+
+Il namespace è una collezione di key-value che non hanno key duplicate. In un database si possono usare più namespace quindi avere più attributi ma con significato differente perché appartenenti a due namespace diversi. (bukets)
+Questi sono molto utili quando si ha un team diviso in gruppi che lavorano in diverse parti del database, ogni gruppo avrà il proprio namespace in modo che non ci siano contrasti sulle chiavi. 
+
+# Data Partitioning
+
+Dato un dataset, lo dividiamo in parti (chunks) e memorizziamo questi dati in vari server. 
+Se ad esempio abbiamo 2 server dividiamo i dati la cui chiave è compresa tra le lettere A-L nel primo server e M-Z nel secondo server. Il problema di questa divisione è che non sappiamo se sarà equilibrata, non vogliamo che un server sia sovraccarico mentre l’altro non abbia molto da fare. 
+Quando usiamo invece le funzioni hash la distribuzione è randomica perché non sappiamo quale funzione avremo in output. 
+Ogni volta che aggiungiamo o rimuoviamo un server la riallocazione dei dati deve essere *facile*.
+
+> La **partition key** è una chiave che identifica una specifica partizione nel quale troveremo il valore salvato. 
+
+Un alto tema importante è la flessibilità dei database che sono schema-less. 
+
+Generalmente i server dei cluster devono essere indipendenti tra loro, devono avere la possibilità di scambiare informazioni ma solo per una coordinazione minima. Non dobbiamo assolutamente sfruttare questo collegamento per fare query che coinvolgono dati 
