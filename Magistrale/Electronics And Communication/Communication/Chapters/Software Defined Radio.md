@@ -51,7 +51,9 @@ $$r(t) = Re\{\tilde{r}(t) e^{j2\pi f_{IF}t}\}$$
 Sì, sembra di essere al punto di partenza perché è cambiato "solo" $f_{IF}$ ma il grande vantaggio è che a questo punto posso usare una frequenza di campionamento fissa perché questa frequenza è scelta in modo tale che $2(f_{IF} + B) \le f_s$ con $f_{s} = 28.8 MHz$ la frequenza di campionamento. 
 Di conseguenza, $(f_{IF}+ B) \le 14.4 MHz$ e posso trattare il segnale come un segnale in banda base con una banda che oscilla tra -14.4 e +14.4 MHz (se la relazione scritta sopra è soddisfatta). 
 
-Sulle slide c'è il modello completo.
+Ecco il modello completo:
+
+![[RF to baseband.png|center|700]]
 
 Proviamo a dare alcuni numeri, nel *super-heterodyne receiver* si ha un ricevitore con le seguenti caratteristiche:
 1. i segnali ricevuti vengono modulati ad $f_{IF}= 3.57MHz$.
@@ -61,7 +63,8 @@ Proviamo a dare alcuni numeri, nel *super-heterodyne receiver* si ha un ricevito
 
 Due parole sul segnale digitale, il segnale verrà campionato ad una frequenza $f_{s}= \frac{1}{T_{s}}$ quindi avrà la seguente forma:
 $$r[n] = Re\{\tilde{r}[n]cos(2\pi f_{IF}nT_{s})\} =$$
-$$ = Re\{\tilde{r}[n]cos(2\pi f_{IF}n)\}$$
+$$ = Re\{\tilde{r}[n]cos(2\pi \frac{f_{IF}}{f_{s}}n)\}$$
+In cui $\frac{f_{IF}}{f_{s}} = \frac{3.57}{28.8} = 0.123 MHz$.
 
 Momento sfogo: ho dovuto riascoltare tutta la lezione mettendo in pausa e tornando indietro, non smetterò mai di dire che l’inglese di Moretti rende la lezione particolarmente ostica, menomale che almeno registra. 
 # Programmare un RTL-SDR con MATLAB
@@ -69,9 +72,9 @@ Momento sfogo: ho dovuto riascoltare tutta la lezione mettendo in pausa e tornan
 MATLAB è un linguaggio di programmazione orientato agli oggetti, permette infatti di creare classi per strutture dati complesse con un set di operazioni che si possono effettuare su tali strutture dati. 
 Esiste ad esempio una classe che rappresenta il RTL-SDR e si installa andando nella sezione *add-ons* e, per alcuni PC (Windows più che altro), per usarla bisogna installare i driver. 
 
-La classe si chiama *radio = comm.SDRRTLSReciver*
-uno degli attributi della classe è CenterFrequency, un altro è la Band Width del segnale, per impostarlo sfrutto il SampleRate e il teorema di Nyquist. 
-SDR manda l’inviluppo complesso al computer, per prendere l’FM signal bisogna campionarlo almeno alla frequenza di campionamento minima, la fm manda il segale a 50kHz signal, qual è la frequenza minima? Nessuno risponde perché nessuno ha capito la domanda. Bisogna considerare la regola di Carson:
-$B_{FM} \simeq 2(m_f + 1)B$
-= 6 2 50 = 600
+La classe si instanzia in questo modo *radio = comm.SDRRTLSReciver*.
+Uno degli attributi della classe è *CenterFrequency*
+Per impostare la BandWidth del segnale non abbiamo un attributo, per impostarlo si sfrutta il  il *SampleRate* e il teorema di Nyquist. 
 
+L'SDR manda l’inviluppo complesso al computer, per prendere il segnale l’FM bisogna campionarlo almeno alla frequenza di campionamento minima, la FM manda il segale a 50kHz, qual è la frequenza minima? Nessuno risponde perché nessuno ha capito la domanda. Bisogna considerare la regola di Carson:
+$B_{FM} \simeq 2(m_{f} + 1)B= 6 \cdot 2 \cdot 50 = 600$

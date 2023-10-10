@@ -18,6 +18,8 @@ Nel caso Full Custom caso si ha la massima libertà di design riguarda alla dime
 Nel Semicustom invece c’è una riduzione nella libertà di design perché ci sono componenti pre-realizzati ma questo facilita notevolmente il processo di realizzazione sia in termini di tempo che di costi. 
 # Metodi di design e flows
 
+![[IC Design Styles and Flows.png|center|700]]
+
 Vediamo i livelli di design per passare da un livello astratto a un livello concreto:
 1. **Specifiche**: si definisce che cosa deve fare il circuito.
 2. **Architettura**
