@@ -50,7 +50,7 @@ $$s(t) = Re\{\tilde{s}(t)e^{j2\pi f_c t}\}$$
 Sostituiamo la definizione di inviluppo complesso nella definizione di segnale passa banda ricordando che $e^{j2\pi f_c t} = cos(2\pi f_c t) + j sin(2\pi f_c t)$:
 $$s(t) = Re\{\tilde{s}(t)e^{j2\pi f_c t}\} =$$
 $$= Re\{(s_I(t) + js_Q(t))(cos(2\pi f_c t)+jsin(2\pi f_c t))\} =$$
-$$= s_I(t)cos(2\pi f_c t) - s_I(t)sin(2\pi f_c t)$$
+$$= s_I(t)cos(2\pi f_c t) - s_Q(t)sin(2\pi f_c t)$$
 Da questi calcoli abbiamo ottenuto esattamente la modulazione QAM e notiamo immediatamente il motivo per cui nella modulazione QAM mettevamo un meno davanti al seno. 
 
 Per ogni segnale in banda passante esiste l’inviluppo complesso e quindi posso scriverlo in termini di $m_1(t)$ e $m_2(t)$.
