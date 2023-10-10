@@ -6,7 +6,7 @@ Oggi vedremo come si possono integrare su un’unico substrato un elevato numero
 
 Il primo circuito integrato risale al 1959 : 
 
-![US Patent](https://www.nutsvolts.com/uploads/wygwam/NV_0222_Steber_Figure10.jpg)
+![US Patent|center|500](https://www.nutsvolts.com/uploads/wygwam/NV_0222_Steber_Figure10.jpg)
 
 Nel corso degli anni si è sempre più ridotta la dimensione di questi componenti, adesso siamo ai 5nm.
 
@@ -25,8 +25,27 @@ Ora andiamo nel passato per vedere l’evoluzione dell’architettura dei comput
 	- Anche qui i colori mettono in evidenza i materiali differenti e la diversa densità dei materiali
 - 1995 - 1997: Pentium II Processor
 	- 233 - 266 - 300 MHz
-	- 7.5 Mega Transistor: più che raddoppiata 
+	- 7.5 Mega Transistor: più che raddoppiata rispetto al precedento
 	- 0.35 micron
 	- 16 KByte L1I, 16 KByte L1D, 512 KByte off-die L2: aumentata molto la memoria on chip.
+- 1999: Pentium III Processor (Katmai)
+	- 450 - 500 - 533 - 600 MHz:ci stiamo sempre più avvicinando al GHz
+	- 9.5 Mega Transistor
+	- 0.25 micron
+	- 16 KByte L1I, 16 KByte L1D, 512 KByte off-chip L2
+- 2002: Intel Itanium 2 Processor
+	- 1 GHz
+	- 221 Mega Transistor
+	- 0.18 micron
+	- 3 livelli di cache
+	- Architettura EPIC
 
+Ognuno di questi processori ha una **defect density**, cioé la densità di transistor difettosi per unità di area. Quindi è per questo motivo che non hanno raddoppiato l’area per porre più transistor ma le dimensioni sono rimaste ridotte. 
+
+> La **legge di Moore** sostiene che il numero di transistor per circuito integrato *raddoppia* ogni anno.
+
+Il Denner’s Scaling è un paper che amplia la legge di Moore andando a studiare l’evoluzione delle dimensioni dei mosfet nei circuiti integrati: 
+![Denner’s Scaling|center|500](https://www.researchgate.net/profile/Ojas-Parekh/publication/301879820/figure/fig24/AS:359784168607749@1462790638818/The-end-of-Dennard-Scaling-44.png)
+
+Nel 2005 si provò ad aumentare per la prima volta il numero di Core e lo si fece per mantenere costante il consumo di energia. Prima infatti se il consumo di energia aumentava, di conseguenza cresceva anche la temperatura che diminuisce le performance del transistor. 
 
