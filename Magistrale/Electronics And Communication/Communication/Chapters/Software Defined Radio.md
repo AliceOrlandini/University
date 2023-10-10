@@ -19,12 +19,12 @@ Quindi, i blocchi che compongono il SDR sono i seguenti:
 
 ![SDR diagramma a blocchi](https://www.researchgate.net/profile/Stephen-Ugwuanyi/publication/328164022/figure/fig1/AS:701214731796481@1544194028671/Simple-SDR-Architecture.ppm)
 
-# Heterodyne architecture 
+# Heterodyne receiver architecture 
 
 Quando studiamo il ricevitore analogico, lo immaginiamo come questo (*Direct Conversion Receiver*) (parte a destra con il LPF):
 ![[Modello con inviluppo complesso.png]]
 
-In realtà, l'architettura reale è un po' diversa da questa che invece viene utilizzata solo a scopi scolastici per comprendere la comunicazione analogica. Il vero ricevitore sarà fatto in questo modo: 
+In realtà, l'architettura reale è un po' diversa da questa che invece viene utilizzata solo a scopi scolastici per comprendere la comunicazione analogica. Il vero ricevitore sarà fatto in questo modo (disegno incompleto, sulle slide c'è completo): 
 
 ![receiver|center|600](https://rahsoft.com/wp-content/uploads/2021/08/Screenshot-2021-08-17-at-16.45.09-600x318.png)
 
@@ -43,16 +43,27 @@ $$= \frac{1}{2}m(t)cos(2\pi(2f_{c}-f_{IF})t)+\frac{1}{2}m(t)cos(2\pi f_{IF}t)$$
 Il primo termine è un componente ad alta frequenza perché $f_c$ è molto più grande di $f_{IF}$, il secondo termine invece notiamo che contiene il segnale trasmesso $m(t)$ ed è modulato alla frequenza $f_{IF}$. Quindi, il primo termine lo eliminiamo con un filtro centrato in $f_{IF}$ e ci sembrerebbe di aver finito. 
 In realtà c'è un problema: sappiamo che $cos(\alpha - \beta) = cos(\beta - \alpha)$ quindi potrebbe accadere che alcuni componenti frequenziali simmetrici ad $f_{IF}$ vadano a interferire col secondo termine. (qui Moretti a parole l'ha spiegato malissimo ma dal disegno su OneNote si capisce che intende dire che se ho un segnale nell'asse negativo, anche lui verrà demodulato e può succedere che si sovrapponga al segnale in $f_{IF}$, almeno questo ho capito io). Questo segnale si chiama *segnale immagine*, un segnale simmetrico ad $f_{IF}$ che si pone esattamente in sua corrispondenza. 
 Per risolvere questo problema, *prima* della modulazione si rimuovono tutte le potenziali immagini con un filtro chiamato per l'appunto **image filter**. 
-Dopo il filtro si esegue la **modulazione** vista precedentemente e poi si pone un altro filtro in corrispondenza di $f_{IF}$ per estrarre il segnale. 
+Una domanda potrebbe essere: "eh ma non bastava il primo filtro?" no. perché il primo è un filtro molto più largo, questo invece è molto più selettivo. 
+Dopo il filtro si esegue la **modulazione** vista precedentemente e poi si pone un altro **filtro** in corrispondenza di $f_{IF}$ per estrarre il segnale, quest'ultimo è l'unico filtro "fisso" ed è il più selettivo di tutti. 
+Infine, si **amplifica** il segnale e lo si **demodula**. 
+Il segnale che otteniamo in uscita sarà quindi: 
+$$r(t) = Re\{\tilde{r}(t) e^{j2\pi f_{IF}t}\}$$
+Sì, sembra di essere al punto di partenza perché è cambiato "solo" $f_{IF}$ ma il grande vantaggio è che a questo punto posso usare una frequenza di campionamento fissa perché questa frequenza è scelta in modo tale che $2(f_{IF} + B) \le f_s$ con $f_{s} = 28.8 MHz$ la frequenza di campionamento. 
+Di conseguenza, $(f_{IF}+ B) \le 14.4 MHz$ e posso trattare il segnale come un segnale in banda base con una banda che oscilla tra -14.4 e +14.4 MHz (se la relazione scritta sopra è soddisfatta). 
 
-Da design si ha che $2f_{IF} + B \le f_s$ con $f_s$ la sampling frequency. 
-28.8MHz è la sampling frequency.
-$2(f_{IF} + B) \le 28.8 MHz$
-$f_{IF} + B \le 14.4 MHz$
-Il segnale starà tra -14.4 e +14.4 MHz. 
+Sulle slide c'è il modello completo.
 
-Mi sa che questa lezione va riascoltata, non smetterò mai di dire che l’inglese di Moretti rende la lezione particolarmente ostica. 
+Proviamo a dare alcuni numeri, nel *super-heterodyne receiver* si ha un ricevitore con le seguenti caratteristiche:
+1. i segnali ricevuti vengono modulati ad $f_{IF}= 3.57MHz$.
+2. il segnale in $f_{IF}$ viene campionato con una $f_{s}= 28.8$ MS/s = $1.4MHz$ (mega-samples per second) in un convertitore ADC ad 8 bit. 
+3. il segnale digitale viene inviato con un certo rate, il massimo è circa $2.8$ MS/s.
+4. infine, i campioni vengono passati al computer tramite un collegamento USB.
 
+Due parole sul segnale digitale, il segnale verrà campionato ad una frequenza $f_{s}= \frac{1}{T_{s}}$ quindi avrà la seguente forma:
+$$r[n] = Re\{\tilde{r}[n]cos(2\pi f_{IF}nT_{s})\} =$$
+$$ = Re\{\tilde{r}[n]cos(2\pi f_{IF}n)\}$$
+
+Momento sfogo: ho dovuto riascoltare tutta la lezione mettendo in pausa e tornando indietro, non smetterò mai di dire che l’inglese di Moretti rende la lezione particolarmente ostica, menomale che almeno registra. 
 # Programmare un RTL-SDR con MATLAB
 
 MATLAB è un linguaggio di programmazione orientato agli oggetti, permette infatti di creare classi per strutture dati complesse con un set di operazioni che si possono effettuare su tali strutture dati. 
