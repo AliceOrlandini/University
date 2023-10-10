@@ -5,4 +5,11 @@
 	3. [[IC-Manufactory Review#Inverter CMOS|Inverter CMOS]]
 	4. [[IC-Manufactory Review#Review of IC Manufacturing|Review of IC Manufacturing]]
 3. [[VLSI]]
-4. 
+	1. [[VLSI#Origini storiche|Origini storiche]]
+	2. [[VLSI#Legge di Moore e Danner’s Scaling|Legge di Moore e Danner’s Scaling]]
+	3. [[VLSI#Evoluzione del silicio|Evoluzione del silicio]]
+	4. [[VLSI#Interazione con l’uomo|Interazione con l’uomo]]
+	5. [[VLSI#VLSI|Very Large Scale Integration]]
+4. [[IC Design Styles and Flows]]
+5. [[IC Design Styles and Flows]]
+6. 

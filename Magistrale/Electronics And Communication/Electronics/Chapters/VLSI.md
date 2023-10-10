@@ -76,3 +76,35 @@ Questa compagnia si basa ovviamente sulla Legge di Moore.
 
 Non sempre sono accurati perché ad esempio nel 2001 la tecnologia è andata più avanti della predizione, mentre negli anni successivi la predizione era piuttosto accurata. 
 
+| -                                            | 2001        | 2013        |
+| -------------------------------------------- | ----------- | ----------- |
+| Reticle size (mm)                            | 25 x 32     | 22 x 26     |
+| Maximum die size ($mm^2$)                    | 800         | 572         |
+| Feature size $F/\lambda$ ($\phi m$)          | 0.13        | 0.032       |
+| Maximum die size ($\lambda ^2$)              | 47 billion  | 559 billion |
+| 2-input NAND gates per die (300$\lambda ^2$) | 158 million | 1.8 billion |
+| DRAM cells per die ($8F^2$)                  | 6Gb         | 70Gb            |
+
+Bisonga considerare:
+- la complessità 
+- il consumo di energia
+- la distribuzione di energia
+- l’integrità del segale
+- il tempo di fabbricazione
+- i vari costi
+
+Vediamo 3 modi per affrontare il problema della complessità:
+
+| Design             | Pro                                                                       | Contro                                                         |
+| ------------------ | ------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Standard Processor | È un progessore general porpouse  cioè può soddisfare vari utenti e scopi | Le performance non sono eccezionali                            |
+|                    | Grandi investimenti perché il costo può essere distribuito                | Consumo elevato di potenza                                     |
+| FPGA               | Facile da programmare e riprogrammare per correggere errori               | Il consumo di energia triplica rispetto all’ASIC               |
+|                    | Esistono configurazioni già programmate                                   | Non ideale per grandi consumi                                  |
+| ASIC               | È una soluzione full custom                                               | Bisogna essere esperti perché è molto facile commettere errori |
+|                    |                                                                           | Molto costoso                                                  |                                                                        |                                                                |                                                               |
+
+Un po’ di acronimi che Fanucci usa: 
+- **IP**: Intellectual Property, è il codice ad esempio che è di proprietà di chi lo ha sviluppato.
+- **EDA**: Electronic Design Automation, software che automatizza il processo di realizzazione di un componente elettronico. 
+- **CAD**: Computer Aided Design, software che aiuta il designer a sviluppare il suo prodotto. 
