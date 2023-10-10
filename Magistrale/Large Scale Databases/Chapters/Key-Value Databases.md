@@ -116,4 +116,30 @@ Ogni volta che aggiungiamo o rimuoviamo un server la riallocazione dei dati deve
 
 Un alto tema importante è la flessibilità dei database che sono schema-less. 
 
-Generalmente i server dei cluster devono essere indipendenti tra loro, devono avere la possibilità di scambiare informazioni ma solo per una coordinazione minima. Non dobbiamo assolutamente sfruttare questo collegamento per fare query che coinvolgono dati 
+Generalmente i server dei cluster devono essere indipendenti tra loro, devono avere la possibilità di scambiare informazioni ma solo per una coordinazione minima. Non dobbiamo assolutamente sfruttare questo collegamento per fare catene di query che coinvolgono dati presenti su più server perché ci sarebbe un rallentamento complessivo. 
+Ad esempio, se un server cade, i suoi vicini possono prendere il suo posto ed eseguire le sue operazioni (*avaialability*) e quando torna attivo i due server possono comunicargli i risultati. 
+L’availability dipende anche dalle repliche dei dati. Lo svantaggio della ridondanza è l’efficienza perché le repliche vanno aggiornate periodicamente. Queste scelte dipendono dai requisiti dell’applicazione. 
+
+## Operazioni di lettura e scrittura con le repliche
+
+Definiamo:
+- N: numero di repliche, ad esempio 3
+- W: numero di copie che devono essere scritte prima che la scrittura venga completata
+- R: numero di copie da leggere per leggere un dato
+
+Prima soluzione: vogliamo mantenere aggiornate sempre tutte le copie: 
+- a livello di scrittura sarà oneroso
+- a livello di lettura ci basterà leggerne una
+
+Seconda soluzione: manteniamo un buon livello di consistenza andando ad aggiornare almeno una delle due repliche del dato
+- a livello di scrittura è un po’ meno oneroso
+- a livello di lettura il tempo aumenta ma 2 dei 3 dati sono aggiornati.
+
+Terza soluzione: scriviamo solo una replica, avrò la latenza minore ma anche la consistenza minore:
+- a livello di scrittura sarà molto veloce
+- a livello di lettura dovrò leggere 3 volte perché devo leggere tutte le copie
+
+La scelta dipende dalla situazione e dai requisiti funzionali e non funzionali. 
+## Hash Mapping 
+
+
