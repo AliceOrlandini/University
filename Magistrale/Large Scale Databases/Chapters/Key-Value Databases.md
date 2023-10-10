@@ -142,4 +142,17 @@ Terza soluzione: scriviamo solo una replica, avrò la latenza minore ma anche la
 La scelta dipende dalla situazione e dai requisiti funzionali e non funzionali. 
 ## Hash Mapping 
 
+Si va a trasformare una chiave in un hash tramite una funzione hash. 
+La prima cosa da tenere a mente è che anche se c’è un piccolo cambiamento nella chiave ci potrebbero essere grandi cambiamenti nell’hash. 
+Il problema più importante è quello della collisione, ovvero due o più valori con la medesima hash. Una prima soluzione è usare dei puntatori, nel campo value troverò quindi un puntatore ad una lista. Se voglio scrivere dovrò aggiungere un elemento in coda alla lista. Un’altra soluzione è utilizzare alberi binari.
 
+Un altro problema riguarda la consistenza. 
+Ipotizziamo di avere una serie di server, se scambiamo due server o aggiungiamo/rimuoviamo un server dovremmo cambiare tutte le hash e poi fare modulo del numero di server. 
+La riallocazione richiede di interrompere il servizio per vario tempo. 
+Una soluzione a questo problema si chiama *consistent hashing*: si ha un’organizzazione circolare e partizionata delle chiavi ed ogni server responsabile di una delle sezioni. Se aggiungiamo un nuovo server dovremo ridistribuire solo le chiavi dei suoi vicini, e non dovremo nemmeno cambiare le funzioni hash. 
+Questa è una rappresentazione logica.
+
+## Compressione dati
+
+Questo tipo di database sono molto onerosi dal punto di visto della memoria quindi si effettua un’operazione di compressione dati. 
+Non è un’operazione banale perché bisogna considerare che più comprimiamo più complicata sarà l’operazione di compressione che quindi richiederà tempo. Anche la decompressione richiede tempo. 
