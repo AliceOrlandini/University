@@ -1,4 +1,4 @@
-Oggi vedremo come si possono integrare su un’unico substrato un elevato numero di transistor con le relative interconnessioni. Poi, vedremo un’architettura di circuito integrato che ha ampliato la fama di questi dispositivi. Infine, introdurremo l’international ??? non ho capito.
+Oggi vedremo come si possono integrare su un’unico substrato un elevato numero di transistor con le relative interconnessioni. Poi, vedremo un’architettura di circuito integrato che ha ampliato la fama di questi dispositivi. Infine, introdurremo International Technology Roadmap for Semiconductors.
 
 # Origini storiche
 
@@ -41,6 +41,7 @@ Ora andiamo nel passato per vedere l’evoluzione dell’architettura dei comput
 	- Architettura EPIC
 
 Ognuno di questi processori ha una **defect density**, cioé la densità di transistor difettosi per unità di area. Quindi è per questo motivo che non hanno raddoppiato l’area per porre più transistor ma le dimensioni sono rimaste ridotte. 
+# Legge di Moore e Danner’s Scaling
 
 > La **legge di Moore** sostiene che il numero di transistor per circuito integrato *raddoppia* ogni anno.
 
@@ -48,4 +49,30 @@ Il Denner’s Scaling è un paper che amplia la legge di Moore andando a studiar
 ![Denner’s Scaling|center|500](https://www.researchgate.net/profile/Ojas-Parekh/publication/301879820/figure/fig24/AS:359784168607749@1462790638818/The-end-of-Dennard-Scaling-44.png)
 
 Nel 2005 si provò ad aumentare per la prima volta il numero di Core e lo si fece per mantenere costante il consumo di energia. Prima infatti se il consumo di energia aumentava, di conseguenza cresceva anche la temperatura che diminuisce le performance del transistor. 
+
+# Evoluzione del silicio
+
+Inizialmente si utilizzava una struttura planare, poi si è passati ad una tecnologia FinFet che permette di raggiungere i 5nm.
+
+Questo livello di tecnologia è stata raggiunta da poche compagnie:
+- Intel 
+- Samsung
+- TSMC
+
+# Interazione con l’uomo
+
+Non dobbiamo dimenticare che questa tecnologia è fatta per essere utilizzata dall’uomo che non lavora a 5nm, quindi ci servono dei componenti il cui design è fatto a “misura d’uomo”.
+
+Per fare ciò, si utilizza il **System in Package** (SiP) in cui internamenti si hanno più componenti interconnessi, di cui uno o più realizzati a 5nm, mentre altri di dimensioni molto più grandi. 
+
+![SiP](https://anysilicon.com/wp-content/uploads/2022/03/System-in-Package-1024x700.jpg)
+
+# VLSI
+
+> **VLSI** è l’acronimo di *Very Large Scale Integration* ed è una denominazione generica che indica una elevata integrazione di transistor in un singolo chip. 
+
+La International Technology Roadmap for Semiconductors è un gruppo di compagnie che studiano le diverse caratteristiche dei dispositivi prodotti e predicono il prossimo device. 
+Questa compagnia si basa ovviamente sulla Legge di Moore. 
+
+Non sempre sono accurati perché ad esempio nel 2001 la tecnologia è andata più avanti della predizione, mentre negli anni successivi la predizione era piuttosto accurata. 
 
