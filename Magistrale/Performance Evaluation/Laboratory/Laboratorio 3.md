@@ -126,4 +126,30 @@ Se abbiamo ad esempio due utenti che mandano pacchetti dobbiamo evitare di usare
 Quello che possiamo fare però è spezzare la sequenza in due per avere due streams separate, bisogna sapere però esattamente il numero $k$ di numeri per ognuno degli utenti. 
 
 Bisogna fare attenzione ad alcuni effetti collaterali nascosti:
-- se cambio la sequenza per l’utente 1 mi aspetterei che quella per l’utente 2 rimanga la stessa ma non è così. Esempio sulle slide. 
+- se cambio la sequenza per l’utente 1 mi aspetterei che quella per l’utente 2 rimanga la stessa ma non è così. Esempi sulle slide. 
+
+# Alcune proprietà degli LCGs
+
+Ogni numero può essere calcolato deterministicamente conoscendo $x_0$: 
+$$x_{i}= (a^{i}x_{0}+\frac{b(a^{i}-1)}{a-1})$$
+Mi serve per dividere gli stream se ho più utenti (più streams).
+Problemi: 
+- $x_{i}$ può assumere valori solo razionali come ad esempio $\frac{1}{m}$, $\frac{2}{m}$, $\frac{3}{m}$, …, $\frac{P}{m}$. 
+- È per esempio impossibile ottenere $\frac{0.8}{m}$ 
+
+C++ mette a disposizione un generatore di numeri casuali: 
+int rand()
+void srand(unsigned seed)
+Il grande problema è che questa funzione è dipendente dal compilatore, è un problema perché la stessa stream non è riproducibile su differenti architetture. Quindi non usare mai questa funzione nei progetti. 
+
+Su omnet++ useremo il generatore Mersenne-Twister che ha un periodo molto lungo ma occupa molta memoria, circa 2KB per istanza.
+
+# Testing RNGs
+
+Ci sono dei modi per testare se un generatore genera effettivamente dei numeri casuali. 
+
+Data una sequenza di numeri, questi sono una distribuzione tra 0 e 1? 
+Un primo modo per rispondere è l’ispezione visiva facendo un grafico e vedendo se è lineare (QQPlot).
+Un secondo modo è fare un *chi-square test* che è un metodo puramente matematico: si prendono dei valori e li si dividono in k buckets. Se sono distribuiti mi aspetto che in ogni bucket ci sia lo stesso numero di samples. Calcoliamo la deviazione rispetto al valore atteso e se è maggiore di un tot allora non sono uniformemente distribuiti. 
+Il numero k deve essere scelto in modo tale che $\frac{n}{k} > 10$
+Un terzo modo è usare il test di *Kolmogorov-Smirnov* che permette di usare un numero minore di samples. Si trova la ECDF e la si valuta. 
