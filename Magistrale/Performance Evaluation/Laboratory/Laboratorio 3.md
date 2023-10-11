@@ -50,3 +50,51 @@ In generale, tutti e due gli approcci sono possibili ma a volte il self-driven �
 Mi sento poco bene, scriverò meglio questi appunti quando starò meglio. 
 
 L’ultima risorsa è usare *l’empirical distributions*, quella dei range e bins. 
+
+Dopo la pausa sto un po’ meglio, ci riprovo.
+# Generatore di numeri casuali per una distribuzione
+
+Queste distribuzioni non sono usate solo per generare dei numeri ma anche per variare il comportamento del sistema.
+Ad esempio, se un pacchetto arriva o meno a destinazione. 
+
+Per generare i numeri casuali si possono usare due approcci:
+1. Usare un generatore di numeri uniformemente distribuiti
+2. Usare un generatore variabile che genera un numero a caso e poi lo trasforma in un numero accettabile per la distribuzione che stiamo considerando
+
+Noi per generare i numeri useremo i **metodi aritmetici**, ad esempio uno dei primi era il *midsquare method*:
+1. Inizia un numero positivo di 4 cifre $Z_{0}$
+2. Lo faccio al quadrato in modo da ottenere un numero da 8 cifre 
+3. SI prendono le 4 cifre centrali e chiamo questo numero $Z_1$
+4. Rendo il numero decimale mettendo zero virgola davanti, questo sarà il numero casuale 
+5. Si ripete il procedimento considerando $Z_1$
+
+Problemi: 
+- tende a zero 
+- non è veramente casuale perché è deterministico se conosco $Z_0$ (vedremo che questo non sarà un grande problema)
+
+Due importanti verità:
+**Non si possono generare numeri casuali con un computer**
+**Non abbiamo veramente bisogno di numeri casuali**
+Non ne abbiamo bisogno nel senso che adottiamo nella vita di tutti i giorni, a noi basta che abbia caratteristiche specifiche come:
+- Uniformemente distribuiti 
+- Incorrelati 
+Poi vorremmo che il generatore sia veloce e che consumi poche risorse, perché generalmente dovremo generare un numero elevato di numeri. 
+Un altro fattore importante (che è controintuitivo) è che voglio qualcosa di random ma allo stesso tempo che dia *risultati riproducibili*: se mi viene in mente, voglio avere la possibilità di riprodurre lo stesso identico output. Perché vorrei farlo? Perché se sto debuggando non troverei il bug se i risultati della simulazione cambiano. Inoltre, se sto valutando due algoritmi differenti per il sistema devo testarli con gli stessi input per valutarli al meglio. Infine, bisogna che siano riproducibili per la scienza, un esperimento è valido scientificamente se è riproducibile. 
+
+Il simulatore deve anche garantire *separate streams* ovvero degli stream separati di numeri casuali. 
+
+# Pseudo-random number generator
+
+Generiamo un numero che è funzione di input che sono i numeri generati precedentemente:
+$$x_{n}= f(x_{n-1}, x_{n-2},…, x_{0})$$
+Questa funzione $f$ è deterministica (proprietà di riproducibilità).
+Gli $n$ input sono chiamati *seeds* della sequenza, molto spesso $n = 1$ nel senso che per generare il numero successivo si usa il seed precedente. 
+
+Come scelgo $f$? Sicuramente $f$ non può essere troppo complessa perché altrimenti non sarebbe efficiente e poi le sequenze dovranno essere incorrelate e uniformemente distribuite.
+Alla fine faremo sempre un loop perché $f$ è deterministica e otterrei sequenze correlate, quindi ci serve una funzione $f$ che ci garantisca un periodo abbastanza lungo. 
+#Attenzione se una funzione è molto complessa non significa che i risultati siano randomici. Non è che più la funzione è complessa e più i risultati sono randomici. 
+
+# Linear Congruential Generators (LCGs)
+
+$$x_{n}= |(a\cdot x_{n-1}+b)|_{m}$$
+dove $0 < m$, $a < m$, $b < m$, $x_{0}< m$
