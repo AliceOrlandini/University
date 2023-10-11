@@ -1,17 +1,20 @@
-Oggi parleremo molto di Event Queue
+Oggi andremo a studiare i vari modi per implementare in modo efficiente una coda degli eventi.
+# General Porpouse vs ad-hoc simulator
 
-# General Porpouse vs ad hoc simulator
-
+Riprendiamo innanzitutto la differenza tra simulatore **general porpouse** ed uno **ad-hoc**.
 Nel simulatore general porpouse avremo una serie di funzioni per gestire:
 - event queue
 - event scheduler
 - statistic computation
-- **simulation model**: questo è ciò che dovremo realizzare nel progetto perché tutto il resto è fornito da omnet++.
-I primi 3 costituiscono il simulation engine che è molto efficiente, si può infatti utilizzare lo stesso simulation engine con diversi simulation model. 
+- **simulation model**: questo è ciò che dovremo realizzare nel progetto perché i precedenti sono forniti da omnet++.
+I primi 3 costituiscono il **simulation engine** che è, nei simulatori general porpouse, di per sé molto efficiente. Infatti, ciò che si fa generalmente è utilizzare lo stesso simulation engine con diversi simulation model sviluppati dallo sviluppatore. 
 
-Nel simulatore ad hoc bisogna realizzare anche il simulation engine, questo lo si fa per ottimizzazione. Ad esempio magari ho bisogno di una event queue con inserimento in testa per chissà quale motivo e con il simulatore ad hoc lo possiamo fare. Così ottimizziamo le strutture dati che abbiamo a disposizione. 
-Gli svantaggi sono che richiede lavoro in più, spesso difficile e poi che una modifica ad esempio la event queue magari richiede di cambiare anche l’event scheduler. (?)
-
+Nel simulatore ad-hoc bisogna invece sviluppare anche il simulation engine, questa scelta può essere presa per aumentare le perfornance in termini di ottimizzazione del codice. 
+Ad esempio, se avessi bisogno di una event queue con inserimento in testa con il simulatore ad-hoc possiamo realizzarla. In questo modo, ottimizziamo le strutture dati che abbiamo a disposizione. 
+Gli svantaggi di questo approccio però riguardano:
+- lavoro aggiuntivo che comprende tempo e soldi
+- spesso difficile, richiede delle competenze specifiche
+- una piccola modifica in un componente può richiedere di modificarne altri, per esempio se modifico la event queue, potrei dover cambiare anche l’event scheduler. 
 
 # Esempio
 

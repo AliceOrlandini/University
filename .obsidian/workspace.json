@@ -11,9 +11,11 @@
             "id": "d28f0b527fbae90d",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -67,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -83,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md"
               }
             }
           },
@@ -157,6 +160,7 @@
   },
   "active": "d28f0b527fbae90d",
   "lastOpenFiles": [
+    "TODO.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
@@ -166,7 +170,6 @@
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
-    "TODO.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
     "SpuntiTesi.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
