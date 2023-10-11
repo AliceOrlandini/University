@@ -45,6 +45,7 @@ La notazione che abbiamo utilizzato può essere semplificata. Diamo delle defini
 
 Una proprietà importante di un segnale passa banda è che possiamo sempre rappresentarlo tramite il suo *inviluppo complesso* nel seguente modo: 
 $$s(t) = Re\{\tilde{s}(t)e^{j2\pi f_c t}\}$$
+> [!bug] inviluppo complesso
 > *L’inviluppo complesso* è una rappresentazione puramente matematica del segnale in banda passante e si scrive come $\tilde{s}(t)=s_I(t) + js_Q(t)$. 
 
 Sostituiamo la definizione di inviluppo complesso nella definizione di segnale passa banda ricordando che $e^{j2\pi f_c t} = cos(2\pi f_c t) + j sin(2\pi f_c t)$:
