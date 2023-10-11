@@ -156,3 +156,68 @@ Questa è una rappresentazione logica.
 
 Questo tipo di database sono molto onerosi dal punto di visto della memoria quindi si effettua un’operazione di compressione dati. 
 Non è un’operazione banale perché bisogna considerare che più comprimiamo più complicata sarà l’operazione di compressione che quindi richiederà tempo. Anche la decompressione richiede tempo. 
+
+# Linee guide per un key-value db
+
+## Design della chiave
+
+Per fare un buon design della chiae bisogna per prima cosa bisogna mettere il prefisso, il prefisso deve essere uguale per tutte le chiavi appartenenti alla stessa entità.
+Quindi tutti gli attributi dell’entità avranno lo stesso prefisso.
+Subito dopo il prefisso si mette l’ID e infine il nome dell’attributo. 
+La chiave deve avere un nome non ambiguo e con un determinato significato ed è importante tenerle il più corte possibili. 
+Come delimiter è consigliato usare “:”. 
+## Metodi Get e Set 
+
+I metodi set e get sono metodi per impostare e prelevare i valori da un’entità data una certa chiave. 
+Ogni classe deve avere questi metodi. 
+
+```python
+define getCustAttr(p_id, p_attrName) 
+	v_key = ‘cust’ + ‘:’ + p_id + ‘:’ + p_attrName
+	return(AppNameSpace[v_key])
+
+define setCustAttr(p_id, p_attrName, p_value) 
+	v_key = ‘cust’ + ‘:’ + p_id +’:’ + p_attrName
+	AppNameSpace[v_key] = p_value
+```
+
+## Namespace
+
+Considerare la possibilità di avere una convenzione di nomi per il namespace. 
+
+## Controllo degli errori
+
+È importante prevedere le eccezioni e gestirle con blocchi try-catch.
+
+## Lavorare con range di valori
+
+Vogliamo implementare una query che restituisce tutti i clienti che hanno aquistato in una particolare data. 
+La chiave è fatta in questo modo: 
+cust:061514:1:custId
+cust:061514:2:custId
+cust:061514:3:custId
+cust:061514:4:custId
+Questo tipo di chiave è utile per fare query sui i range di chiavi perché si può facilmente scrivere una funzione che fa questa cosa. 
+
+```python
+define getCustPurchByDate(p_date) 
+	v_custList = makeEmptyList()
+	v_rangeCnt = 1
+	v_key = ‘cust‘ + ‘:’ + p_date + ‘:’ + v_rangeCnt + ‘:’ + ‘custId’
+	while exists(v_key)
+		v_custList.append(myAppNS[v_key])
+		v_rangeCnt = v_rangeCnt + 1
+		v_key = ‘cust‘ + ‘:’ + p_date + ‘:’ + v_rangeCnt + ‘:’ + ‘custId’
+	return v_custList
+```
+
+Considerare il seguente codice:
+```python
+define getCustNameAddr(p_id)
+	v_fname = getCustAttr(p_id, ‘fname’)
+	v_lname = getCustAttr(p_id, ‘lname’)
+	…
+	v_fullName = v_fname + ‘ ‘ 
+```
+
+Questi codici li chiede all’esame
