@@ -217,7 +217,51 @@ define getCustNameAddr(p_id)
 	v_fname = getCustAttr(p_id, ‘fname’)
 	v_lname = getCustAttr(p_id, ‘lname’)
 	…
-	v_fullName = v_fname + ‘ ‘ 
+	v_fullName = v_fname + ‘ ‘ + v_lname
+	v_fullAddr = v_city + ‘ ’ + v_state
+	return makeList(v_fullName, vfullAddr)
 ```
 
-Questi codici li chiede all’esame
+Il problema in questo codice è che stiamo facendo 6 query per avere tutte le informazioni che ci servono. Se noto che tutte le volte che uso queste informazioni sempre insieme devo considerare di unirle.
+Se invece alcune volte le uso insieme e altre separate allora uso chiavi separati, la ridondanza non è proibita ma bisogna fare attenzione all’aggiornamento.
+Questi codici li chiede all’esame.
+
+Esempio: se si fa un’applicazione sul fantacalcio, il set di dati che si trova online non va importato tutto nel database ma bisogna importare solo le parti che ci servono e con aggregazioni che scegliamo noi a seconda di come si andranno ad utilizzare i dati nell’applicazione. 
+
+# Limitazioni del database key-value
+
+Le limitazioni principali sono 3:
+1. L’unico modo per accedere ai dati è usando la chiave
+2. Alcuni database key-value non supportano le query con i range
+3. Non c’è un linguaggio standard compatibile con l’SQL per i database relazionali.
+
+La parte teorica dei key-value database è finita. 
+
+# Caso studio
+
+Prendiamo un’applicazione di tracciamento delle spedizioni. 
+Le informazioni memorizzate sono:
+- nome e numero di account del cliente
+- prezzo della spedizione
+- delle informazioni da mostrare sulla dashboard
+- preferenze riguardo alert e notifiche 
+- opzioni sull’interfaccia utente come ad esempio la light/dark mode o il fort
+
+La maggior parte delle operazioni saranno di lettura. 
+
+Per la chiave, le entità saranno:
+- *cust*: per il cliente
+- *dshb*: per la dashboard
+- *alrt*: per gli alert e le notifiche
+- *ui*: per le opzioni
+Nota: non usare questi acronimi che fanno schifo, il libro da cui il prof ha preso l’esercizio li metteva così e li ha lasciati così.
+
+TrakerNS[‘cust:473819’] = {‘name’: ‘Prime Machine, Inc.’, ‘currency’: ‘USD’}
+
+TrakerNS[‘dshb:381909’] = {‘shpComp’, ‘shpState’, ‘shpDate’, ‘shpDelivDate’}
+
+TrakerNS[alrt:349220] = {altList:{ ‘jane.washington@gmail.com’, ‘pickup’, ‘3810410385’, ‘delay’}}
+
+TrakerNS[ui:4812984] = {‘fontName’: ‘Cambria’, ‘FontSize’: 9, ‘colorScheme’: ‘light’}
+
+Non ho capito perché non mette le virgolette ad alrt e ui.
