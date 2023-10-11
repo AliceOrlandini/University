@@ -47,6 +47,7 @@ Possiamo usare 2 approcci:
 2. **Self-driven** simulation: l’input è generato artificialmente usando dei generatori random che genererà il tempo al quale il pacchetto deve arrivare. 
 In generale, tutti e due gli approcci sono possibili ma a volte il self-driven è l’unico possibile, per esempio nei video compressi a volte i frame dipendono l’uno dall’altro.
 #Domanda nell’approccio self-driven il tempo viene assegnato prima della simulazione o durante? 
+
 Mi sento poco bene, scriverò meglio questi appunti quando starò meglio. 
 
 L’ultima risorsa è usare *l’empirical distributions*, quella dei range e bins. 
@@ -98,3 +99,31 @@ Alla fine faremo sempre un loop perché $f$ è deterministica e otterrei sequenz
 
 $$x_{n}= |(a\cdot x_{n-1}+b)|_{m}$$
 dove $0 < m$, $a < m$, $b < m$, $x_{0}< m$
+Per migliorare le performance si divide per $m$.
+Se:
+- b = 0: abbiamo un *multiplicative LCG*
+- b > 0: abbiamo un *mixed LCG*
+
+Il periodo sarà per forza al massimo $m$ ma può essere più piccolo. 
+Se $P = m$ allora si dice che ho un *full period*.
+Se ho mixed LCG la condizione sufficiente per avere un full period è avere:
+- $m$ una grande potenza di 2 (esempio $2^{32}$)
+- $a = 4c + 1$ con c un numero intero
+- $b$ un numero dispari
+C’è una condizione necessaria sulle slide. 
+
+Se ho un multiplicative LCG allora è impossibile avere un full period, al massimo si può avere un periodo pari a $\frac{m}{4}$ perché considerando ad esempio le condizioni precedenti, $b = 0$ e quindi non è dispari.
+
+Ora che abbiamo impostato i parametri dobbiamo scegliere $x_0$:
+se siamo in un mixed LCG possiamo sceglierlo come vogliamo perché il periodo non dipende dal seed iniziale.
+Se siamo nel caso multiplicative LCG allora il periodo dipende dal seed, le linee guide generali dicono di:
+- evitare zero e numeri pari specialmente con multiplicative LCGs.
+- numeri impredicibili come il timestamp o l’id del processo perché verrei meno alla proprietà di riproducibilità dei numeri. Questi sono utilizzabili quando si usano i numeri casuali randomicamente come per esempio per un gioco di carte. Quando facciamo simulazione però non stiamo giocando. 
+
+# Indipendent streams of random numbers
+
+Se abbiamo ad esempio due utenti che mandano pacchetti dobbiamo evitare di usare lo stesso generatore per entrambi perché una sequenza è incorrelata e uniformemente distribuita ma se facciamo che due utenti usano un valore ciascuno, non è assicurato che quel valori siano incorrelati. 
+Quello che possiamo fare però è spezzare la sequenza in due per avere due streams separate, bisogna sapere però esattamente il numero $k$ di numeri per ognuno degli utenti. 
+
+Bisogna fare attenzione ad alcuni effetti collaterali nascosti:
+- se cambio la sequenza per l’utente 1 mi aspetterei che quella per l’utente 2 rimanga la stessa ma non è così. Esempio sulle slide. 
