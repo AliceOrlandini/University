@@ -31,4 +31,22 @@ Esempio: ipotizziamo di avere una PDF, questa non sarà mai uguale alla realtà 
 
 1. Definire il range, ovvero il valore minimo e massimo della distribuzione 
 2. Dividiamo la granulatità dei segmenti, dovranno essere tutti della stessa lunghezza. Ogni segmento è chiamato *bin*
-3. 
+
+Alla fine della simulazione si calcola la distribuzione PMF, con questa si calcola la domanda $P\{X < 20\} = \frac{5}{13} + \frac{3}{13} = \frac{8}{13}$
+Bisogna fare attenzione alla dimensione dei bins perché potrebbero essere o troppo stretti o troppo larghi. 
+Qui bisogna mantenere un array di interi e un contatore per l’overflow. 
+
+Se si volesse solo la CDF possiamo evitare di usare i bins, basta salvare i samples. 
+
+# Come si da un input al simulatore?
+
+Chi mette i pacchetti nella coda? Chi da gli input?
+
+Possiamo usare 2 approcci:
+1. **Trace-driven** simulation: si prende un file in cui ogni riga contiene il momento in cui avverrà quell’evento e una descrizione (ad esempio la size del pacchetto). All’inizio della simulazione si legge questo file. La maggior parte delle volte useremo una distribuzione esponenziale perché non è facile trovare la distribuzione adatta al nostro problema. 
+2. **Self-driven** simulation: l’input è generato artificialmente usando dei generatori random che genererà il tempo al quale il pacchetto deve arrivare. 
+In generale, tutti e due gli approcci sono possibili ma a volte il self-driven è l’unico possibile, per esempio nei video compressi a volte i frame dipendono l’uno dall’altro.
+#Domanda nell’approccio self-driven il tempo viene assegnato prima della simulazione o durante? 
+Mi sento poco bene, scriverò meglio questi appunti quando starò meglio. 
+
+L’ultima risorsa è usare *l’empirical distributions*, quella dei range e bins. 
