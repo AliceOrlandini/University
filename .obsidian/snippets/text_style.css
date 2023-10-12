@@ -1,11 +1,13 @@
 /* different color for bold and italic */
 .cm-strong,
-.markdown-preview-section strong {
+.markdown-preview-section,
+.callout strong {
   color: #08A045 !important;
 }
 
 .cm-em,
-.markdown-preview-section em {
+.markdown-preview-section,
+.callout em {
   color: #C62121 !important;
 }
 
@@ -51,4 +53,4 @@ img[alt*="center"] {
   body {
     --font-text-size: 12pt !important;
   }
- }
+}

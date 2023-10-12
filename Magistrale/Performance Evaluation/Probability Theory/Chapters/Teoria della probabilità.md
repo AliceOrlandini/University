@@ -2,31 +2,27 @@
 
 ## Definizioni
 
-### Probabilità
-
 Il concetto di **Probabilità** può essere definito in diversi modi, quello che useremo noi è quello di *frequenza relativa*:
 
-> Ripetiamo un esperimento *un numero elevato di volte* $N$ in *condizioni indipendenti* (ovvero che il risultato di un esperimento non influenza il risultato degli esperimenti successivi) allora, definito $k$ il numero di *realizzazioni* di un certo evento $E$, *la probabilità di tale evento sarà*: $$P(E) = \lim_{N \to \infty} \frac{k}{N}$$
+> [!note] Probabilità di un evento
+> Ripetiamo un esperimento *un numero elevato di volte* $N$ in *condizioni indipendenti* (ovvero che il risultato di un esperimento non influenza il risultato degli esperimenti successivi) allora, definito $k$ il numero di *realizzazioni* di un certo evento $E$, la probabilità di tale evento sarà: $$P(E) = \lim_{N \to \infty} \frac{k}{N}$$
 
 Questa definizione di probabilità è puramente matematica poiché nella realtà è impossibile effettuare un numero infinito di esperimenti per cui la probabilità di un esperimento è generalmente determinato in base ad una *conoscenza a priori*. 
 Ad esempio l’esperimento “lancio di una moneta” per motivi di simmetria darà una probabilità del 50% di ottenere “testa”.
 
-### Esperimento Casuale 
+> [!note] Esperimento Casuale
+> Definiamo **esperimento casuale** un esperimento il cui risultato (*l’outcome*) non è predicibile a priori.
 
-> Definiamo *esperimento casuale* un esperimento il cui risultato (*l’outcome*) non è predicibile a priori.
-
-Attenzione! L’outcome di un esperimento è definito solo nella mente dell’osservatore.
+#Attenzione L’outcome di un esperimento è definito solo nella mente dell’osservatore.
 Infatti, quando ci troviamo davanti ad un esperimento, la prima cosa da fare è definire lo *spazio dei risultati*. Questo aspetto è importante perché dato un esperimento possiamo avere più spazi a seconda di ciò che vogliamo analizzare in quel momento.
 
-### Sample Space
-
-> Definiamo *sample space* o spazio campione $S$ il set di *tutti i possibili outcome* di un esperimento.
+> [!note] Spazio Campione
+> Definiamo **sample space** o spazio campione $S$ il set di *tutti i possibili outcome* di un esperimento casuale.
 
 Ad esempio nel caso dell’esperimento “lancio di un dado” avrò $S = \{1,2,3,4,5,6\}$ visto che il dato ha 6 facce che numeriamo da 1 a 6. 
 
-### Evento
-
-> Definiamo *evento* $E$ un *sottoinsieme* (subset) dello spazio campione (sample space) $S$.
+> [!note] Evento
+> Definiamo **evento** $E$ un *sottoinsieme* (subset) dello spazio campione (sample space) $S$.
 
 Nell'esempio “lancio di un dado” un possibile evento può essere $E = \{1,2,5\}$ cioè l’evento in cui il risultato del lancio del dato è 1 o 2 oppure 5.
 
@@ -52,10 +48,9 @@ Attenzione! Non confondersi tra *evento* ed *outcome*.
 Un outcome è un **elemento** del sample space. 
 Un evento è un **subset** del sample space. 
 Si può ovviamente associare un evento a ciascun outcome ma bisogna mantenere i due concetti separati.
-### Esercizio 1
-
 # Assiomi della probabilità
 
+> [!note] Probabilità
 > La *probabilità* è un *numero* associato ad un *evento* che descrive la *frequenza* con cui si verifica tale evento.
 
 Gli assiomi su cui si basa la definizione di probabilità sono:
@@ -74,7 +69,7 @@ Ecco alcune proprietà derivanti dagli assiomi:
 1. $P(E^\complement) = 1 - P(E)$ poiché $E$ ed il suo complemento sono sicuramente disgiunti.
 2. $P(E_1 \cup E_2) = P(E_1) + P(E_2) - P(E_1E_2)$ si può dimostrare facilmente guardando i diagrammi di Venn.
 
-### Esercizio 2
+### Esercizio 1
 
 Il 28% degli americani fuma sigarette.
 Il 7% degli americani fuma sigari.
@@ -91,14 +86,16 @@ Qual è la percentuale di non fumatori?
 # Sample space con eventi ugualmente equiprobabili
 
 In alcuni casi il sample space di un esperimento casuale ha due proprietà:
-1. Ha una *cardinalità finita* $N = |S|$.
-2. Ha *outcomes ugualmente equiprobabili* (*equally likely outcoes*).
+1. Ha una **cardinalità finita** $N = |S|$.
+2. Ha **outcomes ugualmente equiprobabili** (*equally likely outcoes*).
 
 Ad esempio quando si lancia una moneta la cardinalità di $S$ è 2 (testa o croce) e i risultati sono equiprobabili (50% testa e 50% croce) ovvero $p = \frac{1}{N}$.
 
 Per essere più precisi dovremmo dire che $N*p = 1$ considerando che tutti gli eventi sono mutuamente esclusivi e l’unione di tutti gli eventi è il sample space  che ha probabilità pari a 1.
 
-Se siamo in un modello *a probabilità uniforme* (vedremo più avanti esempi di modelli) allora si parla di sample space con *equally likely outcomes* e la probabilità di un evento $E$ sarà: $$P(E) = \frac{|E|}{N}$$ con $N = |S|$.
+Se siamo in un modello *a probabilità uniforme* (vedremo più avanti esempi di modelli) allora si parla di sample space con *equally likely outcomes* e la probabilità di un evento $E$ sarà: 
+> [!danger] Probabilità di un evento
+> $$P(E) = \frac{|E|}{N}$$ con $N = |S|$.
 
 Quindi per definire la probabilità di un evento ci basta *contare* il numero di outcomes inclusi in quell’evento e dividerli per la cardinalità del sample space.
 
@@ -106,12 +103,10 @@ Quindi per definire la probabilità di un evento ci basta *contare* il numero di
 
 Visto che, come visto al punto precedente, per trovare la probabilità di un evento $E$ quando il sample space ha cardinalità finita e outcomes ugualmente equiprobabili dobbiamo contare il numero di outcome e dividere per la cardinalità del sample space, allora ci conviene introdurre un *principio* che ci permette di contare più facilmente gli outcome di un evento.
 
-Il *principio base del conteggio* afferma che: 
-
-> Dato un *esperimento* $C$ composto da due *sotto-esperimenti* $C_1$ e $C_2$, aventi rispettivamente $N_1$ e $N_2$ possibili outcome, allora il numero di possibili outcome dell’esperimento $C$ è uguale a $N_1*N_2$.
-
+> [!note] Principio base del conteggio
+Dato un *esperimento* $C$ composto da due *sotto-esperimenti* $C_1$ e $C_2$, aventi rispettivamente $N_1$ e $N_2$ possibili outcome, allora il numero di possibili outcome dell’esperimento $C$ è uguale a $N_1*N_2$.
 Questa definizione può essere generalizzata da 2 a $k$ esperimenti: $$C = \prod_{i = 1}^{k}N_i$$
-### Esercizio 3
+### Esercizio 2
 
 Consideriamo un'urna contenente 6 palline nere e 5 bianche. Qual è la probabilità che, estraendo due palline (senza reinserimento), si ottengano una pallina bianca ed una nera? (l'ordine non è importante).
 
@@ -133,7 +128,7 @@ $E = \{(b_i;b_j), 1 \le i \le 6; 7 \le j \le 11\} \cup \{(b_i;b_j) 1 \le j \le 6
 		2. $|E_2| = N_{21} * N_{22} = 5 * 6 = 30$
 6. Infine, calcolo $P(E) = \frac{|E|}{|S|} = \frac{60}{110} = \frac{6}{11}$
 
-### Esercizio 4
+### Esercizio 3
 
 Si vogliono allineare su uno scaffale 10 libri di 4 diverse materie. Qual è la probabilità che ponendoli a caso sullo scaffale lo si faccia raggruppandoli per materia (ovvero, prima tutti quelli di matematica, poi tutti quelli di chimica e così via)? (l'ordine delle materie non è importante).
 I libri sono:
@@ -160,7 +155,10 @@ Come al solito dividiamo in sotto-esperimenti:
 2. Per il secondo elemento avremo $N_2 = n - 1$
 3. ...
 4. Per il $k$-esimo esperimento avremo $N_k = n - (k - 1)$.
-Per cui potrò fare: $$S_{k,n} = n * (n-1)* ... * (n - (k-1)) = \frac{n!}{(n-k)!}$$permutazioni di $k$ elementi dato un set di $n$ elementi.
+
+> [!danger] Numero di permutazioni di $k$ elementi in un set di $n$ elementi
+> $$S_{k,n} = n * (n-1)* ... * (n - (k-1)) = \frac{n!}{(n-k)!}$$permutazioni di $k$ elementi dato un set di $n$ elementi.
+
 Notare che se fosse $k = n$ otterrei il risultato del precedente esercizio.
 
 Ora proviamo a rispondere alla seguente domanda, leggermente differente:
@@ -176,17 +174,18 @@ Se ad esempio le lettere sono $\{ABC\}$ avrò le seguenti permutazioni:
 $\langle ABC \rangle, \langle ACB \rangle, \langle BAC \rangle, \langle BCA \rangle, \langle CAB \rangle, \langle CBA \rangle$  
 *Quante permutazioni sono relative allo stesso subset?* In questo caso 6 cioè 3!.
 Generalizzando troviamo che **il numero di permutazioni che producono lo stesso subset è esattamente il numero di permutazioni di $k$ elementi** ovvero $k*(k-1)*...*2*1 = k!$.
-Quindi la risposta alla seconda domanda è: $$\frac{S_{k,n}}{k!} = \frac{n!}{k!(n-k)!} = \binom{n}{k}$$
-Chiamato **coefficiente binomiale**.
+Quindi la risposta alla seconda domanda è: 
 
+> [!danger] Coefficiente Binomiale
+$$\frac{S_{k,n}}{k!} = \frac{n!}{k!(n-k)!} = \binom{n}{k}$$
 ### Proprietà del coefficiente binomiale 
 
-1. $\binom{n}{k} = 0$ se $k > n$ 
+1. $\binom{n}{k} = 0$ se $k > n$.
 2. $\binom{n}{k} = \binom{n}{n-k}$ con $n\ge k$ perché se trovi il modo di estrarre $k$ elementi da un set di $n$ allora hai trovato il modo anche di estrarre i rimanenti $n-k$ elementi. Quindi i due numeri saranno uguali.
 3. $\binom{n}{0} = \binom{n}{n} = 1$ deriva dalla definizione che 0! = 1.
 4. $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$ con $n \ge k$ cioè posso calcolare il coefficiente binomiale come somma di binomi più piccoli. È comodo quando si utilizzano programmi ricorsivi. 
 
-### Esercizio 5
+### Esercizio 4
 
 Un gruppo di 5 maschi e di 10 femmine sono allineati in ordine casuale.
 1. Qual è la probabilità che *la persona in quarta posizione sia un maschio*?
@@ -206,11 +205,12 @@ Un gruppo di 5 maschi e di 10 femmine sono allineati in ordine casuale.
 	Per cui $|E| = 1 * 14!$ e il risultato finale sarà $P(E) = \frac{14!}{15!} = \frac{1}{15}$ anche questo risultato è ragionevole. 
 
 Quando si fanno gli esercizi ricordarsi sempre questo schema: 
+
 ![[Modellazione.svg|center|500]]
 
 Spesso gli studenti si dimenticano di fare l'ultimo passaggio, l'interpretazione dei risultati ottenuti.
 
-### Esercizio 6
+### Esercizio 5
 
 Supponiamo di avere un insieme di $n$ persone e si vuole creare una fila di $k$ persone (con $k \le n$) prendendole a caso dal set di $n$ persone. Rispondere alle seguenti domande:
 1. qual è la probabilità che Adam sia in prima posizione?
@@ -230,7 +230,7 @@ Supponiamo di avere un insieme di $n$ persone e si vuole creare una fila di $k$ 
 	Quindi $P(E) = \frac{|E|}{|S|} = \frac{k * S_{k-1,n-1}}{S_{k,n}} = ... = \frac{k}{n}$.
 	Facciamo in fine le riprove: se $n = k$ allora $P(E) = 1$ mentre se $k = 0$ allora $P(E) = 0$, tutto torna. 
 
-### Esercizio 7
+### Esercizio 6
 
 Una squadra di basket è composta da 6 giocatori neri e da 6 bianchi. Durante una trasferta alloggiano in un hotel e vengono assegnati nelle stanze a coppie di 2 giocatori.
 1. Qual è la probabilità che tutte le stanze abbiano giocatori dello stesso colore?
@@ -254,11 +254,15 @@ Oppure, supponiamo che il risultato del primo lancio sia 5, in questo caso la pr
 Dovrò calcolare gli outcome presenti nell'intersezione tra l'evento 
 E = { somma delle facce maggiore di 9 } e l'evento 
 F = { Primo dato uguale a 5 } perché sicuramente possiamo escludere tutti gli outcome di $F^\complement$.
-Posso quindi definire: $$P(E|F) = \frac{P(EF)}{P(F)}$$
-Che, in questo caso, sarà uguale a: $P(E|F) = \frac{2/36}{1/6} = \frac{1}{3}$.
-Notiamo che $P(E|F) > P(E)$ come avevamo intuito. 
+Posso quindi definire: 
 
-### Esercizio 8
+> [!danger] Probabilità Condizionata
+> $$P(E|F) = \frac{P(EF)}{P(F)}$$
+
+Che, in questo caso, sarà uguale a: $P(E|F) = \frac{2/36}{1/6} = \frac{1}{3}$.
+Notiamo inoltre che $P(E|F) > P(E)$ come avevamo intuito. 
+
+### Esercizio 7
 
 In un'Università abbiamo:
 - 52% di studentesse
@@ -283,10 +287,12 @@ come si può vedere dalla seguente immagine:
 
 I due eventi che compongono l'unione sono disgiunti quindi la probabilità di E può essere scritta come: $$P(E) = P(EF) + P(EF^\complement)$$Ora, sostituendo la formula della probabilità condizionata troviamo: $$P(E) = P(E|F)*P(F) + P(E|F^\complement)*P(F^\complement) =$$$$= P(E|F)*P(F) + P(E|F^\complement)*(1-P(F))$$
 Questa espressione può essere generalizzata nel seguente modo:
+
+> [!note] Probabilità di un evento data la probabilità condizionata
 > Dati $F_1,...,F_N$ insiemi tali che $\bigcup_{i=1}^{N}F_i = S$ e $F_i \cap F_j = \emptyset$ se $i \not= j$ allora possiamo calcolare la probabilità di $E$ come:
 > $$P(E) = \sum_{i=1}^{N}P(EF_i) = \sum_{i=1}^{N}P(E|F_i)*P(F_i)$$
 ![[Bayes 2.png|center|400]]
-### Esercizio 9
+### Esercizio 8
 
 Ci sono due tipi di persone, coloro che sono inclini agli incidenti e quelli che non lo sono. Una compagnia di assicurazioni sa che:
 - le persone inclini agli incidenti che ha una probabilità di avere un incidente del 40%
@@ -298,11 +304,12 @@ Chiamiamo A = { avere un incidente } e B = { inclini agli incidenti }. Vogliamo 
 
 ## Teorema di Bayes
 
+> [!note] Teorema di Bayes
 > Dati $F_1,...,F_N$ tali che $\bigcup_{i=1}^{N}F_i = S$ e $F_i \cap F_j = \emptyset$ se $i \not= j$. Ipotizziamo di conoscere *la probabilità a priori* $P(F_j)$. Se si verifica l'evento $E$ allora la probabilità di $F_j$ si modificherà nel seguente modo (*probabilità a posteriori*): $$P(F_j|E) = \frac{P(EF_j)}{P(E)} = \frac{P(E|F_j)*P(F_j)}{\sum_{i=1}^{N}P(E|F_i)*P(F_i)}$$
 
 Questa formula descrive come *la fiducia* su un'ipotesi $F_j$ si modifica in base al fatto che un evento $E$ si è verificato, considerando che $E$ era influenzato da tali ipotesi. 
 
-### Esercizio 10
+### Esercizio 9
 
 Un laboratorio effettua dei test per una malattia rara. Se una persona ha la malattia allora il test lo rileva nel 99% dei casi, invece per l'1% il test da falsi positivi (dice che hai la malattia ma non ce l'hai).
 Il 5% della popolazione ha quella malattia. 
@@ -319,7 +326,8 @@ Considerando che il test è risultato positivo, qual è la probabilità che si s
 	
 ## Eventi Indipendenti
 
-> Due eventi $E$ ed $F$ sono indipendenti *se e solo se* $P(EF) = P(E) \cdot P(F)$
+> [!note] Eventi Indipendenti
+> Due eventi $E$ ed $F$ sono **indipendenti** *se e solo se* $P(EF) = P(E) \cdot P(F)$
 
 In questo caso, il verificarsi dell'evento F non ha alcuna influenza sull'evento E, quindi i due sono **indipendenti**. 
 Scriviamo la definizione in termini di probabilità condizionata:
@@ -330,9 +338,9 @@ Di seguito alcune proprietà:
 - Se E è indipendente sia da F che da G *non* è necessariamente vero che sia indipendente anche da FG.
 ## Prove Ripetute
 
-L'esperimento delle prove ripetute è un tipico caso in cui si assume che gli esperimenti siano indipendenti l'uno dall'altro. "Condizioni indipendenti" in questo caso significa che il risultato dell'esperimento j-esimo non influenza i risultati degli esperimenti precedenti o successivi.
+L'esperimento delle **prove ripetute** è un tipico caso in cui si assume che gli esperimenti siano indipendenti l'uno dall'altro. "Condizioni indipendenti" in questo caso significa che il risultato dell'esperimento j-esimo non influenza i risultati degli esperimenti precedenti o successivi.
 
-### Esercizio 11
+### Esercizio 10
 
 Una moneta viene lanciata 5 volte in condizioni indipendenti. Trovare la probabilità che:
 1. I primi 3 lanci diano lo stesso risultato.
@@ -357,11 +365,12 @@ Una moneta viene lanciata 5 volte in condizioni indipendenti. Trovare la probabi
 
 Notare che se la moneta fosse stata truccata il metodo UPM sarebbe stato inutilizzabile e avremmo dovuto per forza usare l'indipendenza.
 
-### Esercizio 12
+### Esercizio 11
 
-Il signor Rossi ha un mazzo di $n > 1$ chiavi.
+Il signor Rossi ha un mazzo di $n > 1$ chiavi. Da finire
 ## Sistemi Paralleli
 
+> [!note] Sistema Parallelo
 > Un sistema è **parallelo** se è composto da $n$ sottosistemi e funziona se *almeno uno* di questi sottosistemi funziona. 
 
 Per visualizzare il modello possiamo pensare alla corrente che scorre tra due terminali e i vari sottosistemi come degli switch. La corrente scorrerà solo se almeno uno degli switch è chiuso.
@@ -372,7 +381,7 @@ Quanto un problema viene posto come *"almeno uno"* ci deve scattare un trigger c
 P(corrente scorre) = 1 - P(corrente non scorre) = 1 - P(tutti gli switch aperti)
 e la probabilità che tutti gli switch siano aperti si calcola abbastanza facilmente. 
 
-### Esercizio 13
+### Esercizio 12
 
 Consideriamo il seguente sistema parallelo: 
 
@@ -398,6 +407,7 @@ In fine: $$P(scorre corrente) = P(scorre|3 aperto)P(3aperto) + P(scorre|3chiuso)
 $$= (1-(1-p_1 p_4)(1- p_2 p_5))(1-p_3) + \{(1- (1-p_1)(1-p_2))(1-(1-p_4)(1-p_5))p_3\}$$
 # Variabili Aleatorie 
 
+> [!note] Variabile Aleatoria
 > Dato un esperimento casuale il cui sample space è $S$, si dice che $X$ è una **variabile aleatoria** di $S$ se è una funzione reale tale che $X:S\rightarrow \mathbb{R}$
 
 Notiamo che la funzione $X$ è deterministica, è il risultato dell'esperimento casuale ad essere aleatorio. 
@@ -406,7 +416,7 @@ Notiamo che la funzione $X$ è deterministica, è il risultato dell'esperimento 
 
 La probabilità associata alla variabile aleatoria si indica in questo modo: $P\{X = 1\} = P\{X = 0\} = 1/2$.
 
-### Esercizio 15
+### Esercizio 14
 
 Consideriamo l'esperimento lancio di due dadi, il sample space è $S = \{(d_1, d_2)|1 \le d_1 d_2 \le 6\}$ e definiamo le seguenti variabili aleatorie:
 - $X$ somma dei valori usciti: $X:S \rightarrow \mathbb{R}, X((d_1,d_2)) = d_1 + d_2$.
@@ -420,11 +430,15 @@ Proviamo a calcolare alcune probabilità:
 
 ## Comulative Distribution Function
 
-Una variabile aleatoria $X$ (discreta o continua) è completamente caratterizzata dalla sua **Comulative Distribution Function (CDF)**, detta anche semplicemente *distribuzione*, definita come segue: $$F(\omega) = P\{X \le \omega\}$$
+Una variabile aleatoria $X$ (discreta o continua) è completamente caratterizzata dalla sua **Comulative Distribution Function (CDF)**, detta anche semplicemente *distribuzione*, definita come segue: 
+
+> [!note] CDF
+> La **Comulative Distribution Function** è un funzione tale che, data la variabile aleatoria $X$ e il numero $\omega$, vale $$F(\omega) = P\{X \le \omega\}$$
+
 Notare che $\omega$ è scritta in minuscolo ad indicare il fatto che essa è un valore.
 La CDF essendo una probabilità assumerà valori compresi tra 0 e 1, inoltre è *monotona non decrescente* (può solo salire o rimanere costante).
 Inoltre, $\lim_{\omega \rightarrow -\infty} F(\omega) = 0$ e $\lim_{\omega \rightarrow +\infty} F(\omega) = 1$ che vale per qualsiasi variabile aleatoria. 
-### Esercizio 16
+### Esercizio 15
 
 Considerare una variabile aleatoria $X$ con la seguente CDF: 
 $F(\omega) = 1- e^{-w^2}$ per $\omega > 0$ e pari a zero per $\omega$ negativi. 
@@ -440,6 +454,7 @@ si nota che: P{ X $\le$ 2 } = P{X $\le$ 1 } + P{1 < X $\le$ 2 }
 da cui si ricava che: P{1 < X $\le$ 2 } = F(2) - F(1) = 1/e - 1/$e^4$
 ## Probability Mass Function
 
+> [!note] PMF
 > Per variabili aleatorie *discrete*, si può definire la **Probability Mass Function** (PMF) nel seguente modo: $p(a) = P\{X = a\}$.
 
 È sempre valida la *condizione di normalizzazione* che sostiene che $\sum_{-\infty}^{+\infty} p(a) = 1$
@@ -450,7 +465,8 @@ Ma si può fare anche il contrario, dalla CDF si ricava la PMF nel seguente modo
 
 Per variabili aleatorie continua non ha alcun senso definire la probability mass function perché è impossibile che una variabile di questo tipo assuma *esattamente* un valore (con infinita precisione) in uno spazio continuo.
 
-> Per variabili aleatorie *continue*, si può definire la **Probability Density Function** (PDF) $f(x)$ che è una funzione *non negativa* con la seguente proprietà: $f(x)$ è una PDF se, dato un set $B$ di numeri reali, allora $P\{X \in B\} = \int_{B}f(x) dx$.
+> [!note] PDF
+> Per variabili aleatorie *continue*, si può definire la **Probability Density Function** (PDF) $f(x)$ che è una funzione *non negativa* con la seguente proprietà: $f(x)$ è una PDF se, dato un set $B$ di numeri reali, allora $$$P\{X \in B\} = \int_{B}f(x) dx$$
 
 Anche per questa funzione è valida la condizione di *normalizzazione*: $$P\{X \in (-\infty, +\infty)\} = \int_{-\infty}^{+\infty} f(x) dx = 1$$
 Se $B$ è un intervallo $[a,b]$ allora si ottiene: $$P\{a \le X \le b\} = \int_{a}^{b} f(x) dx = F(b) - F(a)$$
@@ -458,20 +474,20 @@ Questa funzione dal punto di vista fisico misura la probabilità che la variabil
 Come abbiamo visto, integrando la PDF si ottiene la CDF nel seguente modo: $$F(a) = P\{X \le a\} = P\{-\infty \le X \le a\}= \int_{-\infty}^{a}f(x) dx$$
 La proprietà impostante è che si può ottenere anche PDF a partire dalla CDF semplicemente facendo un'operazione di derivazione: $$f(a)= \frac{\partial}{\partial a} F(a)$$
 Questa operazione presuppone che la CDF sia differenziabile, per i nostri scopi lo sarà sempre. 
-
-### Esercizi
-
 ## Jointly distributed random variables
 
 Spesso siamo interessati all'interazione tra due o più variabili aleatorie. Per esempio se consideriamo l'esperimento "lancio di una freccia su un bersaglio" e applichiamo un piano cartesiano in corrispondenza del centro del bersaglio, non è sufficiente conoscere la CDF di $X$ o la CDF di $Y$ ma dovremo studiarle congiuntamente l'una all'altra. 
-> Date due variabili aleatorie (*discrete* o *continue*), la loro **Joint Comulative Distribution Function** (JCDF) è definita come: $F(x,y) = P\{X \le z, Y \le y\}$
+
+> [!note] JCDF
+> Date due variabili aleatorie (*discrete* o *continue*), la loro **Joint Comulative Distribution Function** (JCDF) è definita come: $$$F(x,y) = P\{X \le z, Y \le y\}$$
 
 Dove la virgola sta per *and* logico, infatti si sta considerando l'intersezione degli eventi $X \le x$ e $Y \le y$.
 
 A partire dalla JCDF si possono calcolare le rispettive CDFs, basta osservare che: $$F_{X}(x)= P\{X \le x\} = P\{X \le x, Y \le +\infty\} = F(x,+\infty)$$
 È importante ricordare che non vale il contrario, infatti, in generale, non si possono ottenere informazioni su una JCDF a partire dalle singole distribuzioni. 
 
-> Date due variabili aleatorie *discrete*, $X$ e $Y$ si può definire la **Joint Probability Mass Function** (JPMF) come $p(x,y) = P\{X = x, Y = y\}$.
+> [!note] JPMF
+> Date due variabili aleatorie *discrete*, $X$ e $Y$ si può definire la **Joint Probability Mass Function** (JPMF) come $$p(x,y) = P\{X = x, Y = y\}$$
 
 Anche in questo caso, possiamo ottenere le PMFs a partire dalla JPMF: $$p(x) = P\{X = x\} = P\{\bigcup_{i} (X = x, Y = y_{i})\}$$
 Questi eventi sono *mutuamente disgiunti* quindi dall'unione posso passare alla somma di probabilità:
@@ -479,7 +495,8 @@ $$= \sum_{i} P(X = x, Y = y_{i)}= \sum\limits_{i} p(x, y_i)$$
 Dalla JCDF si può ottenere la JPMF nel seguente modo: $$F(x,y) = P\{X \le x, Y \le y\} = \sum\limits_{x_{i}\le x} \sum\limits_{y_{j} \le y} p(x_{i}, y_{j})$$
 Le probabilità $P\{X = x\}$ e $P\{Y = y\}$ vengono anche chiamate *probabilità marginali*.
 
-> Date due variabili aleatorie *continue*, per ogni set $C \subseteq \mathbb{R}^{2}$ di numeri reali $(x,y)$ si può definire la **Joint Probability Density Function** nel seguente modo: $$P\{(X,Y) \in C\} = \int_{(x,y) \in C} \int f(x,y) dx dy$$
+> [!note] JPDF
+> Date due variabili aleatorie *continue*, per ogni set $C \subseteq \mathbb{R}^{2}$ di numeri reali $(x,y)$ si può definire la **Joint Probability Density Function** (JPDF) nel seguente modo: $$P\{(X,Y) \in C\} = \int_{(x,y) \in C} \int f(x,y) dx dy$$
 
 Inoltre, quando $C$ può essere separato in due set di numeri reali $C = \{(x,y)|x \in A, y \in B\}$ allora possiamo riscrivere il precedente integrale nel seguente modo: $$P\{(X,Y) \in C\} = P\{X \in A, Y \in B\} = \int_{A} \int_{B} f(x,y) dy dx$$
 Non spaventarsi per la presenza degli integrali, la maggior parte dei conti che bisognerà fare saranno con esponenziali o equazioni semplici, inoltre ricordarsi che gli integrali possono essere risolti in qualsiasi ordine quindi è fondamentale scegliere quello che semplifica di più i calcoli. 
@@ -494,5 +511,7 @@ la JCDF per noi sarà sempre differenziabile.
 Se esiste la JPDF possiamo anche ottenere le singole PDFs di $X$ e di $Y$ nel seguente modo: $$P\{X \in A\} = P\{X \in A, Y \in (-\infty, + \infty]\} = $$
 $$= \int_{A} \int_{-\infty}^{+\infty} f(x,y) dy dx$$
 Sapendo che $P\{X \in A\} = \int_{A} f_{X}(x) dx$ allora: $$f_{X}(x) = \int_{-\infty}^{+\infty} f(x,y) dy$$
-### TODO schema di come passare da una all'altra
+> [TODO] schema di come passare da una all'altra
+
+
 
