@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md"
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md"
           }
         }
       },
@@ -143,8 +143,9 @@
   },
   "active": "fc4c5f811f272eef",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Senza nome.md",
     "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Senza nome.md",
     "TODO.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
@@ -179,7 +180,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters",
