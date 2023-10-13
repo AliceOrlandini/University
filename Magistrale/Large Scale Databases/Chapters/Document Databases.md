@@ -77,3 +77,8 @@ Una **collezione** non è un set di documenti dello stesso tipo ma una collezion
 Anch’esso è *schema-less*. 
 MongoDB usa questo tipo di database. 
 
+I vantaggi di usare questo tipo di database sono che ho una grande flessibilità per gestire strutture dati molto differenti.
+
+Lo svantaggio principale è il fatto che non ci sono regole per la struttura dei dati (ad esempio se un valore deve rispettare un certo tipo o un range, nessuno controlla queste proprietà).
+
+#Attenzione non usare una struttura che si basa sulle foreign key perché all’esame si viene bocciati instant. 

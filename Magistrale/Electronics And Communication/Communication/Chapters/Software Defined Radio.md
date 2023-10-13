@@ -67,6 +67,7 @@ $$ = Re\{\tilde{r}[n]cos(2\pi \frac{f_{IF}}{f_{s}}n)\}$$
 In cui $\frac{f_{IF}}{f_{s}} = \frac{3.57}{28.8} = 0.123 MHz$.
 
 Momento sfogo: ho dovuto riascoltare tutta la lezione mettendo in pausa e tornando indietro, non smetterò mai di dire che l’inglese di Moretti rende la lezione particolarmente ostica, menomale che almeno registra. 
+Correzione: Moretti ha appena detto che siccome a lezione non c’è nessuno (siamo tipo 10) toglierà le registrazioni. Bro, fatti due domande se a lezione non c’è nessuno…
 # Programmare un RTL-SDR con MATLAB
 
 MATLAB è un linguaggio di programmazione orientato agli oggetti, permette infatti di creare classi per strutture dati complesse con un set di operazioni che si possono effettuare su tali strutture dati. 
@@ -77,4 +78,4 @@ Uno degli attributi della classe è *CenterFrequency*
 Per impostare la BandWidth del segnale non abbiamo un attributo, per impostarlo si sfrutta il  il *SampleRate* e il teorema di Nyquist. 
 
 L'SDR manda l’inviluppo complesso al computer, per prendere il segnale l’FM bisogna campionarlo almeno alla frequenza di campionamento minima, la FM manda il segale a 50kHz, qual è la frequenza minima? Nessuno risponde perché nessuno ha capito la domanda. Bisogna considerare la regola di Carson:
-$B_{FM} \simeq 2(m_{f} + 1)B= 6 \cdot 2 \cdot 50 = 600$
+$B_{FM} \simeq 2(m_{f} + 1)B= 6 \cdot 2 \cdot 50 = 600$ kHz
