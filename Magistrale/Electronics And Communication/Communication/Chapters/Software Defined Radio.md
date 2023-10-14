@@ -77,12 +77,37 @@ Correzione: Moretti ha appena detto che siccome a lezione non c’è nessuno (si
 
 # Implementazione pratica dell'FM Receiver
 
+![[Ricevitore FM.png|center]]
+
 Il primo elemento che troviamo nel ricevitore FM è l'antenna che riceve il segnale e lo passa all'SDR che lo campiona a 228 kS/s. 
 Poi, i campioni vengono processati in MATLAB.
-Il segnale FM è attualmente trasmesso in stereo ma originariamente veniva trasmesso in mono: $m(t) = L(t) + R(t)$ normalizzato ad 1 e con $k_{f} = 75$ KHz/V in modo che $\Delta f = k_{f}max|m(t)| = 75$ kHZ con $m_{f} = \frac{\Delta f}{B} = \frac{75}{15} = 5$.
+Il segnale FM è attualmente trasmesso in stereo ma originariamente veniva trasmesso in mono cioè: $m(t) = L(t) + R(t)$ normalizzato ad 1 e con $k_{f} = 75$ KHz/V in modo che $\Delta f = k_{f}max|m(t)| = 75$ kHZ con $m_{f} = \frac{\Delta f}{B} = \frac{75}{15} = 5$.
 
-L'inviluppo complesso del segnale ricevuto sarà (tralasciando il rumore): 
-$$\sigma{v}(t) = e^{j}$$
+Come abbiamo visto nel capitolo del [[Comunicazione Analogica#Frequency Modulation (FM)|ricevitore FM]], l'inviluppo complesso del segnale ricevuto sarà (tralasciando il rumore): 
+$$\tilde{v}(t) = e^{j 2\pi f_{k} \int_{-\infty}^{t} m(\tau) d\tau}$$
+Poi, la fase sarà: 
+$$\angle \tilde{v}(t) = 2 \pi k_{f} \int_{-\infty}^{t} m(\tau) d\tau$$
+E la sua derivata:
+$$\hat{m}(t) = \frac{1}{2\pi k_{f}} \frac{d}{dt} \angle \tilde{v}(t)$$
+Nel ricevitore reale in realtà si fa anche qualcosa in più, vediamo cosa.
+L'SDR restituisce un inviluppo complesso campionato con una frequenza $f_{s}= \frac{1}{T_{s}}$:
+$$
+\begin{align*}
+\tilde{v}(k) &= \tilde{v}(t)|_{t = kT_{s}} \\[4pt]
+&= e^{j2 \pi k_{f}\int_{-\infty}^{kT_{s}}m(\tau) d\tau } =\\[4pt]
+&\approx e^{j2\pi k_{f}\sum\limits_{l=-\infty}^{k}m(l)T_{s}}\\[4pt]
+\end{align*}$$
+L'approssimazione è valida perché la frequenza di campionamento è molto alta ($f_{m} = 2\cdot (1+m_{f}) \cdot B_{m}$).
+Scriviamo ora la formula del campione precedente: 
+$$\tilde{v}(k-1) = e^{j2 \pi k_{f}\sum\limits_{l=-\infty}^{k-1} m(lT_{s})T_{s}}$$
+E facciamo la seguente operazione: 
+$$
+\begin{align*}
+\tilde{v}(k) \cdot \tilde{v}^{*(k-1)} & \approx e^{j2 \pi k_{f}\sum\limits_{l = -\infty}^{k}m(l)T_{s}} \cdot e^{-j2 \pi k_{f}\sum\limits_{l = -\infty}^{k-1}m(l)T_{s}}\\[4pt]
+&= e^{j2\pi k_{f}m(k) T_{s}}
+\end{align*}
+$$
+
 # Programmare un RTL-SDR con MATLAB
 
 MATLAB è un linguaggio di programmazione orientato agli oggetti, permette infatti di creare classi per strutture dati complesse con un set di operazioni che si possono effettuare su tali strutture dati. 
