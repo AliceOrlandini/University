@@ -1,13 +1,19 @@
 /* different color for bold and italic */
 .cm-strong,
-.markdown-preview-section,
+.markdown-preview-section strong {
+  color: #08A045 !important;
+}
+
 .callout strong {
   color: #08A045 !important;
 }
 
-.cm-em,
-.markdown-preview-section,
 .callout em {
+  color: #C62121 !important;
+}
+
+.cm-em,
+.markdown-preview-section em {
   color: #C62121 !important;
 }
 

@@ -30,6 +30,8 @@ Vediamo i livelli di design per passare da un livello astratto a un livello conc
 
 La lezione di oggi parte male perché mi fa stra male la pancia e mi sono dimenticata a casa l’oki. Vabbè ci proviamo. 
 
+## Full-custom 
+
 Ora vediamo i passaggi di un design full custom:
 consideriamo la realizzazione di un inverter quindi la specifica si hanno indicazioni riguardo l’area massima occupata, un tempo di propagazione massimo o un requisito di potenza consumata. Poi bisogna anche definire la tecnologia, ad esempio consideriamo un nmos a 5nm. 
 Definiamo poi la topologia del device tramite un disegno, questa è un’operazione di sintesi.
@@ -43,7 +45,11 @@ Questo è il full-custom flow che però noi non useremo.
 ## ASIC semi-custom
 
 Ora vediamo il semi-custom design style. 
-
+L’azienda produttrice fornisce una serie di elementi da loro fabbricati che si possono assemblare per creare ciò di cui abbiamo bisogno. 
+Gate array vs Single Gate: questa parte me la sono persa completamente. 
+Gate array Interconnection: i colori rappresentano i livelli. 
+Sea of gate structure 
+No via sto troppo male vado a casa.
 # Relazione costi performance
 
 # FPGA

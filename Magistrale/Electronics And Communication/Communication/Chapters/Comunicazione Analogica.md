@@ -25,23 +25,27 @@ Lato ricevente l’operazione di demodulazione si effettua nel seguente modo:
 
 Vediamo i calcoli per ricavare il primo segnale ricordando che: $cos(\alpha) = \frac{1 + cos^2(2\alpha)}{2}$
 e che $cos(\alpha)*sin(\alpha) = \frac{sin(2\alpha)}{2}$:
-$$v_I(t) = s(t) 2cos(2\pi f_c t) =$$
-$$= m_1(t)2cos^2(2 \pi f_c t) - m_2(t)sin(2 \pi f_c t)2cos(2\pi f_c t) =$$
-$$= m_1(t) + m_1(t)cos(2*2\pi f_c t) - m_2(t) sin(2 * 2 \pi f_c t)$$
+$$\begin{align*} v_I(t) &= s(t) 2cos(2\pi f_c t) =\\[4pt]
+&= m_1(t)2cos^2(2 \pi f_c t) - m_2(t)sin(2 \pi f_c t)2cos(2\pi f_{c t)}=\\[4pt]
+&= m_1(t) + m_1(t)cos(2*2\pi f_c t) - m_2(t) sin(2 * 2 \pi f_c t)
+
+\end{align*}$$
 Poi, applicando un filtro in banda base, semplifico il seno e il coseno in modo da isolare solo $m_1(t)$.
 La stessa cosa si può fare per il segnale in quadratura ricordando che $cos^2(\alpha) + sin^2(\alpha) = 1$:
-$$v_Q(t) = s(t)(-2)sin(2\pi f_c t)) =$$
-$$= m_1(t)(-2)cos(2\pi f_c t)sin(2\pi f_c t) - m_2(t)(-2)sin^2(2\pi f_c t) =$$
-$$= m_1(t) sin(2*2\pi f_c t) + 2m_2(t) - 2m_2(t)cos^2(2\pi f_c t) =$$
-$$= m_1(t)sin(4\pi f_c t) + 2m_2(t) -m_2(t) -m_2(t)cos(2*2\pi f_c t)$$
-$$= m_1(t)sin(4\pi f_c t) + m_2(t) - m_2(t)cos(4\pi f_c t)$$
+$$\begin{align*}
+v_Q(t) &= s(t)(-2)sin(2\pi f_c t)) =\\[4pt]
+&= m_1(t)(-2)cos(2\pi f_c t)sin(2\pi f_c t) - m_2(t)(-2)sin^2(2\pi f_c t) =\\[4pt]
+&= m_1(t) sin(2*2\pi f_c t) + 2m_2(t) - 2m_2(t)cos^2(2\pi f_c t) =\\[4pt]
+&= m_1(t)sin(4\pi f_c t) + 2m_2(t) -m_2(t) -m_2(t)cos(2*2\pi f_c t)\\[4pt]
+&= m_1(t)sin(4\pi f_c t) + m_2(t) - m_2(t)cos(4\pi f_c t)\\[4pt]
+\end{align*}$$
 Anche qui con un filtro in banda base preleviamo solo $m_2(t)$.
 
 Siamo quindi riusciti, con la stessa quantità di banda, ad inviare due segnali invece che uno.
 ## Inviluppo Complesso
 
 La notazione che abbiamo utilizzato può essere semplificata. Diamo delle definizioni:
-> Un segnale si dice *segnale passa banda* se la sua *energia* è concentrata in una banda pari a *2B* centrata in un intorno di $f_c \not= 0$ tale che $f_c >> 2B$.
+> Un segnale si dice *segnale passa banda* se la sua *energia* è concentrata in una banda pari a $2B$ centrata in un intorno di $f_c \not= 0$ tale che $f_c >> 2B$.
 
 Una proprietà importante di un segnale passa banda è che possiamo sempre rappresentarlo tramite il suo *inviluppo complesso* nel seguente modo: 
 $$s(t) = Re\{\tilde{s}(t)e^{j2\pi f_c t}\}$$
@@ -49,9 +53,12 @@ $$s(t) = Re\{\tilde{s}(t)e^{j2\pi f_c t}\}$$
 > *L’inviluppo complesso* è una rappresentazione puramente matematica del segnale in banda passante e si scrive come $\tilde{s}(t)=s_I(t) + js_Q(t)$. 
 
 Sostituiamo la definizione di inviluppo complesso nella definizione di segnale passa banda ricordando che $e^{j2\pi f_c t} = cos(2\pi f_c t) + j sin(2\pi f_c t)$:
-$$s(t) = Re\{\tilde{s}(t)e^{j2\pi f_c t}\} =$$
-$$= Re\{(s_I(t) + js_Q(t))(cos(2\pi f_c t)+jsin(2\pi f_c t))\} =$$
-$$= s_I(t)cos(2\pi f_c t) - s_Q(t)sin(2\pi f_c t)$$
+$$
+\begin{align*}
+s(t) &= Re\{\tilde{s}(t)e^{j2\pi f_c t}\} =\\[4pt]
+&= Re\{(s_I(t) + js_Q(t))(cos(2\pi f_c t)+jsin(2\pi f_c t))\} =\\[4pt]
+&= s_I(t)cos(2\pi f_c t) - s_Q(t)sin(2\pi f_c t)\\[4pt]
+\end{align*}$$
 Da questi calcoli abbiamo ottenuto esattamente la modulazione QAM e notiamo immediatamente il motivo per cui nella modulazione QAM mettevamo un meno davanti al seno. 
 
 Per ogni segnale in banda passante esiste l’inviluppo complesso e quindi posso scriverlo in termini di $m_1(t)$ e $m_2(t)$.
@@ -90,23 +97,35 @@ Per risolvere questo problema, introduciamo un tipo di modulazione che invece di
 
 In questo tipo di modulazione il segnale $m(t)$ viene modulato nel seguente modo: $$s_{FM}(t) = cos(2\pi f_c t + 2 \pi k_f \int_{-\infty}^{t}m(\tau) d\tau)$$Domanda: che tipo di segnale è? 
 È un segnale *passa banda* perché compare $f_c$ quindi ha un inviluppo complesso che vale: $$\tilde{s}_{FM}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau}$$Facciamo una riprova sostituendo l'inviluppo complesso nella definizione di segnale passa banda, se l'inviluppo che abbiamo scritto è corretto dovremmo trovare la definizione di $s_{FM}(t)$:
-$$s(t) = Re\{\tilde{s}_{FM}(t) e^{j2\pi f_c t}\} = $$
-$$= Re\{e^{j2\pi f_c t}e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau}\} =$$
-$$= Re\{e^{j(2\pi f_c t+ 2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau)}\} =$$
-$$= cos(2\pi f_c t + 2\pi k_f \int_{-infty}^{t}m(\tau)d\tau) = s_{FM}(t)$$
+$$
+\begin{align*}
+s(t) &= Re\{\tilde{s}_{FM}(t) e^{j2\pi f_c t}\} = \\[4pt]
+&= Re\{e^{j2\pi f_c t}e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau}\} =\\[4pt]
+&= Re\{e^{j(2\pi f_c t+ 2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau)}\} =\\[4pt]
+&= cos(2\pi f_c t + 2\pi k_f \int_{-infty}^{t}m(\tau)d\tau) = s_{FM}(t)\\[4pt]
+\end{align*}$$
 Proviamo ora a studiare la banda occupata dal segnale modulato in FM, *but, there is a but (cit. Moretti)* questa non si può calcolare con la trasformata di Fourier perché quest'ultima non ha una forma chiusa. Quindi ne cercheremo un’approssimazione. 
 
-L'inviluppo complesso lo possiamo scrivere anche in questo modo: $$\tilde{s}_{FM}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau} = e^{j\tilde{\phi}(t)}$$Dalla fisica sappiamo che la frequenza è la derivata della fase quindi calcolo la derivata di $\phi(t)$ trovando: $$f_d(t) = \frac{1}{2\pi}\frac{d}{dt}\phi(t) -f_c=$$
-$$= \frac{1}{2\pi}\frac{d}{dt}\tilde{\phi}(t)=$$
-$$=k_fm(t)$$
+L'inviluppo complesso lo possiamo scrivere anche in questo modo: $$\tilde{s}_{FM}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau} = e^{j\tilde{\phi}(t)}$$Dalla fisica sappiamo che la frequenza è la derivata della fase quindi calcolo la derivata di $\phi(t)$ trovando: 
+$$
+\begin{align*}f_d(t) &= \frac{1}{2\pi}\frac{d}{dt}\phi(t) -f_c=\\[4pt]
+&= \frac{1}{2\pi}\frac{d}{dt}\tilde{\phi}(t)=\\[4pt]
+&=k_fm(t)\\[4pt]
+\end{align*}$$
 
 Definiamo la *frequency deviation* di un segnale come: $$f_d(t) = f_i(t) - f_c = k_f m(t)$$
 #Attenzione da ora in poi avremo 2 tipi di frequenze, la prima sarà la frequenza istantanea $f_i(t)$ e la seconda sarà la frequency deviation $f_d(t)$, sono ovviamente correlate ma diverse. 
 Definiamo la *frequenza massima* della frequency deviation come: $$\Delta f = max\{|f_d(t)|\} = k_f max\{|m(t)|\}$$definiamo infine *l'indice di modulazione* come: $$m_f = \frac{\Delta f}{B_m}$$Torniamo al calcolo della banda occupata dal segnale modulato, quella del segnale trasmesso $m(t)$ la conosco. 
 L'approssimazione consiste nel concentrare tutta l’energia del segnale in un punto e considerare quindi $m(t)$ come un impulso di valore pari al valore massimo assunto dal segnale. 
 Nel caso in cui $m(t) = V_mcos(2\pi f_m t)$ ho che $max\{|m(t)|\} = V_m$ e quindi ipotizzo che tutto il segnale sia concentrato in $V_m \delta(f)$ in corrispondenza di $f_m$ (la banda del segnale è $B_m = f_m$), che nel dominio del tempo diventa pari a $V_m$.
-Calcolo $s_{FM}(t)$ applicando la definizione e risolvendo l’integrale: $$s_{FM}(t) = cos(2\pi f_c t +2\pi k_f\int_{-\infty}^{t}V_mcos(2\pi f_m \tau) d\tau)=$$$$= cos(2\pi f_c t + 2\pi k_f V_m \frac{1}{2\pi f_m}sin(2\pi f_m t))=$$$$= cos(2\pi f_c t + \frac{k_fV_m}{f_m}sin(2\pi f_m t)) =$$
-$$= cos(2\pi f_c t + m_fsin(2\pi f_mt))$$
+Calcolo $s_{FM}(t)$ applicando la definizione e risolvendo l’integrale: 
+$$
+\begin{align*}
+s_{FM}(t) &= cos(2\pi f_c t +2\pi k_f\int_{-\infty}^{t}V_mcos(2\pi f_m \tau) d\tau)=\\[4pt]
+&= cos(2\pi f_c t + 2\pi k_f V_m \frac{1}{2\pi f_m}sin(2\pi f_m t))=\\[4pt]
+&= cos(2\pi f_c t + \frac{k_fV_m}{f_m}sin(2\pi f_m t)) =\\[4pt]
+&= cos(2\pi f_c t + m_fsin(2\pi f_mt))\\[4pt]
+\end{align*}$$
 L’integrale lo risolvo solo per $t$ perché il termine in $t$ è l’unico che ci interessa. 
 E ricavo facilmente anche l’inviluppo complesso come (i passaggi non ci sono perché sono identici a quelli che abbiamo fatto nell’inviluppo complesso di prima): $$\tilde{s}_{FM}(t) = e^{jm_fsin(2\pi f_m t)}$$Nell'immagine è rappresentato il risultato di questa tipologia di modulazione:
 
@@ -124,9 +143,11 @@ $$\tilde{s}_{FM}(t+kT_m) =e^{jm_fsin(2\pi f_m (t+kT_m))}$$
 Essendo il segnale periodico, possiamo usare la **trasformata serie di Fourier** per rappresentarlo: 
 $$\tilde{s}_{FM}(t) = \sum_{n} \delta _n e^{j2\pi nf_m t}$$
 In cui:
-$$\delta _n = \frac{1}{T_m} \int_{-T_m/2}^{T_m/2} \tilde{s}_{FM}(t) e^{j2\pi nf_m t} dt = $$
-$$= \frac{1}{T_m}\int_{-T_m/2}^{T_m/2} e^{jm_fsin(2\pi f_m t) e^{j2\pi n f_m t}} dt =$$
-$$= \frac{1}{T_m}\int_{-T_m/2}^{T_m/2} e^{j(m_fsin(2\pi f_m t)-2\pi nf_mt)}dt$$
+$$
+\begin{align*}
+\delta _n &= \frac{1}{T_m} \int_{-T_m/2}^{T_m/2} \tilde{s}_{FM}(t) e^{j2\pi nf_m t} dt =\\
+&= \frac{1}{T_m}\int_{-T_m/2}^{T_m/2} e^{jm_fsin(2\pi f_m t) e^{j2\pi n f_m t}} dt =\\
+&= \frac{1}{T_m}\int_{-T_m/2}^{T_m/2} e^{j(m_fsin(2\pi f_m t)-2\pi nf_mt)}dt$$
 $$= \frac{1}{2\pi}\int_{-\pi}^{\pi}e^{jm_fsin(\vartheta)-n\vartheta}d\vartheta$$
 $$= J_n(m_f)$$
 Questo integrale non ha una forma chiusa ma può essere scritto come una **funzione Bessel** del primo tipo ordine (una funzione tabulata) fatta in questo modo:

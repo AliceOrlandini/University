@@ -30,4 +30,4 @@ A seconda del range frequenziale nel quale ci troviamo, è stato assegnato un no
 
 Questa tabella è bene ricordarsela perché succede spesso che all’esame venga chiesto quale range frequenziale stiamo trattando.
 
-Notiamo che c’è una proporzionalità tra la frequenza e la lunghezza d’onda, in particolare: $$\lambda = \frac{c}{f}$$ con $c = 3 * 10^8$ m/s la velocità della luce. Ed ecco perché la banda è stata divisa per multipli di 3, in questo modo infatti si semplificano i calcoli. 
+Notiamo che c’è una proporzionalità tra la frequenza e la lunghezza d’onda, in particolare: $$\lambda = \frac{c}{f}$$con $c = 3 * 10^8$ m/s la velocità della luce. Ed ecco perché la banda è stata divisa per multipli di 3, in questo modo infatti si semplificano i calcoli. 
