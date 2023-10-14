@@ -107,6 +107,20 @@ $$
 &= e^{j2\pi k_{f}m(k) T_{s}}
 \end{align*}
 $$
+Quindi, moltiplicando due campioni vicini si ottiene un esponenziale che ha nell'argomento il campione che si sta cercando. Perciò, invece di svolgere la derivata si può semplicemente eseguire una moltiplicazione nel seguente modo:
+$$m(k) = \frac{1}{2\pi k_{f}T_{s}}\angle [\tilde{v}(k) \tilde{v}^*(k-1)]$$
+$k_{f}$ può essere sostituito con $\Delta f$ perché abbiamo normalizzato $m(f)$ quindi sono uguali. 
+In MATLAB il ricevitore è implementato così e non con la derivata. 
+
+# Effetti degli errori di sincronizzazione
+
+L'errore di fase può essere scritto come $e^{j(2\pi \Delta f t + \Delta \varphi)}$ che viene moltiplicato a $\tilde{s}_{FM}(t)$. 
+Quando si considera la fase dell'inviluppo complesso con l'errore di fase otteniamo:
+$$\angle \tilde{s}_{FM}(t)e^{j(2\pi \Delta f t + \Delta \varphi)} =  2\pi \Delta f t + 2\pi k_{f}\int_{-\infty}^{t}m(\tau) d\tau + \Delta \varphi$$
+
+Poi si effettua l'operazione di derivazione seguita da una moltiplicazione per $\frac{1}{2\pi k_{f}}$ per ottenere il segnale ed eliminare lo sfasamento $\Delta \varphi$ in modo da ottenere:
+$$\frac{\Delta f}{k_{f}} + m(t)$$
+L'effetto dell'errore di sincronizzazione sarà solo una costante, ma $k_{f}$ è molto più grande di $\Delta f$ quindi il termine è trascurabile. 
 
 # Programmare un RTL-SDR con MATLAB
 
