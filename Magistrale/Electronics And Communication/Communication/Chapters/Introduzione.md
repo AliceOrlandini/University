@@ -3,6 +3,7 @@ Per questo motivo, questo corso si focalizzerà sulle comunicazioni Wireless, st
 
 ## Lo spettro radio
 
+> [!note] Spettro Radio
 > Lo *spettro radio* è una parte dello *spettro elettromagnetico* utilizzata per le comunicazioni wireless (senza fili), come, per esempio, la trasmissione di dati attraverso reti *Wi-Fi* o in *banda larga mobile* tramite reti cellulari.
 
 Lo spettro negli anni è stato partizionato da degli enti per evitare sovrapposizioni nelle trasmissioni. Per esempio, lo spettro Americano è stato diviso in blocchi di frequenze secondo il seguente schema: 

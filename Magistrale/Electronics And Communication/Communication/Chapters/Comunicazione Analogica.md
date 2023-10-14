@@ -45,11 +45,13 @@ Siamo quindi riusciti, con la stessa quantità di banda, ad inviare due segnali 
 ## Inviluppo Complesso
 
 La notazione che abbiamo utilizzato può essere semplificata. Diamo delle definizioni:
+
+> [!note] Segnale Passa Banda
 > Un segnale si dice *segnale passa banda* se la sua *energia* è concentrata in una banda pari a $2B$ centrata in un intorno di $f_c \not= 0$ tale che $f_c >> 2B$.
 
 Una proprietà importante di un segnale passa banda è che possiamo sempre rappresentarlo tramite il suo *inviluppo complesso* nel seguente modo: 
 $$s(t) = Re\{\tilde{s}(t)e^{j2\pi f_c t}\}$$
-> [!bug] inviluppo complesso
+> [!note] Inviluppo Complesso
 > *L’inviluppo complesso* è una rappresentazione puramente matematica del segnale in banda passante e si scrive come $\tilde{s}(t)=s_I(t) + js_Q(t)$. 
 
 Sostituiamo la definizione di inviluppo complesso nella definizione di segnale passa banda ricordando che $e^{j2\pi f_c t} = cos(2\pi f_c t) + j sin(2\pi f_c t)$:
@@ -136,6 +138,8 @@ Si vede bene perchè si chiama **“frequency modulation”**, la fase cambia ma
 
 Ma torniamo alla domanda iniziale: quanto vale la banda del segnale trasmesso?
 Ripartiamo dall'espressione che abbiamo trovato risolvendo l'integrale: $$s_{FM}(t) = cos(2\pi f_c t + m_fsin(2\pi f_mt))$$e dal suo inviluppo complesso: $$\tilde{s}_{FM}(t) = e^{jm_fsin(2\pi f_m t)}$$La caratteristica principale di questo segnale è che è *periodico* di periodo $T_m = \frac{1}{f_m}$. 
+
+> [!note] Segnale Periodico
 > Un segnale è **periodico** se $s(t) = s(t + kT_m)$ $\forall k \in Z$.
 
 Quindi riscriviamo l'inviluppo complesso nel seguente modo:
@@ -145,11 +149,12 @@ $$\tilde{s}_{FM}(t) = \sum_{n} \delta _n e^{j2\pi nf_m t}$$
 In cui:
 $$
 \begin{align*}
-\delta _n &= \frac{1}{T_m} \int_{-T_m/2}^{T_m/2} \tilde{s}_{FM}(t) e^{j2\pi nf_m t} dt =\\
-&= \frac{1}{T_m}\int_{-T_m/2}^{T_m/2} e^{jm_fsin(2\pi f_m t) e^{j2\pi n f_m t}} dt =\\
-&= \frac{1}{T_m}\int_{-T_m/2}^{T_m/2} e^{j(m_fsin(2\pi f_m t)-2\pi nf_mt)}dt$$
-$$= \frac{1}{2\pi}\int_{-\pi}^{\pi}e^{jm_fsin(\vartheta)-n\vartheta}d\vartheta$$
-$$= J_n(m_f)$$
+\delta _n &= \frac{1}{T_m} \int_{-T_m/2}^{T_m/2} \tilde{s}_{FM}(t) e^{j2\pi nf_m t} dt =\\[4pt]
+&= \frac{1}{T_m}\int_{-T_m/2}^{T_m/2} e^{jm_fsin(2\pi f_m t) e^{j2\pi n f_m t}} dt =\\[4pt]
+&= \frac{1}{T_m}\int_{-T_m/2}^{T_m/2} e^{j(m_fsin(2\pi f_m t)-2\pi nf_mt)}dt\\[4pt]
+&=\frac{1}{2\pi}\int_{-\pi}^{\pi}e^{jm_fsin(\vartheta)-n\vartheta}d\vartheta\\[4pt]
+&= J_n(m_f)\\[4pt]
+\end{align*}$$
 Questo integrale non ha una forma chiusa ma può essere scritto come una **funzione Bessel** del primo tipo ordine (una funzione tabulata) fatta in questo modo:
 
 ![Bessel|center|500](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Bessel_Functions_%281st_Kind%2C_n%3D0%2C1%2C2%29.svg/1920px-Bessel_Functions_%281st_Kind%2C_n%3D0%2C1%2C2%29.svg.png)
@@ -158,8 +163,12 @@ Più grande è $X$ e più devo considerare il contributo delle funzioni.
 Se $X=0$ allora posso considerare solo la funzione di ordine zero, cioé $J_0(X)$ (quella rossa) ma se $X \gg 0$ devo considerarle tutti i contributi dati dagli altri ordini (non ho capito molto bene questa parte).
 Alla fine comunque mi basta sapere che $\delta _n = J_n(m_f)$ ovvero il coefficiente è pari alla funzione Bessel calcolata in $m_f$.
 
-Il segnale sarà quindi: $$s_{FM}(t) = Re\{\tilde{s}_{FM}(t)e^{j2\pi f_c t}\} =$$
-$$= \sum_{n}J_n(m_f)cos(2\pi(f_c+nf_m)t)$$
+Il segnale sarà quindi: 
+$$
+\begin{align*}
+s_{FM}(t) &= Re\{\tilde{s}_{FM}(t)e^{j2\pi f_c t}\} =\\[4pt]
+&= \sum_{n}J_n(m_f)cos(2\pi(f_c+nf_m)t)\\[4pt]
+\end{align*}$$
 Che, nel dominio della frequenza, sarà $S_{FM}(f)$ fatta in questo modo:
 
 ![FM|center|500](https://rolandkuit.com/FM%20Tutorial/Pictures/FM%20Sidebands.jpg)

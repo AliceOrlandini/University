@@ -4,28 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "eee95e66dfdfe43f",
+        "id": "933ed375764d5d69",
         "type": "tabs",
         "children": [
           {
-            "id": "d28f0b527fbae90d",
+            "id": "8967e906ddb333b8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "f94638627d0941ac",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.4.16"
               }
             }
           }
@@ -95,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md"
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md"
               }
             }
           },
@@ -167,16 +157,18 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "d28f0b527fbae90d",
+  "active": "8967e906ddb333b8",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
     "TODO.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
-    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
@@ -198,7 +190,6 @@
     "Magistrale/Performance Evaluation/Probability Theory/Images",
     "Magistrale/Large Scale Databases/Chapters/Ripasso Java.md",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
@@ -211,7 +202,6 @@
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
-    "Prova.md",
     "Magistrale/Electronics And Communication",
     "Magistrale/Large Scale Databases",
     "Magistrale/Performance Evaluation",

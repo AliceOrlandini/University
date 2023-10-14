@@ -22,6 +22,7 @@ Quindi, i blocchi che compongono il SDR sono i seguenti:
 # Heterodyne receiver architecture 
 
 Quando studiamo il ricevitore analogico, lo immaginiamo come questo (*Direct Conversion Receiver*) (parte a destra con il LPF):
+
 ![[Modello con inviluppo complesso.png]]
 
 In realtà, l'architettura reale è un po' diversa da questa che invece viene utilizzata solo a scopi scolastici per comprendere la comunicazione analogica. Il vero ricevitore sarà fatto in questo modo (disegno incompleto, sulle slide c'è completo): 
@@ -35,11 +36,13 @@ La prima demodulazione la facciamo spostandoci da RF ad una frequenza chiamata *
 Quindi, il segnale ricevuto è centrato in $f_c$ e sarà: 
 $$r(t) = Re\{\tilde{r}(t)e^{j2\pi f_{c}t}\} = r_{I}(t)cos(2\pi f_{c}t) - r_{Q}(t)sin(2\pi f_{c}t)$$
 E vogliamo spostare $r(t)$ in $f_{IF}$ moltiplicandolo per un $cos(2\pi f_{LO}t)$ con $f_{LO}= f_{c}- f_{IF}$ acronimo di *local oscillator*.
-Assumiamo per esempio che $r(t) = m(t)cos(2\pi f_{c}t)$, un segnale modulato DSB, ed eseguiamo i conti:
-$$r(t)cos(2\pi f_{LO}t) =$$
-$$ = m(t)cos(2\pi f_{c}t)cos(2\pi(f_{c}-f_{IF})t) =$$
-Ricordiamo che $cos(\alpha)cos(\beta) = \frac{1}{2} cos(\alpha + \beta) + \frac{1}{2}cos(\alpha - \beta)$:
-$$= \frac{1}{2}m(t)cos(2\pi(2f_{c}-f_{IF})t)+\frac{1}{2}m(t)cos(2\pi f_{IF}t)$$
+Assumiamo per esempio che $r(t) = m(t)cos(2\pi f_{c}t)$, un segnale modulato DSB, ed eseguiamo i conti ricordando che $cos(\alpha)cos(\beta) = \frac{1}{2} cos(\alpha + \beta) + \frac{1}{2}cos(\alpha - \beta)$:
+$$
+\begin{align*}
+r(t)cos(2\pi f_{LO}t) &= m(t)cos(2\pi f_{c}t)cos(2\pi(f_{c}-f_{IF})t) =\\[4pt]
+&=\frac{1}{2}m(t)cos(2\pi(2f_{c}-f_{IF})t)+\frac{1}{2}m(t)cos(2\pi f_{IF}t)\\[4pt]
+\end{align*}$$
+
 Il primo termine è un componente ad alta frequenza perché $f_c$ è molto più grande di $f_{IF}$, il secondo termine invece notiamo che contiene il segnale trasmesso $m(t)$ ed è modulato alla frequenza $f_{IF}$. Quindi, il primo termine lo eliminiamo con un filtro centrato in $f_{IF}$ e ci sembrerebbe di aver finito. 
 In realtà c'è un problema: sappiamo che $cos(\alpha - \beta) = cos(\beta - \alpha)$ quindi potrebbe accadere che alcuni componenti frequenziali simmetrici ad $f_{IF}$ vadano a interferire col secondo termine. (qui Moretti a parole l'ha spiegato malissimo ma dal disegno su OneNote si capisce che intende dire che se ho un segnale nell'asse negativo, anche lui verrà demodulato e può succedere che si sovrapponga al segnale in $f_{IF}$, almeno questo ho capito io). Questo segnale si chiama *segnale immagine*, un segnale simmetrico ad $f_{IF}$ che si pone esattamente in sua corrispondenza. 
 Per risolvere questo problema, *prima* della modulazione si rimuovono tutte le potenziali immagini con un filtro chiamato per l'appunto **image filter**. 
@@ -62,12 +65,24 @@ Proviamo a dare alcuni numeri, nel *super-heterodyne receiver* si ha un ricevito
 4. infine, i campioni vengono passati al computer tramite un collegamento USB.
 
 Due parole sul segnale digitale, il segnale verrà campionato ad una frequenza $f_{s}= \frac{1}{T_{s}}$ quindi avrà la seguente forma:
-$$r[n] = Re\{\tilde{r}[n]cos(2\pi f_{IF}nT_{s})\} =$$
-$$ = Re\{\tilde{r}[n]cos(2\pi \frac{f_{IF}}{f_{s}}n)\}$$
+$$
+\begin{align*}
+r[n] &= Re\{\tilde{r}[n]cos(2\pi f_{IF}nT_{s})\} =\\[4pt]
+&= Re\{\tilde{r}[n]cos(2\pi \frac{f_{IF}}{f_{s}}n)\}\\[4pt]
+\end{align*}$$
 In cui $\frac{f_{IF}}{f_{s}} = \frac{3.57}{28.8} = 0.123 MHz$.
 
 Momento sfogo: ho dovuto riascoltare tutta la lezione mettendo in pausa e tornando indietro, non smetterò mai di dire che l’inglese di Moretti rende la lezione particolarmente ostica, menomale che almeno registra. 
 Correzione: Moretti ha appena detto che siccome a lezione non c’è nessuno (siamo tipo 10) toglierà le registrazioni. Bro, fatti due domande se a lezione non c’è nessuno…
+
+# Implementazione pratica dell'FM Receiver
+
+Il primo elemento che troviamo nel ricevitore FM è l'antenna che riceve il segnale e lo passa all'SDR che lo campiona a 228 kS/s. 
+Poi, i campioni vengono processati in MATLAB.
+Il segnale FM è attualmente trasmesso in stereo ma originariamente veniva trasmesso in mono: $m(t) = L(t) + R(t)$ normalizzato ad 1 e con $k_{f} = 75$ KHz/V in modo che $\Delta f = k_{f}max|m(t)| = 75$ kHZ con $m_{f} = \frac{\Delta f}{B} = \frac{75}{15} = 5$.
+
+L'inviluppo complesso del segnale ricevuto sarà (tralasciando il rumore): 
+$$\sigma{v}(t) = e^{j}$$
 # Programmare un RTL-SDR con MATLAB
 
 MATLAB è un linguaggio di programmazione orientato agli oggetti, permette infatti di creare classi per strutture dati complesse con un set di operazioni che si possono effettuare su tali strutture dati. 
