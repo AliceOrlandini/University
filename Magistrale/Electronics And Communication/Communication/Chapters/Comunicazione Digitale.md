@@ -88,7 +88,4 @@ Esiste un teorema che lega la densità spettrale di potenza con la trasformata d
 > $$S_{XX}(f) = \mathbb{F}\{(R_{XX}(\tau))\} = \int_{-\infty}^{+\infty} R_{XX}(\tau)e^{-j2 \pi f \tau} d\tau$$
 > 
 
-Da questo teorema deriva che la potenza di un processo $X(t)$ può essere calcolata come: $$$$
-
-
-
+Da questo teorema deriva che la potenza di un processo $X(t)$ può essere calcolata come: $$P_{X}= R_{XX}(0) = \int_{-\infty}^{+\infty}S_{XX}(f)df$$
