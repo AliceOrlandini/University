@@ -42,6 +42,12 @@ La privacy nell'uso dei sensori per le sperimentazioni è una questione di fonda
 
 [[https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/3616387#:~:text=L´idea%20di%20privacy,forse%20assumere%20decisioni%20più%20consapevoli.|Garante della privacy]]
 
+Nel primo capitolo della tesi, verrà presentata una panoramica approfondita sulla storia e sul funzionamento tecnico del sensore adottato negli esperimenti, noto come LiDAR. Il LiDAR, acronimo di "Light Detection and Ranging," ha una storia che affonda le radici nel XX secolo e ha attraversato un'evoluzione significativa, estendendo il suo utilizzo dalle applicazioni militari e aeronautiche a un vasto spettro di campi, tra cui geoscienze, topografia, ingegneria e persino l'industria automobilistica per sistemi di guida autonoma.
+
+Per quanto riguarda il funzionamento tecnico del LiDAR, il sistema è composto principalmente da un laser che emette impulsi di luce, un ricevitore che misura il tempo di ritorno di tali impulsi e un sistema di posizionamento che consente di registrare la posizione spaziale dei dati raccolti. Questi dati vengono elaborati per creare una nuvola di punti tridimensionale che rappresenta in modo dettagliato la superficie o gli oggetti rilevati.
+
+Infine, va sottolineato che la decisione di impiegare il LiDAR in questa ricerca è motivata da diverse ragioni. Tra queste, l'alta precisione e risoluzione spaziale offerte dalla tecnologia, nonché la sua capacità di acquisire dati rapidamente, sono fondamentali per il successo della ricerca. Inoltre, la capacità del LiDAR di fornire dati tridimensionali dettagliati è cruciale per gli obiettivi specifici della tesi, offrendo un livello di precisione che altre tecnologie potrebbero non garantire.
+
 # LiDAR
 
 ## Domanda 1
