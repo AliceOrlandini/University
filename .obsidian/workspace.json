@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md"
               }
             }
           },
@@ -157,10 +157,11 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "fbb610e332db5005",
   "lastOpenFiles": [
-    "SpuntiTesi.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+    "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
@@ -173,7 +174,6 @@
     "TODO.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Electronics/Images/IC Design Styles and Flows.png",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
