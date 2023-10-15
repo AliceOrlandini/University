@@ -49,7 +49,7 @@ Abbiamo due possibilità: Cell-based e Array-based.
 La processazione viene fatta dal core e ci sono una serie di piedini per l'input/output.
 Il core nel gate array è organizzato in gate tutti uguali con i channels che interconnettono tra loro i gate. *At the end of the story* il core è composto da pmos ed nmos connessi opportunamente tra loro per implementare una certa funzione logica. La connessione viene fatta tramite materiali metallici.
 Nella standard cell invece si hanno blocchi di dimensioni diverse ed è il programmatore che decide quale blocco utilizzare (??? boh sinceramente non ho capito nulla). 
-Noi lavoreremo al Register Transfer Level, come avveniva nel Verilog a reti logiche abbiamo dei registri e all'arrivo del clock lo stato del sistema cambierà, dovremo quindi implementare una certa logica tramite descrizioni e successivamente sintesi.
+Noi lavoreremo al Register Transfer Level, come avveniva nel Verilog a reti logiche abbiamo dei registri e all'arrivo del clock lo stato del sistema cambierà, dovremo quindi implementare una certa logica tramite descrizioni dell'hardware.
 
 # Relazione costi performance
 
