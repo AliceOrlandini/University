@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SpuntiTesi.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SpuntiTesi.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SpuntiTesi.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SpuntiTesi.md"
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md"
               }
             }
           },
@@ -157,8 +157,9 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "fbb610e332db5005",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
+    "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
@@ -175,7 +176,6 @@
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Electronics/Images/IC Design Styles and Flows.png",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
-    "SpuntiTesi.md",
     "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "().md",
