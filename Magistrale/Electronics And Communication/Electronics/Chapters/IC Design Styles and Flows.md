@@ -64,8 +64,17 @@ La relazione tra $n$ e $C_{1}$ è di tipo iperbolico, nel senso che per $n$ picc
 
 ![[cost curve.png|center|500]]
 
+Domanda: quale tra i design che abbiamo visto ha un costo $NRC$ maggiore? Il maggiore sarà il Full Custom, poi viene il Gate Array e infine lo Standard Cell.
+Invece, per quanto riguarda il volume di produzione? Conviene se abbiamo volumi grandi usare il Full Custom o lo Standar Cell. Se invece abbiamo volumi piccoli è meglio usare Gate Array o addirittura FPGA. 
+
+![[cost differences.png|center|500]]
 
 # FPGA
+
+FPGA è acronimo di "Field Programmable Gate Array" ed è costituito da un Gate Array con blocchi programmabili per diventare una qualsiasi funzione logica e un array di interconnessione. 
+Ci sono due modi di programmarlo: 
+- **SRAM based**: si inseriscono i dati nella ram, è riprogrammabile anche solo in parte. È però molto più sensibile al rumore (questo è quello che useremo)
+- **Anti-Fuse**: si basa sulla connessione tra nodi a voltaggi differenti per creare una connessione permanente tra i due. Una volta programmato non è riprogrammabile.
 
 # Design Productivity
 
