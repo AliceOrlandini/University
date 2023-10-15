@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SpuntiTesi.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SpuntiTesi.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SpuntiTesi.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SpuntiTesi.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md"
               }
             }
           },
@@ -159,10 +159,12 @@
   },
   "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Laboratory",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
+    "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
-    "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
@@ -197,7 +199,6 @@
     "Magistrale/Electronics And Communication/Communication/Images",
     "README.md",
     "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",

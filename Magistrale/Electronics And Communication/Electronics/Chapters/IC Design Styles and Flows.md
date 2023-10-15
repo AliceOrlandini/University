@@ -28,28 +28,29 @@ Vediamo i livelli di design per passare da un livello astratto a un livello conc
 5. **Circuiti**
 6. **Poligoni**: da inviare alla fabbrica per produrre il chip.
 
-La lezione di oggi parte male perché mi fa stra male la pancia e mi sono dimenticata a casa l’oki. Vabbè ci proviamo. 
-
 ## Full-custom 
 
-Ora vediamo i passaggi di un design full custom:
-consideriamo la realizzazione di un inverter quindi la specifica si hanno indicazioni riguardo l’area massima occupata, un tempo di propagazione massimo o un requisito di potenza consumata. Poi bisogna anche definire la tecnologia, ad esempio consideriamo un nmos a 5nm. 
-Definiamo poi la topologia del device tramite un disegno, questa è un’operazione di sintesi.
+Vediamo i passaggi di un design full custom consideriando la realizzazione di un inverter.
+Nella fase di *specifica* si hanno indicazioni riguardo l’area massima occupata, il tempo di propagazione massimo o la potenza consumata. Poi bisogna anche definire la tecnologia, ad esempio consideriamo una tecnologia CMOS a 5nm. 
+Definiamo poi la *topologia* del device a partire dalle tabelle di verità, attenzione che questa è un’operazione di sintesi.
 Poi si calcola l’area dei transistor $W_{p}$ e $W_{n}$.
-Ora si eseguono delle simulazioni sul funzionamento. 
-Nella fase di layout si definisce ogni strato del dispositivo, a questo punto si conoscono esattamente le misure del dispositivo. Il DRC (“Design Rule Check”) è un software che si occuperà di verificare se le misure sono corrette.
+A questo punto si eseguono delle *simulazioni* sul funzionamento con ad esempio software come SPICE. 
+Nella fase di *layout* si definisce ogni strato del dispositivo, a questo punto si conoscono esattamente le sue misure. Il DRC (“Design Rule Check”) è il software che si occuperà di verificare se le misure sono corrette.
 Il LVS (“Layout vs Scheme”) controlla se il layout è uguale allo schema che avevamo fatto all’inizio. 
-Infine c’è il LPE “Layout Parasitic Extraction” che è una simulazione che tiene in considerazione il modello dei transistor e il layout. 
+Infine, c’è l'LPE (“Layout Parasitic Extraction”) che è una simulazione che tiene in considerazione il modello dei transistor e il layout. 
 Se qualsiasi cosa va storta si ritorna alle fasi precedenti. 
-Questo è il full-custom flow che però noi non useremo. 
+Tutti questi software si ottengono tramite licenza che ha un costo nell'ordine dei milioni di euro all'anno. Inoltre, gli sviluppatori devono avere abilità specifiche per utilizzarli. 
+Per questi motivi, il full-custom flow noi non useremo ma era bene sapere come funziona. 
 ## ASIC semi-custom
 
 Ora vediamo il semi-custom design style. 
 L’azienda produttrice fornisce una serie di elementi da loro fabbricati che si possono assemblare per creare ciò di cui abbiamo bisogno. 
-Gate array vs Single Gate: questa parte me la sono persa completamente. 
-Gate array Interconnection: i colori rappresentano i livelli. 
-Sea of gate structure 
-No via sto troppo male vado a casa.
+Abbiamo due possibilità: Cell-based e Array-based. 
+La processazione viene fatta dal core e ci sono una serie di piedini per l'input/output.
+Il core nel gate array è organizzato in gate tutti uguali con i channels che interconnettono tra loro i gate. *At the end of the story* il core è composto da pmos ed nmos connessi opportunamente tra loro per implementare una certa funzione logica. La connessione viene fatta tramite materiali metallici.
+Nella standard cell invece si hanno blocchi di dimensioni diverse ed è il programmatore che decide quale blocco utilizzare (??? boh sinceramente non ho capito nulla). 
+Noi lavoreremo al Register Transfer Level, come avveniva nel Verilog a reti logiche abbiamo dei registri e all'arrivo del clock lo stato del sistema cambierà, dovremo quindi implementare una certa logica tramite descrizioni e successivamente sintesi.
+
 # Relazione costi performance
 
 # FPGA
