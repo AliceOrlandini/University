@@ -50,8 +50,20 @@ La processazione viene fatta dal core e ci sono una serie di piedini per l'input
 Il core nel gate array è organizzato in gate tutti uguali con i channels che interconnettono tra loro i gate. *At the end of the story* il core è composto da pmos ed nmos connessi opportunamente tra loro per implementare una certa funzione logica. La connessione viene fatta tramite materiali metallici.
 Nella standard cell invece si hanno blocchi di dimensioni diverse ed è il programmatore che decide quale blocco utilizzare (??? boh sinceramente non ho capito nulla). 
 Noi lavoreremo al Register Transfer Level, come avveniva nel Verilog a reti logiche abbiamo dei registri e all'arrivo del clock lo stato del sistema cambierà, dovremo quindi implementare una certa logica tramite descrizioni dell'hardware.
-
+TapeOut: è la fase finale in cui si mandano i poligoni all'azienda produttrice che li usa per realizzare le maschere per il processo di produzione dei transistor. Le maschere sono uno dei costi più importanti da considerare. 
 # Relazione costi performance
+
+Vediamo ora i costi di un circuito integrato che hanno un'importanza fondamentale sulla scelta dello stile di desing. I costi si dividono in:
+- **Costi fissi** $RE$: sono costi che si sostengono indipendentemente dal numero di pezzi realizzati. Esempi sono: 
+	- Costi di design: licenze software, salario ingegneri che usano quei software
+	- La macchina che produce le maschere e le macchine per i test
+- **Non recurrent engineering cost** $NRE$: costi dei materiali e della manodopera che richiede la produzione di un singolo pezzo. Esempi sono:
+	- Costo del Wafer: questo costo si riduce più l'area del chip diminuisce ($cost \propto A^{3}$).
+Il costo per singola unità sarà quindi $C_{1}= \frac{NRE}{n} + RE$ mentre il costo totale sarà $C_{T}= NRE + (n \cdot RE)$.
+La relazione tra $n$ e $C_{1}$ è di tipo iperbolico, nel senso che per $n$ piccoli il costo $C_{1}$ aumenta esponenzialmente, all'aumentare di $n$ la curva di attenua fino all'asintoto $RE$.
+
+![[cost curve.png|center|500]]
+
 
 # FPGA
 
