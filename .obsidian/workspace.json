@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "SpuntiTesi.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "SpuntiTesi.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "SpuntiTesi.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md"
+                "file": "SpuntiTesi.md"
               }
             }
           },
@@ -159,10 +159,10 @@
   },
   "active": "fbb610e332db5005",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
