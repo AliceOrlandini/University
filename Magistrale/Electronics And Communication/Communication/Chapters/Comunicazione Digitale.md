@@ -70,6 +70,7 @@ Il processo stocastico più comune a cui possiamo pensare in ambito di comunicaz
 ## Stazionarietà in senso lato
 
 Se un processo è stazionario di primo e secondo ordine allora possiamo usare la definizione di stazionarietà in senso lato. 
+
 > [!note] Stazionarietà in Senso Lato
 > Un processo è **stazionario in senso lato** (SSL) se:
 > - $E\{X(t)\} = \mu _{X}$
@@ -133,3 +134,22 @@ $S_{a}(f) = E[a^2]$
 Filtriamo con un filtro lineare:
 $S_{s}(f)= \frac{1}{T} S_{a}(f)|G_{T}(f)^{2}|$
 
+$A = E[a_{i}^{2}]$
+Noi assumeremo che $E[a_{i}] = 0$
+
+La funzione di autocorrelazione è deterministica e per questo calcoliamo la densità spettrale di potenza. Quest’ultima dipende solo dal filtro. Quindi scegliendo il filtro di partenza con cui realizzo il segnale, cambia la densità spettrale di potenza.
+Scegliamo per esempio una rect $g_{T}(t) = rect(\frac{t-T/2}{t})$ 
+che in frequenza è una sinc e quindi avrà uno spettro esteso.
+Se vogliamo uno spettro ristretto segliamo una rect: $G_{T}(f) = rect(fT)$ che ha $g_{T}(t) = \frac{1}{T}sinc(\frac{t}{T})$
+Generalmente si trova un compromesso.
+
+Ora vediamo la struttura del ricevitore. 
+Il segnale passa attraverso il canale e otteniamo $y(t) = h(t) conv s(t)$
+$r(t) = y(t)+n(t)$ 
+$h(t)$ rappresenta l’effetto del canale sul segnale, può essere visto come un linear time invariant filter. (LTI)
+In questo tipo di segnali $y(t) = x(t) \conv h(t)$ che in frequenza diventa $Y(f) = X(f)\cdot H(f)$
+Se $h(t) = \delta (t)$ l’effetto del segnale non si nota. 
+
+$w(t)$ è il rumore termico, veniva modellato come gaussiano bianco $\mathbb{N}(0,\frac{N_{0}}{2})$ quindi ha $S_{w}(f) = \frac{N_{0}}{2}$. 
+
+Infine, la struttura della PAM in ricezione.
