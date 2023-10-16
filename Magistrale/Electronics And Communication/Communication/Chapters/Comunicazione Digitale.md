@@ -109,3 +109,27 @@ Studiamo nel dettaglio i blocchi:
 
 Lo scopo del mappatore è quello di convertire i bit $d_{k} \in \{0,1\}$ in simboli $a_{i}$.
 L’expectation dei bit è $E[d_{k}] = 1/2$ quindi vado a mappare 0 in -1 ed 1 in +1 quindi $a_{i} \in \{-1,+1\}$
+I bit sono un processo stocastico discreto nel tempo e con stato discreto.
+Il mappatore non ha solo lo scopo di spostare il mean value in zero ma anche di compressare l’informazione perché un insieme di bit può essere compresso in un solo simbolo. 
+$M$ è la grandezza della costellazione dei simboli. Nel caso di prima $M = 2$ e il numero di simboli è $m = log_{2}M = 2$.
+Anche i simboli sono processi stocastici.
+Questi processi possiamo assumere che siano stazionari e indipendenti. 
+Un altra cosa che deve fare il mappatore è migliorare il più possibile la banda occupata. (ridire meglio)
+La sorgente genera simboli con un rate $R_{b}= \frac{1}{T_{b}}$. Ogni $m$ bit si ottiene un simbolo, se un simbolo mappa più di un bit l’efficienza spettrale aumenta. 
+$T = mT_{b}$ con $T$ il periodo del simbolo.
+Quindi $R = \frac{1}{T} = \frac{1}{mT_{b}}=\frac{R_{b}}{m}= \frac{R_{b}}{log_{2}M}$
+Dobbiamo misurare l’efficenza spettrale andando a considerare la banda occupata. 
+$B \inverse \frac{1}{T}$ quindi più è grande M più è piccola la banda occupata.
+
+Energy Efficenty
+Spectral Efficenty
+ad esempio FM è buona in termini di Energy Efficenty ma non in Spectral
+Generalmente sono sempre uno l’opposto dell’altro, anche nella PAM succede. 
+Calcoliamo l’energia minima per trasmettere un bit.
+$s_{PAM}(t) = \sum\limits_{i} a_{i}g_{T}(t-iT)$ quest’ultima è continua in tempo e in stato. Non è stazionaria ma cyclostationary (perché la stazionarietà è periodica di periodo $T$, comunque non più stazionario). Non è nemmeno più indipendente perché dal disegno si nota che il prossimo sample dipenderà dal precedente. 
+$R_{a}(\tau) = E[a^{2}]\delta (\tau)$ 
+dopo il campionamento: $R_{a}[\tau] = E[a^{2}]\delta [\tau]$
+$S_{a}(f) = E[a^2]$ 
+Filtriamo con un filtro lineare:
+$S_{s}(f)= \frac{1}{T} S_{a}(f)|G_{T}(f)^{2}|$
+
