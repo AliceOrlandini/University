@@ -88,4 +88,3 @@ Le applicazioni del LiDAR sono varie, dall'automotive, in cui viene utilizzato p
 
 - Mettere anche gli screen dell'app per mostrare il funzionamento
 - Commentare i pezzi di codice
-- Finire l'introduzione

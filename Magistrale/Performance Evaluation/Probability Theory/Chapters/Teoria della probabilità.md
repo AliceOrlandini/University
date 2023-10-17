@@ -513,3 +513,9 @@ $$= \int_{A} \int_{-\infty}^{+\infty} f(x,y) dy dx$$
 Sapendo che $P\{X \in A\} = \int_{A} f_{X}(x) dx$ allora: $$f_{X}(x) = \int_{-\infty}^{+\infty} f(x,y) dy$$
 ### TODO schema di come passare da una all'altra
 
+Tutte le definizioni precedenti sono state introdotte per 2 variabili aleatorie, possono essere ovviamente estese ad $n$ variabili aleatorie $X_{1},X_{2},...,X_{n}$ definendo ad esempio $$F(x_{1},x_{2},...,x_{n}) = P\{X_{1} \le x_{1},...,X_{n} \le x_{n}\}$$ da cui si ottiene la CDF della singola variabile $X_{i}$ come $$F_{X_{i}}(x_{i}) = F(+\infty, ..., +\infty, x_{i}, +\infty, +\infty)$$
+## Variabili aleatorie indipendenti
+
+> [!note] Variabili Aleatorie Indipendenti
+> Due variabili aleatorie $X$ e$Y$ sono **indipendenti** *se e solo se* $$F(x,y) = F_{X}(x)\cdot F_{Y}(y)$$
+> 
