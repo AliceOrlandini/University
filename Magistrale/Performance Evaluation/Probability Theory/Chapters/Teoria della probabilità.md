@@ -553,16 +553,27 @@ Se rimuoviamo l'ipotesi che $g()$ sia iniettiva allora otteniamo che la probabil
 Quindi posso calcolare il valor medio usando la stessa formula di prima:
 $$E[Y] = \sum\limits_{i}y_{i}p_{Y}(y_{i}) = \sum\limits_{i}y_{i}\left[\sum\limits_{j\cdot g(x_{j})=y_{i}}p_{X}(x_{j})\right]= \sum\limits_{j}g(x_{j})p_{X}(x_{j}) = E[g(X)]$$
 La stessa cosa vale per variabili aleatorie *continue*: $$E[g(x)] = \int_{-\infty}^{+\infty} g(x)f(x) dx$$
-Vediamo ora il valor medio della somma di variabili aleatorie:
-
+Vediamo ora il **valor medio della somma di variabili aleatorie**:
+$$
+\begin{equation}
+E[g(X,Y)]= \begin{cases}\sum\limits\sum\limits g(x,y)\cdot p(x,y) & \text{VA discrete} \\
+\int\int g(x,y)\cdot f(x,y)dxdy & \text{VA continue}\end{cases}
+\end{equation}
+$$
+Nel caso in cui $g(X,Y) = X + Y$ allora si può dimostrare che $E[X+Y] = E[X] + E[Y]$ e notare che non abbiamo supposto l'indipendenza!
 ## Indicator Variable
 
 > [!note] Indicator Variable
 > La variabile aleatoria discreta chiamata indicator variable relativa ad un evento $A$ è definita come segue: 
 >$$
->\begin{e}
+>\begin{equation}
+>I_{A}= \begin{cases}1 & \text{se A si verifica} \\
+0 & \text{se A non si verifica}\end{cases}
+>\end{equation}
 $$
 
 Si deduce quindi che $p(1) = P(A)$ e $p(0) = 1-P(A)$ di conseguenza il suo valor medio sarà $E[I_{A}] = 1\cdot p(1) + 0 \cdot p(0) = p(1) = p(A)$
 Questa variabile aleatoria è molto importante perchè trasforma un evento in qualcosa di binario.
+
+## Varianza
 
