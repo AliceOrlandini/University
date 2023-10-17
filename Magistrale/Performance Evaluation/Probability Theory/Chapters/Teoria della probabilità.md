@@ -518,4 +518,51 @@ Tutte le definizioni precedenti sono state introdotte per 2 variabili aleatorie,
 
 > [!note] Variabili Aleatorie Indipendenti
 > Due variabili aleatorie $X$ e$Y$ sono **indipendenti** *se e solo se* $$F(x,y) = F_{X}(x)\cdot F_{Y}(y)$$
-> 
+
+Che significa che la loro JCDF è ottenuta facendo il prodotto delle singole CDF. È come dire che $\{X \le x\}$ e $\{Y \le y\}$ sono eventi indipendenti per qualsiasi valore di x e y. Infatti: 
+$$
+\begin{align*}
+F(x,y) &= P\{X \le x, Y \le y\} =\\
+&= P\{X \le x | Y \le y\}\cdot P\{Y \le y\} =\\
+&= P\{X \le x\}\cdot P\{Y \le y\} =\\
+&= F_{X}(x)\cdot F_{Y}(y)
+\end{align*}
+$$
+Se due variabili aleatorie sono indipendenti allora segue che:
+- se sono **discrete** $p(x,y) = p_{X}(x)\cdot p_{Y}(y)$
+- se sono **continue** $f(x,y) = f_{X}(x)\cdot f_{Y}(y)$
+E si può ovviamente estendere anche ad $n$ variabili aleatorie. 
+(Praticamente quando c'è l'indipendenza possiamo fare moltiplicazioni)
+
+### Esercizio
+
+## Valor Medio
+
+> [!note] Valor Medio
+> Il **valor medio** (o valore atteso) di una variabile aleatoria $X$ è denominato come $E[X]$ e si calcola nel seguente modo:
+> - variabili aleatorie *discrete*: $E[X] = \sum\limits_{i} x_{i}p(x_{i})$
+> - variabili aleatorie *continue*: $E[X] = \int_{-\infty}^{+\infty} xf(x) dx$
+
+Nel caso discreto il valor medio è praticamente la somma pesata di ogni valore assunto dalla variabile moltiplicato per la probabilità di quel valore. 
+Fare attenzione al fatto che il valor medio nel caso discreto potrebbe non essere un valore ammissibile. 
+
+Consideriamo una proprietà importante:
+data una variabile aleatoria discreta $X$, proviamo ad assumere che $Y$ sia in funzione di $X$ in questo modo: $Y = g(X)$ con $g()$ *iniettiva* (questa assunzione poi la toglieremo). 
+In questo caso, $p_{Y}(y_{i}) = p_{X}(x_{j})$ per qualisasi valore $x_{j},y_{i}$ tali che $y_{i}= g(x_{j})$. Calcoliamo quindi il valor medio: $$E[Y] = \sum\limits_{i}y_{i}p_{Y}(y_{i}) = \sum\limits_{i}g(x_{j})p_{X}(x_{j}) = E[g(X)]$$
+Se rimuoviamo l'ipotesi che $g()$ sia iniettiva allora otteniamo che la probabilità che una variabile aleatoria $Y$ assuma il valore $y_{i}$ è *la somma della probabilità di tutti i valori $x$ che tramite la funzione $g()$ vengono mappati in $y_{i}$* ovvero $$p_{Y}(y_{i}) = \sum\limits_{j\cdot g(x_{j}) = y_{i}}p_{X}(x_{j})$$
+Quindi posso calcolare il valor medio usando la stessa formula di prima:
+$$E[Y] = \sum\limits_{i}y_{i}p_{Y}(y_{i}) = \sum\limits_{i}y_{i}\left[\sum\limits_{j\cdot g(x_{j})=y_{i}}p_{X}(x_{j})\right]= \sum\limits_{j}g(x_{j})p_{X}(x_{j}) = E[g(X)]$$
+La stessa cosa vale per variabili aleatorie *continue*: $$E[g(x)] = \int_{-\infty}^{+\infty} g(x)f(x) dx$$
+Vediamo ora il valor medio della somma di variabili aleatorie:
+
+## Indicator Variable
+
+> [!note] Indicator Variable
+> La variabile aleatoria discreta chiamata indicator variable relativa ad un evento $A$ è definita come segue: 
+>$$
+>\begin{e}
+$$
+
+Si deduce quindi che $p(1) = P(A)$ e $p(0) = 1-P(A)$ di conseguenza il suo valor medio sarà $E[I_{A}] = 1\cdot p(1) + 0 \cdot p(0) = p(1) = p(A)$
+Questa variabile aleatoria è molto importante perchè trasforma un evento in qualcosa di binario.
+
