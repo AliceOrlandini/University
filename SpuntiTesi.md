@@ -79,11 +79,13 @@ Le applicazioni del LiDAR sono varie, dall'automotive, in cui viene utilizzato p
 [What I’ve learned after 100 days of 3D Scans with the iPhone 12 Pro LiDAR](https://manuvision.medium.com/what-ive-learned-after-100-days-of-3d-scans-with-the-iphone-12-pro-lidar-c6bd31038f4d)
 [How to Voxelize Meshes and Point Clouds in Python](https://towardsdatascience.com/how-to-voxelize-meshes-and-point-clouds-in-python-ca94d403f81d)
 
-# Altri siti
+## Introduzione
 
 [What is LiDAR](https://www.synopsys.com/glossary/what-is-lidar.html)
 [LiDAR Story](https://www.blickfeld.com/blog/the-beginnings-of-lidar/)
+[IoT e GDPR](https://www.cybersecurity360.it/legal/privacy-dati-personali/iot-e-gdpr-come-conciliare-linnovazione-con-la-sicurezza-dei-dati/)
 # Brain Storming
 
 - Mettere anche gli screen dell'app per mostrare il funzionamento
-- Mettere il codice
+- Commentare i pezzi di codice
+- Finire l'introduzione
