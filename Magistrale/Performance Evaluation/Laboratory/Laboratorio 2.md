@@ -6,61 +6,51 @@ Nel simulatore general porpouse avremo una serie di funzioni per gestire:
 - event queue
 - event scheduler
 - statistic computation
-- **simulation model**: questo è ciò che dovremo realizzare nel progetto perché i precedenti sono forniti da omnet++.
-I primi 3 costituiscono il **simulation engine** che è, nei simulatori general porpouse, di per sé molto efficiente. Infatti, ciò che si fa generalmente è utilizzare lo stesso simulation engine con diversi simulation model sviluppati dallo sviluppatore. 
+- **simulation model**: in particolare questo è il componente che dovremo realizzare nel progetto perché i precedenti sono forniti da omnet++.
+I primi 3 costituiscono il **simulation engine** che è, nei simulatori general porpouse, di per sé molto efficiente. Infatti, ciò che si fa generalmente è utilizzare lo stesso simulation engine con diversi simulation model sviluppati dal programmatore. 
 
-Nel simulatore ad-hoc bisogna invece sviluppare anche il simulation engine, questa scelta può essere presa per aumentare le perfornance in termini di ottimizzazione del codice. 
-Ad esempio, se avessi bisogno di una event queue con inserimento in testa con il simulatore ad-hoc possiamo realizzarla. In questo modo, ottimizziamo le strutture dati che abbiamo a disposizione. 
+Nel simulatore ad-hoc, bisogna invece sviluppare anche il simulation engine, questa scelta può essere presa per aumentare le perfornance in termini di ottimizzazione del codice ma richiede tempo e competenze specifiche. 
+Ad esempio, se avessi bisogno di ottimizzare le strutture dati con ad esempio una event queue con inserimento in testa con il simulatore ad-hoc possiamo realizzarla. 
 Gli svantaggi di questo approccio però riguardano:
-- lavoro aggiuntivo che comprende tempo e soldi
-- spesso difficile, richiede delle competenze specifiche
-- una piccola modifica in un componente può richiedere di modificarne altri, per esempio se modifico la event queue, potrei dover cambiare anche l’event scheduler. 
+- lavoro aggiuntivo che comprende tempo e soldi.
+- spesso difficile, richiede delle competenze specifiche.
+- una piccola modifica in un componente può richiedere di modificarne altri, per esempio se modifico la event queue, potrei dover cambiare anche l’event scheduler.
 
-# Esempio
+## Esempio
 
-Prendiamo una single queue system, vogliamo sapere il delay medio dei pacchetti nella coda prima di essere inviati nel network.
+Prendiamo una single queue system, vogliamo sapere il delay medio dei pacchetti nella coda prima di essere inviati nella rete.
 
 Assumiamo che:
-- ogni pacchetto abbia la stessa lunghezza in byte L
-- La banda del canale è C (bytes/s)
-- La coda può contenere al massimo N pacchetti
-- Lo scheduler dei pacchetti verso la rete abbia un tempo di processazione nullo. Il tempo per inviare un pacchetto sarà pari a $L/C$ 
-- La distanza temporale di arrivo dei pacchetti è una variabile aleatoria $X$ tale che $E[X] = 1/\lambda$ 
+- ogni pacchetto abbia la stessa lunghezza $L$ (byte).
+- La banda del canale sia $C$ (bytes/s).
+- La coda possa contenere al massimo $N$ pacchetti.
+- Lo scheduler dei pacchetti nella la rete abbia un tempo di processazione nullo. 
+- Il tempo per inviare completamente un pacchetto sia pari a $L/C$.
+- La distanza temporale di arrivo dei pacchetti sia una variabile aleatoria $X$ tale che $E[X] = 1/\lambda$ (distribuzione esponenziale).
 
-Cose da fare: 
-1. Identificare le variabili di sistema: 
-	1. Quanti slot della coda sono occupati $M$
-2. Identificare gli statistical counters:
-	1. dobbiamo trovare il delay medio ovvero $\frac{\sum_{i = 1}^{k} x_i}{k}$ con $k$ il numero di pacchetti inviati ed $x_i$ il tempo di attesa del pacchetto): 
-3. Poi ovviamente ci servirà il simulation clock.
+Definiamo gli step da intraprendere per modellare il problema: 
+1. **Identificare le variabili di sistema**: 
+	1. Quanti slot della coda sono occupati, li salveremo in una variabile $M$.
+2. **Identificare gli statistical counters**: lo scopo della simulazione è effettuare qualche tipo di statistica quindi identifichiamo ciò di cui abbiamo bisogno per compiere le nostre statistiche.
+	1. Dobbiamo trovare il *delay medio* dei pacchetti ovvero somma dei delay $x_i$ fratto $k$ il numero totale di pacchetti:  $\frac{\sum_{i = 1}^{k} x_i}{k}$.
+3. Idendificare i **parametri che dovranno essere forniti in input** al simulatore:
+	1. In questo caso avremo: $L$ la grandezza dei pacchetti, $C$ la banda del canale e $\lambda$ la distribuzione esponenziale.
+4. Poi ovviamente ci servirà il **simulation clock**.
 
-Inizializzazione:
-- Simulation clock = 0
-- Zero pacchetti nella queue $M = 0$ 
-- Zero pacchetti inviati $K = 0$
-- Somma dei delay $D = 0$
+Ora che abbiamo individuato i componenti principali del problema ci occupiamo dell'**inizializzazione**:
+- Il simulation clock lo inizializziamo a 0.
+- $M = 0$ perché all'inizio avrò zero pacchetti nella coda.
+- $k = 0$ perché all'inizio avrò inviato zero pacchetti.
+- $d = \sum_{i = 1}^{k} x_i = 0$ perché all'inizio la somma dei delay sarà zero.
+- $L$, $C$ e $\lambda$ possono essere importati tramite i file di configurazione oppure da linea di comando. ( #Attenzione MAI MAI MAI fare cose *hardcoded*, ad esempio nel codice scrivere $N = 3$ perché se volessimo cambiare quel numero dovremmo ricompilare tutto il simulatore).
 
-Parametri di configurazione:
-- Size dei pacchetti $L$
-- Banda del canale $C$
-- rate della distribuzione esponenziale $\lambda$
+Dopo l'inizializzazione **individuiamo gli eventi rilevanti** del sistema ricordando che un evento è *qualcosa* che cambia lo stato del sistema, nel nostro caso avremo i seguenti eventi:
+1. L’arrivo di un nuovo pacchetto $f_{1}$.
+2. Inizio della trasmissione di un pacchetto $f_{2}$.
+3. Fine della trasmissione del pacchetto $f_{3}$.
+4. Evento di fine simulazione $f_{4}$. È un evento particolare perché se i pacchetti continuano ad arrivare e vogliamo terminare la simulazione abbiamo bisogno di un evento speciale da invocare. Il momento di arrivo di questo evento viene stabilito tramite un parametro di configurazione che racchiude il tempo massimo di simulazione. 
 
-Questi possono essere impostati tramite i file di configurazione oppure da linea di comando. 
-
-MAI fare cose hardcoded, esempio N = 3 MAI perché dovremmo ricompilare il simulatore.
-
-- Eventi *rilevanti* del sistema:
-Un evento è qualcosa che cambia lo stato del sistema, in questo sistema quali sono:
-1. L’arrivo di un nuovo pacchetto
-2. Inizio della trasmissione di un pacchetto
-3. Fine della trasmissione del pacchetto
-4. Evento di fine simulazione perché se i pacchetti continuano ad arrivare e vogliamo terminare la simulazione abbiamo bisogno di un evento. Questo è stabilito da un parametro di configurazione che racchiude il tempo massimo di simulazione. 
-
-Tutti questi eventi hanno una funzione associata che costituiranno l’event handler (è il codice associato ad un evento).
-#Domanda Esistono eventi senza handler? 
-
-Vediamo cosa fanno gli handler:
-
+Tutti questi eventi hanno una funzione associata che viene chiamata **event handler**. Vediamo allora, nel nostro caso il compito di ogni handler: 
 Poi dobbiamo calcolare la average delay le statistiche facendo $\frac{D}{k}$ 
 Possiamo misurare la varianza? Con questi numeri no, dovremmo memorizzare tutti i delay in un array e non solo la somma D.
 
