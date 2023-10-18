@@ -50,41 +50,46 @@ Dopo l'inizializzazione **individuiamo gli eventi rilevanti** del sistema ricord
 3. Fine della trasmissione del pacchetto $f_{3}$.
 4. Evento di fine simulazione $f_{4}$. È un evento particolare perché se i pacchetti continuano ad arrivare e vogliamo terminare la simulazione abbiamo bisogno di un evento speciale da invocare. Il momento di arrivo di questo evento viene stabilito tramite un parametro di configurazione che racchiude il tempo massimo di simulazione. 
 
-Tutti questi eventi hanno una funzione associata che viene chiamata **event handler**. Vediamo allora, nel nostro caso il compito di ogni handler: 
-Poi dobbiamo calcolare la average delay le statistiche facendo $\frac{D}{k}$ 
-Possiamo misurare la varianza? Con questi numeri no, dovremmo memorizzare tutti i delay in un array e non solo la somma D.
+Tutti questi eventi hanno una funzione associata che viene chiamata **event handler** che può anche generare altri eventi. 
+Una prima osservazione è che dato che la lunghezza dei pacchetti è costante, il terzo evento, quello di fine trasmissione dei pacchetti, potrebbe essere eliminato. Noi però lo lasciamo perché *non si sa mai*, se in futuro volessimo modificare il simulatore togliendo l'ipotesi dei pacchetti costanti dovremmo cambiare il simulatore, lasciando invece gli eventi separati siamo già predisposti a future modifiche. 
+Ma quale struttura dati dovrei usare per memorizzare gli eventi? Per i sistemi come questo è conveniente utilizzare un simulatore ad-hoc considerando che se $\frac{L}{C} \ll E[X]$ possiamo ipotizzare che:
+- L'arrivo di un nuovo pacchetto sia un inserimento in coda.
+- L'inizio e la fine della trasmissione siano inserimenti in testa. 
+Tutte queste osservazioni possono essere utilizzate per rendere il sistema più efficiente ma bisogna fare attenzione perché generalmente *più si ottimizza e meno il sistema è flessibile*, bisogna quindi trovare un compromesso.
 
+Alla fine della simulazione troveremo nelle variabili $D$ e $k$ il risultato della simulazione quindi non ci resta che calcolare il delay medio con la formula $\frac{D}{k}$.
+Domanda, possiamo misurare anche la varianza? Con questi numeri no, dovremmo memorizzare tutti i delay in un vettore (non ci basta la somma $D$).
 # Implementazione della event queue
 
-È importante capire come questa è fatta è importante per capire le performance del nostro sistema. 
-Viene implementata in due modi:
+La coda degli eventi rappresenta uno degli elementi fondamentali del nostro sistema. È quindi importante studiare le sue possibili implementazioni per capire come queste inficiano sulle performance globali del sistema. 
+Principalmente, ci sono due modi per implementare la coda degli eventi: 
 1. Min-heap tree
 2. Calendar queue
-
 ## Min-heap tree
 
-È un albero binario tale che:
-1. il parent node è sempre più grande o al massimo uguale ai figli. 
+È un **albero binario** tale che:
+1. il parent node ha sempre valore minimo o al massimo uguale ai figli. 
 2. Ogni livello è riempito da sinistra a destra. 
 
-Queste condizioni sono importanti perché il primo nodo è sempre il minimo: quando vogliamo prendere l’evento vogliamo quello con minimo firing time e sarà $O(1)$ perché basta estrarre il primo nodo. 
-Inoltre, la profondità sarà $log_2(\#nodes)$ e questa sarà la complessità di tutte le funzioni che lavorano sull’albero. 
+Queste condizioni sono importanti perché estrarre il primo nodo significa estrarre il valore minimo e di solino noi quando vogliamo prelevare l’evento, vogliamo quello con firing time minimo e, con questa implementazione della coda, questa operazione sarà $O(1)$ perché basta estrarre il primo nodo. 
+La profondità dell'albero sarà $d = log_2(n)$ con $n$ il numero di nodi, questa è pari alla complessità di tutte le funzioni che lavorano sull’albero. 
 
-#Domanda Ma se estraggo il primo, poi non devo anche riorganizzare l’albero? Quindi la complessità è O(1) o O(log(n))?
+#Domanda Ma se estraggo il primo, poi non devo anche riorganizzare l’albero? Quindi la complessità è O(1) o O(log(n))? Riguardarsi algoritmi...
 
-Può essere implementata tramite un array (no con i puntatori):
-- posizione del figlio: 2j + 1, 2j +2
-- posizione del padre floor((j-1)/2)
+Al contrario di come abbiamo visto ad algoritmi, l'albero può essere implementato tramite un array invece che con i puntatori, la coda sarà strutturata in questo modo:
+- posizione di due figli: $2j + 1$, $2j +2$.
+- posizione del padre: $floor(\frac{j-1}{2})$.
 
-Per estrarre il prossimo evento dobbiamo fare un’operazione chiamata *rehepification* la complessità finale sarà $O(1) + O(log(n)) = O(log(n))$ 
+Per estrarre il prossimo evento, cioè il primo nodo dell'albero, dobbiamo fare un’operazione chiamata **rehepification** ovvero una riorganizzazione dell'albero, la complessità finale sarà $O(1) + O(log(n)) = O(log(n))$ .
 
-Per inserire un nuovo elemento lo inseriamo nell’ultima posizione e poi rifare la *rehepification*, la complessità sarà $O(1) + O(log(n)) = O(log(n))$ 
+Per inserire un nuovo elemento la procedura consiste nell'inserirlo in ultima posizione e poi rifare la rehepification, la complessità sarà quindi anche in questo caso $O(1) + O(log(n)) = O(log(n))$.
 
-Per l’eliminazione di un evento bisogna controllare tutto l’albero, quindi la complessità è $O(n)$ e poi rifare la *rehepification*, quindi avrei $O(n) + O(log(n)) = O(n)$.
-
-#Domanda se avessi l’indice sarebbe $O(log(n))$?
-
+Per l’eliminazione di un evento bisogna invece controllare tutto l’albero al fine di trovare quell'elemento e poi rifare la rehepification, quindi la complessità è $O(n) + O(log(n)) = O(n)$.
 ## Calendar queue
 
-Sulle slide. 
+Questa coda viene chiamata così perchè possiamo immaginare l'array come il *mese*, il bucket come un *giorno* e gli eventi come *appuntamenti* fissati in quel giorno. 
 
+Quindi, una calendar queue è un array di $M$ bucket. 
+Un bucket è una lista *ordinata* di eventi e tutti i bucket hanno la stessa capacità $\delta$.
+Un evento con firing time pari a $t$ è posizionato nel bucket in posizione $i = \lfloor \frac{t}{\delta} \rfloor mod M$ e tutti gli eventi memorizzati nello stesso bucket sono ordinati in base al loro tempo. 
+Per quanto riguarda la complessità, il caso peggiore 

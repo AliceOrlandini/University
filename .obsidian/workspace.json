@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b55a7f5191e2fce0",
+        "id": "ed6831e0f869cd91",
         "type": "tabs",
         "children": [
           {
-            "id": "3d1d75ea289062b3",
+            "id": "51a530c3ac0f2367",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -158,16 +158,17 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "3d1d75ea289062b3",
+  "active": "51a530c3ac0f2367",
   "lastOpenFiles": [
-    "Untitled.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
+    "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+    "Untitled.md",
     "TODO.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
-    "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
@@ -196,12 +197,10 @@
     "Magistrale/Large Scale Databases/Chapters/Ripasso Java.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "Magistrale/Performance Evaluation/Laboratory/Images",
     "Magistrale/Electronics And Communication/Communication/Images",
     "README.md",
     "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
-    "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
     "Magistrale/Electronics And Communication",
