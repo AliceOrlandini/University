@@ -65,4 +65,31 @@ Attenzione ad una cosa, non necessariamente un modello dettagliatissimo è il mo
 
 ## Validation
 
-Ora che abbiamo il modello dobbiamo valida
+Ora che abbiamo il modello dobbiamo validarlo prima di implementarlo per davvero. 
+Devo capire se le assunzioni sono ragionevoli.
+Devo essere certa che il modello si comporti come il sistema reale e se trovo delle differenze devo capire se queste sono accettabili. 
+Questo va assolutamente fatto prima di iniziare a scrivere codice.
+Per validare un modello ancora una volta non c’è un modo preciso, alcune tecniche sono:
+- intuizioni date dall’esperienza
+- utilizzare misurazioni di un sistema reale (simile se non lo si ha a disposizione)
+- con risultati teorici
+Questa validazione si chiama *preliminare* perché poi ce ne sarà un’altra dopo aver scritto il codice che chiameremo *verification*.
+
+## Factors
+
+Ancora non mettiamo mani al codice, dobbiamo definire i fattori. Ad esempio se volessi valutare più opzioni devo modellare il sistema in modo che sia possibile variare i parametri del sistema per valutare scenari differenti. 
+I fattori cambiano l’accuratezza del sistema.
+Alcuni fattori non possono essere modificate in real life, di questo bisogna tenerne conto. 
+#Domanda se un fattore non si verificherà in real life, perché inserirlo? 
+
+## Tools
+
+Ci sono molte alternative, ad esempio *omnet++*, nella realtà abbiamo molte opzioni. Tra queste opzioni si scegli in base a:
+- il costo
+- esperienza pregressa con un simulatore specifico.
+- capacità del simulatore.
+- tool di analisi compatibili o integrati nel software.
+
+## Implementation
+
+Da fare.
