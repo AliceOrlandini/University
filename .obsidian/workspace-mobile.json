@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md"
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md"
           }
         }
       },
@@ -141,11 +141,12 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "47d227c15ee73dd2",
+  "active": "fc4c5f811f272eef",
   "lastOpenFiles": [
+    "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "SpuntiTesi.md",
-    "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
