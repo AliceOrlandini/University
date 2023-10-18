@@ -40,7 +40,7 @@ Per affrontare queste sfide, è necessario adottare misure proattive per protegg
 
 La privacy nell'uso dei sensori per le sperimentazioni è una questione di fondamentale importanza. Mentre i sensori continuano a migliorare la nostra comprensione del mondo, è cruciale che la privacy individuale sia protetta. Solo attraverso un equilibrio tra l'innovazione tecnologica e la tutela della privacy possiamo sfruttare appieno il potenziale dei sensori senza compromettere i diritti fondamentali degli individui.
 
-[[https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/3616387#:~:text=L´idea%20di%20privacy,forse%20assumere%20decisioni%20più%20consapevoli.|Garante della privacy]]
+[Garante della provacy](https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/3616387#:~:text=L´idea%20di%20privacy,forse%20assumere%20decisioni%20più%20consapevoli.|Garante della privacy)
 
 Nel primo capitolo della tesi, verrà presentata una panoramica approfondita sulla storia e sul funzionamento tecnico del sensore adottato negli esperimenti, noto come LiDAR. Il LiDAR, acronimo di "Light Detection and Ranging," ha una storia che affonda le radici nel XX secolo e ha attraversato un'evoluzione significativa, estendendo il suo utilizzo dalle applicazioni militari e aeronautiche a un vasto spettro di campi, tra cui geoscienze, topografia, ingegneria e persino l'industria automobilistica per sistemi di guida autonoma.
 
@@ -88,3 +88,7 @@ Le applicazioni del LiDAR sono varie, dall'automotive, in cui viene utilizzato p
 
 - Mettere anche gli screen dell'app per mostrare il funzionamento
 - Commentare i pezzi di codice
+- Slide:
+	- “Introduzione al problema”
+	- “Soluzioni”
+	- “Risultati”

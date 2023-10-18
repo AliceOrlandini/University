@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+            "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+            "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md"
+            "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md"
           }
         }
       },
@@ -141,23 +141,24 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "fc4c5f811f272eef",
+  "active": "47d227c15ee73dd2",
   "lastOpenFiles": [
+    "Magistrale/Large Scale Databases/Table of Contents.md",
+    "SpuntiTesi.md",
+    "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Senza nome.md",
-    "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
     "Senza nome.md",
     "TODO.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
     "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
-    "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
     "Magistrale/Electronics And Communication/Electronics/Images/IC Design Styles and Flows.png",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
@@ -168,7 +169,6 @@
     "/Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Large Scale Databases/Chapters/Ripasso di Ingegneria del Software.md",
-    "SpuntiTesi.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
     "Magistrale/Performance Evaluation/Probability Theory/Images/CDF.png",
     "Magistrale/Electronics And Communication/Electronics/Images/nmos.png",

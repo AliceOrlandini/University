@@ -82,3 +82,4 @@ I vantaggi di usare questo tipo di database sono che ho una grande flessibilità
 Lo svantaggio principale è il fatto che non ci sono regole per la struttura dei dati (ad esempio se un valore deve rispettare un certo tipo o un range, nessuno controlla queste proprietà).
 
 #Attenzione non usare una struttura che si basa sulle foreign key perché all’esame si viene bocciati instant. 
+
