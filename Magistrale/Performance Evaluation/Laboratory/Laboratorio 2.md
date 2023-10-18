@@ -92,4 +92,8 @@ Questa coda viene chiamata così perchè possiamo immaginare l'array come il *me
 Quindi, una calendar queue è un array di $M$ bucket. 
 Un bucket è una lista *ordinata* di eventi e tutti i bucket hanno la stessa capacità $\delta$.
 Un evento con firing time pari a $t$ è posizionato nel bucket in posizione $i = \lfloor \frac{t}{\delta} \rfloor mod M$ e tutti gli eventi memorizzati nello stesso bucket sono ordinati in base al loro tempo. 
-Per quanto riguarda la complessità, il caso peggiore 
+Per quanto riguarda la complessità, il caso peggiore (worst-case) è quello in cui tutti gli eventi sono nello stesso bucket, in questo caso la complessità è $O(n)$ oppure $O(log(n))$ se si utilizza un'implementazione del bucket tramite min-heap e poi dobbiamo considerare anche che cerchiamo in tutti i bucket vuoti, cioè $O(M)$. La complessità finale peggiore sarà quindi $O(n + M)$.
+La complessità media invece è molto bassa.
+Ma quindi quale complessità devo considerare? Dipende dal tipo di simulatore. 
+
+Per migliorare le prestazioni possiamo usare *l'anno* $j$ e controllare se il firing time dell'evento in cima all'albero del min-heap è maggiore di $j \cdot M \cdot \delta$ allora si avanza di bucket. Altrimenti mettiamo l'evento in quel bucket. 

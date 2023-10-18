@@ -1,65 +1,58 @@
+Iniziamo questa lezione calcolando il **delay medio** della coda:
 $$D = \frac{\sum\limits_{i = 1}^{M} delay_{i}}{M}$$
-dove $delay_{i}= departure\_time_{i} - arrival\_time_{i}$ 
-Abbiamo 2 opzioni:
-1. Usare un file di log (trace file), i problemi sono che si va ad utilizzare molta memoria e le scritture richiedono tempo. Il vantaggio è che posso calcolare tutto ciò che voglio senza rieseguire la simulazione. Tuttavia, nonostante il consumo di memoria è comodo perché una volta finita la simulazione posso effettuare la computazione dei parametri separatamente.
-2. Calcolare la somma ”nel codice” e alla fine della simulazione calcolare la media. In questo caso lo svantaggio è bisogna inserire del codice aggiuntivo e nel punto esatto. 
+dove $delay_{i}= departure\_time_{i} - arrival\_time_{i}$.
+Per calcolare $D$ abbiamo 2 opzioni:
+1. Usare un **file di log** (trace file): i problemi però sono che si va ad utilizzare molta memoria e le scritture su file richiedono tempo. Il vantaggio invece è che posso calcolare tutto ciò che voglio senza rieseguire la simulazione. Quindi, nonostante il consumo di memoria è comodo perché una volta finita la simulazione posso effettuare la computazione delle statistiche separatamente.
+2. Calcolare la somma **”nel codice”** e alla fine della simulazione calcolare la media. In questo caso lo svantaggio è bisogna inserire del codice aggiuntivo e nel punto esatto con possibilità di errore. 
 
-Consiglio di Nardini: a volte cerchiamo il bug nel codice del simulatore quando in realtà il problema non è il sistema ma il modo di calcolare le metriche. 
+Consiglio di Nardini: a volte cerchiamo il bug nel codice del simulatore quando in realtà il problema non è il sistema in sé ma nel modo di calcolare le statistiche. 
 
 # Averaging quantities
 
-Bisogna fare attenzione perché a seconda di cosa vogliamo valutare bisogna usare la media giusta (ne esistono di molte tipologie).
-
+Bisogna fare attenzione perché a seconda di cosa vogliamo valutare bisogna usare la media giusta e di conseguenza le strutture dati adeguate.
 Ad esempio abbiamo:
-- **Rate**: $y = \frac{\sum\limits_{i = 1}^{N}x_{i}}{\tau}$ utile ad esempio per il throughput. Avrò bisogno di 3 variabili, la somma, il tempo iniziale e il tempo finale. 
-- **Time indipendent samples**: $y = \frac{\sum\limits_{i = 1}^{N}x_{i}}{N}$ Si può mettere N perché l’arrivo dei campioni non dipende dal tempo quindi basta dividere per il numero di campioni $N$. Questa tipologia di campioni si chiamano *impulsi*. Qui dovremo avere 2 variabili, la somma e il numero di sample.
+- **Rate**: dati $N$ samples $x_{1},x_{2},...,x_{N}$ la *rate mean* è: $$y = \frac{\sum\limits_{i = 1}^{N}x_{i}}{\tau}$$con $\tau$ l'intervallo di tempo totale tra il primo campionamento e l'ultimo. Questa media è utile ad esempio per calcolare il throughput e avrò bisogno di 3 variabili, la somma, il tempo iniziale e il tempo finale. 
+- **Time indipendent samples**: dati $N$ samples $x_{1},x_{2},...,x_{N}$ la *sample mean* è: $$y = \frac{\sum\limits_{i = 1}^{N}x_{i}}{N}$$In questo caso, si può utilizzare $N$ perché l’arrivo dei campioni non dipende dal tempo quindi è sufficiente dividere per il numero di campioni. Questa tipologia di campioni si chiamano *impulsi*. Qui dovremo avere 2 variabili, la somma e il numero $N$ di sample.
 
 Ipotizziamo di voler calcolare il numero medio di studenti in una classe:
 - all’inizio avrò zero studenti perché l’aula è vuota
 - poi si salirà a gradino
 - infine, alla fine della lezione si riscenderà a gradino fino ad arrivare al momento in cui non c’è più nessuno
 Abbiamo quindi un caso di:
-- **Time dependent samples**: $y = \frac{\sum\limits_{i=1}^{N}x_{i}\cdot (t_{i+1}-t_{i})}{\sum\limits_{i=1}^{N}(t_{i+1}-i_{i})} = \frac{\sum\limits_{i=1}^{N}(t_{i+1}-t_{i})}{t_{N+1}-t_{1}}$ in questo caso dobbiamo considerare il valore del campione ma anche il tempo in cui arriva. È di fatto una media pesata. Qui abbiamo bisogno di più variabili perché ci serve memoria per tutti i samples e il tempo di arrivo di tutti i samples. 
+- **Time dependent samples**: dati $N$ samples *dipendenti dal tempo* $(x_{1},t_{1}),(x_{2},t_{2}),...,(x_{N},t_{N})$ la *media pesata* sarà:  $$y = \frac{\sum\limits_{i=1}^{N-1}x_{i}\cdot (t_{i+1}-t_{i})}{\sum\limits_{i=1}^{N-1}(t_{i+1}-t_{i})} = \frac{\sum\limits_{i=1}^{N-1}(t_{i+1}-t_{i})}{t_{N+1}-t_{1}}$$In questo caso avremo bisogno di più variabili perché ci servono strutture per tutti i samples e per il loro tempo di arrivo. 
 
 # Not only averadges
 
 Proviamo a rispondere a queste domande: 
 1. Quant’è la probabilità che il nostro buffer sia occupato sopra i 100KB?
 2. Qual è il 99th percentile del ritardo?
-Queste domande hanno risposte molto complicate a meno che non si applicano delle approssimazioni. 
-Esempio: ipotizziamo di avere una PDF, questa non sarà mai uguale alla realtà perché dovremmo avere un numero infinito di esperimenti. 
+Queste domande hanno risposte molto complicate a meno che non si applichino delle approssimazioni. 
+Ad esempio, ipotizziamo di avere una **Probability Density Function** (PDF) che non sarà mai uguale alla realtà perché dovremmo avere un numero infinito di esperimenti ma ci può dare delle indicazioni utili. Per poterla considerare dovremo:
+1. Definire il *range*, ovvero il valore minimo e massimo della distribuzione.
+2. Dividere la granulosità dei segmenti, dovranno infatti essere tutti della stessa lunghezza. 
+3. Dividere il range di interesse in segmenti chiamati *bin* con granulosità scelta al punto precedente.
 
-1. Definire il range, ovvero il valore minimo e massimo della distribuzione 
-2. Dividiamo la granulatità dei segmenti, dovranno essere tutti della stessa lunghezza. Ogni segmento è chiamato *bin*
-
-Alla fine della simulazione si calcola la distribuzione PMF, con questa si calcola la domanda $P\{X < 20\} = \frac{5}{13} + \frac{3}{13} = \frac{8}{13}$
-Bisogna fare attenzione alla dimensione dei bins perché potrebbero essere o troppo stretti o troppo larghi. 
-Qui bisogna mantenere un array di interi e un contatore per l’overflow. 
-
-Se si volesse solo la CDF possiamo evitare di usare i bins, basta salvare i samples. 
+Alla fine della simulazione si calcola la Probability Mass Function (PMF) (siamo in ambito discreto), e con questa si risponde ad esempio alla prima domanda: $P\{X < 20\} = \frac{5}{13} + \frac{3}{13} = \frac{8}{13}$.
+I bin vengono memorizzati in un array di interi con una variabile in più *overflow*.
+Bisogna fare attenzione alla dimensione dei bin perché potrebbero essere o troppo stretti o troppo larghi. 
+Se invece si volesse solo la CDF possiamo evitare di usare i bin, basta infatti salvare i sample. 
 
 # Come si da un input al simulatore?
 
-Chi mette i pacchetti nella coda? Chi da gli input?
-
-Possiamo usare 2 approcci:
-1. **Trace-driven** simulation: si prende un file in cui ogni riga contiene il momento in cui avverrà quell’evento e una descrizione (ad esempio la size del pacchetto). All’inizio della simulazione si legge questo file. La maggior parte delle volte useremo una distribuzione esponenziale perché non è facile trovare la distribuzione adatta al nostro problema. 
+Per rispondere a questa domanda ci sono due approcci:
+1. **Trace-driven** simulation: si prende un file in cui ogni riga contiene il momento in cui avverrà quell’evento e una descrizione (ad esempio la size del pacchetto). All’inizio della simulazione si legge questo file.
 2. **Self-driven** simulation: l’input è generato artificialmente usando dei generatori random che genererà il tempo al quale il pacchetto deve arrivare. 
-In generale, tutti e due gli approcci sono possibili ma a volte il self-driven è l’unico possibile, per esempio nei video compressi a volte i frame dipendono l’uno dall’altro.
-#Domanda nell’approccio self-driven il tempo viene assegnato prima della simulazione o durante? 
+La maggior parte delle volte useremo una distribuzione esponenziale perché non è facile trovare la distribuzione adatta al nostro problema. 
+In generale, tutti e due gli approcci sono possibili ma a volte il self-driven è l’unico possibile. Per esempio se consideriamo i video compressi a volte i frame dipendono l’uno dall’altro.
 
-Mi sento poco bene, scriverò meglio questi appunti quando starò meglio. 
+Se invece non disponiamo dei dati, dovremo affidarci alle distribuzioni generate tramite *l’empirical distributions*, quella dei range e bin. 
 
-L’ultima risorsa è usare *l’empirical distributions*, quella dei range e bins. 
-
-Dopo la pausa sto un po’ meglio, ci riprovo.
 # Generatore di numeri casuali per una distribuzione
 
-Queste distribuzioni non sono usate solo per generare dei numeri ma anche per variare il comportamento del sistema.
-Ad esempio, se un pacchetto arriva o meno a destinazione. 
+Queste distribuzioni non sono usate solo per generare dei numeri ma anche per variare il comportamento del sistema, ad esempio, se un pacchetto arriva o meno a destinazione. 
 
 Per generare i numeri casuali si possono usare due approcci:
-1. Usare un generatore di numeri uniformemente distribuiti
+1. Usare un generatore di numeri *uniformemente distribuiti*.
 2. Usare un generatore variabile che genera un numero a caso e poi lo trasforma in un numero accettabile per la distribuzione che stiamo considerando
 
 Noi per generare i numeri useremo i **metodi aritmetici**, ad esempio uno dei primi era il *midsquare method*:
