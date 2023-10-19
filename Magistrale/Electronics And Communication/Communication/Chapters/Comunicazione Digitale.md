@@ -178,4 +178,12 @@ La funzione coseno rialzato ha una banda $B_{RC}= \frac{1+\alpha}{2T}$ con $\alp
 Se $\alpha$ è pari a zero si ottiene una rect. 
 In frequenza si ottengono delle sinc. 
 
-Non dobbiamo dimenticarci che c’è sempre rumore bianco additivo, anche $w(t)$ è l’inviluppo complesso del rumore gaussiano bianco. L’equivalente in banda base del rumore è i 
+Non dobbiamo dimenticarci che c’è sempre rumore bianco additivo, anche $w(t)$ è l’inviluppo complesso del rumore gaussiano bianco. L’equivalente in banda base del rumore è il rumore bianco in banda perché in teoria è bianco ovunque ma noi filtriamo in banda base quindi tagliamo tutte le altre parti.  
+$S_{\tilde{w}}(f) = 2N_{0}$ densità spettrale di potenza del rumore bianco in banda. 
+$E[w_{I}(n) \cdot w_{Q}(n)] = E[w_{I}(n)]\cdot E[w_{Q}(n)] = 0$ perché il valor medio del rumore bianco è zero. 
+Ora concentriamoci su $n(t)$, la sua densità spettrale di potenza sarà $S_{n}(f) = S_{w}(f)|G_{R}(f)|^{2}$ che *non* è bianco non essendo costante in frequenza ma dipendente dal filtro.
+Questo ci serve per integrarla e ottenere la potenza.
+Dobbiamo capire qual è la strategia migliore per filtrare il rumore in modo da toglierne il più possibile. Possiamo usare ancora una volta un coseno rialzato (filtro adattato).
+
+Ora possiamo mettere delle condizioni sui filtri, una soluzione buona è quella di usare $H_{RRC}(f,\alpha) = \sqrt{H_{RC}(f,\alpha)}$
+di modo che $G_{R(t)}=$
