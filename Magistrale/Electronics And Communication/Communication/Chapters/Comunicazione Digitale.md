@@ -165,3 +165,17 @@ $x(m)|_{t=mT} = x[mT] = \sum\limits_{i}a_{i}g(mT-iT) +n[mT] = \sum\limits_{i}g((
 poniamo $m-i = l$ da cui ottengo $i = m- l$ e $m-i = l$
 Sostituendo: $\sum\limits_{l}a_{m-l}g(lT)+n[m] = a_{m}g(0) + …$
 Ho estratto il primo elemento. Gli altri elementi sono l’interferenza intersimbolica, si origina quando il filtro $g_{T}(t)$ non è una rect (perché le sinc si annullano nei multipli del periodo). 
+$g(t) = g_{T}(t) \circledast g_{R}(t)$ è un triangolo.
+Il problema della rect è che è illimitata in frequenza quindi si ha uno spettro illimitato che non si usa in realtà. Quindi si ha interferenza intersimbolica. 
+La condizione per non avere ISI è $g(lT) = 1$ se $l=0$ e $g(lT) = 0$ se $l \not= 0$ perché così $x(m) = a_{m}+n(mT)$
+L’importante è che in multipli interi di T sia nulla, non deve essere necessariamente una rect. 
+Da notare che la condizione non basta perché trasmettitore e ricevitore devono essere perfettamente sincronizzati. 
+
+La stessa condizione può essere ricavata con Nyquist nel dominio della frequenza: $F(g(l)) = \sum\limits_{l}g(l)e^{-j2\pi flT} = \frac{1}{T}\sum\limits_{k}G(f-\frac{k}{T})$
+Bisogna scegliere la $g(t)$ in modo che $G(f)$ sia pari a 1 perché così ottengo T. (calcoli sulle slide)
+
+La funzione coseno rialzato ha una banda $B_{RC}= \frac{1+\alpha}{2T}$ con $\alpha$ detto fattore di roll-off. 
+Se $\alpha$ è pari a zero si ottiene una rect. 
+In frequenza si ottengono delle sinc. 
+
+Non dobbiamo dimenticarci che c’è sempre rumore bianco additivo, anche $w(t)$ è l’inviluppo complesso del rumore gaussiano bianco. L’equivalente in banda base del rumore è i 
