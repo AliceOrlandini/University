@@ -186,4 +186,6 @@ Questo ci serve per integrarla e ottenere la potenza.
 Dobbiamo capire qual è la strategia migliore per filtrare il rumore in modo da toglierne il più possibile. Possiamo usare ancora una volta un coseno rialzato (filtro adattato).
 
 Ora possiamo mettere delle condizioni sui filtri, una soluzione buona è quella di usare $H_{RRC}(f,\alpha) = \sqrt{H_{RC}(f,\alpha)}$
-di modo che $G_{R(t)}=$
+di modo che $G_{R}(t) = G_{T}(t)$
+
+Infine, possiamo definire la banda della PAM. 
