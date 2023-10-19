@@ -147,9 +147,21 @@ Ora vediamo la struttura del ricevitore.
 Il segnale passa attraverso il canale e otteniamo $y(t) = h(t) conv s(t)$
 $r(t) = y(t)+n(t)$ 
 $h(t)$ rappresenta l’effetto del canale sul segnale, può essere visto come un linear time invariant filter. (LTI)
-In questo tipo di segnali $y(t) = x(t) \conv h(t)$ che in frequenza diventa $Y(f) = X(f)\cdot H(f)$
+In questo tipo di segnali $y(t) = x(t) \circledast h(t)$ che in frequenza diventa $Y(f) = X(f)\cdot H(f)$
 Se $h(t) = \delta (t)$ l’effetto del segnale non si nota. 
 
 $w(t)$ è il rumore termico, veniva modellato come gaussiano bianco $\mathbb{N}(0,\frac{N_{0}}{2})$ quindi ha $S_{w}(f) = \frac{N_{0}}{2}$. 
 
 Infine, la struttura della PAM in ricezione.
+Dato il segnale $r(t)$ esso è in banda base (perché consideriamo l’inviluppo complesso)
+La prima cosa che troviamo è il filtro passa basso $g_{R}(t)$ 
+$r(t) = s(t) \circledast h(t) + w(t) = s(t)+w(t)$
+L’output del filtro passa basso sarà $x(t) = r(t) \circledast g_{R}(t) = s(t) \circledast g_{R}(t) + w(t) \circledast g_{R}(t)= \sum\limits_{i}a_{i}g(t-iT)+n(t)$
+Con $g(t) = g_{T}(t) \circledast g_R(t)$.
+L’unico elemento di disturbo per ora è il rumor $n(t) = w(t) \circledast g_{R}(t)$ di cui poi parleremo.
+
+Subito dopo c’è il campionatore, il suo scopo è estrapolare un campione.
+$x(m)|_{t=mT} = x[mT] = \sum\limits_{i}a_{i}g(mT-iT) +n[mT] = \sum\limits_{i}g((m-i)T)+n[m]$
+poniamo $m-i = l$ da cui ottengo $i = m- l$ e $m-i = l$
+Sostituendo: $\sum\limits_{l}a_{m-l}g(lT)+n[m] = a_{m}g(0) + …$
+Ho estratto il primo elemento. Gli altri elementi sono l’interferenza intersimbolica, si origina quando il filtro $g_{T}(t)$ non è una rect (perché le sinc si annullano nei multipli del periodo). 
