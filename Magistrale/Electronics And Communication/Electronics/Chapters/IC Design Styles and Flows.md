@@ -75,8 +75,22 @@ FPGA è acronimo di "Field Programmable Gate Array" ed è costituito da un Gate 
 Ci sono due modi di programmarlo: 
 - **SRAM based**: si inseriscono i dati nella ram, è riprogrammabile anche solo in parte. È però molto più sensibile al rumore (questo è quello che useremo)
 - **Anti-Fuse**: si basa sulla connessione tra nodi a voltaggi differenti per creare una connessione permanente tra i due. Una volta programmato non è riprogrammabile.
+L’anti-fuse è più efficiente in termini di velocità ma è meno compatibile con i dispositivi in commercio rispetto all’sram. 
 
+Vediamo come questi due FPGA sono organizzati internamente:
+La prima architettura è la Actel, basata su 3 componenti:
+- Basic Logic Cell
+- I/O Pads 
+- Interconnection
+
+La seconda opzione è l’architettura Xilinx che è molto più complessa quindi non la vedremo, ci basta sapere che può essere sia input che output ed è un’architettura più flessibile perché ci sono dei Configurable Logic Block (CLB).
+Lo svantaggio di questi dispositivi è che non se ne possono mettere troppi in connessione in serie perché il ritardo $\tau _{TOT} = N^{2}\tau$ si deteriora quadraticamente. 
+Ad esempio, il clock e il reset dovranno avere linee dedicate perché altrimenti il segnale di deteriorerebbe. 
 # Design Productivity
+
+La design productivity è la capacità degli ingegneri di realizzare un certo numero di transistor un tempo preciso.
+Ad esempio se lavoriamo ad un livello di astrazione alto si possono realizzare più transistor in meno tempo visto che il software tradurrà a basso livello. 
+
 
 # Evoluzione dell’EAD industry
 
