@@ -90,8 +90,22 @@ Ad esempio, il clock e il reset dovranno avere linee dedicate perché altrimenti
 
 La design productivity è la capacità degli ingegneri di realizzare un certo numero di transistor un tempo preciso.
 Ad esempio se lavoriamo ad un livello di astrazione alto si possono realizzare più transistor in meno tempo visto che il software tradurrà a basso livello. 
+Vediamo come cambia il numero di gate a seconda del livello di astrazione:
+- Transistor: 10 - 20 transistor
+- Gate: 100 - 200 transistor
+- RTL: 1k - 2k transistor
+- Behavioral: 2k - 10k transistor
+- Domain Specific: 8k -12k transistor
+Inoltre ad esempio per costruire 10M transistor servirebbero:
+Transistor: 62.500 ingegneri
+- Gate: 6250 ingegneri
+- RTL: 625 ingegneri
+- Behavioral: 125 ingegneri
+- Domain Specific: 62 ingegneri 
+Inoltre la cosa difficile è organizzare il lavoro più aumenta il numero di persone che lavorano al processo di progettazione. 
 
-
-# Evoluzione dell’EAD industry
+Bisogna anche analizzare il mercato andandolo a targettizzare.
+Esempio della playstation che ritarda di 6 mesi e quindi la gente per natale al figliolo compra l’xbox.
 
 # Come mappare un algoritmo su un sistema on chip
+
