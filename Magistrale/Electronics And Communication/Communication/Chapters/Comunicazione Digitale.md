@@ -197,4 +197,14 @@ Cioè $g_{T}(t) = h_{RRC}(t,\beta)$
 $\beta$ è il roll-off, se è zero ho una rect. 
 La risposta in frequenza sarà limitata perché lo spettro $H_{RC}(f,\beta)$ è un coseno rialzato. In matlab la sinc verrà tagliata ma si può fare senza troppo degrado dello spettro, il troncamento è dato da $SPAN$.
 $SPS$ è il sampling time(sample per simbols), ad esempio $SPS = 4$ allora $\frac{T}{T_{s}} = 4$ con $f_{s}= \frac{1}{T_{s}}$.
+L’$SPS$ minimo è 1 se il roll off è diverso da zero altrimenti è 2.
 
+# Power of a pam simbol
+
+Si integra la densità spettrale di potenza: $$P_{S}^{(BB)}) \frac{A}{T}\int_{-\infty}^{+\infty} H_{RC}(f,\alpha) df$$ ma visto che $\int_{-\infty}^{+\infty} H_{RC}(f,\alpha) df = h_{RC}(t,\alpha)|_{t=0} = 1$ quindi $$P_{S}= \frac{1}{2}P_{S}^{(BB)} = \frac{A}{2T}$$
+L’energia per trasmettere un simbolo è $$E_{S}^{(BB)} = P^{(BB)}\cdot T$$
+con $A = E[a_{i}^{2}] = \frac{M^{2}-1}{3}$ se $M$ è fissato abbiamo i simboli simmetrici ed equidistanti con una distanza pari a 2. 
+L’energia necessaria per trasmettere un simbolo è: $$E_{S}^{(PB)}= P_{S}T = \frac{A}{2T}T = \frac{M^{2}-1}{6}$$
+# Rumore additivo gaussiano bianco
+
+Anche per il rumo
