@@ -207,4 +207,7 @@ con $A = E[a_{i}^{2}] = \frac{M^{2}-1}{3}$ se $M$ è fissato abbiamo i simboli s
 L’energia necessaria per trasmettere un simbolo è: $$E_{S}^{(PB)}= P_{S}T = \frac{A}{2T}T = \frac{M^{2}-1}{6}$$
 # Rumore additivo gaussiano bianco
 
-Anche per il rumo
+Anche per il rumore dovremo calcolare la potenza.
+$n(m) = n(t)|_{t=mT} = n_{I}(m)+jn_{Q}(m)$ che è una variabile aleatoria.
+$E[n(m)] = 0$ gaussiano bianco
+$\sigma^{2}_{n} = E[|n(m)|^{2}] = 2N_{0}$
