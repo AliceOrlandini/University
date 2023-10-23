@@ -188,4 +188,13 @@ Dobbiamo capire qual è la strategia migliore per filtrare il rumore in modo da 
 Ora possiamo mettere delle condizioni sui filtri, una soluzione buona è quella di usare $H_{RRC}(f,\alpha) = \sqrt{H_{RC}(f,\alpha)}$
 di modo che $G_{R}(t) = G_{T}(t)$
 
-Infine, possiamo definire la banda della PAM. 
+Infine, possiamo definire la banda della PAM: $$B_{PAM}^{(PB)}= 2B_{PAM}^{(BB)} = \frac{1+\alpha}{T}= (1 + \alpha) \frac{R_{b}}{log_{2}M}$$
+# MATLAB RRC Filter Design
+
+Innanzitutto capiamo come è fatto un filtro a coseno rialzato in matlab. 
+$g = rcosdesign(\beta, SPAN, SPS, SHAPE)$ 
+Cioè $g_{T}(t) = h_{RRC}(t,\beta)$
+$\beta$ è il roll-off, se è zero ho una rect. 
+La risposta in frequenza sarà limitata perché lo spettro $H_{RC}(f,\beta)$ è un coseno rialzato. In matlab la sinc verrà tagliata ma si può fare senza troppo degrado dello spettro, il troncamento è dato da $SPAN$.
+$SPS$ è il sampling time(sample per simbols), ad esempio $SPS = 4$ allora $\frac{T}{T_{s}} = 4$ con $f_{s}= \frac{1}{T_{s}}$.
+
