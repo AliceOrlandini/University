@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md"
+                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md"
               }
             }
           },
@@ -158,12 +158,13 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "51a530c3ac0f2367",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+    "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
     "Untitled.md",
     "TODO.md",
@@ -201,7 +202,6 @@
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory/Images",
     "Magistrale/Electronics And Communication/Communication/Images",
-    "README.md",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
     "Magistrale/Electronics And Communication",
