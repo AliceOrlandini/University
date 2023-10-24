@@ -1,6 +1,9 @@
 1. [[Magistrale/Large Scale Databases/Chapters/Introduzione|Introduzione]]
 	1. [[Ripasso di Ingegneria del Software]]
-2. Proprietà dei database NoSQL
-3. Architetture dei database NoSQL
-4. Ripasso di ingegneria del software e di Java
-5. Utilizzo di database NoSQL
+	2.  [[Ripasso Java]]
+2. [[ACID vs BASE]]
+3. [[Key-Value Databases]]
+4. [[Column Databases]]
+5. [[Document Databases]]
+6. [[Google Big Table]]
+
