@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Google Big Table.md"
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md"
               }
             }
           },
@@ -159,12 +160,12 @@
   },
   "active": "51a530c3ac0f2367",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Laboratory/Table Of Contents.md",
+    "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "TODO.md",
-    "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Domande Esame.md",
-    "Magistrale/Performance Evaluation/Laboratory/Table Of Contents.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Performance Evaluation/Laboratory/Images/Azioni Simulatore.png",
