@@ -22,4 +22,32 @@ Esempio:
 SELECT SUM(salary)
 FROM person;
 ```
-Se siamo in un'organizzazione a righe, devo fare accessi a tutti i blocch
+Se siamo in un'organizzazione a righe, devo fare accessi a tutti i blocchi del disco, se invece uso un'organizzazione a colonna devo leggere un solo blocco del disco.
+È meglio che le informazioni siano il più vicini possibile nel disco, questo migliora tutte le performance. 
+Un altro vantaggio è che è più facile effettuare delle compressioni (a seconda del tipo di algoritmo) al fine di ridurre la ridondanza.
+Se invece vogliamo effettuare un'operazione di questo tipo:
+```sql
+INSERT INTO person
+VALUES("Alice", "Orlandini", 3000)
+```
+Avremo dei problemi, le operazioni di inserimento o cancellazione sono molto onerose perché bisogna accedere a tutti i blocchi del disco. Ma se si vogliono eseguire delle transazioni non si sceglie questa architettura a basso livello. 
+
+# Delta Store
+
+Un delta store è un'area aggiuntiva del database *in memory* (una cache) ottimizzata per gestire informazioni che vengono aggiornate e usate frequentemente. Le informazioni contenute nel delta store sono poi unite periodicamente al database principale che avrà una struttura colonnare. 
+Le query potrebbero richiedere di accedere a entrambi i database per ritornare informazioni complete e accurate. 
+All'esame potrebbe essere chiesto di disegnarlo, è sulle slide.
+# Projections
+
+Quando si fanno analisi spesso si utilizzano più campi insieme, per migliorare le performance si utilizzano le **projections** in cui si vanno a mettere fisicamente vicine delle parti del database nel disco.
+In questo caso creano delle tabelle che contengono dati aggruppati facendo query del tipo:
+```sql
+SELECT Region, Product, SUM(Sales)
+FROM Sales
+GROUP BY Region, Product;
+```
+```sql
+SELECT Customer, SUM(Sales)
+FROM Sales
+GROUP BY Customer;
+```
