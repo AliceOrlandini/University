@@ -84,6 +84,30 @@ Il tipo di consistenza dipende dalle specifiche di progetto.
 
 # Replication vs Anti-Entropy
 
-La chiede sempre all’esame
+#Attenzione La chiede sempre all’esame
 La anti entropy è un processo per fare detection di differenze sulle repliche. 
-Dato un blocco di dati in una partizione, si può calcolare l’hash di quel blocco di dati.
+È implementato nel seguente modo: dato un blocco di dati in una partizione, si può calcolare l’hash di quel blocco di dati.
+
+![Anti Entropy|center|600](https://docs.datastax.com/en/dse/5.1/docs/architecture/_images/graphics/dbMerkleTree.png)
+
+Si calcola l’hash dell’hash dell’hash, …
+poi se ci sono differenze tra le root allora si trovano i dati differenti sulla foglia. 
+In questo modo possiamo evitare di confrontare tutte le repliche ma ci basta confrontare gli alberi. (da rivedere che non ho capito)
+[Sito fatto bene](https://www.designgurus.io/course-play/grokking-the-advanced-system-design-interview/doc/636cedb6d470f8ced9e69121)
+
+# Communication Protocol
+
+- Centralized: un singolo server che comunica con tutti gli altri (single point of failure)
+- Fully Connected: tutti connessi 
+- **Gossip**: ogni nodo manda le proprie informazioni ad un certo numero di noti sorteggiati randomicamente. Alla fine, in modo molto veloce tutti avranno le stesse informazioni. 
+
+In Cassandra ogni nodo è uguale agli altri, un’operazione di lettura si compone di:
+1. Richiesta di lettura fatta ad un certo nodo.
+2. Inoltro della richiesta verso il nodo che effettivamente ha le informazioni.
+3. Il nodo risponde all’altro che risponde al client. 
+Se si vuole fare un’operazione di scrittura tutti i nodo risponderanno (?)
+Se si ha un problema sul server che deve rispondere alla richiesta, in caso di operazioni di lettura, il nodo sa chi contiene le repliche quindi ci si sposterà su di lui. Nel caso di operazioni di scrittura è importante evitare di perdere gli update quindi il nodo fa l’**Hinted Handoff** (anche questa domanda la fa spesso).
+L’hinted handoff è un *processo* che:
+1. crea una struttura dati che memorizza le informazioni delle operazioni di scrittura
+2. periodicamente controlla lo status del server target
+3. manda le operazioni di scrittura quando il server target è disponibile
