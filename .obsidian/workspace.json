@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md"
               }
             }
           },
@@ -158,26 +157,28 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "51a530c3ac0f2367",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
+    "TODO.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "Magistrale/Performance Evaluation/Laboratory/Table Of Contents.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
-    "TODO.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Domande Esame.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Performance Evaluation/Laboratory/Images/Azioni Simulatore.png",
     "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
-    "Untitled.md",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
     "SpuntiTesi.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
@@ -191,8 +192,6 @@
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Images/IC Design Styles and Flows.png",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
-    "Magistrale/Performance Evaluation/Probability Theory/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Images/pmos.png",
     "Magistrale/Electronics And Communication/Electronics/Images/nmos.png",
     "Magistrale/Electronics And Communication/Electronics/Images/nmos R.png",

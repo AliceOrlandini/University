@@ -19,7 +19,7 @@ Ipotizziamo di voler calcolare il numero medio di studenti in una classe:
 - poi si salirà a gradino
 - infine, alla fine della lezione si riscenderà a gradino fino ad arrivare al momento in cui non c’è più nessuno
 Abbiamo quindi un caso di:
-- **Time dependent samples**: dati $N$ samples *dipendenti dal tempo* $(x_{1},t_{1}),(x_{2},t_{2}),...,(x_{N},t_{N})$ la *media pesata* sarà:  $$y = \frac{\sum\limits_{i=1}^{N-1}x_{i}\cdot (t_{i+1}-t_{i})}{\sum\limits_{i=1}^{N-1}(t_{i+1}-t_{i})} = \frac{\sum\limits_{i=1}^{N-1}(t_{i+1}-t_{i})}{t_{N+1}-t_{1}}$$In questo caso avremo bisogno di più variabili perché ci servono strutture per tutti i samples e per il loro tempo di arrivo. 
+- **Time Dependent Samples**: dati $N$ samples *dipendenti dal tempo* $(x_{1},t_{1}),(x_{2},t_{2}),...,(x_{N},t_{N})$ la *media pesata* sarà:  $$y = \frac{\sum\limits_{i=1}^{N-1}x_{i}\cdot (t_{i+1}-t_{i})}{\sum\limits_{i=1}^{N-1}(t_{i+1}-t_{i})} = \frac{\sum\limits_{i=1}^{N-1}(t_{i+1}-t_{i})}{t_{N+1}-t_{1}}$$In questo caso avremo bisogno di più variabili perché ci servono strutture per tutti i samples e per il loro tempo di arrivo. 
 
 # Not only averadges
 
