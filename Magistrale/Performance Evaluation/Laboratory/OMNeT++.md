@@ -37,4 +37,19 @@ network Tictoc {
 ```
 Le frecce indicano il verso della connessione mentre nelle parentesi graffe si specificano alcune caratteristiche come in questo esempio il delay del canale. 
 
-Questi elementi sono stati definiti ma non fanno nulla perché non ho ancora specificato il comportamento.
+Questi elementi sono stati definiti ma non fanno nulla perché non ho ancora specificato il comportamento. In una simulazione *discrete-event* il sistema si evolve secondo il paradigma **causa-effetto** quindi definire il comportamento del sistema significa specificare l'effetto in codice c++.
+
+| Evento                                          | Comportamento                    |
+| ----------------------------------------------- | -------------------------------- |
+| Inizio simulazione                              | *tic* manda un messaggio a *toc* |
+| *Txc* riceve un messaggio                       | *Txc* invia una risposta         |
+| Il tempo massimo di simulazione viene raggiunto | Si termina la simulazione        |
+
+Gli handler si definiscono tramite 3 funzioni:
+1. *initailize()*: eseguito quando il modulo viene creato, di solito tutti i moduli vengono creati all'inizio della simulazione (una sorta di costruttore).
+2. *handleMessage()*: eseguito quando arriva un messaggio.
+3. *finish()*: eseguita alla fine della simulazione. 
+Ma come si crea un evento? Tramite le funzioni:
+1. *send()*: invia un messaggio ad un altro modulo, il momento di generazione di questo evento dipende dai parametri specificati (delay = 100ms).
+2. *scheduleAt()*: utile per i timer, è una send che invia a me stesso tra tot secondi.
+3. *cancelEvent()*: usata per rimuovere dalla event queue un evento. 
