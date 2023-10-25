@@ -56,7 +56,34 @@ Questo tipo di database usa i commit logs per velocizzare le transizioni, questo
 > Un **bloom filter** è una struttura dati *probabilistica*. 
 > Si usa per velocizzare le operazioni di lettura.
 
-Il metodo che opera su questa struttura è una *find* che prende in input una partizione e un tipo di dato, se la risposta della find è no significa che il dato non è nella partizione e quindi non ho bisogno di fare una ricerca nella partizione. L’altra risposta è *maybe* l’informazione si può trovare oppure no.
-Quindi il commit log è usato per velocizzare le scritture mentre il bloom filter per quelle di lettura. 
+Il metodo che opera su questa struttura è una *find* che prende in input una partizione e un tipo di dato, se la risposta della find è no significa che il dato non è nella partizione e quindi non ho bisogno di fare una ricerca nella partizione. L’altra risposta è *maybe* per cui l’informazione si può trovare oppure no.
+Non è possibile avere falsi negativi perché se risponde no allora nel 100% dei casi qual dato non è settato, invece se risponde maybe non lo sappiamo. 
+Per implementare un bloom filter ipotizziamo di avere un blocco di dati gestito con column database, si associa al blocco un vettore di $N$ valori binari inizializzato a zero inizialmente. Poi seleziono $k \ll N$ funzioni hash. Quando inserisco un dato nel blocco tramite una *insert(x)* se $k = 3$, calcolo:
+- $i_{1} = |h_{1}(x)|_N$
+- $i_{2} = |h_{2}(x)|_N$
+- $i_{3} = |h_{3}(x)|_N$
+Poi metterò un 1 nel vettore in corrispondenza dei tre index trovati. 
+Quando dovrò fare $find(x)$ ricalcolo le tre hash e controllo il vettore in corrispondenza dell’indice. 
+Se trovo *almeno* un bit a 0 allora la risposta sarà *no* perché non ho attivato quella combinazione di hash. Mentre se trovo tutti 1 allora la risposta sarà *maybe* perché non posso essere certa che quelle hash siano state attivate da quel valore. 
+$N$ è un numero che rappresenta la lunghezza del vettore, maggiore è $N$ e minore è la probabilità di avere falsi positivi. 
 
+![Bloom Filter|center|600](https://ilyasergey.net/YSC2229/_images/bloom.png)
+
+Ogni tanto verranno effettuate delle operazioni di *flushing* per resettare il vettore perché non si mettono mai a zero i bit con le funzioni che agiscono sulla struttura. 
+Si consiglia di usare $N = O(h)$ e $k = log(\frac{n}{h})$ quindi $N$ dello stesso ordine di grandezza della funzione hash.
+Quindi il commit log è usato per velocizzare le scritture mentre il bloom filter per quelle di lettura. 
 ## Hash Tree
+
+# Consistency Level
+
+Si possono considerare diversi livelli di consistenza:
+1. **Strict Consistency**: tutte le repliche devono avere gli stessi dati.
+2. **Low Consistency**: i dati devono essere scritti in almeno una replica.
+3. **Moderate Consistency**: include tutte le soluzioni precedenti, magari alcune porzioni di database hanno una tipologia di consistenza. 
+Il tipo di consistenza dipende dalle specifiche di progetto. 
+
+# Replication vs Anti-Entropy
+
+La chiede sempre all’esame
+La anti entropy è un processo per fare detection di differenze sulle repliche. 
+Dato un blocco di dati in una partizione, si può calcolare l’hash di quel blocco di dati.
