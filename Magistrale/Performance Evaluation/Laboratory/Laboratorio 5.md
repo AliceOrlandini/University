@@ -53,3 +53,9 @@ Possiamo anche considerare l’utilizzo di:
 
 Se ci sono dei componenti indipendenti l’uno dall’altro si può considerare di eseguirli separatamente, questo però non succede quasi mai perché nei simulatori è generalmente tutto collegato.
 
+## Data Collection
+
+Sulle slide.
+## Data analysis
+
+Per fare ciò si usano grafici di tutti i tipi. 
