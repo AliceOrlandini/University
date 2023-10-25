@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md"
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md"
               }
             }
           },
@@ -157,10 +157,10 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "51a530c3ac0f2367",
   "lastOpenFiles": [
-    "Untitled.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+    "Untitled.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "TODO.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
