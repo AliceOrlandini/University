@@ -88,7 +88,3 @@ Ci sono molte alternative, ad esempio *omnet++*, nella realtà abbiamo molte opz
 - esperienza pregressa con un simulatore specifico.
 - capacità del simulatore.
 - tool di analisi compatibili o integrati nel software.
-
-## Implementation
-
-Da fare.
