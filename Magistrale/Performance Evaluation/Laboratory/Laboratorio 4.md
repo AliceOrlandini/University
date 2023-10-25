@@ -80,7 +80,6 @@ Questa validazione si chiama *preliminare* perché poi ce ne sarà un’altra do
 Ancora non mettiamo mani al codice, dobbiamo definire i fattori. Ad esempio se volessi valutare più opzioni devo modellare il sistema in modo che sia possibile variare i parametri del sistema per valutare scenari differenti. 
 I fattori cambiano l’accuratezza del sistema.
 Alcuni fattori non possono essere modificate in real life, di questo bisogna tenerne conto. 
-#Domanda se un fattore non si verificherà in real life, perché inserirlo? 
 
 ## Tools
 

@@ -18,9 +18,13 @@ Nel caso Full Custom caso si ha la massima libertà di design riguarda alla dime
 Nel Semicustom invece c’è una riduzione nella libertà di design perché ci sono componenti pre-realizzati ma questo facilita notevolmente il processo di realizzazione sia in termini di tempo che di costi. 
 # Metodi di design e flows
 
+Per implementare dei circuiti digitali è possibile usare due tipi di approccio: *full-custom* o *semi-custom*. 
+In linea generale, ciò che li caratterizza è: 
+- Full-Custom: massima libertà di design in termini di dimensionamento, posizionamento e interconnessioni. Ciò permette di raggiungere il massimo potenziale del circuito in termini di area occupata e di velocità. D'altro canto però abbiamo maggiori costi, tempi di design e sono richieste capacità specifiche da parte degli sviluppatori.
+- Semi-Custom: libertà limitata perché si usano circuiti logici pre-disegnati. Infatti, in questo caso vanno disegnate solo le interconnessioni tra le strutture logiche. Ciò comporta un minor costo, tempo di sviluppo e abilità inferiori rispetto al full-custom. Tuttavia, in termini di ottimizzazione, questo tipo di circuito è limitato.
 ![[IC Design Styles and Flows.png|center|700]]
 
-Vediamo i livelli di design per passare da un livello astratto a un livello concreto:
+I seguenti sono i livelli di design per passare da un livello astratto a un livello concreto:
 1. **Specifiche**: si definisce che cosa deve fare il circuito.
 2. **Architettura**
 3. **Modello Funzionale**
@@ -45,12 +49,17 @@ Per questi motivi, il full-custom flow noi non useremo ma era bene sapere come f
 
 Ora vediamo il semi-custom design style. 
 L’azienda produttrice fornisce una serie di elementi da loro fabbricati che si possono assemblare per creare ciò di cui abbiamo bisogno. 
-Abbiamo due possibilità: Cell-based e Array-based. 
-La processazione viene fatta dal core e ci sono una serie di piedini per l'input/output.
-Il core nel gate array è organizzato in gate tutti uguali con i channels che interconnettono tra loro i gate. *At the end of the story* il core è composto da pmos ed nmos connessi opportunamente tra loro per implementare una certa funzione logica. La connessione viene fatta tramite materiali metallici.
-Nella standard cell invece si hanno blocchi di dimensioni diverse ed è il programmatore che decide quale blocco utilizzare (??? boh sinceramente non ho capito nulla). 
+Abbiamo due possibilità: **Cell-based** e **Array-based (Gate-Array)**. 
+
+Nel caso di gate array abbiamo una matrice fissa di gate tutti uguali con un certo numero di transistori quindi il designer si limita a stabilire le interconnessioni tra i gate della matrice. Le interconnessioni sono metalliche e posizionate in canali opposti (tendenzialmente viene usato meno del 50% dei transistori).
+*At the end of the story* il cuore del gate array è composto da pmos ed nmos connessi opportunamente tra loro per implementare una certa funzione logica.
+
+Nell'approccio standard cell invece si hanno celle di altezza fissa ma larghezza variabile. La dimensione dei canali di interconnessione non sono fisse ed inoltre le posizioni dei piedini di IO sono variabili. Quindi in questo caso si ha più libertà di design che comporta una maggior ottimizzazione dell'area e della velocità. Di contro invece si hanno maggiori costi in termini di tempo di sviluppo e di abilità. 
+
+La tecnologia **FPGA** ha un'architettura di tipo *gate array* che però rispetto a questi ha molta più potenzialità in quanto può essere programmato sia dal punto di vista logico che dal punto di vista delle interconnessioni 
+
 Noi lavoreremo al Register Transfer Level, come avveniva nel Verilog a reti logiche abbiamo dei registri e all'arrivo del clock lo stato del sistema cambierà, dovremo quindi implementare una certa logica tramite descrizioni dell'hardware.
-TapeOut: è la fase finale in cui si mandano i poligoni all'azienda produttrice che li usa per realizzare le maschere per il processo di produzione dei transistor. Le maschere sono uno dei costi più importanti da considerare. 
+Il **TapeOut** è la fase finale in cui si mandano i poligoni all'azienda produttrice che li usa per realizzare le maschere per il processo di produzione dei transistor. Le maschere sono uno dei costi più importanti da considerare. 
 # Relazione costi performance
 
 Vediamo ora i costi di un circuito integrato che hanno un'importanza fondamentale sulla scelta dello stile di desing. I costi si dividono in:
@@ -71,7 +80,7 @@ Invece, per quanto riguarda il volume di produzione? Conviene se abbiamo volumi 
 
 # FPGA
 
-FPGA è acronimo di "Field Programmable Gate Array" ed è costituito da un Gate Array con blocchi programmabili per diventare una qualsiasi funzione logica e un array di interconnessione. 
+**FPGA** è acronimo di "Field Programmable Gate Array" ed è costituito da un Gate Array con blocchi programmabili per diventare una qualsiasi funzione logica e un array di interconnessione. 
 Ci sono due modi di programmarlo: 
 - **SRAM based**: si inseriscono i dati nella ram, è riprogrammabile anche solo in parte. È però molto più sensibile al rumore (questo è quello che useremo)
 - **Anti-Fuse**: si basa sulla connessione tra nodi a voltaggi differenti per creare una connessione permanente tra i due. Una volta programmato non è riprogrammabile.

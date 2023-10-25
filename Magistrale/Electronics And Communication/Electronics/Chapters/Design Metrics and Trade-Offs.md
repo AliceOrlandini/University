@@ -1,4 +1,3 @@
-
 # Design Metrics
 
 Le metriche principali sono:
