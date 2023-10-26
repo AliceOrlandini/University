@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "fc4c5f811f272eef",
+            "id": "e037a8a7ab2d44d2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
+                "file": "conflict-files-obsidian-git.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
+            "file": "conflict-files-obsidian-git.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
+            "file": "conflict-files-obsidian-git.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md"
+            "file": "conflict-files-obsidian-git.md"
           }
         }
       },
@@ -141,10 +141,12 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "fc4c5f811f272eef",
+  "active": "e037a8a7ab2d44d2",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
+    "conflict-files-obsidian-git.md",
+    "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
     "Google Big Table.md",
     "/Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
@@ -167,10 +169,8 @@
     "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
-    "Senza nome.md",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
     "Magistrale/Electronics And Communication/Electronics/Images/IC Design Styles and Flows.png",
     "Magistrale/Performance Evaluation/Probability Theory/Images/CDF.png",

@@ -55,6 +55,7 @@ Se ci sono dei componenti indipendenti l’uno dall’altro si può considerare 
 
 ## Data Collection
 
+Sulle slide.
 ## Data analysis
 
 Per fare ciò si usano grafici di tutti i tipi. 
