@@ -617,6 +617,81 @@ $$
 \begin{align*}
 Var(X+Y) &= E[(X+Y - (\mu_{X}+\mu_{Y})^{2})] = \\
 &= E[(X - \mu_{X}+ Y - \mu_{Y})^{2}] =\\
-&= E[(X-\mu_{X})^{2}+ (Y-\)^{2}]
+&= E[(X-\mu_{X})^{2}+ (Y-\mu_{Y})^{2} + 2(X-\mu_{X})(Y-\mu_{Y})] =\\
+&= E[(X-\mu_{X})^{2}] + E[(Y-\mu_{Y})^{2}] +2E[(X-\mu_{X})(Y-\mu_{Y})] =\\
+&= Var(X) + Var(Y) + 2E[(X-\mu_{X})(Y-\mu_{Y})]
 \end{align*}
 $$
+che non è esattamente la somma delle due ma c'è un ulteriore termine chiamato **covarianza**.
+> [!note] Covarianza
+> La **covarianza** è definita come: $$Cov(X,Y) = E[(X-\mu_{X})(Y-\mu_{Y})]$$
+
+Notiamo che questo valore può essere sia positivo che negativo, sviluppando la definizione troviamo:
+$$
+\begin{align*}
+Cov(X,Y) &= E[(X-\mu_{X})(Y-\mu_{Y})] =\\
+&= E[X\cdot Y + \mu_{X} \cdot \mu_{Y}-Y\cdot \mu_{X}-X\cdot \mu_{Y}] = \\
+&= E[X\cdot Y] + E[\mu_{X}\cdot \mu_{Y}] - E[Y\cdot \mu_{X}]-E[X \cdot \mu_{Y}] =\\
+&= E[X\cdot Y] + \mu_{X}\cdot \mu_{Y} - \mu_{X}\cdot \mu_{Y} -\mu_{X}\cdot \mu_{Y} =\\
+&= E[X\cdot Y]- \mu_{X}\cdot \mu_{Y}
+\end{align*}
+$$
+cioè il valor medio del prodotto delle due variabili aleatorie meno il prodotto dei valor medi delle due. 
+Osserviamo che:
+1. La covarianza è **commutativa**: $Cov(X,Y) = Cov(Y,X)$ perché il prodotto è commutativo.
+2. $Cov(X,X) = Var(X)$ per dimostrarlo basta sostituire.
+3. Se $X$ e $Y$ sono variabili aleatorie **indipendenti** allora $E[X\cdot Y] = \mu_{X}\cdot \mu_{Y}$ quindi $Cov(X,Y) = 0$.
+Da quest'ultima proprietà si deduce che se $X$ e $Y$ sono variabili aleatorie **indipendenti** allora **la varianza è la somma delle varianze** $Var(X,Y) = Var(X)+Var(Y)$.
+Notare che non vale il contrario, se la covarianza è nulla non è detto che le variabili siano indipendenti. 
+Ovviamente tutto ciò vale per $N$ variabili aleatorie: $$
+\begin{align*}
+Var\left(\sum\limits_{i}X_{i}\right) &= \sum\limits_{i}Var(X_{i}) + \sum\limits_{i}\sum\limits_{j\not=i} Cov(X_{i},X_{j}) =\\
+&= \sum\limits_{i}\sum\limits_{j}Cov(X_{i},X_{j}) 
+\end{align*}$$
+## Covarianza e Correlazione
+
+La covarianza di due variabili aleatorie può essere positiva, negativa o nulla e ciò ha un significato fisico. Definiamo due eventi $A$ e $B$ e le relative indicator variables $I_{A}$ e $I_{B}$.
+La variabile $I_{A}\cdot I_{B}$ è pari ad 1 solo se l'evento $A\cap B = AB$ si verifica. Calcoliamo $Cov(I_{A},I_{B})$ applicando la definizione:
+$$
+\begin{align*}
+Cov(I_{A},I_{B}) &= E[I_{A}\cdot I_{B}] - E[I_{A}]\cdot E[I_{B}] =\\
+&= P(AB) - P(A)\cdot P(B)
+\end{align*}
+$$
+quindi:
+- se $Cov(I_{A},I_{B}) > 0$ allora $P(AB) > P(A)\cdot P(B)$ e quindi $P(A|B) = \frac{P(AB)}{P(B)} > P(A)$
+- se $Cov(I_{A},I_{B}) < 0$ allora $P(AB) < P(A)\cdot P(B)$ e quindi $P(A|B) = \frac{P(AB)}{P(B)} > P(A)$
+# Variabili aleatorie Speciali
+
+## Distribuzioni Discrete
+
+### Distribuzione di Bernoulli
+
+### Distribuzione Binomiale
+
+### Distribuzione di Poisson
+
+### Distribuzione Geometrica
+
+## Probability Generating Functions PGF
+
+## Distribuzioni Continue
+
+### Distribuzione uniforme
+
+### Distribuzione esponenziale
+
+## Laplace-Stieltjes Transform LS
+
+### Distribuzione normale
+
+## Teorema del Limite Centrale
+
+## Percentile
+
+### Distribuzione Chi-Square 
+
+### Distribuzione Student
+
+## Distribuzioni heavy tailed
+
