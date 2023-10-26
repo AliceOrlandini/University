@@ -660,16 +660,51 @@ Cov(I_{A},I_{B}) &= E[I_{A}\cdot I_{B}] - E[I_{A}]\cdot E[I_{B}] =\\
 $$
 quindi:
 - se $Cov(I_{A},I_{B}) > 0$ allora $P(AB) > P(A)\cdot P(B)$ e quindi $P(A|B) = \frac{P(AB)}{P(B)} > P(A)$
-- se $Cov(I_{A},I_{B}) < 0$ allora $P(AB) < P(A)\cdot P(B)$ e quindi $P(A|B) = \frac{P(AB)}{P(B)} > P(A)$
+- se $Cov(I_{A},I_{B}) < 0$ allora $P(AB) < P(A)\cdot P(B)$ e quindi $P(A|B) = \frac{P(AB)}{P(B)} < P(A)$
+Lo stesso vale anche per $P(B|A)$.
+Questo significa che:
+- se la covarianza è positiva allora l'evento $A$ è più probabile che si verifichi se $B$ si verifica.
+- se la covarianza è negativa allora l'evento $A$ è meno probabile che si verifichi se $B$ si verifica.
+- se i due eventi sono indipendenti allora la covarianza è nulla e quindi non si influenzano l'un l'altro. 
+Una misura *normalizzata* di questo effetto si chiama **correlazione**:
+> [!note] Correlazione
+> La correlazione tra due variabili aleatorie $X$ e $Y$ è: $$Corr(X,Y) = \frac{Cov(X,Y)}{\sqrt{Var(X)\cdot Var(Y)}}$$
+
+che è definita solo tra -1 e +1, per questo si dice che è normalizzata. 
 # Variabili aleatorie Speciali
 
+Alcune variabili aleatorie possono essere dei buoni modelli per alcuni aspetti della realtà. Vediamo le principali.
 ## Distribuzioni Discrete
 
 ### Distribuzione di Bernoulli
 
+Una variabile aleatoria discrata di **Bernoulli** vale 1 con una probabilità $p$ e vale 0 con una probabilità $1-p$. È praticamente una indicator variable di un evento con probabilità $p$.
+Questa tipologia di distribuzione viene usata *quando si ha una certa probabilità di successo e una di insuccesso* (un risultato binario).
+I suoi parametri sono:
+- **Valor Medio**: $E[X] = p$
+- **Varianza**: $Var(X) = p\cdot (1-p)$
+Il valore di massima incertezza si raggiunge se $p = 1/2$.
 ### Distribuzione Binomiale
 
+Questa distribuzione si può ricavare a partire dalla distribuzione di Bernoulli e rappresenta *il numero di successi in $n$ tentativi ripetuti in condizioni indipendenti* dove ogni tentativo ha una probabilità di successo pari a $p$.
+Questa distribuzione si chiama **Binomiale** è caratterizzata da due parametri: $n$ e $p$ e si indica con $X \thicksim Bi(n,p)$.
+Calcoliamo la sua probability mass function PMF:
+$$p(i) = P\{X=i\} = \binom{n}{i}p^{i}(1-p)^{n-i}$$
+il prodotto di probabilità si può fare perché i tentativi sono indipendenti.
+Controlliamo che sia verificata la proprietà di normalizzazione: 
+$$\sum\limits_{i=0}^{n}p(i) = \sum\limits_{i=0}^{n}\binom{n}{i}p^{i}(1-p)^{n-i} = [p+(1-p)]^{n} = 1$$
+La PMF assume valori positivi tra 0 e $n$, è simmetrica solo se $p = 0.5$ e il suo valore massimo è *intorno* a $n\cdot p$ (intorno perché è discreta).
+I suoi  parametri sono:
+- **Valor Medio**: $E[X] = E\left[\sum\limits_{i=1}^{n} E[X_{i}]\right]= n\cdot p$
+- **Varianza**: visto che i tentativi sono indipendenti posso sommare la varianze delle singole variabili aleatorie di Bernoulli: $Var(X) = Var(\sum\limits_{i=1}^{n}X_{i})=\sum\limits_{i=1}^{n} Var(X_{i}) = n\cdot [p \cdot (1-p)]$
+
+Infine, date $X_{1} \thicksim Bi(n_{1},p)$ e $X_{2} \thicksim Bi(n_{2},p)$ due variabili aleatorie **indipendenti** allora $X_{1}+X_{2} \thicksim Bi(n_{1} + n_{2},p)$.
 ### Distribuzione di Poisson
+
+Una variabile aleatoria discreta è di **Poisson** con un parametro $\lambda > 0$ se la sua PMF è la seguente: $$p(i) = P\{X=i\} = e^{-\lambda}\cdot \frac{\lambda^{i}}{i!}$$per ogni $i \ge 0$.
+Come sempre, verifichiamo la normalizzazione: 
+$$\sum\limits_{i=0}^{+\infty} p(i) = \sum\limits_{i=0}^{+\infty} e^{-\lambda}\cdot \frac{\lambda^{i}}{i!} = e^{-\lambda} \sum\limits_{i=0}^{+\infty} \frac{\lambda^{i}}{i!} = e^{-\lambda} e^{\lambda} = 1$$
+Si noti che questa sommatoria per convergere necessita che $\lim_{i\rightarrow \infty} \frac{\lambda^{i}}{i!} = 0$ e quindi la PMF di Poisson tende a zero solo se $i$ cresce. 
 
 ### Distribuzione Geometrica
 
