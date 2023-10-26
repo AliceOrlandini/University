@@ -701,12 +701,56 @@ I suoi  parametri sono:
 Infine, date $X_{1} \thicksim Bi(n_{1},p)$ e $X_{2} \thicksim Bi(n_{2},p)$ due variabili aleatorie **indipendenti** allora $X_{1}+X_{2} \thicksim Bi(n_{1} + n_{2},p)$.
 ### Distribuzione di Poisson
 
-Una variabile aleatoria discreta è di **Poisson** con un parametro $\lambda > 0$ se la sua PMF è la seguente: $$p(i) = P\{X=i\} = e^{-\lambda}\cdot \frac{\lambda^{i}}{i!}$$per ogni $i \ge 0$.
+Una variabile aleatoria discreta è di **Poisson** con un parametro $\lambda > 0$ se la sua PMF è la seguente: $$p(i) = P\{X=i\} = e^{-\lambda}\cdot \frac{\lambda^{i}}{i!}$$per ogni $i \ge 0$ e si indica con $X \thicksim Poisson(\lambda)$.
 Come sempre, verifichiamo la normalizzazione: 
 $$\sum\limits_{i=0}^{+\infty} p(i) = \sum\limits_{i=0}^{+\infty} e^{-\lambda}\cdot \frac{\lambda^{i}}{i!} = e^{-\lambda} \sum\limits_{i=0}^{+\infty} \frac{\lambda^{i}}{i!} = e^{-\lambda} e^{\lambda} = 1$$
 Si noti che questa sommatoria per convergere necessita che $\lim_{i\rightarrow \infty} \frac{\lambda^{i}}{i!} = 0$ e quindi la PMF di Poisson tende a zero solo se $i$ cresce. 
+I suoi  parametri sono:
+- **Valor Medio**: $E[X] = \lambda$ perché: $$
+\begin{align*}
+E[X] &= \sum\limits_{i=0}^{+\infty} i \cdot \left(e^{-\lambda}\cdot \frac{\lambda^{i}}{i!}\right)=\\
+&= e^{-\lambda} \cdot \lambda \sum\limits_{i=1}^{+\infty} \not{i} \left(\frac{\lambda^{i-1}}{\not{i}\cdot (i-1)!}\right)=\\
+&= e^{-\lambda}\cdot \lambda \sum\limits_{i=1}^{+\infty} \left(\frac{\lambda^{i}}{i!}\right)=\\
+&= e^{-\lambda}\cdot \lambda e^{\lambda}= \\
+&= \lambda
+\end{align*}
+$$
+- **Varianza**: $Var(X) = (\lambda^{2}+\lambda)-\lambda^{2} = \lambda$. Dimostrazione sulle dispense.
+Quindi $\lambda$ è sia la varianza che il valor medio. 
 
+La distribuzione di Poisson ha la caratteristica di *approssimare* abbastanza bene una variabile Binomiale quando si ha:
+- Un gran numero di esperimenti $n$
+- Una bassa probabilità di successo $p$
+- $\lambda = n\cdot p$
+Quindi quando siamo in questo caso è conveniente da un punto di vista computazionale usare la distribuzione di Poisson invece che la Binomiale.
+Dimostriamo questo legame partendo dalla PMF della binomiale assumendo $\lambda = n\cdot p$:
+$$
+\begin{align*}
+P\{X=i\} &= \binom{n}{i}p^{i}(1-p)^{n-i} =\\
+&= \frac{n\cdot (n-1) \cdot ... \cdot (n-i+1)}{i!} (\frac{\lambda}{n})^{i}\cdot \frac{(1-\frac{\lambda}{n})^{n}}{(1-\frac{\lambda}{n})^{i}} =\\
+&= \frac{n\cdot (n-1) \cdot ... \cdot (n-i+1)}{n^{i}} \frac{\lambda^{i}}{i!}\cdot \frac{(1-\frac{\lambda}{n})^{n}}{(1-\frac{\lambda}{n})^{i}}
+\end{align*}
+$$
+Se $n$ è grande allora posso trascurare $(1-\frac{\lambda}{n})^{i}$ e si ha $\frac{n\cdot (n-1) \cdot ... \cdot (n-i+1)}{n^{i}} \approx 1$ per cui: 
+$$
+\begin{align*}
+\lim_{n\rightarrow \infty} (1-\frac{\lambda}{n})^{n} &\approx e^{-\lambda}
+\end{align*}
+$$
+e: 
+$$
+\begin{align*}
+\lim_{n\rightarrow \infty} (1-\frac{\lambda}{n})^{i} &\approx 1
+\end{align*}
+$$
+e sostituendo si ottiene $P\{X = i\} \approx \frac{\lambda^{i}}{i!}\cdot e^{-\lambda}$ che è la PMF della distribuzione di Poisson.
+
+Un'importante proprietà della distribuzione di Poisson è la seguente: 
+date due variabili aleatorie di Poisson **indipendenti** $X_{1} \thicksim Poisson(\lambda_{1})$ e $X_{2} \thicksim Poisson(\lambda_{2})$ allora $X_{1}+X_{2} \thicksim Poisson(\lambda_{1} + \lambda_{2})$.
+Dimostrazione sulle dispense.
 ### Distribuzione Geometrica
+
+
 
 ## Probability Generating Functions PGF
 
