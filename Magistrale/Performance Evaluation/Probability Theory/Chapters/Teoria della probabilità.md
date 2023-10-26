@@ -577,3 +577,46 @@ Questa variabile aleatoria è molto importante perchè trasforma un evento in qu
 
 ## Varianza
 
+Come abbiamo visto il valor medio ci permette di riassumere il contenuto informativo di una determinata distribuzione. Il valor medio però è spesso insufficiente. 
+Siamo infatti interessati a determinare **quanto è dispersa** una certa variabile aleatoria intorno al suo valor medio. Questo valore è chiamato Varianza: 
+> [!note] Varianza
+> La misura di quanto una variabile aleatoria $X$ è *dispersa* intorno al suo valor medio si chiama **varianza** ed è definita nel seguente modo: $$Var(X) = E[(X-\mu )^{2}]$$
+
+Molto spesso la varianza si calcola nel seguente modo: 
+$$
+\begin{align*}
+Var(X) &= E[(X-\mu)^{2}] = \\
+&= E[X^{2}-2X\mu + \mu ^{2}] =\\
+&= E[X^{2}] - 2\mu E[X] + \mu^{2}\\
+&= E[X^{2}] - 2\mu^{2}+ \mu^{2}\\
+&= E[X^{2}] - \mu^{2}\\
+&= E[X^{2}] - E[X]^{2}\\
+&= \sigma^{2}
+\end{align*}
+$$
+Cioè il valor medio della variabile al quadrato meno il quadrato del valor medio.
+
+> [!note] Deviazione Standard
+> Definiamo la **deviazione standard** come: $$StDev(X) = \sigma = \sqrt{Var(X)}$$
+
+Per il valor medio avevamo visto che $E[aX + b] = aE[X] + b$ essendo il valor medio un'operazione lineare. La varianza invece è un'operazione quadratica quindi non possiamo usare la stessa proprietà, vediamo come cambia: 
+$$
+\begin{align*}
+Var(aX+b) &= E[(aX+b -E[aX+b])^{2}] =\\
+&= E[(aX +\not{b} -aE[X] -\not{b})^{2}] = \\
+&= E[a^{2}\cdot (X-\mu)^{2}]= \\
+&= a^{2}Var(X)
+\end{align*}
+$$
+Da notare che:
+1. **l'offset non ha effetto**: questo ha senso perché anche se si sposta la distribuzione sull'asse x il livello di dispersione rimane lo stesso, al contrario del valor medio che aumenta/diminuisce a seconda dell'offset.
+2. **la scala ha effetto**: ha senso perché se una variabile aleatoria viene scalata di un certo fattore sto *compressando* se $a<1$ oppure *diffondendo* se $a > 1$.
+
+Vediamo allora cosa accade per la somma di due variabili aleatorie in generale partendo dalla definizione:
+$$
+\begin{align*}
+Var(X+Y) &= E[(X+Y - (\mu_{X}+\mu_{Y})^{2})] = \\
+&= E[(X - \mu_{X}+ Y - \mu_{Y})^{2}] =\\
+&= E[(X-\mu_{X})^{2}+ (Y-\)^{2}]
+\end{align*}
+$$
