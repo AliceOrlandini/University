@@ -11,8 +11,12 @@
             "id": "dd6e8c47df819e7c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -82,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -122,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md"
+                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md"
               }
             }
           },
@@ -156,6 +159,8 @@
   },
   "active": "dd6e8c47df819e7c",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
+    "conflict-files-obsidian-git.md",
     "Untitled.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
