@@ -50,3 +50,8 @@ $W_{n}^{NAND}=2W_{n}^{NOR} = 2W$
 $\beta_{p}^{NAND}= \frac{\beta_{p}^{NOR}}{2}$
 $W_{p}^{NAND}=\frac{W_{p}^{NOR}}{2} = \frac{4W}{2W}=2W$
 
+## Body Effect
+
+Tutte le volte che si ha un block di CMOS, lo switch è più veloce se sto commutando un input che è vicino all’output. Tutta una questione di carica e scarica del condensatore.
+
+Non usare le NAND con più di 4 input perché si deteriora il tempo di propagazione che cresce quadraticamente. (fan-in)
