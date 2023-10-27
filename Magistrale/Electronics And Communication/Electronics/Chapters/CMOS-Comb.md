@@ -22,8 +22,14 @@ Quando vogliamo cambiare la tensione sul condensatore presente in uscita ci sono
 Negli sheet delle librerie troviamo:
 1. il simbolo circuitale
 2. la tabella di verità
-3. i tempi di propagazione 
+3. la capacità dell’input
+4. i tempi di propagazione 
 	$t_{pHL} \propto \frac{KC}{\beta_{n}} \frac{1}{V_{DD}+V_{Tn}}$ 
 	$t_{pLH} \propto \frac{KC}{\beta_{p}} \frac{1}{V_{DD}+V_{Tp}}$
 	$\beta_{n}= \mu_{n}C_{ox} \frac{W_{n}}{L_{n}}$
 	$\beta_{p}= \mu_{p}C_{ox} \frac{W_{p}}{L_{p}}$
+5. la temporizzazione
+6. la strength: forza necessaria per pilotare il carico in uscita, 1 indica la corrente che riesce a erogare la cella ed è legato al tempo di propagazione. Maggiore è la strenght maggiore è la corrente e quindi la carico più velocemente. 
+
+La tecnologia CMOS complementare è composta da una rete di pull up (PUN) e una di pull down (PDN). 
+
