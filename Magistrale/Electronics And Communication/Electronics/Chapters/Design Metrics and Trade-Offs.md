@@ -28,4 +28,3 @@ Nel calcolo della potenza abbiamo componenti statici e dinamici.
 # Managing engineering trade-off
 
 ASIP: Application Specific Istruction Processor
-Basta non ne posso più.

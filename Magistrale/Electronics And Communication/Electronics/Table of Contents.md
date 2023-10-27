@@ -11,4 +11,5 @@
 	4. [[VLSI#Interazione con l’uomo|Interazione con l’uomo]]
 	5. [[VLSI#VLSI|Very Large Scale Integration]]
 4. [[IC Design Styles and Flows]]
-5. 
+5. [[Design Metrics and Trade-Offs]]
+6. 

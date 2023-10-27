@@ -116,3 +116,5 @@ Inoltre la cosa difficile è organizzare il lavoro più aumenta il numero di per
 Bisogna anche analizzare il mercato andandolo a targettizzare.
 Esempio della playstation che ritarda di 6 mesi e quindi la gente per natale al figliolo compra l’xbox.
 
+
+
