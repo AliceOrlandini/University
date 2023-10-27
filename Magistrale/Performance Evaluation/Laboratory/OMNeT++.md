@@ -53,3 +53,55 @@ Ma come si crea un evento? Tramite le funzioni:
 1. *send()*: invia un messaggio ad un altro modulo, il momento di generazione di questo evento dipende dai parametri specificati (delay = 100ms).
 2. *scheduleAt()*: utile per i timer, è una send che invia a me stesso tra tot secondi.
 3. *cancelEvent()*: usata per rimuovere dalla event queue un evento. 
+
+Nel file C++ che racchiude il comportamento del sistema la prima cosa da fare è importare la libreria ed estendendo la classe del simple module e ridefinendo le funzioni:
+```c++
+#include <omnetpp.h>
+class Txc: public cSimpleModule {
+protected:
+	virtual void initialize();
+	virtual void handleMessage(cMessage* msg);
+	virtual void finish();
+public:
+	Txc(); // costruttore
+}
+
+Define_Module(Txc); // il modulo deve essere registrato, lo si fa con una macro
+```
+in questo modo sarà la libreria che si occuperà di invocare le funzioni quando necessario. Da qui si vede che c'è differenza tra *initialize* e un *costruttore* perché la classe può avere sia il costruttore che la initialize con comportamenti diversi.
+
+Definiamo il comportamento:
+1. Quando la simulazione inizia, Tic manda un messaggio a Toc:
+	```c++
+	void Txc::initialize() {
+		// se il nome del modulo è tic creo 
+		// e mando il messaggio
+		if(strcmp("tic", getName()) == 0) {
+			// creo il messaggio
+			cMessage* msg = new cMessage("CIAO");
+			// invio il messaggio tramite il gate 
+			// chiamato "out"
+			send(msg, "out");
+			// il messaggio arriverà dopo 100ms (delay)
+		}
+	}
+	```
+	Si noti che non c'è alcun riferimento al modulo Toc, questa cosa è fatta per poter facilmente sostituire un modulo con un altro senza dover cambiare il codice. Un gate è connesso ad un solo modulo.
+2. Quando Txc riceve un messaggio, manda una risposta:
+	```c++
+	void Txc::handleMessage(cMessage* msg) {
+		// in generale dovremmo controllare il tipo del 
+		// messaggio perché un modulo potrebbe ricevere
+		// più tipologie di messaggi, in questo caso non 
+		// serve
+		send(msg, "out");
+	}
+	```
+	Il trasferimento del messaggio consiste solo nello spostare il puntatore al messaggio. OMNeT impedisce di fare duplici send dello stesso messaggio allo stesso ricevitore.
+	Durante i 100ms il possessore del messaggio non è né tic né toc ma la *event queue* (è tipo il postino). 
+
+La event queue può essere acceduta solo dall'event scheduler che preleva il primo evento della coda e lo esegue. 
+Volendo possiamo estendere il suo comportamento definendo una nuova classe che estende le classi *cFutureEventSet* e *cScheduler*.
+Il real time scheduler si utilizza quando si vuole runnare il simulatore al tempo reale. Questo è utile quando si vuole fare l'hardware in the loop simulation cioè connettere il simulatore con device reali. 
+
+##
