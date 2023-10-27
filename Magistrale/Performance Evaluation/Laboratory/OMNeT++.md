@@ -1,3 +1,5 @@
+# OMNet++ basics
+
 Nelle prime righe della documentazione di OMNeT++ possiamo leggere: 
 
 > [!note] OMNeT++
@@ -104,4 +106,104 @@ La event queue può essere acceduta solo dall'event scheduler che preleva il pri
 Volendo possiamo estendere il suo comportamento definendo una nuova classe che estende le classi *cFutureEventSet* e *cScheduler*.
 Il real time scheduler si utilizza quando si vuole runnare il simulatore al tempo reale. Questo è utile quando si vuole fare l'hardware in the loop simulation cioè connettere il simulatore con device reali. 
 
-##
+## Timer
+
+Molto spesso si vuole eseguire un'azione dopo un certo periodo di tempo, ad esempio toc risponde dopo 10 secondi. Per fare ciò si può schedulare un evento per noi stessi tra 10 secondi, questo evento invierà il messaggio. 
+```c++
+class Txc: public cSimpleModule {
+private:
+	cMessage* beep_;
+	cMessage* tictocMsg_;
+};
+void Txc::initialize() {
+	if (strcmp("tic", getName()) == 0) {
+		tictocMsg_ = new cMessage("tictocMsg");
+		send(msg, "out"); 
+	}
+	beep_ = new cMessage("beep");
+}
+void Txc::handleMessage(cMessage* msg) {
+	if(strcmp(msg->getName(), "tictocMsg") == 0) {
+		scheduleAt(simTime()+10, beep_);
+		tictocMsg_ = msg; // memorizzo il messaggio
+	} else if(msg->isSelfMessage()) { // è come msg == beep_
+		send(tictocMsg_, "out");
+	}
+}
+Txc::~Txc() { 
+	// questa forse era meglio metterala nella finish()
+	cancelEvent(beep_); 
+	// questa ci sta nel distruttore
+	delete beep_; 
+}
+```
+
+## Parametri
+
+Un modulo può avere dei parametri ai quali si può assegnare un valore di default e un'unità di misura:
+```c++
+simple Txc {
+	parameters:
+		double proctTime = default(10);
+	gates:
+		input in;
+		output out;
+}
+```
+```c++
+simple Txc {
+	parameters:
+		double proctTime @unit(s) = default(10s);
+	gates:
+		input in;
+		output out;
+}
+```
+I parametri si usano perché ad esempio tic potrebbe essere più veloce di toc a processare le informazioni. Inoltre, non si fanno le cose hardcoded, con i parametri ci basta ricompilare un solo file. Poi anche perché permette di memorizzare dei valori di default. 
+```c++
+void Txc::handleMessage(cMessage* msg) {  
+	if( strcmp(msg->getName(),"tictocMsg") == 0 ) {
+		// leggo il parametro
+		simtime_t time = par("procTime");  
+		scheduleAt( simTime() + time, beep_ );  
+		tictocMsg_ = msg; // store msg for later transmission
+	} else if (msg->isSelfMessage()) // same as msg==beep_
+		send(tictocMsg_, "out");
+}
+```
+Per noi simTime è un double ma in realtà viene memorizzato come un 64bit integer con rappresentazione in virgola mobile. 
+Questo è importante perché cambiando l'esponente si può cambiare il livello di precisione temporale del simulatore. L'esponente di default è -12.
+
+# Providing Random Inputs
+
+Per generare numeri casuali OMNeT mette a disposizioni le principali distribuzioni:
+- uniform();
+- exponential();
+- normal();
+- ...
+E permette di impostare il seed. 
+```c++
+void Txc::handleMessage(cMessage* msg) {  
+	if(strcmp(msg->getName(),"tictocMsg") == 0) {
+		// il tempo ora non è costante ma è una VA 
+		// di una distribuzione uniforme tra 0 e 10
+		double time = uniform(0,10);  
+		scheduleAt(simTime() + time, beep_);  
+		tictocMsg_ = msg; // store msg for later transmission
+	}
+	... 
+}
+```
+Possiamo anche impostarla nel parametro: 
+```c++
+procTime = uniform(0s,10s);
+```
+ma in questo caso ogni volta che accediamo al parametro avremo lo stesso valore perché ormai è stato inizializzato.
+Se volessi definire una VA variabile come parametro nel ned file per non fare le cose hardcoded dovrei usare la clausola *volatile*. 
+Altrimenti si può fare così:
+```c++
+simtime max_time = par("maxTime");
+scheduleAt(simTime() + uniform(0, max_time));
+```
+
+# Collecting Metrics
