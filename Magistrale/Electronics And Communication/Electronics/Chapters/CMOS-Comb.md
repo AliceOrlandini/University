@@ -31,5 +31,22 @@ Negli sheet delle librerie troviamo:
 5. la temporizzazione
 6. la strength: forza necessaria per pilotare il carico in uscita, 1 indica la corrente che riesce a erogare la cella ed è legato al tempo di propagazione. Maggiore è la strenght maggiore è la corrente e quindi la carico più velocemente. 
 
-La tecnologia CMOS complementare è composta da una rete di pull up (PUN) e una di pull down (PDN). 
+La tecnologia CMOS complementare è composta da una rete di pull up (PUN) e una di pull down (PDN). Stesse cose viste con Piotto.
+
+Da design si può porre $t_{pLH} = t_{pHL}$ perché così possiamo scegliere il maggiore come tempo di propagazione massimo della rete sincronizzata.
+La simmetria è garantita da $W_{n}= W_{p}$.
+Inoltre è meglio avere dei paralleli per la mobilità.
+
+## Compariamo la NOR2 e la NAND2
+
+$\beta_{eq}^{NAND} = \beta_{n}^{NAND} = \frac{\beta_{p}^{NAND}}{2}$
+$\beta_{eq}^{NOR} = \beta_{n}^{NOR} = \frac{\beta_{p}^{NOR}}{2}$
+$W_{n}^{NOR}= W$
+$W_{p}^{NOR} = 4W$
+
+$\beta_{n}^{NAND}= 2\beta_{n}^{NOR}$
+$W_{n}^{NAND}=2W_{n}^{NOR} = 2W$
+
+$\beta_{p}^{NAND}= \frac{\beta_{p}^{NOR}}{2}$
+$W_{p}^{NAND}=\frac{W_{p}^{NOR}}{2} = \frac{4W}{2W}=2W$
 
