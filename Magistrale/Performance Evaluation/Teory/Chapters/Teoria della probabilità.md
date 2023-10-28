@@ -964,8 +964,20 @@ dove la $\Phi(z)$ è la CDF della **distribuzione normale standard**, scritta in
 - $\Phi(0) = \frac{1}{2}$ perché è metà dell'area ed è simmetrica.
 - $\Phi(-a) = P\{Z \le -a\} = P\{Z \ge a\} = 1 -\Phi(a)$
 Quindi per risolvere l'integrale dobbiamo calcolare numericamente i valori della $\Phi(z)$ ma ci basta farlo solo per i valori positivi. C'è un altro fattore che restringe il numero di calcoli da effettuare ovvero che questo tipo di distribuzione decresce molto rapidamente. 
-L'unità di misura che utilizziamo per valutare la PDF è la *deviazione standard* $\sigma$ e osserviamo che solo lo 0.3%
+L'unità di misura che utilizziamo per valutare la PDF è la *deviazione standard* $\sigma$ e osserviamo che solo lo 0.3% dei valori sono a più di 3 deviazioni standard dal punto medio. Quindi possiamo assumere che i valori oltre le 5 deviazioni standard siano praticamente zero e tabulare $Z \thicksim \mathcal{N}(0,1)$ solo per valori $(0,5]$. 
+
+Una proprietà della distribuzione normale è la seguente:
+date $n$ variabili aleatorie *indipendenti e normalmente distribuite* $X_{1},X_{2},...,X_{n}$ e una variabile $Y = \sum\limits_{i=1}^{n} \pm X_{i}$ è anch'essa normalmente distribuita con parametri $\mu = \sum\limits_{i=1}^{n}\pm \mu_{i}$ e $\sigma^{2}= \sum\limits_{i=1}^{n}\sigma_{i}^{2}$.
 ## Teorema del Limite Centrale
+
+La distribuzione normale ha una grande importanza perché in molti problemi moderni reali è richiesto di sommare un grande numero di eventi indipendenti e, con la distribuzione normale si può applicare il teorema del limite centrale.
+> [!note] Teorema del limite centrale
+> Date $n$ variabili aleatorie *indipendenti e identicamente distribuite* che hanno:
+> - stesso valor medio $\mu$ *finito* 
+> - stessa varianza $\sigma^{2}$ *finita*
+> Definita la variabile aleatoria $S = \sum\limits_{i=1}^{n}X_{i}$ essa ha $\mu_{S}=n\cdot \mu$ e $\sigma^{2}_{S}=n\cdot \sigma^{2}$
+> Inoltre, per valori grandi di $n$ ($n\ge 30$) può essere approssimata come una distribuzione normale, in altre parole: $S \thicksim \mathcal{N}(n\cdot \mu,n\cdot \sigma^{2})$
+
 
 ## Percentile
 
