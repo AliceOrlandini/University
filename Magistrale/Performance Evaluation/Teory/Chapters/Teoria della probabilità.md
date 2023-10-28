@@ -944,6 +944,27 @@ $E[X^{2}] = L^{''}(0) = \frac{2}{\lambda^{2}}$
 $Var(X) = E[X^{2}] - E[X]^{2}= \frac{1}{\lambda^{2}}$
 ### Distribuzione normale
 
+Una variabile aleatoria continua è Gaussiana se la sua PDF ha la seguente forma:
+$$f(x) = \frac{1}{\sqrt{2\pi}\cdot\sigma}e^{\frac{-(x-\mu)^{2}}{2\sigma^{2}}}$$
+con $\sigma > 0$ e si indica con $X \thicksim \mathcal{N}(\mu,\sigma^{2})$.
+Il dominio della PDF è $(-\infty,+\infty)$ e assume il valore massimo in $x=\mu$ e quel valore massimo è pari a: $\frac{1}{\sqrt{2\pi}\cdot\sigma} \thicksim \frac{0.4}{\sigma}$. È ovviamente simmetrica rispetto a $\mu$ che è anche il suo valor medio.
+Inoltre, più è grande $\sigma$ più bassa è la PDF e più alte saranno le code (l'area deve essere 1).
+
+![Normale|center|400](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/325px-Normal_Distribution_PDF.svg.png)
+
+Supponiamo di voler calcolare $F(a) = P\{X \le a\}$ con $X \thicksim N(\mu,\sigma^{2})$, dovrei risolvere il seguente integrale: 
+$$
+\begin{align*}
+F(a) &= \int_{-\infty}^{a}\frac{1}{\sqrt{2\pi}\cdot\sigma}e^{\frac{-(x-\mu)^{2}}{2\sigma^{2}}} dx =\\[4pt]
+&= \frac{1}{\sqrt{2\pi}\cdot\sigma}\int_{-\infty}^{\frac{a-\mu}{\sigma}} \sigma \cdot e^{\frac{-z}{2}} dz =\\[4pt]
+&= \Phi(\frac{a-\mu}{\sigma})
+\end{align*}
+$$
+dove la $\Phi(z)$ è la CDF della **distribuzione normale standard**, scritta in questo modo $Z \thicksim \mathcal{N}(0,1)$. Questa funzione è tale che:
+- $\Phi(0) = \frac{1}{2}$ perché è metà dell'area ed è simmetrica.
+- $\Phi(-a) = P\{Z \le -a\} = P\{Z \ge a\} = 1 -\Phi(a)$
+Quindi per risolvere l'integrale dobbiamo calcolare numericamente i valori della $\Phi(z)$ ma ci basta farlo solo per i valori positivi. C'è un altro fattore che restringe il numero di calcoli da effettuare ovvero che questo tipo di distribuzione decresce molto rapidamente. 
+L'unità di misura che utilizziamo per valutare la PDF è la *deviazione standard* $\sigma$ e osserviamo che solo lo 0.3%
 ## Teorema del Limite Centrale
 
 ## Percentile
