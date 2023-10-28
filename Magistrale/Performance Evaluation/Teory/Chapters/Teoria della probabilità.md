@@ -810,8 +810,40 @@ Proprietà:
 3. **derivata seconda**: $$E[X(X-1)] =\sum\limits_{n=0}^{+\infty} p_{n}\cdot n \cdot (n-1) = \frac{\partial^{2}}{\partial z^{2}}[\sum\limits_{n=0}^{+\infty} p_{n} \cdot z^{n}]_{z=1} = G^{''}(1)$$
 4. **varianza**: $$Var(X) = E[X^{2}]-E[X]^{2} = E[X(X-1)]+E[X]-E[X]^{2}= G^{''}(1) + G^{'}(1) +G^{'}(1)^{2}$$
 5. **univocità**: se due variabili aleatorie $X$ e $Y$ hanno la stessa PGF allora hanno anche la stessa PMF e viceversa. Più formalmente, $$\forall z, G_{X}(z) = G_{Y}(z) \Leftrightarrow \forall n, P\{X = n\} = P\{Y = n\}$$quindi la PGF ha lo stesso contenuto informativo della PMF che caratterizza completamente $X$ e $Y$.
-6. **convoluzione**: 
+6. **convoluzione**: date $n$ variabili aleatorie *indipendenti* $X_{1},X_{2},...,X_{n}$ di cui si conoscono le PGFs $G_{1}(z),G_{2}(z),..G_{n}(z)$, allora *la PGF della loro somma* $S=X_{1}+X_{2}+\dots +X_{n}$ è: $$\begin{align*} G_{S}(z) &= E[z^{X_{1}+X_{2}+\dots +X_{n}}] =\\[4pt]
+&= E[z^{X_{1}}\cdot z^{X_{2}} \cdot ...\cdot z^{X_{n}}] =\\[4pt]
+&= E[z^{X_{1}}]\cdot E[z^{X_{2}}] \cdot ...\cdot E[z^{X_{n}}] =\\[4pt]
+&= G_{1}(z)\cdot G_{2}(z)\cdot ... \cdot G_{n}(z)\end{align*}$$
+Calcoliamo le PGF delle distribuzioni che abbiamo visto:
+- **Bernoulli**: 
+	$p(0) = 1-p$
+	$p(1) = p$
+	$G(z) = (1-p)\cdot z^{0}+p\cdot z^{1} = 1-p+p\cdot z$
+- **Binomiale**:
+	$p(i) = \binom{n}{i} p^{i}\cdot (1-p)^{n-i}$
+	$G(z) = \sum\limits_{i=0}^{n}\binom{n}{i} p^{i}\cdot (1-p)^{n-i} \cdot z^{i} = [p\cdot z+(1-p)]^{n}$
+	questa si poteva ricavare anche applicando la proprietà di convoluzione. 
+- **Poisson**:
+	$p(i) = e^{-\lambda}\cdot \frac{\lambda^{i}}{i!}$
+	$G(z) = \sum\limits_{i=0}^{+\infty} e^{-\lambda}\cdot \frac{\lambda^{i}}{i!} \cdot z^{i} =\frac{e^{-\lambda}}{e^{-\lambda z}}\cdot \sum\limits_{i=0}^{+\infty} e^{-\lambda z} \cdot \frac{(\lambda z)^{i}}{i!} = e^{-\lambda +\lambda z}$
+- **Geometrica**:
+	$p(i) = (1-p)^{i}\cdot p$
+	$G(z) = \sum\limits_{i=0}^{n} (1-p)^{i}\cdot p \cdot z^{i} = \frac{p}{1-z\cdot (1-p)}$
 
+Per la distribuzione di Poisson, il calcolo della varianza si semplifica notevolmente:
+$G(z) = e^{-\lambda +\lambda z}$
+$G^{'}(z) = \lambda \cdot e^{-\lambda}\cdot e^{\lambda z}$ da cui $G^{'}(1) = \lambda$ che è il valor medio
+$G^{''}(z) = \lambda^{2} \cdot e^{-\lambda}\cdot e^{\lambda z}$ da cui $G^{'}(1) = \lambda^{2}$
+da cui: $\sigma^{2} = G^{''}(1)+G^{'}(1) -G^{'}(z)^{2} = \lambda^{2}+\lambda -\lambda^{2} = \lambda$
+
+Per la distribuzione Geometrica, troviamo la varianza che non avevamo dimostrato:
+$G(z) = \frac{p}{1-z\cdot (1-p)}$
+
+$G^{'}(z) = \frac{p\cdot (1-p)}{[1-z\cdot (1-p)]^{2}}$ da cui $G^{'}(1) = \frac{1-p}{p}$ che è il valor medio
+
+$G^{''}(z) = \frac{2\cdot p \cdot (1-p)^{2}}{[1-z\cdot (1-p)]^{3}}$ da cui $G^{''}(1) = \frac{2\cdot (1-p)^{2}}{p^{2}}$
+
+da cui: $\sigma^{2} = G^{''}(1)+G^{'}(1) -G^{'}(z)^{2} = \frac{1-p}{p^{2}}$
 ## Distribuzioni Continue
 
 ### Distribuzione uniforme
