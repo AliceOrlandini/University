@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md"
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md"
               }
             }
           },
@@ -160,9 +160,9 @@
   },
   "active": "04337e90292d79f0",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Teoria della probabilità.md",
-    "TODO.md",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+    "TODO.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "conflict-files-obsidian-git.md",
     "Untitled.md",
@@ -196,8 +196,8 @@
     "Magistrale/Electronics And Communication/Electronics/Images/nmos R.png",
     "Magistrale/Electronics And Communication/Electronics/Images/mosfet.png",
     "Untitled.canvas",
-    "Magistrale/Performance Evaluation/Probability Theory/Images",
-    "Magistrale/Performance Evaluation/Probability Theory/Chapters/Images",
+    "Magistrale/Performance Evaluation/Teory/Images",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images",
     "Magistrale/Performance Evaluation/Laboratory/Images",
     "Magistrale/Electronics And Communication/Communication/Images",
     "Magistrale/Performance Evaluation/Laboratory",

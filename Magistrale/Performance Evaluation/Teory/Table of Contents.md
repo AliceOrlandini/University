@@ -1,4 +1,4 @@
-1. [[Magistrale/Performance Evaluation/Probability Theory/Chapters/Introduzione|Introduzione]]
+1. [[Magistrale/Performance Evaluation/Teory/Chapters/Introduzione|Introduzione]]
 2. [[Teoria della probabilità]]
 	1. [[Teoria della probabilità#Spazio campione ed Eventi|Spazio campione ed Eventi]]
 	2. [[Teoria della probabilità#Assiomi della probabilità|Assiomi della probabilità]]

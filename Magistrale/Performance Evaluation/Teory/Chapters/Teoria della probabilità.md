@@ -750,8 +750,36 @@ date due variabili aleatorie di Poisson **indipendenti** $X_{1} \thicksim Poisso
 Dimostrazione sulle dispense.
 ### Distribuzione Geometrica
 
-
-
+La distribuzione **geometrica** misura *il numero di fallimenti prima del primo successo in un esperimento di prove ripetute*. Il dominio è $[0,+\infty)$ e le sue caratteristiche (valor medio e varianza) dipenderanno dalla probabilità di successo $p$ del singolo esperimento. 
+Ha anche una seconda definizione che è: tentativi prima del primo successo, in questo caso il dominio diventa $[1,+\infty)$ perché servirà almeno un tentativo.
+Comunque, se consideriamo la prima definizione, è facile capire che $P\{X = 0\} = p$ perché bisogna avere successo nel primo esperimento per avere zero insuccessi. Possiamo poi continuare sfruttando l'indipendenza degli esperimenti:
+$P\{X = 1\} = (1-p)\cdot p$ un insuccesso e un successo
+$P\{X = 2\} = (1-p)^{2} \cdot p$ due insuccessi e un successo
+e così via.
+La formula generale sarà quindi $P\{X = k\} = (1-p)^{k}p$ con $k\ge 0$.
+La corrispondente PMF è una sequenza decrescente esponenzialmente, possiamo osservare che: 
+$$
+\begin{align*}
+P(X \le k) &= \sum\limits_{i=0}^{k}(1-p)^{k}\cdot p =\\
+&= p\cdot \frac{1-(1-p)^{k+1}}{1-(1-p)} =\\
+&= 1-(1-p)^{k+1}
+\end{align*}
+$$
+che somiglia molto ad un'operazione di complemento con $P\{X \le k\} = 1-P\{X >k\}$.
+I suoi  parametri sono:
+- **Valor Medio**: $E[X] = \frac{1-p}{p}$ perché: $$
+\begin{align*}
+E[X] &= \sum\limits_{k=0}^{+\infty}k\cdot (1-p)^{k}\cdot p =\\
+&= p \cdot (1-p) \sum\limits_{k=1}^{+\infty} \frac{\partial}{\partial p}-[(1-p)^{k}] =\\
+&= -p \cdot (1-p) \cdot \frac{\partial}{\partial p} \sum\limits_{k=1}^{+\infty} (1-p)^{k} =\\
+&= -p \cdot (1-p)\cdot \frac{\partial}{\partial p}\left[\frac{1}{p}-1\right]=\\
+&= \frac{1-p}{p}
+\end{align*}
+$$
+- **Varianza**: $\sigma^{2} = \frac{1-p}{p^{2}}$ questa la dimostreremo più avanti.
+La distribuzione geometrica ha un'importante proprietà: **memoryless**; ed è l'unica distribuzione discreta ad averla. 
+> [!note] Memoryless
+> La proprietà di **memoryless** sostiene che: $P\{X \ge n+m\}$
 ## Probability Generating Functions PGF
 
 ## Distribuzioni Continue
