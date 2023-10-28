@@ -885,9 +885,41 @@ I suoi parametri sono (calcolati entrambi integrando per parti):
 - **Varianza**: $Var(X) = \frac{1}{\lambda^{2}}$
 
 Due importanti caratteristiche della distribuzione esponenziale sono:
-1. Dati $n$ variabili aleatorie *indipendenti* distribuite esponenzialmente $X_{1},X_{2},...,X_{n}$ con i rispettivi rate $\lambda_{1},\lambda_{2},...,\lambda_{n}$, la variabile aleatoria $Y = min\{X_{1},X_{2},...,X_{n}\}$ è anch'essa esponenziale con un rate $\lambda = \sum\limits_{i=1}^{n}\lambda_{i}$
+1. Dati $n$ variabili aleatorie *indipendenti* distribuite esponenzialmente $X_{1},X_{2},...,X_{n}$ con i rispettivi rate $\lambda_{1},\lambda_{2},...,\lambda_{n}$, la variabile aleatoria $Y = min\{X_{1},X_{2},...,X_{n}\}$ è anch'essa esponenziale con un rate $\lambda = \sum\limits_{i=1}^{n}\lambda_{i}$.
+2. Data $X$ distribuita esponenzialmente con un rate $\lambda >0$, allora $P\{X>s+t |X>t\} = P\{X>s\}$ detta **memoryless**.
+	Per capire, assumiamo di stare studiando la vita di un dispositivo rappresentata da una variabile aleatoria esponenzialmente distribuita. La proprietà di memoryless ci permette di dire che il momento in cui il dispositivo smetterà di funzionare è indipendente da quanto tempo nel passato ha funzionato. Proviamolo formalmente:
+	$$
+\begin{align*}
+P\{X>s+t |X>t\} &= \frac{P\{X>s+t, X>t\}}{P\{X>t\}} =\\
+&= \frac{P\{X>s+t\}}{P\{X>t\}} =\\
+&= \frac{e^{-\lambda(s+t)}}{e^{-\lambda t}} =\\
+&= e^{-\lambda s} =\\
+&= P\{X > s\}
+\end{align*}
+$$
+3. Data $X$ distribuita esponenzialmente con un rate $\lambda >0$, allora $Y = \lfloor X \rfloor$ è geometrica con probabilità $p = 1-e^{-\lambda}$.
+	$$
+\begin{align*}
+p_{Y}(k) &= P\{Y = k\} =\\[4pt]
+&= P\{k \le X \le k+1\} =\\[4pt]
+&= F(k+1) - F(k) =\\[4pt]
+&= (1-e^{-\lambda(k+1)}) - (1-e^{-\lambda k}) =\\[4pt]
+&= (e^{-\lambda})^{k}\cdot (1-e^{-\lambda}) =\\[4pt]
+&= (1-p)^{k}\cdot p
+\end{align*}
+$$
+	che è la distribuzione geometrica.
 ## Laplace-Stieltjes Transform LS
 
+La trasformazione Laplace-Stieltjes rispecchia il concetto di PGF per variabili aleatorie *continue e non negative*.
+> [!note] Laplace-Stieltjes
+> Data una PDF $f(t)$ si può definire LS come: $$L(s) = E[e^{-st}] = \int_{0}^{+\infty}e^{-st}\cdot f(t) dt$$ con $s$ complessa.
+
+L'integrale converge se $Re(s)\ge 0$. Vediamo le sue proprietà:
+1. **Normalizzazione**: $L(0) =1$
+2. **Central Moments**: $\sigma^{2}= L^{''}(0)+[L^{'}(0)]^{2}$
+3. **Univocità**: se due variabili aleatorie $X$ e $Y$ hanno la stessa LST allora hanno anche le stesse PDFs e viceversa.
+4. **Convoluzione**
 ### Distribuzione normale
 
 ## Teorema del Limite Centrale
