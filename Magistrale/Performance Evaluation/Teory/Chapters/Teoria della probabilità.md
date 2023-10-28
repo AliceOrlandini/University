@@ -798,6 +798,19 @@ Se si usa l'altra definizione, la proprietà di memoryless continua a valere ma 
 #Attenzione un errore che gli studenti fanno è confondere la memoryless con: $$P\{X \ge n+m|X\ge n\} = P\{X \ge n+m\}$$che vale *solo* se $\{X \ge n+m\}$ e $\{X\ge n\}$ sono *indipendenti* che in generale non è vero. Infatti: $$P\{X \ge n+m|X\ge n\} = \frac{P\{X\ge n+m\}}{P\{X \ge n\}} \not = P\{X \ge n+m\}$$
 ## Probability Generating Functions PGF
 
+Per variabili aleatorie discrete e non negative (tutte quelle che facciamo noi lo sono) si può scrivere la *z-trasformata* detta anche **Probability Generating Function PGF**.
+
+> [!note] Probability Generating Function
+> Per una variabile aleatoria $X$ si può definire la **Probability Generating Function**: $$G(z) = E[z^{X}] = \sum\limits_{n=0}^{+\infty}p_{n}\cdot z^{n}$$ dove $z$ è un numero complesso.
+
+La somma converge se $|z| \le 1$.
+Proprietà:
+1. **normalizzazione**: $$G(1) = \sum\limits_{n=0}^{+\infty} p_{n}1^{n}=1$$
+2. **valor medio**: $$E[X] =\sum\limits_{n=0}^{+\infty} p_{n}\cdot n = \frac{\partial}{\partial z}[\sum\limits_{n=0}^{+\infty} p_{n} \cdot z^{n}]_{z=1} = G^{'}(1)$$
+3. **derivata seconda**: $$E[X(X-1)] =\sum\limits_{n=0}^{+\infty} p_{n}\cdot n \cdot (n-1) = \frac{\partial^{2}}{\partial z^{2}}[\sum\limits_{n=0}^{+\infty} p_{n} \cdot z^{n}]_{z=1} = G^{''}(1)$$
+4. **varianza**: $$Var(X) = E[X^{2}]-E[X]^{2} = E[X(X-1)]+E[X]-E[X]^{2}= G^{''}(1) + G^{'}(1) +G^{'}(1)^{2}$$
+5. **univocità**: se due variabili aleatorie $X$ e $Y$ hanno la stessa PGF allora hanno anche la stessa PMF e viceversa. Più formalmente, $$\forall z, G_{X}(z) = G_{Y}(z) \Leftrightarrow \forall n, P\{X = n\} = P\{Y = n\}$$quindi la PGF ha lo stesso contenuto informativo della PMF che caratterizza completamente $X$ e $Y$.
+6. **convoluzione**: 
 
 ## Distribuzioni Continue
 
