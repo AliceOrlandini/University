@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -160,8 +159,9 @@
   },
   "active": "04337e90292d79f0",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+    "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
     "TODO.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "conflict-files-obsidian-git.md",
@@ -186,7 +186,6 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
     "Magistrale/Electronics And Communication/Electronics/Images/IC Design Styles and Flows.png",

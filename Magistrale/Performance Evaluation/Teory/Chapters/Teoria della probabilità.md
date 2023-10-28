@@ -779,8 +779,25 @@ $$
 - **Varianza**: $\sigma^{2} = \frac{1-p}{p^{2}}$ questa la dimostreremo più avanti.
 La distribuzione geometrica ha un'importante proprietà: **memoryless**; ed è l'unica distribuzione discreta ad averla. 
 > [!note] Memoryless
-> La proprietà di **memoryless** sostiene che: $P\{X \ge n+m\}$
+> La proprietà di **memoryless** sostiene che: $$P\{X \ge n+m|X\ge n\} = P\{X \ge m\}$$ cioè l'osservazione degli esperimenti non aumenta la probabilità di successo.
+
+Per capire, consideriamo l'esperimento lancio di una moneta e ipotizziamo di aver perso per $n$ volte. Ci chiediamo qual è la probabilità di perdere per ulteriori $m$ volte prima di ottenere un successo. Ovviamente, visto che i lanci sono tutti *indipendenti* non otteniamo alcuna informazione avendo osservato i primi $n$ lanci. Quindi la probabilità è indipendente da quante volte nel passato l'esperimento ha avuto esito di insuccesso.
+Vediamo la dimostrazione formale:
+$$
+\begin{align*}
+P\{X \ge n+m|X\ge n\} &= \frac{P\{X \ge n+m,X \ge n\}}{P\{X \ge n\}} =\\[4pt]
+&= \frac{P\{X \ge n+m\}}{P\{X \ge n\}} =\\[4pt]
+&= \frac{1-P\{X \le n+m-1,X \ge n\}}{1-P\{X \le n-1\}} =\\[4pt]
+&= \frac{1-[1-(1-p)^{n+m}]}{1-[1-(1-p)^{n}]} =\\[4pt]
+&= (1-p)^{m} =\\[4pt]
+&= P\{X \ge m\}
+\end{align*}
+$$
+
+Se si usa l'altra definizione, la proprietà di memoryless continua a valere ma con maggiore invece che maggiore e uguale.
+#Attenzione un errore che gli studenti fanno è confondere la memoryless con: $$P\{X \ge n+m|X\ge n\} = P\{X \ge n+m\}$$che vale *solo* se $\{X \ge n+m\}$ e $\{X\ge n\}$ sono *indipendenti* che in generale non è vero. Infatti: $$P\{X \ge n+m|X\ge n\} = \frac{P\{X\ge n+m\}}{P\{X \ge n\}} \not = P\{X \ge n+m\}$$
 ## Probability Generating Functions PGF
+
 
 ## Distribuzioni Continue
 
