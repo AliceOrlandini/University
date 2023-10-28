@@ -918,8 +918,15 @@ La trasformazione Laplace-Stieltjes rispecchia il concetto di PGF per variabili 
 L'integrale converge se $Re(s)\ge 0$. Vediamo le sue proprietà:
 1. **Normalizzazione**: $L(0) =1$
 2. **Central Moments**: $\sigma^{2}= L^{''}(0)+[L^{'}(0)]^{2}$
-3. **Univocità**: se due variabili aleatorie $X$ e $Y$ hanno la stessa LST allora hanno anche le stesse PDFs e viceversa.
-4. **Convoluzione**
+3. **Univocità**: se due variabili aleatorie $X$ e $Y$ hanno la stessa LST allora hanno anche le stesse PDFs e viceversa. Più formalmente, $\forall x, f_{X}(x) = f_{Y}(y) \Leftrightarrow \forall s, L_{X}(s) = L_{Y}(s)$  
+4. **Convoluzione**: date $n$ variabili aleatorie *indipendenti* $X_{1},X_{2},...,X_{n}$ e sapendo le loro LST $LS_{1},LS_{2},...,LS_{n}$, allora si può ottenere la LST della loro somma facendo: $$
+	\begin{align*}
+L_{S}(s) &= E[e^{-s(X_{1}+X_{2}+\dots+X_{n})}] =\\[4pt]
+&= E[e^{-s\cdot X_{1}}] + E[e^{-s\cdot X_{2}}] + \dots + E[e^{-s\cdot X_{n}}] =\\[4pt]
+&= L_{1}(s)\cdot L_{2}(s) \cdot ... \cdot L_{n}(s)
+\end{align*}
+$$
+Calcoliamo la 
 ### Distribuzione normale
 
 ## Teorema del Limite Centrale
