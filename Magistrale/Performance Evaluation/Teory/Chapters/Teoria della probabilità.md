@@ -466,7 +466,7 @@ Ma si può fare anche il contrario, dalla CDF si ricava la PMF nel seguente modo
 Per variabili aleatorie continua non ha alcun senso definire la probability mass function perché è impossibile che una variabile di questo tipo assuma *esattamente* un valore (con infinita precisione) in uno spazio continuo.
 
 > [!note] PDF
-> Per variabili aleatorie *continue*, si può definire la **Probability Density Function** (PDF) $f(x)$ che è una funzione *non negativa* con la seguente proprietà: $f(x)$ è una PDF se, dato un set $B$ di numeri reali, allora $$$P\{X \in B\} = \int_{B}f(x) dx$$
+> Per variabili aleatorie *continue*, si può definire la **Probability Density Function** (PDF) $f(x)$ che è una funzione *non negativa* con la seguente proprietà: $f(x)$ è una PDF se, dato un set $B$ di numeri reali, allora $$P\{X \in B\} = \int_{B}f(x) dx$$
 
 Anche per questa funzione è valida la condizione di *normalizzazione*: $$P\{X \in (-\infty, +\infty)\} = \int_{-\infty}^{+\infty} f(x) dx = 1$$
 Se $B$ è un intervallo $[a,b]$ allora si ottiene: $$P\{a \le X \le b\} = \int_{a}^{b} f(x) dx = F(b) - F(a)$$
@@ -846,10 +846,46 @@ $G^{''}(z) = \frac{2\cdot p \cdot (1-p)^{2}}{[1-z\cdot (1-p)]^{3}}$ da cui $G^{'
 da cui: $\sigma^{2} = G^{''}(1)+G^{'}(1) -G^{'}(z)^{2} = \frac{1-p}{p^{2}}$
 ## Distribuzioni Continue
 
+Definiamo le più importanti distribuzioni *continue*.
 ### Distribuzione uniforme
 
+Una variabile aleatoria è **uniformemente distribuita** se la sua PDF è constante nell'intervallo $[a,b]$: 
+$$
+\begin{equation}
+f(x)= \begin{cases}\frac{1}{b-a} & a \le x \le b \\
+0 & \text{altrimenti}\end{cases}
+\end{equation}
+$$
+e si indica con $X \thicksim U(a,b)$.
+
+![Uniformemente Distribuita|central|400](https://analystprep.com/cfa-level-1-exam/wp-content/uploads/2021/09/cfa-level-1-continuous-uniform-random-variable-1.jpg)
+
+I suoi parametri sono:
+- **Valor Medio**: $E[X] = \int_{a}^{b} \frac{1}{b-a} \cdot x \cdot dx = \frac{b+a}{2}$
+- **Varianza**: $Var(X) = E[X^{2}]-E[X]^{2}= \frac{(b-a)^{2}}{12}$
+La CDF ha la seguente forma: $F(X) = \int_{a}^{x} \frac{1}{b-a} dx = \frac{x-a}{b-a}$ con $a \le x \le b$.
 ### Distribuzione esponenziale
 
+Una variabile aleatoria continua **distribuita esponenzialmente** con un *rate* $\lambda > 0$ se la sua PDF ha la seguente forma: 
+$$
+\begin{equation}
+f(x)= \begin{cases}\lambda\cdot e^{-\lambda x} & x \ge 0 \\
+0 & x < 0\end{cases}
+\end{equation}
+$$
+e si indica con $X \thicksim exp(\lambda)$.
+Il dominio è $[0,+\infty)$ e si può facilmente ottenere la CDF integrando la PDF: $F(x) = \int_{0}^{x}\lambda \cdot e^{-\lambda y}dy = \lambda [-\frac{1}{\lambda}\cdot e^{-\lambda y}]_{0}^{x}=1-e^{-\lambda x}$ con $x \ge 0$, si vede che tende ad 1 esponenzialmente.
+
+![Esponenziale|center|400](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Exponential_distribution_pdf_-_public_domain.svg/1200px-Exponential_distribution_pdf_-_public_domain.svg.png)
+
+Questo tipo di distribuzione, assume valori molto grandi con valori molto piccoli di probabilità infatti sono buoi modelli per misurare il tempo che trascorre tra due eventi che si verificano casualmente (ad esempio terremoti).
+
+I suoi parametri sono (calcolati entrambi integrando per parti):
+- **Valor Medio**: $E[X] = \frac{2}{\lambda^{2}}$
+- **Varianza**: $Var(X) = \frac{1}{\lambda^{2}}$
+
+Due importanti caratteristiche della distribuzione esponenziale sono:
+1. Dati $n$ variabili aleatorie *indipendenti* distribuite esponenzialmente $X_{1},X_{2},...,X_{n}$ con i rispettivi rate $\lambda_{1},\lambda_{2},...,\lambda_{n}$, la variabile aleatoria $Y = min\{X_{1},X_{2},...,X_{n}\}$ è anch'essa esponenziale con un rate $\lambda = \sum\limits_{i=1}^{n}\lambda_{i}$
 ## Laplace-Stieltjes Transform LS
 
 ### Distribuzione normale
