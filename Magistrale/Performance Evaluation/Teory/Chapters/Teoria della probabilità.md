@@ -926,7 +926,22 @@ L_{S}(s) &= E[e^{-s(X_{1}+X_{2}+\dots+X_{n})}] =\\[4pt]
 &= L_{1}(s)\cdot L_{2}(s) \cdot ... \cdot L_{n}(s)
 \end{align*}
 $$
-Calcoliamo la 
+Calcoliamo la LST della distribuzione esponenziale:
+$$
+\begin{align*}
+L(s) &= E[e^{-st}] =\\
+&= \int_{0}^{+\infty}e^{-(s+\lambda)\cdot t} dt =\\
+&= \frac{\lambda}{-(s-\lambda)} \cdot [e^{-(s+\lambda)\cdot t}]_{0}^{+\infty} =\\
+&= \frac{\lambda}{s+\lambda}
+\end{align*}
+$$
+da cui si ricavano:
+$L^{'}(s) = -1\cdot \frac{\lambda}{(s+\lambda)^{2}}$
+$L^{''}(s) = 2\cdot \frac{\lambda}{(s+\lambda)^{3}}$
+e quindi:
+$E[X] = -L^{'}(0) = \frac{1}{\lambda}$
+$E[X^{2}] = L^{''}(0) = \frac{2}{\lambda^{2}}$
+$Var(X) = E[X^{2}] - E[X]^{2}= \frac{1}{\lambda^{2}}$
 ### Distribuzione normale
 
 ## Teorema del Limite Centrale
