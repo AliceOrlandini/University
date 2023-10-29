@@ -1008,8 +1008,19 @@ Il percentile è utile per motivi computazionali e alcuni hanno un nome:
 - Valori "grandi" di percentili sono dei buoni indicatori della *confidenza* di una misura.
 ### Distribuzione Chi-Square 
 
-Date $Z_{1},Z_{2},...,Z_{k}$ indipendenti 
-### Distribuzione Student
+Date $Z_{1},Z_{2},...,Z_{k}$ indipendenti e normalmente distribuite stadard ($Z_{i} \thicksim \mathcal{N}(0,1)$) allora $X = Z_{1}^{2}+Z_{2}^{2}+\dots + Z_{k}^{2}$ è una distribuzione **Chi-Square** con $k$ *gradi di libertà* e si indica come $X \thicksim \mathcal{X}^{2}_{k}$.
+La sua CDF non ha una forma chiusa ma è ricavata solo numericamente. 
+Molto spesso, si possono trovare grandi percentili come valori tabulati, questi valori $\mathcal{X}^{2}_{\alpha, k}$ sono tali che $P\{X > \mathcal{X}^{2}_{\alpha, k}\} = \alpha$.
+
+![Chi-Square|center|400](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Chi-square_pdf.svg/1200px-Chi-square_pdf.svg.png)
+
+Quando $k = 1,2$ è monotona decrescente, quando $k$ cresce si inizia a intravedere un *picco* che si alza al crescere di $k$.
+Per valori grandi di $k$ la distribuzione Chi-Square approssima una distribuzione normale.
+I suoi parametri sono:
+- **Valor Medio**: $E[X] = k$
+- **Varianza**: $Var(X) = 2k$
+### Distribuzione di Student
+
 
 ## Distribuzioni heavy tailed
 
