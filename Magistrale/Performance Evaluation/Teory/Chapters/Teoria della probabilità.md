@@ -1047,3 +1047,12 @@ f(x)= \begin{cases}0 & x \le 100 \\
 \frac{100}{x^{2}} & x > 100\end{cases}
 \end{equation}
 $$
+in questo caso si ha: 
+$$F(x) = \int_{100}^{x}\frac{100}{y^{2}}dy = [1- \frac{100}{x}]\cdot 1_{\{x \ge 100\}}$$
+per cui: $$\lim_{x\rightarrow\infty} e^{\lambda x} \cdot \frac{100}{x}= \infty$$
+e quindi la distribuzione è Heavy Tail. 
+
+Uno dei motivi per cui le variabili aleatorie Heavy Tail tendono a verificarsi nel mondo reale è che sono il risultato di *processi moltiplicativi*.  
+Quindi, se si *sommano* variabili aleatorie Light Tail iid si ottiene la distribuzione normale. Invece se si *moltiplicano* delle variabili aleatorie Light Tail iid si ottiene una variabile Heavy Tail. Si ha un processo moltiplicativo quando qualcosa cresce proporzionalmente con la sua misura invece che crescere con incrementi fissi. 
+Detta più formalmente: date $n$ variabili aleatorie $X_{1},X_{2},...,X_{n}$ *iid* e definita $Y_{i}= log(X_{i})$, allora $Z = \prod_{i=1}^{n}X_{i}$ è tale che $log(Z) = \sum\limits_{i=1}^{n}log(X_{i}) = \sum\limits_{i=1}^{n}Y_{i}$.
+Tuttavia, $\sum\limits_{i=1}^{n}Y_{i}$ è una distribuzione normale, quindi anche $log(Z)$ è normale e ciò significa che $Z$ cresce come una *distribuzione logaritmica* e queste distribuzioni sono Heavy Tail. 
