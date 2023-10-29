@@ -1021,6 +1021,18 @@ I suoi parametri sono:
 - **Varianza**: $Var(X) = 2k$
 ### Distribuzione di Student
 
+Data una variabile aleatoria $Z \thicksim \mathcal{N}(0,1)$ e $\mathcal{X}_{n}^{2}$ una chi-square con $n$ gradi di libertà, assumendo che $Z$ e $\mathcal{X}_{n}^{2}$ siano *indipendenti*, allora si può definire la seguente variabile aleatoria: $$T_{n}= \frac{Z}{\sqrt\frac{\mathcal{X}^{2}_{n}}{n}}$$ detta **Stutent's T** con $n$ gradi di libertà.
 
+Se $n$ cresce, $\frac{\mathcal{X}^{2}_{n}}{n}$ diventa costante e uguale al suo valor medio che è $1^{3}$. Quindi il denominatore di $T_{n}$ tende ad 1 se $n$ cresce. 
+Questo significa che, per valori grandi di $n$ ($n >30$) si ha che $T_{n}\approx Z$ e quindi $T_{n} \thicksim \mathcal{N}(0,1)$. La distribuzione di Student tende ad una distribuzione standard quando $n$ è grande. 
+
+![Student|center|400](https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Student_t_pdf.svg/325px-Student_t_pdf.svg.png)
+
+I suoi parametri sono:
+- **Valor Medio**: $E[T_{n}] = 0$
+- **Varianza**: $Var(T_{n}) = \frac{n}{n-2}$ che è poco più di 1 quando $n$ è grande.
+
+Il valore $t_{\alpha,n}$ tale che $P\{T_{n} \ge t_{\alpha,n}\} = \alpha$ è un numero che *decresce con $n$* ed è in generale un limite superiore per il percentile $z_{\alpha}$ della distribuzione normale. Infatti, l'area sotto le code si riduce se $n$ cresce.
+La distribuzione di Student viene utilizzata per valutare la *confidenza* di una certa misura.
 ## Distribuzioni heavy tailed
 
