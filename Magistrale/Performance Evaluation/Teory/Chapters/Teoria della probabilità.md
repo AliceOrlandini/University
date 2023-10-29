@@ -116,17 +116,17 @@ Consideriamo un'urna contenente 6 palline nere e 5 bianche. Qual è la probabili
 	- Da 7 a 11 saranno palline bianche
 	L'outcome sarà una coppia $(b_i;b_j)$ tali che $0 \le i \le 11$ e $0 \le j \le 11$ con $i \not= j$ (perché non c'è il reinserimento).
 1. Definisco l'evento favorevole:
-$E = \{(b_i;b_j), 1 \le i \le 6; 7 \le j \le 11\} \cup \{(b_i;b_j) 1 \le j \le 6; 7 \le i \le 11\}$ 
-3. L'insieme S ha cardinalità finita? Sì
-4. Gli eventi sono ugualmente equiprobabili? Sì, proprio per come abbiamo definito l'outcome, infatti, *la probabilità che esca una qualsiasi coppia è uguale a quella delle altre coppie*.
-5. Determino la cardinalità di S e di E utilizzando il **principio base del conteggio**:
+	$E = \{(b_i;b_j), 1 \le i \le 6; 7 \le j \le 11\} \cup \{(b_i;b_j) 1 \le j \le 6; 7 \le i \le 11\}$ 
+1. L'insieme S ha cardinalità finita? Sì
+2. Gli eventi sono ugualmente equiprobabili? Sì, proprio per come abbiamo definito l'outcome, infatti, *la probabilità che esca una qualsiasi coppia è uguale a quella delle altre coppie*.
+3. Determino la cardinalità di S e di E utilizzando il **principio base del conteggio**:
 	- Inizio da S, divido in 2 esperimenti e poi calcolo $|S| = N_1 * N_2$:
 		1. $C_1$ prima estrazione, quanti elementi ho? $N_1 = 6 + 5 = 11$.
 		2. $C_2$ seconda estrazione, quanti elementi ho? Ho una pallina in meno quindi $N_2 = 5 + 5 = 10$ oppure $N_2 = 6 + 4 = 10$.
 	- I due eventi che compongono E sono disgiunti? Sì perché non possono verificarsi entrambi, quindi considero i due eventi come separati e poi vado a sommarli $|E| = |E_1| + |E_2|$. Per ogni evento posso applicare il principio base del conteggio:
 		1. $|E_1| = N_{11} * N_{12} = 6 * 5 = 30$ 
 		2. $|E_2| = N_{21} * N_{22} = 5 * 6 = 30$
-6. Infine, calcolo $P(E) = \frac{|E|}{|S|} = \frac{60}{110} = \frac{6}{11}$
+4. Infine, calcolo $P(E) = \frac{|E|}{|S|} = \frac{60}{110} = \frac{6}{11}$
 
 ### Esercizio 3
 
@@ -206,7 +206,7 @@ Un gruppo di 5 maschi e di 10 femmine sono allineati in ordine casuale.
 
 Quando si fanno gli esercizi ricordarsi sempre questo schema: 
 
-![[Modellazione.svg|center|500]]
+![[Modellazione.svg|center|400]]
 
 Spesso gli studenti si dimenticano di fare l'ultimo passaggio, l'interpretazione dei risultati ottenuti.
 
@@ -285,7 +285,12 @@ come si può vedere dalla seguente immagine:
 
 ![[Bayes.png|center|400]]
 
-I due eventi che compongono l'unione sono disgiunti quindi la probabilità di E può essere scritta come: $$P(E) = P(EF) + P(EF^\complement)$$Ora, sostituendo la formula della probabilità condizionata troviamo: $$P(E) = P(E|F)*P(F) + P(E|F^\complement)*P(F^\complement) =$$$$= P(E|F)*P(F) + P(E|F^\complement)*(1-P(F))$$
+I due eventi che compongono l'unione sono disgiunti quindi la probabilità di E può essere scritta come: $$P(E) = P(EF) + P(EF^\complement)$$Ora, sostituendo la formula della probabilità condizionata troviamo: 
+$$
+\begin{align*}
+P(E) &= P(E|F)*P(F) + P(E|F^\complement)*P(F^\complement) =\\[4pt]
+&= P(E|F)*P(F) + P(E|F^\complement)*(1-P(F))
+\end{align*}$$
 Questa espressione può essere generalizzata nel seguente modo:
 
 > [!note] Probabilità di un evento data la probabilità condizionata
@@ -345,10 +350,10 @@ L'esperimento delle **prove ripetute** è un tipico caso in cui si assume che gl
 Una moneta viene lanciata 5 volte in condizioni indipendenti. Trovare la probabilità che:
 1. I primi 3 lanci diano lo stesso risultato.
 	Consideriamo ogni lancio come un sottoesperimento: 
-	- lanciamo la prima volta, la probabilità di ottenere un outcome è p = 1.
-	- lanciamo la seconda volta, la probabilità di ottenere un outcome uguale al primo lancio è pari a p = 1/2.
-	- lanciamo la terza volta, la probabilità di ottenere un outcome uguale ai primi due è sempre p = 1/2.
-	Questo perché i tre eventi sono indipendenti. La probabilità finale sarà quindi P = 1 * 1/2 * 1/2 = 1/4. 
+	- lanciamo la prima volta, la probabilità di ottenere un outcome è $p = 1$.
+	- lanciamo la seconda volta, la probabilità di ottenere un outcome uguale al primo lancio è pari a $p = 1/2$.
+	- lanciamo la terza volta, la probabilità di ottenere un outcome uguale ai primi due è sempre$p = 1/2$.
+	Questo perché i tre eventi sono indipendenti. La probabilità finale sarà quindi $P = 1 * 1/2 * 1/2 = 1/4$. 
 2. O i primi 3 o gli ultimi 3 lanci diano lo stesso risultato (anche se si verificano entrambi gli eventi va bene).
 	Con l'indipendenza devo calcolare la probabilità dell'evento $F\cup L$ dove F = {3 lanci uguali all'inizio} ed L = {3 lanci uguali alla fine}. 
 	Quindi $FL$ = {5 risultati uguali} e posso trovare: 
@@ -375,7 +380,7 @@ Il signor Rossi ha un mazzo di $n > 1$ chiavi. Da finire
 
 Per visualizzare il modello possiamo pensare alla corrente che scorre tra due terminali e i vari sottosistemi come degli switch. La corrente scorrerà solo se almeno uno degli switch è chiuso.
 
-![Sistema Parallelo|center|400](https://cdnintech.com/media/chapter/41421/1512345123/media/image2.png)
+![Sistema Parallelo|center|300](https://cdnintech.com/media/chapter/41421/1512345123/media/image2.png)
 
 Quanto un problema viene posto come *"almeno uno"* ci deve scattare un trigger che ci suggerisce che forse è meglio usare il **complemento**, infatti: 
 P(corrente scorre) = 1 - P(corrente non scorre) = 1 - P(tutti gli switch aperti)
@@ -385,20 +390,25 @@ e la probabilità che tutti gli switch siano aperti si calcola abbastanza facilm
 
 Consideriamo il seguente sistema parallelo: 
 
-![[Sistemi paralleli 1.svg|center|700]]
+![[Sistemi paralleli 1.svg|center|500]]
 
 Ogni switch $i$ ha una probabilità di essere chiuso pari a $p_i$. 
 Trovare la probabilità che scorra corrente da A a B.
 
-Definisco l'evento $A_i$ come l'evento "switch i-esimo chiuso" che avrà $P(A_i) = p_i$ e calcolo: $$P(scorre corrente) = 1 - P(tutti aperti) =$$
-$$= 1 - P(A_1^\complement \cdot A_2^\complement ... A_n^\complement ) = $$
+Definisco l'evento $A_i$ come l'evento "switch i-esimo chiuso" che avrà $P(A_i) = p_i$ e calcolo: 
+$$
+\begin{align*}
+P(\text{scorre corrente}) &= 1 - P(\text{tutti aperti}) =\\
+&= 1 - P(A_1^\complement \cdot A_2^\complement ... A_n^\complement ) =\\
+ 
+\end{align*}$$
 $$= 1 - \prod_{i = 1}^{n} P(A_i^\complement)$$
 $$= 1 - \prod_{i = 1}^{n} (1-p_i)$$
 ### Esercizio 14
 
 Consideriamo il seguente sistema parallelo: 
 
-![[Sistemi paralleli 2.svg|center|500]]
+![[Sistemi paralleli 2.svg|center|400]]
 
 Il nodo che ci da problemi è il 3 quindi semplifichiamo utilizzando la probabilità condizionata: 
 - 3 aperto -> stesso problema di prima: [[#Sistemi Paralleli#Esercizio 13|esercizio 13]]
@@ -412,7 +422,7 @@ $$= (1-(1-p_1 p_4)(1- p_2 p_5))(1-p_3) + \{(1- (1-p_1)(1-p_2))(1-(1-p_4)(1-p_5))
 
 Notiamo che la funzione $X$ è deterministica, è il risultato dell'esperimento casuale ad essere aleatorio. 
 
-![variabile aleatoria|center|500](https://miro.medium.com/v2/resize:fit:720/format:webp/1*AxzRBWY2L-WRUlJrtyil_A.png)
+![variabile aleatoria|center|400](https://miro.medium.com/v2/resize:fit:720/format:webp/1*AxzRBWY2L-WRUlJrtyil_A.png)
 
 La probabilità associata alla variabile aleatoria si indica in questo modo: $P\{X = 1\} = P\{X = 0\} = 1/2$.
 
@@ -443,7 +453,7 @@ Inoltre, $\lim_{\omega \rightarrow -\infty} F(\omega) = 0$ e $\lim_{\omega \righ
 Considerare una variabile aleatoria $X$ con la seguente CDF: 
 $F(\omega) = 1- e^{-w^2}$ per $\omega > 0$ e pari a zero per $\omega$ negativi. 
 
-![[CDF.png|center|600]]
+![[CDF.png|center|400]]
 
 Calcolare P{X > 1}:
 per risolvere questo esercizio bisogna prima di tutto disegnare la funzione e assicurarsi che rispetti le proprietà di una CDF.
@@ -501,15 +511,24 @@ Le probabilità $P\{X = x\}$ e $P\{Y = y\}$ vengono anche chiamate *probabilità
 Inoltre, quando $C$ può essere separato in due set di numeri reali $C = \{(x,y)|x \in A, y \in B\}$ allora possiamo riscrivere il precedente integrale nel seguente modo: $$P\{(X,Y) \in C\} = P\{X \in A, Y \in B\} = \int_{A} \int_{B} f(x,y) dy dx$$
 Non spaventarsi per la presenza degli integrali, la maggior parte dei conti che bisognerà fare saranno con esponenziali o equazioni semplici, inoltre ricordarsi che gli integrali possono essere risolti in qualsiasi ordine quindi è fondamentale scegliere quello che semplifica di più i calcoli. 
 
-Dalla definizione di JCDF, possiamo ottenere: $$F(a,b) = P\{X \le a, Y \le b\} = $$
-$$P\{X \in (-\infty, a], Y \in (-\infty, b]\} = $$
-$$= \int_{-\infty}^{a} \int_{-\infty}^{b} f(x,y) dy dx$$
+Dalla definizione di JCDF, possiamo ottenere: 
+$$
+\begin{align*}
+F(a,b) &= P\{X \le a, Y \le b\} = \\[4pt]
+&= P\{X \in (-\infty, a], Y \in (-\infty, b]\} =\\[4pt]
+&= \int_{-\infty}^{a} \int_{-\infty}^{b} f(x,y) dy dx
+\end{align*}$$
 abbiamo quindi dimostrato che si può ottenere la JCDF a partire dalla JPDF tramite un'operazione di integrazione.
 Possiamo ottenere la relazione inversa derivando: $$f(a,b) = \frac{\partial ^{2}}{\partial a \partial b} F(a,b)$$
 la JCDF per noi sarà sempre differenziabile. 
 
-Se esiste la JPDF possiamo anche ottenere le singole PDFs di $X$ e di $Y$ nel seguente modo: $$P\{X \in A\} = P\{X \in A, Y \in (-\infty, + \infty]\} = $$
-$$= \int_{A} \int_{-\infty}^{+\infty} f(x,y) dy dx$$
+Se esiste la JPDF possiamo anche ottenere le singole PDFs di $X$ e di $Y$ nel seguente modo: 
+$$
+\begin{align*}
+P\{X \in A\} &= P\{X \in A, Y \in (-\infty, + \infty]\} = \\[4pt]
+&= \int_{A} \int_{-\infty}^{+\infty} f(x,y) dy dx
+\end{align*}
+$$
 Sapendo che $P\{X \in A\} = \int_{A} f_{X}(x) dx$ allora: $$f_{X}(x) = \int_{-\infty}^{+\infty} f(x,y) dy$$
 ### TODO schema di come passare da una all'altra
 
@@ -564,15 +583,9 @@ Nel caso in cui $g(X,Y) = X + Y$ allora si può dimostrare che $E[X+Y] = E[X] + 
 ## Indicator Variable
 
 > [!note] Indicator Variable
-> La variabile aleatoria discreta chiamata indicator variable relativa ad un evento $A$ è definita come segue: 
->$$
->\begin{equation}
->I_{A}= \begin{cases}1 & \text{se A si verifica} \\
-0 & \text{se A non si verifica}\end{cases}
->\end{equation}
-$$
+> La variabile aleatoria discreta chiamata **indicator variable** relativa ad un evento $A$ è pari a 1 se l'evento si verifica, zero altrimenti.
 
-Si deduce quindi che $p(1) = P(A)$ e $p(0) = 1-P(A)$ di conseguenza il suo valor medio sarà $E[I_{A}] = 1\cdot p(1) + 0 \cdot p(0) = p(1) = p(A)$
+Si deduce quindi che $p(1) = P(A)$ e $p(0) = 1-P(A)$ di conseguenza il suo valor medio sarà $E[I_{A}] = 1\cdot p(1) + 0 \cdot p(0) = p(1) = p(A)$.
 Questa variabile aleatoria è molto importante perchè trasforma un evento in qualcosa di binario.
 
 ## Varianza
@@ -585,12 +598,12 @@ Siamo infatti interessati a determinare **quanto è dispersa** una certa variabi
 Molto spesso la varianza si calcola nel seguente modo: 
 $$
 \begin{align*}
-Var(X) &= E[(X-\mu)^{2}] = \\
-&= E[X^{2}-2X\mu + \mu ^{2}] =\\
-&= E[X^{2}] - 2\mu E[X] + \mu^{2}\\
-&= E[X^{2}] - 2\mu^{2}+ \mu^{2}\\
-&= E[X^{2}] - \mu^{2}\\
-&= E[X^{2}] - E[X]^{2}\\
+Var(X) &= E[(X-\mu)^{2}] = \\[4pt]
+&= E[X^{2}-2X\mu + \mu ^{2}] =\\[4pt]
+&= E[X^{2}] - 2\mu E[X] + \mu^{2}\\[4pt]
+&= E[X^{2}] - 2\mu^{2}+ \mu^{2}\\[4pt]
+&= E[X^{2}] - \mu^{2}\\[4pt]
+&= E[X^{2}] - E[X]^{2}\\[4pt]
 &= \sigma^{2}
 \end{align*}
 $$
@@ -602,9 +615,9 @@ Cioè il valor medio della variabile al quadrato meno il quadrato del valor medi
 Per il valor medio avevamo visto che $E[aX + b] = aE[X] + b$ essendo il valor medio un'operazione lineare. La varianza invece è un'operazione quadratica quindi non possiamo usare la stessa proprietà, vediamo come cambia: 
 $$
 \begin{align*}
-Var(aX+b) &= E[(aX+b -E[aX+b])^{2}] =\\
-&= E[(aX +\not{b} -aE[X] -\not{b})^{2}] = \\
-&= E[a^{2}\cdot (X-\mu)^{2}]= \\
+Var(aX+b) &= E[(aX+b -E[aX+b])^{2}] =\\[4pt]
+&= E[(aX +\not{b} -aE[X] -\not{b})^{2}] = \\[4pt]
+&= E[a^{2}\cdot (X-\mu)^{2}]= \\[4pt]
 &= a^{2}Var(X)
 \end{align*}
 $$
@@ -615,10 +628,10 @@ Da notare che:
 Vediamo allora cosa accade per la somma di due variabili aleatorie in generale partendo dalla definizione:
 $$
 \begin{align*}
-Var(X+Y) &= E[(X+Y - (\mu_{X}+\mu_{Y})^{2})] = \\
-&= E[(X - \mu_{X}+ Y - \mu_{Y})^{2}] =\\
-&= E[(X-\mu_{X})^{2}+ (Y-\mu_{Y})^{2} + 2(X-\mu_{X})(Y-\mu_{Y})] =\\
-&= E[(X-\mu_{X})^{2}] + E[(Y-\mu_{Y})^{2}] +2E[(X-\mu_{X})(Y-\mu_{Y})] =\\
+Var(X+Y) &= E[(X+Y - (\mu_{X}+\mu_{Y})^{2})] = \\[4pt]
+&= E[(X - \mu_{X}+ Y - \mu_{Y})^{2}] =\\[4pt]
+&= E[(X-\mu_{X})^{2}+ (Y-\mu_{Y})^{2} + 2(X-\mu_{X})(Y-\mu_{Y})] =\\[4pt]
+&= E[(X-\mu_{X})^{2}] + E[(Y-\mu_{Y})^{2}] +2E[(X-\mu_{X})(Y-\mu_{Y})] =\\[4pt]
 &= Var(X) + Var(Y) + 2E[(X-\mu_{X})(Y-\mu_{Y})]
 \end{align*}
 $$
@@ -629,10 +642,10 @@ che non è esattamente la somma delle due ma c'è un ulteriore termine chiamato 
 Notiamo che questo valore può essere sia positivo che negativo, sviluppando la definizione troviamo:
 $$
 \begin{align*}
-Cov(X,Y) &= E[(X-\mu_{X})(Y-\mu_{Y})] =\\
-&= E[X\cdot Y + \mu_{X} \cdot \mu_{Y}-Y\cdot \mu_{X}-X\cdot \mu_{Y}] = \\
-&= E[X\cdot Y] + E[\mu_{X}\cdot \mu_{Y}] - E[Y\cdot \mu_{X}]-E[X \cdot \mu_{Y}] =\\
-&= E[X\cdot Y] + \mu_{X}\cdot \mu_{Y} - \mu_{X}\cdot \mu_{Y} -\mu_{X}\cdot \mu_{Y} =\\
+Cov(X,Y) &= E[(X-\mu_{X})(Y-\mu_{Y})] =\\[4pt]
+&= E[X\cdot Y + \mu_{X} \cdot \mu_{Y}-Y\cdot \mu_{X}-X\cdot \mu_{Y}] = \\[4pt]
+&= E[X\cdot Y] + E[\mu_{X}\cdot \mu_{Y}] - E[Y\cdot \mu_{X}]-E[X \cdot \mu_{Y}] =\\[4pt]
+&= E[X\cdot Y] + \mu_{X}\cdot \mu_{Y} - \mu_{X}\cdot \mu_{Y} -\mu_{X}\cdot \mu_{Y} =\\[4pt]
 &= E[X\cdot Y]- \mu_{X}\cdot \mu_{Y}
 \end{align*}
 $$
@@ -645,7 +658,7 @@ Da quest'ultima proprietà si deduce che se $X$ e $Y$ sono variabili aleatorie *
 Notare che non vale il contrario, se la covarianza è nulla non è detto che le variabili siano indipendenti. 
 Ovviamente tutto ciò vale per $N$ variabili aleatorie: $$
 \begin{align*}
-Var\left(\sum\limits_{i}X_{i}\right) &= \sum\limits_{i}Var(X_{i}) + \sum\limits_{i}\sum\limits_{j\not=i} Cov(X_{i},X_{j}) =\\
+Var\left(\sum\limits_{i}X_{i}\right) &= \sum\limits_{i}Var(X_{i}) + \sum\limits_{i}\sum\limits_{j\not=i} Cov(X_{i},X_{j}) =\\[4pt]
 &= \sum\limits_{i}\sum\limits_{j}Cov(X_{i},X_{j}) 
 \end{align*}$$
 ## Covarianza e Correlazione
@@ -654,7 +667,7 @@ La covarianza di due variabili aleatorie può essere positiva, negativa o nulla 
 La variabile $I_{A}\cdot I_{B}$ è pari ad 1 solo se l'evento $A\cap B = AB$ si verifica. Calcoliamo $Cov(I_{A},I_{B})$ applicando la definizione:
 $$
 \begin{align*}
-Cov(I_{A},I_{B}) &= E[I_{A}\cdot I_{B}] - E[I_{A}]\cdot E[I_{B}] =\\
+Cov(I_{A},I_{B}) &= E[I_{A}\cdot I_{B}] - E[I_{A}]\cdot E[I_{B}] =\\[4pt]
 &= P(AB) - P(A)\cdot P(B)
 \end{align*}
 $$
