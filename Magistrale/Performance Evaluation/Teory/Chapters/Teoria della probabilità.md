@@ -352,11 +352,11 @@ Una moneta viene lanciata 5 volte in condizioni indipendenti. Trovare la probabi
 	Consideriamo ogni lancio come un sottoesperimento: 
 	- lanciamo la prima volta, la probabilità di ottenere un outcome è $p = 1$.
 	- lanciamo la seconda volta, la probabilità di ottenere un outcome uguale al primo lancio è pari a $p = 1/2$.
-	- lanciamo la terza volta, la probabilità di ottenere un outcome uguale ai primi due è sempre$p = 1/2$.
+	- lanciamo la terza volta, la probabilità di ottenere un outcome uguale ai primi due è sempre $p = 1/2$.
 	Questo perché i tre eventi sono indipendenti. La probabilità finale sarà quindi $P = 1 * 1/2 * 1/2 = 1/4$. 
 2. O i primi 3 o gli ultimi 3 lanci diano lo stesso risultato (anche se si verificano entrambi gli eventi va bene).
-	Con l'indipendenza devo calcolare la probabilità dell'evento $F\cup L$ dove F = {3 lanci uguali all'inizio} ed L = {3 lanci uguali alla fine}. 
-	Quindi $FL$ = {5 risultati uguali} e posso trovare: 
+	Con l'indipendenza devo calcolare la probabilità dell'evento $F\cup L$ dove $F = \{\text{3 lanci uguali all'inizio}\}$ ed $L = \{\text{3 lanci uguali alla fine}\}$. 
+	Quindi $FL = \{\text{5 risultati uguali}\}$  e posso trovare: 
 	$P(F\cup L) = P(F) + P(L) - P(FL) = 1/4 + 1/4 - 1/16 = 7/16$ 
 	Usando UPM avremmo ottenuto lo stesso risultato ma con un percorso più tortuoso. 
 3. Ci siano almeno 2 teste nei primi 3 lanci e 2 croci negli ultimi 3. 
@@ -366,7 +366,7 @@ Una moneta viene lanciata 5 volte in condizioni indipendenti. Trovare la probabi
 	3. x può assumere T o H
 	4. x può assumere H
 	5. x può assumere H
-	Quindi avrò 6 outcomes favorevoli e 32 outcomes totali ($2^5$) da cui P = 6/32 = 3/16.
+	Quindi avrò 6 outcomes favorevoli e 32 outcomes totali ($2^5$) da cui $P = 6/32 = 3/16$.
 
 Notare che se la moneta fosse stata truccata il metodo UPM sarebbe stato inutilizzabile e avremmo dovuto per forza usare l'indipendenza.
 
@@ -398,12 +398,11 @@ Trovare la probabilità che scorra corrente da A a B.
 Definisco l'evento $A_i$ come l'evento "switch i-esimo chiuso" che avrà $P(A_i) = p_i$ e calcolo: 
 $$
 \begin{align*}
-P(\text{scorre corrente}) &= 1 - P(\text{tutti aperti}) =\\
-&= 1 - P(A_1^\complement \cdot A_2^\complement ... A_n^\complement ) =\\
- 
+P(\text{scorre corrente}) &= 1 - P(\text{tutti aperti}) =\\[4pt]
+&= 1 - P(A_1^\complement \cdot A_2^\complement ... A_n^\complement ) =\\[4pt]
+&= 1 - \prod_{i = 1}^{n} P(A_i^{\complement)}=\\[4pt]
+&= 1 - \prod_{i = 1}^{n} (1-p_i)
 \end{align*}$$
-$$= 1 - \prod_{i = 1}^{n} P(A_i^\complement)$$
-$$= 1 - \prod_{i = 1}^{n} (1-p_i)$$
 ### Esercizio 14
 
 Consideriamo il seguente sistema parallelo: 
@@ -413,7 +412,7 @@ Consideriamo il seguente sistema parallelo:
 Il nodo che ci da problemi è il 3 quindi semplifichiamo utilizzando la probabilità condizionata: 
 - 3 aperto -> stesso problema di prima: [[#Sistemi Paralleli#Esercizio 13|esercizio 13]]
 - 3 chiuso -> il circuito si semplifica con un cortocircuito su 3.
-In fine: $$P(scorre corrente) = P(scorre|3 aperto)P(3aperto) + P(scorre|3chiuso)P(3chiuso) =$$
+In fine: $$P(\text{scorre corrente}) = P(scorre|3 aperto)P(3aperto) + P(scorre|3chiuso)P(3chiuso) =$$
 $$= (1-(1-p_1 p_4)(1- p_2 p_5))(1-p_3) + \{(1- (1-p_1)(1-p_2))(1-(1-p_4)(1-p_5))p_3\}$$
 # Variabili Aleatorie 
 
@@ -871,7 +870,7 @@ f(x)= \begin{cases}\frac{1}{b-a} & a \le x \le b \\
 $$
 e si indica con $X \thicksim U(a,b)$.
 
-![Uniformemente Distribuita|central|400](https://analystprep.com/cfa-level-1-exam/wp-content/uploads/2021/09/cfa-level-1-continuous-uniform-random-variable-1.jpg)
+![Uniformemente Distribuita|center|400](https://analystprep.com/cfa-level-1-exam/wp-content/uploads/2021/09/cfa-level-1-continuous-uniform-random-variable-1.jpg)
 
 I suoi parametri sono:
 - **Valor Medio**: $E[X] = \int_{a}^{b} \frac{1}{b-a} \cdot x \cdot dx = \frac{b+a}{2}$
@@ -901,7 +900,7 @@ Due importanti caratteristiche della distribuzione esponenziale sono:
 1. Dati $n$ variabili aleatorie *indipendenti* distribuite esponenzialmente $X_{1},X_{2},...,X_{n}$ con i rispettivi rate $\lambda_{1},\lambda_{2},...,\lambda_{n}$, la variabile aleatoria $Y = min\{X_{1},X_{2},...,X_{n}\}$ è anch'essa esponenziale con un rate $\lambda = \sum\limits_{i=1}^{n}\lambda_{i}$.
 2. Data $X$ distribuita esponenzialmente con un rate $\lambda >0$, allora $P\{X>s+t |X>t\} = P\{X>s\}$ detta **memoryless**.
 	Per capire, assumiamo di stare studiando la vita di un dispositivo rappresentata da una variabile aleatoria esponenzialmente distribuita. La proprietà di memoryless ci permette di dire che il momento in cui il dispositivo smetterà di funzionare è indipendente da quanto tempo nel passato ha funzionato. Proviamolo formalmente:
-	$$
+$$
 \begin{align*}
 P\{X>s+t |X>t\} &= \frac{P\{X>s+t, X>t\}}{P\{X>t\}} =\\
 &= \frac{P\{X>s+t\}}{P\{X>t\}} =\\
@@ -911,7 +910,7 @@ P\{X>s+t |X>t\} &= \frac{P\{X>s+t, X>t\}}{P\{X>t\}} =\\
 \end{align*}
 $$
 3. Data $X$ distribuita esponenzialmente con un rate $\lambda >0$, allora $Y = \lfloor X \rfloor$ è geometrica con probabilità $p = 1-e^{-\lambda}$.
-	$$
+$$
 \begin{align*}
 p_{Y}(k) &= P\{Y = k\} =\\[4pt]
 &= P\{k \le X \le k+1\} =\\[4pt]
@@ -921,7 +920,6 @@ p_{Y}(k) &= P\{Y = k\} =\\[4pt]
 &= (1-p)^{k}\cdot p
 \end{align*}
 $$
-	che è la distribuzione geometrica.
 ## Laplace-Stieltjes Transform LS
 
 La trasformazione Laplace-Stieltjes rispecchia il concetto di PGF per variabili aleatorie *continue e non negative*.
@@ -932,13 +930,15 @@ L'integrale converge se $Re(s)\ge 0$. Vediamo le sue proprietà:
 1. **Normalizzazione**: $L(0) =1$
 2. **Central Moments**: $\sigma^{2}= L^{''}(0)+[L^{'}(0)]^{2}$
 3. **Univocità**: se due variabili aleatorie $X$ e $Y$ hanno la stessa LST allora hanno anche le stesse PDFs e viceversa. Più formalmente, $\forall x, f_{X}(x) = f_{Y}(y) \Leftrightarrow \forall s, L_{X}(s) = L_{Y}(s)$  
-4. **Convoluzione**: date $n$ variabili aleatorie *indipendenti* $X_{1},X_{2},...,X_{n}$ e sapendo le loro LST $LS_{1},LS_{2},...,LS_{n}$, allora si può ottenere la LST della loro somma facendo: $$
-	\begin{align*}
+4. **Convoluzione**: date $n$ variabili aleatorie *indipendenti* $X_{1},X_{2},...,X_{n}$ e sapendo le loro LST $LS_{1},LS_{2},...,LS_{n}$, allora si può ottenere la LST della loro somma facendo:
+$$
+\begin{align*}
 L_{S}(s) &= E[e^{-s(X_{1}+X_{2}+\dots+X_{n})}] =\\[4pt]
 &= E[e^{-s\cdot X_{1}}] + E[e^{-s\cdot X_{2}}] + \dots + E[e^{-s\cdot X_{n}}] =\\[4pt]
 &= L_{1}(s)\cdot L_{2}(s) \cdot ... \cdot L_{n}(s)
 \end{align*}
 $$
+
 Calcoliamo la LST della distribuzione esponenziale:
 $$
 \begin{align*}

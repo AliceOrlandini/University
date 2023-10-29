@@ -5,4 +5,6 @@
 	3. [[Teoria della probabilità#Sample space con eventi ugualmente equiprobabili|Sample space con eventi ugualmente equiprobabili]]
 	4. [[Teoria della probabilità#Probabilità Condizionata|Probabilità Condizionata]]
 	5. [[Teoria della probabilità#Variabili Aleatorie|Variabili Aleatorie]]
-
+	6. [[Teoria della probabilità#Variabili aleatorie Speciali|Variabili Aleatorie Speciali]]
+3. [[Analisi Dati]]
+4. 
