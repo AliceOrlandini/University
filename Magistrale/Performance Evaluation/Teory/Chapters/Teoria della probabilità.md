@@ -479,7 +479,7 @@ Questa operazione presuppone che la CDF sia differenziabile, per i nostri scopi 
 Spesso siamo interessati all'interazione tra due o più variabili aleatorie. Per esempio se consideriamo l'esperimento "lancio di una freccia su un bersaglio" e applichiamo un piano cartesiano in corrispondenza del centro del bersaglio, non è sufficiente conoscere la CDF di $X$ o la CDF di $Y$ ma dovremo studiarle congiuntamente l'una all'altra. 
 
 > [!note] JCDF
-> Date due variabili aleatorie (*discrete* o *continue*), la loro **Joint Comulative Distribution Function** (JCDF) è definita come: $$$F(x,y) = P\{X \le z, Y \le y\}$$
+> Date due variabili aleatorie (*discrete* o *continue*), la loro **Joint Comulative Distribution Function** (JCDF) è definita come: $F(x,y) = P\{X \le z, Y \le y\}$
 
 Dove la virgola sta per *and* logico, infatti si sta considerando l'intersezione degli eventi $X \le x$ e $Y \le y$.
 
@@ -489,7 +489,7 @@ A partire dalla JCDF si possono calcolare le rispettive CDFs, basta osservare ch
 > [!note] JPMF
 > Date due variabili aleatorie *discrete*, $X$ e $Y$ si può definire la **Joint Probability Mass Function** (JPMF) come $$p(x,y) = P\{X = x, Y = y\}$$
 
-Anche in questo caso, possiamo ottenere le PMFs a partire dalla JPMF: $$p(x) = P\{X = x\} = P\{\bigcup_{i} (X = x, Y = y_{i})\}$$
+Anche in questo caso, possiamo ottenere le PMFs a partire dalla JPMF: $$p(x) = P\{X = x\} = P\{\bigcup_{i} (X = x, Y = y_{i})\} =$$
 Questi eventi sono *mutuamente disgiunti* quindi dall'unione posso passare alla somma di probabilità:
 $$= \sum_{i} P(X = x, Y = y_{i)}= \sum\limits_{i} p(x, y_i)$$
 Dalla JCDF si può ottenere la JPMF nel seguente modo: $$F(x,y) = P\{X \le x, Y \le y\} = \sum\limits_{x_{i}\le x} \sum\limits_{y_{j} \le y} p(x_{i}, y_{j})$$
@@ -522,9 +522,9 @@ Tutte le definizioni precedenti sono state introdotte per 2 variabili aleatorie,
 Che significa che la loro JCDF è ottenuta facendo il prodotto delle singole CDF. È come dire che $\{X \le x\}$ e $\{Y \le y\}$ sono eventi indipendenti per qualsiasi valore di x e y. Infatti: 
 $$
 \begin{align*}
-F(x,y) &= P\{X \le x, Y \le y\} =\\
-&= P\{X \le x | Y \le y\}\cdot P\{Y \le y\} =\\
-&= P\{X \le x\}\cdot P\{Y \le y\} =\\
+F(x,y) &= P\{X \le x, Y \le y\} =\\[4pt]
+&= P\{X \le x | Y \le y\}\cdot P\{Y \le y\} =\\[4pt]
+&= P\{X \le x\}\cdot P\{Y \le y\} =\\[4pt]
 &= F_{X}(x)\cdot F_{Y}(y)
 \end{align*}
 $$
@@ -1036,3 +1036,14 @@ Il valore $t_{\alpha,n}$ tale che $P\{T_{n} \ge t_{\alpha,n}\} = \alpha$ è un n
 La distribuzione di Student viene utilizzata per valutare la *confidenza* di una certa misura.
 ## Distribuzioni heavy tailed
 
+Una **heavy tail** è una coda che *decresce più lentamente di un esponenziale*. La conseguenza di ciò è che valori molto grandi rispetto al valor medio sono *improbabili ma non impossibili*. 
+> [!note] Heavy Tail
+> La **Heavy Tail** è definita nel seguente modo: $$\forall \lambda > 0, \lim_{x\rightarrow \infty} e^{\lambda x} \cdot (1-F(x)) = \infty$$
+
+Un esempio è la **distribuzione di Pareto**: 
+$$
+\begin{equation}
+f(x)= \begin{cases}0 & x \le 100 \\
+\frac{100}{x^{2}} & x > 100\end{cases}
+\end{equation}
+$$
