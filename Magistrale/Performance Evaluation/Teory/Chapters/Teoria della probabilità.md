@@ -978,11 +978,37 @@ La distribuzione normale ha una grande importanza perché in molti problemi mode
 > Definita la variabile aleatoria $S = \sum\limits_{i=1}^{n}X_{i}$ essa ha $\mu_{S}=n\cdot \mu$ e $\sigma^{2}_{S}=n\cdot \sigma^{2}$
 > Inoltre, per valori grandi di $n$ ($n\ge 30$) può essere approssimata come una distribuzione normale, in altre parole: $S \thicksim \mathcal{N}(n\cdot \mu,n\cdot \sigma^{2})$
 
+La definizione può essere anche scritta come: $$P\Biggl\{\frac{\sum\limits_{i=1}^{n}X_{i}-n\cdot \mu}{\sqrt{n}\cdot n}\Biggr\} \cong \Phi(x)$$
+Già con valori piccoli di $n$, circa 3 o 4, si riesce già ad ottenere una distribuzione normale. 
+Una definizione alternativa è la seguente:
+> [!note] Teorema del limite centrale (definizione alternativa)
+> Data una variabile aleatoria $M = \frac{1}{n} \cdot \sum\limits_{i=1}^{n}X_{i}$ (*media pesata*) con $X_{i}$ *indipendenti* e *identicamente distribuite*, allora $E[M] = \mu$ e $Var(M) = \frac{\sigma^{2}}{n}$ ovvero  $M \thicksim \mathcal{N}(\mu,\frac{\sigma^{2}}{n})$
 
+Questa definizione alternativa mostra che la media pesata di $n$ variabili aleatorie iid convergono ad una distribuzione normale con media la media della singola variabile. La varianza invece tende a zero con $n \rightarrow \infty$.
+
+Il teorema del limite centrale può essere usato per approssimare la distribuzione binomiale perché sappiamo essere la somma di $n$ variabili aleatorie di Bernoulli quindi possiamo applicare il teorema se $n$ è grande.
+Il valor medio è pari a $\mu = n \cdot p$ e la varianza $\sigma^{2}= n\cdot p \cdot (1-p)$. 
+Se $n\cdot p \cdot (1-p) > 10$ (trovata empiricamente), allora: $$P\Biggl\{\frac{X-n\cdot p}{\sqrt{n\cdot p \cdot (1-p)}}\Biggr\} \cong \Phi(x)$$
+Quindi, abbiamo due opzioni per approssimare il binomiale:
+1. Quando $n$ è grande e $p$ è piccolo si può usare la distribuzione di Poisson con parametro $\lambda = n \cdot p$
+2. Quando $n\cdot p \cdot (1-p) > 10$ si può usare la distribuzione normale con valor medio $\mu = n\cdot p$ e varianza $\sigma^{2}= n\cdot p \cdot (1-p)$.
 ## Percentile
 
+I **percentili** sono degli indicatori statistici e vengono utilizzati per confrontare un valore rispetto a quelli dell'intera popolazione. (praticamente una classifica)
+
+> [!note] Percentile (o Quartile)
+> Definiamo $(1-\alpha)$ il **percentile** di $z_{\alpha}$ il valore per cui $P\{X > z_{\alpha}\} = \alpha$.
+
+Se si preferisce si può scrivere anche $P\{X \le z_{\alpha}\} = 1-\alpha$.
+Per esempio, $z_{0.01}$ è il valore per cui il residuo di area della coda della distribuzione normale ha area pari a 0.01.
+Un sinonimo di percentile è **quartile**: il $90^{th}$ percentile di $z_{0.1}$ è chiamato anche 0.9 quartile.
+Il percentile è utile per motivi computazionali e alcuni hanno un nome:
+- Lo 0.5 percentile è chiamato **mediana** o **primo quartile**.
+- Lo 0.25 e lo 0.75 sono chiamati **primo** e **terzo** **quartile**.
+- Valori "grandi" di percentili sono dei buoni indicatori della *confidenza* di una misura.
 ### Distribuzione Chi-Square 
 
+Date $Z_{1},Z_{2},...,Z_{k}$ indipendenti 
 ### Distribuzione Student
 
 ## Distribuzioni heavy tailed
