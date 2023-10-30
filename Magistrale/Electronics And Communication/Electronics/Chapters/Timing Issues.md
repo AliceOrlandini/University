@@ -17,3 +17,6 @@ $$T \ge t_{eq1}+t_{\text{p logic}}+t_{setup2}$$
 La seconda regola è legata alla contaminazione dell’output **old time violation**: 
 $$t_{hold2} \le t_{\text{cd logic}}+t_{\text{cd reg1}}$$
 Tra le due quella più importante da rispettare è la seconda perché una volta programmato il dispositivo non c’è modo di risolvere il problema mentre nella prima posso maneggiare $T$ che è un parametro esterno.
+
+**PLL**: Phase Lock Loop, da un clock con una determinata frequenza dato dal quarzo si vuole ottenere un clock ad un’altra frequenza. (? non ho capito bene)
+
