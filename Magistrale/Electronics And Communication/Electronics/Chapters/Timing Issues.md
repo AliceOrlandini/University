@@ -20,3 +20,9 @@ Tra le due quella più importante da rispettare è la seconda perché una volta 
 
 **PLL**: Phase Lock Loop, da un clock con una determinata frequenza dato dal quarzo si vuole ottenere un clock ad un’altra frequenza. (? non ho capito bene)
 
+$I_{M}= C_{tot}\cdot \frac{\partial V_{ck}}{\partial t}|_{MAX} =C \frac{V_{dd}}{t_{r}} \approx 2.5A$
+
+Due casi:
+1. H-Tree Clock Network
+2. Clock Grid Network
+
