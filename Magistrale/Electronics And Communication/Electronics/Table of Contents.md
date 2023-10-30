@@ -12,4 +12,5 @@
 	5. [[VLSI#VLSI|Very Large Scale Integration]]
 4. [[IC Design Styles and Flows]]
 5. [[Design Metrics and Trade-Offs]]
-6. 
+6. [[Timing Issues]]
+7. 

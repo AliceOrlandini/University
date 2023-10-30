@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md"
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md"
           }
         }
       },
@@ -143,11 +143,13 @@
   },
   "active": "e037a8a7ab2d44d2",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
+    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "TODO.md",
-    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
@@ -164,11 +166,9 @@
     "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
     "Magistrale/Performance Evaluation/Laboratory/Table Of Contents.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
-    "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
