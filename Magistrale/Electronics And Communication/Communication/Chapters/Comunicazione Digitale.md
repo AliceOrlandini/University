@@ -237,7 +237,7 @@ $a^{(i)}$ identifica un simbolo specifico della costellazione.
 Se $M = 2$ allora $a^{(0)} = -1$ e $a^{(1)} = 1$.
 I simboli sono equiprobabili quindi la probabilità per simbolo è $\frac{1}{M}$.
 
-$a_{m} = \text{arg max} p(x(m)|a_{m}=a^{(i)})$
+$a_{m} = \text{arg max } p(x(m)|a_{m}=a^{(i)})$
 che conosciamo perché $p(x(m)|a_{m}=a^{(i)}) = \frac{1}{\sqrt{2\pi}\sigma}\cdot e^{-\frac{x(m-a^{(i)})^{2}}{2\sigma^{2}}}$
 e il valore massimo è quello che minimizza la distanza tra $x(m)$ e la distanza:
 $a^{(i)} = \text{arg min} (x(m)-a^{(i)})^{2}$
@@ -247,4 +247,30 @@ Abbiamo fatto però varie assunzioni:
 2. la convoluzione non genera interferenze
 3. il ricevitore e il trasmettitore sono sincronizzati
 4. i simboli sono equiprobabili
+
+Praticamente, per decidere un simbolo si guarda in quale area “casca”, detto formalmente: 
+$$
+Z^{(i)}= \{x|d(x,a^{(i)}) < d(x,a^{(j)}), j\not =i, j=1,…,M\}
+$$
+
+# Probabilità di errore di una PAM
+
+$a_{m} = 1$
+$x(m) = -0.1 \Rightarrow a_{m} = -1$ 
+$x(m) = a_{m}+n(m)$ se $n(m) = -1.1 \Rightarrow x(m) = -0.1$ che è un errore. 
+
+$P(e|a^{(i)})$ probabilità di sbagliare un simbolo.
+$P_{e} = \sum\limits P(e|a^{(i)})P(a^{(i)}) = \lim_{N_{s}\rightarrow \infty} \frac{N_{e}}{N_{s}}$ probabilità di errore. 
+noi calcoleremo la prima perché è impossibile trasmettere infiniti simboli e calcolare il rapporto.
+Inoltre i simboli sono equiprobabili quindi $P(a^{(i)})$ è la stessa.
+$P_{e}= \frac{1}{M}\sum\limits_{i=0}^{M-1}P(e|a^{(i)})$
+e quella probabilità non è difficile da calcolare, ad esempio:
+$P(e|a^{(i)}=1)$ la calcolo con la Q-function calcolata nel valor medio meno il treshold fratto la deviazione standard. $$Q(\frac{m_{x}-t_{1}}{\sigma_{x}})$$
+che nel nostro caso diventa $Q(\frac{1}{\sigma})$.
+Se aumento la distanza tra simboli aumenta l’energia per trasmettere quel simbolo però commetto meno errori. 
+
+
+
+
+
 
