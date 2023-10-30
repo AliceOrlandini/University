@@ -208,6 +208,43 @@ L’energia necessaria per trasmettere un simbolo è: $$E_{S}^{(PB)}= P_{S}T = \
 # Rumore additivo gaussiano bianco
 
 Anche per il rumore dovremo calcolare la potenza.
-$n(m) = n(t)|_{t=mT} = n_{I}(m)+jn_{Q}(m)$ che è una variabile aleatoria.
-$E[n(m)] = 0$ gaussiano bianco
-$\sigma^{2}_{n} = E[|n(m)|^{2}] = 2N_{0}$
+$n(m)$ è una variabile aleatoria perché è ottenuta campionando il processo aleatorio quindi può essere scritto come:
+$n(m) = n(t)|_{t=mT} = n_{I}(m)+jn_{Q}(m)$.
+Per trovare la densità spettrale di potenza devo calcolare:
+$\sigma^{2}_{n}= E[|n(m)|^{2}] = \int_{-\infty}^{+\infty} S_{n}(f) df = 2N_{0}\int_{-\infty}^{+\infty} |G_{R}(f)|^{2}df = 2N_{0}$
+perché $\int |G_{R}(f|^{2}df = 1$.
+
+# Strategia di Decisione
+
+La variabile sulla quale bisogna prendere una decisione è $x(m) = a_{m}+n(m)$
+$n(m) \thicksim \mathcal{N}(0,N_{0})$ rumore gaussiamo bianco
+
+$x(m)$ è ottenuta facendo la somma di valori costanti più una variabile aleatoria e quindi anche $x(m)$ sarà una variabile aleatoria con media e varianza uguale a quella variabile aleatoria che fa parte della somma:  $x(m) \thicksim N(a_{m}, \sigma^{2})$
+
+La decisione sarà $a_{m}=\text{arg max}_{a^{(i)}\in \mathcal{A}} p(a^{(i)}|x(m))$
+ma per il teorema di Bayes: 
+$p(a_{m}|x(m))p(x(m)) = p(x(m)|a_{m})p(a_{m})$
+
+$$
+\begin{align*}
+p(a_{m}|x(m)) &= \frac{p(x(m)|a_{m})p(a_{m})}{p(x_{m})} =\\
+&= \frac{1}{M}\frac{p(x(m)|a_{m})}{p(x_{m})}
+\end{align*}
+$$
+quinid mi basta massimizzare $p(x(m))$.
+$a_{m}$ simbolo trasmesso durante l’m-esimo intervallo.
+$a^{(i)}$ identifica un simbolo specifico della costellazione.
+Se $M = 2$ allora $a^{(0)} = -1$ e $a^{(1)} = 1$.
+I simboli sono equiprobabili quindi la probabilità per simbolo è $\frac{1}{M}$.
+
+$a_{m} = \text{arg max} p(x(m)|a_{m}=a^{(i)})$
+che conosciamo perché $p(x(m)|a_{m}=a^{(i)}) = \frac{1}{\sqrt{2\pi}\sigma}\cdot e^{-\frac{x(m-a^{(i)})^{2}}{2\sigma^{2}}}$
+e il valore massimo è quello che minimizza la distanza tra $x(m)$ e la distanza:
+$a^{(i)} = \text{arg min} (x(m)-a^{(i)})^{2}$
+Questo metodo si chiama **criterio di massima verosimiglianza**.
+Abbiamo fatto però varie assunzioni:
+1. il canale genera solo rumore gaussiano bianco
+2. la convoluzione non genera interferenze
+3. il ricevitore e il trasmettitore sono sincronizzati
+4. i simboli sono equiprobabili
+
