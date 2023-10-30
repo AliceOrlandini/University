@@ -269,6 +269,23 @@ $P(e|a^{(i)}=1)$ la calcolo con la Q-function calcolata nel valor medio meno il 
 che nel nostro caso diventa $Q(\frac{1}{\sigma})$.
 Se aumento la distanza tra simboli aumenta l’energia per trasmettere quel simbolo però commetto meno errori. 
 
+$Q(x) = \int_{-\infty}^{x}e^{\frac{-t^{2}}{2}} dt$:
+$Q(-\infty) = 0$
+$Q(+\infty) = 1$
+$Q(0) = 0.5$
+$Q(-x) = 1-Q(x)$
+
+$P_{e}^{2-PAM}=Q(\frac{1}{\sigma})$
+$P_{e}^{4-PAM}=\frac{3}{2}Q(\frac{1}{\sigma})$
+
+È più utile esprimere la probabilità di errore in termini di energia per simbolo $E_{s}$ ed $N_{0}$.
+$E_{s}= \frac{M^{2}-1}{6}$
+Se $M=2$ allora $E_{s}=\frac{1}{2} \Rightarrow 2E_{s} = 1$
+$P_{e}^{2-PAM}= Q\left(\frac{1}{\sigma}\right)= Q(\sqrt{\frac{1}{\sigma^{2}}})= Q(\sqrt{\frac{2E_{s}}{N_{0}}})$
+
+
+
+
 
 
 
