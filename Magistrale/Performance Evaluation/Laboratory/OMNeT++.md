@@ -251,13 +251,16 @@ Il file di configurazione (.ini) contiene uno scenario da simulare.
 La struttura è la seguente, è diviso in sezioni, la prima è sempre la General: 
 ```c++
 [General]
-// definisco l'entità da simulare, questo è utile
+// definisco il modulo da simulare, questo è utile
 // per poter sostituire il modulo con un altro 
 network = Tictoc
 // il secondo parametro è il tempo massimo di simulazione
 sim-time-limit = 100s
 // questo invece serve per specificare il tempo reale
 cpu-time-limit = 100s
+// per ignorare i primi sample perché il sistema non 
+// è ancora a regime e quindi sballerebbe le statistiche
+warmup-period = 10s
 ...
 [Config Test1]
 description = "first TicToc campaign"
@@ -284,3 +287,37 @@ Esempio di fattori:
 **.t*c.packetSize = ${50 , 100}
 ```
 In questo modo, in due righe abbiamo definito 8 simulazioni.
+Alla fine di ogni run posso confrontare le diverse simulazioni ma attenzione: i risultati valgono per i valori casuali che sono stati generati per QUELLA simulazione, per confrontare le varie opzioni dobbiamo ripetere le simulazioni varie volte. Per fare ciò aggiungo un'ulteriore parametro:
+```c++
+// ripetere ogni simulazione per 10 volte, genero colonne
+repeat = 10
+// questa serve per specificare che vogliamo lo stesso 
+// seed delle riga
+seed-set = ${repetition}
+```
+In questo caso possiamo anche mostrare il confidence interval.
+
+Nell'INI si specifica anche la destinazione delle simulazione.
+Al termine della simulazione vengono generati due file:
+- .sca: contiene valori scalari.
+- .vec: contiene valori temporali.
+Per specificare la destinazione si scrive:
+```c++
+output-scalar-file = $[resultdir]/${configname}-${runnumber}.sca
+output-vector-file = $[resultdir]/${configname}-${runnumber}.vec
+```
+ai fattori è associabile un nome in modo da creare le *iteration variabies* che possono essere usate come nomi nei file generati:
+```c++
+**.tic.delay = ${dtic = 1, 10}
+**.toc.delay = ${dtoc = 1, 10}
+
+// e poi scrivo
+output-scalar-file = $[resultdir]/${configname}-${iterationvars}.sca
+// e sarà tradotto come "dtic-1-dtoc-10"
+// bisogna fare attenzione a non sovrascrivere le simulazioni
+// quindi si aggiunge:
+output-scalar-file = $[resultdir]/${configname}-${iterationvars}-${repetition}.sca
+```
+
+# Compound Modules
+
