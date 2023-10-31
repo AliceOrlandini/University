@@ -321,3 +321,78 @@ output-scalar-file = $[resultdir]/${configname}-${iterationvars}-${repetition}.s
 
 # Compound Modules
 
+Un compound module è un modulo che contiene due o più simple module. 
+Definiamone uno nel NED file:
+```c++
+module Pc {
+	parameters: 
+		int year;
+		int monitorSize; 
+	submodules:
+		hd : HardDisk; 
+		wifi: Wifi; 
+		explorer: Browser;
+		// qui posso avere sia simple che compound module
+	gates: 
+		...
+	connections: 
+		...
+}
+simple HardDisk {
+	...
+}
+simple Wifi {
+	...
+}
+simple Browser {
+	...
+}
+```
+
+Nel C++ si possono ottenere informazioni da altri moduli:
+```c++
+// prendo un puntatore al modulo
+cMoudle * pc;
+pc = getParentModule();
+int size = pc->par("monitorSize");
+
+cModule * hd = pc->getSubmodule("hd"); 
+int hdSize = hd->par("hdSize");
+// è preferibile utilizzare le funzioni get
+int size = hd->getSize();
+```
+Queste funzioni vanno usate con cautela perché ci sono molti nomi (ad esempio hd, wifi, exploler) quindi cambiando il NED file bisogna cambiare anche il codice.
+
+Anche i compound module hanno dei gate per poterli connettere con altri moduli (non necessariamente compound ma anche single module):
+```c++
+module C {
+	parameters: 
+	...
+	submodules: 
+		a: A;
+		b: B;
+	gates:  
+		output out;
+	connections:
+		out <-- hd.out;
+}
+```
+
+## Cross-module calls
+
+Siamo nel modulo PC e vogliamo sapere dove si trova la risorsa X, per fare ciò, si chiede **all'oracolo**.
+```c++
+// prendo il puntatore all'oracolo
+cModule* temp;  
+temp = findModuleByPath(“oracle”);
+
+// converto tramite cast
+OracleClass* oracle;  
+oracle = check_and_cast<OracleClass*>(temp);
+
+int serverId;  
+serverId = oracle->aSearchFunction("x");
+```
+
+Anche l'oracolo va usato con attenzione perché se genera un evento, il proprietario sarà colui che ha chiamato l'oracolo. 
+
