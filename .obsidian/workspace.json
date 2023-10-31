@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SpuntiTesi.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SpuntiTesi.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SpuntiTesi.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SpuntiTesi.md"
+                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md"
               }
             }
           },
@@ -159,6 +160,7 @@
   },
   "active": "04337e90292d79f0",
   "lastOpenFiles": [
+    "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "TODO.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
@@ -181,7 +183,6 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Performance Evaluation/Laboratory/Images/Azioni Simulatore.png",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
-    "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",

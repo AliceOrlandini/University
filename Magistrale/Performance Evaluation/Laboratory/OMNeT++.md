@@ -207,3 +207,20 @@ scheduleAt(simTime() + uniform(0, max_time));
 ```
 
 # Collecting Metrics
+
+Il simulatore serve proprio per raccogliere dati (metrics).
+Non useremo *cout* come facevamo nei programmi scritti in C++ normale ma utilizzeremo un approccio **build-in**: EV che stampa direttamente nell'interfaccia grafica. 
+In pratica sostituiremo cout con EV.
+Esistono varie tipologie di EV come: FATAL, ERROR, WARN, INFO, DETAIL, DEBUG e TRACE. 
+
+Per raccogliere le metriche si utilizzano i **segnali** che sono una struttura dati che contiene tutti i dati collezionati nel corso della simulazione.
+Il segnale viene dichiarato nel NED file e questo viene associato tramite un puntatore al file C++. La struttura dati è collegata ad un *recorder* cioè una classe che alla fine della simulazione produce le statistiche con i dati della struttura. Questo meccanismo ha il vantaggio di essere molto flessibile. 
+
+Nel NED file scriveremo:
+```c++
+...
+parameters:
+	@signal[delay](type=long);
+	@statistic[delaySta]
+...
+```
