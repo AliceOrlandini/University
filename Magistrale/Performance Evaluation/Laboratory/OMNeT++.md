@@ -218,9 +218,69 @@ Il segnale viene dichiarato nel NED file e questo viene associato tramite un pun
 
 Nel NED file scriveremo:
 ```c++
-...
 parameters:
+	// definisco il segnale 
 	@signal[delay](type=long);
-	@statistic[delaySta]
-...
+	// il seguente è il recorder, in questo caso prende i 
+	// dati dal segnale delay e produce la media
+	@statistic[delayStat](source="delay"; record=mean;)
 ```
+
+Nel file C++ scriveremo:
+```c++
+private:
+	// definisco il puntatore al segnale
+	simsignal_t delaySignal;
+...
+// nella funzione initialize() associo il segnale 
+// alla variabile simsignal_t
+registerSignal("delay");
+
+...
+// in qualsiasi punto del codice, quando ho un dato
+// da scrivere nel segnale uso
+emit(delaySignal, value);
+```
+
+I valori scalari producono un singolo valore, ad esempio sono valori scalari la somma, la media, la varianza. 
+Un'altra tipologia di valori sono quelli vettoriali che permettono di vedere l'evoluzione temporale di un parametro. La struttura oltre che a memorizzare il valore, conterrà anche il timestamp di quando quel valore è stato prodotto.  Questa tipologia di valori sono molto utili in fase di debugging. 
+
+# Defining Simulation Scenarios
+
+Il file di configurazione (.ini) contiene uno scenario da simulare. 
+La struttura è la seguente, è diviso in sezioni, la prima è sempre la General: 
+```c++
+[General]
+// definisco l'entità da simulare, questo è utile
+// per poter sostituire il modulo con un altro 
+network = Tictoc
+// il secondo parametro è il tempo massimo di simulazione
+sim-time-limit = 100s
+// questo invece serve per specificare il tempo reale
+cpu-time-limit = 100s
+...
+[Config Test1]
+description = "first TicToc campaign"
+// questa serve per assegnare il valore del procTime che 
+// è presente nel NED file
+// visto che il network può cambiare, di solito si scrive:
+// *.t*c.procTime = 50s
+// oppure: *.*.procTime
+Tictoc.t*c.procTime = 50ms
+...
+[Config specificTest]
+// in questo caso, vado ad estendere la configurazione 
+// Test1
+extends = Test1
+sim-time-limit = 5s
+```
+
+Nell'INI file definiamo:
+- Parametri: una volta impostati rimangono gli stessi.
+- Fattori: questi li cambieremo per vedere come cambia la simulazione.
+Esempio di fattori:
+```c++
+**.t*c.delay = ${1, 2, 5, 10}
+**.t*c.packetSize = ${50 , 100}
+```
+In questo modo, in due righe abbiamo definito 8 simulazioni.
