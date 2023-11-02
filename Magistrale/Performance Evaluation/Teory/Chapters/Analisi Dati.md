@@ -46,9 +46,33 @@ Inoltre, bisogna ricordarsi di normalizzare le ordinate con i rispettivi sample 
 ### Scatterplots
 
 Lo **scatterplot** è un grafico in cui i sample sono sparsi su un piano orizzontale in cui ogni punto è disegnato in una giusta altezza.
-Questo tipo di grafico è utile per date un'occhiata a come i dati sono dispersi e se ci s
+Questo tipo di grafico è utile per date un'occhiata a come i dati sono dispersi e se ci sono dei raggruppamenti. Sono anche utili per individuare gli *outliers* che sono invece difficili da individuare con gli istogrammi.
+
+![Scatterplot|center|400](https://www.health.state.mn.us/communities/practice/resources/phqitoolbox/images/scatter_ex_atlanticcities.jpg)
+
 ### Box Plots
+
+I **Box Plots** detti anche *box and whiskers* consistono nel plottare:
+1. Un *box* i cui bordi sono il $1^{st}$ e il $3^{rd}$ quartili (o il $25^{th}$ e il $75^{th}$ percentile) che chiameremo $Q_{1}$ e $Q_{3}$.
+2. Una *linea* che rappresenta la *mediana* (cioè il $50^{th}$ percentile).
+3. Due *baffi* (whiskers) sporgenti dal box che possono rappresentare varie cose a seconda del software utilizzato, di solito rappresentano:
+	- il massimo e il minimo (non comune).
+	- il $2^{nd}$ e il $98^{th}$ percentile.
+	- l'inter quartile range IQR.
+
+![BoxPlot|center|400](https://doc.arcgis.com/it/insights/latest/create/GUID-5C7AAF44-C609-472D-9193-0E9B23C6B68F-web.png)
 
 ### Lorenz Curves
 
+I grafici che abbiamo visto finora erano atti a comparare diversi sistemi, ora ne vediamo uno per valutare la *variabilità* di un sample: le **curve di Lorenz**.
+Si utilizzano per esempio per misurare se l'output del sistema è perfettamente equo tra tutti gli utilizzatore. Un esempio può essere il tempo di risposta di un server che non è sempre lo stesso per tutti gli utenti ma può essere molto buono per la maggior parte degli utenti e molto alto per una minoranza. In questo caso,  il sistema non è equo e questa misura si può quantificare con le curve di Lorenz che sono applicabili alle variabili aleatorie *non negative* (per noi tutte lo sono).
+L'algoritmo è il seguente:
+1. ordinare il sample in modo da ottenere *ordered statistics*: $X_{(1)} \le X_{(2)} \le ... \le X_{(n)}$.
+2. calcolare $T = \sum\limits_{i=1}^{n}X_{i}$ la somma totale del sample.
+3. plottare i punti $(\frac{1}{n}, \frac{X_{(1)}}{T})$, $(\frac{2}{n}, \frac{X_{(1)}+X_{(2)}}{T})$, ... , $(\frac{j}{n}, \frac{\sum\limits_{i=1}^{j}X_{j}}{T})$ con $1 \le j \le n$.
+4. interpolare assumendo il punto $(0,0)$ come primo punto della curva. 
+Ovviamente, la curva intersecherà il punto $(1,1)$. 
+Se tutti i valori sono equi allora la curva apparirà come la bisettrice del primo quadrante, questa linea viene anche chiamata *linea di massima equità* e viene disegnata per reference.
+Se $T = X_{(n)}$ e tutti gli altri valori sono nulli allora la curva segue l'asse $x$ fino al punto $(1- \frac{1}{n},0)$ per poi crescere fino al punto $(1,1)$.
 ## Riassumere i dati
+
