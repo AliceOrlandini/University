@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "581518e935eea5f3",
+        "id": "cded7f48071ac6b0",
         "type": "tabs",
         "children": [
           {
-            "id": "e037a8a7ab2d44d2",
+            "id": "a74a538a898a3ff8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -113,9 +107,7 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {
-            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md"
-          }
+          "state": {}
         }
       },
       {
@@ -141,10 +133,10 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "e037a8a7ab2d44d2",
+  "active": "a74a538a898a3ff8",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
