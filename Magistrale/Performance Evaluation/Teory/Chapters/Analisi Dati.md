@@ -76,3 +76,20 @@ Se tutti i valori sono equi allora la curva apparirà come la bisettrice del pri
 Se $T = X_{(n)}$ e tutti gli altri valori sono nulli allora la curva segue l'asse $x$ fino al punto $(1- \frac{1}{n},0)$ per poi crescere fino al punto $(1,1)$.
 ## Riassumere i dati
 
+Molto spesso è richiesto di fornire un singolo numero che descrive le performance del sistema. Ciò è utile ad esempio per effettuare ad esempio comparazioni tra sistemi senza utilizzare le ECDF che sono invece costose da memorizzare. 
+Esistono 3 possibili alternative: il sample mean, median e mode. 
+### Indici di tendenza
+
+> [!note] Sample Mean
+> Si definisce **Sample Mean** come $$\overline{X} = \frac{1}{n}$$
+
+### Indici di dispersione
+
+## Fitting di una distribuzione
+
+## Intervalli di Confidenza
+
+
+
+
+
