@@ -81,8 +81,29 @@ Esistono 3 possibili alternative: il sample mean, median e mode.
 ### Indici di tendenza
 
 > [!note] Sample Mean
-> Si definisce **Sample Mean** come $$\overline{X} = \frac{1}{n}$$
+> Si definisce **Sample Mean** come $$\overline{X} = \frac{1}{n}\cdot \sum\limits_{i=1}^{n}X_{i}$$ con $\overline{X}$ una variabile aleatoria visto che è il risultato di una somma di variabili aleatorie. 
 
+Le sue proprietà sono:
+- **Valor Medio**: $E[\overline{X}] = \frac{1}{n}\cdot E\left[\sum\limits_{i=1}^{n}X_{i}\right]= \frac{1}{n}\cdot n \cdot E[X_{i}] = \mu$
+- **Varianza**: $Var(\overline{X}) = Var\left(\frac{1}{n}\cdot \sum\limits_{i=1}^{n}X_{i}\right)= \frac{1}{n^{2}}\cdot n \cdot Var(X_{i}) = \frac{\sigma^{2}}{n}$
+ovvero $\overline{X} \thicksim \mathcal{N}(\mu, \frac{\sigma^{2}}{n})$.
+
+Più grande è il sample più la $\overline{X}$ converge ad una variabile aleatoria uguale alla popolazione con valor medio $\mu$ e senza varianza.
+Se le $X_{1}, ..., X_{n}$ sono normali (a meno che non siano heavy tail) allora anche $\overline{X}$ è normale, per qualsiasi valore di $n$.
+Se invece non fossero normali, $\overline{X}$ tende ad una normale per $n$ grande ($n \ge 30$).
+
+> [!note] Sample Median
+> La **Sample Median** è un valore ottenuto ordinando gli *ordered statistic* ($X_{(1)}, X_{(2)}, ..., X_{(n)}$) e prendendo il valore centrale. Se non ci fosse un valore centrale si prendono i due centrali e si fa la media. 
+
+> [!note] Sample Mode
+> La **Sample Mode** è il valore con la probabilità più alta. Per ottenerlo si può considerare la colonna più alta dell'istogramma associato all'esperimento.
+
+Ma quale di questi bisogna utilizzare? La risposta è: dipende. In generale possiamo dire che se la distribuzione è simmetrica allora la media e la mediana sono uguali. Inoltre, il mode potrebbe non essere un valore unico. 
+La media è l'unica ad avere la proprietà di *additività* cioè la media di una somma è la somma delle medie. 
+Infine, la media è *sensibile agli outliers* quindi se si ha un sample piccolo piccoli outliers possono cambiare la media in modo considerevole. In quest'ultimo caso, è meglio considerare la mediana, vediamo di dimostrarlo matematicamente:
+supponiamo di avere un sample di $n$ osservazioni (con $n$ dispari) la cui sample mean è pari a $\overline{X}$. 
+Visto che le osservazioni sono dispari la mediana sarà $X_{0.5} = X_{(\lceil n/2\rceil)}$. 
+Assumer
 ### Indici di dispersione
 
 ## Fitting di una distribuzione
