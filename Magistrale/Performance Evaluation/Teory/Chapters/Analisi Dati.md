@@ -103,7 +103,10 @@ La media è l'unica ad avere la proprietà di *additività* cioè la media di un
 Infine, la media è *sensibile agli outliers* quindi se si ha un sample piccolo piccoli outliers possono cambiare la media in modo considerevole. In quest'ultimo caso, è meglio considerare la mediana, vediamo di dimostrarlo matematicamente:
 supponiamo di avere un sample di $n$ osservazioni (con $n$ dispari) la cui sample mean è pari a $\overline{X}$. 
 Visto che le osservazioni sono dispari la mediana sarà $X_{0.5} = X_{(\lceil n/2\rceil)}$. 
-Assumer
+Assumere di aggiungere un altro sample il cui valore è pari ad $O$.
+La nuova media sarà: $\overline{X}^{'}= \frac{\overline{X}\cdot n + O}{n+1}$ e se i due addendi sono comparabili, la media cambierà di molto.
+La nuova mediana invece diventerà (se $O \ge X_{0.5}$): $X_{0.5}^{'}= X_{0.5}+ \frac{X_{(\lceil n/2 \rceil)}-X_{(\lceil n/2 \rceil)}}{2}$
+e come si può notare non dipende da $O$ quindi la nuova mediana non sarà troppo diversa dalla precedente.
 ### Indici di dispersione
 
 ## Fitting di una distribuzione
