@@ -51,3 +51,7 @@ SELECT Customer, SUM(Sales)
 FROM Sales
 GROUP BY Customer;
 ```
+
+Domanda che fa all'esame è confrontare le tabelle del column databases e relational databases (è scritto nelle slide)
+SO PLEASE USE RELATIONAL DATABASES
+

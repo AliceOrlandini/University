@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md"
+                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md"
               }
             }
           },
@@ -160,8 +160,8 @@
   },
   "active": "04337e90292d79f0",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
     "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
