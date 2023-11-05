@@ -283,11 +283,27 @@ $E_{s}= \frac{M^{2}-1}{6}$
 Se $M=2$ allora $E_{s}=\frac{1}{2} \Rightarrow 2E_{s} = 1$
 $P_{e}^{2-PAM}= Q\left(\frac{1}{\sigma}\right)= Q(\sqrt{\frac{1}{\sigma^{2}}})= Q(\sqrt{\frac{2E_{s}}{N_{0}}})$
 
+# Mappa di Gray e Bit Error Rate
 
+È una strategia che mappa i bit in modo che i simboli corrispondenti siano tali che simboli adiacenti differiscano solo per un bit. 
+Questa è una strategia iterativa:
+Se $M=2 \Rightarrow \{0,1\}$ 
+Se $M=4 \Rightarrow \{00,01,11,10\}$
+È utile per calcolare la bit error probability (BER), per calcolarla dobbiamo prima calcolare l'energia necessaria per trasmettere un bit:
+$$E_{b}=\frac{E_{s}}{log_{2}M}$$
+È praticamente l'energia per simbolo diviso il numero di bit per simbolo.
 
-
-
-
-
-
-
+Per calcolare la probabilità di errore per bit sfruttando la definizione di probabilità di errore per simbolo $P_{e}$.
+Si trascura il caso in cui il bit ricevuto sia due o più regioni di decisione distante da quella corretta. In questo modo posso assumere che un errore sul simbolo corrisponde ad un errore sul bit. 
+Quindi, le due assunzioni che si fanno sono:
+1. Utilizzare la mappatura di gray
+2. La potenza del rumore non è troppo elevata, quindi al massimo si sbaglia un bit
+Sotto queste ipotesi posso scrivere:
+$$
+\begin{align*}
+P_{e}^{(b)} &= \lim_{N^{(b)}\rightarrow \infty} \frac{N_{e}^{(b)}}{N^{(b)}} \approx \\
+&\approx \lim_{N^{(s)}\rightarrow \infty} \frac{N_{e}^{(b)}}{log_{2}MN^{(s)}} =\\
+&= \frac{1}{log_{2}M} \lim_{N^{(s)}\rightarrow \infty} \frac{N_{e}^{(s)}}{N^{(s)}} =\\
+&= \frac{1}{log_{2}M}\cdot P_{e}
+\end{align*}
+$$
