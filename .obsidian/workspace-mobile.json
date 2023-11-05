@@ -11,8 +11,10 @@
             "id": "a74a538a898a3ff8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "kanban",
+              "state": {
+                "file": "TODO.md"
+              }
             }
           }
         ]
@@ -81,6 +83,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "TODO.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +100,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "TODO.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -107,7 +111,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "TODO.md"
+          }
         }
       },
       {
@@ -133,7 +139,7 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "a74a538a898a3ff8",
+  "active": "47d227c15ee73dd2",
   "lastOpenFiles": [
     "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
