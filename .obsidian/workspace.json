@@ -4,18 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "8c3ff642f77b031d",
+        "id": "7a8e82833bdeeaaa",
         "type": "tabs",
         "children": [
           {
-            "id": "04337e90292d79f0",
+            "id": "de3a16eb0006bdd4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
-                "mode": "source",
-                "source": false
+                "file": "TODO.md"
               }
             }
           }
@@ -69,8 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -86,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
+                "file": "TODO.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
+                "file": "TODO.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Column Databases.md"
+                "file": "TODO.md"
               }
             }
           },
@@ -158,12 +155,13 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "04337e90292d79f0",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
+    "SpuntiTesi.md",
+    "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
-    "SpuntiTesi.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "TODO.md",
     "Magistrale/Performance Evaluation/Teory/Table of Contents.md",
@@ -190,7 +188,6 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Electronics/Images/IC Design Styles and Flows.png",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
     "Magistrale/Electronics And Communication/Electronics/Images/pmos.png",
