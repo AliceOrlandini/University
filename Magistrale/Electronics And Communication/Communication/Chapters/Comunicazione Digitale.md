@@ -293,7 +293,7 @@ Se $M=4 \Rightarrow \{00,01,11,10\}$
 $$E_{b}=\frac{E_{s}}{log_{2}M}$$
 È praticamente l'energia per simbolo diviso il numero di bit per simbolo.
 
-Per calcolare la probabilità di errore per bit sfruttando la definizione di probabilità di errore per simbolo $P_{e}$.
+Per calcolare la probabilità di errore per bit sfruttando la definizione di probabilità di errore per simbolo $P_{e}^{(s)}$.
 Si trascura il caso in cui il bit ricevuto sia due o più regioni di decisione distante da quella corretta. In questo modo posso assumere che un errore sul simbolo corrisponde ad un errore sul bit. 
 Quindi, le due assunzioni che si fanno sono:
 1. Utilizzare la mappatura di gray
@@ -304,6 +304,21 @@ $$
 P_{e}^{(b)} &= \lim_{N^{(b)}\rightarrow \infty} \frac{N_{e}^{(b)}}{N^{(b)}} \approx \\
 &\approx \lim_{N^{(s)}\rightarrow \infty} \frac{N_{e}^{(b)}}{log_{2}MN^{(s)}} =\\
 &= \frac{1}{log_{2}M} \lim_{N^{(s)}\rightarrow \infty} \frac{N_{e}^{(s)}}{N^{(s)}} =\\
-&= \frac{1}{log_{2}M}\cdot P_{e}
+&= \frac{1}{log_{2}M}\cdot P_{e}^{(s)}
 \end{align*}
 $$
+L'approssimazione è dovuta alla seconda assunzione in cui il rumore non è elevato.
+
+Ora convertiamola in bit error probability:
+$M=2 \Rightarrow \frac{1}{log_{2}2}= 1$ quindi $E_{s}= E_{b} \Rightarrow P_{e}^{(b)} = Q(\sqrt{\frac{2E_{b}}{N_{0}}})$
+$M=4 \Rightarrow \frac{1}{log_{2}2}= 2$ quindi $E_{s}=2E_{b}$ perché un simbolo contiene 2 bit inoltre, $P_{e}^{(s)} = \frac{3}{2} Q\left(\sqrt{\frac{2E_{s}}{5N_{0}}}\right)$ e sostituendo $simbolo contiene 2 bit inoltre, $P_{e}^{(b)} \approx \frac{3}{2} Q\left(\sqrt{\frac{4E_{b}}{5N_{0}}}\right)$ 
+
+# QAM
+
+È lo stesso concetto della QAM vista in campo analogico ma applicata al campo digitale in cui trasmetteremo 2 segnali PAM.
+$$s_{QAM}(t) = \sum\limits_{i}a_{i}g_{T}(t-iT) + j \sum\limits_{i}b_{i}g_{T}(t-iT)$$
+Il primo è l'elemento in fase e il secondo è quello in quadratura. 
+Sviluppando possiamo ottenere uno schema semplificato: $$s_{QAM}(t) = \sum\limits_{i}(a_{i}+jb_{i})g_{T}(t-iT)= \sum\limits_{i}c_{i}g_{T}(t-iT)$$
+Schema a blocchi sulle slide. 
+
+Il numero di simboli nella QAM è $M_{QAM}= M_{PAM}^{2}$ 
