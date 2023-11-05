@@ -367,4 +367,31 @@ $\epsilon_{Q}^{(i)} = \{\text{errore nel canale Q}|c^{(i)}\}$
 da cui:
 $\epsilon^{(i)} = \epsilon_{I}^{(i)}\cup \epsilon_{Q}^{(i)}$
 il cui limite superiore è:
-$P(e|c^{(i)}) = P(\epsilon^{(i)}) \le P(\epsilon_{I}^{(i)}) + $
+$P(e|c^{(i)}) = P(\epsilon^{(i)}) \le P(\epsilon_{I}^{(i)}) + P(\epsilon_{Q}^{(i)})$
+e possiamo calcolarli in modo distinto perché le componenti di rumore sono indipendenti.
+$P_{e}^{M-QAM} < 2P_{e}^{(\sqrt{M}-PAM)}$
+
+Nel caso specifico della 4-QAM:
+$P_{e}^{(4-QAM)} = \frac{1}{4}\sum\limits_{i=0}^{3}P(e|c^{(i)}) = P(e|c^{(0)})$
+$P(e|c^{(0)}) < Q(\frac{d(1,0)}{\sigma_{n_{I}}})+Q\left(\frac{d(1,0)}{\sigma_{n_{Q}}}\right)= 2Q\left(\frac{1}{\sigma}\right)= 2P_{e}^{(2-PAM)}$
+il minore stretto c'è perché è un'approssimazione.
+La $\sigma$ è quella della PAM ovvero $N_{0}$.
+
+Simbol Error Probability per QAM:
+$E_{s}= \frac{A}{2} \Rightarrow E_{s}= 2 \cdot \frac{M-1}{3} \cdot \frac{1}{2} = \frac{M-1}{3}$.
+$P_{e}^{(QAM)}= 2\cdot Q\left(\frac{1}{\sigma}\right)= 2\cdot Q\left(\sqrt\frac{1}{\sigma^{2}}\right)$
+ma $\frac{3E_{s}}{M-1} = 1$ quindi posso sostituirlo:
+$P_{e}^{(QAM)}= 2\cdot Q(\sqrt\frac{E_{s}}{N_{0}})$
+
+Infine la Bit Error Probability assumendo di star considerando la mappa di Gray:
+$m_{QAM}=log_{2}M = 2log_{2}\sqrt{M}$
+$$
+\begin{align*}
+P_{e}^{(M-QAM,b)} &= \lim_{N^{(b)}\rightarrow \infty} \frac{N_{e}^{(b)}}{N^{(b)}} \approx\\
+&\approx \lim_{N^{(s)}\rightarrow \infty}\frac{N_{e}^{(s)}}{log_{2}MN^{(s)}} =\\
+&= \frac{1}{log_{2}M}\lim_{N^{(s)}\rightarrow \infty} \frac{N_{e}^{(s)}}{N^{(s)}} =\\
+&= \frac{1}{log_{2}M} P_{e}^{(M-QAM)} =\\
+&= \frac{1}{2log_{2}\sqrt{M}}2P_{e}^{(\sqrt{M}-PAM)} =\\
+&= P_{e}^{(\sqrt{M}-PAM,b)}
+\end{align*}
+$$
