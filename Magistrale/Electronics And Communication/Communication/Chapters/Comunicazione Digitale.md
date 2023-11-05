@@ -321,4 +321,50 @@ Il primo è l'elemento in fase e il secondo è quello in quadratura.
 Sviluppando possiamo ottenere uno schema semplificato: $$s_{QAM}(t) = \sum\limits_{i}(a_{i}+jb_{i})g_{T}(t-iT)= \sum\limits_{i}c_{i}g_{T}(t-iT)$$
 Schema a blocchi sulle slide. 
 
-Il numero di simboli nella QAM è $M_{QAM}= M_{PAM}^{2}$ 
+Il numero di simboli nella QAM è $M_{QAM}= M_{PAM}^{2}$.
+
+$E\{c_{m}\} = E\{a_{m}+jb_{m}\} = E\{a_{m}\} + jE\{b_{m}\} = 0$ perché per design $a_{m}$ e $b_{m}$ sono equiprobabili e simmetrici quindi hanno valor medio nullo. 
+Mean Square Value: 
+$$
+\begin{align*}
+A &= E\{c_{m}\cdot c_{m}^{*}\} =\\[4pt]
+&= E\{(a_{m}+jb_{m}) \cdot (a_{m}-jb_{m})\} =\\[4pt]
+&= E\{a_{m}^{2}+ b_{m}^{2}\} =\\[4pt]
+&= E\{a_{m}^{2}\} + E\{b_{m}^{2}\} =\\[4pt]
+&= 2\cdot \frac{M_{PAM}^{2}-1}{3} =\\[4pt]
+&= 2 \cdot \frac{M_{QAM}-1}{3}
+\end{align*}
+$$
+L'energia per simbolo sarà: $$E_{s}= \frac{A}{2}= \frac{M_{QAM}- 1}{3}$$
+Il grande vantaggio è che l'energia necessaria per trasmettere lo stesso quantitativo di dati è molto minore rispetto alla PAM. 
+
+Calcoliamo la probabilità di errore.
+Banda occupata dalla QAM rispetto alla PAM:
+$S_{s}^{(PAM)}(f) = \frac{A}{T}|G_{T}(f)|^{2}$
+$S_{s}^{(QAM)}(f) = \frac{A^{(QAM)}}{T}|G_{T}(f)|^{2}$
+Non fa alcuna differenza sulla banda se abbiamo la stessa costellazione perché $A$ è solo un fattore moltiplicativo
+Assumiamo di avere un filtro a coseno rialzato:
+$B^{(PAM)} = \frac{1+\alpha}{T}= \frac{1+\alpha}{log_{2}M^{(PAM)}T_{b}} = \frac{1+\alpha}{log_{2}M}R_{b}$
+
+Il simbolo (complesso) sul quale si vuole calcolare la probabilità di errore è:
+$$
+\begin{align*}
+x(m) &= c_{m}+n(m) =\\[4pt]
+&= (a_{m}+jb_{m})+(n_{I}(m)+jn_{Q}(m)) =\\[4pt]
+&= a_{m}+n_{I}(m) +j(b_{m}+n_{Q}(m))
+\end{align*}
+$$
+Ripasso sull'unione:
+$A\cup B = A + B - A\cap B$
+$P(A\cup B) = P(A) + P(B) - P(A\cap B)$
+che è sempre positiva quindi posso scrivere:
+$P(A\cup B) \le P(A)+P(B)$
+che può essere usato come bound.
+
+L'evento $\epsilon^{(i)} = \{\text{error}|c^{(i)}\}$ è l'evento in cui si commette un errore avendo trasmesso il simbolo $c^{(i)}$ e può essere calcolato come l'unione di due eventi:
+$\epsilon_{I}^{(i)} = \{\text{errore nel canale I}|c^{(i)}\}$
+$\epsilon_{Q}^{(i)} = \{\text{errore nel canale Q}|c^{(i)}\}$
+da cui:
+$\epsilon^{(i)} = \epsilon_{I}^{(i)}\cup \epsilon_{Q}^{(i)}$
+il cui limite superiore è:
+$P(e|c^{(i)}) = P(\epsilon^{(i)}) \le P(\epsilon_{I}^{(i)}) + $
