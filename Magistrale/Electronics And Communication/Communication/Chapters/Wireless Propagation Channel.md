@@ -66,3 +66,11 @@ Il Large era un fattore moltiplicativo mentre questo è una funzione lineare tem
 $y(t) = s(t) \circledast h(t)$
 
 Lo small scale fading è dovuto al fatto che riceviamo la somma di molte repliche del segnale con delay differenti che si originano con l’urto con gli ostacoli. Il risultato finale è un segnale disturbato. 
+Attenuazione: dovuta alla presenza del large scale phading $a_{1}$: aleatoria.
+Delay $\tau_{1} =s/c$: è una deterministico perché visto che è legato alla velocità della luce anche se lo spazio cambia un po’ l’effetto sul delay è trascurabile.
+Fase $\phi_{1}$: aleatoria.
+
+$y(t) = A_{LS}\sum\limits_{\mathcal{l}=0}^{N_{c-1}}a_\mathcal{l} e^{j\phi_\mathcal{l}}s(t-\tau_\mathcal{l})$
+
+
+
