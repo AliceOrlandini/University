@@ -28,10 +28,41 @@ $$P_{RX} = P_{TX}\cdot \frac{1}{S}\cdot A$$
 con $A = (\frac{\lambda}{2})^{2}\cdot \frac{1}{\pi}$ l’area dell’antenna.
 
 Sostituendo si ottiene: $$P_{RX}= P_{TX}\cdot \frac{1}{4\pi d^{2}} \frac{\lambda^{2}}{4}\cdot \frac{1}{\pi} = P_{TX}\cdot \frac{1}{(4\pi d)^{2}}$$
-ma $\lambda = \frac{c}{f} = 0.1 \text{ m}$.
+ma $\lambda = \frac{c}{f_{0}} = 0.1 \text{ m}$.
 L’attenuazione è pari a -60 db che è pari a 1 milione.
 
 C’è da considerare che più il segnale si propaga e più incontra ostacoli. 
 
-$\Gamma(f_{0},d_{0}) \approx (\lambda/4\pi)^{2}$: free space propagation
+## Path Loss
+
+$\Gamma(f_{0},d_{0}) \approx (\frac{\lambda}{4\pi d_{0}})^{2}$: free space propagation, mostra la dipendenza con la carrier frequency.
 $(\frac{d_{0}}{d})^{n}$: $n > 2$ viene chiamato *path-loss exponent*.
+$A_{PL}= \frac{P_{Tx}}{P_{Rx}}$
+Tabella sulle slide.
+
+- Trasmitted power.
+- Due termini legati all’ambiente.
+
+Un componente importante è $f_{0}$. Se aumenta la frequenza aumenta anche l’attenuazione del canale. Il segnale oscilla anche di più quindi ci mette di più ad arrivare a destinazione. 
+
+Intorno ai 60 GHz si ha una finestra in cui l’attenuazione è molto elevata, queste zone agiscono come filtri. Il motivi di questi effetti sono legati alla presenza di acqua e di ossigeno.
+
+## Shadowing
+
+Ipotizziamo di avere una cella con due ricevitori alla stessa distanza dal trasmettitore. In teoria, visto che $d_{A}= d_{B}$ mi aspetterei che l’attenuazione sia la stessa. In realtà non è così per la presenza dello shadowing che accade in presenza di ostacoli specifici che hanno effetti più importanti sulla propagazione. La shadowing è una VA Gaussiana misurata in dB (log normally distributed).
+
+In questo caso: 
+$$P_{Rx}[dBm] = P_{Tx}[dBm] + A_{PL}[dB] + A_{S}[dB]+ A_{SS}[dB]$$
+con:
+- $A_{PL}$ un valore deterministico che dipende dalla distanza $d$.
+- $A_{S}$ una variabile aleatoria log-normally distributed.
+- $A_{SS}$ l’attenuazione data dalla small scale fading.
+
+## Small Scale Fading
+
+Per descrivere questo effetto dobbiamo considerare lo schema a blocchi. Lo small scale fading rappresenta l’impulse response $h(t)$ del canale. 
+Il Large era un fattore moltiplicativo mentre questo è una funzione lineare tempo invariante.
+
+$y(t) = s(t) \circledast h(t)$
+
+Lo small scale fading è dovuto al fatto che riceviamo la somma di molte repliche del segnale con delay differenti che si originano con l’urto con gli ostacoli. Il risultato finale è un segnale disturbato. 
