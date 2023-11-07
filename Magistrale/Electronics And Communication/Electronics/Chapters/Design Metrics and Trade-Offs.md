@@ -1,18 +1,21 @@
 # Design Metrics
 
 Le metriche principali sono:
-- Functionality
-- Costi
-- Reliability e robustezza
-- Performance tra cui velocità e consumo di energia
-- Time to market
+- **Funzionalità**
+- **Costi**: come abbiamo visto i [[IC Design Styles and Flows#Relazione costi performance|costi]] si dividono in fissi e variabili. 
+- **Affidabilità** e **Robustezza**: si misurano in termini di *margini di rumore* e *immunità al rumore*.
+- **Performance**: tra cui *velocità* (o delay) e *consumo di energia*.
+- **Time-to-Market**
 ## Costo
 
-Innanzitutto il wafer ha un costo, poi alcuni dadi non funzionano e vanno buttati. 
-Qui si ritorna al discorso dei non-recurring engineering cost e recurring costs già trattati [[IC Design Styles and Flows#Relazione costi performance|qui]].
-
+Ecco alcune formule per il calcolo dei costi ricorrenti:
+$$\text{costi variabili} = \frac{\text{costo del dado}+\text{costo dei test}+\text{costo del packaging}}{\text{test finale del prodotto}}$$
+$$\text{costo del dado} = \frac{\text{costo del wafer}}{\text{dadi per wafer} \cdot \text{dadi prodotti}}$$
+$$\text{dadi per wafer} = \frac{\pi \cdot (\text{diametro del wafer}/2)^{2}}{\text{area del dado}}-\frac{\pi \cdot \text{diametro del wafer}}{\sqrt{2} \cdot \text{area del dado}}$$
+Qui Fanucci ha mostrato un botto di tabelle coi vari costi che boh io salto. 
 ## Reliability and Robustness
 
+Il rumore è una variazione non voluta dei voltaggi e delle correnti presenti nei nodi logici. Per calcolarlo, bisogna considerare le capacità parassite presenti tra due componenti. 
 Ad esempio il componente deve essere il meno possibile sensibile al rumore (qualsiasi variazione alla tensione desiderata). Esiste il problema dei glitch che fanno sì che si sprechi energia. 
 Il digitale è più robusto dell’analogico perché si definiscono i margini di rumore basso e alto. 
 

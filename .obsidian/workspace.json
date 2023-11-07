@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md"
               }
             }
           },
@@ -161,6 +161,8 @@
   "active": "de3a16eb0006bdd4",
   "lastOpenFiles": [
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "TODO.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
@@ -176,8 +178,6 @@
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "conflict-files-obsidian-git.md",
     "Untitled.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",

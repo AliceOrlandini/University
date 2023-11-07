@@ -109,4 +109,4 @@ Inoltre ad esempio per costruire 10M transistor servirebbero:
 - Behavioral: 125 ingegneri
 - Domain Specific: 62 ingegneri 
 Inoltre, la cosa difficile è organizzare il lavoro più aumenta il numero di persone che lavorano al processo di progettazione. 
-Bisogna anche analizzare il mercato andandolo a targettizzare.
+Bisogna anche analizzare il mercato andandolo a *targettizzare*.

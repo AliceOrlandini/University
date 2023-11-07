@@ -11,6 +11,13 @@
 	4. [[VLSI#Interazione con l’uomo|Interazione con l’uomo]]
 	5. [[VLSI#VLSI|Very Large Scale Integration]]
 4. [[IC Design Styles and Flows]]
+	1. [[IC Design Styles and Flows#Astrazione elettronica a livello di design|Astrazione elettronica a livello di design]]
+	2. [[IC Design Styles and Flows#Stili di design di circuiti integrati|Stili di design di circuiti integrati]]
+	3. [[IC Design Styles and Flows#Relazione costi performance|Relazione costi performance]]
+	4. [[IC Design Styles and Flows#FPGA|FPGA]]
+	5. [[IC Design Styles and Flows#Design Productivity|Design Productivity]]
 5. [[Design Metrics and Trade-Offs]]
+	1. [[Design Metrics and Trade-Offs#Design Metrics|Design Metrics]]
+	2. [[Design Metrics and Trade-Offs#Managing engineering trade-off|Managing engineering trade-off]]
 6. [[Timing Issues]]
 7. 
