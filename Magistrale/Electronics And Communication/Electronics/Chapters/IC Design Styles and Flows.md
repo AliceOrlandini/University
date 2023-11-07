@@ -58,41 +58,44 @@ Il **TapeOut** è la fase finale in cui si mandano i poligoni all'azienda produt
 
 Vediamo ora i costi di un circuito integrato che hanno un'importanza fondamentale sulla scelta dello stile di desing. I costi si dividono in:
 - **Costi fissi** $RE$: sono costi che si sostengono indipendentemente dal numero di pezzi realizzati. Esempi sono: 
-	- Costi di design: licenze software, salario ingegneri che usano quei software
-	- La macchina che produce le maschere e le macchine per i test
-- **Non recurrent engineering cost** $NRE$: costi dei materiali e della manodopera che richiede la produzione di un singolo pezzo. Esempi sono:
-	- Costo del Wafer: questo costo si riduce più l'area del chip diminuisce ($cost \propto A^{3}$).
-Il costo per singola unità sarà quindi $C_{1}= \frac{NRE}{n} + RE$ mentre il costo totale sarà $C_{T}= NRE + (n \cdot RE)$.
-La relazione tra $n$ e $C_{1}$ è di tipo iperbolico, nel senso che per $n$ piccoli il costo $C_{1}$ aumenta esponenzialmente, all'aumentare di $n$ la curva di attenua fino all'asintoto $RE$.
+	- Costi di design: licenze software, salario ingegneri, ricerca e sviluppo.
+	- La macchina che produce le maschere e le macchine per i test.
+- **Non Recurrent Engineering Cost** $NRE$: costi dei materiali e della manodopera che richiede la produzione di un singolo pezzo. Un esempio è il costo del wafer: questo costo diminuisce al diminuire dell'area del chip ($cost \propto A^{3}$).
+Il costo per singola unità sarà: $$C_{1}= \frac{NRE}{n} + RE$$mentre il costo totale sarà: $$C_{T}= NRE + (n \cdot RE)$$La relazione tra $n$ e $C_{1}$ è di tipo iperbolico, infatti, per $n$ piccoli il costo $C_{1}$ aumenta esponenzialmente mentre all'aumentare di $n$ la curva si attenua fino all'asintoto $RE$.
 
 ![[cost curve.png|center|500]]
 
-Domanda: quale tra i design che abbiamo visto ha un costo $NRC$ maggiore? Il maggiore sarà il Full Custom, poi viene il Gate Array e infine lo Standard Cell.
-Invece, per quanto riguarda il volume di produzione? Conviene se abbiamo volumi grandi usare il Full Custom o lo Standar Cell. Se invece abbiamo volumi piccoli è meglio usare Gate Array o addirittura FPGA. 
+Domanda: quale tra i design che abbiamo visto ha un costo $NRC$ maggiore? Il maggiore sarà sicuramente il Full-Custom, mentre gli approcci Semi-Custom come Gate-Array o Standard-Cell hanno tempi di design molto simili. Mentre per quanto riguarda costi fissi $RE$ l'approccio Full-Custom e Standard-Cell sono molto simili perché vengono realizzati da zero.
+Invece, per quanto riguarda il volume di produzione? Se abbiamo volumi grandi è conveniente usare il Full-Custom o lo Standar-Cell. Se invece abbiamo volumi piccoli è meglio usare Gate-Array o FPGA. 
 
 ![[cost differences.png|center|500]]
 
+Traducendo il grafico:
+- se $n < N_{1}$ è conveniente usare il *gate-array*.
+- se $N_{1} < n < N_{2}$ è conveniente usare lo *standard-cell*.
+- se $n > N_{2}$ è conveniente usare il *full-custom*.
+Il costo per unità non è l'unica metrica da considerare, può essere importante considerare parametri come velocità del circuito, dimensioni, consumi energetici. Nelle applicazioni con volumi medio/piccoli è conveniente mantenere i costi $NRE$ al minimo. 
+Infine, i Full-Custom e Standard-Cell hanno un grande impatto sul *time-to-market*. 
 # FPGA
 
-**FPGA** è acronimo di "Field Programmable Gate Array" ed è costituito da un Gate Array con blocchi programmabili per diventare una qualsiasi funzione logica e un array di interconnessione. 
+**FPGA** è acronimo di "Field Programmable Gate Array" ed è costituito da un Gate Array con blocchi programmabili e un array di interconnessione che gli permettono di diventare una qualsiasi funzione logica. 
 Ci sono due modi di programmarlo: 
-- **SRAM based**: si inseriscono i dati nella ram, è riprogrammabile anche solo in parte. È però molto più sensibile al rumore (questo è quello che useremo)
+- **SRAM based**: si inseriscono i dati nella RAM, è quindi riprogrammabile anche solo in parte. È però molto più sensibile al rumore (questo è quello che useremo).
 - **Anti-Fuse**: si basa sulla connessione tra nodi a voltaggi differenti per creare una connessione permanente tra i due. Una volta programmato non è riprogrammabile.
-L’anti-fuse è più efficiente in termini di velocità ma è meno compatibile con i dispositivi in commercio rispetto all’sram. 
+L’anti-fuse è più efficiente in termini di velocità ma è meno compatibile con i dispositivi in commercio rispetto all’SRAM. 
 
-Vediamo come questi due FPGA sono organizzati internamente:
-La prima architettura è la Actel, basata su 3 componenti:
-- Basic Logic Cell
-- I/O Pads 
-- Interconnection
-
-La seconda opzione è l’architettura Xilinx che è molto più complessa quindi non la vedremo, ci basta sapere che può essere sia input che output ed è un’architettura più flessibile perché ci sono dei Configurable Logic Block (CLB).
-Lo svantaggio di questi dispositivi è che non se ne possono mettere troppi in connessione in serie perché il ritardo $\tau _{TOT} = N^{2}\tau$ si deteriora quadraticamente. 
-Ad esempio, il clock e il reset dovranno avere linee dedicate perché altrimenti il segnale di deteriorerebbe. 
+Vediamo come questi due FPGA sono organizzati internamente. Le architetture più comuni sono:
+- **Actel**, basata su 3 componenti:
+	- Basic Logic Cell
+	- I/O Pads 
+	- Interconnection
+- **Xilinx** che è molto più complessa quindi non la vedremo, ci basta sapere che è un’architettura più flessibile perché ci sono dei "Configurable Logic Block" (CLB).
+Lo svantaggio di questi dispositivi è che non se ne possono mettere troppi in connessione in serie perché il ritardo $\tau _{TOT} = N^{2}\cdot \tau$ con $\tau = RC$ si deteriora quadraticamente. 
+Ad esempio, il clock e il reset dovranno avere linee dedicate per evitare che ad alcuni componenti arrivino linee di segnale deteriorate. 
 # Design Productivity
 
-La design productivity è la capacità degli ingegneri di realizzare un certo numero di transistor un tempo preciso.
-Ad esempio se lavoriamo ad un livello di astrazione alto si possono realizzare più transistor in meno tempo visto che il software tradurrà a basso livello. 
+La **design productivity** è la capacità degli ingegneri di realizzare un certo numero di transistor un determinato tempo.
+Ad esempio, se lavoriamo ad un livello di astrazione alto, si possono realizzare più transistor in meno tempo visto che il software tradurrà a basso livello. 
 Vediamo come cambia il numero di gate a seconda del livello di astrazione:
 - Transistor: 10 - 20 transistor
 - Gate: 100 - 200 transistor
@@ -100,15 +103,10 @@ Vediamo come cambia il numero di gate a seconda del livello di astrazione:
 - Behavioral: 2k - 10k transistor
 - Domain Specific: 8k -12k transistor
 Inoltre ad esempio per costruire 10M transistor servirebbero:
-Transistor: 62.500 ingegneri
+- Transistor: 62.500 ingegneri
 - Gate: 6250 ingegneri
 - RTL: 625 ingegneri
 - Behavioral: 125 ingegneri
 - Domain Specific: 62 ingegneri 
-Inoltre la cosa difficile è organizzare il lavoro più aumenta il numero di persone che lavorano al processo di progettazione. 
-
+Inoltre, la cosa difficile è organizzare il lavoro più aumenta il numero di persone che lavorano al processo di progettazione. 
 Bisogna anche analizzare il mercato andandolo a targettizzare.
-Esempio della playstation che ritarda di 6 mesi e quindi la gente per natale al figliolo compra l’xbox.
-
-
-
