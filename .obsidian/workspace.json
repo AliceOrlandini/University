@@ -11,9 +11,11 @@
             "id": "de3a16eb0006bdd4",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -67,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -83,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md"
               }
             }
           },
@@ -157,9 +160,11 @@
   },
   "active": "de3a16eb0006bdd4",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
+    "TODO.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
-    "TODO.md",
     "SpuntiTesi.md",
     "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
@@ -185,8 +190,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
     "Magistrale/Electronics And Communication/Electronics/Images/IC Design Styles and Flows.png",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",

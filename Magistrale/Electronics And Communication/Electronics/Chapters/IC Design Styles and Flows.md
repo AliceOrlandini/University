@@ -5,60 +5,54 @@ Prendiamo ad esempio un inverter, esistono 4 livelli di astrazione:
 2. **Gate**: rappresentazione con il simbolo circuitale dell’inverter.
 3. **Transistor**: rappresentazione tramite una combinazione di [[IC-Manufactory Review#Transistore MOSFE|MOSFET]] di tipo nmos o pmos.
 4. **Lay-out**: rappresentazione della geometria e dei diversi livelli, spesso fatta tramite software.
-In queste rappresentazioni vado sempre più ad aggiungere dettagli quindi il processo di design richiede più tempo mano mano che si scende di livello di astrazione.
+Man mano che si scende nel livello di astrazione aumenta il tempo di realizzazione poiché si scende sempre più nei dettagli.
 # Stili di design di circuiti integrati
-
-Questo è lo schema dei diversi approcci nel design dei circuiti integrati: 
-
-Il nostro approccio sarà Semicustom, Array Based e Pre-wired (FPGA) ma comunque andremo a studiarli tutti.
 
 ## Full Custom vs Semicustom
 
-Nel caso Full Custom caso si ha la massima libertà di design riguarda alla dimensione, posizionamento e interconnessione di ogni singolo transistor.
-Nel Semicustom invece c’è una riduzione nella libertà di design perché ci sono componenti pre-realizzati ma questo facilita notevolmente il processo di realizzazione sia in termini di tempo che di costi. 
-# Metodi di design e flows
+Nel caso della metodologia **Full Custom**, si ha la *massima libertà* di design in termini di dimensione, posizionamento e interconnessione di ogni singolo transistor. Ciò permette di raggiungere il massimo potenziale del circuito in termini di area occupata e di velocità. D'altro canto però abbiamo maggiori costi, tempi di design e sono richieste capacità specifiche da parte degli sviluppatori.
+Nel **Semicustom** invece, c’è una riduzione nella libertà di design perché si hanno componenti pre-disegnati e l'unico aspetto che il designer può decidere riguarda le interconnessioni tra le strutture logiche messe a disposizione. Questo secondo metodo facilita notevolmente il processo di realizzazione in termini di tempo, di costi e di abilità richieste rispetto all'approccio full-custom. Tuttavia, in termini di ottimizzazione, questo tipo di circuito è più limitato.
 
-Per implementare dei circuiti digitali è possibile usare due tipi di approccio: *full-custom* o *semi-custom*. 
-In linea generale, ciò che li caratterizza è: 
-- Full-Custom: massima libertà di design in termini di dimensionamento, posizionamento e interconnessioni. Ciò permette di raggiungere il massimo potenziale del circuito in termini di area occupata e di velocità. D'altro canto però abbiamo maggiori costi, tempi di design e sono richieste capacità specifiche da parte degli sviluppatori.
-- Semi-Custom: libertà limitata perché si usano circuiti logici pre-disegnati. Infatti, in questo caso vanno disegnate solo le interconnessioni tra le strutture logiche. Ciò comporta un minor costo, tempo di sviluppo e abilità inferiori rispetto al full-custom. Tuttavia, in termini di ottimizzazione, questo tipo di circuito è limitato.
 ![[IC Design Styles and Flows.png|center|700]]
 
-I seguenti sono i livelli di design per passare da un livello astratto a un livello concreto:
+I livelli di design per passare dal livello *astratto* a un livello *concreto* sono:
 1. **Specifiche**: si definisce che cosa deve fare il circuito.
 2. **Architettura**
 3. **Modello Funzionale**
 4. **Logica**
 5. **Circuiti**
-6. **Poligoni**: da inviare alla fabbrica per produrre il chip.
+6. **Poligoni**: questi sono inviati alla fabbrica che produrrà il chip.
 
 ## Full-custom 
 
-Vediamo i passaggi di un design full custom consideriando la realizzazione di un inverter.
-Nella fase di *specifica* si hanno indicazioni riguardo l’area massima occupata, il tempo di propagazione massimo o la potenza consumata. Poi bisogna anche definire la tecnologia, ad esempio consideriamo una tecnologia CMOS a 5nm. 
-Definiamo poi la *topologia* del device a partire dalle tabelle di verità, attenzione che questa è un’operazione di sintesi.
-Poi si calcola l’area dei transistor $W_{p}$ e $W_{n}$.
-A questo punto si eseguono delle *simulazioni* sul funzionamento con ad esempio software come SPICE. 
-Nella fase di *layout* si definisce ogni strato del dispositivo, a questo punto si conoscono esattamente le sue misure. Il DRC (“Design Rule Check”) è il software che si occuperà di verificare se le misure sono corrette.
-Il LVS (“Layout vs Scheme”) controlla se il layout è uguale allo schema che avevamo fatto all’inizio. 
-Infine, c’è l'LPE (“Layout Parasitic Extraction”) che è una simulazione che tiene in considerazione il modello dei transistor e il layout. 
+Vediamo i passaggi di un design full custom considerando la realizzazione di un inverter.
+1. Nella fase di **specifica** si hanno indicazioni riguardo ad esempio l’*area massima* occupata, il *tempo di propagazione* massimo o la *potenza consumata*. In questa fase si definisce anche la tecnologia, ad esempio, potremmo scegliere una tecnologia CMOS a 5nm. 
+2. Definiamo poi la **topologia** del circuito a partire dalle tabelle di verità, questa è già un’operazione di *sintesi*.
+3. Dopo aver definito la topologia, si calcola l'**area dei transistor** $W_{p}$ e $W_{n}$.
+4. A questo punto si eseguono delle **simulazioni** sul funzionamento con, ad esempio, software come SPICE. 
+5. Nella fase di **layout** si definisce ogni strato del dispositivo, a questo punto si conoscono esattamente le sue misure. Il *DRC* (“Design Rule Check”) è il software che si occuperà di verificare se le misure sono corrette.
+6. Poi, **controlliamo** che le regole specificate all'inizio in fase di specifica sono corrette, questa operazione generalmente si compie utilizzando software *LVS* (“Layout vs Scheme”) che automaticamente controlla se il layout è uguale allo schema che avevamo fatto all’inizio. 
+7. Infine, c’è l'*LPE* (“Layout Parasitic Extraction”) che è una **simulazione** che tiene in considerazione il modello dei transistor e il layout. 
+
 Se qualsiasi cosa va storta si ritorna alle fasi precedenti. 
-Tutti questi software si ottengono tramite licenza che ha un costo nell'ordine dei milioni di euro all'anno. Inoltre, gli sviluppatori devono avere abilità specifiche per utilizzarli. 
-Per questi motivi, il full-custom flow noi non useremo ma era bene sapere come funziona. 
+Bisogna considerare che tutti questi software si ottengono tramite *licenza* che ha un costo nell'ordine dei milioni di euro all'anno. Inoltre, gli sviluppatori devono avere abilità specifiche per utilizzarli. 
+Per questi motivi, noi non useremo il full-custom flow ma era bene sapere come funziona. 
 ## ASIC semi-custom
 
 Ora vediamo il semi-custom design style. 
-L’azienda produttrice fornisce una serie di elementi da loro fabbricati che si possono assemblare per creare ciò di cui abbiamo bisogno. 
-Abbiamo due possibilità: **Cell-based** e **Array-based (Gate-Array)**. 
+In questo caso, l'azienda produttrice fornisce una serie di elementi logici da loro fabbricati che si possono assemblare per creare ciò di cui abbiamo bisogno. 
+Un ASIC può essere ottenuto utilizzando due metodi: **Standard-Cell** e **Array-based (Gate-Array)**. 
+La metodologia di progettazione delle standard-cell utilizza celle di una libreria pre-progettate. In altre parole, mentre si designa il circuito, le celle vengono raccolte da una libreria. L'array gate, come suggerisce il nome, ha un array di gate (possono essere porte AND o NAND, ecc..) che possono essere collegati opportunamente per produrre la funzionalità desiderata.
+Le interconnessioni sono metalliche e posizionate in canali opposti (tendenzialmente viene usato meno del 50% dei transistori).
+*At the end of the story* il cuore del gate array è composto da PMOS ed NMOS connessi opportunamente tra loro per implementare una certa funzione logica.
 
-Nel caso di gate array abbiamo una matrice fissa di gate tutti uguali con un certo numero di transistori quindi il designer si limita a stabilire le interconnessioni tra i gate della matrice. Le interconnessioni sono metalliche e posizionate in canali opposti (tendenzialmente viene usato meno del 50% dei transistori).
-*At the end of the story* il cuore del gate array è composto da pmos ed nmos connessi opportunamente tra loro per implementare una certa funzione logica.
+Nell'approccio standard cell invece, si hanno celle di altezza fissa ma larghezza variabile. La dimensione dei canali di interconnessione non sono fisse ed anche le posizioni dei piedini di IO sono variabili. 
+Quindi, in questo caso, si ha più libertà di design che comporta una maggior ottimizzazione dell'area e della velocità. Di contro invece si hanno maggiori costi in termini di tempo di sviluppo e di abilità richieste per progettare questi circuiti. 
 
-Nell'approccio standard cell invece si hanno celle di altezza fissa ma larghezza variabile. La dimensione dei canali di interconnessione non sono fisse ed inoltre le posizioni dei piedini di IO sono variabili. Quindi in questo caso si ha più libertà di design che comporta una maggior ottimizzazione dell'area e della velocità. Di contro invece si hanno maggiori costi in termini di tempo di sviluppo e di abilità. 
+La tecnologia **FPGA** ha un'architettura di tipo *gate array* che però, rispetto a questi, ha molta più potenzialità in quanto può essere programmato sia dal punto di vista logico che dal punto di vista delle interconnessioni.
 
-La tecnologia **FPGA** ha un'architettura di tipo *gate array* che però rispetto a questi ha molta più potenzialità in quanto può essere programmato sia dal punto di vista logico che dal punto di vista delle interconnessioni 
+Noi lavoreremo al **Register Transfer Level**. Infatti, come avveniva nel Verilog a reti logiche abbiamo dei registri e all'arrivo del clock lo stato del sistema cambierà, dovremo quindi implementare una certa logica tramite descrizioni dell'hardware.
 
-Noi lavoreremo al Register Transfer Level, come avveniva nel Verilog a reti logiche abbiamo dei registri e all'arrivo del clock lo stato del sistema cambierà, dovremo quindi implementare una certa logica tramite descrizioni dell'hardware.
 Il **TapeOut** è la fase finale in cui si mandano i poligoni all'azienda produttrice che li usa per realizzare le maschere per il processo di produzione dei transistor. Le maschere sono uno dei costi più importanti da considerare. 
 # Relazione costi performance
 

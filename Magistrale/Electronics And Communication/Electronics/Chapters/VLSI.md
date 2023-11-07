@@ -2,6 +2,7 @@ Oggi vedremo come si possono integrare su un’unico substrato un elevato numero
 
 # Origini storiche
 
+> [!note] Circuito Integrato
 > Un circuito integrato un componente circuitale in cui è possibile, *su un singolo substrato*, includere componenti elettronici e interconnetterli. 
 
 Il primo circuito integrato risale al 1959 : 
@@ -43,6 +44,7 @@ Ora andiamo nel passato per vedere l’evoluzione dell’architettura dei comput
 Ognuno di questi processori ha una **defect density**, cioé la densità di transistor difettosi per unità di area. Quindi è per questo motivo che non hanno raddoppiato l’area per porre più transistor ma le dimensioni sono rimaste ridotte. 
 # Legge di Moore e Danner’s Scaling
 
+> [!note] Legge di Moore
 > La **legge di Moore** sostiene che il numero di transistor per circuito integrato *raddoppia* ogni anno.
 
 Il Denner’s Scaling è un paper che amplia la legge di Moore andando a studiare l’evoluzione delle dimensioni dei mosfet nei circuiti integrati: 
@@ -69,6 +71,7 @@ Per fare ciò, si utilizza il **System in Package** (SiP) in cui internamenti si
 
 # VLSI
 
+> [!note] VLSI
 > **VLSI** è l’acronimo di *Very Large Scale Integration* ed è una denominazione generica che indica una elevata integrazione di transistor in un singolo chip. 
 
 La International Technology Roadmap for Semiconductors è un gruppo di compagnie che studiano le diverse caratteristiche dei dispositivi prodotti e predicono il prossimo device. 
