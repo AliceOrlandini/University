@@ -8,6 +8,8 @@
 	2. [[Software Defined Radio#Heterodyne receiver architecture|Heterodyne receiver architecture]]
 	3. [[Software Defined Radio#Programmare un RTL-SDR con MATLAB|Programmare un RTL-SDR con MATLAB]]
 4. [[Comunicazione Digitale]]
+5. [[Wireless Propagation Channel]]
+6. 
 
 # Extra
 - [[Laboratorio]]
