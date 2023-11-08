@@ -396,3 +396,54 @@ serverId = oracle->aSearchFunction("x");
 
 Anche l'oracolo va usato con attenzione perché se genera un evento, il proprietario sarà colui che ha chiamato l'oracolo. 
 
+# Connecting Gates
+
+Ipotizziamo di voler un network, cioè un insieme di moduli connessi tra loro. Dovremmo utilizzare $n$ interfacce, una per ogni gate, in OMNet è possibile utilizzare un array di gate. 
+```c++
+vector gates
+	input in[];
+A.in++ <-- 1.out; // aggiungo un nuovo gate
+A.in++ <-- 2.out; 
+```
+Con i vector gate si realizzano quindi i network.
+
+Per quanto riguarda le interfacce wireless non possiamo utilizzare un modello basato sui cavi, possiamo utilizzare invece il concetto di *direct transmission*.
+Non si trasmettono messaggi attraverso il gate ma si utilizza una comunicazione wireless:
+```c++
+[... in the NED file ...]
+// questo consente di ricevere messaggi anche se i moduli
+// non sono direttamente connessi, quindi in modo wireless
+input wirelessGate @directIn;
+
+[... in the C++ file ...]
+destModule = <...>
+destGate = <...>
+// questa funzione è un'evoluzione della send
+sendDirect(msg, propDelay, txDuration, destModule, destGate);
+```
+Si può usare l'oracolo per memorizzare i puntatori ai moduli presenti nella rete. 
+
+# Modularità del Codice
+
+Il progetto può facilmente diventare molto grande quindi è necessario utilizzare la modularità. La cosa migliore da fare è chiamare funzioni, possibilmente riutilizzabili. 
+È inoltre consigliato controllare i casi particolari e lanciare un errore.
+
+# Multi-Stage initialization
+
+Un server contiene una serie di hard disk con una certa quantità di spazio disponibile.
+Il server in fase di inizializzazione vuole sapere lo spazio totale disponibile.
+Se inizializzo prima il server degli hard disk, sto cercando una quantità che però non è ancora stata inizializzata. 
+Bisogna quindi controllare l'ordine di inizializzazione dei moduli, per fare ciò si utilizza la funzione di OMNet++ chiamata **multi-stage initialization**. Se questa funzione è abilitata allora la fase di inizializzazione viene eseguita *più di una volta*.
+```c++
+// in class declaration (.h)  
+virtual void initialize(int stage);  
+virtual int numInitStages() const { return 2; }
+
+// in initialize definition (.cpp) 
+void MyModule::initialize(int stage) {
+
+if(stage == 0)  { ... }  
+else if(stage == 1) { ... }
+
+}
+```
