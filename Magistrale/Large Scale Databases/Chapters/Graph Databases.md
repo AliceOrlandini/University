@@ -33,3 +33,4 @@ Infine, il **Multigraph** è un grafo in cui possiamo definire differenti tipi d
 # Graph Databases
 
 Questa tipologia di database viene spesso usata per monitorare lo stato tra due entità. 
+L’app del covid immuni era fatta così.
