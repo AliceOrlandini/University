@@ -396,7 +396,7 @@ serverId = oracle->aSearchFunction("x");
 
 Anche l'oracolo va usato con attenzione perché se genera un evento, il proprietario sarà colui che ha chiamato l'oracolo. 
 
-# Connecting Gates
+## Connecting Gates
 
 Ipotizziamo di voler un network, cioè un insieme di moduli connessi tra loro. Dovremmo utilizzare $n$ interfacce, una per ogni gate, in OMNet è possibile utilizzare un array di gate. 
 ```c++
@@ -423,12 +423,12 @@ sendDirect(msg, propDelay, txDuration, destModule, destGate);
 ```
 Si può usare l'oracolo per memorizzare i puntatori ai moduli presenti nella rete. 
 
-# Modularità del Codice
+## Modularità del Codice
 
 Il progetto può facilmente diventare molto grande quindi è necessario utilizzare la modularità. La cosa migliore da fare è chiamare funzioni, possibilmente riutilizzabili. 
 È inoltre consigliato controllare i casi particolari e lanciare un errore.
 
-# Multi-Stage initialization
+## Multi-Stage initialization
 
 Un server contiene una serie di hard disk con una certa quantità di spazio disponibile.
 Il server in fase di inizializzazione vuole sapere lo spazio totale disponibile.
@@ -446,4 +446,63 @@ if(stage == 0)  { ... }
 else if(stage == 1) { ... }
 
 }
+```
+
+## Ereditarietà dei NED file
+
+Nei NED file è possibile inserire dei parametri che possono essere ereditati da sotto-moduli e opportunamente settati.
+```c++
+simple Txc { 
+	parameters:
+		bool sendMsgOnInit = default(false); 
+	gates:
+		input in;
+		output out; 
+}
+simple Tic extends Txc { 
+	parameters:
+		sendMsgOnInit = true;
+}  
+simple Toc extends Txc {
+	parameters:
+		sendMsgOnInit = false;
+}
+```
+La stessa cosa si può fare con le funzioni, ogni sotto-modulo può implementare il comportamento delle funzioni. 
+Ricordarsi di scrivere questo:
+```c++
+[... in the NED file ...]
+simple Tic extends Txc {
+	@class(Tic)
+}
+[... in the C++ file ...]
+class Tic : public Txc {
+	void fun1(); 
+}
+```
+
+# Definizione dei Messaggi
+
+Il messaggio oltre che a triggerare gli handler può portare con sé una serie di informazioni aggiuntive, per esempio un livello di priorità.
+Per fare ciò si crea un file .msg:
+```c++
+// file: MyMessage.msg
+message MyMessage {
+	char source;
+	int type; 
+}
+```
+Il compilatore di OMNet creerà due file chiamati: MyMessage_m.h e MyMessage_m.cpp.
+
+Per utilizzare questa classe bisogna scrivere:
+```c++
+#include "myMessage_m.h"
+// somewhere into module A  
+MyMessage *msg = new MyMessage(msgname); msg->setSource("A");
+
+// in handleMessage() of module B MyMessage *tempMsg;  
+tempMsg = check_and_cast<MyMessage*>(msg); 
+char source = tempMsg->getSource();  
+...  
+delete tempMsg; // ricordarselo perché i messaggi vengono allocati nello heap
 ```
