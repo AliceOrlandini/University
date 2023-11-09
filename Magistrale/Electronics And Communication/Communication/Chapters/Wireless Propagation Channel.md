@@ -73,4 +73,3 @@ Fase $\phi_{1}$: aleatoria.
 $y(t) = A_{LS}\sum\limits_{\mathcal{l}=0}^{N_{c-1}}a_\mathcal{l} e^{j\phi_\mathcal{l}}s(t-\tau_\mathcal{l})$
 
 
-

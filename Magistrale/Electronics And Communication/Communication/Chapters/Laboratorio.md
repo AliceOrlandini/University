@@ -45,3 +45,27 @@ Se $\Delta f \not= 0$ e $\Delta \phi = 0$ allora $m(t) = m(t)cos(2\pi \Delta ft)
 
 Quando usiamo sistemi wireless dobbiamo tenere in considerazione questa questione. 
 Non vedremo come risolverlo. 
+
+# Laboratorio 3 - PAM in MATLAB
+
+Il trasmettitore è composto da:
+- $S$ un generatore di bit casuali.
+- Il mappatore
+- Il Filtro $g_T(t)$ che sarà un filtro a coseno rialzato
+Trascureremo il canale, aggiungeremo solo del rumore.
+Il ricevitore invece è composto da:
+- Un filtro di ricezione $g_R(t)$.
+- Un campionatore con un periodo $t=mT$
+- Un decisore basato sul criterio a massima verosimiglianza.
+
+La prima parte del codice è l’inizializzazione, impostiamo la creazione di 1 milione di bit. Decido il tipo di mappatore e la grandezza della costellazione $M = 8$ (in questo caso il numero di bit per simbolo è 3).
+Per quanto riguarda il coseno rialzato devo impostare:
+- Il roll-off.
+- Numero di sample per simbolo.
+- La truncation.
+Poi imposto il valore massimo $E_S$ $N_0$.
+Infine, imposto il seed del random number generator, per fare ciò uso $rng(1)$.
+
+$A$ è l’energia della costellazione (?)
+
+

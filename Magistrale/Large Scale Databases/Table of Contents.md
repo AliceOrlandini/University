@@ -6,4 +6,6 @@
 4. [[Column Databases]]
 5. [[Document Databases]]
 6. [[Google Big Table]]
+7. [[Graph Databases]]
+8. 
 
