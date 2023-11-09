@@ -84,3 +84,12 @@ Infine, prendo la distribuzione standard generata da MATLAB$n \thicksim \mathcal
 Lato ricevente la prima cosa da fare è filtrare il segnale con $g_{R}(t)$.
 Ora devo campionare $x(t)$, in MATLAB è più facile perché non esistono funzioni continue ma solo discrete quindi tutto ciò che dobbiamo fare è selezionare i campioni corretti.
 Per fare ciò, troviamo il sample in corrispondenza di 1 e poi gli altri vengono di conseguenza. 
+Se togliessi il rumore avrei comunque simboli non del tutto uguali ai corrispondenti al ricevitore e questo succede perché ho troncato il coseno rialzato. 
+
+Ora siamo alla decisione, questa è implementata in MATLAB passando i vettori delle variabile di decisione e dei simboli. 
+
+Possiamo anche calcolare la bit error probability e la bit error probability e plottarle rispetto alla bit error rate.
+Il secondo grafico non è uguale al rate per via di un’assunzione fatta sul rumore (?)
+
+Ora che ho aumentato $E_{s}/N_{0}$ le due curve sono molto più simili nel secondo grafico ma si sbilanciano nel primo.
+Le due curve variano anche in base alla truncation.
