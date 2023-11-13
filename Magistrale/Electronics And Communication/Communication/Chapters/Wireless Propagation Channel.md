@@ -65,11 +65,36 @@ Il Large era un fattore moltiplicativo mentre questo è una funzione lineare tem
 
 $y(t) = s(t) \circledast h(t)$
 
-Lo small scale fading è dovuto al fatto che riceviamo la somma di molte repliche del segnale con delay differenti che si originano con l’urto con gli ostacoli. Il risultato finale è un segnale disturbato. 
+Lo small scale fading è dovuto al fatto che riceviamo la somma di molte repliche del segnale con delay differenti che si originano con l’urto con gli ostacoli. Il risultato finale è un segnale disturbato perché le repliche del segnale potrebbero interferire tra loro e generare quindi ISI.
 Attenuazione: dovuta alla presenza del large scale phading $a_{1}$: aleatoria.
 Delay $\tau_{1} =s/c$: è una deterministico perché visto che è legato alla velocità della luce anche se lo spazio cambia un po’ l’effetto sul delay è trascurabile.
 Fase $\phi_{1}$: aleatoria.
 
 $y(t) = A_{LS}\sum\limits_{\mathcal{l}=0}^{N_{c-1}}a_\mathcal{l} e^{j\phi_\mathcal{l}}s(t-\tau_\mathcal{l})$
+
+Il tempo intercorso tra l’arrivo delle repliche si chiama **Time Dispersion**.
+*calcoli*
+$x(t) = \sum\limits_{i}c_{i}g(t-iT)$
+$g(t) = g_{T}(t) \circledast h(t) \circledast g_{R}(t) = g_{N}(t)\circledast h(t)$
+$g(t) = \sum\limits_{l=0}^{N_{c}-1} a_{l}e^{j\phi _{l}}g_{N}(t-\tau _{l})$
+$x(m) = x(t)|_{t=mT}=\sum\limits_{k}c_{m-k}g(kT) = c_{m}g(0) +\sum\limits_{k,k\not=0}c_{m-k}g(kT)$
+$g(kT) = g(t)|_{t=kT} =\sum\limits_{l=0}^{N_{c}-1}a_{l}e^{j\phi _{l}}g_{N}(kT-\tau _{l})$
+Si nota che $\tau_{l}$ non è controllabile quindi l’interferenza è inevitabile. 
+Dobbiamo chiederci quanta interferenza intersimbolica abbiamo nel nostro sistema.
+## Delay Spread
+
+Il delay spread è il parametro che misura la dispersione temporale del canale e si indica con $\sigma_{\tau}$.
+È meglio che la time dispersion sia **piccola** perché se invece le repliche non arrivano allo stesso instante avrei molto più rumore.
+Se c’è solo una replica allora $H(f) = \alpha_{0}e^{j\phi_{0}}$ e se lo prendo in modulo avrò $|H(f)| = \alpha_{0}$.
+
+# Coherance Bandwidth
+
+La **Coherence Bandwidth** $B_{c}$ del canale è l’intervallo di frequenza in cui si ha la frequence response $H(f)$ (e di conseguenza la sua densità spettrale di potenza $S_{h}(f)$).
+Questo valore è inversamente proporzionale al delay spread. 
+Un’approssimazione generalmente usata è: $$B_{C}\approx \frac{1}{5\sigma_{\tau}}$$
+Se $\sigma_{\tau} \ll T$ allora $B_{c} > B_{s}$ e il canale è *flat*.
+Se $\sigma_{\tau} > T$ allora $B_{c} < B_{s}$ e il canale è freque
+
+
 
 

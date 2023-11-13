@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md"
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md"
           }
         }
       },
@@ -143,6 +143,7 @@
   },
   "active": "a74a538a898a3ff8",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
@@ -168,7 +169,6 @@
     "/Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "/Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
     "/Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
-    "/Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
