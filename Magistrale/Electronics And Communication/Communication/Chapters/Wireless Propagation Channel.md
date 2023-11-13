@@ -92,9 +92,24 @@ Se c’è solo una replica allora $H(f) = \alpha_{0}e^{j\phi_{0}}$ e se lo prend
 La **Coherence Bandwidth** $B_{c}$ del canale è l’intervallo di frequenza in cui si ha la frequence response $H(f)$ (e di conseguenza la sua densità spettrale di potenza $S_{h}(f)$).
 Questo valore è inversamente proporzionale al delay spread. 
 Un’approssimazione generalmente usata è: $$B_{C}\approx \frac{1}{5\sigma_{\tau}}$$
-Se $\sigma_{\tau} \ll T$ allora $B_{c} > B_{s}$ e il canale è *flat*.
-Se $\sigma_{\tau} > T$ allora $B_{c} < B_{s}$ e il canale è freque
+Se $\sigma_{\tau} \ll T$ allora $B_{c} > B_{s}$ e il canale è *flat* -> avrò meno isi.
+Se $\sigma_{\tau} > T$ allora $B_{c} < B_{s}$ e il canale è frequency selective (multipath) -> avrò più isi.
 
+Il delay spread è molto difficile da calcolare perché dipende dal canale che stiamo considerando, infatti non troveremo la PDF ma ci concentreremo solo sul valor medio.
+$E[\tau] \approx \sum\limits_{l=0}^{L-1}p_{l}\tau_{l} = \sum\limits \frac{\alpha_{l}^{2}}{\sum\limits_{i=0}^{L-1}\alpha_{i}^{2}}\tau_{l}$
+$E[\tau^{2}] = \sum\limits_{l=0}^{L-1}p_{l}\tau_{l}^{2}$
+$\sigma_{\tau}= \sqrt{E[\tau_{l}^{2}] - (E[\tau_{l}]^{2})}$
 
+tabella 
 
+## Esempio
 
+sulle slide.
+$p_{0} = \frac{\alpha_{0}^{2}}{\alpha_{0}^{2}+\alpha_{1}^{2}}$
+$p_{1} = \frac{\alpha_{1}^{2}}{\alpha_{0}^{2}+\alpha_{1}^{2}}$
+
+4 casi: 
+- $\tau = 0.1T$ non si ha interferenza
+- $\tau = T$ si ha molta interferenza ma si può usare un **equalizzatore**
+- $\tau = 1.5T$ si ha comunque interferenza e anche in questo caso si può usare un equalizzatore.
+- $\tau = 4T$ si ha interferenza e non si può usare un equalizzatore.
