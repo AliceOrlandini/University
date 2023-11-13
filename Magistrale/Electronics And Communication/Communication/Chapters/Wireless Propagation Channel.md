@@ -113,3 +113,13 @@ $p_{1} = \frac{\alpha_{1}^{2}}{\alpha_{0}^{2}+\alpha_{1}^{2}}$
 - $\tau = T$ si ha molta interferenza ma si può usare un **equalizzatore**
 - $\tau = 1.5T$ si ha comunque interferenza e anche in questo caso si può usare un equalizzatore.
 - $\tau = 4T$ si ha interferenza e non si può usare un equalizzatore.
+
+## Flat fading channel: BER on AWGN
+
+grafico sulle slide.
+AWGN: ricevitore e trasmettitore sono molto vicini o c’è una linea di comunicazione molto precisa e senza ostacoli. Esempio: comunicazione satellitare. 
+$h(t) = \delta (t)$
+Se il canale è flat non si ha più una delta e per calcolare la probabilità di errore bisogna calcolare l’intergrale. In questo caso aumentare la potenza diminuisce la BER tanto quanto il caso precedente. 
+
+Poi c’è il caso del canale multipath. Questo caso è anche peggiore del precedente. Perché più aumento la potenza e più incremento l’isi quindi aumentare la potenza non da nessun vantaggio.
+
