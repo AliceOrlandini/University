@@ -118,7 +118,7 @@ private:
 void Txc::initialize() {
 	if (strcmp("tic", getName()) == 0) {
 		tictocMsg_ = new cMessage("tictocMsg");
-		send(msg, "out"); 
+		send(tictocMsg_, "out"); 
 	}
 	beep_ = new cMessage("beep");
 }
