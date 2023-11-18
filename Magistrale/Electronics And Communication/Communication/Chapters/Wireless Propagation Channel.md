@@ -117,9 +117,32 @@ $p_{1} = \frac{\alpha_{1}^{2}}{\alpha_{0}^{2}+\alpha_{1}^{2}}$
 ## Flat fading channel: BER on AWGN
 
 grafico sulle slide.
-AWGN: ricevitore e trasmettitore sono molto vicini o c’è una linea di comunicazione molto precisa e senza ostacoli. Esempio: comunicazione satellitare. 
+AWGN: ricevitore e trasmettitore sono molto vicini o c’è una linea di comunicazione molto precisa e senza ostacoli, quindi abbiamo solo il rumore. Esempio: comunicazione satellitare. 
 $h(t) = \delta (t)$
 Se il canale è flat non si ha più una delta e per calcolare la probabilità di errore bisogna calcolare l’intergrale. In questo caso aumentare la potenza diminuisce la BER tanto quanto il caso precedente. 
 
 Poi c’è il caso del canale multipath. Questo caso è anche peggiore del precedente. Perché più aumento la potenza e più incremento l’isi quindi aumentare la potenza non da nessun vantaggio.
+
+Grafico variazione BER sulle slide. 
+
+## BER per 2-PAM in un canale flat
+
+Calcoliamo la probabilità di errore per un canale flat di una 2-PAM.
+
+Il segnale di arrivo è il seguente: $x(m) = \alpha \cdot a_{m}+n(m)$ ma per motivi di notazione possiamo trascurare il timing, quindi possiamo scrivere: $x = \alpha \cdot a + n$ con $n$ e $\alpha$ variabili aleatorie  $\alpha \in \{-1,+1\}$ (distribuita di Rayleigh) e $n \in \mathcal{N}(0,N_{0})$.
+
+Per calcolare la probabilità di errore dobbiamo calcolare il valor medio fissando $\alpha$ in modo che $\alpha \cdot a \in \{-\alpha, +\alpha\}$, quindi la probabilità di errore si può calcolare in questo modo: 
+$$
+P(e|a) = \frac{1}{2} \cdot((P_{e}|_{a=-1,\alpha})+(P_{e}|_{a=1,\alpha}))
+$$
+Cosa possiamo dire di $x$ dato $(P_{e}|_{a=-1,\alpha})$? $$x = -\alpha + n$$ e quindi $x \in \mathcal{N}(-\alpha, N_{0})$ perché il rumore è gaussiano. Quindi otteniamo che $$P_{e}|_{a=-1,\alpha} = Q\left(\frac{\alpha}{\sqrt{N_{0}}}\right)$$trovato calcolando la distanza tra il valor medio (-$\alpha$) e il treshold ($0$) dividendo per la deviazione standard ($\sqrt{N_{0}}$). Svolgendo i calcoli: 
+$$
+\begin{align*}
+P_{e}|_{a=-1,\alpha} &= Q\left(\frac{\alpha}{\sqrt{N_{0}}}\right) =\\[4pt]
+&= Q\left(\alpha\cdot \sqrt{\frac{1}{N_{0}}}\right) =\\[4pt]
+&= Q\left(\alpha\cdot \sqrt{\frac{2E_{s}}{N_{0}}}\right)
+\end{align*}
+$$
+Perché siamo in una 2-PAM quindi $2E_{s}=1$.
+
 
