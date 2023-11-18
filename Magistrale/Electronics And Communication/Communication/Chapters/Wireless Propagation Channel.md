@@ -214,4 +214,16 @@ Quindi la frequenza del segnale aumenta e decrementa.
 
 Consideriamo una macchina che si muove in moto rettilineo uniforme allontanandosi da una sorgente radio. 
 - $t = 0$ la radio inizia a trasmettere un segnale sinusoidale $s(t) = sin(2\pi f_{c} t)$
-- $t = t_{0}$ la macchina si trova ad una distanza $d = \mathcal{v}\cdot t_{0}$ a cui il segnale arriva dopo $\Delta \tau = \frac{\mathcal{v} \cdot t_{0}}{c}$ con $c$
+- $t = t_{0}$ la macchina si trova ad una distanza $d = \mathcal{v}\cdot t_{0}$ a cui il segnale arriva dopo $\Delta \tau = \frac{\mathcal{v} \cdot t_{0}}{c}$ con $c$ la velocità della luce. 
+Il segnale ricevuto al punto X è $y_{X}(t_{0}) = sin(2\pi f_{c}t_{0})$.
+Mentre il segnale ricevuto al punto Y è: 
+$$
+\begin{align*}
+y_{Y}(t_{0}) &= sin(2\pi f_{c}(t_{0}-\Delta \tau)) =\\[4pt]
+&= sin\left(2\pi f_{c}t_{0}-f_{c}\frac{\mathcal{v}\cdot t_{0}}{c}\right)=\\[4pt]
+&= sin\left(2\pi \left(f_{c}-f_{c}\cdot \frac{\mathcal{v}}{c}\right)\cdot t_{0}\right)
+\end{align*}
+$$
+ma $\frac{f_{c}}{c}=\lambda \Rightarrow f_{D} = -\frac{f_{c}\mathcal{v}}{c} = -\frac{\mathcal{v}}{\lambda}$ chiamato **Dopper Shift**.
+Quindi, se vado verso la sorgente la frequenza aumenta, se mi allontano diminuisce. 
+Questo effetto in realtà non inficia solo la frequenza ma influisce sul fatto che abbiamo più repliche provenienti da direzioni differenti, ognuna delle quasi con frequenze diverse. Per questo, di solito si indica questo effetto non lineare col nome di  **Dopper Multipath Spread** ed è un processo stocastico. 
