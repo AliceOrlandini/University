@@ -239,3 +239,4 @@ Per fare ciò, bisogna calcolare il *coherence time* $T_{c}$ del canale tramite 
 Se $J_{0}(2\pi x) \approx 0$ dato $x = \frac{1}{2}$ allora possiamo assumere $f_{D}T_{c} = \frac{1}{2} \Rightarrow T_{c} = \frac{1}{2f_{D}}$.
 In termini di distanza possiamo scrivere $d_{c} = \mathcal{v} \cdot T_{c}= \frac{1}{2}\mathcal{v}\cdot \frac{c}{f_{c}\mathcal{v}} = \frac{\lambda}{2}$.
 
+Recap sulle slide.
