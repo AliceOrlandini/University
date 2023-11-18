@@ -186,3 +186,32 @@ P(e) = \frac{1}{2}\left(1-\sqrt{\frac{\frac{E_{s}}{N_{0}}}{1-\frac{E_{s}}{N_{0}}
 $$
 e quando $x$ è grande si ha $\sqrt\frac{x}{1+x}\approx 1-\frac{1}{2x}$ (per Taylor, questa è l'unica approssimazione fatta) per cui per valori grandi di SNR la probabilità di errore può essere approssimata come: $$P(e) \approx \frac{1}{4\frac{E_{s}}{N_{0}}}$$
 E in decibel ha un andamento lineare decrescente: $$10log_{10}\left(\frac{1}{4\frac{E_{s}}{N_{0}}}\right) = -10log_{10}4-10log_{10}\frac{E_{s}}{N_{0}} = -6 -\left(\frac{E_{s}}{N_{0}}\right)_{db}$$
+## Time-Varying Channel
+
+Abbiamo assunto che il canale abbia la seguente forma: $h(t) = \sum\limits_{l=0}\alpha_{l}e^{j\phi_{l}}\delta(t-\tau_{l})$ ma questa espressione è valida solo se il ricevitore e il trasmettitore non si muovono e l'ambiente sia immutabile. In caso contrario, il canale cambia nel tempo. In questo scenario, ciò che no varia è il delay (in realtà cambia di qualche nano secondo ma è trascurabile).
+L'espressione generale del canale dipenderà sia da $t$ che da $\tau$: 
+$$h(t,\tau) = A_{LS} \sum\limits_{l=0}\alpha_{l}e^{j\phi_{l}}\delta(t-\tau_{l})$$
+matematicamente questo canale è molto complesso da studiare perché il sistema non è più lineare tempo invariante. Quindi, consideriamo che ad ogni istante si "freezano" le variabili per fare in modo da avere un sistema *momentaneamente* lineare tempo invariante. 
+
+### Effetto Dopper
+
+L'effetto Doppler è un fenomeno che si verifica quando c'è un cambiamento nella frequenza di un'onda, come ad esempio un'onda sonora o luminosa, a causa del movimento relativo tra la sorgente dell'onda e l'osservatore. Nel caso del suono, se una sorgente sonora si muove verso di te, le onde sonore saranno "compresse" (aumento della frequenza) e il suono sembrerà più acuto. Viceversa, se la sorgente si allontana, le onde sonore saranno "allungate" (diminuzione della frequenza) e il suono sembrerà più grave.
+
+immagine sulle slide. 
+
+La distanza tra i due osservatori è esattamente di 2km.
+C'è un'ambulanza che si muove a 120km/h e impiega 60 secondi per andare dall'osservatore 1 al 2. 
+La velocità del suono è 1200km/h quindi 10 volte più veloce dell'ambulanza. 
+- $t_{0}$ l'ambulanza si trova alla stessa posizione dell'osservatore 1. Il suono impiega 6 secondi per viaggiare alla distanza $d$.
+- $t_{0}+6$ l'osservatore 2 inizia a sentire il suono dell'ambulanza. 
+- $t_{0}+60$ l'ambulanza si trova nella stessa posizione dell'osservatore 2 e spegne le sirene. 
+- $t_{0}+66$ l'osservatore 1 smette di sentire il suono delle sirene. 
+La durata totale delle sirene è di:
+- 54 secondi per l'osservatore 2
+- 60 secondi per l'operatore dell'ambulanza
+- 66 secondi per l'osservatore 1
+Quindi la frequenza del segnale aumenta e decrementa. 
+
+Consideriamo una macchina che si muove in moto rettilineo uniforme allontanandosi da una sorgente radio. 
+- $t = 0$ la radio inizia a trasmettere un segnale sinusoidale $s(t) = sin(2\pi f_{c} t)$
+- $t = t_{0}$ la macchina si trova ad una distanza $d = \mathcal{v}\cdot t_{0}$ a cui il segnale arriva dopo $\Delta \tau = \frac{\mathcal{v} \cdot t_{0}}{c}$ con $c$
