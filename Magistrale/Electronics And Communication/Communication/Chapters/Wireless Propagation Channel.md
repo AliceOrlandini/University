@@ -227,3 +227,15 @@ $$
 ma $\frac{f_{c}}{c}=\lambda \Rightarrow f_{D} = -\frac{f_{c}\mathcal{v}}{c} = -\frac{\mathcal{v}}{\lambda}$ chiamato **Dopper Shift**.
 Quindi, se vado verso la sorgente la frequenza aumenta, se mi allontano diminuisce. 
 Questo effetto in realtà non inficia solo la frequenza ma influisce sul fatto che abbiamo più repliche provenienti da direzioni differenti, ognuna delle quasi con frequenze diverse. Per questo, di solito si indica questo effetto non lineare col nome di  **Dopper Multipath Spread** ed è un processo stocastico. 
+La densità spettrale di potenza del canale diventa: $$S_{D}(f) = \frac{1}{\pi f_{D}}\left(\sqrt{1-\left(\frac{f}{f_{D}}\right)^{2}}\right)^{-1}$$
+La funzione di autocorrelazione del canale è: $p(t) = J_{0}(2\pi f_{D}t) \leftrightarrow S_{D}(f)$.
+In presenza di questo effetto, il segnale ricevuto è $y(t) = \alpha(t) sin(2\pi f_{c}t)$ e $S_{y}(f) = S_{S}(f) \circledast S_{D}(f) = S_{D}(f-f_{c})$.
+
+Se impostiamo $A_{LS}=1$:
+- se il canale è flat, il segnale ricevuto sarà: $y(t) = \alpha(t) e^{j\phi(t)}s(t-\tau)$.
+- se il canale è selective, il segnale ricevuto sarà: $y(t) = \sum\limits_{l=0}\alpha_{l}e^{j\phi_{l}(t)}s(t-\tau_{l})$.
+Fortunatamente, il canale si può semplificare impostando un livello di cambiamento del segnale, se cambia troppo velocemente non posso semplificarlo. 
+Per fare ciò, bisogna calcolare il *coherence time* $T_{c}$ del canale tramite la funzione di autocorrelazione, che è una Vessel Function. 
+Se $J_{0}(2\pi x) \approx 0$ dato $x = \frac{1}{2}$ allora possiamo assumere $f_{D}T_{c} = \frac{1}{2} \Rightarrow T_{c} = \frac{1}{2f_{D}}$.
+In termini di distanza possiamo scrivere $d_{c} = \mathcal{v} \cdot T_{c}= \frac{1}{2}\mathcal{v}\cdot \frac{c}{f_{c}\mathcal{v}} = \frac{\lambda}{2}$.
+
