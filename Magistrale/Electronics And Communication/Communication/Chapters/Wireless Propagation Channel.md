@@ -127,7 +127,7 @@ Grafico variazione BER sulle slide.
 
 ## BER per 2-PAM in un canale flat
 
-Calcoliamo la probabilità di errore per un canale flat di una 2-PAM.
+Calcoliamo la probabilità di errore per un canale flat di una 2-PAM. Dal grafico si osserva che è una linea dritta e vogliamo capire perché.
 
 Il segnale di arrivo è il seguente: $x(m) = \alpha \cdot a_{m}+n(m)$ ma per motivi di notazione possiamo trascurare il timing, quindi possiamo scrivere: $x = \alpha \cdot a + n$ con $n$ e $\alpha$ variabili aleatorie  $\alpha \in \{-1,+1\}$ (distribuita di Rayleigh) e $n \in \mathcal{N}(0,N_{0})$.
 
@@ -143,6 +143,22 @@ P_{e}|_{a=-1,\alpha} &= Q\left(\frac{\alpha}{\sqrt{N_{0}}}\right) =\\[4pt]
 &= Q\left(\alpha\cdot \sqrt{\frac{2E_{s}}{N_{0}}}\right)
 \end{align*}
 $$
-Perché siamo in una 2-PAM quindi $2E_{s}=1$.
-
-
+Perché siamo in una 2-PAM quindi $E_{s}= \frac{A}{2}= \frac{1}{2}\Rightarrow 2E_{s} = 1$.
+Lo stesso vale anche per $P_{e}|_{a=1,\alpha} = Q\left(\alpha\cdot \sqrt{\frac{2E_{s}}{N_{0}}}\right)$.
+Sostituiamo nella formula iniziale: $$P(e|a) = \frac{1}{2} \cdot Q\left(\alpha \cdot \sqrt{\frac{2E_{s}}{N_{0}}}\right)$$
+Per trovare la probabilità di errore basta integrare:
+$$
+\begin{align*}
+P(e) &= \int_{0}^{+\infty}P(e|\alpha)\cdot p(\alpha) d\alpha =\\[4pt]
+&= \int_{0}^{+\infty}2\alpha e^{-\alpha^{2}}Q\left(\alpha \cdot \sqrt{\frac{2E_{s}}{N_{0}}}\right) d\alpha
+\end{align*}
+$$
+Ci basta tra zero e infinito perché la distribuzione è di Rayleigh ed è quindi sempre positiva. 
+La potenza del small scale fading dipende dal path loss e normalizziamo la potenza per fare in modo che sia uguale ad 1: $$E\{\alpha^{2}\} = E\{(\sqrt{h_{R}^{2}+ h_{I}^{2}})^{2}\} = E\{h_{R}^{2}+h_{I}^{2}\} = E\{h_{R}^{2}\} +E\{h_{I}^{2}\} = 2E\{h_{R}^{2}\} = 2\sigma^{2} = 1$$perché sono indipendenti. Inoltre, $\alpha = ||h||$ dove $h\in C(0,2\sigma^{2}\}$. Dovrò quindi scegliere $\sigma^{2} = \frac{1}{2}$ per far in modo che il valor medio sia uguale ad 1.
+Posso quindi scrivere $p(\alpha) = 2\alpha e^{-\alpha^{2}}$ e sostituirlo nell'integrale.
+Questo integrale si risolve per parti $\int_{a}^{b}f'(x)g(x) = f(x)g(x)|_{a}^{b}-\int_{a}^{b}f(x)g'(x) dx$:
+- $f(x) = -e^{-\alpha^{2}}$
+- $f'(x) = 2\alpha e^{-\alpha^{2}}$
+- $g(x) = Q\left(\alpha \cdot \sqrt{\frac{2E_{s}}{N_{0}}}\right)$
+Dobbiamo calcolare la derivata della Q-function, essa per definizione è pari a:
+$$Q(x) = \frac{1}{2\pi}\int_{x}^{+\infty}e^{\frac{-t^{2}}{2}}dt = \frac{1}{2\pi}\left[1-\int_{-\infty}^{x} e^{\frac{-t^{2}}{2}}dt\right]$$
