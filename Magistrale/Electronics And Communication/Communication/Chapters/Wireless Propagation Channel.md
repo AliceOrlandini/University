@@ -162,3 +162,27 @@ Questo integrale si risolve per parti $\int_{a}^{b}f'(x)g(x) = f(x)g(x)|_{a}^{b}
 - $g(x) = Q\left(\alpha \cdot \sqrt{\frac{2E_{s}}{N_{0}}}\right)$
 Dobbiamo calcolare la derivata della Q-function, essa per definizione è pari a:
 $$Q(x) = \frac{1}{2\pi}\int_{x}^{+\infty}e^{\frac{-t^{2}}{2}}dt = \frac{1}{2\pi}\left[1-\int_{-\infty}^{x} e^{\frac{-t^{2}}{2}}dt\right]$$
+da cui si ricava che: $$\frac{\partial Q(x)}{\partial x} = \frac{-1}{2\pi}e^{\frac{-x^{2}}{2}}$$
+Quindi, indicando con $\mu = \sqrt{\frac{2E_{2}}{N_{0}}}$: 
+$$g'(\alpha) = \frac{\partial}{\partial\alpha}Q\left(\alpha \cdot \sqrt{\frac{2E_{s}}{N_{0}}}\right) = \frac{\partial}{\partial\alpha}Q(\alpha\mu) = -\frac{1}{\sqrt{2\pi}}e^{-\frac{\alpha^{2}\mu^{2}}{2}}\cdot \mu$$
+
+Torniamo quindi all'integrale iniziale:
+$$
+\begin{align*}
+P(e) &= -e^{-\alpha^{2}}Q(\alpha\mu)|_{0}^{+\infty}-\int_{0}^{+\infty}(-e^{-\alpha^{2}})\left(-\frac{\mu}{\sqrt{2\pi}}e^{-\frac{\alpha^{2}\mu^{2}}{2}}\right) d\alpha=\\[4pt]
+&= \frac{\frac{1}{2}-\mu}{\sqrt{2\pi}}\int_{0}^{+\infty}e^{-\frac{\alpha^{2}(2+\mu^{2})}{2}} d\alpha
+\end{align*}
+$$
+ora integriamo per sostituzione $\beta = \alpha\sqrt{(2+\mu^{2})}$ da cui $d\alpha = \frac{1}{\sqrt{2+\mu^{2}}}d\beta$:
+$$
+\begin{align*}
+P(e) &= \frac{1}{2}-\frac{\mu}{\sqrt{2+\mu^{2}}} \int_{0}^{+\infty}e^{\frac{-\beta^{2}}{2}}d\beta = \\
+&= \frac{1}{2}\left(1-\frac{\mu}{\sqrt{2+\mu^{2}}}\right)
+\end{align*}
+$$
+In questa forma ancora non si capisce la forma della curva quindi sostituiamo di nuovo $\mu = \sqrt{\frac{2E_{s}}{N_{0}}}$:
+$$
+P(e) = \frac{1}{2}\left(1-\sqrt{\frac{\frac{E_{s}}{N_{0}}}{1-\frac{E_{s}}{N_{0}}}}\right)
+$$
+e quando $x$ è grande si ha $\sqrt\frac{x}{1+x}\approx 1-\frac{1}{2x}$ (per Taylor, questa è l'unica approssimazione fatta) per cui per valori grandi di SNR la probabilità di errore può essere approssimata come: $$P(e) \approx \frac{1}{4\frac{E_{s}}{N_{0}}}$$
+E in decibel ha un andamento lineare decrescente: $$10log_{10}\left(\frac{1}{4\frac{E_{s}}{N_{0}}}\right) = -10log_{10}4-10log_{10}\frac{E_{s}}{N_{0}} = -6 -\left(\frac{E_{s}}{N_{0}}\right)_{db}$$
