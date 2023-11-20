@@ -55,4 +55,16 @@ Visto che $H$ è una matrice diagonale allora non c’è l’ISI perché non c�
 
 Schema a blocchi sulle slide. 
 
-Possiamo dimenticare tranquillamente PAM & co ma resta valida la mappa di Gray e tutto ciò che si è detto sui simboli. 
+Possiamo dimenticare tranquillamente PAM & co ma resta valida la mappa di Gray e tutto ciò che si è detto sui simboli e sul decisore.
+Il vettore di simboli viene creato in frequenza e poi si converte nel tempo.
+
+$Y(n) = H(n)S(n) +N(n)$ non ha interferenza intersimbolica. 
+$NT$ è il trasmission rate del vettore, trasmetto $N$ simboli ogni $NT$ secondi. Il vantaggio è nel delay $T > \sigma_{\tau}$ quindi l’ISI si riduce.
+on the receiver side, can we use replicas for checking errors? 
+CALIFFO
+
+# OFDM interpretation
+
+formule e grafici sulle slide.
+
+La banda del singolo segnale sarà $\Delta f = \frac{B_{s}}{N}$.
