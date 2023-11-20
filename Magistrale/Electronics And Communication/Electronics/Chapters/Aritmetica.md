@@ -29,4 +29,10 @@ Schema a blocchi sulle slide.
 - 3 N-bit shift register
 - 1 D Flip Flop positive edge triggered
 - Memoria per salvare $a$, $b$ e $s_{i}$ per un totale di 3N celle di memoria
-L’addizione verrà effettuata in N cicli di clock.
+L’addizione verrà effettuata in N cicli di clock, $t_{tot}= N\cdot T_{clock}$ con $T_{clock} \ge t_{cq}+t_{c}+t_{su}$.
+Se utilizziamo soluzioni parallele andiamo ad aumentare la velocità al costo di aumentare il numero di full adder. 
+Un esempio di questa architettura è il ripple carry adder. 
+Schema a blocchi sulle slide.
+Un altro vantaggio di questo approccio è la modularità. Inoltre $T_{tot}= N\cdot T_{c}$ con $T_{c}$ il caso peggiore di propagation delay per un full adder 1-bit. 
+
+Esiste un’altra soluzione che sfrutta la proprietà di inversione. In questo caso si riduce il critical path perché metto meno inverter ma si lasciano $s$ e $c_{o}$ negate. 
