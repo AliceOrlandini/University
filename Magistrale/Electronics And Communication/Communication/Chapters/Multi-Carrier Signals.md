@@ -27,4 +27,32 @@ Quando: $k=0 \Rightarrow y(0) = h(0)s(0)+h(1)s(-1)+…+h(L-1)s(-L+1) = s(0)h(0)$
 $k=1 \Rightarrow y(1) = h(0)s(1)+h(1)s(0)+h(2)s(-1) + … = h(0)s(1) + h(1)s(0)$
 e così via…
 
-Troviamo una rappresentazione matriciale dell’operazione $y = \mathca$: (matrice sulle slide)
+Troviamo una rappresentazione matriciale dell’operazione $y = \mathcal{H}s$ che avrà $N\text{x}N$: (matrice sulle slide)
+Ogni diagonale avrà sempre lo stesso valore il valore di $h(k)$
+La matrice $\mathcal{H}$ è chiamata **Matrice di Toeplitz** e vogliamo renderla circolare (non ho capito perché) cycling extentions. 
+
+Ricordiamoci che stiamo inviando un vettore di $N$ samples quindi posso prendere gli ultimi sample $N_{cp}$ e appenderlo in testa al vettore dei samples in modo da avere un nuovo vettore $\overline{s}$ di lunghezza $N+N_{cp}$. In questo vettore, l’elemento $\overline{s}(-1) = s(N-1)$.
+Abbiamo quindi creato sample con indici negativi e possiamo riscrivere l’equazione come: 
+$$
+\begin{align*}
+y(0) &= h(0)\overline{s}(0)+h(1)\overline{s}(-1)+…+h(L-1)\overline{s}(-L+1) =\\[4pt]
+&= h(0)s(0)+h(1)s(N-1)+…+h(L-1)s(N-L+1)
+\end{align*}$$
+
+Quindi ora la matrice $\overline{\mathcal{H}}$, che è ancora di **Toeplitz**, non ha più gli zeri nel triangolo superiore. Ogni riga della matrice può essere ottenuta da tutte le altre facendo uno shift circolare verticale. 
+Questa proprietà rende la matrice **Circulant**.
+
+Il prezzo da pagare è la banda e l’energia occupata per trasmettere più volte lo stesso sample.
+
+La matrice può essere diagonalizzata come $\overline{\mathcal{H}} = F^{H}HF$ con $F$ unitaria con e normalizzata di Fourier e $H$ una matrice diagolane.
+Se una matrice è unitaria allora $A^{H}A = AA^{H} = I$ e quindi $A^{-1}=A^{H}$.
+Discrete Fourier Transform: $[F]_{k,n} = \frac{1}{\sqrt{N}}e^{-\frac{j2\pi kn}{N}}$
+
+Vediamo perché questa proprietà è importante.
+Definiamo $Y = Fy$ e $S = Fs$. 
+Sviluppando si ottiene $Y = Fy = F\overline{\mathcal{H}}s = FF^{H}HFs = HS$
+Visto che $H$ è una matrice diagonale allora non c’è l’ISI perché non c’è più quel termine a sommare. Ecco perché è così potente, risolve il problema principale del canale di comunicazione pagando il costo di energia e banda occupata.
+
+Schema a blocchi sulle slide. 
+
+Possiamo dimenticare tranquillamente PAM & co ma resta valida la mappa di Gray e tutto ciò che si è detto sui simboli. 
