@@ -11,12 +11,8 @@
             "id": "a74a538a898a3ff8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -113,9 +107,7 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md"
-          }
+          "state": {}
         }
       },
       {
@@ -143,8 +135,8 @@
   },
   "active": "a74a538a898a3ff8",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
