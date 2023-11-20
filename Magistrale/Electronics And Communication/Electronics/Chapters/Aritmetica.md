@@ -30,9 +30,34 @@ Schema a blocchi sulle slide.
 - 1 D Flip Flop positive edge triggered
 - Memoria per salvare $a$, $b$ e $s_{i}$ per un totale di 3N celle di memoria
 L’addizione verrà effettuata in N cicli di clock, $t_{tot}= N\cdot T_{clock}$ con $T_{clock} \ge t_{cq}+t_{c}+t_{su}$.
+
+# Parallel Adder
+
 Se utilizziamo soluzioni parallele andiamo ad aumentare la velocità al costo di aumentare il numero di full adder. 
 Un esempio di questa architettura è il ripple carry adder. 
 Schema a blocchi sulle slide.
 Un altro vantaggio di questo approccio è la modularità. Inoltre $T_{tot}= N\cdot T_{c}$ con $T_{c}$ il caso peggiore di propagation delay per un full adder 1-bit. 
 
 Esiste un’altra soluzione che sfrutta la proprietà di inversione. In questo caso si riduce il critical path perché metto meno inverter ma si lasciano $s$ e $c_{o}$ negate. 
+
+Un’altra configurazione è quella del carry look ahead adder. 
+Ha il vantaggio di avere solo 3 livelli di logica per il 64-bit full adder che lo rende molto veloce. Il limite è la fan-in all’aumentare dei $c_{i}$ quindi generalmente ci si ferma a $i=3$.
+Se volessi fare un full adder con $i>3$ posso usare l’approccio del ripple carry, che in questo caso viene chiamato CLA4 ripple carry. Oppure abbiamo la soluzione CLA Gerarchica. 
+
+Tabella riassuntiva sulle slide (comparison for N=64)
+# Pipeline
+
+Per andare ancora più veloci si utilizza la **pipeline**. 
+Schema sulle slide. 
+Il concetto di pipeline consiste nel dividere il critical path ponendo un registro. In totale si perdono 2 cicli di clock perché dobbiamo aggiungere 3 registri (disegno sulle slide).
+*cancella tutto ciò che c’è nella slide* Fanu: “OH CAZZO”.
+I parametri da valutare sono il throughput e la latenza, se si aumenta il primo aumenterà di un pochino anche il secondo (è un trade off).
+Inoltre aumenta l’hardware complexity. 
+
+# Sottrattore
+
+In complemento a 2 
+
+
+
+
