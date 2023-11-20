@@ -11,8 +11,12 @@
             "id": "a74a538a898a3ff8",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -107,7 +113,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md"
+          }
         }
       },
       {
@@ -135,6 +143,8 @@
   },
   "active": "a74a538a898a3ff8",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
@@ -144,7 +154,6 @@
     "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "TODO.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
@@ -160,7 +169,6 @@
     "/Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "/Magistrale/Performance Evaluation/Laboratory/Table Of Contents.md",
     "/Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
-    "/Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
     "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
