@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md"
+                "file": "Magistrale/Large Scale Databases/Chapters/MongoDB.md"
               }
             }
           },
@@ -159,6 +159,8 @@
   },
   "active": "de3a16eb0006bdd4",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
+    "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
@@ -183,8 +185,6 @@
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Communication/Domande Esame.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Performance Evaluation/Laboratory/Images/Azioni Simulatore.png",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
