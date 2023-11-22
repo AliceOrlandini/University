@@ -506,3 +506,34 @@ char source = tempMsg->getSource();
 ...  
 delete tempMsg; // ricordarselo perché i messaggi vengono allocati nello heap
 ```
+
+# Using Multiple RNG instances
+
+Ipotizziamo di voler effettuare 4 differenti esperimenti con le stesse configurazioni ma con seed diversi eseguiti due volte ciascuno.
+Di default omnet usa come parametro per il seed: 
+```c++
+seed-set = ${runnumber}
+```
+cioè un seed diverso per ogni esecuzione. 
+Ma noi vogliamo comparare scenari differenti con gli stessi seed, per fare ciò possiamo scrivere: 
+```c++
+seed-set = ${repetition}
+```
+
+OMNet usa dei *physical RNGs* ma ogni modulo ha il proprio *local RNG*. Il modulo userà il locale ma è una sorta di puntatore all'RNG fisico tramite la mappatura.
+Per creare gli RNGs fisici bisogna scrivere nell'INI file:
+```c++
+numRngs = 2
+**.node.rng-0 = 0 
+**.node.rng-1 = 1
+```
+e poi quando vogliamo scegliere quale RNG fisico utilizzare scriveremo:
+```c++
+size = uniform(s0, s1, 0);  
+nextPacketTime = exponential(1/lambda, 1);
+```
+
+# Debugging
+
+Per quanto riguarda il debugging, l'errore che dovremo gestire di più è il segmentation fault. 
+
