@@ -536,4 +536,5 @@ nextPacketTime = exponential(1/lambda, 1);
 # Debugging
 
 Per quanto riguarda il debugging, l'errore che dovremo gestire di più è il segmentation fault. 
+Vogliamo inoltre che il codice sia efficiente oltre che corretto, per fare ciò possiamo usare *Valgrind* e *Callgrind*.
 
