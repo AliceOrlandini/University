@@ -61,10 +61,30 @@ Il vettore di simboli viene creato in frequenza e poi si converte nel tempo.
 $Y(n) = H(n)S(n) +N(n)$ non ha interferenza intersimbolica. 
 $NT$ è il trasmission rate del vettore, trasmetto $N$ simboli ogni $NT$ secondi. Il vantaggio è nel delay $T > \sigma_{\tau}$ quindi l’ISI si riduce.
 on the receiver side, can we use replicas for checking errors? 
-CALIFFO
 
 # OFDM interpretation
 
 formule e grafici sulle slide.
 
 La banda del singolo segnale sarà $\Delta f = \frac{B_{s}}{N}$.
+Lo chiede all'esame.
+Nel dominio del tempo, i samples del segnale sono: $$s = F^{H}S$$
+generato tramite il CP insertion. 
+Il sample $k$-esimo sarà: $$s(k) = \frac{1}{\sqrt{N}}\sum\limits_{n=0}^{N-1}S(n)e^{j2\pi n \frac{k}{N}} = \frac{1}{\sqrt{N}}\sum\limits_{n=0}^{N-1} S_{n}(k)$$
+$B_{s}$ è la banda occupata dal segnale OFDM e si approssima con $B_{S}\approx \frac{1}{T_{s}}$ per cui $B_{s}\cdot T_{s} = 1$. Quindi, sostituendo nella formula posso scrivere: 
+$$
+\begin{align*}
+s_{n}(k) &= S(n)e^{\frac{j2\pi nk}{N}} =\\
+&= 
+\end{align*}
+$$
+Grafico di cosa si vede nel tempo. 
+
+Quando facciamo il *cycling prefix* si prende la prima parte e la si ritrasmette. In frequenza questa aggiunta non inficia sulla periodicità del segnale perché rimane una sinusoide. 
+
+Quando il segnale si propaga nel canale avremo: $$y(k) = \sum\limits_{l=0}^{L-1}h(l)\cdot s(k-l) = \frac{1}{\sqrt{N}}\sum\limits Y_{n}(k)$$proprio perché essendo il canale lineare tempo invariante non cambia la frequenza. 
+Formule su one note.
+
+$k-l$ $= \sum\limits_{l=0}^{L-1}h(l)e^{\frac{j2\pi (k-l)}{N}}$ all'esponente possiamo scriverlo perché stiamo applicando un ciclo quindi non sarà mai negativo perché se $k-l$ fosse negativo e non ci fosse cycling prefix allora: $$y^{b}_{n}(k) = \sum\limits_{l=0}^{k}h(l)S^{b}(n)e^{j2\pi \frac{k-l}{N}}+\sum\limits_{l=k+1}^{L-1} h(l)S^{(b-1)}(n)e^{j2\pi \frac{k-l}{N}}$$perché è come se fossero due blocchi uniti. Questa è la motivazione per cui OFDM è ortogonale. 
+Io davvero non sto capendo nulla, quando parte con le formule non gli sto dietro. 
+
