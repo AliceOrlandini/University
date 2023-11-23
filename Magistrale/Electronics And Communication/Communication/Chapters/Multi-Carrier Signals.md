@@ -117,6 +117,12 @@ $N = 64$, se si fanno i calcoli si ottiene $\Delta f = \frac{20\cdot 10^{6}}{64}
 
 12 sono null subcarriers. vanno sacrificate per un motivo che non ho capito. oggi non è giornata via. 
 
+domande varie sulle percentuali. 
+calcolo del data rate: $R = B\cdot n$, in una Q-PAM $n=4$ e $R = 48$ Mb/s.
+
+## Error Probability of OFDM
+
+È uguale a quella della PAM.
 
 
 
