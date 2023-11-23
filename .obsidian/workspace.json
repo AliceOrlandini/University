@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "7a8e82833bdeeaaa",
+        "id": "4a99aa3cfc7ff78d",
         "type": "tabs",
         "children": [
           {
-            "id": "de3a16eb0006bdd4",
+            "id": "6017262088a46d17",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -86,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +98,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,9 +119,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md"
-              }
+              "state": {}
             }
           },
           {
@@ -158,12 +150,12 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "6017262088a46d17",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
     "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
-    "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
