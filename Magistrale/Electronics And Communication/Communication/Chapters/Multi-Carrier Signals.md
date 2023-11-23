@@ -67,7 +67,7 @@ on the receiver side, can we use replicas for checking errors?
 formule e grafici sulle slide.
 
 La banda del singolo segnale sarà $\Delta f = \frac{B_{s}}{N}$.
-Lo chiede all'esame.
+23/11
 Nel dominio del tempo, i samples del segnale sono: $$s = F^{H}S$$
 generato tramite il CP insertion. 
 Il sample $k$-esimo sarà: $$s(k) = \frac{1}{\sqrt{N}}\sum\limits_{n=0}^{N-1}S(n)e^{j2\pi n \frac{k}{N}} = \frac{1}{\sqrt{N}}\sum\limits_{n=0}^{N-1} S_{n}(k)$$
@@ -87,4 +87,38 @@ Formule su one note.
 
 $k-l$ $= \sum\limits_{l=0}^{L-1}h(l)e^{\frac{j2\pi (k-l)}{N}}$ all'esponente possiamo scriverlo perché stiamo applicando un ciclo quindi non sarà mai negativo perché se $k-l$ fosse negativo e non ci fosse cycling prefix allora: $$y^{b}_{n}(k) = \sum\limits_{l=0}^{k}h(l)S^{b}(n)e^{j2\pi \frac{k-l}{N}}+\sum\limits_{l=k+1}^{L-1} h(l)S^{(b-1)}(n)e^{j2\pi \frac{k-l}{N}}$$perché è come se fossero due blocchi uniti. Questa è la motivazione per cui OFDM è ortogonale. 
 Io davvero non sto capendo nulla, quando parte con le formule non gli sto dietro. 
+
+Altre proprietà:
+$$
+\begin{align*}
+y_{n}(k) &= \sum\limits_{l=0}^{L-1}h(l)S(n)e^{j2\pi n \frac{k-l}{N}} =\\
+&= \sum\limits_{l=0}^{L-1}h(l)S(n)e^{j2\pi n \frac{k}{N}}e^{-j2\pi n \frac{l}{N}} =\\
+&= e^{j2\pi n \frac{k}{N}} \sum\limits_{l=0}^{L-1}h(l)S(n)e^{-j2\pi n \frac{l}{N}}???
+\end{align*} 
+$$
+
+Relazione tra il sampling time e la bandwidth.
+$T = NT_{s}$
+Per essere precisi nel campionamento bisogna che sia:
+$s_{n}(t) = S(n)e^{j2\pi n \Delta f t} rect(\frac{t}{NT_{s}})$
+è un processo stocastico perché $S(n)$ è una VA, poi c'è un prodotto quindi una convoluzione e infine l'esponenziale è una delta e la rect una sinc. Quindi il risultato è una sinc shiftata nel tempo: 
+$S_{s_{n}} = A sinc^{2}((f-n\Delta f)NT_{s})(NT_{s})^{2}$
+tutte le sinc delle repliche sono ortogonali quindi per ogni campionamento la sinc sarà zero (perché sono tutte sovrapposte)
+La distanza tra due repliche sarà $\Delta f$ quindi la banda può essere approssimata sapendo che: boh non ho capito, ha fatto tutto un discorso e poi ha concluso che è pari a $B_{OFDM}\approx N\cdot \frac{1}{NT_{s}} = \frac{1}{T_{s}}$.
+Da questa si ricava anche che $B_{s}= 1$. (?)
+
+$T_{s}$ in OFDM system is $T$ in PAM system. (invio dei simboli)
+
+## WiFi - IEEE 802.11
+
+Lo chiede all'esame.
+In questo WiFi si ha $B_{s} = 20$ MHz con $f_{c}= 2.4\cdot 10^{3}$ Hz oppure $f_{c}= 5\cdot 10^{3}$ Hz.
+$N = 64$, se si fanno i calcoli si ottiene $\Delta f = \frac{20\cdot 10^{6}}{64} = 312.5\cdot 10^{3}$ Hz.
+
+12 sono null subcarriers. vanno sacrificate per un motivo che non ho capito. oggi non è giornata via. 
+
+
+
+
+
 
