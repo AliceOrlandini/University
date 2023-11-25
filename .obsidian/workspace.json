@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "4a99aa3cfc7ff78d",
+        "id": "866f5be1f5f5e60b",
         "type": "tabs",
         "children": [
           {
-            "id": "6017262088a46d17",
+            "id": "c5202fae124b96ca",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md"
               }
             }
           },
@@ -157,8 +157,16 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "6017262088a46d17",
+  "active": "c5202fae124b96ca",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+    "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
+    "Magistrale/Electronics And Communication/Electronics/Project/circuito_progetto.webp",
+    "TODO.md",
+    "SpuntiTesi.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
+    "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
     "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
@@ -171,20 +179,14 @@
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
-    "TODO.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
-    "SpuntiTesi.md",
     "Magistrale/Large Scale Databases/Chapters/Column Databases.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Performance Evaluation/Teory/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "conflict-files-obsidian-git.md",
-    "Untitled.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
     "Magistrale/Performance Evaluation/Laboratory/Images/Azioni Simulatore.png",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
@@ -195,7 +197,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images/pmos.png",
     "Magistrale/Electronics And Communication/Electronics/Images/nmos.png",
     "Magistrale/Electronics And Communication/Electronics/Images/nmos R.png",
-    "Magistrale/Electronics And Communication/Electronics/Images/mosfet.png",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Teory/Images",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images",
@@ -205,7 +206,6 @@
     "Magistrale/Large Scale Databases/Chapters",
     "Magistrale/Electronics And Communication",
     "Magistrale/Large Scale Databases",
-    "Magistrale/Performance Evaluation",
     "Grafo.canvas"
   ]
 }
