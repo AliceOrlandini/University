@@ -33,4 +33,3 @@ L'implementazione può essere realizzata con una struttura di tipo pipeline, dov
 [Progetto Studente UniPi](https://github.com/brunocasu/uart-receiver-circuit/tree/master)
 [FIR SRRC 1](https://github.com/BBN-Q/VHDL-FIR-filters/tree/master)
 [FIR SRRC 2](https://github.com/paulrox/SRRC_FIR/tree/master)
-
