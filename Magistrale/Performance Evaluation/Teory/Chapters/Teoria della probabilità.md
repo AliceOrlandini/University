@@ -456,7 +456,7 @@ $F(\omega) = 1- e^{-w^2}$ per $\omega > 0$ e pari a zero per $\omega$ negativi.
 
 Calcolare $P\{X > 1\}$:
 per risolvere questo esercizio bisogna prima di tutto disegnare la funzione e assicurarsi che rispetti le proprietà di una CDF.
-Poi, notiamo che $P\{ X > 1 \} = 1 - P{ X \le 1 \} = 1 - F(1) = 1 - (1 - e^{-1}) = \frac{1}{e}$.
+Poi, notiamo che $P\{ X > 1 \} = 1 - P\{ X \le 1 \} = 1 - F(1) = 1 - (1 - e^{-1}) = \frac{1}{e}$.
 
 Calcolare $P\{ 1 < X \le 2 \}$:
 si nota che: $P\{ X \le 2 \} = P\{X \le 1 \} + P\{1 < X \le 2 \}$
@@ -723,7 +723,7 @@ I suoi  parametri sono:
 E[X] &= \sum\limits_{i=0}^{+\infty} i \cdot \left(e^{-\lambda}\cdot \frac{\lambda^{i}}{i!}\right)=\\
 &= e^{-\lambda} \cdot \lambda \sum\limits_{i=1}^{+\infty} \not{i} \left(\frac{\lambda^{i-1}}{\not{i}\cdot (i-1)!}\right)=\\
 &= e^{-\lambda}\cdot \lambda \sum\limits_{i=1}^{+\infty} \left(\frac{\lambda^{i}}{i!}\right)=\\
-&= e^{-\lambda}\cdot \lambda e^{\lambda}= \\
+&= e^{-\lambda}\cdot \lambda e^{\lambda}= \\[4pt]
 &= \lambda
 \end{align*}
 $$
@@ -843,17 +843,17 @@ Calcoliamo le PGF delle distribuzioni che abbiamo visto:
 	$G(z) = \sum\limits_{i=0}^{n} (1-p)^{i}\cdot p \cdot z^{i} = \frac{p}{1-z\cdot (1-p)}$
 
 Per la distribuzione di Poisson, il calcolo della varianza si semplifica notevolmente:
-$G(z) = e^{-\lambda +\lambda z}$
-$G^{'}(z) = \lambda \cdot e^{-\lambda}\cdot e^{\lambda z}$ da cui $G^{'}(1) = \lambda$ che è il valor medio
-$G^{''}(z) = \lambda^{2} \cdot e^{-\lambda}\cdot e^{\lambda z}$ da cui $G^{'}(1) = \lambda^{2}$
+- $G(z) = e^{-\lambda +\lambda z}$
+- $G^{'}(z) = \lambda \cdot e^{-\lambda}\cdot e^{\lambda z}$ da cui $G^{'}(1) = \lambda$ che è il valor medio
+- $G^{''}(z) = \lambda^{2} \cdot e^{-\lambda}\cdot e^{\lambda z}$ da cui $G^{'}(1) = \lambda^{2}$
 da cui: $\sigma^{2} = G^{''}(1)+G^{'}(1) -G^{'}(z)^{2} = \lambda^{2}+\lambda -\lambda^{2} = \lambda$
 
 Per la distribuzione Geometrica, troviamo la varianza che non avevamo dimostrato:
-$G(z) = \frac{p}{1-z\cdot (1-p)}$
+- $G(z) = \frac{p}{1-z\cdot (1-p)}$
 
-$G^{'}(z) = \frac{p\cdot (1-p)}{[1-z\cdot (1-p)]^{2}}$ da cui $G^{'}(1) = \frac{1-p}{p}$ che è il valor medio
+- $G^{'}(z) = \frac{p\cdot (1-p)}{[1-z\cdot (1-p)]^{2}}$ da cui $G^{'}(1) = \frac{1-p}{p}$ che è il valor medio
 
-$G^{''}(z) = \frac{2\cdot p \cdot (1-p)^{2}}{[1-z\cdot (1-p)]^{3}}$ da cui $G^{''}(1) = \frac{2\cdot (1-p)^{2}}{p^{2}}$
+- $G^{''}(z) = \frac{2\cdot p \cdot (1-p)^{2}}{[1-z\cdot (1-p)]^{3}}$ da cui $G^{''}(1) = \frac{2\cdot (1-p)^{2}}{p^{2}}$
 
 da cui: $\sigma^{2} = G^{''}(1)+G^{'}(1) -G^{'}(z)^{2} = \frac{1-p}{p^{2}}$
 ## Distribuzioni Continue

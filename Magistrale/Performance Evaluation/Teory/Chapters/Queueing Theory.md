@@ -59,8 +59,54 @@ Concentriamoci su uno stato $n > 0$ e fissiamo il tempo $t$.
 >[!note] Probabilità di trovare $n$ jobs nel sistema
 >Chiamiamo $p_{n}(t)$ la probabilità che ci siano $n$ jobs nel sistema al tempo $t$, ovvero $$p_{n}(t) = P\{N(t) = n\}$$
 
-Possiamo scrivere quindi la **Probability Flow-Balance Equation** semplicemente guardando il CTCM:
+Possiamo scrivere quindi la **Probability Flow-Balance Equation** (funzione di come la probabilità di trovarsi in un certo stato cambia nel tempo) semplicemente guardando il CTCM:
 ![[ctmc_equation.webp|center|600]]
 
+$$
+\begin{equation}
+\begin{cases} \frac{d}{dt}p_{n}(t) = -(\lambda_{n}+\mu_{n})\cdot p_{n}(t) + \mu_{n+1}\cdot p_{n+1}(t) + \lambda_{n-1}\cdot p_{n-1}(t) & n > 0 \\[4pt]
+\frac{d}{dt}p_{0}(t) = -\lambda_{0}p_{0}(t)+\mu_{1}\cdot p_{1}(t) & n = 0\end{cases}
+\end{equation}
+$$
+Per ricavarle bisogna fare il seguente ragionamento: probabilità di entrare nello stato $n$meno la probabilità di uscire (quindi flusso entrante meno quello uscente).
+In questo modo $\lambda_{n}$ può essere visto come il *transition rate* dallo stato $n$ a quello $n+1$ e $\mu_{n}$ il *transition rate* dallo stato $n$ all'$n-1$.
+Queste equazioni si chiamano **Chapman-Kolmogorov's equations**.
+Questa tipologia di sistema di equazioni differenziali può essere risolto solo se si specificano le *condizioni iniziali* date da una PMF per lo stato al tempo zero, ovvero $p_{n}(0)$ $\forall n$ tali che $\sum\limits_{n=0}^{+\infty}p_{n}(0) = 1$.
+Generalmente le condizioni iniziali sono quelle del sistema inizialmente vuoto: 
+- $p_{0}(0) = 1$
+- $p_{n}(0) = 0$ per $n > 0$
 
+### Birth-only process
 
+In questo caso particolare si ha $\mu_{n} = 0$ $\forall n$, e nel caso più semplice in cui $\lambda_{n}= \lambda$ le equazioni CK diventano:
+$$
+\begin{equation}
+\begin{cases} \frac{d}{dt}p_{n}(t) = -\lambda\cdot p_{n}(t)+\lambda\cdot p_{n-1}(t) & n > 0 \\[4pt]
+\frac{d}{dt}p_{0}(t) = -\lambda\cdot p_{0}(t) & n = 0\end{cases}
+\end{equation}
+$$
+Assumendo le condizioni iniziali del sistema inizialmente vuoto possiamo risolvere l'equazione facilmente, infatti:
+- $n=0$: 
+	$\frac{d}{dt}p_{0}(t) = -\lambda\cdot p_{0}(t)$ ammette come soluzione $p_{0}(t) = k\cdot e^{-\lambda t}$ in cui $k=1$ per la condizione iniziale, quindi $p_{0}(t) = e^{-\lambda t}$.
+- $n=1$: 
+	$\frac{d}{dt}p_{1}(t) = -\lambda\cdot p_{1}(t)+\lambda\cdot p_{0}(t) = -\lambda \cdot p_{1}(t) + \lambda\cdot e^{-\lambda t}$ la cui soluzione è $p_{1}(t) = \lambda t \cdot e^{-\lambda t}$.
+- $n>1$:
+	generalizzando le precedenti computazioni si ottiene $p_{n}(t) = \frac{(\lambda t)^{n}}{n!}\cdot e^{-\lambda t}$.
+
+Questa è una [[Teoria della probabilità#Distribuzione di Poisson|distribuzione di Poisson]] con media $\lambda t$. Questo è il motivo per cui normalmente chiamiamo "Poisson Processes" quei processi che hanno interarrival times esponenziali IID. 
+Inoltre, all'aumentare del tempo: $\lim_{t\rightarrow \infty}p_{n}(t) = 0$ $\forall n$ ovvero la probabilità di trovare un job nel sistema sarà zero. (da rivedere il perché)
+
+### Two-state Birth-Death process
+
+Questo modello utilizza una coda con un solo slot quindi se il sistema è nello stato 1 e arriva un nuovo job, quest'ultimo verrà scartato.
+Quindi si ha $\lambda_{0}=\lambda$, $\lambda_{1}= 0$ e $\mu_{0}= 0$, $\mu_{1}= \mu$.
+
+![[two-state.webp|center|300]]
+
+Le equazioni di CK sono:
+$$
+\begin{equation}
+\begin{cases}  \\[4pt]
+\frac{d}{dt}p_{0}(t) = -\lambda\cdot p_{0}(t) & n = 0\end{cases}
+\end{equation}
+$$

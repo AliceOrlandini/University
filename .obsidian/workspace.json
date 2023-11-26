@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md"
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md"
               }
             }
           },
@@ -159,13 +159,14 @@
   },
   "active": "df0b6e4dc39051f9",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/two-state.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc_equation.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/state_diagram.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/single queue.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/single_queue_time.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Electronics And Communication/Electronics/Project/circuito_progetto.webp",
     "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
