@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md"
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md"
               }
             }
           },
@@ -159,8 +159,11 @@
   },
   "active": "df0b6e4dc39051f9",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/single queue.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc_equation.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/state_diagram.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/single queue.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/single_queue_time.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
@@ -193,9 +196,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Magistrale/Electronics And Communication/Communication/Images/Ricevitore FM.png",
-    "Magistrale/Electronics And Communication/Electronics/Images/IC Design Styles and Flows.png",
-    "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
-    "Magistrale/Electronics And Communication/Electronics/Images/pmos.png",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Teory/Images",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images",

@@ -38,4 +38,29 @@ Iniziamo a studiarne uno che ha:
 - Il service demands anch'esse esponenziali IID con rate $\lambda$.
 - La coda infinita con politica FCFS.
 Siamo interessati a calcolare la distribuzione del numero di job nel sistema.
-Notiamo che se tutti gli interarrival e service times sono esponenzialmente distribuiti allora $N(t)$ descrive completamente lo stato del processo, per cui, non c'è alcun bisogno di 
+Notiamo che se tutti gli interarrival e service times sono esponenzialmente distribuiti allora $N(t)$ descrive completamente lo stato del processo, per cui, non c'è alcun bisogno di sapere l'ultimo istante di arrivo/partenza nel passato visto che questa distribuzione è **memoryless**. Questo significa che la futura evoluzione del sistema può essere predetta conoscendo solo la $N(t)$.
+
+Facciamo un contro esempio, consideriamo un sistema in cui:
+- Gli arrivi sono esponenziali.
+- I service times sono costanti.
+In questo caso $N(t)$ non fornisce una caratterizzazione completa perché il futuro dipende dal passato. In questo caso è utile fare un diagramma di stato chiamato *transition-rate diagram* oppure **continuous time Markov chain (CTMC)**:
+
+![[state_diagram.webp|center|700]]
+
+Il cerchi rappresentano lo stato del sistema al tempo $t$ e gli archi le transizioni da uno stato all'altro. 
+Assumeremo sempre che $\lambda$ e $\mu$ siano *time-indipendent* ovvero che non cambino col tempo, potranno invece essere *state-dipendent* ovvero dipendenti dallo stato del sistema. Per questo motivo è utile usare la notazione $\lambda_{n}$ per indicare l'arrival rate quando il sistema contiene $n$ jobs e $\mu_{n}$ per lo stesso motivo.
+LA CTMC diventa così:
+
+![[ctmc.webp|center|700]]
+
+La probabilità di due eventi simultanei è trascurabile, per questo abbiamo un diagramma in cui gli archi raggiungono solo i propri vicini.
+
+Concentriamoci su uno stato $n > 0$ e fissiamo il tempo $t$. 
+>[!note] Probabilità di trovare $n$ jobs nel sistema
+>Chiamiamo $p_{n}(t)$ la probabilità che ci siano $n$ jobs nel sistema al tempo $t$, ovvero $$p_{n}(t) = P\{N(t) = n\}$$
+
+Possiamo scrivere quindi la **Probability Flow-Balance Equation** semplicemente guardando il CTCM:
+![[ctmc_equation.webp|center|600]]
+
+
+

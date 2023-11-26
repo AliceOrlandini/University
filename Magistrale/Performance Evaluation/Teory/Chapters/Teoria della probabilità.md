@@ -454,13 +454,13 @@ $F(\omega) = 1- e^{-w^2}$ per $\omega > 0$ e pari a zero per $\omega$ negativi.
 
 ![[CDF.png|center|400]]
 
-Calcolare P{X > 1}:
+Calcolare $P\{X > 1\}$:
 per risolvere questo esercizio bisogna prima di tutto disegnare la funzione e assicurarsi che rispetti le proprietà di una CDF.
-Poi, notiamo che P{ X > 1 } = 1 - P{ X $\le$ 1 } = 1 - F(1) = 1 - (1 - $e^{-1}$) = 1/e.
+Poi, notiamo che $P\{ X > 1 \} = 1 - P{ X \le 1 \} = 1 - F(1) = 1 - (1 - e^{-1}) = \frac{1}{e}$.
 
-Calcolare P{ 1 < X $\le$ 2 }:
-si nota che: P{ X $\le$ 2 } = P{X $\le$ 1 } + P{1 < X $\le$ 2 } 
-da cui si ricava che: P{1 < X $\le$ 2 } = F(2) - F(1) = 1/e - 1/$e^4$
+Calcolare $P\{ 1 < X \le 2 \}$:
+si nota che: $P\{ X \le 2 \} = P\{X \le 1 \} + P\{1 < X \le 2 \}$
+da cui si ricava che: $P\{1 < X \le 2 \} = F(2) - F(1) = \frac{1}{e} - \frac{1}{e^{4}}$
 ## Probability Mass Function
 
 > [!note] PMF
