@@ -1,0 +1,14 @@
+{
+  "idDefinitions": [
+    {
+      "name": "Global ID",
+      "currentIteration": 0,
+      "prefix": "GUID"
+    },
+    {
+      "prefix": "QT",
+      "currentIteration": 1,
+      "name": "Queueing theory"
+    }
+  ]
+}
