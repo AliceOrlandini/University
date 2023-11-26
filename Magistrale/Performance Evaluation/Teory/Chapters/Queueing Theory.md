@@ -106,7 +106,53 @@ Quindi si ha $\lambda_{0}=\lambda$, $\lambda_{1}= 0$ e $\mu_{0}= 0$, $\mu_{1}= \
 Le equazioni di CK sono:
 $$
 \begin{equation}
-\begin{cases}  \\[4pt]
-\frac{d}{dt}p_{0}(t) = -\lambda\cdot p_{0}(t) & n = 0\end{cases}
+\begin{cases} \frac{d}{dt}p_{1}(t) = -\mu_{1}\cdot p_{1}(t) + \lambda_{0}\cdot p_{0}(t) \\[4pt]
+\frac{d}{dt}p_{0}(t) = -\lambda_{0}\cdot p_{0}(t) + \mu_{1}\cdot p_{1}(t) \end{cases}
 \end{equation}
 $$
+Sommando le equazioni si ottiene: $$\frac{d}{dt}p_{1}(t) + \frac{d}{dt}p_{2}(t) = 0$$che significa che $p_{0}(t) + p_{1}(t) = \text{costante}$. con $\text{costante} = 1$ $\forall t$ per la *normalizzazione*.
+Per risolvere queste equazioni possiamo usare i metodi tradizionali ottenendo:
+$$
+\begin{equation}
+\begin{cases} p_{0}(t) = \frac{\mu}{\mu+\lambda}+\left[p_{0}(0)-\frac{\mu}{\mu+\lambda}\right]\cdot e^{-(\lambda + \mu)t} \\[4pt]
+p_{1}(t) = \frac{\lambda}{\mu+\lambda}+\left[p_{1}(0)-\frac{\lambda}{\mu+\lambda}\right]\cdot e^{-(\lambda + \mu)t} \end{cases}
+\end{equation}
+$$Queste espressioni dipendono dalle condizioni iniziali.
+Sappiamo che è sempre vero che $p_{0}(t) + p_{1}(t) = 1$ e se poniamo $t\rightarrow +\infty$ trovaimo:
+$$
+\begin{equation}
+\begin{cases} p_{0} \triangleq \lim_{t\rightarrow +\infty} p_{0}(t) = \frac{\mu}{\lambda + \mu} \\[4pt]
+p_{1} \triangleq \lim_{t\rightarrow +\infty} p_{1}(t) = \frac{\lambda}{\lambda + \mu} \end{cases}
+\end{equation}
+$$e ancora $p_{0}+p_{1}= 1$. 
+
+> [!danger] Stady State Probability
+> Chiamiamo $p_{0}$ e $p_{1}$ **Stady State Probabilities** poiché un sistema in questo stato *non dipende più dal tempo*.
+
+Invece, $p_{i}(t)$ viene chiamata **transient probability** che dipende dalle condizioni iniziali.
+Le stady state probabilities invece sono indipendenti dalle condizioni iniziali.
+Se per esempio, $p_{0}(0) = \frac{\mu}{\mu+\lambda}$ allora il sistema sarà stady state $\forall t$.
+
+Se siamo interessati solo al calcolo delle stady state probabilities allora c'è un modo più veloce di ottenerle che non include la risoluzione di equazioni differenziali. Infatti, nella definizione di stady state si ha che: $$\forall n, \frac{d}{dt}p_{n}(t) = 0$$poiché la probabilità non cambia nel tempo, la sua derivata sarà una costante. Quindi possiamo riscrivere le equazioni di CK in questo modo:
+$$
+\begin{equation}
+\begin{cases} 0 = -\mu\cdot p_{1}+ \lambda\cdot p_{0} \\[4pt]
+0 = -\lambda\cdot p_{0}+\mu\cdot p_{1} \end{cases}
+\end{equation}
+$$che è solo algebrico. Notiamo però che le due equazioni non sono indipendenti quindi possiamo cancellarne una ed applicare la normalizzazione, il sistema diventa quindi:
+$$
+\begin{equation}
+\begin{cases} 0 = -\mu\cdot p_{1}+ \lambda\cdot p_{0} \\[4pt]
+p_{0}+p_{1}= 1 \end{cases}
+\end{equation}
+$$
+Le cui soluzioni sono: 
+$$
+\begin{equation}
+\begin{cases} p_{0} = \frac{\mu}{\lambda + \mu} \\[4pt]
+p_{1}  = \frac{\lambda}{\lambda + \mu} \end{cases}
+\end{equation}
+$$come avevamo trovato precedentemente. 
+
+## Steady State analisi per sistemi Birth-Death
+
