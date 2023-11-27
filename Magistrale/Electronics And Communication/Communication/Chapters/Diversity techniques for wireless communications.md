@@ -23,4 +23,23 @@ Esistono due tipologie di codici: a **blocco** e **convoluzionali**.
 Nei codici a blocco vengono aggiunti $n-k$ bit di ridondanza (chiamati anche *parity bits*). Questi codici vengono rappresentati tramite un prodotto algebrico tra il vettore di bit in ingresso e una matrice che rappresenta il codice: $$d = uG$$
 Nell’error detection vogliamo riconoscere gli errori facendo la stessa operazione e vedendo il risultato.
 
-Uno dei codici 
+Uno dei codici a blocco più importanti è il controllo di parità con rate $R = \frac{7}{8}$ ovvero $k = 7$ e $n = 8$.
+Al ricevitore basta contare il numero di “uni” e se è dispari ho commesso errore. Se invece il risultato è pari potrei aver commesso comunque un errore. 
+
+Vediamo come questo può essere applicato alla diversity time trasmission. Vogliamo incrementare la diversity solo quando troviamo un errore (**ARQ**).
+$T_{ARQ}>T_{c}$ la seconda replica verrà ricevuto dopo il cohearence time per poi combinarli. 
+
+Dato un canale di comunicazione con banda $B$ allora la **capacità del canale** può essere calcolata come: $$C = B\cdot log_{2}(1+SNR) \text{ bit/s}$$In una trasmissione con rate $R \le C$ allora per ogni piccolo $\epsilon$ è possibile trovare un codice tale che $P_{e}< \epsilon$.
+Se invece $R > C$ non è possibile trovare un codice che rende la probabilità di errore sufficientemente piccola.
+È quindi importante capire qual è la capacità del canale.
+
+Nel codici convoluzionali invece il trasmettitore invia solamente i parity bits. 
+L’encoder di un codice convoluzionale $(n,k,L)$ fa l’operazione di convoluzione in $GF(2)$.
+Da notare che l’output al tempo $i$ dipende dai precedenti input, questo differenzia questa tipologia di codici da quelli a blocchi che invece dipendono solo dall’ingresso corrente.
+$L-1$ è la memoria necessaria perché rappresenta la storia del sistema chiamata anche *stato*.
+Esempio sulle slide.
+È possibile disegnare anche il diagramma di stato visto che abbiamo della memoria. 
+Un terzo modo per rappresentare l’output dell’encoder è il **Diagramma di Trellis** che ci permette di seguire il cambiamento dello stato in relazione all’ingresso.
+
+Vediamo il decoder nel codici convoluzionali, ovvero la procedura per ricavare i bit del messaggio a partire da quelli ricevuti (che sono oggetto della convoluzione).
+Devo trovare un path sul traliccio che ha distanza minima.
