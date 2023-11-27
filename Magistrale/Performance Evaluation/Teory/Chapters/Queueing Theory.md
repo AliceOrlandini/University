@@ -156,3 +156,8 @@ $$come avevamo trovato precedentemente.
 
 ## Steady State analisi per sistemi Birth-Death
 
+Dal precedente esempio evinciamo che possiamo calcolare le steady-state probabilities nei sistemi birth-death in due modi:
+1. Il metodo complesso, che consiste nel formulare le equazioni differenzali, risolverle e infine calcolare il limite.
+2. Il metodo semplice, che consiste nel porre $\frac{d}{dt}p_{n}(t) = 0$ $\forall n$ nelle equazioni CK e risolvere un sistema algebrico per ottenere $p_{n}$.
+Notiamo che il sistema del [[#Birth-only process|primo esempio]] *non ammette uno steady state*. Infatti, nel suo caso $p_{n}=\lim_{t\rightarrow \infty}p_{n}(t) = 0$ $\forall n$.
+Dobbiamo ricordare che il metodo semplice può essere applicato **solo a sistemi che raggiungono lo steady state** per cui questa è una condizione che deve essere *testata a posteriori*. 
