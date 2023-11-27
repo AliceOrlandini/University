@@ -68,7 +68,7 @@ $$
 \frac{d}{dt}p_{0}(t) = -\lambda_{0}p_{0}(t)+\mu_{1}\cdot p_{1}(t) & n = 0\end{cases}
 \end{equation}
 $$
-Per ricavarle bisogna fare il seguente ragionamento: probabilità di entrare nello stato $n$meno la probabilità di uscire (quindi flusso entrante meno quello uscente).
+Per ricavarle bisogna fare il seguente ragionamento: probabilità di entrare nello stato $n$meno la probabilità di uscire (quindi flusso entrante meno quello uscente). Questo metodo di ricavare le equazioni è chiamato **Global Equilibrium Equations**.
 In questo modo $\lambda_{n}$ può essere visto come il *transition rate* dallo stato $n$ a quello $n+1$ e $\mu_{n}$ il *transition rate* dallo stato $n$ all'$n-1$.
 Queste equazioni si chiamano **Chapman-Kolmogorov's equations**.
 Questa tipologia di sistema di equazioni differenziali può essere risolto solo se si specificano le *condizioni iniziali* date da una PMF per lo stato al tempo zero, ovvero $p_{n}(0)$ $\forall n$ tali che $\sum\limits_{n=0}^{+\infty}p_{n}(0) = 1$.
@@ -159,5 +159,29 @@ $$come avevamo trovato precedentemente.
 Dal precedente esempio evinciamo che possiamo calcolare le steady-state probabilities nei sistemi birth-death in due modi:
 1. Il metodo complesso, che consiste nel formulare le equazioni differenzali, risolverle e infine calcolare il limite.
 2. Il metodo semplice, che consiste nel porre $\frac{d}{dt}p_{n}(t) = 0$ $\forall n$ nelle equazioni CK e risolvere un sistema algebrico per ottenere $p_{n}$.
-Notiamo che il sistema del [[#Birth-only process|primo esempio]] *non ammette uno steady state*. Infatti, nel suo caso $p_{n}=\lim_{t\rightarrow \infty}p_{n}(t) = 0$ $\forall n$.
+Notiamo che il sistema del [[#Birth-only process|primo esempio]] *non ammette uno steady state*. Infatti, nel suo caso $p_{n}=\lim_{t\rightarrow \infty}p_{n}(t) = 0$ $\forall n$ che ha senso perché la probabilità di raggiungere lo stato $n-esimo$ in questo tipo di sistema è zero visto che il server non invia nulla.
 Dobbiamo ricordare che il metodo semplice può essere applicato **solo a sistemi che raggiungono lo steady state** per cui questa è una condizione che deve essere *testata a posteriori*. 
+L'interpretazione fisica di "raggiungere lo steady state" è la seguente: 
+![[ctmc_equation.webp|center|600]]
+il flusso di probabilità attraverso una superficie tratteggiata (che corrisponde alla derivata presente nel lato destro delle equazioni CK) è *nulla*. Quindi, **il flusso entrante e il flusso uscente devono bilanciarsi a vicenda**:$$
+\begin{equation}
+\begin{cases} (\lambda_{n}+\mu_{n})\cdot p_{n} = \lambda_{n-1}\cdot p_{n-1}+\mu_{n+1}\cdot p_{n+1} & n > 0\\[4pt]
+\lambda_{0}\cdot p_{0}=\lambda_{1}\cdot p_{1} \end{cases}
+\end{equation}
+$$che significa che calcolare le SS probabilities in un sistema birth-death è semplice:
+1. disegnare il CTMC (che è la parte difficile)
+2. formulare le equazioni allo SS
+3. aggiungere la normalizzazione: $\sum\limits_{n=0}^{+\infty}p_{n}= 1$
+Il sistema ottenuto ammette una singola soluzione che può essere calcolata partendo da $n = 0$ e calcolando le probabilità in funzione di $p_{0}$:
+- $n=0$: dall'equazione otteniamo $p_{1}= \frac{\lambda_{0}}{\mu_{1}}\cdot p_{0}$.
+- $n=1$: nell'equazione scritta sopra sostituiamo il precedente risultato e troviamo $p_{2}=\frac{\lambda_{0}\cdot \lambda_{1}}{\mu_{1}\cdot \mu_{2}}\cdot p_{0}$
+- $n>1$: generalizzando il risultato sarà: $$p_{n}= \prod_{i=0}^{n-1} \frac{\lambda_{i}}{\mu_{i+1}}\cdot p_{0}$$
+e la normalizzazione può essere scritta nel seguente modo (utile per semplicemente sostituire): $$p_{0}\left[1+\sum\limits_{n=1}^{+\infty}\left(\prod_{i=1}^{n-1}\frac{\lambda_{i}}{\mu_{i+1}}\right)\right] = 1$$
+> [!note] Stability Condition
+> Condizione **necessaria** e **sufficiente** per un sistema di ammettere uno **steady state** (e quindi di essere stabile) è che sia *finita* la somma: $$\sum\limits_{n=1}^{+\infty}\left(\prod_{i=1}^{n-1}\frac{\lambda_{i}}{\mu_{i+1}}\right)$$
+
+Se la somma non è finita otterremo $p_{n}=0$ $\forall n$ perché $p_{0}\cdot \infty = 1 \Rightarrow p_{n}= 0$ $\forall n$.
+Si noti che il problema della stabilità esiste sono nei sistemi con un numero infinito di stati, infatti nei sistemi con un numero finito di stati avrà un numero finito di termini della sommatoria e quindi non potrà mai divergere. 
+
+Abbiamo visto che un modo per trovare le equazioni è il [[#Caratterizzazione dello stato della coda|Global Equilibrium Equations]], esiste un secondo modo che consiste nello scegliere un perimetro arbitrario attraverso il quale imporre l'equilibrio di flusso e spesso porta a calcoli più semplici.
+
