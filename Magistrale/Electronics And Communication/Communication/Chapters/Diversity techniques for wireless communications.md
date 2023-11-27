@@ -43,3 +43,14 @@ Un terzo modo per rappresentare l’output dell’encoder è il **Diagramma di T
 
 Vediamo il decoder nel codici convoluzionali, ovvero la procedura per ricavare i bit del messaggio a partire da quelli ricevuti (che sono oggetto della convoluzione).
 Devo trovare un path sul traliccio che ha distanza minima.
+Visto che siamo in $GF(2)$ la distanza minima consiste nella distanza di Hamming quindi devo trovare il path sull traliccio che minimizza questa distanza.
+**“AD ESEMPLE”**
+Per trovare questo path con distanza minima un modo è trovare tutti i possibili path e calcolarne le distanze. Il problema di questo approccio è che il numero di path aumenta esponenzialmente col numero di bit nella sequenza. 
+Per questo è stato inventato **l’Algoritmo di Viterbi** che permette di escludere dei path. 
+
+Ogni sequenza $d$ corrisponde univocamente ad una sequenza di stati $s_{0}, s_{1}, …$.
+L’output dell’encoder $d_{j}$ dipende dalla transizione tra gli stati $s_{j-1}$ e $s_{j}$. 
+La distanza $d_{H}(d,x)$ può essere calcolata sul traliccio come:$$d_{H}(d,x) = \sum\limits_{i=1}^{N}d_{H}(d_{s_{j-1}\rightarrow s_{j}},x_{j}) = \sum\limits_{j=1}^{N}\lambda_{s_{j-1}\rightarrow s_{j}}$$dove $\lambda_{s_{j-1}\rightarrow s_{j}} = d_{H}(d_{s_{j-1}\rightarrow s_{j}},x_{j})$ è definita come *branch metric*.
+La distanza finale è quindi solo la somma di tutte le branch metric $\lambda_{s_{j-1}\rightarrow s_{j}}$.
+Sapendo la sequenza di stati, la distanza tra la sequenza ricevuta ed i bit ricavati può essere calcolata iterativamente (step by step): $$\Lambda_{m}=\sum\limits_{j=1}^{m}\lambda_{s_{j-1}\rightarrow s_{j}}$$Viterbi osservò che se due sequenze $s^{(1)}$ e $s^{(2)}$ arrivano allo stesso punto allora la metrica comulativa può essere calcolata come: $$\Lambda_{N}^{(1)} = \Lambda_{m}^{(1)}+\sum\limits$$e osservò che se $\Lambda_{m}^{(1)}< \Lambda_{m}^{(2)}$ allora la seconda sequenza sarà sempre peggiore della prima perché è ottenuta sommando un altro termine. 
+Quindi quando due sequenze si uniscono posso mantenerne solo una. Il numero di path aumenta quindi linearmente. 
