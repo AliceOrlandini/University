@@ -184,4 +184,33 @@ Se la somma non è finita otterremo $p_{n}=0$ $\forall n$ perché $p_{0}\cdot \i
 Si noti che il problema della stabilità esiste sono nei sistemi con un numero infinito di stati, infatti nei sistemi con un numero finito di stati avrà un numero finito di termini della sommatoria e quindi non potrà mai divergere. 
 
 Abbiamo visto che un modo per trovare le equazioni è il [[#Caratterizzazione dello stato della coda|Global Equilibrium Equations]], esiste un secondo modo che consiste nello scegliere un perimetro arbitrario attraverso il quale imporre l'equilibrio di flusso e spesso porta a calcoli più semplici.
+Uno di questi metodi è chiamato **Local Equilibrium Equations** e consiste nel definire il perimetro in modo che includa tutti gli stati da zero a $n$ incluso, ad esempio in questo caso avremo:
+![[local_equilibrium.webp|center|700]]
 
+$$
+\begin{equation}
+\begin{cases}
+\lambda_{0}\cdot p_{0}= \mu_{1}\cdot p_{1}\\
+\lambda_{1}\cdot p_{1}= \mu_{2}\cdot p_{2}\\
+...\\
+\lambda_{n}\cdot p_{n}= \mu_{n+1}\cdot p_{n+1}
+\end{cases}
+\end{equation}
+$$
+Da cui si ottiene $p_{n}= \prod_{i=0}^{n-1} \frac{\lambda_{i}}{\mu_{i+1}}\cdot p_{0}$ in modo molto più veloce rispetto a prima.
+Vedremo più avanti che le global equations sono sempre facile da scrivere, mentre le local sono facili solo quando la CTMC è semplice.
+
+## Sistemi M/M/1 
+
+Studiamo nel dettaglio il sistema birth-death che viene chiamato M/M/1.
+Quest'ultima notazione si chiama di **Kendall** e consiste in almeno 3 indicatori:
+1. La **distribuzione dei tempi** di arrivo: 
+	- M per memoryless
+	- D per deterministico (costante)
+	- E per Erlang
+	- G per generico
+2. La **distribuzione dei service times**, possono apparire le stesse lettere di prima.
+3. Il **numero di server**, in questo caso uno.
+Ci possono essere più indicatori oltre a questi come la **capacità del sistema** o la **popolazione** da cui provengono gli arrivi. Se non sono indicati significa che sono pari a $\infty$.
+
+Assumiamo di avere $\lambda_{n}= \lambda$ e $\mu_{n}= \mu$, ovvero che i rate di arrivo e di partenza sono costanti, e che la coda sia infinita. In questo caso, la relazione si semplifica: 
