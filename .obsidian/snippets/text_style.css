@@ -57,6 +57,15 @@ img[alt*="center"] {
 /* font size of the pdf */
 @media print {
   body {
-    --font-text-size: 12px !important;
+    --font-text-size: 15px !important;
+  }
+  h1 {
+    --font-text-size: 18px !important;
+  }
+  h2 {
+    --font-text-size: 17px !important;
+  }
+  h3 {
+    --font-text-size: 16px !important;
   }
 }

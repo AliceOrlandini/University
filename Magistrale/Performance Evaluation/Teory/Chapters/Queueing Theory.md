@@ -28,6 +28,7 @@ Questa teoria ha anche delle limitazioni, una di queste è il rischio di *over-s
 ## Caratterizzazione dello stato della coda
 
 Iniziamo con un esempio: singola coda + server. Dobbiamo caratterizzare lo stato del sistema ad un certo istante $t$, il modo di fare ciò dipende da ciò che vogliamo osservare. Ad esempio potremmo voler osservare il numero di jobs nel sistema all'istante $t$ (il cosiddetto **backlog**). 
+
 ![[single queue.webp|center|400]]
 
 ![[single_queue_time.webp|center|400]]
@@ -69,7 +70,7 @@ $$
 \frac{d}{dt}p_{0}(t) = -\lambda_{0}p_{0}(t)+\mu_{1}\cdot p_{1}(t) & n = 0\end{cases}
 \end{equation}
 $$
-Per ricavarle bisogna fare il seguente ragionamento: probabilità di entrare nello stato $n$meno la probabilità di uscire (quindi flusso entrante meno quello uscente). Questo metodo di ricavare le equazioni è chiamato **Global Equilibrium Equations**.
+Per ricavarle bisogna fare il seguente ragionamento: probabilità di entrare nello stato $n$ meno la probabilità di uscire (quindi flusso entrante meno quello uscente). Questo metodo di ricavare le equazioni è chiamato **Global Equilibrium Equations**.
 In questo modo $\lambda_{n}$ può essere visto come il *transition rate* dallo stato $n$ a quello $n+1$ e $\mu_{n}$ il *transition rate* dallo stato $n$ all'$n-1$.
 Queste equazioni si chiamano **Chapman-Kolmogorov's equations**.
 Questa tipologia di sistema di equazioni differenziali può essere risolto solo se si specificano le *condizioni iniziali* date da una PMF per lo stato al tempo zero, ovvero $p_{n}(0)$ $\forall n$ tali che $\sum\limits_{n=0}^{+\infty}p_{n}(0) = 1$.
@@ -174,7 +175,7 @@ il flusso di probabilità attraverso una superficie tratteggiata (che corrispond
 $$
 \begin{equation}
 \begin{cases} (\lambda_{n}+\mu_{n})\cdot p_{n} = \lambda_{n-1}\cdot p_{n-1}+\mu_{n+1}\cdot p_{n+1} & n > 0\\[4pt]
-\lambda_{0}\cdot p_{0}=\lambda_{1}\cdot p_{1} \end{cases}
+\lambda_{0}\cdot p_{0}=\mu_{1}\cdot p_{1} \end{cases}
 \end{equation}
 $$
 che significa che calcolare le SS probabilities in un sistema birth-death è semplice:
@@ -346,4 +347,44 @@ $$\gamma = \sum\limits_{n=1}^{+\infty}\mu_{n}\cdot p_{n}$$
 Nel caso del sistema M/M/1 avremo $\gamma = \lambda$.
 
 ### Metodo alternativo per calcolare i mean performance indexes
+
+Esiste un metodo per il calcolo dei performance indexes che non richiede il calcolo delle SS probabilities. Questo metodo è *generale*, ovvero non legato ad un sistema in particolare, ma verrà spiegato per un M/M/1 per semplicità.
+Consideriamo le equazioni globali allo steady state:
+$$
+\begin{equation}
+\begin{cases}
+\lambda\cdot p_{0}=\mu\cdot p_{1}  \\
+(\lambda+\mu)\cdot p_{n} = \lambda\cdot p_{n-1}+\mu\cdot p_{n+1} & n > 1
+\end{cases}
+\end{equation}
+$$
+La tecnica consiste nel moltiplicare entrambe le equazioni per $z^{n}$, con $z \in \mathcal{C}, |z|< 1$, e poi sommando tutto: 
+$$
+\begin{equation}
+\begin{cases}
+\lambda\cdot p_{0}\cdot z^{0}=\mu\cdot p_{1}\cdot z^{0}  \\
+(\lambda+\mu)\cdot p_{n}\cdot z^{n} = \lambda\cdot p_{n-1}\cdot z^{n}+\mu\cdot p_{n+1}\cdot z^{n} & n > 1
+\end{cases}
+\end{equation}
+$$
+sommando otteniamo: 
+$$\lambda\cdot p_{0}\cdot z^{0} + \sum\limits_{n=1}^{+\infty}(\lambda+\mu)\cdot p_{n}\cdot z^{n} = \mu\cdot p_{1}\cdot z^{0}+ \sum\limits_{n=1}^{+\infty}\lambda\cdot p_{n-1}\cdot z^{n}+ \sum\limits_{n=1}^{+\infty} \mu\cdot p_{n+1}\cdot z^{n}$$
+Ricordiamo che la definizione di [[Teoria della probabilità#Probability Generating Functions PGF|PGF]] di una variabile aleatoria discreta non-negativa è $P(z) \triangleq E[z^{N}] = \sum\limits_{k=0}^{+\infty}z^{k}\cdot p_{k}$ con $p_{k}$ la [[Teoria della probabilità#Probability Mass Function|PMF]].
+Lo stato del sistema $N$ è  anch'essa una variabile aleatoria discreta non negativa. 
+Manipolando la precedente espressione otteniamo (passaggi sulle dispense):
+$$
+P(z) = \frac{p_{0}}{1-\rho\cdot z}
+$$
+che dipende da $p_{0}$ che può essere ricavato applicando la normalizzazione. Dalla definizione di PGF otteniamo che $P(1) \triangleq E[1^{N}] = \sum\limits_{k=0}^{+\infty}1^{k}\cdot p_{k}= 1$ da cui ricaviamo che $p_{0}= 1-\rho$ e quindi, sostituendo nella formula: 
+$$
+P(z) = \frac{1-\rho}{1-\rho\cdot z}
+$$
+Questa espressione può essere anti-trasformata ottenendo: 
+$$p_{k}= (1-\rho)\cdot p^{k}$$
+che avevamo già trovato. 
+Comunque, una volta ottenuta la $P(z)$ possiamo trovare i performance indexes senza anti-trasformare ma semplicemente applicando le proprietà della PGF:
+- **Valor Medio di jobs nel sistema**: 
+$$E[N] = \frac{d}{dz}P(z)|_{z=1} = \frac{\rho\cdot (1-\rho)}{(1-\rho\cdot z)^{2}}|_{z=1}= \frac{\rho}{1-\rho}$$ che avevamo già trovato.
+- 
+
 
