@@ -501,3 +501,29 @@ che si riduce a $F_{W}(x) = 1-\rho\cdot e^{-x/E[R]}$ per $x \ge 0$.
 
 ### Esercizio
 
+Il tuo capo ti comunica che il rate di richieste al sito web della compagnia si duplicherà il prossimo mese. Vuole quindi aumentare la capacità del sistema in modo tale che:
+- il response time medio rimanga lo stesso.
+- il $99^{th}$ percentile del response time rimanga lo stesso.
+Assumendo che il server possa essere modellato come un sistema M/M/1, ci basta incrementare il service rate al fine di accontentare i requisiti. Chiamiamo $\lambda$, $\mu$ gli arrival e service raet *correnti* e $\lambda'=2\lambda$ e $\mu'$ i *nuovi*. 
+Per il primo requisito abbiamo:
+$$
+E[R'] = E[R] \Rightarrow \frac{1}{\mu'-2\lambda} = \frac{1}{\mu-\lambda} \Rightarrow \mu' = \mu + \lambda
+$$
+È quindi sufficiente incrementare il service rate di un fattore $\lambda$ e non raddoppiarlo come saremmo portati a pensare con l'intuito (anzi se raddoppiassi il service rate, il response time diminuirebbe).
+Per il secondo requisito dobbiamo considerare la PDF:
+$$F_{R}(x) = 1-e^{-x/E[R]}= 1-e^{-(\mu-\lambda)x}$$
+e che il $99^{th}$ percentile del response time *corrente* è la soluzione $x_{.01}$ di:
+$$F_{R}(x_{.01}) = 1-e^{-(\mu-\lambda)x_{.01}} = 0.99$$
+che risolvendo è:
+$$x_{.01}= \frac{log(100)}{\mu-\lambda}$$
+Nella nuova configurazione il $99^{th}$ percentile del response time sarà:
+$$x_{.01}'= \frac{log(100)}{\mu'-2\lambda}$$
+che ancora una volta significa che $\mu' = \mu + \lambda$.
+
+## Sistemi M/M/C 
+
+Finora abbiamo discusso dei sistemi con un singolo server. Un caso frequente è quello in cui una coda venga **servita da più di un server**. 
+Se i $C$ server sono equivalenti, cioè hanno lo stesso service rate $\mu$, e tuto il resto rimane uguale agli esempi precedenti (arrivi esponenziali, service times esponenziali, memoria infinita) allora il sistema si chiama **M/M/C one**.
+In questo caso, un nuovo job viene gestito in uno dei server liberi, se non c'è nessun server libero, viene messo in attesa nella coda. 
+
+Vogliamo ricavarci le SS probabilities, per fare ciò iniziamo col caso $C = 2$ e poi generalizziamo.
