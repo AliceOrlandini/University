@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -156,8 +157,9 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "df0b6e4dc39051f9",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/arrival_time.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
@@ -194,7 +196,6 @@
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Teory/Images",

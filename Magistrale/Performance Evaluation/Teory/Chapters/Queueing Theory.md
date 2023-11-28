@@ -394,3 +394,38 @@ Inoltre, se necessario è possibile calcolare le SS probabilities a partire dall
 
 ### Arrival time and Random-observer probabilities
 
+Le SS probabilities che abbiamo calcolato sono quelle che avrebbe calcolato un **random observer**. Quindi, se un osservatore guarda il sistema in un **random time** (allo steady state) allora $p_{n}$ sarebbe la probabilità di trovare $n$ jobs nel sistema.
+Esiste però un'altra probabilità, che è quella vista da un job in arrivo, chiamata **arrival-time probability** che viene indicata con $r_{n}$.
+In generale queste due probabilità sono diverse. 
+Per capire questo concetto consideriamo un sistema con interarrival times costanti e pari a 2 secondi ed un service time costante pari a 1 secondo (D/D/1). Questo sistema è allo steady state essendo deterministico.
+La traiettoria $N(t)$ ha la seguente forma:
+
+![[arrival_time.webp|center|400]]
+
+Un osservatore casuale vedrebbe:
+- 1 job nel sistema per metà del tempo
+- 0 job nel sistema l'altra metà di tempo
+Di conseguenza, per lui $p_{0}= p_{1}= \frac{1}{2}$.
+Tuttavia, un job in arrivo troverà *sempre* il sistema vuoto per cui sarà $r_{0}= 1$ ed $r_{j}= 0$ $\forall j > 0$.
+Quindi in generale si ha $r_{n} \not= p_{n}$.
+
+In un sistema birth-death con interarrival times distribuiti esponenzialmente, le arrival-time probabilities possono essere calcolate utilizzando il [[Teoria della probabilità#Teorema di Bayes|teorema di Bayes]], come segue. Definiamo:
+$$r_{n}(t) = \lim_{\Delta t\rightarrow 0}P\{N(t) = n | A(t,t+\Delta t)\}$$
+dove $A(t,t+\Delta t)$ significa che è arrivato un job nell'intervallo $[t,t+\Delta t)$.
+Svolgendo il limite otteniamo: (calcoli sulle dispense)
+$$r_{n}(t) = \frac{\lambda_{n}\cdot p_{n}(t)}{\sum\limits_{k=0}^{+\infty}\lambda_{k}\cdot p_{k}(t)}$$
+che vale $\forall t$ e quindi anche allo steady state.
+Allo steady state avremo:
+$$r_{n}= \lim_{t\rightarrow +\infty} r_{n}(t) = \frac{\lambda_{n}\cdot p_{n}(t)}{\sum\limits_{k=0}^{+\infty}\lambda_{k}\cdot p_{k}(t)} = \frac{\lambda_{n}}{\overline{\lambda}}\cdot p_{n}$$
+dove $\overline{\lambda}$ è il *mean arrival rate*.
+Quando $\lambda_{n}= \lambda$, e solo in questo caso, abbiamo $r_{n}= p_{n}$.
+> [!note] PASTA
+> Un sistema in cui $r_{n}= p_{n}$ ha la proprietà **PASTA** (Poisson Arrivals See Time Average).
+
+### Distribuzione del response e del waiting time
+
+Abbiamo già calcolato il *valor medio* del response e del waiting time $E[R]$ e $E[W]$ tramite la *Little's Law*. Ora vediamo come calcolare la **distribuzione** del response e del waiting time $F_{R}(x)$ e $F_{W}(x)$.
+
+Iniziamo dal response time. Supponiamo che un job arrivi nel sistema al tempo $t$. Siano $n$ il numero di job *già* nel sistema al tempo $t^{-}$. Sappiamo che allo steady state la probabilità di avere $n$ job nel sistema nel momento in cui arriva un nuovo job è $r_{n}$. Il tempo che il nuovo job spenderà nel sistema è composto da:
+- il **service time residuo** di quel job che sta venendo servito.
+- la **somma dei service time** di tutti gli altri $n$ job, incluso il nuovo 
