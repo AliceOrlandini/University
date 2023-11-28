@@ -260,10 +260,41 @@ I più importanti indici di prestazione nella queueing theory sono:
 2. Il **valor medio dei jobs nella coda** $E[N_{q}]$ (quindi non includendo il job servito).
 3. Il **valor medio del response time** $E[R]$, ovvero il tempo che intercorre tra il momento di arrivo di un job ed il relativo momento di partenza.
 4. Il **valor medio del waiting time** $E[W]$, chiamato anche queueing time, che è il tempo che intercorre tra il momento di arrivo del job nella coda e quello in cui il server inizia a servire quel pacchetto (questo è utile perché la queueing theory è fatta anche per le persone a cui interessa più questo indice piuttosto che il response time).
+5. Il **throughput** $\gamma$, ovvero il numero di jobs serviti per unità di tempo.
 
-Visto che il primo lo abbiamo già calcolato, passiamo subito al valor medio di jobs nella coda. Esso assume i seguenti valori:
+Visto che il primo lo abbiamo già calcolato, passiamo subito al **valor medio di jobs nella coda**. Esso assume i seguenti valori:
 - $0$ con probabilità $p_{0}+p_{1}$
 - $1$ con probabilità $p_{2}$
 - $k \ge 1$ con probabilità $p_{k+1}$
-Avendo chiarito questo è abbastanza facile calcolare il valor medio:
+Avendo chiarito questo è abbastanza facile calcolare il valor medio: 
+$$
+\begin{align*}
+E[N_{q}] &= \sum\limits_{k=1}^{+\infty}k\cdot p_{k+1} =\\[4pt]
+&= \sum\limits_{k=1}^{+\infty}(k-1)\cdot p_{k}=\\[4pt]
+&= \sum\limits_{k=1}^{+\infty}k\cdot p_{k}-\sum\limits_{k=1}^{+\infty}p_{k} =\\[4pt]
+&= E[N]-(1-p_{0}) = \\[4pt]
+&= E[N] - \rho
+\end{align*}
+$$
+**Questo risultato è sempre vero nei sistemi con un unico server**.
+La formula poteva essere ottenuta più facilmente sfruttando la proprietà additiva del valor medio, quindi togliendo al valor medio di job nel sistema il valor medio di job nel server che è pari all'utilizzazione.
 
+Per quanto concerne il **response time**, esso può essere calcolato utilizzando la legge di Little:
+> [!note] Little's Law
+> Consideriamo un sistema in uno *steady state*, tale che *nessun lavoro venga creato o distrutto* all'interno del sistema e sia $\lambda$  il suo tasso medio di arrivo dei job, allora la **Little's Law** sostiene che il tempo medio di risposta è $$E[R] = \frac{E[N]}{\overline{\lambda}}$$
+
+Le uniche ipotesi da considerare sono che il sistema sia FCFS e che il sistema non crei né distrugga jobs. In questo caso, il tasso di arrivo $\overline{\lambda}$ è anche il **tasso medio di partenza** (*average departure rate*).
+Notare che la Little's Law si applica ai valor medi e non alle distribuzioni.
+
+Nel sistema M/M/1 avrò: $$\overline{\lambda} = \sum\limits_{n=0}^{+\infty}\lambda_{n}\cdot p_{n} = \lambda \sum\limits_{n=0}^{+\infty}p_{n} = \lambda$$visto che $\sum\limits_{n=0}^{+\infty}p_{n} = 1$ essendo la condizione di *normalizzazione*.
+Di conseguenza sarà: $$E[R] = \frac{E[N]}{\lambda}= \frac{\rho}{1-\rho}\cdot \frac{1}{\lambda}= \frac{1}{\mu-\lambda}$$
+![[response_time.webp|center|500]]
+In questo caso, quando il carico è piccolo $p \ll 1$ allora il response time tende a $\frac{1}{\mu}$ che è di fatto il service time medio $E[t_{s}]$, il che ha perfettamente senso perché se un job non incontra coda allora l'unica attesa che sperimenterà sarà quella dovuta al tempo di elaborazione nel server. 
+Quando $\rho$ aumenta si inizia a formare la coda fino alla saturazione del sistema.
+
+Passiamo ora al **waiting time**, anch'esso può essere calcolato sfruttando la Little's Law applicata ad una coda in equilibrio. In questo caso, l'arrival e il departure rate sono pari a $\lambda$ per cui: $$E[W] = \frac{E[N_{q}]}{\lambda}= \frac{E[N]-\rho}{\lambda} = E[R] - \frac{1}{\mu}$$che poteva essere calcolato anche sfruttando l'additività del valor medio: $$E[W] = E[R]-E[t_{s}] = E[E] - \frac{1}{\mu}$$Infine, il **throughput** $\gamma$. Per questo indicatore operiamo in modo intuitivo osservando che:
+- Se $\gamma > \lambda$ allora significa che ci sono jobs che escono dal sistema senza che siano entrati, ciò non è possibile perché il sistema non crea jobs internamente.
+- Se $\gamma < \lambda$ allora ci saranno jobs che rimarranno nella coda per un tempo indefinito, anche questo caso non è possibile essendo il sistema FCFS e stabile. 
+Quindi l'unica possibilità è che sia: $$\gamma = \lambda$$
+L'unica possibilità in cui $\gamma < \lambda$ esiste quando il sistema ha *memoria finita*.
+In ogni caso, la definizione formale di throughtput è la seguente: $$$$
