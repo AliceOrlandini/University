@@ -213,4 +213,31 @@ Quest'ultima notazione si chiama di **Kendall** e consiste in almeno 3 indicator
 3. Il **numero di server**, in questo caso uno.
 Ci possono essere più indicatori oltre a questi come la **capacità del sistema** o la **popolazione** da cui provengono gli arrivi. Se non sono indicati significa che sono pari a $\infty$.
 
-Assumiamo di avere $\lambda_{n}= \lambda$ e $\mu_{n}= \mu$, ovvero che i rate di arrivo e di partenza sono costanti, e che la coda sia infinita. In questo caso, la relazione si semplifica: 
+Assumiamo di avere $\lambda_{n}= \lambda$ e $\mu_{n}= \mu$, ovvero che i rate di arrivo e di partenza sono costanti, e che la coda sia infinita. In questo caso, la relazione si semplifica: $$p_{n}= \prod_{i=0}^{n-1} \frac{\lambda_{i}}{\mu_{i+1}}\cdot p_{0}= \left(\frac{\lambda}{\mu}\right)^{n}\cdot p_{0}$$ Chiamiamo $\rho = \frac{\lambda}{\mu}$ **l'utilizzazione** del sistema, avremo:
+- $\lambda > \mu \Rightarrow \rho > 1 \Rightarrow$ sistema instabile, questo sistema si chiama **transient**.
+- $\lambda < \mu \Rightarrow \rho < 1 \Rightarrow$ sistema forse stabile, questo sistema si chiama **positive recurrent**.
+- $\lambda = \mu \Rightarrow \rho = 1 \Rightarrow$ sistema instabile, questo sistema si chiama **null recurrent**.
+La normalizzazione utilizzando l'utilizzazione diventa: $$p_{0}\left[\sum\limits_{n=0}^{+\infty}\rho^{n}\right]= 1$$da cui si evince la condizione di *stabilità* che è $\rho < 1$ poiché in questo modo siamo certi che la sommatoria converge a: $$\frac{1}{1-\rho}$$e quindi $p_{0}=(1-\rho)$ e $p_{n}= (1-\rho)\cdot \rho^{n}$.
+Quest'ultima formula giustifica il motivo per cui $\rho$ viene chiamato utilizzazione, infatti la probabilità di trovarsi nello stato zero è la probabilità che il server non sia pieno ovvero $(1-\rho)$, quindi $\rho$ è il **valor medio di jobs nel server** oppure la frazione di tempo in cui il server è occupato.
+
+Nei sistemi positive recurrent la distribuzione nel numero di jobs nel sistema allo *steady state* è una [[Teoria della probabilità#Distribuzione Geometrica|distribuzione geometrica]]: $p_{n}=(1-\rho)\cdot \rho^{n}$ con una probabilità di successo di $p = 1-\rho$. Possiamo quindi ricavare immediatamente il valor medio e la varianza del numero di job nel sistema, che è una variabile aleatoria che verrà indicata con $N$:
+- $E[N] = \sum\limits_{n=0}^{+\infty}n\cdot p_{n}= \frac{\rho}{1-\rho}$
+- $Var(N) = \frac{\rho}{(1-\rho)^{2}}$
+
+È particolarmente interessante sapere come varia il comportamento di $E[N]$ in funzione di $\rho$. Questa funzione è chiamata **Funzione di Kleinrock** e la sua forma è rappresentata in figura:
+![[kleinrock_function.webp|center|500]]
+Essa ha un comportamento *piatto* fino a $\rho = 0.5$ e poi mostra un *ginocchio* come un asintoto verticale per $\rho \rightarrow 1$. Quindi questo sistema:
+- in condizioni di carico basso, il valor medio è sotto l'1, e quindi il sistema è o vuoto o c'è un singolo lavoro che viene immediatamente servito.
+- se $\rho$ cresce sopra $0.5$ allora i jobs iniziano a sperimentare un po' di coda fino a *saturare*. 
+Quindi nel dimensionare il nostro sistema dobbiamo fare in modo di rimanere a sinistra del ginocchio.
+
+### Esercizio
+
+Dobbiamo dimensionare la dimensione di un network. Il carico di lavoro consiste in pacchetti la cui lunghezza è esponenzialmente distribuita con media $\frac{1}{\gamma}$. Gli interarrival times sono anch'essi esponenziali con media $\frac{1}{\lambda}$. 
+Calcolare la velocità $C$ tale che:
+- la media dei pacchetti arretrati è pari a $B$ pacchetti.
+- il $95^{th}$ percentile dei pacchetti arretrati è di $D$ pacchetti.
+
+Osserviamo che questo è un sistema M/M/1 con arrival rate $\lambda$.
+Otteniamo che il valor medio del service time, indicato con la variabile aleatoria $t_{s}$ è pari a: $$E[t_{s}] = \frac{E[lenght]}{C} = \frac{1}{\mu}$$quindi otteniamo $\mu = \gamma \cdot C$,
+
