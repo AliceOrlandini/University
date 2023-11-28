@@ -206,7 +206,7 @@ Un gruppo di 5 maschi e di 10 femmine sono allineati in ordine casuale.
 
 Quando si fanno gli esercizi ricordarsi sempre questo schema: 
 
-![[Modellazione.svg|center|400]]
+![[Modellazione.svg|center|300]]
 
 Spesso gli studenti si dimenticano di fare l'ultimo passaggio, l'interpretazione dei risultati ottenuti.
 
@@ -283,7 +283,7 @@ Trovare:
 Un evento E può sempre essere scritto in termini di un altro evento F nel seguente modo: $$E = (E\cap F)\cup(E\cap F^\complement)$$
 come si può vedere dalla seguente immagine: 
 
-![[Bayes.png|center|400]]
+![[Bayes.png|center|300]]
 
 I due eventi che compongono l'unione sono disgiunti quindi la probabilità di E può essere scritta come: $$P(E) = P(EF) + P(EF^\complement)$$Ora, sostituendo la formula della probabilità condizionata troviamo: 
 $$
@@ -296,7 +296,7 @@ Questa espressione può essere generalizzata nel seguente modo:
 > [!note] Probabilità di un evento data la probabilità condizionata
 > Dati $F_1,...,F_N$ insiemi tali che $\bigcup_{i=1}^{N}F_i = S$ e $F_i \cap F_j = \emptyset$ se $i \not= j$ allora possiamo calcolare la probabilità di $E$ come:
 > $$P(E) = \sum_{i=1}^{N}P(EF_i) = \sum_{i=1}^{N}P(E|F_i)*P(F_i)$$
-![[Bayes 2.png|center|400]]
+![[Bayes 2.png|center|300]]
 ### Esercizio 8
 
 Ci sono due tipi di persone, coloro che sono inclini agli incidenti e quelli che non lo sono. Una compagnia di assicurazioni sa che:
@@ -380,7 +380,7 @@ Il signor Rossi ha un mazzo di $n > 1$ chiavi. Da finire
 
 Per visualizzare il modello possiamo pensare alla corrente che scorre tra due terminali e i vari sottosistemi come degli switch. La corrente scorrerà solo se almeno uno degli switch è chiuso.
 
-![Sistema Parallelo|center|300](https://cdnintech.com/media/chapter/41421/1512345123/media/image2.png)
+![Sistema Parallelo|center|200](https://cdnintech.com/media/chapter/41421/1512345123/media/image2.png)
 
 Quanto un problema viene posto come *"almeno uno"* ci deve scattare un trigger che ci suggerisce che forse è meglio usare il **complemento**, infatti: 
 P(corrente scorre) = 1 - P(corrente non scorre) = 1 - P(tutti gli switch aperti)
@@ -390,7 +390,7 @@ e la probabilità che tutti gli switch siano aperti si calcola abbastanza facilm
 
 Consideriamo il seguente sistema parallelo: 
 
-![[Sistemi paralleli 1.svg|center|500]]
+![[Sistemi paralleli 1.svg|center|400]]
 
 Ogni switch $i$ ha una probabilità di essere chiuso pari a $p_i$. 
 Trovare la probabilità che scorra corrente da A a B.
@@ -407,7 +407,7 @@ P(\text{scorre corrente}) &= 1 - P(\text{tutti aperti}) =\\[4pt]
 
 Consideriamo il seguente sistema parallelo: 
 
-![[Sistemi paralleli 2.svg|center|400]]
+![[Sistemi paralleli 2.svg|center|300]]
 
 Il nodo che ci da problemi è il 3 quindi semplifichiamo utilizzando la probabilità condizionata: 
 - 3 aperto -> stesso problema di prima: [[#Sistemi Paralleli#Esercizio 13|esercizio 13]]
@@ -421,7 +421,7 @@ $$= (1-(1-p_1 p_4)(1- p_2 p_5))(1-p_3) + \{(1- (1-p_1)(1-p_2))(1-(1-p_4)(1-p_5))
 
 Notiamo che la funzione $X$ è deterministica, è il risultato dell'esperimento casuale ad essere aleatorio. 
 
-![variabile aleatoria|center|400](https://miro.medium.com/v2/resize:fit:720/format:webp/1*AxzRBWY2L-WRUlJrtyil_A.png)
+![variabile aleatoria|center|300](https://miro.medium.com/v2/resize:fit:720/format:webp/1*AxzRBWY2L-WRUlJrtyil_A.png)
 
 La probabilità associata alla variabile aleatoria si indica in questo modo: $P\{X = 1\} = P\{X = 0\} = 1/2$.
 
@@ -452,7 +452,7 @@ Inoltre, $\lim_{\omega \rightarrow -\infty} F(\omega) = 0$ e $\lim_{\omega \righ
 Considerare una variabile aleatoria $X$ con la seguente CDF: 
 $F(\omega) = 1- e^{-w^2}$ per $\omega > 0$ e pari a zero per $\omega$ negativi. 
 
-![[CDF.png|center|400]]
+![[CDF.png|center|300]]
 
 Calcolare $P\{X > 1\}$:
 per risolvere questo esercizio bisogna prima di tutto disegnare la funzione e assicurarsi che rispetti le proprietà di una CDF.
@@ -870,7 +870,7 @@ f(x)= \begin{cases}\frac{1}{b-a} & a \le x \le b \\
 $$
 e si indica con $X \thicksim U(a,b)$.
 
-![Uniformemente Distribuita|center|400](https://analystprep.com/cfa-level-1-exam/wp-content/uploads/2021/09/cfa-level-1-continuous-uniform-random-variable-1.jpg)
+![Uniformemente Distribuita|center|300](https://analystprep.com/cfa-level-1-exam/wp-content/uploads/2021/09/cfa-level-1-continuous-uniform-random-variable-1.jpg)
 
 I suoi parametri sono:
 - **Valor Medio**: $E[X] = \int_{a}^{b} \frac{1}{b-a} \cdot x \cdot dx = \frac{b+a}{2}$
@@ -888,7 +888,7 @@ $$
 e si indica con $X \thicksim exp(\lambda)$.
 Il dominio è $[0,+\infty)$ e si può facilmente ottenere la CDF integrando la PDF: $F(x) = \int_{0}^{x}\lambda \cdot e^{-\lambda y}dy = \lambda [-\frac{1}{\lambda}\cdot e^{-\lambda y}]_{0}^{x}=1-e^{-\lambda x}$ con $x \ge 0$, si vede che tende ad 1 esponenzialmente.
 
-![Esponenziale|center|400](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Exponential_distribution_pdf_-_public_domain.svg/1200px-Exponential_distribution_pdf_-_public_domain.svg.png)
+![Esponenziale|center|300](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Exponential_distribution_pdf_-_public_domain.svg/1200px-Exponential_distribution_pdf_-_public_domain.svg.png)
 
 Questo tipo di distribuzione, assume valori molto grandi con valori molto piccoli di probabilità infatti sono buoi modelli per misurare il tempo che trascorre tra due eventi che si verificano casualmente (ad esempio terremoti).
 
@@ -963,7 +963,7 @@ con $\sigma > 0$ e si indica con $X \thicksim \mathcal{N}(\mu,\sigma^{2})$.
 Il dominio della PDF è $(-\infty,+\infty)$ e assume il valore massimo in $x=\mu$ e quel valore massimo è pari a: $\frac{1}{\sqrt{2\pi}\cdot\sigma} \thicksim \frac{0.4}{\sigma}$. È ovviamente simmetrica rispetto a $\mu$ che è anche il suo valor medio.
 Inoltre, più è grande $\sigma$ più bassa è la PDF e più alte saranno le code (l'area deve essere 1).
 
-![Normale|center|400](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/325px-Normal_Distribution_PDF.svg.png)
+![Normale|center|300](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/325px-Normal_Distribution_PDF.svg.png)
 
 Supponiamo di voler calcolare $F(a) = P\{X \le a\}$ con $X \thicksim N(\mu,\sigma^{2})$, dovrei risolvere il seguente integrale: 
 $$
@@ -1025,7 +1025,7 @@ Date $Z_{1},Z_{2},...,Z_{k}$ indipendenti e normalmente distribuite stadard ($Z_
 La sua CDF non ha una forma chiusa ma è ricavata solo numericamente. 
 Molto spesso, si possono trovare grandi percentili come valori tabulati, questi valori $\mathcal{X}^{2}_{\alpha, k}$ sono tali che $P\{X > \mathcal{X}^{2}_{\alpha, k}\} = \alpha$.
 
-![Chi-Square|center|400](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Chi-square_pdf.svg/1200px-Chi-square_pdf.svg.png)
+![Chi-Square|center|300](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Chi-square_pdf.svg/1200px-Chi-square_pdf.svg.png)
 
 Quando $k = 1,2$ è monotona decrescente, quando $k$ cresce si inizia a intravedere un *picco* che si alza al crescere di $k$.
 Per valori grandi di $k$ la distribuzione Chi-Square approssima una distribuzione normale.
@@ -1039,7 +1039,7 @@ Data una variabile aleatoria $Z \thicksim \mathcal{N}(0,1)$ e $\mathcal{X}_{n}^{
 Se $n$ cresce, $\frac{\mathcal{X}^{2}_{n}}{n}$ diventa costante e uguale al suo valor medio che è $1^{3}$. Quindi il denominatore di $T_{n}$ tende ad 1 se $n$ cresce. 
 Questo significa che, per valori grandi di $n$ ($n >30$) si ha che $T_{n}\approx Z$ e quindi $T_{n} \thicksim \mathcal{N}(0,1)$. La distribuzione di Student tende ad una distribuzione standard quando $n$ è grande. 
 
-![Student|center|400](https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Student_t_pdf.svg/325px-Student_t_pdf.svg.png)
+![Student|center|300](https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Student_t_pdf.svg/325px-Student_t_pdf.svg.png)
 
 I suoi parametri sono:
 - **Valor Medio**: $E[T_{n}] = 0$

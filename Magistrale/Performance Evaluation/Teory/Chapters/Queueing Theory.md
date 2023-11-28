@@ -384,7 +384,13 @@ $$p_{k}= (1-\rho)\cdot p^{k}$$
 che avevamo già trovato. 
 Comunque, una volta ottenuta la $P(z)$ possiamo trovare i performance indexes senza anti-trasformare ma semplicemente applicando le proprietà della PGF:
 - **Valor Medio di jobs nel sistema**: 
-$$E[N] = \frac{d}{dz}P(z)|_{z=1} = \frac{\rho\cdot (1-\rho)}{(1-\rho\cdot z)^{2}}|_{z=1}= \frac{\rho}{1-\rho}$$ che avevamo già trovato.
-- 
+$$E[N] = \frac{d}{dz}P(z)|_{z=1} = \frac{\rho\cdot (1-\rho)}{(1-\rho\cdot z)^{2}}|_{z=1}= \frac{\rho}{1-\rho}$$
+- **Valor Medio di jobs nella coda**: 
+$$E[N^{2}] = \left[\frac{d^{2}}{dz^{2}}P(z) + \frac{d}{dz}P(z)\right]_{z=1}$$
+Inoltre, se necessario è possibile calcolare le SS probabilities a partire dalla PGF:
+- $p_{0}= \lim_{z \rightarrow 0}P(z)$
+- $p_{1}=P^{'}(0)$
+- $p_{k}= \frac{P^{(k)}(0)}{k!}$
 
+### Arrival time and Random-observer probabilities
 
