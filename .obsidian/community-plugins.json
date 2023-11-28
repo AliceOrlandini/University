@@ -4,13 +4,10 @@
   "calendar",
   "obsidian-mind-map",
   "obsidian-kanban",
-  "templater-obsidian",
   "obsidian-icon-folder",
-  "nldates-obsidian",
   "obsidian-full-calendar",
   "obsidian-git",
   "drawio-obsidian",
   "quick-latex",
-  "image-converter",
-  "incremental-id"
+  "image-converter"
 ]

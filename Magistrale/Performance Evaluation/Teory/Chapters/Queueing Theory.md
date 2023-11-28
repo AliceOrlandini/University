@@ -28,8 +28,9 @@ Questa teoria ha anche delle limitazioni, una di queste è il rischio di *over-s
 ## Caratterizzazione dello stato della coda
 
 Iniziamo con un esempio: singola coda + server. Dobbiamo caratterizzare lo stato del sistema ad un certo istante $t$, il modo di fare ciò dipende da ciò che vogliamo osservare. Ad esempio potremmo voler osservare il numero di jobs nel sistema all'istante $t$ (il cosiddetto **backlog**). 
-![[single queue.webp|center|600]]
-![[single_queue_time.webp|center|600]]
+![[single queue.webp|center|400]]
+
+![[single_queue_time.webp|center|400]]
 
 $N(t)$ è una quantità discreta che è funzione di un parametro continuo, il tempo.
 Dall'immagine si nota che le traiettorie di questa funzione dipendono dall'*interarrival time* dei jobs nella coda. Queste traiettorie saranno **random (or stochastic) processes**.
@@ -45,13 +46,13 @@ Facciamo un contro esempio, consideriamo un sistema in cui:
 - I service times sono costanti.
 In questo caso $N(t)$ non fornisce una caratterizzazione completa perché il futuro dipende dal passato. In questo caso è utile fare un diagramma di stato chiamato *transition-rate diagram* oppure **continuous time Markov chain (CTMC)**:
 
-![[state_diagram.webp|center|700]]
+![[state_diagram.webp|center|500]]
 
 Il cerchi rappresentano lo stato del sistema al tempo $t$ e gli archi le transizioni da uno stato all'altro. 
 Assumeremo sempre che $\lambda$ e $\mu$ siano *time-indipendent* ovvero che non cambino col tempo, potranno invece essere *state-dipendent* ovvero dipendenti dallo stato del sistema. Per questo motivo è utile usare la notazione $\lambda_{n}$ per indicare l'arrival rate quando il sistema contiene $n$ jobs e $\mu_{n}$ per lo stesso motivo.
 LA CTMC diventa così:
 
-![[ctmc.webp|center|700]]
+![[ctmc.webp|center|500]]
 
 La probabilità di due eventi simultanei è trascurabile, per questo abbiamo un diagramma in cui gli archi raggiungono solo i propri vicini.
 
@@ -60,7 +61,7 @@ Concentriamoci su uno stato $n > 0$ e fissiamo il tempo $t$.
 >Chiamiamo $p_{n}(t)$ la probabilità che ci siano $n$ jobs nel sistema al tempo $t$, ovvero $$p_{n}(t) = P\{N(t) = n\}$$
 
 Possiamo scrivere quindi la **Probability Flow-Balance Equation** (funzione di come la probabilità di trovarsi in un certo stato cambia nel tempo) semplicemente guardando il CTCM:
-![[ctmc_equation.webp|center|600]]
+![[ctmc_equation.webp|center|500]]
 
 $$
 \begin{equation}
@@ -101,7 +102,7 @@ Inoltre, all'aumentare del tempo: $\lim_{t\rightarrow \infty}p_{n}(t) = 0$ $\for
 Questo modello utilizza una coda con un solo slot quindi se il sistema è nello stato 1 e arriva un nuovo job, quest'ultimo verrà scartato.
 Quindi si ha $\lambda_{0}=\lambda$, $\lambda_{1}= 0$ e $\mu_{0}= 0$, $\mu_{1}= \mu$.
 
-![[two-state.webp|center|300]]
+![[two-state.webp|center|200]]
 
 Le equazioni di CK sono:
 $$
@@ -117,14 +118,16 @@ $$
 \begin{cases} p_{0}(t) = \frac{\mu}{\mu+\lambda}+\left[p_{0}(0)-\frac{\mu}{\mu+\lambda}\right]\cdot e^{-(\lambda + \mu)t} \\[4pt]
 p_{1}(t) = \frac{\lambda}{\mu+\lambda}+\left[p_{1}(0)-\frac{\lambda}{\mu+\lambda}\right]\cdot e^{-(\lambda + \mu)t} \end{cases}
 \end{equation}
-$$Queste espressioni dipendono dalle condizioni iniziali.
+$$
+Queste espressioni dipendono dalle condizioni iniziali.
 Sappiamo che è sempre vero che $p_{0}(t) + p_{1}(t) = 1$ e se poniamo $t\rightarrow +\infty$ trovaimo:
 $$
 \begin{equation}
 \begin{cases} p_{0} \triangleq \lim_{t\rightarrow +\infty} p_{0}(t) = \frac{\mu}{\lambda + \mu} \\[4pt]
 p_{1} \triangleq \lim_{t\rightarrow +\infty} p_{1}(t) = \frac{\lambda}{\lambda + \mu} \end{cases}
 \end{equation}
-$$e ancora $p_{0}+p_{1}= 1$. 
+$$
+e ancora $p_{0}+p_{1}= 1$. 
 
 > [!danger] Stady State Probability
 > Chiamiamo $p_{0}$ e $p_{1}$ **Stady State Probabilities** poiché un sistema in questo stato *non dipende più dal tempo*.
@@ -139,7 +142,8 @@ $$
 \begin{cases} 0 = -\mu\cdot p_{1}+ \lambda\cdot p_{0} \\[4pt]
 0 = -\lambda\cdot p_{0}+\mu\cdot p_{1} \end{cases}
 \end{equation}
-$$che è solo algebrico. Notiamo però che le due equazioni non sono indipendenti quindi possiamo cancellarne una ed applicare la normalizzazione, il sistema diventa quindi:
+$$
+che è solo algebrico. Notiamo però che le due equazioni non sono indipendenti quindi possiamo cancellarne una ed applicare la normalizzazione, il sistema diventa quindi:
 $$
 \begin{equation}
 \begin{cases} 0 = -\mu\cdot p_{1}+ \lambda\cdot p_{0} \\[4pt]
@@ -152,7 +156,8 @@ $$
 \begin{cases} p_{0} = \frac{\mu}{\lambda + \mu} \\[4pt]
 p_{1}  = \frac{\lambda}{\lambda + \mu} \end{cases}
 \end{equation}
-$$come avevamo trovato precedentemente. 
+$$
+come avevamo trovato precedentemente. 
 
 ## Steady State analisi per sistemi Birth-Death
 
@@ -162,21 +167,28 @@ Dal precedente esempio evinciamo che possiamo calcolare le steady-state probabil
 Notiamo che il sistema del [[#Birth-only process|primo esempio]] *non ammette uno steady state*. Infatti, nel suo caso $p_{n}=\lim_{t\rightarrow \infty}p_{n}(t) = 0$ $\forall n$ che ha senso perché la probabilità di raggiungere lo stato $n-esimo$ in questo tipo di sistema è zero visto che il server non invia nulla.
 Dobbiamo ricordare che il metodo semplice può essere applicato **solo a sistemi che raggiungono lo steady state** per cui questa è una condizione che deve essere *testata a posteriori*. 
 L'interpretazione fisica di "raggiungere lo steady state" è la seguente: 
-![[ctmc_equation.webp|center|600]]
-il flusso di probabilità attraverso una superficie tratteggiata (che corrisponde alla derivata presente nel lato destro delle equazioni CK) è *nulla*. Quindi, **il flusso entrante e il flusso uscente devono bilanciarsi a vicenda**:$$
+
+![[ctmc_equation.webp|center|500]]
+
+il flusso di probabilità attraverso una superficie tratteggiata (che corrisponde alla derivata presente nel lato destro delle equazioni CK) è *nulla*. Quindi, **il flusso entrante e il flusso uscente devono bilanciarsi a vicenda**:
+$$
 \begin{equation}
 \begin{cases} (\lambda_{n}+\mu_{n})\cdot p_{n} = \lambda_{n-1}\cdot p_{n-1}+\mu_{n+1}\cdot p_{n+1} & n > 0\\[4pt]
 \lambda_{0}\cdot p_{0}=\lambda_{1}\cdot p_{1} \end{cases}
 \end{equation}
-$$che significa che calcolare le SS probabilities in un sistema birth-death è semplice:
+$$
+che significa che calcolare le SS probabilities in un sistema birth-death è semplice:
 1. disegnare il CTMC (che è la parte difficile)
 2. formulare le equazioni allo SS
 3. aggiungere la normalizzazione: $\sum\limits_{n=0}^{+\infty}p_{n}= 1$
 Il sistema ottenuto ammette una singola soluzione che può essere calcolata partendo da $n = 0$ e calcolando le probabilità in funzione di $p_{0}$:
 - $n=0$: dall'equazione otteniamo $p_{1}= \frac{\lambda_{0}}{\mu_{1}}\cdot p_{0}$.
 - $n=1$: nell'equazione scritta sopra sostituiamo il precedente risultato e troviamo $p_{2}=\frac{\lambda_{0}\cdot \lambda_{1}}{\mu_{1}\cdot \mu_{2}}\cdot p_{0}$
-- $n>1$: generalizzando il risultato sarà: $$p_{n}= \prod_{i=0}^{n-1} \frac{\lambda_{i}}{\mu_{i+1}}\cdot p_{0}$$
-e la normalizzazione può essere scritta nel seguente modo (utile per semplicemente sostituire): $$p_{0}\left[1+\sum\limits_{n=1}^{+\infty}\left(\prod_{i=1}^{n-1}\frac{\lambda_{i}}{\mu_{i+1}}\right)\right] = 1$$
+- $n>1$: generalizzando il risultato sarà: 
+$$p_{n}= \prod_{i=0}^{n-1} \frac{\lambda_{i}}{\mu_{i+1}}\cdot p_{0}$$
+e la normalizzazione può essere scritta nel seguente modo (utile per semplicemente sostituire): 
+$$p_{0}\left[1+\sum\limits_{n=1}^{+\infty}\left(\prod_{i=1}^{n-1}\frac{\lambda_{i}}{\mu_{i+1}}\right)\right] = 1$$
+
 > [!note] Stability Condition
 > Condizione **necessaria** e **sufficiente** per un sistema di ammettere uno **steady state** (e quindi di essere stabile) è che sia *finita* la somma: $$\sum\limits_{n=1}^{+\infty}\left(\prod_{i=1}^{n-1}\frac{\lambda_{i}}{\mu_{i+1}}\right)$$
 
@@ -185,7 +197,8 @@ Si noti che il problema della stabilità esiste sono nei sistemi con un numero i
 
 Abbiamo visto che un modo per trovare le equazioni è il [[#Caratterizzazione dello stato della coda|Global Equilibrium Equations]], esiste un secondo modo che consiste nello scegliere un perimetro arbitrario attraverso il quale imporre l'equilibrio di flusso e spesso porta a calcoli più semplici.
 Uno di questi metodi è chiamato **Local Equilibrium Equations** e consiste nel definire il perimetro in modo che includa tutti gli stati da zero a $n$ incluso, ad esempio in questo caso avremo:
-![[local_equilibrium.webp|center|700]]
+
+![[local_equilibrium.webp|center|500]]
 
 $$
 \begin{equation}
@@ -213,11 +226,17 @@ Quest'ultima notazione si chiama di **Kendall** e consiste in almeno 3 indicator
 3. Il **numero di server**, in questo caso uno.
 Ci possono essere più indicatori oltre a questi come la **capacità del sistema** o la **popolazione** da cui provengono gli arrivi. Se non sono indicati significa che sono pari a $\infty$.
 
-Assumiamo di avere $\lambda_{n}= \lambda$ e $\mu_{n}= \mu$, ovvero che i rate di arrivo e di partenza sono costanti, e che la coda sia infinita. In questo caso, la relazione si semplifica: $$p_{n}= \prod_{i=0}^{n-1} \frac{\lambda_{i}}{\mu_{i+1}}\cdot p_{0}= \left(\frac{\lambda}{\mu}\right)^{n}\cdot p_{0}$$ Chiamiamo $\rho = \frac{\lambda}{\mu}$ **l'utilizzazione** del sistema, avremo:
+Assumiamo di avere $\lambda_{n}= \lambda$ e $\mu_{n}= \mu$, ovvero che i rate di arrivo e di partenza sono costanti, e che la coda sia infinita. In questo caso, la relazione si semplifica: 
+$$p_{n}= \prod_{i=0}^{n-1} \frac{\lambda_{i}}{\mu_{i+1}}\cdot p_{0}= \left(\frac{\lambda}{\mu}\right)^{n}\cdot p_{0}$$
+Chiamiamo $\rho = \frac{\lambda}{\mu}$ **l'utilizzazione** del sistema, avremo:
 - $\lambda > \mu \Rightarrow \rho > 1 \Rightarrow$ sistema instabile, questo sistema si chiama **transient**.
 - $\lambda < \mu \Rightarrow \rho < 1 \Rightarrow$ sistema forse stabile, questo sistema si chiama **positive recurrent**.
 - $\lambda = \mu \Rightarrow \rho = 1 \Rightarrow$ sistema instabile, questo sistema si chiama **null recurrent**.
-La normalizzazione utilizzando l'utilizzazione diventa: $$p_{0}\left[\sum\limits_{n=0}^{+\infty}\rho^{n}\right]= 1$$da cui si evince la condizione di *stabilità* che è $\rho < 1$ poiché in questo modo siamo certi che la sommatoria converge a: $$\frac{1}{1-\rho}$$e quindi $p_{0}=(1-\rho)$ e $p_{n}= (1-\rho)\cdot \rho^{n}$.
+La normalizzazione utilizzando l'utilizzazione diventa: 
+$$p_{0}\left[\sum\limits_{n=0}^{+\infty}\rho^{n}\right]= 1$$
+da cui si evince la condizione di *stabilità* che è $\rho < 1$ poiché in questo modo siamo certi che la sommatoria converge a: 
+$$\frac{1}{1-\rho}$$
+e quindi $p_{0}=(1-\rho)$ e $p_{n}= (1-\rho)\cdot \rho^{n}$.
 Quest'ultima formula giustifica il motivo per cui $\rho$ viene chiamato utilizzazione, infatti la probabilità di trovarsi nello stato zero è la probabilità che il server non sia pieno ovvero $(1-\rho)$, quindi $\rho$ è il **valor medio di jobs nel server** oppure la frazione di tempo in cui il server è occupato.
 
 Nei sistemi positive recurrent la distribuzione nel numero di jobs nel sistema allo *steady state* è una [[Teoria della probabilità#Distribuzione Geometrica|distribuzione geometrica]]: $p_{n}=(1-\rho)\cdot \rho^{n}$ con una probabilità di successo di $p = 1-\rho$. Possiamo quindi ricavare immediatamente il valor medio e la varianza del numero di job nel sistema, che è una variabile aleatoria che verrà indicata con $N$:
@@ -225,7 +244,9 @@ Nei sistemi positive recurrent la distribuzione nel numero di jobs nel sistema a
 - $Var(N) = \frac{\rho}{(1-\rho)^{2}}$
 
 È particolarmente interessante sapere come varia il comportamento di $E[N]$ in funzione di $\rho$. Questa funzione è chiamata **Funzione di Kleinrock** e la sua forma è rappresentata in figura:
-![[kleinrock_function.webp|center|500]]
+
+![[kleinrock_function.webp|center|300]]
+
 Essa ha un comportamento *piatto* fino a $\rho = 0.5$ e poi mostra un *ginocchio* come un asintoto verticale per $\rho \rightarrow 1$. Quindi questo sistema:
 - in condizioni di carico basso, il valor medio è sotto l'1, e quindi il sistema è o vuoto o c'è un singolo lavoro che viene immediatamente servito.
 - se $\rho$ cresce sopra $0.5$ allora i jobs iniziano a sperimentare un po' di coda fino a *saturare*. 
@@ -240,10 +261,18 @@ Calcolare la velocità di invio dei pacchetti $C$ tale che:
 - il $95^{th}$ percentile dei pacchetti arretrati è di $\Pi$ pacchetti.
 
 Osserviamo che questo è un sistema M/M/1 con arrival rate $\lambda$ perché nel testo è scritto che gli interarrival times hanno media $\frac{1}{\lambda}$.
-Ci ricaviamo il valor medio del service time, indicato con la variabile aleatoria $t_{s}$, che sarà pari al valor medio della lunghezza dei pacchetti fratto la velocità di invio (tempo = lunghezza/velocità): $$E[t_{s}] = \frac{E[lenght]}{C} = \frac{1}{\gamma \cdot C} = \frac{1}{\mu}$$quindi otteniamo $\mu = \gamma \cdot C$ da cui $\rho = \frac{\lambda}{\mu}= \frac{\lambda}{\gamma \cdot C}$.
-Alla prima domanda possiamo rispondere osservando che la media dei pacchetti arretrati è pari a: $$B = E[N] = \frac{\rho}{1-\rho} = \frac{\frac{\lambda}{\gamma\cdot C}}{1-\frac{\lambda}{\gamma\cdot C}}$$e risolvendo in funzione di $C$ si ottiene: $$C = \frac{\lambda\cdot (1+B)}{\gamma\cdot B}$$
+Ci ricaviamo il valor medio del service time, indicato con la variabile aleatoria $t_{s}$, che sarà pari al valor medio della lunghezza dei pacchetti fratto la velocità di invio (tempo = lunghezza/velocità): 
+$$E[t_{s}] = \frac{E[lenght]}{C} = \frac{1}{\gamma \cdot C} = \frac{1}{\mu}$$
+quindi otteniamo $\mu = \gamma \cdot C$ da cui $\rho = \frac{\lambda}{\mu}= \frac{\lambda}{\gamma \cdot C}$.
+Alla prima domanda possiamo rispondere osservando che la media dei pacchetti arretrati è pari a: 
+$$B = E[N] = \frac{\rho}{1-\rho} = \frac{\frac{\lambda}{\gamma\cdot C}}{1-\frac{\lambda}{\gamma\cdot C}}$$
+e risolvendo in funzione di $C$ si ottiene: 
+$$C = \frac{\lambda\cdot (1+B)}{\gamma\cdot B}$$
+
 #Attenzione questo vale solo se il sistema ammette lo steady state! Ovvero se $\rho = \frac{\lambda}{\gamma \cdot C} < 1$.
-Alla seconda domanda possiamo rispondere risolvendo la seguente equazione: $$P\{N \le \Pi\} = 0.95$$Sappiamo che:
+Alla seconda domanda possiamo rispondere risolvendo la seguente equazione: 
+$$P\{N \le \Pi\} = 0.95$$
+Sappiamo che:
 $$
 \begin{align*}
 P\{N \le x\} &= \sum\limits_{n=0}^{x}p_{n} =\\[4pt]
@@ -252,7 +281,10 @@ P\{N \le x\} &= \sum\limits_{n=0}^{x}p_{n} =\\[4pt]
 &= 1- \rho^{x+1}
 \end{align*}
 $$
-e quindi l'equazione che dobbiamo risolvere è: $$1-\rho^{\Pi+1}=0.95$$e svolgendo i calcoli otteniamo: $$C^{\Pi+1}=20\cdot\left(\frac{\lambda}{\gamma}\right)^{\Pi+1} \Rightarrow C = \sqrt[(\Pi+1)]{20} \cdot \frac{\lambda}{\gamma}$$
+e quindi l'equazione che dobbiamo risolvere è: 
+$$1-\rho^{\Pi+1}=0.95$$
+e svolgendo i calcoli otteniamo: 
+$$C^{\Pi+1}=20\cdot\left(\frac{\lambda}{\gamma}\right)^{\Pi+1} \Rightarrow C = \sqrt[(\Pi+1)]{20} \cdot \frac{\lambda}{\gamma}$$
 ### Mean Performance Indexes
 
 I più importanti indici di prestazione nella queueing theory sono:
@@ -266,6 +298,7 @@ Visto che il primo lo abbiamo già calcolato, passiamo subito al **valor medio d
 - $0$ con probabilità $p_{0}+p_{1}$
 - $1$ con probabilità $p_{2}$
 - $k \ge 1$ con probabilità $p_{k+1}$
+
 Avendo chiarito questo è abbastanza facile calcolare il valor medio: 
 $$
 \begin{align*}
@@ -281,20 +314,36 @@ La formula poteva essere ottenuta più facilmente sfruttando la proprietà addit
 
 Per quanto concerne il **response time**, esso può essere calcolato utilizzando la legge di Little:
 > [!note] Little's Law
-> Consideriamo un sistema in uno *steady state*, tale che *nessun lavoro venga creato o distrutto* all'interno del sistema e sia $\lambda$  il suo tasso medio di arrivo dei job, allora la **Little's Law** sostiene che il tempo medio di risposta è $$E[R] = \frac{E[N]}{\overline{\lambda}}$$
+> Consideriamo un sistema in uno *steady state*, tale che *nessun lavoro venga creato o distrutto* all'interno del sistema e sia $\lambda$  il suo tasso medio di arrivo dei job, allora la **Little's Law** sostiene che il tempo medio di risposta è: 
+> $$E[R] = \frac{E[N]}{\overline{\lambda}}$$
 
 Le uniche ipotesi da considerare sono che il sistema sia FCFS e che il sistema non crei né distrugga jobs. In questo caso, il tasso di arrivo $\overline{\lambda}$ è anche il **tasso medio di partenza** (*average departure rate*).
 Notare che la Little's Law si applica ai valor medi e non alle distribuzioni.
 
-Nel sistema M/M/1 avrò: $$\overline{\lambda} = \sum\limits_{n=0}^{+\infty}\lambda_{n}\cdot p_{n} = \lambda \sum\limits_{n=0}^{+\infty}p_{n} = \lambda$$visto che $\sum\limits_{n=0}^{+\infty}p_{n} = 1$ essendo la condizione di *normalizzazione*.
-Di conseguenza sarà: $$E[R] = \frac{E[N]}{\lambda}= \frac{\rho}{1-\rho}\cdot \frac{1}{\lambda}= \frac{1}{\mu-\lambda}$$
-![[response_time.webp|center|500]]
+Nel sistema M/M/1 avrò: 
+$$\overline{\lambda} = \sum\limits_{n=0}^{+\infty}\lambda_{n}\cdot p_{n} = \lambda \sum\limits_{n=0}^{+\infty}p_{n} = \lambda$$
+visto che $\sum\limits_{n=0}^{+\infty}p_{n} = 1$ essendo la condizione di *normalizzazione*.
+Di conseguenza sarà: 
+$$E[R] = \frac{E[N]}{\lambda}= \frac{\rho}{1-\rho}\cdot \frac{1}{\lambda}= \frac{1}{\mu-\lambda}$$
+
+![[response_time.webp|center|300]]
+
 In questo caso, quando il carico è piccolo $p \ll 1$ allora il response time tende a $\frac{1}{\mu}$ che è di fatto il service time medio $E[t_{s}]$, il che ha perfettamente senso perché se un job non incontra coda allora l'unica attesa che sperimenterà sarà quella dovuta al tempo di elaborazione nel server. 
 Quando $\rho$ aumenta si inizia a formare la coda fino alla saturazione del sistema.
 
-Passiamo ora al **waiting time**, anch'esso può essere calcolato sfruttando la Little's Law applicata ad una coda in equilibrio. In questo caso, l'arrival e il departure rate sono pari a $\lambda$ per cui: $$E[W] = \frac{E[N_{q}]}{\lambda}= \frac{E[N]-\rho}{\lambda} = E[R] - \frac{1}{\mu}$$che poteva essere calcolato anche sfruttando l'additività del valor medio: $$E[W] = E[R]-E[t_{s}] = E[E] - \frac{1}{\mu}$$Infine, il **throughput** $\gamma$. Per questo indicatore operiamo in modo intuitivo osservando che:
-- Se $\gamma > \lambda$ allora significa che ci sono jobs che escono dal sistema senza che siano entrati, ciò non è possibile perché il sistema non crea jobs internamente.
-- Se $\gamma < \lambda$ allora ci saranno jobs che rimarranno nella coda per un tempo indefinito, anche questo caso non è possibile essendo il sistema FCFS e stabile. 
-Quindi l'unica possibilità è che sia: $$\gamma = \lambda$$
+Passiamo ora al **waiting time**, anch'esso può essere calcolato sfruttando la Little's Law applicata ad una coda in equilibrio. In questo caso, l'arrival e il departure rate sono pari a $\lambda$ per cui: 
+$$E[W] = \frac{E[N_{q}]}{\lambda}= \frac{E[N]-\rho}{\lambda} = E[R] - \frac{1}{\mu}$$
+che poteva essere calcolato anche sfruttando l'additività del valor medio: 
+$$E[W] = E[R]-E[t_{s}] = E[E] - \frac{1}{\mu}$$
+Infine, il **throughput** $\gamma$. Per questo indicatore operiamo in modo intuitivo osservando che:
+- Se $\gamma > \overline{\lambda}$ allora significa che ci sono jobs che escono dal sistema senza che siano entrati, ciò non è possibile perché il sistema non crea jobs internamente.
+- Se $\gamma < \overline{\lambda}$ allora ci saranno jobs che rimarranno nella coda per un tempo indefinito, anche questo caso non è possibile essendo il sistema FCFS e stabile. 
+Quindi l'unica possibilità è che sia: 
+$$\gamma = \overline{\lambda}$$
 L'unica possibilità in cui $\gamma < \lambda$ esiste quando il sistema ha *memoria finita*.
-In ogni caso, la definizione formale di throughtput è la seguente: $$$$
+In ogni caso, la definizione formale di throughtput è la seguente: 
+$$\gamma = \sum\limits_{n=1}^{+\infty}\mu_{n}\cdot p_{n}$$
+Nel caso del sistema M/M/1 avremo $\gamma = \lambda$.
+
+### Metodo alternativo per calcolare i mean performance indexes
+
