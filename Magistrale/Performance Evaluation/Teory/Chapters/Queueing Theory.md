@@ -428,4 +428,51 @@ Abbiamo già calcolato il *valor medio* del response e del waiting time $E[R]$ e
 
 Iniziamo dal response time. Supponiamo che un job arrivi nel sistema al tempo $t$. Siano $n$ il numero di job *già* nel sistema al tempo $t^{-}$. Sappiamo che allo steady state la probabilità di avere $n$ job nel sistema nel momento in cui arriva un nuovo job è $r_{n}$. Il tempo che il nuovo job spenderà nel sistema è composto da:
 - il **service time residuo** di quel job che sta venendo servito.
-- la **somma dei service time** di tutti gli altri $n$ job, incluso il nuovo 
+- la **somma dei service time** di tutti gli altri $n$ job, incluso il nuovo arrivato.
+
+![[response_distribution.webp|center|300]]
+
+Visto che i service time sono *esponenziali* e quindi *memoryless*, il residual service time ha la stessa distribuzione del service time:
+$$P\{t_{s}>x+y|t_{s}> x\} = P\{t_{s}>y\}$$
+Perciò, il response time è la *somma dei service time di $n+1$ jobs* **se** ci sono $n$ jobs nel sistema al momento dell'arrivo.
+Questa distribuzione ottenuta tramite la somma di esponenziali IID è chiamata **Distribuzione di Erlang**, la cui CDF allo stato $n$ è:
+$$F_{n}(t) = 1-\sum\limits_{k=0}^{n-1}e^{-\mu t} \frac{(\mu t)^{k}}{k!}$$
+e la PDF è: 
+$$f_{n}(t) = e^{-\mu t}\cdot \mu \cdot \frac{(\mu t)^{n-1}}{(n-1)!}$$
+
+![Erlang|center|300](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Erlang_dist_pdf.svg/1200px-Erlang_dist_pdf.svg.png)
+
+
+Per $n = 1$ è un'esponenziale, mentre quando $n>1$ inizia a mostrare un *picco*. Per $n$ grande si comporta come una distribuzione normale.
+
+Possiamo calcolare $E[S_{n}]$ e $Var(S_{n})$ sfruttando la proprietà di additività e l'indipendenza. 
+Perciò, otteniamo:
+- $E[S_{n}] = \frac{n}{\mu}$
+- $Var(S_{n}) = \frac{n}{\mu}^{2}$
+- $CoV(S_{n}) = \frac{\sqrt{Var(S_{n})}}{E[S_{n}]} = \frac{1}{\sqrt{n}}$ utile per l'operazione di *fitting*.
+
+Per riassumere, abbiamo trovato che la somma di $n+1$ esponenziali IID con rate $\mu$ è una Distribuzione di Erlag $(n+1)$-stage con PDF:
+$$
+f_{n+1}(t) = e^{-\mu x}\cdot \mu \cdot \frac{(\mu x)^{n}}{(n)!}
+$$
+Questa PDF di una variabile aleatoria $R$ in cui abbiamo $n$ job nella coda.
+Possiamo quindi calcolare $f_{R}(x)$ utilizzando [[Teoria della probabilità#Legge della probabilità totale|legge della probabilità totale]]:
+$$
+\begin{align*}
+f_{R}(x) &= \sum\limits_{n=0}^{+\infty}f_{n+1}(x) \cdot r_{n} =\\[4pt]
+&= \sum\limits_{n=0}^{+\infty} \mu \cdot e^{-\mu x}\cdot \frac{(\mu x)^{n}}{n!}\cdot (1-\rho)\cdot \rho^{n} =\\[4pt]
+&= \mu \cdot (1-\rho)\cdot e^{-\mu x} \cdot \sum\limits_{n=0}^{+\infty} \frac{(\mu \cdot x \cdot \rho)^{n}}{n!} =\\[4pt]
+&= \mu \cdot (1-\rho) \cdot e^{-\mu x} \cdot e^{\mu \rho x} = \\[4pt]
+&= \mu \cdot (1-\rho) \cdot e^{-\mu(1-\rho)x} =\\[4pt]
+&= (\mu -\lambda)\cdot e^{-(\mu-\lambda)x} =\\[4pt]
+&= \frac{1}{E[R]} \cdot e^{-x/E[R]}
+\end{align*}
+$$
+Che è una distribuzione esponenziale, quindi:
+$$F_{R}(x) = 1-e^{-x/E[R]} = 1-e^{-(\mu-\lambda)x}$$
+
+Per quanto riguarda il **waiting time** $W$ possiamo ripetere gli stessi passaggi del response time ma con una cura in più: c'è la possibilità che il sistema sia *vuoto* al momento dell'arrivo del job e quindi che il waiting time sia null, cosa che avviene con probabilità $r_{0}=1-\rho$. Quindi, la PDF del waiting time sarà:
+- **Zero** con una probabilità non nulla $r_{0}= 1-\rho$.
+- Pari alla distribuzione di Erlang $S_{n}$ con probabilità $r_{n}$ con $n \ge 1$.
+
+Si noti che $F_{W}(0) = P\{W = 0\} = r_{0}>0$ che implica che
