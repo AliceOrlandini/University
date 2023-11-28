@@ -475,4 +475,29 @@ Per quanto riguarda il **waiting time** $W$ possiamo ripetere gli stessi passagg
 - **Zero** con una probabilità non nulla $r_{0}= 1-\rho$.
 - Pari alla distribuzione di Erlang $S_{n}$ con probabilità $r_{n}$ con $n \ge 1$.
 
-Si noti che $F_{W}(0) = P\{W = 0\} = r_{0}>0$ che implica che
+Si noti che $F_{W}(0) = P\{W = 0\} = r_{0}>0$ che implica che c'è *un punto di discontinuità* in corrispondenza di $F_{W}(0)$. Di conseguenza, la PDF avrà una **Delta di Dirac** in zero. Possiamo usare ancora la Probabilità Totale per calcolare la $f_{W}(x)$:
+$$
+\begin{align*}
+f_{W}(x) &= (1-\rho)\cdot \delta(x) + \sum\limits_{n=1}^{+\infty}f_{n}(x)\cdot r_{n} =\\[4pt]
+&= (1-\rho)\cdot \delta(x) + \sum\limits_{n=1}^{+\infty} \mu \cdot e^{-\mu x} \cdot \frac{(\mu x)^{n-1}}{(n-1)!} \cdot (1-\rho)\cdot \rho^{n} =\\[4pt]
+&= (1-\rho)\cdot \delta(x) + \mu e^{-\mu x}\cdot (1-\rho)\cdot \rho \cdot \sum\limits_{n=1}^{+\infty} \frac{(\mu x)^{n-1}}{(n-1)!} \cdot \rho^{n-1} =\\[4pt]
+&= (1-\rho)\cdot \delta(x) + \rho \cdot \mu \cdot (1-\rho) \cdot e^{-\mu(1-\rho)x} = \\[4pt]
+&= (1-\rho)\cdot \delta(x) + \rho \cdot \frac{1}{E[R]} \cdot e^{-x/E[R]}
+\end{align*}
+$$
+
+![[waiting_distribution.webp|center|400]]
+
+Dall'espressione precedente possiamo ricavarci la PDF:
+$$
+\begin{equation}
+F_{W}(x) = \begin{cases}
+1-\rho & x = 0 \\
+(1-\rho)+\rho\cdot (1-e^{-x/E[R]}) & x > 0
+\end{cases}
+\end{equation}
+$$
+che si riduce a $F_{W}(x) = 1-\rho\cdot e^{-x/E[R]}$ per $x \ge 0$.
+
+### Esercizio
+
