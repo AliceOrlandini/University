@@ -233,11 +233,37 @@ Quindi nel dimensionare il nostro sistema dobbiamo fare in modo di rimanere a si
 
 ### Esercizio
 
-Dobbiamo dimensionare la dimensione di un network. Il carico di lavoro consiste in pacchetti la cui lunghezza è esponenzialmente distribuita con media $\frac{1}{\gamma}$. Gli interarrival times sono anch'essi esponenziali con media $\frac{1}{\lambda}$. 
-Calcolare la velocità $C$ tale che:
+Dobbiamo dimensionare la dimensione di un network. 
+Il carico di lavoro consiste in pacchetti la cui lunghezza è *esponenzialmente distribuita* con valor medio $\frac{1}{\gamma}$. Gli interarrival times sono anch'essi esponenziali con valor medio $\frac{1}{\lambda}$. 
+Calcolare la velocità di invio dei pacchetti $C$ tale che:
 - la media dei pacchetti arretrati è pari a $B$ pacchetti.
-- il $95^{th}$ percentile dei pacchetti arretrati è di $D$ pacchetti.
+- il $95^{th}$ percentile dei pacchetti arretrati è di $\Pi$ pacchetti.
 
-Osserviamo che questo è un sistema M/M/1 con arrival rate $\lambda$.
-Otteniamo che il valor medio del service time, indicato con la variabile aleatoria $t_{s}$ è pari a: $$E[t_{s}] = \frac{E[lenght]}{C} = \frac{1}{\mu}$$quindi otteniamo $\mu = \gamma \cdot C$,
+Osserviamo che questo è un sistema M/M/1 con arrival rate $\lambda$ perché nel testo è scritto che gli interarrival times hanno media $\frac{1}{\lambda}$.
+Ci ricaviamo il valor medio del service time, indicato con la variabile aleatoria $t_{s}$, che sarà pari al valor medio della lunghezza dei pacchetti fratto la velocità di invio (tempo = lunghezza/velocità): $$E[t_{s}] = \frac{E[lenght]}{C} = \frac{1}{\gamma \cdot C} = \frac{1}{\mu}$$quindi otteniamo $\mu = \gamma \cdot C$ da cui $\rho = \frac{\lambda}{\mu}= \frac{\lambda}{\gamma \cdot C}$.
+Alla prima domanda possiamo rispondere osservando che la media dei pacchetti arretrati è pari a: $$B = E[N] = \frac{\rho}{1-\rho} = \frac{\frac{\lambda}{\gamma\cdot C}}{1-\frac{\lambda}{\gamma\cdot C}}$$e risolvendo in funzione di $C$ si ottiene: $$C = \frac{\lambda\cdot (1+B)}{\gamma\cdot B}$$
+#Attenzione questo vale solo se il sistema ammette lo steady state! Ovvero se $\rho = \frac{\lambda}{\gamma \cdot C} < 1$.
+Alla seconda domanda possiamo rispondere risolvendo la seguente equazione: $$P\{N \le \Pi\} = 0.95$$Sappiamo che:
+$$
+\begin{align*}
+P\{N \le x\} &= \sum\limits_{n=0}^{x}p_{n} =\\[4pt]
+&= \sum\limits_{n=0}^{x}(1-\rho)\cdot \rho^{n} =\\[4pt]
+&= (1-\rho)\cdot \frac{1-\rho^{x+1}}{1-\rho} =\\[4pt]
+&= 1- \rho^{x+1}
+\end{align*}
+$$
+e quindi l'equazione che dobbiamo risolvere è: $$1-\rho^{\Pi+1}=0.95$$e svolgendo i calcoli otteniamo: $$C^{\Pi+1}=20\cdot\left(\frac{\lambda}{\gamma}\right)^{\Pi+1} \Rightarrow C = \sqrt[(\Pi+1)]{20} \cdot \frac{\lambda}{\gamma}$$
+### Mean Performance Indexes
+
+I più importanti indici di prestazione nella queueing theory sono:
+1. Il **valor medio nei jobs nel sistema** $E[N]$ che abbiamo già trovato essere pari a $\frac{\rho}{1-\rho}$.
+2. Il **valor medio dei jobs nella coda** $E[N_{q}]$ (quindi non includendo il job servito).
+3. Il **valor medio del response time** $E[R]$, ovvero il tempo che intercorre tra il momento di arrivo di un job ed il relativo momento di partenza.
+4. Il **valor medio del waiting time** $E[W]$, chiamato anche queueing time, che è il tempo che intercorre tra il momento di arrivo del job nella coda e quello in cui il server inizia a servire quel pacchetto (questo è utile perché la queueing theory è fatta anche per le persone a cui interessa più questo indice piuttosto che il response time).
+
+Visto che il primo lo abbiamo già calcolato, passiamo subito al valor medio di jobs nella coda. Esso assume i seguenti valori:
+- $0$ con probabilità $p_{0}+p_{1}$
+- $1$ con probabilità $p_{2}$
+- $k \ge 1$ con probabilità $p_{k+1}$
+Avendo chiarito questo è abbastanza facile calcolare il valor medio:
 
