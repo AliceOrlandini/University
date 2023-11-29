@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md"
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md"
           }
         }
       },
@@ -142,18 +142,22 @@
   },
   "active": "a74a538a898a3ff8",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/waiting_distribution.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/kleinrock_function.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/response_time.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/local_equilibrium.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/response_distribution.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/arrival_time.webp",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc_equation.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/single_queue_time.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/state_diagram.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/two-state.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/single queue.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
-    "Magistrale/Electronics And Communication/Electronics/Project/circuito_progetto.webp",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Senza nome",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
@@ -175,10 +179,6 @@
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "conflict-files-obsidian-git.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
-    "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
-    "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
-    "Magistrale/Electronics And Communication/Electronics/Images/cost differences.png",
-    "Magistrale/Electronics And Communication/Communication/Images/RF to baseband.png",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
