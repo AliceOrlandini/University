@@ -529,3 +529,7 @@ Se i $C$ server sono equivalenti, cioè hanno lo stesso service rate $\mu$, e tu
 In questo caso, un nuovo job viene gestito in uno dei server liberi, se non c'è nessun server libero, viene messo in attesa nella coda. 
 
 Vogliamo ricavarci le SS probabilities, per fare ciò iniziamo col caso $C = 2$ e poi generalizziamo.
+Assumiamo che al tempo $t$, la traiettoria assuma valore $N(t) = n$ con $n \ge 2$ ovvero che entrambi i server siano occupati. La traiettoria tornerà giù quando il più piccolo dei due residual service time si esaurisce. 
+Sappiamo che entrambi i server sono esponenziali IID con rate $\mu$ per cui:
+- i service time *residui* sono anch'essi esponenziali IID con rate $\mu$.
+- il *minimo* dei due esponenziali IID è un'esponenziale con rate $2\mu$.

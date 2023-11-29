@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -159,13 +160,15 @@
   },
   "active": "df0b6e4dc39051f9",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/waiting_distribution.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/response_distribution.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/arrival_time.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/response_time.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/kleinrock_function.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/local_equilibrium.webp",
@@ -174,7 +177,6 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc_equation.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/state_diagram.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/single queue.webp",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
@@ -195,7 +197,6 @@
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
-    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Teory/Images",
