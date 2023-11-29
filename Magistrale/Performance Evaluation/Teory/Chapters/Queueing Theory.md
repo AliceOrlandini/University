@@ -233,6 +233,7 @@ Chiamiamo $\rho = \frac{\lambda}{\mu}$ **l'utilizzazione** del sistema, avremo:
 - $\lambda > \mu \Rightarrow \rho > 1 \Rightarrow$ sistema instabile, questo sistema si chiama **transient**.
 - $\lambda < \mu \Rightarrow \rho < 1 \Rightarrow$ sistema forse stabile, questo sistema si chiama **positive recurrent**.
 - $\lambda = \mu \Rightarrow \rho = 1 \Rightarrow$ sistema instabile, questo sistema si chiama **null recurrent**.
+
 La normalizzazione utilizzando l'utilizzazione diventa: 
 $$p_{0}\left[\sum\limits_{n=0}^{+\infty}\rho^{n}\right]= 1$$
 da cui si evince la condizione di *stabilità* che è $\rho < 1$ poiché in questo modo siamo certi che la sommatoria converge a: 
@@ -504,6 +505,7 @@ che si riduce a $F_{W}(x) = 1-\rho\cdot e^{-x/E[R]}$ per $x \ge 0$.
 Il tuo capo ti comunica che il rate di richieste al sito web della compagnia si duplicherà il prossimo mese. Vuole quindi aumentare la capacità del sistema in modo tale che:
 - il response time medio rimanga lo stesso.
 - il $99^{th}$ percentile del response time rimanga lo stesso.
+
 Assumendo che il server possa essere modellato come un sistema M/M/1, ci basta incrementare il service rate al fine di accontentare i requisiti. Chiamiamo $\lambda$, $\mu$ gli arrival e service raet *correnti* e $\lambda'=2\lambda$ e $\mu'$ i *nuovi*. 
 Per il primo requisito abbiamo:
 $$
