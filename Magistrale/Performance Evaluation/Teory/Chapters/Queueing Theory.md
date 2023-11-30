@@ -530,6 +530,85 @@ In questo caso, un nuovo job viene gestito in uno dei server liberi, se non c'è
 
 Vogliamo ricavarci le SS probabilities, per fare ciò iniziamo col caso $C = 2$ e poi generalizziamo.
 Assumiamo che al tempo $t$, la traiettoria assuma valore $N(t) = n$ con $n \ge 2$ ovvero che entrambi i server siano occupati. La traiettoria tornerà giù quando il più piccolo dei due residual service time si esaurisce. 
+
+![[mmc_trajectory.png|center|400]]
+
 Sappiamo che entrambi i server sono esponenziali IID con rate $\mu$ per cui:
 - i service time *residui* sono anch'essi esponenziali IID con rate $\mu$.
 - il *minimo* dei due esponenziali IID è un'esponenziale con rate $2\mu$.
+Questo significa che gli archi che vanno verso sinistra dopo lo stato $n \ge 2$ avranno transizioni con rate pari a $2\mu$. Per quanto riguarda l'arco allo stato 1, esso avrà rate $\mu$ perché c'è un solo server attivo (possiamo vederlo come un M/M/1 in questo caso).
+Per cui, lo schema CTMC sarà:
+
+![[mmc_ctmc.webp|center|400]]
+
+con $\lambda_{n}=\lambda$ ovvero il sistema è PASTA e 
+$$
+\begin{equation}
+\mu_{n} = \begin{cases}
+\mu & n = 1\\
+2\mu & n > 1
+\end{cases}
+\end{equation}
+$$
+In questo caso i service rates si dicono **load-dependent**.
+Dato il precedente schema, scriviamo le equazioni globali e locali allo steady state:
+- Globali:
+$$
+\begin{equation}
+\begin{cases}
+\lambda \cdot p_{0}= \mu \cdot p_{1} \\[4pt]
+(\lambda + \mu)\cdot p_{1}= \lambda \cdot p_{0}+2\mu \cdot p_{2} \\[4pt]
+(\lambda + 2\mu)\cdot p_{n} = \lambda \cdot p_{n-1}+2\lambda\cdot p_{n+1} & n \ge 2
+\end{cases}
+\end{equation}
+$$
+- Locali:
+$$
+\begin{equation}
+\begin{cases}
+\lambda \cdot p_{0}=\mu \cdot p_{1} \\[4pt]
+\lambda \cdot p_{n}=2\mu \cdot p_{n+1} & n \ge 2
+\end{cases}
+\end{equation}
+$$
+Prima di risolvere questi sistemi generalizziamo le espressioni per un numero arbitrario di server $C$, tenendo conto del fatto che:
+1. Gli arrival rates sono costanti
+2. I service rates sono:
+$$
+\begin{equation}
+\mu_{n} = \begin{cases}
+n\cdot \mu & n \le C \\[4pt]
+C \cdot \mu & n \ge C
+\end{cases}
+= min(C,n)\cdot \mu
+\end{equation}
+$$
+
+![[mmc_ctmc2.webp|center|500]]
+
+Le formule generalizzate per un sistema birth-death con transazioni tra vicini sono:
+$$
+\begin{equation}
+\begin{cases}
+p_{n}=\prod_{i=0}^{n-1} \frac{\lambda_{i}}{\mu_{i+1}}\cdot p_{0}& n\ge 1 \\[4pt]
+\sum\limits_{n=0}^{+\infty}p_{n}= 1
+\end{cases}
+\end{equation}
+$$
+Definiamo:
+$$u = \frac{\lambda}{\mu}$$
+che *non* è l'utilizzazione e distinguiamo due casi:
+- $n \le C$:
+$$p_{n}= \frac{u^{n}}{n!}\cdot p_{0}$$
+- $n \ge C$:
+$$p_{n}= \frac{u^{n}}{C^{n-C}\cdot C!}\cdot p_{0}$$
+Per verificare la stabilità del sistema bisogna applicare la normalizzazione che sostituendo diventa:
+$$
+p_{0}\cdot \left[\sum\limits_{n=C}^{C-1} \frac{u^{n}}{n!}+\sum\limits_{n=C}^{+\infty} \frac{u^{n}}{C^{n-C}\cdot C!}\right] = 1
+$$
+La prima sommatoria include un numero finito di termini quindi non può divergere, la seconda invece deve essere verificata:
+$$
+\sum\limits_{n=C}^{+\infty} \frac{u^{n}}{C^{n-C}\cdot C!} = \frac{u^{C}}{C!}\sum\limits_{n=C}^{+\infty} \frac{u^{n-C}}{C^{n-C}}= \sum\limits_{j=0}^{+\infty}\left(\frac{u}{C}\right)^{j} 
+$$
+per cui:
+- se 

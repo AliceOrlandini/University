@@ -65,8 +65,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -160,8 +159,14 @@
   },
   "active": "df0b6e4dc39051f9",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc2.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory 3.png",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory 2.png",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory 1.png",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory.png",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/waiting_distribution.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/response_distribution.webp",
@@ -171,12 +176,7 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/response_time.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/kleinrock_function.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/local_equilibrium.webp",
     "Untitled.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/two-state.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc_equation.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/state_diagram.webp",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
@@ -196,7 +196,6 @@
     "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Teory/Images",
