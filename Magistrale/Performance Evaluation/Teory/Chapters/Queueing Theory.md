@@ -659,8 +659,72 @@ Le SS probabilities possono essere riscritte in funzione di $\rho$ invece che $\
 $$
 \begin{equation}
 p_{n} = \begin{cases}
-p_{0}\cdot \frac{u^{n}}{n!} & n \le C\\[4pt]
-p_{0}\cdot \frac{u^{n}}{C^{n-C}\cdot C!} & n \ge C
+p_{0}\cdot \frac{(C\cdot \rho)^{n}}{n!} & n \le C\\[4pt]
+p_{0}\cdot \frac{C^{C}\cdot \rho^{n}}{C!} & n \ge C
 \end{cases}
 \end{equation}
 $$
+### Delay centers: sistemi M/M/$\infty$ 
+
+Se consideriamo il kimite $C \rightarrow +\infty$ osserviamo un comportamento particolare: visto che il numero di server è infinito, ogni job che arriva avrà un server disponibile, quindi non ci sarà coda. Lo schema CTMC è il seguente:
+
+![[mminf.webp|center|500]]
+
+Le equazioni locali all'equilibrio sono:
+$$
+p_{n+1}= \frac{\lambda}{(n+1)\cdot\mu}\cdot p_{n}
+$$
+Le SS probabilities possono essere scritte facilmente derivandole dalla formula generale:
+$$
+\begin{equation}
+\begin{cases}
+p_{n}= \prod_{i=0}^{n-1} \frac{\lambda_{i}}{\mu_{i+1}}\cdot p_{0} & n \ge 1 \\[4pt]
+\sum\limits_{n=0}^{+\infty}p_{n} = 1
+\end{cases}
+\end{equation}
+$$
+con $\lambda_{n}= \lambda$ e $\mu_{n} = n \cdot \mu$, ottenendo:
+$$
+\begin{equation}
+\begin{cases}
+p_{n}= \left(\frac{\lambda}{\mu}\right)^{n}\cdot \frac{1}{n!}\cdot p_{0} & n \ge 0 \\[4pt]
+p_{0} \cdot \sum\limits_{n=0}^{+\infty} \left(\frac{\lambda}{\mu}\right)^{n}\cdot \frac{1}{n!} = 1
+\end{cases}
+\end{equation}
+$$
+Tuttavia, visto che per Taylor $\sum\limits_{n=0}^{+\infty} \left(\frac{\lambda}{\mu}\right)^{n}\cdot \frac{1}{n!} = e^\frac{\lambda}{\mu}$, allora *il sistema è sempre stabile* perché $p_{0}\cdot e^\frac{\lambda}{\mu}= 1$ indipendentemente dai valori di $\lambda$ e $\mu$.
+Questo significa che: 
+$$p_{n}= e^{-\frac{\lambda}{\mu}}\cdot \frac{(\frac{\lambda}{\mu})^{n}}{n!}$$
+per ogni $n \ge 0$, ovvero **le SS probabilities sono una distribuzione di [[Teoria della probabilità#Distribuzione di Poisson|Poisson]]**.
+I sistemi M/M/$\infty$ sono detti **delay centers** perché quando arriva un job viene *ritardato* di un tempo casuale esponenziale prima di venir inoltrato.
+Da questo tipo di sistema è possibile calcolare solo alcune performance metric sfruttando la distribuzione di Poisson tra cui:
+$$E[N] = E[C] = \frac{\lambda}{\mu}$$
+$$E[R] = \frac{1}{\mu}$$
+### Models, CTMCs e performance indexes
+
+Modelli molto diversi tra loro potrebbero ammettere le stesse SS probabilities ma è importante osservare che queste similitudini non si estendono ai performance indexes quindi bisogna prestare particolare attenzione quando andiamo a svolgere gli esercizi.
+Esermpio: da finire
+
+## Discouraged arrivals
+
+In questo caso, consideriamo un sistema tale che, nel caso in cui nella coda si trovi più di un job, molti meno job arriveranno. (stile Lucca Comics che col ca..o che mi faccio 4 ore di coda per vedere lo stand di Netflix).
+Un modello usato in questi casi è quello in cui:
+$$
+\begin{equation}
+\begin{cases}
+\lambda_{n}= \frac{\lambda}{n+1} \\[4pt]
+\mu_{n}= \mu
+\end{cases}
+\end{equation}
+$$
+Lo schema CTMC sarà:
+
+![[discouraged_arrivals.webp|center|500]]
+
+Le cui equazioni locali saranno:
+$$
+p_{n+1}= \frac{\lambda}{(n+1)\mu}\cdot p_{n}
+$$
+che sono le stesse nel cado del modello [[Queueing Theory#Delay centers sistemi M/M/$ infty$|delay center]].
+
+
