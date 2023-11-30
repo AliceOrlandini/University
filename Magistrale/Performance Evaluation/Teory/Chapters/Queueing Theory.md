@@ -810,4 +810,62 @@ p_{n}= \begin{cases}
 $$
 Mi raccomando all'esame non dimenticare la seconda condizione, si perde punti inutilmente e già lo scritto basta per perdere punti...
 
-Se $u < 1$ ci aspetteremo che gli stati "bassi" si verifichino con più probabilità di quelli "alti" e questo è vero perché $p_{n}$ è una serie decrescente. Se invece $u > 1$ allora $p_{n}$ è una sequenza crescente
+Se $u < 1$ ci aspetteremo che gli stati "bassi" si verifichino con più probabilità di quelli "alti" e questo è vero perché $p_{n}$ è una serie decrescente. Se invece $u > 1$ allora $p_{n}$ è una sequenza crescente.
+Calcoliamo i performance indexes:
+1. **Valor medio dei jobs presenti nel sistema**:
+$$E[N] = \frac{u}{1-u}- \frac{(K+1)\cdot u^{K+1}}{1-u^{K+1}}$$
+	se assumiamo che $u < 1$, questa formula è simile a quella per il sistema M/M/1 ma con un effetto negativo dovuto alla limitatezza della coda che gli impedisce di avere infiniti stati come avviene per la M/M/1. Se invece avessimo $u > 1$ allora la formula diventa:
+$$E[N] \approx K - \frac{1}{1-u}$$
+	quindi il numero di job nel sistema sarà vicino a $K$ in qualsiasi caso perché le transizioni negli archi che vanno verso destra si verificheranno molto più rapidamente delle transizioni opposte.
+2. **Valor medio di jobs nella coda**:
+$$E[N_{q}] = E[N]-(1-p_{0}) = \frac{u}{1-u}- \frac{K \cdot u^{K+1}+u}{1-u^{K+1}}$$
+3. Un'importante performance metric dei sistemi con coda finita è la **Blocking Probability** detta anche **Loss Probability** cioè la probabilità che un job in arriva venga rigettato. Questa è la probabilità che il job trovi il sistema nello stato $K$. Questo sistema è per metà PASTA: 
+
+![[mmk_pasta.webp|center|300]]
+	Quindi avremo: 
+$$p_{L} =p_{K}= \frac{1-u}{1-u^{K+1}}\cdot u^{K}$$
+	Questa relazione è importante perché conoscendo la relazione tra $p_{L}$, $K$ e $u$ è possibile dimensionare opportunamente la coda badandoci sull'aspettativa sulla los probability dati gli arrival e service rates.
+
+  4. Per calcolare il response e waiting time tramite la Little's Law bisogna stare attenti a considerare solo quei job che effettivamente entrano nel sistema. Per questi ultimi $\lambda_{n}$ non è costante ma è:
+$$
+\begin{equation}
+\lambda_{n}= \begin{cases}
+\lambda & 0 \le n < K \\[4pt]
+0 & n = K
+\end{cases}
+\end{equation}
+$$
+	Quindi alla destra del bidone, il sistema non è PASTA ma ha:
+$$
+\overline{\lambda} = \sum\limits_{n=0}^{K}\lambda_{n}\cdot p_{n}=\lambda \cdot (1-p_{K}) < \lambda
+$$
+	Possiamo quindi calcolare il **valor medio del response time**:
+$$
+E[R] = \frac{E[N]}{\overline{\lambda}} = \frac{E[N]}{\lambda \cdot (1-p_{K})}
+$$
+	e il **valor medio del waiting time**:
+$$
+E[W] = \frac{E[N_{q}]}{\overline{\lambda}} = \frac{E[N_{q}]}{\lambda \cdot (1-p_{K})}
+$$
+4. **L'Arrival-Time probability** sarà:
+$$
+\begin{equation}
+r_{n}= \frac{\lambda_{n}}{\overline{\lambda}}\cdot p_{n}=
+\begin{cases}
+\frac{p_{n}}{1-p_{L}}& n<K \\
+0 & n=K
+\end{cases}
+\end{equation}
+$$
+5. Infine, il **Throughput** sarà:
+$$
+\gamma = \overline{\lambda} = \lambda \cdot (1-p_{L})
+$$
+### Aggiungere spazio alla coda aumenta l'utilizzazione
+
+Sappiamo che il motivo per cui si utilizzano le code è quello di *aumentare l'utilizzazione del sistema*. Calcoliamo quindi l'utilizzazione del sistema M/M/1/K come funzione di $K$
+## Sistemi con popolazione finita: M/M/1/$*$/U
+
+## Sistemi con bulk arrivals
+
+

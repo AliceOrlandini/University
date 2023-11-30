@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -157,8 +156,9 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "71b2ad9ca2b9cbd5",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk_pasta.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk.png",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk 1.png",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
