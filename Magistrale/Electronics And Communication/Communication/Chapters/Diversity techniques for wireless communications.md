@@ -57,4 +57,36 @@ Quindi quando due sequenze si uniscono posso mantenerne solo una. Il numero di p
 
 # Interleaving
 
-I codici convoluzionali sono utili quando si hanno canali memoryless e AWGN con eventi 
+I codici convoluzionali sono utili quando si hanno canali memoryless e AWGN con random error events. 
+I codici a correzione sono performanti quando gli errori sono uniformemente distribuiti e incorrelati. 
+Ma se abbiamo flat fading channel che cambia nel tempo, ho più probabilità di commettere errore quando ci sono le attenuazioni, ovvero quando l’SNR è basso e quindi il segnale è “basso”.
+Quindi anche se in media avrei pochi errori, quando il canale è attenuato non ho più errori uniformemente e incorrelati. Gli errori si possono correggere quando sono molto distanti tra loro, ad esempio Viterbi inizierebbe a seguire un path totalmente sbagliato.
+
+L’interliving prende il canale e lo mixa in modo da avere errori incorrelati. 
+Per fare ciò prima del decoder metto un Deinterleaver (schema a blocchi sulle slide).
+Si mescolano i messaggi da inviare in modo che siano pseudo-random distribuiti. 
+L’effetto è che se ho 2 bit trasmessi adiacentemente, dopo l’interliving non sono adiacenti e quindi il codice convoluzionale torna performante perché gli errori vengono sparsi. 
+
+L’interliving ha un costo perché se ho una sequenza molto lunga devo aspettare tanto tempo, soprattutto se uso la combo interliving e Vitermi. Si usa quando si vuole una comunicazione robusta, ad esempio per il trasferimento di un file, per la voce non si usa perché il delay e la latenza sono fondamentali. 
+
+# Turbo codes and LDPC
+
+Questi sono due nuovi tipi di codici che raggiungono performance incredibili. 
+Shannon ha dato un limite ben preciso di bit per simbolo inviabili nel canale, i turbo codes ci si avvicinano infatti vengono usate in tutti i sistemi di comunicazioni moderni. 
+Nei turbo code ci sono i feedback, funziona come i motori: il risultato dell’esplosione della benzina va in una turbina e la attiva generando energia. La pressione diventa così elevata che diventa caldo e c’è bisogno di un sistema di raffreddamento dato dall’acqua. 
+Alla fine si estrae energia dall’esplosione. 
+L’idea è quella del *positive feedback*.
+
+I turbo code sono un codice sistematico con un rate $R = \frac{1}{3}$ 
+Immagine sulle slide.
+Ho 3 repliche:
+- $d^{(1)} = p_{1}$ va attraverso ad un codice convoluzionale.
+- $d^{(0)}= u$ non ha modifiche.
+- $d^{(2)} = p_{2}$ va attraverso ad un interleaver e ad un altro codice convoluzionale.
+
+Il decoder decodifica per prima cosa i bit non alterati e si fanno delle decisioni che non sono sì o no ma sono più un feedback, ad esempio “questo è probabilmente uno zero” chiamata relaiability.
+Poi andiamo a fare l’interleaving, per poi fare un altra decisione col parity 2.
+L’output del secondo decoder è ancora una relaiability, poi la porto in retroazione e riprovo la parity1 e la relaiability che è questa volta molto meglio del sistematic.
+Ogni volta che passo attraverso il chain c’è un positive feedback. 
+Non ho capito nulla, schema sulle slide. 
+Quindi è come se avessimo degli stream dei dati diversi, e l’interleaving li rende incorrelati. 
