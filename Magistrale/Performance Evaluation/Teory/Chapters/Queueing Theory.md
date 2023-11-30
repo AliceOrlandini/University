@@ -611,4 +611,56 @@ $$
 \sum\limits_{n=C}^{+\infty} \frac{u^{n}}{C^{n-C}\cdot C!} = \frac{u^{C}}{C!}\sum\limits_{n=C}^{+\infty} \frac{u^{n-C}}{C^{n-C}}= \sum\limits_{j=0}^{+\infty}\left(\frac{u}{C}\right)^{j} 
 $$
 per cui:
-- se 
+- se $u < C \Rightarrow \lambda < C\cdot \mu$ il sistema è stabile, che potevamo aspettarci considerando che $\lambda$ è il rate di arrivo e $C\cdot \mu$ è il service rate quando il carico è pesante.
+- se $u \ge C$ il sistema è instabile.
+La **condizione di stabilità** sarà: $$\rho = \frac{\lambda}{C\cdot\mu} < 1$$
+Da questa condizione si evince che cosa avviene vicino allo stato zero non influenza la *stabilità*, ma solo le *performance*. 
+Sotto la precedente condizione, la sommatoria converge a $\frac{1}{1-\rho}$ quindi:
+$$
+p_{0}= \frac{1}{\sum\limits_{k=0}^{C-1} \frac{u^{k}}{k!}+ \frac{u^{C}}{C!}\cdot \frac{1}{1-\rho}}
+$$
+e:
+$$
+\begin{equation}
+p_{n} = \begin{cases}
+p_{0}\cdot \frac{u^{n}}{n!} & n \le C\\[4pt]
+p_{0}\cdot \frac{u^{n}}{C^{n-C}\cdot C!} & n \ge C
+\end{cases}
+\end{equation}
+$$
+Ora che sappiamo il valore delle SS probabilities possiamo calcolare i performance indexes:
+- **Valor medio di jobs presenti in coda**:
+$$E[N_{q}] = \frac{u^{C}}{C!}\cdot p_{0}\cdot \frac{\rho}{(1-\rho)^{2}}$$
+- **Valor medio del waiting time**:
+$$
+E[W] = \frac{E[N_{q}]}{\overline{\lambda}} = \frac{u^{C}}{C!}\cdot p_{0}\cdot \frac{\frac{1}{C\cdot \mu}}{(1-\rho)^{2}}
+$$
+- **Valor medio del response time**:
+$$E[R] = E[W]+E[t_{s}] = \frac{u^{C}}{C!}\cdot p_{0}\cdot \frac{\frac{1}{C\cdot \mu}}{(1-\rho)^{2}} + \frac{1}{\mu}$$
+- **Valor medio di jobs nel sistema**:
+$$E[N] = E[N_{q}]+C\cdot \rho$$
+- **Valor medio di jobs serviti**:
+$$E[S] = C\cdot \rho$$
+- **Throughput**: considerando che l'M/M/C è PASTA abbiamo che $r_{n}= p_{n}$ e quindi:
+$$
+\gamma \triangleq \sum\limits_{n=1}^{+\infty}\mu_{n}\cdot p_{n}= \sum\limits_{n=1}^{C}n\cdot \mu \cdot p_{n}+ \sum\limits_{n=C+1}^{+\infty}C\cdot \mu \cdot p_{n} = \lambda
+$$
+	i calcoli non sono semplici, ma da un'osservazione fisica si evince che l'unica possibilità è che sia $\gamma = \lambda$ visto che il sistema è allo steady state e ciò che entra deve uscire.
+- **Valor medio di server occupati**:
+$$
+E[c] = \sum\limits_{n=1}^{+\infty}min(n,C)\cdot p_{n}= \sum\limits_{n=1}^{C}n\cdot p_{n}+ \sum\limits_{n=C+1}^{+\infty}C\cdot p_{n}
+$$
+	ancora una volta i calcoli non sono semplici, ma possiamo trovare una strada più veloce sfruttando la Little's Law applicata a un sosttosistema compost da $C$ server e osservando che il response time medio del sistema è $E[t_{s}] = \frac{1}{\mu}$ e il throughput è $\gamma = \lambda$. Quindi:
+$$E[c] = \lambda \cdot E[t_{s}] = \frac{\lambda}{\mu}= u$$
+	Questo giustifica il fatto che $\rho = \frac{\lambda}{C\cdot\mu} = \frac{E[c]}{C}$ rappresenta *l'utilizzazione* che il valor medio di server occupati fratto il numero totale di server.
+	Questa definizione vale anche per sistemi M/M/1.
+
+Le SS probabilities possono essere riscritte in funzione di $\rho$ invece che $\mu$ in questo modo:
+$$
+\begin{equation}
+p_{n} = \begin{cases}
+p_{0}\cdot \frac{u^{n}}{n!} & n \le C\\[4pt]
+p_{0}\cdot \frac{u^{n}}{C^{n-C}\cdot C!} & n \ge C
+\end{cases}
+\end{equation}
+$$
