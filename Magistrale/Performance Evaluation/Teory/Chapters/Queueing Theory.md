@@ -863,9 +863,80 @@ $$
 $$
 ### Aggiungere spazio alla coda aumenta l'utilizzazione
 
-Sappiamo che il motivo per cui si utilizzano le code è quello di *aumentare l'utilizzazione del sistema*. Calcoliamo quindi l'utilizzazione del sistema M/M/1/K come funzione di $K$
+Sappiamo che il motivo per cui si utilizzano le code è quello di *aumentare l'utilizzazione del sistema*. Calcoliamo quindi l'utilizzazione del sistema M/M/1/K come funzione di $K$. Avremo:
+$$
+p(K) = 1-p_{0}(K) = 1- \frac{1-u}{1-u^{K+1}} = u \cdot \frac{1-u^{K}}{1-u^{K+1}}
+$$
+Quando $u < 1$, la precedente espressione aumenta con $K$ e:
+$$p(\infty) = \lim_{k\rightarrow +\infty} p(K) = \frac{\lambda}{\mu}= u$$
+Quindi aggiungere spazio alla coda aumenta l'utilizzazione del sistema. Inoltre, aumentare la coda aumenta anche il **throughput**:
+$$
+\gamma(K) = \mu \cdot (1-p_{0}(K)) = \mu \cdot p(K)
+$$
+e anche in questo caso:
+$$
+\gamma(\infty) = \lim_{K \rightarrow +\infty}\gamma(K) = \lambda
+$$
+Tuttavia, non è tutto oro ciò che luccica perché aumentare la coda aumenta anche il **Response Time**, calcoliamolo in funzione di $K$:
+$$
+E[R] = \frac{E[N]}{\gamma} = \frac{u}{\lambda\cdot(1-u)}- \frac{K \cdot u^{K+1}}{\lambda \cdot (1-u^{K})}
+$$
+e facendo il limite otteniamo:
+$$
+\lim_{K \rightarrow +\infty} = \frac{u}{\lambda\cdot(1-u)}= \frac{1}{\mu-\lambda}
+$$
 ## Sistemi con popolazione finita: M/M/1/$*$/U
 
+Succede spesso di avere sistemi che modellano un servizio per una popolazione finita di utenti. 
+Assumiamo che gli utenti siano **indipendenti** e che il tempo che essi spendono *fuori* dal sistema sia [[Teoria della probabilità#Distribuzione esponenziale|esponenzialmente distribuito]] con un rate $\lambda$. Segue che se $U$ utenti sono la popolazione e che $n$ utenti sono all'interno del sistema, allora avrò $U-n$ utenti fuori dal sistema e forse entreranno in futuro.
+Il prossimo utente ad entrare nel sistema sarà quello con il *tempo esterno residuo minimo*.
+Visto che i tempi sono esponenziali IID:
+- il tempo esterno residuo minimo è distribuito (è memoryless).
+- il minimo degli $U-n$ utenti è anch'esso esponenziale IID con rate $(U-n) \cdot \lambda$.
+Quindi, gli arrival rate saranno:
+$$\lambda_{n}= (U-n)\cdot \lambda$$
+mentre i service times sono costanti $\mu_{n}= \mu$.
+Il sistema avrà $U+1$ stati:
+
+![[mmu.webp|center|400]]
+
+ed è sempre stabile perché ha un numero finito di stati. Le equazioni all'equilibrio sono:
+- **Globali**:
+$$
+\begin{equation}
+\begin{cases}
+U\cdot \lambda \cdot p_{0}= \mu \cdot p_{1} \\[4pt]
+[(U-n)\cdot \lambda +\mu]\cdot p_{n}=\mu \cdot p_{n+1}+(U-(n-1))\cdot \lambda \cdot p_{n-1} & 1 \le n < U \\[4pt]
+\mu \cdot p_{U}= \lambda \cdot p_{U-1}
+\end{cases}
+\end{equation}
+$$
+- **Locali**:
+$$
+(U-n)\cdot \lambda \cdot p_{n}=\mu \cdot p_{n+1}
+$$
+Dalle equazioni locali è facile ricavare:
+$$
+p_{n}= \left(\frac{\lambda}{\mu}\right)^{n} \cdot \frac{U!}{(U-n)!}\cdot p_{0}
+$$
+per $0 \le n \le U$.
+Come detto, il sistema è sempre stabile quindi dalla normalizzazione possiamo ricavare:
+$$
+p_{0} = \frac{1}{\sum\limits_{n=0}^{U} \left(\frac{\lambda}{\mu}\right)^{n} \cdot \frac{U!}{(U-n)!}}
+$$
+Vediamo per quanto riguarda i performance indexes:
+- **Valor medio di jobs nel sistema**:
+$$
+E[N] = U- \frac{\mu}{\lambda}\cdot (1-p_{0})
+$$
+- **Valor medio di jobs nella coda**:
+$$
+E[N_{q}] = E[N] -
+$$
+- Tramite la Little's Law possiamo calcolare $\overline{\lambda}$ 
+- **Valor medio del response time**:
+- **Valor medio del waiting time**:
+- **Arrival-Time probability**:
 ## Sistemi con bulk arrivals
 
 
