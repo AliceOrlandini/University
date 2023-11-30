@@ -54,3 +54,7 @@ La distanza $d_{H}(d,x)$ può essere calcolata sul traliccio come:$$d_{H}(d,x) =
 La distanza finale è quindi solo la somma di tutte le branch metric $\lambda_{s_{j-1}\rightarrow s_{j}}$.
 Sapendo la sequenza di stati, la distanza tra la sequenza ricevuta ed i bit ricavati può essere calcolata iterativamente (step by step): $$\Lambda_{m}=\sum\limits_{j=1}^{m}\lambda_{s_{j-1}\rightarrow s_{j}}$$Viterbi osservò che se due sequenze $s^{(1)}$ e $s^{(2)}$ arrivano allo stesso punto allora la metrica comulativa può essere calcolata come: $$\Lambda_{N}^{(1)} = \Lambda_{m}^{(1)}+\sum\limits$$e osservò che se $\Lambda_{m}^{(1)}< \Lambda_{m}^{(2)}$ allora la seconda sequenza sarà sempre peggiore della prima perché è ottenuta sommando un altro termine. 
 Quindi quando due sequenze si uniscono posso mantenerne solo una. Il numero di path aumenta quindi linearmente. 
+
+# Interleaving
+
+I codici convoluzionali sono utili quando si hanno canali memoryless e AWGN con eventi 

@@ -128,4 +128,20 @@ Quello che è interessante è che in frequenza i due canali sono separati per l�
 Non si può considerare costante, quindi nel sistema single carrier ho molta interferenza di canale. 
 
 Adesso implemento il sistema OFDM.
-Per generare il canale mi concentro su un utente,
+Per generare il canale mi concentro su un utente, genero un vettore di simboli 2-PAM (-1 bit 0 e 1 bit 1).
+Mi trovo all’uscita del serial to parallel converter dello schema a blocchi. Ora devo applicare l’inverse DFT moltiplicando per $F^{H}$
+Poi faccio l’estenzione ciclica, estraggo il prefisso ciclico sCP e lo attacco all’inizio. 
+Ora posso trasmettere il segnale sul canale multipath che consiste nella convoluzione tra il vettore con la risposta impulsiva equivalente di canale, ottenendo xBar.
+
+In ricezione rimuovo il prefisso ciclico per ricrearmi un vettore di 1024 elementi.
+Ora devo fare la trasformata di Fourier moltiplicando per FMat il vettore che ho generato. 
+Per rimuovere l’effetto del canale devo dividere per la lunghezza del canale (slide OFDM noise statistics) e ottengo SEstimate. 
+L’errore sarà S - SEstimate, ovvero trasmesso meno ricevuto che è vicino allo zero. Ergo anche se il canale era molto disturbato, riesco a trasmettere senza errori.
+Anche confrontando i simboli vedrei gli stessi.
+Se ci fosse il rumore il guadagno di ampiezza sarebbe distribuito di Reily.
+
+Se metto il primo bit a zero del vettore di 1024 bit vedrò una costante. (?????)
+Se metto a 1 il secondo bit avrò un cerchio che in reale diventa una sinusoide. 
+Se metto il terzo bit ad 1 avrò sempre una sinusoide ma con periodo dimezzato.
+
+
