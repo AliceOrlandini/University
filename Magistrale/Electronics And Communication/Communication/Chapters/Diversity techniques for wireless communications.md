@@ -87,6 +87,8 @@ Ho 3 repliche:
 Il decoder decodifica per prima cosa i bit non alterati e si fanno delle decisioni che non sono sì o no ma sono più un feedback, ad esempio “questo è probabilmente uno zero” chiamata relaiability.
 Poi andiamo a fare l’interleaving, per poi fare un altra decisione col parity 2.
 L’output del secondo decoder è ancora una relaiability, poi la porto in retroazione e riprovo la parity1 e la relaiability che è questa volta molto meglio del sistematic.
-Ogni volta che passo attraverso il chain c’è un positive feedback. 
+Ogni volta che passo attraverso il chain c’è un positive feedback perché aumento la relaiability.  
 Non ho capito nulla, schema sulle slide. 
 Quindi è come se avessimo degli stream dei dati diversi, e l’interleaving li rende incorrelati. 
+
+Nel grafico vediamo la BER della 2-PAM, e il turbo code con varie iterazioni. 
