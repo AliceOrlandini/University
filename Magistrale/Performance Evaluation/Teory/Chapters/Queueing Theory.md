@@ -734,4 +734,80 @@ Alcune differenze tra i due sistemi sono:
 - Si verifica coda e infatti avremo: 
 $$E[N_{q}] = E[N]-\rho = E[N]-(1-p_{0})=\frac{\lambda}{\mu}-(1-e^{- \frac{\lambda}{\mu}})$$
 - L'arrival rate medio è diverso, quindi tutto ciò che si è calcolato con Little sarà diverso.
-- Questo sistema non è PASTA perché gli arrival rate non sono costanti.
+- Questo sistema non è PASTA perché gli arrival rate non sono costanti, quindi avremo $r_{n}\not = p_{n}$.
+Questo significa che dovremo calcolare l'arrival rate medio definito come :
+$$\overline{\lambda} = \sum\limits_{n=0}^{+\infty}\lambda_{n}\cdot p_{n}$$
+Tuttavia, sappiamo che dovrà sicuramente essere:
+$$\overline{\lambda} = \gamma \triangleq \sum\limits_{n=1}^{+\infty}\mu_{n}\cdot p_{n}$$
+ma visto che $\mu_{n}= \mu$ otteniamo:
+$$\overline{\lambda} = \mu \cdot (1-p_{0}) = \mu \cdot (1-e^{\frac{-\lambda}{\mu}})$$
+con un numero notevolmente inferiore di calcoli.  Per cui otteniamo:
+1. **Valor medio del response time**:
+$$
+E[R] = \frac{E[N]}{\overline{\lambda}} = \frac{\lambda}{\mu^{2}\cdot \left(1-e^{\frac{-\lambda}{\mu}}\right)}
+$$
+2. **Valor medio del waiting time**:
+$$
+E[W] = \frac{E[N_{q}]}{\overline{\lambda}}=E[R]-E[t_{s}] = \frac{\lambda}{\mu^{2}\cdot \left(1-e^{\frac{-\lambda}{\mu}}\right)} - \frac{1}{\mu}
+$$
+3. **Arrival-Time probability**: 
+$$
+r_{n}= \frac{\lambda_{n}}{\overline{\lambda}}\cdot p_{n}= \frac{p_{n+1}}{1-p_{0}}
+$$
+
+## Sistemi con memoria finita: M/M/1/K
+
+Nei sistemi reali abbiamo code di lunghezza finita quindi si hanno perdite dovuto all'overflow. Questo significa che, nel caso in cui $\gamma < \lambda$, cioè il throughput è minore dell'interarrival rate, alcuni pacchetti non entrino nemmeno nel sistema.
+Indichiamo con $K$ la memoria del sistema, cioè il massimo numero di jobs che sono ammessi nel sistema in ogni istante. Quando il sistema è nello stato $K$ significa che è *pieno* quindi ogni nuovo arrivo verrà rigettato. 
+Se l'arrial e il service rate sono costanti, lo schema CTMC sarà:
+
+![[mmk.png|center|600]]
+
+Da cui possiamo ricavare le equazioni locali all'equilibrio:
+$$
+\lambda \cdot p_{n}=\mu \cdot p_{n+1}
+$$
+con $0 \le n < K$. Da cui si ricava:
+$$
+p_{n}= \left(\frac{\lambda}{\mu}\right)^{n}\cdot p_{0}
+$$
+La condizione di normalizzazione ora coinvolge una somma finita quindi il sistema è sempre **positive recurrent** che sia $\lambda < \mu$ o meno.
+Chiamiamo $u = \frac{\lambda}{\mu}$, sostituendo otteniamo:
+$$
+\begin{equation}
+\begin{cases}
+p_{n}= u^{n}\cdot p_{0} & 0 \le n \le K \\[4pt]
+p_{0}\cdot \sum\limits_{n=0}^{K} u^{n}= 1
+\end{cases}
+\end{equation}
+$$
+Tuttavia:
+$$
+\begin{equation}
+\sum\limits_{n=0}^{K}u^{n} = \begin{cases}
+\frac{1-u^{K+1}}{1-u} & u \not = 1 \\[4pt]
+K+1 & u = 1
+\end{cases}
+\end{equation}
+$$
+per cui:
+$$
+\begin{equation}
+p_{0}= \frac{1}{\sum\limits_{n=0}^{K}u^{n}} = \begin{cases}
+\frac{1-u}{1-u^{K+1}} & u \not = 1 \\[4pt]
+\frac{1}{K+1} & u = 1
+\end{cases}
+\end{equation}
+$$
+e:
+$$
+\begin{equation}
+p_{n}= \begin{cases}
+\frac{1-u}{1-u^{K+1}}\cdot u^{n} & u \not = 1 \\[4pt]
+\frac{1}{K+1} & u = 1
+\end{cases}
+\end{equation}
+$$
+Mi raccomando all'esame non dimenticare la seconda condizione, si perde punti inutilmente e già lo scritto basta per perdere punti...
+
+Se $u < 1$ ci aspetteremo che gli stati "bassi" si verifichino con più probabilità di quelli "alti" e questo è vero perché $p_{n}$ è una serie decrescente. Se invece $u > 1$ allora $p_{n}$ è una sequenza crescente

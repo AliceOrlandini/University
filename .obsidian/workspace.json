@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "008660c4f1eaf6d8",
+        "id": "7e7eaf7f1f163e1e",
         "type": "tabs",
         "children": [
           {
-            "id": "df0b6e4dc39051f9",
+            "id": "71b2ad9ca2b9cbd5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -157,22 +157,22 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "df0b6e4dc39051f9",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk.png",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk 1.png",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/discouraged_arrivals.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mminf.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc2.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory 3.png",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory 2.png",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory 1.png",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory.png",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/waiting_distribution.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/response_distribution.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/arrival_time.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
@@ -195,7 +195,6 @@
     "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Teory/Images",
