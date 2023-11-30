@@ -931,12 +931,26 @@ E[N] = U- \frac{\mu}{\lambda}\cdot (1-p_{0})
 $$
 - **Valor medio di jobs nella coda**:
 $$
-E[N_{q}] = E[N] -
+E[N_{q}] = E[N] - (1-p_{0}) = U - \frac{\mu + \lambda}{\lambda} \cdot (1-p_{0})
 $$
-- Tramite la Little's Law possiamo calcolare $\overline{\lambda}$ 
+- Tramite la Little's Law possiamo calcolare:
+$$
+\overline{\lambda} = \gamma = \mu \cdot (1-p_{0})
+$$
 - **Valor medio del response time**:
+$$
+E[R] = \frac{U}{\mu\cdot(1-p_{0})}- \frac{1}{\lambda}
+$$
 - **Valor medio del waiting time**:
+$$
+E[W] = E[R] = \frac{U}{\mu\cdot(1-p_{0})}- \frac{1}{\lambda} - \frac{1}{\mu}
+$$
 - **Arrival-Time probability**:
+$$
+r_{n}= \frac{p_{n+1}}{1-p_{0}}
+$$
+	con $n < U$
 ## Sistemi con bulk arrivals
+
 
 
