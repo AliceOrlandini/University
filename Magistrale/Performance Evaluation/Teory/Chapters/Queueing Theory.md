@@ -726,5 +726,12 @@ $$
 p_{n+1}= \frac{\lambda}{(n+1)\mu}\cdot p_{n}
 $$
 che sono le stesse nel cado del modello [[Queueing Theory#Delay centers sistemi M/M/$ infty$|delay center]].
-
-
+Quindi possiamo velocemente dedurre che:
+1. il sistema è *sempre stabile*, indipendentemente dai valori di $\lambda$ e $\mu$.
+2. $p_{n}= e^{-\frac{\lambda}{\mu}}\cdot \frac{(\lambda/\mu)^{n}}{n!}$ per ogni $n \ge 0$.
+3. $E[N] = \frac{\lambda}{\mu}$
+Alcune differenze tra i due sistemi sono:
+- Si verifica coda e infatti avremo: 
+$$E[N_{q}] = E[N]-\rho = E[N]-(1-p_{0})=\frac{\lambda}{\mu}-(1-e^{- \frac{\lambda}{\mu}})$$
+- L'arrival rate medio è diverso, quindi tutto ciò che si è calcolato con Little sarà diverso.
+- Questo sistema non è PASTA perché gli arrival rate non sono costanti.
