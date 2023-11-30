@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md"
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md"
           }
         }
       },
@@ -140,22 +140,22 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "a74a538a898a3ff8",
+  "active": "47d227c15ee73dd2",
   "lastOpenFiles": [
     "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc2.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/discouraged_arrivals.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mminf.webp",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory.png",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/waiting_distribution.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/kleinrock_function.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/response_time.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/local_equilibrium.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/response_distribution.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/arrival_time.webp",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc_equation.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/ctmc.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/single_queue_time.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/state_diagram.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Senza nome",
@@ -178,7 +178,6 @@
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "conflict-files-obsidian-git.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",

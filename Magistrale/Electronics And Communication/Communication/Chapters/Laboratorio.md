@@ -93,3 +93,39 @@ Il secondo grafico non è uguale al rate per via di un’assunzione fatta sul ru
 
 Ora che ho aumentato $E_{s}/N_{0}$ le due curve sono molto più simili nel secondo grafico ma si sbilanciano nel primo.
 Le due curve variano anche in base alla truncation.
+
+# Laboratorio 4
+
+Oggi vedremo il canale e l’OFDM (il codice si chiama *OFDM_TX_RX*).
+Simuliamo 2 utenti col canale frequency selecting e vediamo se l’OFDM mantiene le promesse di ortogonalità.
+randSeedChannel serve per avere sempre gli stessi valori casuali.
+H è la risposta in frequenza del canale ed ha dimensione 1024x2 (2 colonne, una per utente).
+Genero le matrici F e F^H (1/sqrt(N)e^…)
+FMat * FMat’ deve dare la matrice identica (unitaria).
+Poi ci sono dei parametri aggiuntivi che non ci interessano.
+
+Per il canale bisogna considerare il large scale fading e small scale fading. 
+Le distanze degli utenti saranno:
+userDist(1,1) = 150 metri
+userDist(2,1) = 450 metri
+Dobbiamo definire la path loss:
+Gamma = 4lambda/(4pi d_0)^2
+pathLoss = Gamma*(d_0) che sarà 23db
+l’attenuazione sarà di 200 
+
+Il ritardo maggiore ce l’ho dopo 65 campioni, quindi definisco il passo ciclico a 72 campioni (L??)
+
+Calcolo la potenza media delle varie repliche, le normalizzo per avere potenza unitaria (lo small scale fadin è normalizzato ad 1).
+Il sampling time è $6*10^{-8}$
+
+Ora con la potenza media mi genero il valore istantaneo considerando che sono VA gaussiana complessa con valor medio nulla e varianza.
+Poi se voglio calcolare la risposta in frequenza del canale devo togliere radice di N per compensare e poi usando la FMat per fare la trasformata di Fourier. (la formula è nella slide OFDM signal model: channel matrix)
+
+alphaMath sono i coefficienti di realy che sono quelli associati a ciascuna replica.
+
+Nel grafico si vede che la prima differenza è la path loss ($10^{-5}$ e $10^{-7}$), il ritardo è deterministico ma la potenza delle repliche è aleatoria. 
+Quello che è interessante è che in frequenza i due canali sono separati per l’attenuazioni del fattore $\sqrt{200}$.
+Non si può considerare costante, quindi nel sistema single carrier ho molta interferenza di canale. 
+
+Adesso implemento il sistema OFDM.
+Per generare il canale mi concentro su un utente,
