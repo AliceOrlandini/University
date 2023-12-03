@@ -1012,4 +1012,20 @@ Questa formula mette quindi in evidenza come la **variabilità** del service tim
 
 ![[non-exp service.webp|center|400]]
 
-La formula PK ha anche un significato fisico: 
+La formula PK ha anche un significato fisico: **la coda si origina dalla variabilità (o randomness)**. Nei sistemi dove sia interarrival che service times sono costanti non ci sarà coda finché si avrà $\rho \le 1$. Se invece entrambi i tempi sono variabili ci sarà coda.
+Se gli interarrival times sono stocastici, ci saranno job che arriveranno molto ravvicinati tra loro e genereranno code. 
+Se i service times sono stocastici, ci sarà occasionalmente un grande service time durante il quale molti job rimarranno in coda. 
+Quindi, più è alta la variabilità, più ci saranno job in coda e vista la Little's Law lo stesso accadrà con tutti gli altri parametri. 
+
+La formula PK calcola esattamente $E[N]$ ma non ci permette di calcolare le SS probabilities in forma chiusa. Se è richiesto di ottenere queste informazioni si possono utilizzare due approcci:
+1. analizzare il sistema utilizzando il metodo **Embedded Markov Chain** che consiste nell'estrarre risultati esatti con passaggi matematici complessi.
+2. ottenere risultati approssimati utilizzando il metodo **Phase-Type distributions**. Con questo metodo, il modello generale del service time viene distribuito utilizzando una composizione di distribuzioni esponenziali. 
+
+### Sistemi M/G/$\infty$ e insensitivity
+
+In questo caso si hanno infiniti server ma una distribuzione dei service times generale. In questo caso, le SS probabilities sono le stesse del sistema M/M/$\infty$ poiché dipendono solo dal valor medio del service time e non dalla particolare distribuzione. 
+Questa proprietà è chiamata **insensitivity**.
+In questo tipo di sistemi *non c'è coda*. 
+
+# Queueing Networks
+
