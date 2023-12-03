@@ -952,5 +952,48 @@ $$
 	con $n < U$
 ## Sistemi con bulk arrivals
 
+Fino ad ora abbiamo studiato sistemi con transizioni solo tra vicini, tuttavia ci possono essere casi in cui troviamo transizioni non tra vicini. In tutti questi casi, assumiamo che gli arrivi siano esponenziali e manteniamo la proprietà che l'unico parametro rilevante per descrivere lo stato del sistema siano il numero di job. In questo caso però, un arrivo **aumenterà il numero di job in coda di più di un'unità**, per cui avremo delle transizioni non tra vicini nello schema CTMC.
 
+Per rappresentare il CTMC chiamiamo $g$ la variabile aleatoria del numero di job per arrivo e sia $g_{k} = P\{g = k\}$ la sua PMF. Avremo sicuramente che $g_{0}= 0$ e che $\sum\limits_{k=1}^{+\infty}g_{k}= 1$.
+Assumiamo che $g_{k}$ sia indipendente dall'interarrival time e service time (cosa che in realtà non avviene perché di solito più un camion ci mette ad arrivare più sarà carico quindi non sono indipendenti).
+Quindi il rate di un arco che va dallo stato $i$ allo stato $k$ sarà pari a $\lambda\cdot g_{k-i}$, e la CTMC può essere rappresentata nel seguente modo:
 
+![[bulk_arrivals.webp|center|400]]
+
+Questo diagramma è difficile da seguire in quanto:
+- tutti gli stati avranno tanti archi uscenti verso destra quanto il dominio di $g$, ognuno dei quali con rate $\lambda \cdot g_{j}$ con $j \ge 1$.
+- Ogni stato $n$ avrà esattamente $n$ archi entranti da sinistra con rate $\lambda \cdot g_{n-j}$ con $0\le j < n$ proveniente dallo stato $j$.
+- Invece, tutte le transizioni dei sercice avranno rate $\mu$.
+Possiamo scrivere le equazioni globali:
+- $n = 0$:
+$$\sum\limits_{i=1}^{+\infty}\lambda \cdot g_{i}\cdot p_{0}=\mu \cdot p_{1} \Rightarrow \lambda \cdot p_{0}=\mu \cdot p_{1}$$
+- $n \ge 1$:
+$$
+\left[\sum\limits_{i=1}^{+\infty}\lambda\cdot g_{i}+\mu\right]\cdot p_{n}=\mu \cdot p_{n+1}+\sum\limits_{i=0}^{n-1}\lambda\cdot g_{n-i}\cdot p_{i}
+$$
+	E sviluppando otteniamo:
+$$
+(\lambda+\mu)\cdot p_{n}=\mu \cdot p_{n+1}+\lambda \cdot \sum\limits_{i=0}^{n-1}g_{n-i}\cdot p_{i}
+$$
+Il calcolo delle SS probabilities usando il metodo diretto è difficoltoso in questo caso quindi si utilizza la PGF moltiplicando ogni equazione per $z^{n}$ e sommando tutto (calcoli omessi):
+$$
+P(z) = \frac{\mu \cdot p_{0}\cdot (1-z)}{\mu \cdot (1-z )-\lambda \cdot z \cdot [1-G(z)]}
+$$
+Per calcolare $p_{0}$ si utilizza la condizione di normalizzazione che è $P(1) = 1$ che in questo caso è $P(1) = \frac{0}{0}$ che è indeterminata. Per risolverla utilizziamo De L'Hopital:
+$$
+\lim_{z=1^{-}} P(z) = \frac{-\mu\cdot p_{0}}{-\mu-\lambda \cdot [1-G(z)]+\lambda\cdot z \cdot G'(z)}|_{z=1} = \frac{-\mu \cdot p_{0}}{-\mu +\lambda \cdot G'(1)} = \frac{p_{0}}{1-(\frac{\lambda}{\mu})\cdot E[g]} = 1
+$$
+Da cui si ricava:
+$$
+p_{0}= 1-\left(\frac{\lambda}{\mu}\right)\cdot E[g]
+$$
+Essendo $p_{0}$ una probabilità sarà non negativa, ciò significa che $\left(\frac{\lambda}{\mu}\right)\cdot E[g] < 1$ che è la **condizione di stabilità**. Infatti **l'utilizzazione** sarà pari a $\rho = (1-p_{0}) = \left(\frac{\lambda}{\mu}\right)\cdot E[g]$.
+E infine, sostituendo nell'espressione otteniamo:
+$$
+P(z) = \frac{\mu\cdot (1-\rho)\cdot (1-z)}{\mu \cdot (1-z)-\lambda\cdot z \cdot [1-G(z)]}
+$$
+La stessa procedura può essere utilizzata per sistemi con **bulk services**.
+
+## Sistemi con distribuzione del service time non esponenziale
+
+Fino ad ora abbiamo assunto interarrival times e service times siano esponenziali in modo da sfruttare la proprietà memoryless. 
