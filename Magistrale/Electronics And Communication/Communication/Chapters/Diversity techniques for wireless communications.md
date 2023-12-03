@@ -6,7 +6,7 @@ Facendo questo per 4 canali differenti poi si seleziona il canale con l’attenu
 Nella realtà è difficilmente applicabile perché ci servirebbe il quadruplo della banda del segnale.
 
 Esistono vari modi di effettuare la diversity, i più efficienti sono:
-- **Time Diversity**: relativo alla *coherence time*.
+- **Time Diversity**: relativo alla *coherence time*. 
 - **Frequency Diversity**: relativo alla *coherence bandwidth*.
 - **Spatial Diversity**: relativo alla *coherence distance*.
 
