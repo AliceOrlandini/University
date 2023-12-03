@@ -997,3 +997,19 @@ La stessa procedura può essere utilizzata per sistemi con **bulk services**.
 ## Sistemi con distribuzione del service time non esponenziale
 
 Fino ad ora abbiamo assunto interarrival times e service times siano esponenziali in modo da sfruttare la proprietà memoryless. 
+Tuttavia, ci sono casi in cui l'interarrival e il service times non possono essere modellati come una distribuzione esponenziale. In questi casi, l'analisi si fa complessa per il fatto he il numero di job nel sistema non può essere indicatore dello stato del sistema stesso.
+Nonostante questo, alcuni risultati si possono trovare, per esempio nel sistema M/G/1 (ha interarrival esponenziali, *service times generale* e un server). Con la parola *generale* intendiamo che si può utilizzare qualsiasi tipo di distribuzione. 
+Sia $t_{S}$ la variabile aleatoria che modella i service times e assumiamo che $E[t_{S}] = \frac{1}{\mu}$ e $Var(t_{S})$ sia noto. 
+Se $\rho = \frac{\lambda}{\mu}< 1$ allora il sistema è stabile e la formula di **Pollaczek and Khinchin (PK)** sostiene che:
+$$
+E[N] = \rho + \frac{\rho^{2}+\lambda^{2}\cdot Var(t_{S})}{2\cdot (1-\rho)} = \rho + \frac{\rho^{2}\cdot [1+CoV(t_{S})^{2}]}{2\cdot (1-\rho)}
+$$
+Da notare che:
+- Noto $E[N]$ possiamo calcolare gli altri tre performance indexes.
+- Quando $t_{S}$ è esponenziale la formula PK si trasforma nella formula di **Kleinrock** valida per i sistemi M/M/1.
+La versione della formula PK con la covarianza ha un importante significato perché mette in evidenza il fatto che il numero di job nel sistema dipende anche da *quanto il service time è variabile*. Infatti, se il service time è deterministico allora avremo $Var(t_{S}) = CoV(t_{S}) = 0$ e avremo il minor numero di job possibili nel sistema.
+Questa formula mette quindi in evidenza come la **variabilità** del service time **aumenta** l'occupazione della coda. Quindi bisogna porre particolare attenzione alla scelta del service time del nostro sistema.
+
+![[non-exp service.webp|center|400]]
+
+La formula PK ha anche un significato fisico: 
