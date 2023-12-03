@@ -645,12 +645,12 @@ $$E[S] = C\cdot \rho$$
 $$
 \gamma \triangleq \sum\limits_{n=1}^{+\infty}\mu_{n}\cdot p_{n}= \sum\limits_{n=1}^{C}n\cdot \mu \cdot p_{n}+ \sum\limits_{n=C+1}^{+\infty}C\cdot \mu \cdot p_{n} = \lambda
 $$
-	i calcoli non sono semplici, ma da un'osservazione fisica si evince che l'unica possibilità è che sia $\gamma = \lambda$ visto che il sistema è allo steady state e ciò che entra deve uscire.
+i calcoli non sono semplici, ma da un'osservazione fisica si evince che l'unica possibilità è che sia $\gamma = \lambda$ visto che il sistema è allo steady state e ciò che entra deve uscire.
 - **Valor medio di server occupati**:
 $$
 E[c] = \sum\limits_{n=1}^{+\infty}min(n,C)\cdot p_{n}= \sum\limits_{n=1}^{C}n\cdot p_{n}+ \sum\limits_{n=C+1}^{+\infty}C\cdot p_{n}
 $$
-	ancora una volta i calcoli non sono semplici, ma possiamo trovare una strada più veloce sfruttando la Little's Law applicata a un sosttosistema compost da $C$ server e osservando che il response time medio del sistema è $E[t_{s}] = \frac{1}{\mu}$ e il throughput è $\gamma = \lambda$. Quindi:
+ancora una volta i calcoli non sono semplici, ma possiamo trovare una strada più veloce sfruttando la Little's Law applicata a un sosttosistema compost da $C$ server e osservando che il response time medio del sistema è $E[t_{s}] = \frac{1}{\mu}$ e il throughput è $\gamma = \lambda$. Quindi:
 $$E[c] = \lambda \cdot E[t_{s}] = \frac{\lambda}{\mu}= u$$
 	Questo giustifica il fatto che $\rho = \frac{\lambda}{C\cdot\mu} = \frac{E[c]}{C}$ rappresenta *l'utilizzazione* che il valor medio di server occupati fratto il numero totale di server.
 	Questa definizione vale anche per sistemi M/M/1.
@@ -835,15 +835,15 @@ $$
 \end{cases}
 \end{equation}
 $$
-	Quindi alla destra del bidone, il sistema non è PASTA ma ha:
+Quindi alla destra del bidone, il sistema non è PASTA ma ha:
 $$
 \overline{\lambda} = \sum\limits_{n=0}^{K}\lambda_{n}\cdot p_{n}=\lambda \cdot (1-p_{K}) < \lambda
 $$
-	Possiamo quindi calcolare il **valor medio del response time**:
+Possiamo quindi calcolare il **valor medio del response time**:
 $$
 E[R] = \frac{E[N]}{\overline{\lambda}} = \frac{E[N]}{\lambda \cdot (1-p_{K})}
 $$
-	e il **valor medio del waiting time**:
+e il **valor medio del waiting time**:
 $$
 E[W] = \frac{E[N_{q}]}{\overline{\lambda}} = \frac{E[N_{q}]}{\lambda \cdot (1-p_{K})}
 $$
@@ -949,7 +949,7 @@ $$
 $$
 r_{n}= \frac{p_{n+1}}{1-p_{0}}
 $$
-	con $n < U$
+con $n < U$
 ## Sistemi con bulk arrivals
 
 Fino ad ora abbiamo studiato sistemi con transizioni solo tra vicini, tuttavia ci possono essere casi in cui troviamo transizioni non tra vicini. In tutti questi casi, assumiamo che gli arrivi siano esponenziali e manteniamo la proprietà che l'unico parametro rilevante per descrivere lo stato del sistema siano il numero di job. In questo caso però, un arrivo **aumenterà il numero di job in coda di più di un'unità**, per cui avremo delle transizioni non tra vicini nello schema CTMC.
@@ -971,7 +971,7 @@ $$\sum\limits_{i=1}^{+\infty}\lambda \cdot g_{i}\cdot p_{0}=\mu \cdot p_{1} \Rig
 $$
 \left[\sum\limits_{i=1}^{+\infty}\lambda\cdot g_{i}+\mu\right]\cdot p_{n}=\mu \cdot p_{n+1}+\sum\limits_{i=0}^{n-1}\lambda\cdot g_{n-i}\cdot p_{i}
 $$
-	E sviluppando otteniamo:
+E sviluppando otteniamo:
 $$
 (\lambda+\mu)\cdot p_{n}=\mu \cdot p_{n+1}+\lambda \cdot \sum\limits_{i=0}^{n-1}g_{n-i}\cdot p_{i}
 $$
@@ -992,6 +992,7 @@ E infine, sostituendo nell'espressione otteniamo:
 $$
 P(z) = \frac{\mu\cdot (1-\rho)\cdot (1-z)}{\mu \cdot (1-z)-\lambda\cdot z \cdot [1-G(z)]}
 $$
+
 La stessa procedura può essere utilizzata per sistemi con **bulk services**.
 
 ## Sistemi con distribuzione del service time non esponenziale
