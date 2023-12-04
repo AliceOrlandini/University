@@ -11,8 +11,12 @@
             "id": "0353bcdc844de177",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -107,7 +113,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md"
+          }
         }
       },
       {
@@ -134,8 +142,11 @@
   },
   "active": "0353bcdc844de177",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/non-exp service.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/bulk_arrivals.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk.png",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk_pasta.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmu.webp",
@@ -146,8 +157,6 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mminf.webp",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory.png",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/waiting_distribution.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/kleinrock_function.webp",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
     "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",

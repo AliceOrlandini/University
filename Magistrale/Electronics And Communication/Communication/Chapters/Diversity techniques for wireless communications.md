@@ -92,3 +92,4 @@ Non ho capito nulla, schema sulle slide.
 Quindi è come se avessimo degli stream dei dati diversi, e l’interleaving li rende incorrelati. 
 
 Nel grafico vediamo la BER della 2-PAM, e il turbo code con varie iterazioni. 
+
