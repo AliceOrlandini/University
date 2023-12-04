@@ -125,4 +125,8 @@ dobbiamo normalizzare
 Grafico 
 unn’ho più voglia
 
-## MIMO
+## MIMO: spartial multiplexing
+
+### Singular value decomposition
+
+è roba di algebra lineare.
