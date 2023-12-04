@@ -95,7 +95,7 @@ Quando si utilizza questo canale si fa l’assunzione chiamata **Narrowband** pe
 ## SIMO Channel
 
 Sono una semplificazione delle MIMO in cui il trasmettitore ha una sola antenna mentre il ricevitore ne ha molte.
-In questo caso si ha $N >1$ al ricevitore ed $M=1$ al trasmettitore. 
+In questo caso si ha $N_{R} = N >1$ al ricevitore ed $N_{T}=1$ al trasmettitore. 
 La variabile di decisione nell’antenna $i-esima$ è:
 $$
 x_{i}(m) = h_{i}c_{m}+n_{i}(m)
@@ -105,7 +105,24 @@ I segnali ricevuti alle $N$ antenne sono combinati insieme e la variabile di dec
 $$
 z(m) = w_{1}^{*}\cdot x_{1}(m) + \dots + w_{N}^{*}\cdot x_{N}(m)
 $$
+Slide di calcoli.
+Il signal noise è:
+$$
+SNR = \frac{|\sum\limits_{i=1}^{N}w_{i}^{*} \cdot h_{i}|^{2}}{\sum\limits_{i=1}^{N}|w_{i}|^{2}}\cdot \frac{A}{\sigma^{2}}
+$$
+altri calcoli che portano a:
+$$
+SNR = \frac{A}{\sigma^{2}}\cdot ||h||^{2}
+$$
 
-## Maximal ratio combining (MRC)
+## MISO Channel
 
-##
+Assumiamo ora di avere $N_{T}>1$ e $N_{R}=1$. 
+L’SNR mi aspetto che sia lo stesso perché cambiare direzione non cambia.
+Altra slide di calcoli.
+dobbiamo normalizzare
+
+Grafico 
+unn’ho più voglia
+
+## MIMO
