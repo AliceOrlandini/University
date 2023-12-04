@@ -60,20 +60,51 @@ f(\mu) = \sum\limits_{n=1}^{N}(\mu-\sigma_{n}^{2})^{+}-P_{0}
 $$
 i punti iniziali saranno:
 - $a_{1}= 0 \Rightarrow f(0) = -P_{0} < 0$
-- $b_{1}= \frac{\sum\limits_{n=1}^N}{2}$
+- $b_{1}= \frac{\sum\limits_{n=1}^{N}\sigma_{n}^{2}+P_{0}}{N} \Rightarrow f(b) \ge 0$
+L’idea è che ad ogni iterazione l’intervallo che contiene la soluzione si rimpicciolisce sempre più fino all’iterazione $k-esima$ dove la soluzione è nell’intervallo $(a_{k},b_{k})$ con $f(a_{k})< 0$ e $f(b_{k})>0$. 
+Eseguiamo i seguenti passaggi:
+- Prendiamo il valore centrale $c_{k}= \frac{a_{k}+b_{k}}{2}$
+- Calcolare $f(c_{k})$:
+- Se $f(c_{k}) < 0$ allora $a_{k+1} = c_{k}$ e $b_{k+1} = b_{k}$
+- Se $f(c_{k}) > 0$ allora $a_{k+1} = a_{k}$ e $b_{k+1} = c_{k}$
+Infine, quando $|f(c)|$ è sufficientemente piccolo l’algoritmo smette di operare e ritorna $c_{k}$.
+### Esempio
+Immagini sulle slide. 
+
 ## Optimal power distribution
 
 ## Waterfilling
 
 # Spartial diversity
 
-## Receive diversity
-
+Quando abbiamo studiato il canale abbiamo visto la correlation distance. Possiamo expoit diversity utilizzando antenne multiple al tramettitore e al ricevitore per sftuttare questa diversità della distanza per il fatto che il canale è incorrelato. 
+Lo svantaggio riguarda il costo dei device che aumenta per ogni antenna aggiunta, ma il vantaggio è quello di aggiungere diversità senza perdere risorse spettrali che sono ancora più costose. 
+$$
+d_{c}= \frac{\lambda}{2}
+$$
+Ad esempio, il WiFi a $@2.4 \ GHz$ ha $\lambda = 12.5 \ cm$.
+C’è anche da considerare che più aumentiamo la frequenza più piccola è l’antenna quindi possiamo considerare array di antenne. La tecnologia che ne deriva si chiama **Massive-MIMO**.
+Avendo tanta diversità possiamo accettare l’interferenza. 
 ## Antennas and carrier frequency
 
 ## MIMO Channel
 
+MIMO è acronimo di **Multiple-Input Multiple-Output** e indica quei sistemi in cui si hanno più antenne in trasmissione e in ricezione.
+Generalmente si modella il canale come una matrice $H$ che ha $N_{R}$ righe e $N_{T}$ colonne ($R$ = receiver e $T$ = trasmitter). 
+Quando si utilizza questo canale si fa l’assunzione chiamata **Narrowband** per cui $h_{n,m}$ è uno scalare complesso.
 ## SIMO Channel
+
+Sono una semplificazione delle MIMO in cui il trasmettitore ha una sola antenna mentre il ricevitore ne ha molte.
+In questo caso si ha $N >1$ al ricevitore ed $M=1$ al trasmettitore. 
+La variabile di decisione nell’antenna $i-esima$ è:
+$$
+x_{i}(m) = h_{i}c_{m}+n_{i}(m)
+$$
+Il rumore è sempre indipendente quindi ogni variabile ha il suo mentre la noise power si assume che sia la stessa per tutti.
+I segnali ricevuti alle $N$ antenne sono combinati insieme e la variabile di decisione è:
+$$
+z(m) = w_{1}^{*}\cdot x_{1}(m) + \dots + w_{N}^{*}\cdot x_{N}(m)
+$$
 
 ## Maximal ratio combining (MRC)
 
