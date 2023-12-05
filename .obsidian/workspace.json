@@ -18,8 +18,29 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "d71060db99ba68b4",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "0143fdebcf100d9e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JSON.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -85,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "JSON.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "JSON.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md"
+                "file": "JSON.md"
               }
             }
           },
@@ -156,27 +177,26 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "71b2ad9ca2b9cbd5",
+  "active": "0143fdebcf100d9e",
   "lastOpenFiles": [
+    "JSON.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/non-exp service.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/bulk_arrivals.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmu.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk_pasta.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk.png",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk 1.png",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/discouraged_arrivals.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mminf.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc2.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory 3.png",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
-    "Untitled.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
