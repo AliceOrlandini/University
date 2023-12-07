@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md"
+                "file": "Magistrale/Large Scale Databases/Chapters/Introduzione.md"
               }
             }
           },
@@ -158,6 +159,8 @@
   },
   "active": "71b2ad9ca2b9cbd5",
   "lastOpenFiles": [
+    "Magistrale/Large Scale Databases/Table of Contents.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "TODO.md",
     "Dynamic Load Balancing.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
@@ -190,11 +193,9 @@
     "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
     "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Teory/Images",

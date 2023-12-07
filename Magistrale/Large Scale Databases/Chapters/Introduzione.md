@@ -1,7 +1,7 @@
 # Big Data
 
 Big Data è una parola utilizzata per descrivere molte cose ma innanzitutto rappresenta un insieme di dati e solo successivamente la tecnologia con cui vengono immagazzinati.
-I servizi su internet generano dati *continuamente* ad *alta velocità* per cui i problemi ai quali andiamo incontro sono la raccolta (*fetch*), l'immagazzinamento (*store*) e l'elaborazione (*elaboration* ) dei dati stessi.
+I servizi su internet generano dati *continuamente* ad *alta velocità* per cui i problemi ai quali andiamo incontro sono la raccolta (*fetch*), l'immagazzinamento (*store*) e l'elaborazione (*elaboration*) dei dati stessi.
 
 I dati vengono prodotti tramite varie fonti come:
 - Social media e Networks
