@@ -101,7 +101,7 @@ Spark è compatibile con tutti i principali framework:
 
 Il primo database mai inventato è l’enciclopedia in quanto i dati erano organizzati in ordine alfabetico. Oppure anche una libreria tecnicamente è un database. 
 
-Sinceramente mi sembra inutile. Gli darò una lettura sulle slide e via.
+Sinceramente questa parte mi sembra inutile. Gli darò una lettura sulle slide e via.
 
 ### ACID Transaction
 
