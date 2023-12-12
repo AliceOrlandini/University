@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
+                "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
+            "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
+            "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md"
+            "file": "Magistrale/Large Scale Databases/Presentation Speach.md"
           }
         }
       },
@@ -142,8 +142,10 @@
   },
   "active": "0353bcdc844de177",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
+    "Magistrale/Large Scale Databases/Presentation Speach.md",
+    "Dynamic Load Balancing.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/non-exp service.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/bulk_arrivals.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
@@ -177,8 +179,6 @@
     "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
-    "conflict-files-obsidian-git.md",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
