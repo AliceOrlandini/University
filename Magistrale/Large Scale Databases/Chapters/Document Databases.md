@@ -7,7 +7,7 @@ Nei documenti possiamo definire attributi come e quando vogliamo, *schema-less*.
 
 # XML Documents
 
-XML è acronimo di **eXtensible Markup Language**, è un linguaggio di markup ovvere un linguaggio in cui si va a specificare la struttura e il contenuto del documento.
+XML è acronimo di **eXtensible Markup Language**, è un linguaggio di markup ovvero un linguaggio in cui si va a specificare la struttura e il contenuto del documento.
 Si basa su tags (come l’html) per gli attributi che possono contenere tutti i tipi di informazioni. 
 
 In passato veniva usato anche per il protocollo SOAP (Simple Object Access Protocol) un protocollo in cui si vanno a incapsulare le informazioni in un file xml (???).
