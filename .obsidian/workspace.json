@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "7e7eaf7f1f163e1e",
+        "id": "4cd5fbb3d38e6295",
         "type": "tabs",
         "children": [
           {
-            "id": "71b2ad9ca2b9cbd5",
+            "id": "afb7ee9d32c9ac7c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md"
-              }
+              "state": {}
             }
           },
           {
@@ -156,11 +148,14 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "afb7ee9d32c9ac7c",
   "lastOpenFiles": [
+    "Magistrale/Large Scale Databases/Table of Contents.md",
+    "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+    "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
+    "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
     "TODO.md",
     "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
-    "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Dynamic Load Balancing.md",
@@ -191,10 +186,7 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
-    "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Teory/Images",
