@@ -11,9 +11,11 @@
             "id": "71b2ad9ca2b9cbd5",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md"
               }
             }
           },
@@ -154,13 +156,13 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "71b2ad9ca2b9cbd5",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
+    "TODO.md",
     "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
-    "TODO.md",
     "Dynamic Load Balancing.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
