@@ -73,7 +73,7 @@ Un po’ di nomenclatura:
 
 In questo caso i dati sono memorizzati in formato JSON e un *documento* è l’unità base che viene memorizzata in questo tipo di database.
 Gli array possono contenere documenti quindi è facile ottenere una struttura gerarchica di documenti.
-Una **collezione** non è un set di documenti dello stesso tipo ma una collezione di documenti che condividono uno scopo comune. Infatti, possiamo avere schemi polimorfici ovvere documenti che contengono altri documenti completamente diversi in termini di contenuto. 
+Una **collezione** non è un set di documenti dello stesso tipo ma una collezione di documenti che condividono uno scopo comune. Infatti, possiamo avere schemi polimorfici ovvero documenti che contengono altri documenti completamente diversi in termini di contenuto. 
 Anch’esso è *schema-less*. 
 MongoDB usa questo tipo di database. 
 
