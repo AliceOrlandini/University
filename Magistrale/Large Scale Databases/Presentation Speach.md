@@ -14,13 +14,13 @@ Let's explore what each can do through the use cases.
 
 As we can see, the unregistered user can only perform the registration. 
 
-Once completed, he becomes a registered user who can login, logout, and view his personal information.
+Once completed, he becomes  *(becoms)* a registered user who can login, logout, and view his personal information. The driver instead can make their car available for earning money through the passenger trips.
 
-The passenger can book a trip, view driver information in charge of the trip, write reviews, and check active and past reservations.
+The passenger can book a trip, view driver information in charge *(ciarg)* of the trip, write reviews, and check active and past reservations.
 
 The driver can manage reservations, view statistics, and request a pick-up location for passengers.
 
-Finally, the administrator can manage (mèneig) users and approve locations proposed by drivers.
+Finally, the administrator can manage *(mèneig)* users and approve locations proposed by drivers.
 
 # Slide 8
 
