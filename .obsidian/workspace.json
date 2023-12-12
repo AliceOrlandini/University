@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+                "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+                "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+                "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Chapters/Document Databases.md"
+                "file": "Magistrale/Large Scale Databases/Presentation Speach.md"
               }
             }
           },
@@ -156,10 +157,10 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "afb7ee9d32c9ac7c",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
-    "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
+    "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
     "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
     "TODO.md",

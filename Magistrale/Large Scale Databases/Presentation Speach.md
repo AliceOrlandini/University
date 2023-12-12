@@ -24,4 +24,4 @@ Finally, the administrator can manage (mèneig) users and approve locations prop
 
 # Slide 8
 
-We chose to implement a responsive web application. To achieve this, we decided to use Angular JS and a framework called TailwindCSS. 
+We chose to implement a responsive web application. To achieve this, we decided to use two frameworks: Angular JS that is a Javascript Framework TailwindCSS that is a CSS Framework. 
