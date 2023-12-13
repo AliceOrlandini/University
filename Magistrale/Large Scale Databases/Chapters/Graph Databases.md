@@ -12,7 +12,7 @@ Succede che alcune istanze interagiscano con loro stesse, in questo caso si parl
 Ci sono alcune applicazioni in cui abbiamo più grafi che interagiscono tra loro, questi possono essere compattati tramite *intersezioni* o *unioni*. 
 
 Il graph traversal è il processo di visita di tutti i vertici del grafo. 
-Lo scopo di solito è quello di poter effettuare operazioni id lettura o di scrittura nei valori del grafo. Questa operazione di visita di tutti i vertici deve essere effettuata raramente perché è molto onerosa.
+Lo scopo di solito è quello di poter effettuare operazioni di lettura o di scrittura nei valori del grafo. Questa operazione di visita di tutti i vertici deve essere effettuata raramente perché è molto onerosa.
 
 Due grafi sono isomorfi se:
 - per ogni vertice del primo grafo esiste una corrispondenza nel secondo.

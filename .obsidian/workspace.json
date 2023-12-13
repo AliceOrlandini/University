@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
+                "file": "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Presentation Speach.md"
+                "file": "Magistrale/Large Scale Databases/Chapters/Graph Databases.md"
               }
             }
           },
@@ -157,8 +157,9 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "afb7ee9d32c9ac7c",
   "lastOpenFiles": [
+    "Magistrale/Large Scale Databases/Presentation Speach.md",
     "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
     "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
@@ -195,7 +196,6 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
     "Magistrale/Performance Evaluation/Teory/Images",
