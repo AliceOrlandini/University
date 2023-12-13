@@ -24,10 +24,10 @@ Un po’ di nomenclatura:
 - **Size**: numero di archi.
 - **Degree**: numero di archi connessi ad un vertice.
 - **Closeness**: la misura di quanto lontano è il vertice da tutti gli altri vertici nel grafo.
-- **Betweenness**: è la misura di quanto un arco fa da collo di bottiglia tra due vertico.
+- **Betweenness**: è la misura di quanto un arco fa da collo di bottiglia tra due vertici.
 
 Un tipo di grafo, spesso usato in logistica, è il **Flow Network**. È un grafo direzionato caratterizzato dal fatto che in ogni nodo la somma dei pesi sugli archi entranti deve essere minore o uguale alla somma dei pesi degli archi uscenti.
-Il **Bipartite Graph** non è direzionato e abbiamo 2 set di vertici, Tra vertici dello stesso set non si possono effettuare relazioni, le uniche relazioni possono essere effettuate tra vertici appartenenti a set diversi. Può essere usato per rappresentare la relazione tra studenti e insegnanti. 
+Il **Bipartite Graph** non è direzionato e abbiamo 2 set di vertici, tra vertici dello stesso set non si possono effettuare relazioni, le uniche relazioni possono essere effettuate tra vertici appartenenti a set diversi. Può essere usato per rappresentare la relazione tra studenti e insegnanti. 
 Infine, il **Multigraph** è un grafo in cui possiamo definire differenti tipi di archi tra vertici. Per esempio da Lucca a Firenze posso andare in macchina e quindi avrò un certo tipo di relazione, oppure in treno e quindi avrò una seconda tipologia di relazione. 
 
 # Graph Databases
