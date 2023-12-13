@@ -31,8 +31,6 @@ Alcune best practice:
 - indicare delle caption per spiegare cosa rappresenta il grafico.
 - usare delle scale coerenti per le assi, partire sempre da zero, volendo si può zoommare per mostrare il dettaglio, ma il grafico che parte da zero va messo. 
 - se due grafici devono essere comparati devono avere la stessa scala.
-- rappresentare sem
-È concesso utilizzare dei metodi automatici come ad esempio Excel o Python. 
+- mostrare *sempre* i confidence intervals. 
 
-
-
+È ovviamente concesso utilizzare dei metodi automatici come ad esempio Excel o Python, per non fare le cose a mano. 
