@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Domande Esame.md"
               }
             }
           },
@@ -159,8 +158,9 @@
   },
   "active": "afb7ee9d32c9ac7c",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
+    "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
     "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
     "Magistrale/Large Scale Databases/Presentation Speach.md",
@@ -194,7 +194,6 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
