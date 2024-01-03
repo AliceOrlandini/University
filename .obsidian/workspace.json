@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
+                "file": "PECSN_Relation.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
+                "file": "PECSN_Relation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
+                "file": "PECSN_Relation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Domande Esame.md"
+                "file": "PECSN_Relation.md"
               }
             }
           },
@@ -156,10 +156,10 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "afb7ee9d32c9ac7c",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
     "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
     "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
@@ -172,7 +172,7 @@
     "Magistrale/Large Scale Databases/Chapters/ACID vs BASE.md",
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
-    "Dynamic Load Balancing.md",
+    "PECSN_Relation.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "JSON.md",
