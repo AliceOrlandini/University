@@ -98,7 +98,6 @@ Se siamo in un modello *a probabilità uniforme* (vedremo più avanti esempi di 
 > $$P(E) = \frac{|E|}{N}$$ con $N = |S|$.
 
 Quindi per definire la probabilità di un evento ci basta *contare* il numero di outcomes inclusi in quell’evento e dividerli per la cardinalità del sample space.
-
 ## Basic Principle of Counting
 
 Visto che, come visto al punto precedente, per trovare la probabilità di un evento $E$ quando il sample space ha cardinalità finita e outcomes ugualmente equiprobabili dobbiamo contare il numero di outcome e dividere per la cardinalità del sample space, allora ci conviene introdurre un *principio* che ci permette di contare più facilmente gli outcome di un evento.
@@ -162,7 +161,7 @@ Come al solito dividiamo in sotto-esperimenti:
 Notare che se fosse $k = n$ otterrei il risultato del precedente esercizio.
 
 Ora proviamo a rispondere alla seguente domanda, leggermente differente:
-"quanti **subset** di $k$ elementi posso fare un un set di $n$ elementi (con $n \ge k$)?"
+"quanti **subset** di $k$ elementi posso fare con un set di $n$ elementi (con $n \ge k$)?"
 Questa domanda è differente dalla precedente perché in questo caso l'ordine degli elementi non ha importanza. Infatti, se un set è composto da 3 elementi, non importa come questi sono permutati perché costituiranno comunque un unico set. 
 Questo significa che l'espressione $S_{k,n}$ conta gli stessi set più volte, quindi per rispondere a questa domanda dovremo dividere l'espressione per qualcosa. Arriviamoci tramite un esempio:
 Consideriamo il set delle lettere dell'alfabeto, le lettere sono $n = 26$ e ipotizziamo di voler contare:
@@ -369,10 +368,6 @@ Una moneta viene lanciata 5 volte in condizioni indipendenti. Trovare la probabi
 	Quindi avrò 6 outcomes favorevoli e 32 outcomes totali ($2^5$) da cui $P = 6/32 = 3/16$.
 
 Notare che se la moneta fosse stata truccata il metodo UPM sarebbe stato inutilizzabile e avremmo dovuto per forza usare l'indipendenza.
-
-### Esercizio 11
-
-Il signor Rossi ha un mazzo di $n > 1$ chiavi. Da finire
 ## Sistemi Paralleli
 
 > [!note] Sistema Parallelo
@@ -529,8 +524,6 @@ P\{X \in A\} &= P\{X \in A, Y \in (-\infty, + \infty]\} = \\[4pt]
 \end{align*}
 $$
 Sapendo che $P\{X \in A\} = \int_{A} f_{X}(x) dx$ allora: $$f_{X}(x) = \int_{-\infty}^{+\infty} f(x,y) dy$$
-### TODO schema di come passare da una all'altra
-
 Tutte le definizioni precedenti sono state introdotte per 2 variabili aleatorie, possono essere ovviamente estese ad $n$ variabili aleatorie $X_{1},X_{2},...,X_{n}$ definendo ad esempio $$F(x_{1},x_{2},...,x_{n}) = P\{X_{1} \le x_{1},...,X_{n} \le x_{n}\}$$ da cui si ottiene la CDF della singola variabile $X_{i}$ come $$F_{X_{i}}(x_{i}) = F(+\infty, ..., +\infty, x_{i}, +\infty, +\infty)$$
 ## Variabili aleatorie indipendenti
 
@@ -844,9 +837,9 @@ Calcoliamo le PGF delle distribuzioni che abbiamo visto:
 
 Per la distribuzione di Poisson, il calcolo della varianza si semplifica notevolmente:
 - $G(z) = e^{-\lambda +\lambda z}$
-- $G^{'}(z) = \lambda \cdot e^{-\lambda}\cdot e^{\lambda z}$ da cui $G^{'}(1) = \lambda$ che è il valor medio
+- $G^{'}(z) = \lambda \cdot e^{-\lambda}\cdot e^{\lambda z}$ da cui $G^{'}(1) = \lambda$ che è il valor medio.
 - $G^{''}(z) = \lambda^{2} \cdot e^{-\lambda}\cdot e^{\lambda z}$ da cui $G^{'}(1) = \lambda^{2}$
-da cui: $\sigma^{2} = G^{''}(1)+G^{'}(1) -G^{'}(z)^{2} = \lambda^{2}+\lambda -\lambda^{2} = \lambda$
+da cui: $\sigma^{2} = G^{''}(1)+G^{'}(1) -G^{'}(1)^{2} = \lambda^{2}+\lambda -\lambda^{2} = \lambda$
 
 Per la distribuzione Geometrica, troviamo la varianza che non avevamo dimostrato:
 - $G(z) = \frac{p}{1-z\cdot (1-p)}$
@@ -855,7 +848,7 @@ Per la distribuzione Geometrica, troviamo la varianza che non avevamo dimostrato
 
 - $G^{''}(z) = \frac{2\cdot p \cdot (1-p)^{2}}{[1-z\cdot (1-p)]^{3}}$ da cui $G^{''}(1) = \frac{2\cdot (1-p)^{2}}{p^{2}}$
 
-da cui: $\sigma^{2} = G^{''}(1)+G^{'}(1) -G^{'}(z)^{2} = \frac{1-p}{p^{2}}$
+da cui: $\sigma^{2} = G^{''}(1)+G^{'}(1) -G^{'}(1)^{2} = \frac{1-p}{p^{2}}$
 ## Distribuzioni Continue
 
 Definiamo le più importanti distribuzioni *continue*.
