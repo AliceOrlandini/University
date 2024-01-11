@@ -26,7 +26,7 @@ Lato ricevente l’operazione di demodulazione si effettua nel seguente modo:
 Vediamo i calcoli per ricavare il primo segnale ricordando che: $cos(\alpha) = \frac{1 + cos^2(2\alpha)}{2}$
 e che $cos(\alpha)*sin(\alpha) = \frac{sin(2\alpha)}{2}$:
 $$\begin{align*} v_I(t) &= s(t) 2cos(2\pi f_c t) =\\[4pt]
-&= m_1(t)2cos^2(2 \pi f_c t) - m_2(t)sin(2 \pi f_c t)2cos(2\pi f_{c t)}=\\[4pt]
+&= m_1(t)2cos^2(2 \pi f_c t) - m_2(t)sin(2 \pi f_c t)2cos(2\pi f_{c t})=\\[4pt]
 &= m_1(t) + m_1(t)cos(2*2\pi f_c t) - m_2(t) sin(2 * 2 \pi f_c t)
 
 \end{align*}$$
