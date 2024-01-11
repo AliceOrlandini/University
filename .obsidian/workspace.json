@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "44986bfa7dd13c02",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SpuntiElectronics.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+                "file": "SpuntiElectronics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+                "file": "SpuntiElectronics.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md"
+                "file": "SpuntiElectronics.md"
               }
             }
           },
@@ -156,8 +169,10 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "afb7ee9d32c9ac7c",
+  "active": "44986bfa7dd13c02",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+    "SpuntiElectronics.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "TODO.md",
     "PECSN_Relation.md",
@@ -192,8 +207,6 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Introduzione.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
-    "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
