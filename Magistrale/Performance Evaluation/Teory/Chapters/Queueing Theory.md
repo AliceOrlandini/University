@@ -1183,9 +1183,29 @@ L'unico mattoncino mancante nell'immagine precedente sono gli arrival rates $\la
 - lascia il SC $j$ e viene indirizzato al SC $i$, secondo una probabilità $\pi_{ij}$.
 Quindi per oggi SC varrà la relazione: $$\lambda_{i}= \gamma_{i}+\sum\limits_{j=1}^{M}\pi_{ij}\cdot \lambda_{j}$$
 Questa quantità può essere scritta in forma matriciale: $$\lambda = \gamma + \Pi^{T}\cdot \lambda$$dove $\Pi = \{\pi_{ji}\}$ è la routing matrix. Quindi gli arrival rates possono essere calcolati risolvendo (con software appositi): $$\lambda = (I-\Pi^{T})^{-1}\cdot \gamma$$
-### Esempio
+Se volessimo conoscere quale SC contribuisce al response time complessivo, bisogna fare attenzione perché non c'è nessuna ragione per il quale il response time complessivo $E[R]$ dipenda dal response time dei singoli SC $E[R_{i}]$. 
+Per la Little's Law possiamo scrivere: $$E[R] = \frac{E[N]}{\gamma_{tot}}$$
+dove $\gamma_{tot}= \sum\limits_{i=1}^{M}\gamma_{i}$. Sostituendo e svolgendo i calcoli otteniamo: 
+$$
+\begin{align*}
+E[R] &= \frac{E[N]}{\gamma_{tot}} =\\[5pt]
+&= \sum\limits_{i=1}^{M} \frac{E[N_{i}]}{\gamma_{tot}} =\\[5pt]
+&= \sum\limits_{i=1}^{M} \frac{E[N_{i}]}{\lambda_{i}}\cdot \frac{\lambda_{i}}{\gamma_{tot}} \\[5pt]
+&= \sum\limits_{i=1}^{M} E[R_{i}]\cdot \frac{\lambda_{i}}{\gamma_{tot}}
+\end{align*}$$
+dove $\frac{\lambda_{i}}{\gamma_{tot}}$ corrisponde al *numero medio di visite ad ogni SC* ed è un fattore moltiplicativo che evidenzia il fatto che un SC può essere visitato più di una volta o anche mai, per cui ogni response time $R_{i}$ deve essere moltiplicato per il numero medio di visite a quel SC.
 
-Consideriamo il seguente sistema: 
+Definiamo ora $V_{i}$ la RV che conta il numero di visite al SC $i$. In questo modo possiamo definire il **mean residence time** al SC $i$ come $$E[T_{i}] = E[R_{i}]\cdot E[V_{i}]$$
+E in particolare, *nelle OJN il response time è la somma dei residence time*: $$E[R] = \sum\limits_{i=1}^{M}E[T_{i}]$$
+che implica che: $$E[V_{i}] = \frac{\lambda_{i}}{\gamma_{tot}}$$
+ovvero, il valor medio di visite ad un SC è pari al suo arrival rate diviso per il rate totale di arrivi esterni. 
 
-![[ojn_example.webp|center|400]]
+## Closed Queueing Networks
+
+Passiamo ora ad analizzare le Closed QN. Le ipotesi che consideriamo sono le stesse della Open QN con una impostante differenza: assumeremo che *non ci siano arrivi o partenze di job verso l'esterno* e che *il numero di job sia costante* pari a $K$ (sarà un dato del problema).
+
+Si noti che, se il numero di job è fissato, lo **state space** $\varepsilon$  un una *cardinalità finita* poiché ci sarà un numero finito di modi per distribuire $K$ jobs tra gli M SCs.
+Tuttavia, il fatto che questo numero sia finito non significa che sarà anche piccolo, infatti vale la seguente proprietà: $$|\varepsilon| = \binom{K+M-1}{M-1}$$
+che rappresenta il numero di modi di inserire $M-1$ "division marks"
+
 
