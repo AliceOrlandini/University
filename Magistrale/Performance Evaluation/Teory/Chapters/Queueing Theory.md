@@ -1155,4 +1155,37 @@ Ciò che sorprende è che, nonostante tutto, *il departure process è ancora di 
 Definiamo le ipotesi sotto le quali le Open QN ammettono una product form. 
 
 Indiciamo una **Open Jackson Network** come un *arco direzionato* i cui nodi sono $M/M/C$ SCs i cui archi rappresentano l'instradamento tra i SCs. Ogni arco ha un *peso* dato dalla probabilità di routing $\pi_{ij}$, ovvero la probabilità che un job lasci il SC $i$ e raggiunga il SC $j$.
+Chiameremo inoltre $\pi_{i0}$ la probabilità che un job lasci il sistema dopo aver visitato il SC $i$. 
+Ovviamente vale la relazione $\sum\limits_{j=0}^{M}\pi_{ij}= 1$ $\forall i$.
+Infine, è importante fare l'ipotesi che $\pi_{ij}$ siano *indipendenti dallo stato del sistema* (static load balancing) e ad ogni SC gli arrivi esterni siano di Poisson con rate $\gamma_{i}$. 
+Il vettore $\gamma = [\gamma_{1}, \gamma_{2},..., \gamma_{M}]^{T}$ *non deve essere identicamente nullo*, altrimenti avremmo una QN che non è open. 
+
+![[open_jackson.webp|center|300]]
+
+
+Riordinando, otteniamo le ipotesi di una Open Jackson Network:
+1. Un numero M di $M/M/C_{i}$, ad ogni SC $i$, i $C_{i}$ server hanno un service rate di $\mu_{i}$.
+2. Gli arrivi esterni sono di Poisson con $\gamma = [\gamma_{1}, \gamma_{2},..., \gamma_{M}]^{T}$.
+3. Il routing è di *Markovian*, cioè le probabilità sono *state-indipendent*.
+4. Gli archi vengono attraversati in un tempo pari a zero (quindi non c'è delay negli archi ma solo nei nodi).
+Le Open Jackson Networks ammettono una product form definita dal seguente teorema:
+
+> [!note] Jackson's Theorem
+> In una **Open Jackson Network**, sotto le ipotesi precedentemente definite, se $\rho_{i}= \frac{\lambda_{i}}{C_{i}\cdot \mu_{i}} < 1$ $\forall i$, allora avremo $$p_{n}= p(n_{1}, n_{2},..., n_{M}) = \prod_{i=1}^{M}p_{i}(n_{i})$$ dove: $$\begin{equation}p_{i}(n_{i}) =
+\begin{cases}
+p_{i}(0)\cdot \frac{(C_{i}\cdot \rho_{i})^n_{i}}{n_{i}!} & n_{i}\le C_{i} \\[4pt]
+p_{i}(0)\cdot \frac{C_{i}^{C_{i}}\cdot p_{i}^{n_{i}}}{C_{i}!} & n_{i}\ge C_{i}
+\end{cases}
+\end{equation}$$ sono le **SS probabilities** di un sistema $M/M/C_{i}$ i cui server hanno rate $\mu_{i}$. Se $C_{i}= 1$ allora le SS probabilities si riducono a $(1-p_{i})\cdot p_{i}^{n_{i}}$.
+
+L'unico mattoncino mancante nell'immagine precedente sono gli arrival rates $\lambda_{i}$ che sono necessarie per applicare il teorema. Ottenere questi valori è semplice, un job arriva al SC $i$ perché:
+- arriva dall'esterno, con un rate $\gamma_{i}$ oppure
+- lascia il SC $j$ e viene indirizzato al SC $i$, secondo una probabilità $\pi_{ij}$.
+Quindi per oggi SC varrà la relazione: $$\lambda_{i}= \gamma_{i}+\sum\limits_{j=1}^{M}\pi_{ij}\cdot \lambda_{j}$$
+Questa quantità può essere scritta in forma matriciale: $$\lambda = \gamma + \Pi^{T}\cdot \lambda$$dove $\Pi = \{\pi_{ji}\}$ è la routing matrix. Quindi gli arrival rates possono essere calcolati risolvendo (con software appositi): $$\lambda = (I-\Pi^{T})^{-1}\cdot \gamma$$
+### Esempio
+
+Consideriamo il seguente sistema: 
+
+![[ojn_example.webp|center|400]]
 
