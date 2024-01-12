@@ -1206,6 +1206,42 @@ Passiamo ora ad analizzare le Closed QN. Le ipotesi che consideriamo sono le ste
 
 Si noti che, se il numero di job è fissato, lo **state space** $\varepsilon$  un una *cardinalità finita* poiché ci sarà un numero finito di modi per distribuire $K$ jobs tra gli M SCs.
 Tuttavia, il fatto che questo numero sia finito non significa che sarà anche piccolo, infatti vale la seguente proprietà: $$|\varepsilon| = \binom{K+M-1}{M-1}$$
-che rappresenta il numero di modi di inserire $M-1$ "division marks"
+che rappresenta il numero di modi di inserire $M-1$ "division marks" in una linea di $K+M-1$ elementi. Ciò implica che $|\varepsilon| = O(K^{M-1})$ che è un numero molto grosso. 
+
+Visto che le CJNs sono una variazioni delle OJNs, un modo di agire potrebbe essere quello di usare la stessa procedura utilizzata prima, tenendo presente che $\gamma_{i}= 0$ e $\pi_{i0} = 0$ $\forall i$. Tuttavia, questo procedimento è inapplicabile perché se proviamo a calcolare gli arrial rates ad ogni SC, troviamo la seguente equazione: $\lambda = 0 + \Pi^{T}\cdot \lambda$ che è un *sistema omogeneo* che quindi ammette:
+- nessuna soluzione se la routing matrix $I-\Pi^{T}$ ha rango pieno.
+- infinite soluzioni
+Fortunatamente, la nostra routing matrix *non ha rango pieno* perché $\sum\limits_{j=1}^{M} \pi_{ij} = 1$ $\forall i$ che ci garantisce di avere infinite soluzioni. 
+In particolare scegliamo $e = [e_{1}, e_{2}, ..., e_{M}]^{T}$ una soluzione del sistema, inoltre $k\cdot e$ con $k\in R$ sarà anch'essa una soluzione del sistema. Questo significa che possiamo ottenere solo *soluzioni che dipendono da una costante moltiplicativa* e dobbiamo trovare il modo di sbarazzarci di questa costante. 
+Il nostro problema si risolve con il seguente teorema: 
+
+> [!note] Gordon and Newell's Theorem
+> In una Closed Jackson Network, si consideri *una soluzione* del sistema $\lambda = 0 + \Pi^{T}\cdot \lambda$ chiamata $e = [e_{1},e_{2},...,e_{M}]^{T}$. Chiamare $\rho_{i}= \frac{e_{i}}{\mu_{i}}$. Allora, $p_{n}= p(n_{1},n_{2},...,n_{M}) = \frac{1}{G(M,K)}\cdot \prod_{i=1}^{M} f_{i}(n_{u})$ dove: $$\begin{equation}f_{i}(n_{i}) =
+\begin{cases}
+\frac{(C_{i}\cdot \rho_{i})^n_{i}}{n_{i}!} & n_{i}\le C_{i} \\[4pt]
+\frac{C_{i}^{C_{i}}\cdot p_{i}^{n_{i}}}{C_{i}!} & n_{i}\ge C_{i}
+\end{cases}
+\end{equation}$$ E $G(M,K)$ sono una costante normalizzante tale che $\sum\limits_{n\in \varepsilon} p_{n}=1$, ovvero $G(M,K) = \sum\limits_{n\in \varepsilon}(\prod_{i=1}^{M}f_{i}(n_{i}))$.
+
+Si noti che l'espressione $f_{i}(n_{i})$ sono *quasi* SS probabilities di un SC $M/M/C_{i}$ perché gli manca un fattore moltiplicativo $p_{i}(0)$. 
+Se il SC è un $M/M/1$ allora si $f_{i}(n_{i}) = \rho_{i}^{n_{i}}$ (questo è un caso che descriveremo in seguito).
+Inoltre, notare che abbiamo una *costante normalizzante* $G(M,K)$ che è equa visto che abbiamo scelto le condizioni iniziali arbitrariamente. Il fatto che possiamo scrivere $G(M,K) = \sum\limits_{n\in \varepsilon}(\prod_{i=1}^{M}f_{i}(n_{i}))$ non significa che questo sia il modo più efficiente di calcolarlo, infatti il precedente calcolo è proibitivo nella maggior parte dei casi visto il grande numero di somme e moltiplicazioni richieste. 
+Fortunatamente, esistono degli algoritmi efficienti per calcolare $G(M,K)$.
+
+## Buzen's Convolution Algorithm
+
+### Performance Indexes nei Closed Queueing Networks
+
+## Classi di Queueing Networks
+
+### Classi di Queueing Systems in isolamento
+
+### Open Classed Queueing Networks
+
+## Commenti Finali sulle FCFS Queueing Networks
+
+# Processor-Sharing Queueing Systems
+
+
 
 
