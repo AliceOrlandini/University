@@ -1030,3 +1030,31 @@ In questo tipo di sistemi *non c'è coda*.
 
 # Queueing Networks
 
+Finora abbiamo analizzato le queueing systems isolate, tuttavia la queueing theory permette di studiare sistemi composti anche da più sottosistemi formati da code e server che vengono chiamati **Queueing Networks**.
+Un Queueing Network può essere:
+- *aperto*: se interagisce con il mondo esterno che immette jobs nel sistema (external arrivals). In questo caso, *il numero di jobs nel sistema è una variabile* infatti capire a quanto ammonta questo numero è lo scopo principale dell'analisi.
+- *chiuso*: se non c'è nessun tipo di interazione con il mondo esterno quindi il numero di jobs nel sistema è una costante ed è un dato del problema. In questo caso, generalmente lo scopo dell'analisi è di capire quanto vale il throughput. 
+Ecco un esempio chiamato transactional server: 
+
+![[transactional_server.webp|center|400]]
+
+Il server ha una CPU e due IO devices. I job arrivano dall'esterno quindi siamo nel caso di una Open QN. Quando questi ultimi arrivano, spendono un po' di tempo nel sottosistema con la CPU il cui service time è una distribuzione esponenziale con media $\frac{1}{\mu_{1}}$. 
+Dopo questo tempo, essi possono:
+- lasciare il sistema con probabilità $\pi_{0}$.
+- mettersi in coda nel sottosistema con l'IO device 1 con probabilità $\pi_{1}$.
+- mettersi in coda nel sottosistema con l'IO device 2 con probabilità $\pi_{2}$.
+Ovviamente vale la relazione $\pi_{0}+\pi_{1}+\pi_{2}= 1$. 
+Il job, dopo esser stato processato nell'IO device, torna nel sottosistema della CPU e ricomincia il ciclo. Questo significa che un job potrebbe visitare molte volte lo stesso service center prima di lasciare il sistema complessivo.
+
+Nel precedente sistema tutti i SC erano $M/M/1$ ma in generale non è detto che ciò valga per tutti i SC del sistema.
+
+Un modo per realizzare un Closed QN è quello di collegare l'output di un Open QN al suo input in modo da formare un anello chiuso in modo che un job che lascia il sistema venga immediatamente reinserito. 
+Questo fa sì che il sistema ammetta *un numero finito di jobs simultaneamente* quindi se un job lascia il sistema, esso viene immediatamente rimpiazzato da uno in entrata. Un esempio di questo sistema è un sistema multiprogrammato con un numero di processi costante. 
+
+Per descrivere una QN abbiamo bisogno di conoscere:
+1. La **topologia** del network che può essere rappresentata con un grafo direzionato.
+2. Il **rate dell'arrivo dei job** ad ogni SC, o almeno il rate dei job che arrivano ai SC direttamente connessi col mondo esterno, indicati con $\gamma_{i}$.
+3. I **service rate** di ogni SC, chiamati $\mu_{i}$ ed il numero complessivo di server $C_{i}$.
+4. La **routing matrix** $\Pi$ le cui $\pi_{ij}$ sono *le probabilità che un job lasci il SC $i$ e raggiunga il SC $j$.* 
+	Se $\sum\limits_{j=1}^{M} \pi_{ij}< 1$ allora $\pi_{i,0}= 1-\sum\limits_{j=1}^{M} \pi_{ij}< 1$ sarà la probabilità che un job lasci la QN dopo aver visitato il SC $i$.
+

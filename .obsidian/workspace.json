@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "4cd5fbb3d38e6295",
+        "id": "9889bd147fae23dd",
         "type": "tabs",
         "children": [
           {
-            "id": "afb7ee9d32c9ac7c",
+            "id": "11be68831c350829",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "44986bfa7dd13c02",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SpuntiElectronics.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SpuntiElectronics.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SpuntiElectronics.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SpuntiElectronics.md"
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md"
               }
             }
           },
@@ -169,11 +156,13 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "44986bfa7dd13c02",
+  "active": "11be68831c350829",
   "lastOpenFiles": [
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-    "SpuntiElectronics.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/transactional_server.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+    "SpuntiElectronics.md",
     "TODO.md",
     "PECSN_Relation.md",
     "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
@@ -190,7 +179,6 @@
     "Magistrale/Large Scale Databases/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "JSON.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/non-exp service.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/bulk_arrivals.webp",
@@ -202,11 +190,9 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/discouraged_arrivals.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mminf.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc2.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc.webp",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
