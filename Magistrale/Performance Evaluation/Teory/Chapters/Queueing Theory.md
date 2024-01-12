@@ -1084,6 +1084,40 @@ Ovvero, **gli inter-departure times hanno la stessa distribuzione degli interarr
 Inoltre, questo risultato è vero in generale, e vale per ogni sistema $M/M/C$ per qualunque valore di $C$. Scriviamolo più formalmente:
 
 > [!note] Burke's Theorem
-> Given 
+> Dato un sistema $M/M/C$ allo steady state, i cui interarrival rate medio è $\lambda$, allora:
+> - Il **Departure Process** è di Poisson con rate $\lambda$.
+> - $\forall t$, il numero di jobs nel sistema $n(t)$ è *indipendente* dall'inter-departure time in $[0,t)$
 
+Prendiamo una QN *tandem* formata da due SC $M/M/1$: 
 
+![[tandem.webp|center|300]]
+
+Per il Burke's Theorem gli arrivi al SC2 sono **Poisson Process** con rate $\lambda$ ed $n_{1}(t)$ è indipendente da $n_{2}(t)$. 
+Questo significa che: 
+$$
+\begin{align*}
+
+p_{n} &= p(n_{1},n_{2}) = \\[5pt]
+&= p(n_{1})\cdot p(n_{2}) =\\[5pt]
+&= [(1-\rho_{1})\cdot \rho_{1}^{n_{1}})]\cdot [(1-\rho_{2})\cdot \rho_{2}^{n_{2}})]
+\end{align*}
+$$
+Dove per noi $p(n_{1})$ sarà *la probabilità che $n_{i}$ jobs si trovino nel SC $i$* e dovremo controllare a posteriori che sia valida $p_{i}< 1$ $\forall i$. 
+Chiameremo il precedente prodotto **product form**, ovvero possiamo scrivere le joint SS probabilities a livello di network globale come il prodotto delle SS probabilities dei vari SC.
+
+## Dal Burke's theorem ai queueing newtorks
+
+Consideriamo un network aciclico (ovvero non c'è nessun ciclo di feedback) con determinate probabilità di routing in cui ogni SC è un $M/M/C$. 
+
+![[burke_example.webp|center|400]]
+
+Dal Burke's Theorem sappiamo che l'output del SC1 è un Poisson Process con rate $\lambda$, proviamo a caratterizzare l'output dei SC2, SC3, SC4 e SC5.
+
+Osserviamo che la **sovrapposizione di Poisson Process indipendenti** è anch'esso un Poisson Process con rate uguale alla somma dei rate. 
+Il prossimo arrivo lo avremo quando *il più piccolo (residio) interarrival time si esaurisce* ma sappiamo che, con esponenziali indipendenti:
+- l'aggettivo *residual* è irrilevante in quanto vale la memoryless.
+- il *minimo* è ancora un esponenziale con rate uguale alla somma dei rate. 
+Quindi, la sovrapposizione di due Poisson Process indipendenti è un Poisson Process con rate uguale alla somma dei rate. 
+Se invece un **Poisson Process è diviso in base a determinate probabilità**, in particolare si viene indirizzati verso un SC con probabilità $\pi$ e verso un altro con probabilità $1- \pi$, allora gli arrivi ad ognuno di questi SC sono anch'essi Poisson Process con rate $\lambda_{1}= \lambda\cdot \pi$ e $\lambda_{2}= \lambda\cdot (1-\pi)$.
+
+Tornando all'esempio precedente, 
