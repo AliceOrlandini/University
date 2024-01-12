@@ -1058,3 +1058,32 @@ Per descrivere una QN abbiamo bisogno di conoscere:
 4. La **routing matrix** $\Pi$ le cui $\pi_{ij}$ sono *le probabilità che un job lasci il SC $i$ e raggiunga il SC $j$.* 
 	Se $\sum\limits_{j=1}^{M} \pi_{ij}< 1$ allora $\pi_{i,0}= 1-\sum\limits_{j=1}^{M} \pi_{ij}< 1$ sarà la probabilità che un job lasci la QN dopo aver visitato il SC $i$.
 
+Lo **stato** del network ad un certo istante $t$ sarà un vettore $n(t) = [n_{1}(t), n_{2}(t), ..., n_{M}(t),]^{T}$ dove ogni $n_{i}(t)$ rappresenta il numero di job in ogni SC $i$ al tempo $t$. 
+
+Se il network ammette lo steady state, allora ci saranno $M$ SS probabilities associate ad ogni vettore $n = [n_{1}, n_{2}, ..., n_{M}]^{T}$. Possiamo quindi definire la JPDF delle RV $N_{1},N_{2},...,N_{M}$ ognuna rappresentante il numero di jobs in ogni SC $i$ come: $$p_{n}=p(n_{1}, n_{2}, ..., n_{M}) = P\{N_{1}= n_{1},N_{2}= n_{2},...,N_{M}= n_{M}\}$$
+## Caratterizzazione dell'output di un service senter
+
+In una QN, *l'output di un SC costituisce l'input di un altro SC.*
+Consideriamo un SC $M/M/1$ allo steady state avente:
+- interarrival times distribuito come $F_{A}= 1-e^{-\lambda\cdot t}$ 
+- service times distribuito come $F_{B}= 1-e^{-\mu\cdot t}$ 
+Vogliamo calcolare la distribuzione dell'**inter-departure time**, cioè il tempo che trascorre prima che il prossimo job lasci il SC: $$F_{D}(t) = P\{D \le t\}$$
+Sviluppiamo utilizzando la legge della probabilità totale, ottenendo: $$P\{D \le t\} = P\{D \le t|n > 0\}\cdot P\{n > 0\} + P\{D \le t|n = 0\}\cdot P\{n = 0\}$$
+E discutiamo i termini separatamente:
+1. $P\{D \le t|n > 0\}$: quando $n > 0$ il prossimo job inizia ad essere servito immediatamente dopo che il precedente ha lasciato il SC. Quindi, l'inter-departure time è distribuito *allo stesso modo del service time* quindi: $P\{D \le t|n > 0\}= F_{B}(t)$
+2. $P\{D \le t|n = 0\}$: quando $n=0$, un job che lascia il sistema a $t_{0}$ lascia il sistema vuoto. Quindi, l'inter-departure time (cioè il tempo prima del quale il prossimo job lascerà il SC) sarà composto da due contributi: uno sarà il tempo residuo di *interarriaval time* che bisogna aspettare prima che il prossimo job arrivi, e l'altro sarà un *service time* completo per servire tale job. Tuttavia, ricordiamo che l'interarrival time è distribuito esponenzialmente che è **memoryless**, quindi possiamo scrivere: $P\{D \le t|n > 0\} = P\{A+B \le t\}$.
+3. $P\{n > 0\} = \rho$ cioè l'utilizzazione del sistema. 
+4. $P\{n = 0\} = 1-\rho$ 
+
+Possiamo quindi riscrivere l'espressione: $$F_{D}(t) = P\{D \le t\} = F_{B}(t)\cdot \rho + P\{A+B \le t\}\cdot (1-\rho)$$
+Per semplificare ulteriormente l'espressione andiamo nel dominio di [[Teoria della probabilità#Laplace-Stieltjes Transform LS|Laplace]] dove si ha $L_{A+B}= L_{A}\cdot L_{B}$ poiché vale la proprietà di convoluzione essendo $A$ e $B$ indipendenti. 
+Ora $L_{A}= \frac{\lambda}{\lambda+s}$ e $L_{B}= \frac{\mu}{\mu+s}$ e  $\rho = \frac{\lambda}{\mu}$, si può scrivere: $$L_{D}= L_{B}\cdot \rho + L_{A}\cdot L_{B}\cdot (1-\rho) = \dots = L_{A}$$
+**"GOD, THIS IS HEAVEN"** *Cit. Stea*
+Considerando che le LTS godono della proprietà di univocità, questo risultato significa che: $$F_{D}(t) = F_{A}(t) = 1-e^{-\lambda\cdot t}$$
+Ovvero, **gli inter-departure times hanno la stessa distribuzione degli interarrival times**.
+Inoltre, questo risultato è vero in generale, e vale per ogni sistema $M/M/C$ per qualunque valore di $C$. Scriviamolo più formalmente:
+
+> [!note] Burke's Theorem
+> Given 
+
+
