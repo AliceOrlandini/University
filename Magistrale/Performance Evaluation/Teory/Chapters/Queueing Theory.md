@@ -1107,7 +1107,7 @@ Chiameremo il precedente prodotto **product form**, ovvero possiamo scrivere le 
 
 ## Dal Burke's theorem ai queueing newtorks
 
-Consideriamo un network aciclico (ovvero non c'è nessun ciclo di feedback) con determinate probabilità di routing in cui ogni SC è un $M/M/C$. 
+Consideriamo un network aciclico (ovvero non c'è nessun feedback loop) con determinate probabilità di routing in cui ogni SC è un $M/M/C$. 
 
 ![[burke_example.webp|center|400]]
 
@@ -1120,4 +1120,39 @@ Il prossimo arrivo lo avremo quando *il più piccolo (residio) interarrival time
 Quindi, la sovrapposizione di due Poisson Process indipendenti è un Poisson Process con rate uguale alla somma dei rate. 
 Se invece un **Poisson Process è diviso in base a determinate probabilità**, in particolare si viene indirizzati verso un SC con probabilità $\pi$ e verso un altro con probabilità $1- \pi$, allora gli arrivi ad ognuno di questi SC sono anch'essi Poisson Process con rate $\lambda_{1}= \lambda\cdot \pi$ e $\lambda_{2}= \lambda\cdot (1-\pi)$.
 
-Tornando all'esempio precedente, 
+![[split_superimposition.webp|center|400]]
+
+
+Tornando all'esempio precedente, sappiamo che:
+- dal Burke's Theorem, l'output del process al SC1 è di Poisson con rate $\lambda$.
+- gli arrivi al SC2 e SC3 sono anch'essi un Poisson Process con rate rispettivamente $\lambda \cdot \pi_{1}$ e $\lambda \cdot (1-\pi_{1})$.
+- sempre per il Burke's Theorem, il numero di jobs ad ogni SC è indipendente dagli altri.
+- gli arrivi al SC4 e al SC5 sono anch'essi Poisson Process con rate rispettivamente $\lambda \cdot \pi_{1}\cdot \pi_{2}$ e $\lambda \cdot [\pi_{1}\cdot (1-\pi_{2}) + (1-\pi_{1})] = \lambda \cdot (1-\pi_{1}\cdot \pi_{2})$
+
+Tutti i SC nel sistema sono $M/M/C$ in cui gli arrival e service rates sono noti, quindi possiamo calcolare:
+1. la condizioni di stabilità per ognuno di essi *in isolamento*.
+2. le SS probabilities per ognuno di essi *in isolamento*, chiamiamole $p_{i}(n_{i})$, sotto le rispettive condizioni di stabilità. 
+Il Burke's Theorem garantisce che, *se le condizioni di stabilità sono tutte verificate*, allora: $$p_{n}= p(n_{1}, n_{2},n_{3}, n_{4}, n_{5}) = \prod_{i=1}^{5}p_{i}(n_{i})$$
+Quindi, **tutti i network aciclici con routing probabilistico hanno una product form**, e i suoi input e output sono Poisson Processes. 
+Di conseguenza, possiamo facilmente calcolare $E[N_{i}]$, $E[R_{i}]$ (applicando la Little's Law ad ogni SC) e poi calcolare $E[N] = \sum\limits_{i=1}^{5}E[N_{i}]$ e $E[R] = \frac{E[N]}{\lambda}$.
+
+Da notare che la precedente trattazione vale *solo se le code sono infinite* che sono necessarie per applicare il Burke's Theorem.
+
+## Queueing Networks con Feedback Loops
+
+Consideriamo ora una Open QN con Feedbak Loop.  
+
+![[open_qn_fl.webp|center|500]]
+
+In questo sistema, i job lasciano il sistema con probabilità $1-\pi$, mentre vengono rimandati al SC1 con probabilità $\pi$ (non confondere con un sistema tandem che ha più di un SC).
+
+Sappiamo che la sovrapposizione di Poisson Process *indipendenti* è un Poisson Process, tuttavia sappiamo anche che gli arrivi esterni e gli arrivi dal feedback loop *non sono affatto indipendenti*. Inoltre, il processo di arrivo al SC1 non è nemmeno di Poisson. 
+
+Ciò che sorprende è che, nonostante tutto, *il departure process è ancora di Poisson* con rate $\gamma \cdot (1-\pi)$. Infatti, finché gli arrivi esterni sono di Poisson, allora pure le QN con feedback loop ammettono una product form. 
+
+## Risultati generali per Open QN
+
+Definiamo le ipotesi sotto le quali le Open QN ammettono una product form. 
+
+Indiciamo una **Open Jackson Network** come un *arco direzionato* i cui nodi sono $M/M/C$ SCs i cui archi rappresentano l'instradamento tra i SCs. Ogni arco ha un *peso* dato dalla probabilità di routing $\pi_{ij}$, ovvero la probabilità che un job lasci il SC $i$ e raggiunga il SC $j$.
+
