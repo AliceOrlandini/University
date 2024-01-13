@@ -1318,9 +1318,32 @@ $$
 
 ## Classi di Queueing Networks
 
+Il fatto che le OJN e le CJN abbiano un routing probabilistico è alquanto sgradevole. Spesso i sistemi che vogliamo modellare come QNs offrono servizi a varie classi di job che vengono instradati a seconda della classe di appartenenza. 
 
+![[qn_classes.webp|center|400]]
 
+Per esempio potremmo avere una QN in cui:
+- il flow1 attraversa i SCs 1,2,3 che chiameremo route1,
+- il flow2 attraversa i SCs 3,2,4,5 che chiameremo route2.
+In questo caso non abbiamo routing probabilistico, nel senso che tutti i jobs delle rispettive classi seguiranno obbligatoriamente o la route1 o la 2.
+
+Le ipotesi di Jackson del Markovian routing non valgono più.
+Se invece assumiamo che le routing probabilities dipendano dalla classe dei job, possiamo semplicemente assegnare diversi classi al flow1 e al flow2 e scrivere le due routing matrix come sempre. 
 ### Classi di Queueing Systems in isolamento
+
+Diamo un'occhiata inizialmente alle classi di sistemi in isolamento. 
+Definire lo stato di un SC in una classed network non è così facile perché il comportamento del sistema non è più determinato dal numero di job nel sistema, ma anche dalla propria classe. Infatti, lo stato di un SC con $n$ jobs è una $n$-tupla di class indicators:
+$$
+S = (c^{(1)}, c^{(1)},...,c^{(n)},)
+$$
+a significare che il job 1 è di classe $c^{(1)}$, il job 2 è di classe $c^{(2)}$ e così via. 
+Questo implica che analizzare una classed QN è qualcosa che dal punto di vista notazionale è oneroso, mentre dal punto di vista concettuale è semplice.
+Diamo una serie di teoremi:
+
+> [!note] Classed $M/M/1$ (theorem 1)
+> Consideriamo un $M/M/1$ SC con $c$ classi da 1 a $c$. Assumiamo che l'arrival processes di ogni classe $j$ sia indipendente dalle altre. Chiamiamo $\lambda^{(j)}$ il loro arrival rate, e sia $\lambda = \sum\limits_{j=1}^{c}\lambda^{(j)}$. Chiamiamo $\rho = \frac{\lambda}{\mu}$, se $\rho < 1$ allora avremo: $$p_{S}=\frac{\lambda^{(c^{(1)})}\cdot \lambda^{(c^{(2)})}\dots \lambda^{(c^{(n)})}}{\mu^{n}}\cdot (1-\rho)$$
+
+In altre parole, 
 
 ### Open Classed Queueing Networks
 
