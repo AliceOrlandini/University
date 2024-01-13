@@ -1240,10 +1240,35 @@ G(M,K) &= \sum\limits_{n\in \varepsilon, n_{M}=0} \prod_{i=1}^{M}f_{i}(n_{i}) + 
 &= \sum\limits_{n\in \varepsilon, n_{M}=0} \prod_{i=1}^{M} \rho_{i}^{n_{i}}+\sum\limits_{n\in \varepsilon, n_{M}>0} \prod_{i=1}^{M}\rho_{i}^{n_{i}}
 \end{align*}
 $$
-Nel primo addendo possiamo fermare il prodotto ad $M-1$ perché l'ultimo fattore sarebbe $\rho_{M}^{n_{M}}= \rho_{M}^{0}= 1$ e nel secondo addendo l'ultimo termine nel prodotto può essere scritto come $\rho_{M}^{n_{M}}= \rho_{M}\cdot \rho_{M}^{\cap{n}_{M}}$ 
+Nel primo addendo possiamo fermare il prodotto ad $M-1$ perché l'ultimo fattore sarebbe $\rho_{M}^{n_{M}}= \rho_{M}^{0}= 1$ e nel secondo addendo l'ultimo termine nel prodotto può essere scritto come $\rho_{M}^{n_{M}}= \rho_{M}\cdot \rho_{M}^{\hat{n}_{M}}$ con $\hat{n}_{M} \ge 0$ visto che $n_{M}> 0$. 
+Questo ci porta a scrivere: 
+$$
+G(M,K) = \sum\limits_{n\in \varepsilon, n_{M}=0} \prod_{i=1}^{M-1} \rho_{i}^{n_{i}}+ \rho_{M}\cdot \sum\limits_{n\in \varepsilon, \hat{n}_{M}>0} \left(\prod_{i=1}^{M}\rho_{i}^{n_{i}}\right)
+$$
+Possiamo osservare che:
+- il primo addendo è la *costante normalizzante* di una CJN con *$K$ jobs circolanti tra gli $M-1$ SCs*, infatti il SC $M$-esimo è di fatto vuoto. Lo state space per questo CJN è $$\varepsilon = \{(n_{1},n_{2}, ..., n_{M-1}, 0): n_{i}\ge 0, \sum\limits_{i=1}^{M-1}n_{i}= K\}$$ Perciò, il primo addendo è proprio $G(M-1, K)$.
+- nel secondo addendo abbiamo "messo da parte" un fattore $\rho_{M}$ ovvero uno dei job circolanti nel sistema e lo abbiamo associato al SC $M$. La somma è quindi *la costante normalizzante* di una CJN con *$K-1$ job circolanti tra gli $M$ SCs*, infatti il job $K$-esimo è di fatto quello associato al SC $M$. Lo state space di questo CJN è $$\varepsilon = \{(n_{1},n_{2},..., n_{M-1}, \hat{n}_{M}): n_{i}\ge 0, \hat{n}_{M}\ge 0, (\sum\limits_{i=1}^{M-1}n_{i})+ \hat{n}_{M} = K-1\}$$ e possiamo rimpiazzare tale somma con $G(M,K-1)$.
+Otteniamo quindi la seguente formula ricorsiva: $$G(M,K) = G(M-1,K)+\rho_{M}\cdot G(M,K-1)$$
+e, se conosciamo le condizioni iniziali, possiamo calcolare $G(M,K)$ per valori arbitrari di $M$ e $K$.
+Per ottenere le condizioni iniziali dobbiamo calcolare:
+1. $G(1,k)$: la costante normalizzante di un CJN con un SC e $k$ jobs. Ma lo state space $\varepsilon$ di questo CJN include *solo uno stato* perché tutti e $k$ i job si trovano nello stesso SC. Quindi si avrà $G(1,k) = \rho_{1}^{k}$ $\forall k \ge 0$.
+2. $G(j,0)$: la costante normalizzante di un CJN con $j$ SCs e 0 job circolanti nel sistema. Anche in questo caso, questo CJN include *solo uno stato* ovvero quello in cui tutti e $j$ i SCs sono vuoti. Quindi si avrà $G(j,0) = 1$ $\forall j \ge 0$.
 
-### Performance Indexes nei Closed Queueing Networks
+Per usare l'algoritmo ci aiutiamo con una tabella di $K+1$ righe ed $M$ colonne. 
 
+![[buzen_table.webp|center|400]]
+
+Una volta inizializzate la prima riga e la prima colonna, iniziamo a riempire la tabella partendo dall'angolo *in alto a sinistra* e *scendendo* per poi andare *un passo a destra*. In ogni cella, l'unica operazione richiesta è quella di *moltiplicare il valore sopra* per quello *all'intestazione della colonna* e *sommare* tale risultato *con il valore nella cella a destra*. 
+Alla fine troveremo $G(M,K)$ nella cella *in basso a destra*. 
+Vedremo più avanti che anche gli altri elementi della tabella sono importanti. 
+Un buon modo di scegliere la soluzione iniziale è quello di fare in modo che i $\rho_{i}$ siano il più vicini possibili ad 1.
+
+### Performance indexes nelle Closed Jackson Networks
+
+Dato $G(M,K)$ si può calcolare $p_{n}$ per ogni vettore $n\in \varepsilon$, quindi possiamo calcolare tutti i performance indexes. Questo processo è molto semplice in quanto richiedono di utilizzare i vari $G(i,j)$. Iniziamo:
+1. **CDF, PMF e numero medio di jobs in un singolo SC**: 
+	vogliamo calcolare $F_{i}(j) = P\{N_{i}\le j\}$ e $p_{i}(j) = P\{N_{i}= j\}$.
+	Iniziamo calcolando $P\{N_{i}\ge j\}$ che può essere calcolato "mettendo da parte" $j$ jobs al 
 ## Classi di Queueing Networks
 
 ### Classi di Queueing Systems in isolamento
