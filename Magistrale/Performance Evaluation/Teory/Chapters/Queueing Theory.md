@@ -1230,6 +1230,18 @@ Fortunatamente, esistono degli algoritmi efficienti per calcolare $G(M,K)$.
 
 ## Buzen's Convolution Algorithm
 
+Questo algoritmo ci permette di calcolare $G(M,K)$ in modo efficiente. Se tutti i SCs sono $M/M/1$ allora l'algoritmo opera con una complessità $O(M\cdot K)$ e i passaggi per applicarlo richiedono solo di compilare una tabella. 
+
+Consideriamo la definizione: $$G(M,K) = \sum\limits_{n\in\varepsilon} \prod_{i=1}^{M}f_{i}(n_{i})$$
+e mettiamo da parte tutti i vettori di $\varepsilon$ in cui $n_{M}= 0$. Possiamo scrivere la precedente quantità come:
+$$
+\begin{align*}
+G(M,K) &= \sum\limits_{n\in \varepsilon, n_{M}=0} \prod_{i=1}^{M}f_{i}(n_{i}) + \sum\limits_{n\in \varepsilon, n_{M}> 0} f_{i}(n_{i}) =\\[5pt]
+&= \sum\limits_{n\in \varepsilon, n_{M}=0} \prod_{i=1}^{M} \rho_{i}^{n_{i}}+\sum\limits_{n\in \varepsilon, n_{M}>0} \prod_{i=1}^{M}\rho_{i}^{n_{i}}
+\end{align*}
+$$
+Nel primo addendo possiamo fermare il prodotto ad $M-1$ perché l'ultimo fattore sarebbe $\rho_{M}^{n_{M}}= \rho_{M}^{0}= 1$ e nel secondo addendo l'ultimo termine nel prodotto può essere scritto come $\rho_{M}^{n_{M}}= \rho_{M}\cdot \rho_{M}^{\cap{n}_{M}}$ 
+
 ### Performance Indexes nei Closed Queueing Networks
 
 ## Classi di Queueing Networks
