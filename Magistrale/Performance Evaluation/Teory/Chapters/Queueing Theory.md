@@ -1343,11 +1343,29 @@ Diamo una serie di teoremi:
 > [!note] Classed $M/M/1$ (theorem 1)
 > Consideriamo un $M/M/1$ SC con $c$ classi da 1 a $c$. Assumiamo che l'arrival processes di ogni classe $j$ sia indipendente dalle altre. Chiamiamo $\lambda^{(j)}$ il loro arrival rate, e sia $\lambda = \sum\limits_{j=1}^{c}\lambda^{(j)}$. Chiamiamo $\rho = \frac{\lambda}{\mu}$, se $\rho < 1$ allora avremo: $$p_{S}=\frac{\lambda^{(c^{(1)})}\cdot \lambda^{(c^{(2)})}\dots \lambda^{(c^{(n)})}}{\mu^{n}}\cdot (1-\rho)$$
 
-In altre parole, 
+In altre parole, per ottenere le SS probabilities allo stato $S$, è sufficiente moltiplicare gli arrival rates *delle classi a cui ogni job appartiene*, e tutto il resto rimane la stessa formula di un sistema $M/M/1$.
+
+Da notare che: 
+- se si ha solo una classe, la formula collassa in quella dell'$M/M/1$ e dipende solo dal numero complessivo di jobs.
+- in un sistema classed, la probabilità è la stessa per ogni due stati con lo stesso numero di job per classe, organizzati in qualsiasi ordine (perché il prodotto è commutativo). Quindi, *dipende solo dal numero di jobs in ogni classe e non dalla loro posizione della coda*. 
+Quest'ultima proprietà ci permette di trovare una proprietà molto utile:
+
+> [!note] Classed $M/M/1$ (colorrario)
+> La probabilità che un classed $M/M/1$ SC abbiam $n$ jobs in totale (appartenenti alla propria classe) è: $$P\{\text{n jobs at SC}\} = \rho^{n}\cdot (1-\rho)$$
 
 ### Open Classed Queueing Networks
 
+È possibile evincere che classed Open QNs ammettono una product form, cioè la probabilità che un certo network state è il prodotto della probabilità degli stati ai singoli SCs.
+
+> [!note] Product Form per Classed OJNs
+> Un un classed OJN di $M$ $M/M/1$ SCs, finché $\rho_{i}< 1$, $1 \le i \le M$, *le steady state probabilities ammettono una product form*: $$p_{S_{1},S_{2},...,S_{M} = \prod_{i=1}^{M}p_{S_{i}}}$$ dove $p_{S_{i}}$ sono quelle del teorema 1. Al fine di calcolare $\lambda_{i}= \sum\limits_{j=1}^{c}\lambda_{i}^{(j)}$, l'arrival rate $\lambda_{i}^{(j)}$ di class-$j$ jobs al SC $i$ devono essere determinati risolvendo $c$ volte le per-class versioni delle equazioni dell'arrival-rate, cioè $$\lambda^{(j)}=\gamma^{(j)}+\Pi^{(j)^{T}}\cdot \lambda^{(j)}$$ Inoltre, la probabilità di trovare $n = (n_{1},n_{2},...,n_{M})$ job al SCs $M$ *ha anch'essa una product form*: $$p_{n}= \prod_{i=1}^{M}P\{n_{i}\text{ jobs at SC i}\} = \prod_{i=1}^{M}\rho_{i}^{n_{i}}\cdot (1-\rho_{i})$$
+> 
+
+Questo significa che semplicemente aggiungendo un po' di complessità perché necessita di calcolare gli arrival rates per ogni classe individualmente e poi aggragarle nel per-SC arrival rates. 
+Per cui, questa trattazione non è più difficile, richiede solo più calcoli.
 ## Commenti Finali sulle FCFS Queueing Networks
+
+
 
 # Processor-Sharing Queueing Systems
 
