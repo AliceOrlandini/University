@@ -1268,8 +1268,57 @@ Un buon modo di scegliere la soluzione iniziale è quello di fare in modo che i 
 Dato $G(M,K)$ si può calcolare $p_{n}$ per ogni vettore $n\in \varepsilon$, quindi possiamo calcolare tutti i performance indexes. Questo processo è molto semplice in quanto richiedono di utilizzare i vari $G(i,j)$. Iniziamo:
 1. **CDF, PMF e numero medio di jobs in un singolo SC**: 
 	vogliamo calcolare $F_{i}(j) = P\{N_{i}\le j\}$ e $p_{i}(j) = P\{N_{i}= j\}$.
-	Iniziamo calcolando $P\{N_{i}\ge j\}$ che può essere calcolato "mettendo da parte" $j$ jobs al 
+	Iniziamo calcolando $P\{N_{i}\ge j\}$ che può essere calcolato "mettendo da parte" $j$ jobs al SC $i$ e ripetere le stesse considerazioni fatte con l'algoritmo di Bulzen. 
+$$
+\begin{align*}
+P\{N_{i}\ge j\} &= \sum\limits_{n\in\varepsilon, n_{i}\ge j} p_{n}=\\[5pt]
+&= \frac{1}{G(M,K)}\cdot \sum\limits_{n\in\varepsilon, n_{i}\ge j} \prod_{h=1}^{M}\rho_{h}^{n_{h}} = \\[5pt]
+&= \frac{1}{G(M,K)} \cdot \sum\limits_{n\in\varepsilon, n_{i}\ge j} \left(\prod_{h=1, h\not=i}\rho_{h}^{n_{h}}\cdot \rho_{i}^{\hat{n}_{i}+j} \right) = \\[5pt]
+&= \frac{G(M,K-j)}{G(M,K)}\cdot \rho_{i}^{j}
+\end{align*}
+$$
+	sia $G(M,K-j)$ che $G(M,K)$ si trovano nell'ultima colonna della tabella e una volta trovato questo risultato otteniamo la CDF come: 
+$$
+F_{i}(j) = P\{N_{i}\le j\} = 1-P\{N_{i}\ge j+1\} = 1-\frac{G(M,K-(j+1))}{G(M,K)}\cdot \rho_{i}^{j+1}
+$$
+	e la PMF come:
+$$
+p_{i}(j) = P\{N_{i}\ge j\} - P\{N_{i}\ge j+1\} = \frac{\rho_{i}^{j}}{G(M,K)}\cdot [G(M,K-j)-\rho_{i}\cdot G(M,K-(j+1))]
+$$
+	se definiamo $G(M,x) = 0$ quando $x < 0$ allora possiamo anche calcolare la CDF e la PMF con $j = K$.
+	Poi da $p_{i}(j)$ possiamo calcolare tutti gli altri performance indexes.
+2. **Numero medio di jobs nel sistema**: 
+$$
+E[N_{i}] = \sum\limits_{j=1}^{K}P\{N_{i}\ge j\}
+$$
+3. **Joint Probabilities a due o più SCs**: 
+	cerchiamo di calcolare $P\{N_{i}\ge j, N_{l}\ge m\}$, il trick qui è sempre lo stesso: mettiamo da parte $j$ jobs al SC $i$ ed $m$ jobs al SC $l$. Il risultato è:
+$$
+P\{N_{i}\ge j, N_{l}\ge m\} = \frac{G(M,K-(j+m))}{G(M,K)}\cdot \rho_{i}^{j}\cdot \rho_{l}^{m}
+$$
+4. **Utilizzazione**: 
+	per un singolo SC, l'utilizzazione può essere calcolata come:
+$$
+U_{i}= P\{N_{i}\ge 1\} = \rho_{i}\cdot \frac{G(M,K-1)}{G(M,K)}
+$$
+	mentre se vogliamo calcolarla per due o più SCs simultaneamente occupati, possiamo calcolarla come:
+$$
+U_{i,l}= P\{N_{i}\ge 1, N_{l}\ge 1\} = \frac{G(M,K-2)}{G(M,K)}\cdot \rho_{i}\cdot \rho_{l'}
+$$
+5. **Throughput di un SC**:
+	il throughput di un SC $i$ è pari a $\mu_{i}$ quando quest'ultimo è pieno, quindi:
+$$
+\gamma_{i}= \mu_{i}\cdot U_{i}= \frac{G(M,K-1)}{G(M,K)}\cdot \mu_{i}\cdot \rho_{i}
+$$
+6. **Response time di un SC**:
+	il response time può essere calcolato tramite la Little's Law:
+$$
+E[R_{i}] = \frac{E[N_{i}]}{\gamma_{i}}= \frac{\sum\limits_{h=1}^{K} \rho_{i}^{h}\cdot G(M,K-h)}{e_{i}\cdot G(M,K-1)}
+$$
+
 ## Classi di Queueing Networks
+
+
 
 ### Classi di Queueing Systems in isolamento
 
