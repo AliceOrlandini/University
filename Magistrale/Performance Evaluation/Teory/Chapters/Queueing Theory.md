@@ -1363,12 +1363,34 @@ Quest'ultima proprietà ci permette di trovare una proprietà molto utile:
 
 Questo significa che semplicemente aggiungendo un po' di complessità perché necessita di calcolare gli arrival rates per ogni classe individualmente e poi aggragarle nel per-SC arrival rates. 
 Per cui, questa trattazione non è più difficile, richiede solo più calcoli.
-## Commenti Finali sulle FCFS Queueing Networks
-
-
 
 # Processor-Sharing Queueing Systems
 
+Quando si modellano i computer systems come queueing systems, vorremmo modellare i task che vengono eseguiti dal processore come dei job, considerando la CPU come un server. Tuttavia, generalmente i task condividono i tempo del processore, molto spesso equamente (Round Robin). In questo caso, modellare il sistema in termini di FCFS non è una buona idea. 
+Per $K$ task che condividono il service rate $\mu$ del processore, sarebbe più ragionevole assumere che *tutti i jobs siano serviti simultaneamente con un rate $\frac{\mu}{K}$*, in cui la parola "simultaneamente" viene utilizzata come astrazione. 
+I sistemi di questo tipo vengono chiamati **procesor-sharing queueing system**. In notazione di Kendall vengono denotati con $M/M/1/PS$, questo tipo di sistemi sono in realtà più facili da analizzare di quelli con politica FCFS perché *non hanno nessuna coda*. 
 
+Modelliamo un sistema $M/M/1/PS$ tramite CTMC. Possiamo farlo in quanto gli inter-arrival e i service times sono memoryless e quindi il numero di jobs nel sistema sarà il nostro stato. Andiamo per step:
+- quando ci sono *zero job*, l'unica cosa che può accadere è che ne arrivi uno, con rate $\lambda$. Chiaramente, tutti gli arrivi avvengono ad un rate $\lambda$, indipendentemente dallo stato, per cui l'unica cosa che dobbiamo discutere è il service rate.
+- quando c'è solo *un job*, esso ha il server tutto per sé, quindi l'arco che va a sinistra avrà rate $\mu$ in quanto questo è praticamente un $M/M/1/FCFS$.
+- quando ci sono *due job*, entrambi i job avranno il server dedicato per $\mu/2$. Da notare che quando il secondo job arriva, il primo avrà già iniziato la fase di servizio, tuttavia il suo residual service time è anch'esso esponenziale e vale la proprietà memoryless. Per cui l'arco che va a sinistra è quello di un $M/M/2/FCFS$, ed avrà quindi rate $2\cdot \frac{\mu}{2}= \mu$.
+- quando ci troviamo allo *stato $n$*, la transizione verso $n-1$ avverrà quando il minimo tra gli $n$ residual service time scade. Tuttavia, tutti i service times sono esponenziali con rate $\mu/n$, quindi l'arco che va verso sinistra avrà rate $n\cdot \frac{\mu}{n}= \mu$. 
+Quindi il CTMC avrà il seguente aspetto: 
 
+![[rr_qn.webp|center|400]]
+
+Se $\rho < 1$ allora $p_{n}= (1-\rho)\cdot \rho^{n}$, quindi $E[N] = \frac{\rho}{1-\rho}$, $E[R] = \frac{E[N]}{\lambda} = \frac{1}{\mu-\lambda}$ esattamente come in un FCFS. Si noti che $E[N_{q}]$ e $E[W]$ non hanno alcun senso qui perché in un sistema PS non c'è coda. 
+Infatti, i sistemi PS sono **insensitive** verso la distribuzione dei service times. Fintanto che i service times sono Coxian, tutti i risultati sono gli stessi e l'unico parametro rilevante è il *mean sercie time $1/\mu$*. Di conseguenza, tutti i sistemi $M/Cox/1/PS$ si comportano come quello descritto precedentemente. 
+
+Le distribuzioni Coxiane sono particolari distribuzioni *phase-type* che possono essere descritte come segue. Immaginiamo che il server includa al massimo $n$ stages. Ognuno di questi ha tempo esponenziale (eventualmente con mean diverse) ed ogni stage è indipendente dagli altri. Dopo uno stage $j$, si può andare al prossimo stage con probabilità $\pi_{j}$ oppure lasciare il server, con probabilità $1-\pi_{j}$. 
+Da notare che una Coxiana collassa in una Erlang quando $\pi_{j}= 1$ $\forall j$ e tutti gli stage sono identici. 
+
+![[coxian.webp|center|400]]
+
+Le distribuzioni Coxiane possono approssimare le distribuzioni con:
+- $CoV < 1$: quindi la Erlang o una distribuzione deterministica. 
+- $CoV > 1$: quelle con una grande variabilità come ad esempio le heavy-tailed.
+Per esempio un'approssimazione Coxian di una distribuzione $E[X] = m$ e $C$
+
+Troviamo le SS probabilities in un sistema $M/Cox/1/PS$
 
