@@ -1277,16 +1277,16 @@ P\{N_{i}\ge j\} &= \sum\limits_{n\in\varepsilon, n_{i}\ge j} p_{n}=\\[5pt]
 &= \frac{G(M,K-j)}{G(M,K)}\cdot \rho_{i}^{j}
 \end{align*}
 $$
-	sia $G(M,K-j)$ che $G(M,K)$ si trovano nell'ultima colonna della tabella e una volta trovato questo risultato otteniamo la CDF come: 
+sia $G(M,K-j)$ che $G(M,K)$ si trovano nell'ultima colonna della tabella e una volta trovato questo risultato otteniamo la CDF come: 
 $$
 F_{i}(j) = P\{N_{i}\le j\} = 1-P\{N_{i}\ge j+1\} = 1-\frac{G(M,K-(j+1))}{G(M,K)}\cdot \rho_{i}^{j+1}
 $$
-	e la PMF come:
+e la PMF come:
 $$
 p_{i}(j) = P\{N_{i}\ge j\} - P\{N_{i}\ge j+1\} = \frac{\rho_{i}^{j}}{G(M,K)}\cdot [G(M,K-j)-\rho_{i}\cdot G(M,K-(j+1))]
 $$
-	se definiamo $G(M,x) = 0$ quando $x < 0$ allora possiamo anche calcolare la CDF e la PMF con $j = K$.
-	Poi da $p_{i}(j)$ possiamo calcolare tutti gli altri performance indexes.
+se definiamo $G(M,x) = 0$ quando $x < 0$ allora possiamo anche calcolare la CDF e la PMF con $j = K$.
+Poi da $p_{i}(j)$ possiamo calcolare tutti gli altri performance indexes.
 2. **Numero medio di jobs nel sistema**: 
 $$
 E[N_{i}] = \sum\limits_{j=1}^{K}P\{N_{i}\ge j\}
@@ -1301,7 +1301,7 @@ $$
 $$
 U_{i}= P\{N_{i}\ge 1\} = \rho_{i}\cdot \frac{G(M,K-1)}{G(M,K)}
 $$
-	mentre se vogliamo calcolarla per due o più SCs simultaneamente occupati, possiamo calcolarla come:
+mentre se vogliamo calcolarla per due o più SCs simultaneamente occupati, possiamo calcolarla come:
 $$
 U_{i,l}= P\{N_{i}\ge 1, N_{l}\ge 1\} = \frac{G(M,K-2)}{G(M,K)}\cdot \rho_{i}\cdot \rho_{l'}
 $$
@@ -1390,7 +1390,19 @@ Da notare che una Coxiana collassa in una Erlang quando $\pi_{j}= 1$ $\forall j$
 Le distribuzioni Coxiane possono approssimare le distribuzioni con:
 - $CoV < 1$: quindi la Erlang o una distribuzione deterministica. 
 - $CoV > 1$: quelle con una grande variabilità come ad esempio le heavy-tailed.
-Per esempio un'approssimazione Coxian di una distribuzione $E[X] = m$ e $C$
+Per esempio un'approssimazione Coxian di una distribuzione $E[X] = m$ e $CoV[X] = c$ con $c \ge 0.25$ può essere ottenuta associandola ad una Coxiana con 2 stage e $\mu_{1}= 2m$, $\pi_{1}= \frac{1}{2c^{2}}$ e $\mu_{2}= \mu_{1}\cdot \pi_{1}$. 
 
-Troviamo le SS probabilities in un sistema $M/Cox/1/PS$
+Troviamo le SS probabilities in un sistema $M/Cox/1/PS$, la prima cosa da chiederci è qual è il *mean service time* per un job in tale sistema. In realtà la risposta è abbastanza facile, esso è: 
+$$
+E[t_{S}] = \frac{1}{\mu_{1}} + \pi_{1}\cdot \frac{1}{\mu_{2}} + \pi_{1}\cdot \pi_{2}\cdot \frac{1}{\mu_{3}}+ ... = \sum\limits_{i=1}^{n} \frac{1}{\mu_{i}} \prod_{j=1}^{i-1} \pi_{j}
+$$
+poi si chiami $\rho = \lambda \cdot E[t_{S}]$ e le SS probabilities sono semplicemente:
+$$
+p_{n}= \rho^{n}(1-\rho)
+$$
+Da notare che questo risultato vale solamente perché *non c'è coda* in un sistema PS, infatti le code creano variabilità. 
 
+L'ultima cosa da dire a proposito delle QN con server PS è la seguente:
+
+> [!note] Theorem 
+> Open oppure Closed networks di sistemi $M/Cox/1/PS$, con o senza classi, *ammettono una product form* fintanto che gli arrivi esterni siano di **Poisson** ed il routing (eventualmente per classe) sia **Markovian**. 

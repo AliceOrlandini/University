@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "80ae3d275bb46474",
+        "id": "9882bdc8786d973c",
         "type": "tabs",
         "children": [
           {
-            "id": "0353bcdc844de177",
+            "id": "d39e7ed8d3c71a1b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
-                "mode": "preview",
+                "file": "Magistrale/Large Scale Databases/Esami Large.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
+            "file": "Magistrale/Large Scale Databases/Esami Large.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Presentation Speach.md",
+            "file": "Magistrale/Large Scale Databases/Esami Large.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Presentation Speach.md"
+            "file": "Magistrale/Large Scale Databases/Esami Large.md"
           }
         }
       },
@@ -140,28 +140,31 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "0353bcdc844de177",
+  "active": "d39e7ed8d3c71a1b",
   "lastOpenFiles": [
+    "Magistrale/Large Scale Databases/Esami Large.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/open_jackson.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/burke_example.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/tandem.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/rr_qn.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/buzen_table.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/split_superimposition.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/coxian.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/transactional_server.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/qn_classes.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images/open_qn_fl.webp",
+    "SpuntiElectronics.md",
+    "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
+    "Magistrale/Large Scale Databases/Presentation Speach.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-    "Magistrale/Large Scale Databases/Presentation Speach.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
     "Dynamic Load Balancing.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/non-exp service.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/bulk_arrivals.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk.png",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmk_pasta.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmu.webp",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc2.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_ctmc.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/discouraged_arrivals.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mminf.webp",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/mmc_trajectory.png",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
     "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
@@ -176,9 +179,6 @@
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
