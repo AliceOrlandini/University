@@ -60,9 +60,4 @@ Vuole sapere esattamente la grandezza del dataset.
 Non hanno fatto sharding.
 L’index l’hanno messo sull’user su neo.
 Hanno fatto una slide sull’architettura dell’applicazione con spiegato il MVC che hanno usato.
-
-<<<<<<< HEAD
-Momento del voto, ha detto solo che hanno ottenuto il minimo ed ha aggiunto che vedranno cosa faranno domani allo scritto. 
-=======
 Momento del voto, ha solo detto che hanno ottenuto il minimo ed ha aggiunto che vedranno cosa faranno domani allo scritto. 
->>>>>>> origin/main
