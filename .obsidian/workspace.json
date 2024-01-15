@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md"
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md"
               }
             }
           },
@@ -156,8 +156,10 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "11be68831c350829",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/coxian.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/rr_qn.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/qn_classes.webp",
@@ -168,10 +170,8 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/split_superimposition.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/burke_example.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/tandem.webp",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/transactional_server.webp",
     "SpuntiElectronics.md",
     "TODO.md",
     "PECSN_Relation.md",
@@ -193,7 +193,6 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
