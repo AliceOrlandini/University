@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md"
               }
             }
           },
@@ -156,8 +156,9 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "8a3c2ac993fd582e",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
     "Magistrale/Electronics And Communication/Electronics/Images/delay_fanin.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos_example.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos.webp",
@@ -172,12 +173,10 @@
     "Magistrale/Electronics And Communication/Electronics/Images/reliability.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/cost_manufact.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
-    "Magistrale/Electronics And Communication/Electronics/Images/design_approach.png",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Large Scale Databases/Esami Large.md",
