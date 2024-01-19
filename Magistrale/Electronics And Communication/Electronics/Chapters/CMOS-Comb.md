@@ -41,26 +41,46 @@ I technology corner sono rappresentati nel seguente modo:
 # Complementary CMOS 
 
 La tecnologia Complementary CMOS permette di implementare qualsiasi funzione logica ed è composta da una rete di pull-up (**PUN**) e una di pull-down (**PDN**).
-Nella rete di pull-down ho una condizione di OR ($+$) allora connetterò i n-CMOS in parallelo, invece se ho una condizione di AND ($\cdot$) allora li connetterò in serie. 
-Nella rete di pull-up si avrà la stessa cosa 
+Nella rete di pull-down ho una condizione di OR ($+$) allora connetterò i *n-MOS* in parallelo, invece se ho una condizione di AND ($\cdot$) allora li connetterò in serie. 
+Nella rete di pull-up si avrà la stessa cosa ma con i *p-MOS*.
+Per implementare una qualsiasi funzione composta da due input $A$ e $B$ si usa:
+- $\bar{Y} = f_{PDN}(A,B)$
+- $Y = f_{PUN}(\bar{A},\bar{B})$
+Una è sempre la duale dell'altra. 
+Per verificare la correttezza, si testa mettendo in input dei valori e vedere come varia l'uscita (si può fare una tabella di verità).
+Generalmente poi si trattano la pull-up e la pull-down come componenti di un inverter: 
 
-Da design si può porre $t_{pLH} = t_{pHL}$ perché così possiamo scegliere il maggiore come tempo di propagazione massimo della rete sincronizzata.
-La simmetria è garantita da $W_{n}= W_{p}$.
-Inoltre è meglio avere dei paralleli per la mobilità.
+![[complementary_cmos.webp|center|300]]
 
-## Compariamo la NOR2 e la NAND2
+Quando si hanno transistor in parallelo, la conduttanza equivalente è la somma delle singole conduttanze: $\beta_{eq}= \sum\limits_{i=1}^{n}\beta_{i}$.
+Mentre quando si hanno transistor in parallelo è: $\beta_{eq}= \cfrac{1}{\sum\limits_{i=1}^{n} \frac{1}{\beta_{i}}}$.
+In questo modo posso stimare le caratteristiche della rete, ad esempio posso considerare la tabella di verità e calcolare per ogni uscita la conduttanza, basandomi sui transistor attivi.
 
-$\beta_{eq}^{NAND} = \beta_{n}^{NAND} = \frac{\beta_{p}^{NAND}}{2}$
-$\beta_{eq}^{NOR} = \beta_{n}^{NOR} = \frac{\beta_{p}^{NOR}}{2}$
+![[complementary_cmos_example.webp|center|300]]
+
+In questo caso, gli n-MOS sono responsabili del $t_{pHL} \propto \cfrac{KC}{\beta_{eqn}} = \cfrac{2KC}{\beta_{n}}$ e i p-MOS del $t_{pLH} \propto \cfrac{KC}{\beta_{eqp}} = \cfrac{KC}{\beta_{p}}$ considerando sempre il caso peggiore. 
+
+Da design si può porre $t_{pLH} = t_{pHL}$ perché così è possibile scegliere il maggiore come tempo di propagazione massimo della rete sincronizzata, non avrebbe senso avere uno dei due ottimizzato e l'altro molto peggio. 
+Se imponiamo questa condizione otteniamo: $\beta_{p}= \cfrac{\beta_{n}}{2}$.
+La simmetria è garantita imponendo $W_{n}= W_{p}$.
+
+## Comparazione tra NOR e la NAND
+
+Proviamo a comparare NOR gate e NAND gate: prendiamo una porta NAND e una NOR e identifichiamo le condizioni per avere la *simmetria*, ovvero $t_{pHL}= t_{pLH}$. Ora definiamo i parametri, tipicamente $W_{n}$ e $W_{p}$ per avere lo stesso propagation delay sia nella NAND che nella NOR. 
+Per fare ciò consideriamo:
+$\beta_{eq}^{NAND} = \beta_{n}^{NAND} = \cfrac{\beta_{p}^{NAND}}{2}$
+$\beta_{eq}^{NOR} = \beta_{n}^{NOR} = \cfrac{\beta_{p}^{NOR}}{2}$
+
+Definiamo le grandezze della NOR:
 $W_{n}^{NOR}= W$
 $W_{p}^{NOR} = 4W$
 
-$\beta_{n}^{NAND}= 2\beta_{n}^{NOR}$
-$W_{n}^{NAND}=2W_{n}^{NOR} = 2W$
+Poniamo l'uguaglianza tra i due valori: 
+$\beta_{n}^{NAND}= 2\beta_{n}^{NOR} \Rightarrow W_{n}^{NAND}=2W_{n}^{NOR} = 2W$
+e:
+$\beta_{p}^{NAND}= \cfrac{\beta_{p}^{NOR}}{2} \Rightarrow W_{p}^{NAND}=\cfrac{W_{p}^{NOR}}{2} = \cfrac{4W}{2W}=2W$
 
-$\beta_{p}^{NAND}= \frac{\beta_{p}^{NOR}}{2}$
-$W_{p}^{NAND}=\frac{W_{p}^{NOR}}{2} = \frac{4W}{2W}=2W$
-
+Quindi abbiamo lo stesso propagation delay e possiamo basarci sulla complessità dell'area. 
 ## Body Effect
 
 Tutte le volte che si ha un block di CMOS, lo switch è più veloce se sto commutando un input che è vicino all’output. Tutta una questione di carica e scarica del condensatore.
