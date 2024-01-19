@@ -52,8 +52,8 @@ Generalmente poi si trattano la pull-up e la pull-down come componenti di un inv
 
 ![[complementary_cmos.webp|center|300]]
 
-Quando si hanno transistor in parallelo, la conduttanza equivalente è la somma delle singole conduttanze: $\beta_{eq}= \sum\limits_{i=1}^{n}\beta_{i}$.
-Mentre quando si hanno transistor in parallelo è: $\beta_{eq}= \cfrac{1}{\sum\limits_{i=1}^{n} \frac{1}{\beta_{i}}}$.
+Quando si hanno transistor in *parallelo*, la conduttanza equivalente è la somma delle singole conduttanze: $\beta_{eq}= \sum\limits_{i=1}^{n}\beta_{i}$.
+Mentre quando si hanno transistor in *serie* è: $\beta_{eq}= \cfrac{1}{\sum\limits_{i=1}^{n} \frac{1}{\beta_{i}}}$.
 In questo modo posso stimare le caratteristiche della rete, ad esempio posso considerare la tabella di verità e calcolare per ogni uscita la conduttanza, basandomi sui transistor attivi.
 
 ![[complementary_cmos_example.webp|center|300]]
@@ -80,9 +80,14 @@ $\beta_{n}^{NAND}= 2\beta_{n}^{NOR} \Rightarrow W_{n}^{NAND}=2W_{n}^{NOR} = 2W$
 e:
 $\beta_{p}^{NAND}= \cfrac{\beta_{p}^{NOR}}{2} \Rightarrow W_{p}^{NAND}=\cfrac{W_{p}^{NOR}}{2} = \cfrac{4W}{2W}=2W$
 
-Quindi abbiamo lo stesso propagation delay e possiamo basarci sulla complessità dell'area. 
+Quindi abbiamo lo stesso propagation delay e possiamo basarci sulla complessità dell'area. Tuttavia, c'è anche da considerare come si possono impacchettare i vari blocchi. 
+
+In un esercizio, si considera solo il critical path e si calcola $\beta_{peq}$ e $\beta_{neq}$. Poi si pongono uguali i propagation delay per la simmetria e si trova $W$.
+Per trovare i $W$ di tutti gli altri transistor basta considerare ancora una volta la simmetria, bisogna infatti fare in modo che qualsiasi percorso sia uguale e dimensionare di conseguenza $W$. 
 ## Body Effect
 
-Tutte le volte che si ha un block di CMOS, lo switch è più veloce se sto commutando un input che è vicino all’output. Tutta una questione di carica e scarica del condensatore.
+Tutte le volte che si ha un blocco di CMOS, lo switch è più veloce se sto commutando un input che è *vicino* all’output e questo cambia il propagation delay, questo viene chiamato **body effect**.
 
-Non usare le NAND con più di 4 input perché si deteriora il tempo di propagazione che cresce quadraticamente. (fan-in)
+Non usare le NAND con più di 4 input perché si deteriora il tempo di propagazione che inizia a crescere *quadraticamente* (fan-in: numero di input di una NAND).
+
+![[delay_fanin.webp|center|300]]
