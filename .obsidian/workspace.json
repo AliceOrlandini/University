@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md"
               }
             }
           },
@@ -156,15 +156,21 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "8a3c2ac993fd582e",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
+    "Magistrale/Electronics And Communication/Electronics/Images/cost_manufact.webp",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+    "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/design_approach.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/fpga_arch.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/basic_logic_cell.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/xilinx_inter_2.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/xilinx_inter.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/interconnection.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/basic_logic_cell.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/fpga_arch.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/pmos.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/nmos R.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/nmos.png",
+    "Magistrale/Electronics And Communication/Electronics/Images/mosfet.png",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
@@ -177,11 +183,6 @@
     "Magistrale/Large Scale Databases/Esami Large.md",
     "conflict-files-obsidian-git.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/coxian.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/rr_qn.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/qn_classes.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/buzen_table.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/ojn_example.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "SpuntiElectronics.md",

@@ -8,6 +8,11 @@ Prendiamo ad esempio un inverter, esistono 4 livelli di astrazione:
 Man mano che si scende nel livello di astrazione aumenta il tempo di realizzazione poiché si scende sempre più nei dettagli.
 # Stili di design di circuiti integrati
 
+Gli stili di design in generale sono:
+
+![[design_approach.png|center|600]]
+
+e la scelta dipende dalle specifiche esigenze, per esempio se si ha bisogno di una grande programmabilità si opteà per un micro-controller come l'intel Core i7, se invece si hanno dei requisiti più a livello di throughput si scenderà più a livello hardware. 
 ## Full Custom vs Semicustom
 
 Nel caso della metodologia **Full Custom**, si ha la *massima libertà* di design in termini di dimensione, posizionamento e interconnessione di ogni singolo transistor. Ciò permette di raggiungere il massimo potenziale del circuito in termini di area occupata e di velocità. D'altro canto però abbiamo maggiori costi, tempi di design e sono richieste capacità specifiche da parte degli sviluppatori.
@@ -121,17 +126,18 @@ Ad esempio, se lavoriamo ad un livello di astrazione alto (ad esempio scrivendo 
 *If you go outside and you want to cut a tree with a MOTOSEGA*. cit.Fanu.
 
 Negli anni la design productivity si è alzata per il grande sviluppo dei tool. 
-Vediamo come cambia il numero di gate a seconda del livello di astrazione:
+Vediamo come cambia il numero di gate a seconda del livello di astrazione in una settimana:
 - Transistor: 10 - 20 transistor
 - Gate: 100 - 200 transistor
 - RTL: 1k - 2k transistor
 - Behavioral: 2k - 10k transistor
 - Domain Specific: 8k -12k transistor
-Inoltre ad esempio per costruire 10M transistor servirebbero:
+Inoltre, ad esempio per costruire 10M transistor servirebbero:
 - Transistor: 62.500 ingegneri
 - Gate: 6250 ingegneri
 - RTL: 625 ingegneri
 - Behavioral: 125 ingegneri
 - Domain Specific: 62 ingegneri 
-Inoltre, la cosa difficile è organizzare il lavoro più aumenta il numero di persone che lavorano al processo di progettazione. 
-Bisogna anche analizzare il mercato andandolo a *targettizzare*.
+Poi, la cosa difficile è organizzare il lavoro più aumenta il numero di persone che lavorano al processo di progettazione. 
+Bisogna anche analizzare il mercato andandolo a *targettizzare* in modo da capire cosa produrre e quanto tempo dedicarci.
+Se non si riesce a raggiungere il **time to market** si perde una fetta di mercato che si tramuta in una perdita di soldi. 
