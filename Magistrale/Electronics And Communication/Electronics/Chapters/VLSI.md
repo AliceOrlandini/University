@@ -98,14 +98,14 @@ Bisonga considerare:
 
 Vediamo 3 modi per affrontare il problema della complessità:
 
-| Design             | Pro                                                                       | Contro                                                         |
-| ------------------ | ------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Standard Processor | È un progessore general porpouse  cioè può soddisfare vari utenti e scopi | Le performance non sono eccezionali                            |
-|                    | Grandi investimenti perché il costo può essere distribuito                | Consumo elevato di potenza                                     |
-| FPGA               | Facile da programmare e riprogrammare per correggere errori               | Il consumo di energia triplica rispetto all’ASIC               |
-|                    | Esistono configurazioni già programmate                                   | Non ideale per grandi consumi                                  |
-| ASIC               | È una soluzione full custom                                               | Bisogna essere esperti perché è molto facile commettere errori |
-|                    |                                                                           | Molto costoso                                                  |                                                                        |                                                                |                                                               |
+| Design | Pro | Contro |  |  |  |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| Standard Processor | È un progessore general porpouse  cioè può soddisfare vari utenti e scopi | Le performance non sono eccezionali |  |  |  |
+|  | Grandi investimenti perché il costo può essere distribuito | Consumo elevato di potenza |  |  |  |
+| FPGA | Facile da programmare e riprogrammare per correggere errori | Il consumo di energia triplica rispetto all’ASIC |  |  |  |
+|  | Esistono configurazioni già programmate | Non ideale per grandi consumi |  |  |  |
+| ASIC | È una soluzione full custom | Bisogna essere esperti perché è molto facile commettere errori |  |  |  |
+|  |  | Molto costoso |  |  |  |
 
 Un po’ di acronimi che Fanucci usa: 
 - **IP**: Intellectual Property, è il codice ad esempio che è di proprietà di chi lo ha sviluppato.

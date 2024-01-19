@@ -56,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md"
               }
             }
           },
@@ -193,14 +193,17 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "7754ccd166e0395d",
+  "active": "f99ba27bebcc85a0",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Esami Large.md",
     "conflict-files-obsidian-git.md",
@@ -228,9 +231,6 @@
     "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
     "Magistrale/Large Scale Databases/Presentation Speach.md",
     "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
-    "Magistrale/Large Scale Databases/Table of Contents.md",
-    "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
-    "Magistrale/Large Scale Databases/Chapters/Key-Value Databases.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",

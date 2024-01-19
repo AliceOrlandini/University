@@ -19,7 +19,7 @@
 5. [[Design Metrics and Trade-Offs]]
 	1. [[Design Metrics and Trade-Offs#Design Metrics|Design Metrics]]
 	2. [[Design Metrics and Trade-Offs#Managing engineering trade-off|Managing engineering trade-off]]
-6. [[Timing Issues]]
-7. [[CMOS-Comb]]
-8. [[Aritmetica]]
-9. 
+6. [[CMOS-Comb]]
+7. [[Timing Issues]]
+8. [[CMOS-Dynamic]]
+9. [[Aritmetica]]
