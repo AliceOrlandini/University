@@ -24,16 +24,25 @@ Negli sheet delle librerie troviamo:
 1. Il simbolo circuitale.
 2. La tabella di verità.
 3. La capacità dell’input.
-4. I propagation delay: 
+4. I propagation delay, riferiti sempre ad un technology corner, sono: 
 	$t_{pHL} \propto \cfrac{KC}{\beta_{n}}\cdot \cfrac{1}{V_{DD}+V_{Tn}}$ 
 	$t_{pLH} \propto \cfrac{KC}{\beta_{p}}\cdot \cfrac{1}{V_{DD}+V_{Tp}}$
 	$\beta_{n}= \mu_{n}\cdot C_{ox}\cdot \cfrac{W_{n}}{L_{n}}$
 	$\beta_{p}= \mu_{p}\cdot C_{ox}\cdot \cfrac{W_{p}}{L_{p}}$
 	$A \approx W_{n}\cdot L_{n}+ W_{p}\cdot L_{p}$
 5.  L'area della cella.
-6. la strength: forza necessaria per pilotare il carico in uscita, 1 indica la corrente che riesce a erogare la cella ed è legato al tempo di propagazione. Maggiore è la strenght maggiore è la corrente e quindi la carico più velocemente. 
+6. la strength: forza della cella necessaria per pilotare il carico in uscita, 1 indica la corrente che riesce a erogare la cella ed è legato al tempo di propagazione della cella quando deve pilotare un carico in uscita capacitivo. Maggiore è la strenght maggiore è la corrente erogata e quindi a parità di carico, si riesce a caricare o scaricare più velocemente la capacità in uscita. 
 
-La tecnologia CMOS complementare è composta da una rete di pull up (PUN) e una di pull down (PDN). Stesse cose viste con Piotto.
+I **technology corner** sono relativi al dado, infatti non tutti hanno le stesse caratteristiche e vengono catalogati generalmente in *typical*, *fast* oppure *slow*, e tutti quei dati al di fuori di questi tre range vengono buttati. Poi considerano anche il fatto che il propagation delay dipende dall'utilizzo che si fa del circuito, oppure ad esempio dalla temperature alle quali viene utilizzato. Tutte queste cose cambiano le performance del circuito. 
+I technology corner sono rappresentati nel seguente modo:
+
+![[tech_corners.webp|center|300]]
+
+# Complementary CMOS 
+
+La tecnologia Complementary CMOS permette di implementare qualsiasi funzione logica ed è composta da una rete di pull-up (**PUN**) e una di pull-down (**PDN**).
+Nella rete di pull-down ho una condizione di OR ($+$) allora connetterò i n-CMOS in parallelo, invece se ho una condizione di AND ($\cdot$) allora li connetterò in serie. 
+Nella rete di pull-up si avrà la stessa cosa 
 
 Da design si può porre $t_{pLH} = t_{pHL}$ perché così possiamo scegliere il maggiore come tempo di propagazione massimo della rete sincronizzata.
 La simmetria è garantita da $W_{n}= W_{p}$.
