@@ -1,29 +1,3 @@
-# Programmi Metrics
-
-I due principali metodi di programmazione per implementare una $f(x)$ su un FPGA sono:
-- **anti-fuse programming**: si applicano dei voltaggi differenti sull'FPGA che creerà una connessione tra i nodi A e B, questo sistema è detto OTP (one time programming)
-- **SRAM based**: si memorizza nella memoria una configurazione di bit che permetterà di implementare la funzione. 
-L'antifuse è più performante in termini di velocità ma l'SRAM è più compatibile con i vari FPGA presenti sul mercato. 
-Vediamo come questi FPGA sono organizzati internamente.
-
-# FPGA Architecture
-
-L'architettura di un FPGA è la seguente: 
-![[fpga_arch.png|center|500]]
-
-Gli **I/O Pads** sono predefiniti in base alla board che andiamo ad acquistare e sono programmabili per ricevere input oppure essere output. 
-Il **Core** è fatto di row di celle con spazi per il routing channels. Queste celle sono uguali per tutti (quei quadratini in blu) e le connessioni vengono fatte negli spazi (quelle linee bianche).
-
-La **basic logic cell** è composta da *8 input*, *due multiplexer* e *una OR gate*. Se si vogliono implementare funzioni più complesse è necessario mettere insieme più basic logic cell, ad esempio se volessimo fare un D-Flip-Flop avremmo bisogno di due basic logic cell. 
-
-![[basic_logic_cell.webp|center|300]]
-
-L'interconnessione è una matrice di fili per indirizzare il segnale e implementare le differenti interconnection function. 
-
-![[interconnection.webp|center|400]]
-
-Un'altra architettura che andiamo ad analizzare è quella della Xilinx (che è quella che andremo ad usare in laboratorio). Anche qui abbiamo gli I/O Pads usando una strutt
-
 # Design Metrics
 
 Le metriche principali per la valutazione di un FPGA sono:

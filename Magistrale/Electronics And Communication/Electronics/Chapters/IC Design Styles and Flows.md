@@ -76,26 +76,51 @@ Traducendo il grafico:
 - se $n > N_{2}$ è conveniente usare il *full-custom*.
 Il costo per unità non è l'unica metrica da considerare, può essere importante considerare parametri come velocità del circuito, dimensioni, consumi energetici. Nelle applicazioni con volumi medio/piccoli è conveniente mantenere i costi $NRE$ al minimo. 
 Infine, i Full-Custom e Standard-Cell hanno un grande impatto sul *time-to-market*. 
-# FPGA
+# Programmig Metrics
 
-**FPGA** è acronimo di "Field Programmable Gate Array" ed è costituito da un Gate Array con blocchi programmabili e un array di interconnessione che gli permettono di diventare una qualsiasi funzione logica. 
-Ci sono due modi di programmarlo: 
-- **SRAM based**: si inseriscono i dati nella RAM, è quindi riprogrammabile anche solo in parte. È però molto più sensibile al rumore (questo è quello che useremo).
-- **Anti-Fuse**: si basa sulla connessione tra nodi a voltaggi differenti per creare una connessione permanente tra i due. Una volta programmato non è riprogrammabile.
-L’anti-fuse è più efficiente in termini di velocità ma è meno compatibile con i dispositivi in commercio rispetto all’SRAM. 
+I due principali metodi di programmazione per implementare una $f(x)$ su un FPGA (acronimo di "Field Programmable Gate Array" ed è costituito da un Gate Array con blocchi programmabili e un array di interconnessione che gli permettono di diventare una qualsiasi funzione logica) sono:
+- **anti-fuse programming**: si applicano dei voltaggi differenti sull'FPGA che creerà una connessione tra i nodi A e B, questo sistema è detto OTP (one time programming)
+- **SRAM based**: si memorizza nella memoria una configurazione di bit che permetterà di implementare la funzione. 
+L'antifuse è più performante in termini di velocità ma l'SRAM è più compatibile con i vari FPGA presenti sul mercato. 
+Vediamo come questi FPGA sono organizzati internamente.
 
-Vediamo come questi due FPGA sono organizzati internamente. Le architetture più comuni sono:
-- **Actel**, basata su 3 componenti:
-	- Basic Logic Cell
-	- I/O Pads 
-	- Interconnection
-- **Xilinx** che è molto più complessa quindi non la vedremo, ci basta sapere che è un’architettura più flessibile perché ci sono dei "Configurable Logic Block" (CLB).
-Lo svantaggio di questi dispositivi è che non se ne possono mettere troppi in connessione in serie perché il ritardo $\tau _{TOT} = N^{2}\cdot \tau$ con $\tau = RC$ si deteriora quadraticamente. 
-Ad esempio, il clock e il reset dovranno avere linee dedicate per evitare che ad alcuni componenti arrivino linee di segnale deteriorate. 
+# FPGA Architecture
+
+La prima architettura di un FPGA che andiamo a considerare è quella della *ACTEL*: 
+![[fpga_arch.png|center|500]]
+
+Gli **I/O Pads** sono predefiniti in base alla board che andiamo ad acquistare e sono programmabili per ricevere input oppure essere output. 
+Il **Core** è fatto di row di celle con spazi per il routing channels. Queste celle sono uguali per tutti (quei quadratini in blu) e le connessioni vengono fatte negli spazi (quelle linee bianche).
+
+La **basic logic cell** è composta da *8 input*, *due multiplexer* e *una OR gate*. Se si vogliono implementare funzioni più complesse è necessario mettere insieme più basic logic cell, ad esempio se volessimo fare un D-Flip-Flop avremmo bisogno di due basic logic cell. 
+
+![[basic_logic_cell.webp|center|300]]
+
+L'interconnessione è una matrice di fili per indirizzare il segnale e implementare le differenti interconnection function. 
+
+![[interconnection.webp|center|400]]
+
+Un'altra architettura che andiamo ad analizzare è quella della *Xilinx* (che è quella che andremo ad usare in laboratorio). Anche qui abbiamo gli I/O Pads e basic blocks chiamati *Configurable Logic Block* con usando una struttura base che è più complessa rispetto alla ACTEL. 
+Le interconnessioni sono chiamate *Programmable Interconnecting Point* (PIP) e sono invece molto semplici: 
+
+![[xilinx_inter.webp|center|500]]
+
+C'è una memoria connessa ad un pass gate. In questo caso il delay non cresce linearmente ($\tau = N\cdot \tau = N \cdot R \cdot C$) ma in modo quadratico ($\tau = N^{2}\cdot R \cdot C$). Questo significa che non si possono avere interconnessioni troppo lunghe perché altrimenti si deteriorerebbe la velocità del device complessivo.
+
+![[xilinx_inter_2.webp|center|300]]
+
+Questo è di fatto un limite per i segnali che vanno in tutto il circuito come ad esempio il *clock* perché non arriverebbe contemporaneamente a tutti gli elementi del circuito ma avrebbe un delay. 
+Un modo per risolvere questo problema sono le *direct interconnections*.
+
+Non si può dire quale dei due approcci tra ACTEL e Xilinx sia il migliore perché dipende dal circuito infatti per capire qual è il migliore ci si base sui risultati di performance. 
+
 # Design Productivity
 
-La **design productivity** è la capacità degli ingegneri di realizzare un certo numero di transistor un determinato tempo.
-Ad esempio, se lavoriamo ad un livello di astrazione alto, si possono realizzare più transistor in meno tempo visto che il software tradurrà a basso livello. 
+La **design productivity** è una metrica che rappresenta la capacità degli ingegneri di realizzare un circuito complesso in un determinato tempo. Tradotto potrebbe essere visto come: "il numero di transistor realizzati in una settimana". 
+Ad esempio, se lavoriamo ad un livello di astrazione alto (ad esempio scrivendo in VHDL), si possono realizzare più transistor in meno tempo visto che poi il software tradurrà a basso livello. Questo per dire che questa metrica è influenzata dal livello di astrazione e dai software utilizzati. 
+*If you go outside and you want to cut a tree with a MOTOSEGA*. cit.Fanu.
+
+Negli anni la design productivity si è alzata per il grande sviluppo dei tool. 
 Vediamo come cambia il numero di gate a seconda del livello di astrazione:
 - Transistor: 10 - 20 transistor
 - Gate: 100 - 200 transistor
