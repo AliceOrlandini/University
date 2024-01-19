@@ -10,7 +10,7 @@ Man mano che si scende nel livello di astrazione aumenta il tempo di realizzazio
 
 Gli stili di design in generale sono:
 
-![[design_approach.png|center|600]]
+![[design_approach.png|center|400]]
 
 e la scelta dipende dalle specifiche esigenze, per esempio se si ha bisogno di una grande programmabilità si opteà per un micro-controller come l'intel Core i7, se invece si hanno dei requisiti più a livello di throughput si scenderà più a livello hardware. 
 ## Full Custom vs Semicustom
@@ -18,7 +18,7 @@ e la scelta dipende dalle specifiche esigenze, per esempio se si ha bisogno di u
 Nel caso della metodologia **Full Custom**, si ha la *massima libertà* di design in termini di dimensione, posizionamento e interconnessione di ogni singolo transistor. Ciò permette di raggiungere il massimo potenziale del circuito in termini di area occupata e di velocità. D'altro canto però abbiamo maggiori costi, tempi di design e sono richieste capacità specifiche da parte degli sviluppatori.
 Nel **Semicustom** invece, c’è una riduzione nella libertà di design perché si hanno componenti pre-disegnati e l'unico aspetto che il designer può decidere riguarda le interconnessioni tra le strutture logiche messe a disposizione. Questo secondo metodo facilita notevolmente il processo di realizzazione in termini di tempo, di costi e di abilità richieste rispetto all'approccio full-custom. Tuttavia, in termini di ottimizzazione, questo tipo di circuito è più limitato.
 
-![[IC Design Styles and Flows.png|center|700]]
+![[IC Design Styles and Flows.png|center|400]]
 
 I livelli di design per passare dal livello *astratto* a un livello *concreto* sono:
 1. **Specifiche**: si definisce che cosa deve fare il circuito.
@@ -68,12 +68,12 @@ Vediamo ora i costi di un circuito integrato che hanno un'importanza fondamental
 - **Non Recurrent Engineering Cost** $NRE$: costi dei materiali e della manodopera che richiede la produzione di un singolo pezzo. Un esempio è il costo del wafer: questo costo diminuisce al diminuire dell'area del chip ($cost \propto A^{3}$).
 Il costo per singola unità sarà: $$C_{1}= \frac{NRE}{n} + RE$$mentre il costo totale sarà: $$C_{T}= NRE + (n \cdot RE)$$La relazione tra $n$ e $C_{1}$ è di tipo iperbolico, infatti, per $n$ piccoli il costo $C_{1}$ aumenta esponenzialmente mentre all'aumentare di $n$ la curva si attenua fino all'asintoto $RE$.
 
-![[cost curve.png|center|500]]
+![[cost curve.png|center|300]]
 
 Domanda: quale tra i design che abbiamo visto ha un costo $NRC$ maggiore? Il maggiore sarà sicuramente il Full-Custom, mentre gli approcci Semi-Custom come Gate-Array o Standard-Cell hanno tempi di design molto simili. Mentre per quanto riguarda costi fissi $RE$ l'approccio Full-Custom e Standard-Cell sono molto simili perché vengono realizzati da zero.
 Invece, per quanto riguarda il volume di produzione? Se abbiamo volumi grandi è conveniente usare il Full-Custom o lo Standar-Cell. Se invece abbiamo volumi piccoli è meglio usare Gate-Array o FPGA. 
 
-![[cost differences.png|center|500]]
+![[cost differences.png|center|300]]
 
 Traducendo il grafico:
 - se $n < N_{1}$ è conveniente usare il *gate-array*.
@@ -92,23 +92,23 @@ Vediamo come questi FPGA sono organizzati internamente.
 # FPGA Architecture
 
 La prima architettura di un FPGA che andiamo a considerare è quella della *ACTEL*: 
-![[fpga_arch.png|center|500]]
+![[fpga_arch.png|center|300]]
 
 Gli **I/O Pads** sono predefiniti in base alla board che andiamo ad acquistare e sono programmabili per ricevere input oppure essere output. 
 Il **Core** è fatto di row di celle con spazi per il routing channels. Queste celle sono uguali per tutti (quei quadratini in blu) e le connessioni vengono fatte negli spazi (quelle linee bianche).
 
 La **basic logic cell** è composta da *8 input*, *due multiplexer* e *una OR gate*. Se si vogliono implementare funzioni più complesse è necessario mettere insieme più basic logic cell, ad esempio se volessimo fare un D-Flip-Flop avremmo bisogno di due basic logic cell. 
 
-![[basic_logic_cell.webp|center|300]]
+![[basic_logic_cell.webp|center|200]]
 
 L'interconnessione è una matrice di fili per indirizzare il segnale e implementare le differenti interconnection function. 
 
-![[interconnection.webp|center|400]]
+![[interconnection.webp|center|300]]
 
 Un'altra architettura che andiamo ad analizzare è quella della *Xilinx* (che è quella che andremo ad usare in laboratorio). Anche qui abbiamo gli I/O Pads e basic blocks chiamati *Configurable Logic Block* con usando una struttura base che è più complessa rispetto alla ACTEL. 
 Le interconnessioni sono chiamate *Programmable Interconnecting Point* (PIP) e sono invece molto semplici: 
 
-![[xilinx_inter.webp|center|500]]
+![[xilinx_inter.webp|center|400]]
 
 C'è una memoria connessa ad un pass gate. In questo caso il delay non cresce linearmente ($\tau = N\cdot \tau = N \cdot R \cdot C$) ma in modo quadratico ($\tau = N^{2}\cdot R \cdot C$). Questo significa che non si possono avere interconnessioni troppo lunghe perché altrimenti si deteriorerebbe la velocità del device complessivo.
 

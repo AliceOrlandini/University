@@ -1,4 +1,5 @@
 # Review on Sync and Async Sequential Logic
+
 Oggi vediamo in dettaglio com’è fatta la libreria della fundry.
 Quando parliamo di logica dividiamo in:
 - Logica combinatoria: l’output è funzione dell’input
