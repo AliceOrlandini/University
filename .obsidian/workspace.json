@@ -8,42 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "11be68831c350829",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7754ccd166e0395d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f99ba27bebcc85a0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "f0ff1a1d8aff1060",
             "type": "leaf",
             "state": {
@@ -55,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -122,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md"
               }
             }
           },
@@ -193,21 +156,24 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "f99ba27bebcc85a0",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
+    "Magistrale/Electronics And Communication/Electronics/Images/interconnection.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/basic_logic_cell.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/fpga_arch.png",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
+    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Large Scale Databases/Esami Large.md",
     "conflict-files-obsidian-git.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/coxian.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/rr_qn.webp",
@@ -217,9 +183,7 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/open_jackson.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/open_qn_fl.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images/split_superimposition.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/burke_example.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/tandem.webp",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "SpuntiElectronics.md",
     "TODO.md",
@@ -230,7 +194,6 @@
     "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
     "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
     "Magistrale/Large Scale Databases/Presentation Speach.md",
-    "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
