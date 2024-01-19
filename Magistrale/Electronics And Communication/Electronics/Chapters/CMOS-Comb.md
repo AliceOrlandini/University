@@ -1,35 +1,36 @@
 # Review on Sync and Async Sequential Logic
 
-Oggi vediamo in dettaglio com’è fatta la libreria della fundry.
+Oggi vediamo in dettaglio com’è fatta e da dove vengono i blocchi della la libreria della fundry al fine di capire come funzionano i tool di sintesi.
+
 Quando parliamo di logica dividiamo in:
-- Logica combinatoria: l’output è funzione dell’input
-- logica sequenziale: l’output è funzione dell’input e dagli input precedenti, c’è il concetto di memoria.
+- **Logica Combinatoria**: l’output è funzione dell’input.
+- **Logica sequenziale**: l’output è funzione dell’input e dagli input precedenti, c’è quindi il concetto di memoria.
 Quando si parla di logica sequenziale si hanno due opzioni:
-- asincroni: quando l’output cambia immediatamente con l’input (trasparente).
-- sincroni: quando l’output cambia in corrispondenza del fronte di salita del clock.
-La maggior parte delle volte si opta per un approccio sincrono a meno che non si abbiano device semplici in cui si vuole ottimizzare il consumo di energia.
+- **asincroni**: quando l’output cambia immediatamente con l’input (trasparenza).
+- **sincroni**: quando l’output cambia in corrispondenza del fronte di salita del *clock*. Questa tipologia di logica permette di specificare un timing constraint. 
+La maggior parte delle volte si opta per un approccio sincrono a meno che non si abbiano device semplici di cui si vuole ottimizzare il consumo di potenza. Nel metodo sincrono infatti c'è un po' di overhead che incrementa il consumo di energia, tuttavia questo metodo è anche quello più robusto, soprattuto in presenza di feedback loops (provoca problemi di stabilità). 
 
-Mealy è asincrona, infatti c’è un collegamento diretto tra ingresso e uscita mentre Moore è sincrona perché tra input e output c’è un registro.
-L’esempio classico è il riconoscitore di sequenze. 
-Mealy può essere sempre trasformata in una rete sincrona chiamata Mealy Ritardata in cui si aggiunge un registro tra ingresso e uscita.
-Gli elementi di queste reti sono un flip flop e una rete combinatoria. 
+La rete di **Mealy** è un esempio di rete asincrona, infatti c’è un collegamento diretto tra ingresso e uscita mentre in quella di **Moore** è sincrona perché tra input e output c’è sempre un registro.
+Mealy può essere sempre trasformata in una rete sincrona chiamata **Mealy Ritardata** in cui si aggiunge un registro tra ingresso e uscita.
+In generale gli elementi di queste reti sono un *D-Flip-Flop* e una *rete combinatoria*, è quindi importante capire le loro caratteristiche perché tramite combinazioni di questi è possibile realizzare praticamente qualsiasi microprocessore. 
 
-Quando vogliamo cambiare la tensione sul condensatore presente in uscita ci sono due modi: 
-- hard node (static): il nodo di output è fisso ad un valore che può essere o 0 o Vcc, un esempio è l’inverter. È molto robusta come soluzione perché non risente troppo del rumore. 
-- soft node (dynamic): quando si memorizza il valore in una capacità, questo non è tanto robusto. Un esempio è il pass-transistor. 
+Per costruire una macchina a stati finiti (ad esempio se volessi imporre una tensione su un condensatore) ci sono due approcci:
+- **hard node** (static logic): il nodo di output è fisso ad un valore che può essere o $0$ o $V_{dd}$, un esempio è l’inverter. Questo significa che a meno di un cambiamento dell'input, l'output non cambierò mai. È molto *robusta* come soluzione perché non risente troppo del rumore, tuttavia richiede di avere l'energia fissa collegata. Un esempio è l'inverter collegato ad un condensatore. 
+- **soft node** (dynamic logic): quando si memorizza il valore in una capacità parassita, questo *non è tanto robusto* ma permette di staccare la potenza per poi effettuare dei refresh del valore. Un esempio è il pass-transistor collegato ad un condensatore. 
 
 # Complementary CMOS Logic
 
 Negli sheet delle librerie troviamo:
-1. il simbolo circuitale
-2. la tabella di verità
-3. la capacità dell’input
-4. i tempi di propagazione 
-	$t_{pHL} \propto \frac{KC}{\beta_{n}} \frac{1}{V_{DD}+V_{Tn}}$ 
-	$t_{pLH} \propto \frac{KC}{\beta_{p}} \frac{1}{V_{DD}+V_{Tp}}$
-	$\beta_{n}= \mu_{n}C_{ox} \frac{W_{n}}{L_{n}}$
-	$\beta_{p}= \mu_{p}C_{ox} \frac{W_{p}}{L_{p}}$
-5. la temporizzazione
+1. Il simbolo circuitale.
+2. La tabella di verità.
+3. La capacità dell’input.
+4. I propagation delay: 
+	$t_{pHL} \propto \cfrac{KC}{\beta_{n}}\cdot \cfrac{1}{V_{DD}+V_{Tn}}$ 
+	$t_{pLH} \propto \cfrac{KC}{\beta_{p}}\cdot \cfrac{1}{V_{DD}+V_{Tp}}$
+	$\beta_{n}= \mu_{n}\cdot C_{ox}\cdot \cfrac{W_{n}}{L_{n}}$
+	$\beta_{p}= \mu_{p}\cdot C_{ox}\cdot \cfrac{W_{p}}{L_{p}}$
+	$A \approx W_{n}\cdot L_{n}+ W_{p}\cdot L_{p}$
+5.  L'area della cella.
 6. la strength: forza necessaria per pilotare il carico in uscita, 1 indica la corrente che riesce a erogare la cella ed è legato al tempo di propagazione. Maggiore è la strenght maggiore è la corrente e quindi la carico più velocemente. 
 
 La tecnologia CMOS complementare è composta da una rete di pull up (PUN) e una di pull down (PDN). Stesse cose viste con Piotto.
