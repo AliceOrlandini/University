@@ -7,7 +7,7 @@ Oggi vedremo come si possono integrare su un’unico substrato un elevato numero
 
 Il primo circuito integrato risale al 1959 : 
 
-![US Patent|center|500](https://www.nutsvolts.com/uploads/wygwam/NV_0222_Steber_Figure10.jpg)
+![US Patent|center|300](https://www.nutsvolts.com/uploads/wygwam/NV_0222_Steber_Figure10.jpg)
 
 Nel corso degli anni si è sempre più ridotta la dimensione di questi componenti, adesso siamo ai 5nm.
 
@@ -48,7 +48,7 @@ Ognuno di questi processori ha una **defect density**, cioé la densità di tran
 > La **legge di Moore** sostiene che il numero di transistor per circuito integrato *raddoppia* ogni anno.
 
 Il Denner’s Scaling è un paper che amplia la legge di Moore andando a studiare l’evoluzione delle dimensioni dei mosfet nei circuiti integrati: 
-![Denner’s Scaling|center|500](https://www.researchgate.net/profile/Ojas-Parekh/publication/301879820/figure/fig24/AS:359784168607749@1462790638818/The-end-of-Dennard-Scaling-44.png)
+![Denner’s Scaling|center|300](https://www.researchgate.net/profile/Ojas-Parekh/publication/301879820/figure/fig24/AS:359784168607749@1462790638818/The-end-of-Dennard-Scaling-44.png)
 
 Nel 2005 si provò ad aumentare per la prima volta il numero di Core e lo si fece per mantenere costante il consumo di energia. Prima infatti se il consumo di energia aumentava, di conseguenza cresceva anche la temperatura che diminuisce le performance del transistor. 
 
@@ -67,7 +67,7 @@ Non dobbiamo dimenticare che questa tecnologia è fatta per essere utilizzata da
 
 Per fare ciò, si utilizza il **System in Package** (SiP) in cui internamenti si hanno più componenti interconnessi, di cui uno o più realizzati a 5nm, mentre altri di dimensioni molto più grandi. 
 
-![SiP](https://anysilicon.com/wp-content/uploads/2022/03/System-in-Package-1024x700.jpg)
+![SiP|center|300](https://anysilicon.com/wp-content/uploads/2022/03/System-in-Package-1024x700.jpg)
 
 # VLSI
 

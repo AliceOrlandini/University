@@ -18,6 +18,42 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "91c543ec5ab907a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "34c3cd9720944eef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0ec854728309dff7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ]
       }
@@ -158,15 +194,17 @@
   },
   "active": "8a3c2ac993fd582e",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
+    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Images/delay_fanin.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos_example.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/tech_corners.webp",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Electronics/Images/enercy_flex.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/delay.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/noise_margin.webp",
@@ -174,10 +212,8 @@
     "Magistrale/Electronics And Communication/Electronics/Images/cost_manufact.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/cost curve.png",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
-    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Large Scale Databases/Esami Large.md",
     "conflict-files-obsidian-git.md",
