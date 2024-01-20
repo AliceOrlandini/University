@@ -21,7 +21,7 @@
 	2. [[Design Metrics and Trade-Offs#Managing engineering trade-off|Managing engineering trade-off]]
 6. [[CMOS-Comb]]
 7. [[Timing Issues]]
-8. [[CMOS-Dynamic]]
+8. [[CMOS Dynamic]]
 9. [[Aritmetica]]
 10. [[Magistrale/Electronics And Communication/Electronics/Domande Esame|Domande Esame]]
 
