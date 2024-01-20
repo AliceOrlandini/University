@@ -1,16 +1,29 @@
-Noi ci concentreremo sui Flip-Flop edge triggered che, a differenza del Latch, *non* è trasparente. 
-Ciò che si vuole è che il fronte di saluta del clock arrivi a tutti gli elementi del circuito nello stesso istante. Invece, in generale c’è un ritardo $\tau$ chiamato **clock skew**.
-Ad esempio nell’FPGA avevamo detto che c’era una linea solo per il clock. 
-Spesso si utilizza un approccio Global Asyncronous Local Syncronous (**GALS**) in cui abbiamo delle zone localmente sincronizzate. Ad esempio 4 zone in cui i dispositivi sono sincronizzati con rispettivamente $clock_{1}$, $clock_{2}$, $clock_{3}$ e $clock_{4}$.
+Studiamo le regole di temporizzazione che sono fondamentali da capire quando utilizziamo il tool di sintesi. 
+Abbiamo già detto che tutti i sistemi che andremo ad implementare saranno formati da un registro, della logica ed un altro registro (R-L-R) con un clock, un input ed un output. 
+
+Prima di vedere le timing issues ripassiamo la differenza tra Latch e Flip-Flop: 
+- i **Latch** sono level sensitive, ovvero sono sensibili all'ingresso quando il clock è pari ad 1. (*transparent mode*)
+- i **Flip-Flop** invece sono sensibili all'ingresso solo in corrispondenza del fronte di salita del clock.
+Noi ci concentreremo sui Flip-Flop Positive Edge Triggered che, a differenza del Latch, *non* è trasparente, infatti nel progetto evitare di fare Latch. 
+
+In generale, in un circuito integrato ciò che si vorrebbe è che il fronte di salita del clock arrivi a tutti gli elementi del circuito nello stesso istante. Invece, c’è sempre un ritardo $\tau_{i}$ tra il fronte di salita che arriva al componente $i$ e il ritardo $\tau_{j}$ che arriva al componente $j$, e la differenza tra questi due ritardi è chiamato **clock skew** $\delta_{ij}$.
+Ad esempio nell’FPGA avevamo detto che c’era una linea solo per il clock, lo scopo era proprio quello di ridurre al massimo il clock skew. Questo diventa un problema quando ci sono di aree del circuito che interagiscono tra loro. 
+
+Per ridurre lo skew, spesso si utilizza un approccio **GALS** (Global Asyncronous Local Syncronous) in cui abbiamo delle *zone localmente sincronizzate*. Ad esempio 4 zone in cui i dispositivi sono sincronizzati con rispettivamente $clock_{1}$, $clock_{2}$, $clock_{3}$ e $clock_{4}$. Questo approccio riduce il clock skew nelle sottoaree identificate. 
+
 # Timing Classifications
 
-1. Sistemi sincronizzati: quelli che vedremo noi.
-2. Sistemi asincroni
-3. Sistemi ibridi: i GALS.
+Vediamo come si analizza il timing di un sistema digitale sincronizzato formato da R-L-R ipotizzando che non ci sia skew.
+La prima regola da identificare è capire quali sono i vincoli di tempo in modo da avere una corretta funzione di uscita. Quindi dobbiamo ricordare le regole di pilotaggio di un Flip-Flop. 
 
-La regola di pilotaggio fondamentale è che il dato in input sia stabile per almeno $t_{setup} = t_{su}$ tempo prima del fronte di salita del clock e $t_{hold}$ dopo. L’output del registro si adeguerà dopo $t_{prop}=t_{\text{p logic}}$ che rappresenta la differenza tra il fronte di salita del clock e il momento in cui l’output si adegua e diventa stabile.
+La regola di pilotaggio fondamentale è che il dato in input sia *stabile* per almeno $t_{setup}$ (lui lo chiama $t_{su}$) prima del fronte di salita del clock, e $t_{hold}$ dopo il fronte di salita. Seguendo questa regola, l'output del registro, si aggiornerà dopo un tempo clock-to-Q: $t_{c-q}$ che rappresenta la differenza tra il fronte di salita del clock e il momento in cui l’output si adegua e diventa stabile.
 
-Un altro parametro è la *contamination delay* cioè la differenza tra il fronte di salita del clock e la prima modifica dell’output che può non essere l’output finale, per questo viene chiamato contaminazione $t_{\text{ed logic}}$.
+![[timing_class.webp|center|400]]
+
+Ora inseriamo nel nostro circuito della *logica*, definiamo la $t_{plogic}$ il propagation delay della logica. Questo valore è pari a peggiore tra $t_{pHL}$ e $t_{pLH}$ date tutte le possibili configurazioni in input.
+
+Sappiamo che molte volte prima di ottenere l'output finale della logica, ci possono essere dei piccoli glitch prima che esso diventi stabile. Definiamo quindi il **contamination delay** come il delay che si ha dal cambiamento dell'input al primo cambiamento dell'output: $t_{\text{cd logic}}$. Come detto, questo output può non essere quello definitivo. In questo caso dobbiamo considerare il tempo più corto. 
+Il contamination delay non è solo della logica ma anche dei registri, in questo caso consideriamo $t_{\text{cd register}}$.
 
 La prima regola da considerare è (temporizzazione sulle slide) detta **setup violation**:
 $$T \ge t_{eq1}+t_{\text{p logic}}+t_{setup2}$$

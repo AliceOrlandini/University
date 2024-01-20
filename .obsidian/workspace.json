@@ -13,43 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "91c543ec5ab907a7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "34c3cd9720944eef",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0ec854728309dff7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
                 "mode": "source",
                 "source": false
               }
@@ -121,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Table of Contents.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md"
               }
             }
           },
@@ -194,8 +158,9 @@
   },
   "active": "8a3c2ac993fd582e",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
+    "Magistrale/Electronics And Communication/Electronics/Images/timing_class.webp",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
