@@ -94,8 +94,8 @@ Iniziamo a capire quali sono le regole per gestire lo skew:
 $$
 T \ge t_{cq} + t_{plogic} + t_{su} - \delta
 $$
-	con $\delta$ il delay che il clock2 ha subito. 
-	Anche l'old time violation cambia diventando: 
+con $\delta$ il delay che il clock2 ha subito. 
+Anche l'old time violation cambia diventando: 
 $$
 t_{hold} \le t_{\text{cd logic}} + t_{\text{cd reg}}- \delta
 $$
@@ -105,9 +105,12 @@ $$
 in questo caso lo skew aiuta la regola.
 2.  **Negative Clock Skew**: ora la situazione è che il clock2 arriva prima del clock1 quindi la situazione è più critica per il setup, ma meno per l'old time. Le formule sono uguali a prima, solo che $\delta < 0$.
 
-Per quanto riguarda il jitter invece la regola diventa: 
+Per quanto riguarda il jitter invece le regole diventano: 
 $$
 T \ge t_{cq}+ t_{plogic}+ t_{su}+ 2\cdot t_{jitter}
+$$
+$$
+t_{hold} \le t_{\text{cd logic}} + t_{\text{cd reg}} - 2\cdot t_{jitter}
 $$
 Si moltiplica per due perché non si sa se sarà prima o dopo il fronte di salita del clock essendo un elemento probabilistico. 
 
@@ -116,17 +119,11 @@ $$
 T \ge t_{cq}+ t_{plogic}+ t_{su}- \delta + 2\cdot t_{jitter}
 $$
 $$
-t_{hold} \le t_{\text{cd logic}} + t_{\text{cd reg}}- \delta + 2\cdot t_{jitter}
+t_{hold} \le t_{\text{cd logic}} + t_{\text{cd reg}}- \delta - 2\cdot t_{jitter}
 $$
 
 # Pipelining 
 
 Dato un circuito formato da registro, logica e un secondo registro, se voglio aumentare le performance in termini di periodo di clock, posso aggiungere un terzo registro in mezzo alla logica poiché così $t_{plogic}$ si può dividere per 2.
-Questa tecnica si chiama **Pipelining** e permette di aumentare il *throughput* (la frequenza del clock) del sistema al costo di aggiungere un registro e di aumentare la *latenza* (in termini di cicli di clock). 
-# Example 
-$I_{M}= C_{tot}\cdot \frac{\partial V_{ck}}{\partial t}|_{MAX} =C \frac{V_{dd}}{t_{r}} \approx 2.5A$
 
-Due casi:
-1. H-Tree Clock Network
-2. Clock Grid Network
-
+Questa tecnica si chiama **Pipelining** e permette di aumentare il *throughput* (la frequenza del clock) del sistema al costo di aggiungere un registro e di aumentare la *latenza* (tempo necessario per adeguare l'output e si misura in termini di cicli di clock). 

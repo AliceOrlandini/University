@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "9889bd147fae23dd",
+        "id": "55e7a03bcc2986fc",
         "type": "tabs",
         "children": [
           {
-            "id": "8a3c2ac993fd582e",
+            "id": "44c489d5e44c8036",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md"
               }
             }
           },
@@ -156,8 +156,9 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "44c489d5e44c8036",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Images/positive_clock_skew.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/sintesi_tool_table.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/logic_sintesi_path.webp",
@@ -175,9 +176,7 @@
     "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos_example.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/tech_corners.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/enercy_flex.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Large Scale Databases/Esami Large.md",
