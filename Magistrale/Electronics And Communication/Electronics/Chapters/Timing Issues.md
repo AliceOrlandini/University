@@ -25,11 +25,28 @@ Ora inseriamo nel nostro circuito della *logica*, definiamo la $t_{plogic}$ il p
 Sappiamo che molte volte prima di ottenere l'output finale della logica, ci possono essere dei piccoli glitch prima che esso diventi stabile. Definiamo quindi il **contamination delay** come il delay che si ha dal cambiamento dell'input al primo cambiamento dell'output: $t_{\text{cd logic}}$. Come detto, questo output può non essere quello definitivo. In questo caso dobbiamo considerare il tempo più corto. 
 Il contamination delay non è solo della logica ma anche dei registri, in questo caso consideriamo $t_{\text{cd register}}$.
 
-La prima regola da considerare è (temporizzazione sulle slide) detta **setup violation**:
-$$T \ge t_{eq1}+t_{\text{p logic}}+t_{setup2}$$
-La seconda regola è legata alla contaminazione dell’output **old time violation**: 
-$$t_{hold2} \le t_{\text{cd logic}}+t_{\text{cd reg1}}$$
-Tra le due quella più importante da rispettare è la seconda perché una volta programmato il dispositivo non c’è modo di risolvere il problema mentre nella prima posso maneggiare $T$ che è un parametro esterno.
+# The two Timing Rules
+
+Studiamo un circuito R1-L-R2 con lo stesso clock.
+
+![[timing_basics.webp|center|400]]
+
+Il periodo del clock è pari a $T$.
+Assumiamo che D1 (l'input al registro 1) sia pilotato in modo corretto ovvero sarà stabile per $t_{setup1}$ e $t_{hold1}$.
+L'output Q2 del registro 1 cambierà e sarà stabile dopo un periodo clock-to-queue chiamato $t_{cq1}$.
+Se guardo D2 (l'input al registro 2), questo si adeguerà dopo $t_{plogic}$. Il sampling di questo nuovo valore avverrà in corrispondenza del fronte di salita del clock e il dato dovrà essere stabile per $t_{setup2}$ e $t_{hold2}$.
+La prima regola da considerare, detta **setup violation**, deriva dal fatto che bisogna essere sicuri che:
+$$T \ge t_{cq1}+t_{p logic}+t_{setup2}$$
+
+La seconda regola è invece legata al tempo di contaminazione perché se ho la contaminazione di Q2, avrò anche la contaminazione della logica, dopo un periodo $t_{\text{cd logic}}$. 
+Il setup qui non è un problema, il problema è che D2 deve rimanere stabile fino a $t_{hold2}$ perché stiamo analizzando D2 rispetto al primo fronte di salita del clock.
+La seconda regola, detta **old time violation**, sarà quindi: 
+$$t_{\text{cd logic}}+t_{\text{cd reg1}} \ge t_{hold2}$$
+*TODO: disegni da mettere*
+
+Poniamo caso che ho un circuito e mi accorgo che c'è una violazione di timing, devo essere preoccupato per una violazione di setup o di una di old time? 
+In entrambi i casi l'output non è quello aspettato, però nel caso della setup posso semplicemente aumentare il periodo di clock $T$ mentre per la old time violation non posso farci nulla. 
+Quindi tra le due quella più importante da rispettare è la *seconda* perché una volta programmato il dispositivo non c’è modo di risolvere il problema mentre nella prima posso aumentare $T$ che è un parametro esterno.
 
 **PLL**: Phase Lock Loop, da un clock con una determinata frequenza dato dal quarzo si vuole ottenere un clock ad un’altra frequenza. (? non ho capito bene)
 
