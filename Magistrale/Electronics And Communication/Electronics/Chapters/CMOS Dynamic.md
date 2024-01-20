@@ -26,6 +26,3 @@ $\tau_{2} = K \cdot \frac{A^{2}\cdot C_{in}}{A \beta_{n}} = A \tau_{m} = \tau_{1
 $\tau_{tot}= N\cdot A \tau_{m} = \frac{A}{ln(A)}\cdot \tau_{m}\cdot ln\left(\frac{C_{L}}{C_{in}}\right)$
 Il valore di $A$ che minimizza questo delay è $e = 2.71$ e si ottiene facendo la derivata.
 
-
-
-
