@@ -48,6 +48,40 @@ Poniamo caso che ho un circuito e mi accorgo che c'è una violazione di timing, 
 In entrambi i casi l'output non è quello aspettato, però nel caso della setup posso semplicemente aumentare il periodo di clock $T$ mentre per la old time violation non posso farci nulla. 
 Quindi tra le due quella più importante da rispettare è la *seconda* perché una volta programmato il dispositivo non c’è modo di risolvere il problema mentre nella prima posso aumentare $T$ che è un parametro esterno.
 
+# Logic synthesis tool 
+
+Vediamo un esempio di logic synthesis tool, non è una cosa che dovremo fare noi però è importante capire come funziona. 
+Consideriamo dei registri e della logica tra loro:
+
+![[logic_sintesi.webp|center|300]]
+
+Vediamo che ci possono essere molti percorsi (path) tra l'input e l'output: 
+
+![[logic_sintesi_path.webp|center|300]]
+
+Quindi per ogni path il tool andrà a calcolare la formula della prima regola. 
+Per questo esercizio si possono prendere i delay specificati negli sheet, fatti in questo modo:
+
+| Load | 0.015 | 0.020 | 0.035 |
+| ---- | ---- | ---- | ---- |
+| Delay C$\rightarrow$ Q | 0.75 | 0.80 | 1.0 |
+| Delay C$\rightarrow$ QN | 0.74 | 0.79 | 0.99 |
+
+|  | Setup | Hold |
+| ---- | ---- | ---- |
+| Delay D$\rightarrow$ C | 0.17 | 0.04 |
+Si noti che abbiamo tre valori per ogni delay perché esso dipende dalla capacità che si va caricare. 
+A questo punto, si cercano i valori delle capacità di uscita ad ogni componente (e in ingresso al successivo) sempre negli sheet, ad esempio all'ingresso della porta AND ci sarà una capacità $C_{A}$ di un certo valore che troviamo nello sheet. 
+Se ho due capacità in parallelo farò la somma tra le due. 
+Questo ci serve per capire quale valore andare a guardare nella tabella sopra.
+Poi faccio la somma dei tre valori per ogni path, il risultato è il seguente: 
+
+![[sintesi_tool_table.webp|center|400]]
+
+Si dice **critical path** il percorso con il delay maggiore tra tutti i path nel circuito. 
+
+# Sources of Clock Skew and Jitter in Clock Network
+
 **PLL**: Phase Lock Loop, da un clock con una determinata frequenza dato dal quarzo si vuole ottenere un clock ad un’altra frequenza. (? non ho capito bene)
 
 $I_{M}= C_{tot}\cdot \frac{\partial V_{ck}}{\partial t}|_{MAX} =C \frac{V_{dd}}{t_{r}} \approx 2.5A$
