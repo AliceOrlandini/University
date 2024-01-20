@@ -82,8 +82,48 @@ Si dice **critical path** il percorso con il delay maggiore tra tutti i path nel
 
 # Sources of Clock Skew and Jitter in Clock Network
 
-**PLL**: Phase Lock Loop, da un clock con una determinata frequenza dato dal quarzo si vuole ottenere un clock ad un’altra frequenza. (? non ho capito bene)
+Per il processo di sintesi si considera anche il clock skew che è un parametro statico nel senso che se prendo un'istantanea della waveform del clock al registro $i$ e di quello al registro $j$, la differenza tra i due fronti di salita non cambia nel tempo. 
 
+L'altro è chiamato **clock jitter** che è relativo al modo in cui si genera il clock internamente all'FPGA in un componente chiamato **PLL**.
+Il PLL, acronimo di Phase Lock Loop (Anello ad aggancio di fase), permette di partire da un clock con una determinata frequenza (dato dal quarzo, a circa 125MHz) per ottenere un clock ad un’altra frequenza. 
+Per funzionare il PLL ha bisogno di un VCO (Voltage Control Oscillator). 
+Il clock jitter è un elemento statistico perché viene influenzato dal rumore presente nel PLL. 
+
+Iniziamo a capire quali sono le regole per gestire lo skew:
+1. **Positive Clock Skew**: il clock2 arriva con un po' di delay rispetto al clock1, ovvero c'è un $\delta > 0$. La setup violation andrà controllata in base al clock2 che però ha subito delay, quindi la regola diventa: 
+$$
+T \ge t_{cq} + t_{plogic} + t_{su} - \delta
+$$
+	con $\delta$ il delay che il clock2 ha subito. 
+	Anche l'old time violation cambia diventando: 
+$$
+t_{hold} \le t_{\text{cd logic}} + t_{\text{cd reg}}- \delta
+$$
+
+![[positive_clock_skew.webp|center|300]]
+
+in questo caso lo skew aiuta la regola.
+2.  **Negative Clock Skew**: ora la situazione è che il clock2 arriva prima del clock1 quindi la situazione è più critica per il setup, ma meno per l'old time. Le formule sono uguali a prima, solo che $\delta < 0$.
+
+Per quanto riguarda il jitter invece la regola diventa: 
+$$
+T \ge t_{cq}+ t_{plogic}+ t_{su}+ 2\cdot t_{jitter}
+$$
+Si moltiplica per due perché non si sa se sarà prima o dopo il fronte di salita del clock essendo un elemento probabilistico. 
+
+Se vogliamo unire tutti i contributi otteniamo: 
+$$
+T \ge t_{cq}+ t_{plogic}+ t_{su}- \delta + 2\cdot t_{jitter}
+$$
+$$
+t_{hold} \le t_{\text{cd logic}} + t_{\text{cd reg}}- \delta + 2\cdot t_{jitter}
+$$
+
+# Pipelining 
+
+Dato un circuito formato da registro, logica e un secondo registro, se voglio aumentare le performance in termini di periodo di clock, posso aggiungere un terzo registro in mezzo alla logica poiché così $t_{plogic}$ si può dividere per 2.
+Questa tecnica si chiama **Pipelining** e permette di aumentare il *throughput* (la frequenza del clock) del sistema al costo di aggiungere un registro e di aumentare la *latenza* (in termini di cicli di clock). 
+# Example 
 $I_{M}= C_{tot}\cdot \frac{\partial V_{ck}}{\partial t}|_{MAX} =C \frac{V_{dd}}{t_{r}} \approx 2.5A$
 
 Due casi:

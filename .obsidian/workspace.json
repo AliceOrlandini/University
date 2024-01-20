@@ -1,0 +1,210 @@
+{
+  "main": {
+    "id": "a6186cb21fe5a142",
+    "type": "split",
+    "children": [
+      {
+        "id": "9889bd147fae23dd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8a3c2ac993fd582e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4e61c7cac76cdaee",
+    "type": "split",
+    "children": [
+      {
+        "id": "08d656a528fb1452",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "611f52b9f1839d1e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d72b1ce7c51b352b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "46f9c86b6df2e47e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f9f3ecc287144cb5",
+    "type": "split",
+    "children": [
+      {
+        "id": "bd2ad0db45247c55",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0ef4a7daf3c0a130",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6503ca0d7193cdfb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "548956d218e122e5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "b55a8c2ab05cd1e4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md"
+              }
+            }
+          },
+          {
+            "id": "0ecf8d67b5908b9d",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-full-calendar:Open Full Calendar": false
+    }
+  },
+  "active": "611f52b9f1839d1e",
+  "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Images/positive_clock_skew.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/sintesi_tool_table.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/logic_sintesi_path.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/logic_sintesi.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/timing_basics.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/timing_class.webp",
+    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
+    "Magistrale/Electronics And Communication/Electronics/Images/delay_fanin.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos_example.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/tech_corners.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/enercy_flex.webp",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Dynamic.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
+    "Magistrale/Large Scale Databases/Esami Large.md",
+    "conflict-files-obsidian-git.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+    "SpuntiElectronics.md",
+    "TODO.md",
+    "PECSN_Relation.md",
+    "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
+    "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
+    "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
+    "Magistrale/Large Scale Databases/Presentation Speach.md",
+    "Magistrale/Electronics And Communication/Electronics/Project",
+    "Magistrale/Electronics And Communication/Electronics/Laboratory",
+    "Untitled.canvas",
+    "Magistrale/Performance Evaluation/Teory/Images",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Images",
+    "Magistrale/Performance Evaluation/Laboratory/Images",
+    "Magistrale/Electronics And Communication/Communication/Images",
+    "Magistrale/Performance Evaluation/Laboratory",
+    "Magistrale/Large Scale Databases/Chapters",
+    "Magistrale/Electronics And Communication",
+    "Magistrale/Large Scale Databases",
+    "Grafo.canvas"
+  ]
+}
