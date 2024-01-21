@@ -1,13 +1,18 @@
 # Full Adder 1 bit
 
-Studiamo il full adder perché i processori utilizzano molto questo componente (input-output, memory, datapath, control).
-Nel data book troviamo la tabella di verità, il blocco coi relativi piedini, le capacità, l’area occupata e la potenza consumata.
+Andiamo a studiare il full adder poiché i processori utilizzano molto questo componente (input-output, memory, datapath, control).
+Nel data book generalmente possiamo trovare la tabella di verità, il blocco coi relativi piedini, le capacità, l’area occupata e la potenza consumata.
 
 Per costruire il full adder possiamo utilizzare componenti ad 1 bit e combinarli insieme, con la seguente logica:
-$s_{i}= a_{i} \text{ xor } b_{i} \text{ xor } c_{i}$
-$c_{i}= (a_{i}\cdot b_{i})+(a_{i}\cdot c_{i-1})+(b_{i}\cdot c_{i-1})$
-Per fare la rappresentazione a CMOS si utilizza la tabella di verità. Il risultato ha 16 transistor.
+$$s_{i}= a_{i} \text{ xor } b_{i} \text{ xor } c_{i}$$
+$$c_{i}= (a_{i}\cdot b_{i})+(a_{i}\cdot c_{i-1})+(b_{i}\cdot c_{i-1})$$
+Per fare l'architettura a CMOS si utilizza la tabella di verità. Il risultato è composto da 16 transistor.
+
+![full_adder|center|300](https://www.build-electronic-circuits.com/wp-content/uploads/2022/10/fullAdder-1-768x355.png)
+
 Una proprietà importante è quella di *inversione*: negando tutti gli input si ottengono gli output negati. 
+
+![[inversion_prop.webp|center|200]]
 
 Per fare la versione CMOS del carry out si può utilizzare la tabella di verità con la mappa di Karnaugth. In questo caso abbiamo un totale di 10 transistor. 
 
