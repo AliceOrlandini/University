@@ -70,18 +70,69 @@ Esiste un’altra soluzione che sfrutta la *proprietà di inversione*. In questo
 
 ## Carry Look Ahead Adder
 
-Un’altra configurazione è quella del Carry Look Ahead Adder. 
-Ha il vantaggio di avere solo 3 livelli di logica per il 64-bit full adder che lo rende molto veloce. Il limite è la fan-in all’aumentare dei $c_{i}$ quindi generalmente ci si ferma a $i=3$.
-Se volessi fare un full adder con $i>3$ posso usare l’approccio del ripple carry, che in questo caso viene chiamato CLA4 ripple carry. Oppure abbiamo la soluzione CLA Gerarchica. 
+Un’altra configurazione è quella del **Carry Look Ahead Adder**. 
+Il carry è una funzione di questo tipo: 
+$$
+C_{i}= A_{i}\cdot B_{i}+ C_{i-1}\cdot (A_{i}\text{ xor } B_{i})
+$$
+E si nota che ogni volta che $A_{i}\cdot B_{i} = 1$ allora il carry sarà pari ad 1, questo termine viene chiamato *carry generate*.
+Poi, si definisce questo termine $A_{i}\text{ xor } B_{i}$ come *carry propagate*, poiché quando questo termine è pari ad 1 allora il carry sarà pari a zero. 
+Possiamo quindi definire:
+$$G_{i}= A_{i}\cdot B_{i}$$
+$$
+P_{i} = A_{i}\text{ xor } B_{i}
+$$
+E riscrivere il carry come: 
+$$
+C_{i}= G_{i}+C_{i-1}\cdot P_{i}
+$$
+Si nota che tutti i carry possono essere *generati allo stesso tempo*.
 
-Tabella riassuntiva sulle slide (comparison for N=64)
+Lo schema del blocco base è la seguente:
+
+![[carry_look_ahead.webp|center|300]]
+
+Possiamo quindi costruire il circuito che calcola il carry come:
+
+![[carry_look_ahead_scheme.webp|center|300]]
+
+Ha il vantaggio di avere solo *3 livelli di logica* per il 64-bit full adder che lo rende molto veloce. 
+Il limite è la *fan-in* all’aumentare dei $C_{i}$ quindi generalmente ci si ferma ad $i=3$.
+
+Lo schema complessivo dell'adder che sfrutta il carry look ahead adder è: 
+
+![[adder_ahead_scheme.webp|center|300]]
+
+Se volessi fare un full adder con $i>3$ posso usare l’approccio del ripple carry, che viene chiamato **CLA4 Ripple Carry**. Oppure abbiamo la soluzione **CLA Gerarchica**. 
+
 # Pipeline
 
 Per andare ancora più veloci si utilizza la **pipeline**. 
-Schema sulle slide. 
-Il concetto di pipeline consiste nel dividere il critical path ponendo un registro. In totale si perdono 2 cicli di clock perché dobbiamo aggiungere 3 registri (disegno sulle slide).
-*cancella tutto ciò che c’è nella slide* Fanu: “OH CAZZO”.
-I parametri da valutare sono il throughput e la latenza, se si aumenta il primo aumenterà di un pochino anche il secondo (è un trade off).
+
+![[pipeline.webp|center|300]]
+
+Il concetto di pipeline consiste nel dividere il critical path ponendo un registro. In totale si perdono 2 cicli di clock perché dobbiamo aggiungere 3 registri. 
+I registri in input ed output servono per salvare i risultati mentre viene svolta la seconda somma, altrimenti verrebbero persi al ciclo di clock successivo. 
+Facciamo un esempio: 
+- $t_{c} = 2ns$
+- $t_{cq}= 1.6ns$
+- $t_{su}= 0.4 ns$
+Sappiamo che senza pipeline si ha: 
+$$
+T \ge t_{cq}+ 4\cdot t_{c} + t_{su} = 1.6 + 8 + 0.4 = 10ns
+$$
+Mentre con pipeline otteniamo: 
+$$
+T \ge t_{cq}+ 2\cdot t_{c} + t_{su} = 1.6 + 4 + 0.4 = 6ns
+$$
+Riassumendo i parametri in una tabella: 
+
+|  | Senza Pipeline | Con Pipeline |
+| ---- | ---- | ---- |
+| Throughput | 100 MHz | 166 MHz |
+| Latency | 1 ciclo di clock (10ns) | 2 cicli di clock (12ns) |
+
+*cancella per sbaglio tutta la slide* Fanu: “OH CAZZO”.
 Inoltre aumenta l’hardware complexity. 
 
 # Sottrattore
