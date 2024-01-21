@@ -90,11 +90,11 @@ Si nota che tutti i carry possono essere *generati allo stesso tempo*.
 
 Lo schema del blocco base è la seguente:
 
-![[carry_look_ahead.webp|center|300]]
+![[carry_look_ahead.webp|center|250]]
 
 Possiamo quindi costruire il circuito che calcola il carry come:
 
-![[carry_look_ahead_scheme.webp|center|300]]
+![[carry_look_ahead_scheme.webp|center|250]]
 
 Ha il vantaggio di avere solo *3 livelli di logica* per il 64-bit full adder che lo rende molto veloce. 
 Il limite è la *fan-in* all’aumentare dei $C_{i}$ quindi generalmente ci si ferma ad $i=3$.
@@ -109,7 +109,7 @@ Se volessi fare un full adder con $i>3$ posso usare l’approccio del ripple car
 
 Per andare ancora più veloci si utilizza la **pipeline**. 
 
-![[pipeline.webp|center|300]]
+![[pipeline.webp|center|250]]
 
 Il concetto di pipeline consiste nel dividere il critical path ponendo un registro. In totale si perdono 2 cicli di clock perché dobbiamo aggiungere 3 registri. 
 I registri in input ed output servono per salvare i risultati mentre viene svolta la seconda somma, altrimenti verrebbero persi al ciclo di clock successivo. 
@@ -133,42 +133,43 @@ Riassumendo i parametri in una tabella:
 | Latency | 1 ciclo di clock (10ns) | 2 cicli di clock (12ns) |
 
 *cancella per sbaglio tutta la slide* Fanu: “OH CAZZO”.
-Inoltre aumenta l’hardware complexity. 
+C'è da considerare che in generale si aumenta *l’hardware complexity*. 
 
 # Sottrattore
 
-In complemento a 2 sappiamo che $D = A-B = A+\overline{B}+1$.
-Schema sulle slide.
+In complemento a 2 sappiamo che:
+$$D = A-B = A+\overline{B}+1$$
+Quindi, sfruttando l'adder:
 
+![[substractor.webp|center|250]]
+
+E volendo possiamo combinare il sommatore con un sottrattore in modo da utilizzare un unico elemento circuitale che si comporta come sommatore o sottrattore secondo dei segnali di comando: 
+
+![[adder_substractor.webp|center|250]]
+
+Servono due segnali $X_{1}$ e $X_{2}$ perché si vuole implementare $A+B$, $A-B$ e $B-A$.
 # ALU
 
-Nell’ALU di un computer generalmente si utilizzano due piedini $X_{1}$ e $X_{2}$ che definiscono il comportamento del blocco, a seconda del valore di questi il blocco sarà un sommatore o un sottrattore. 
-Tabelle di programmazione sulle slide.
-Esistono anche CPU open source in VHDL come la RISC-V.
+Nell’ALU di un computer generalmente si utilizzano dei segnali che definiscono il comportamento del blocco. Infatti, a seconda del valore di questi, il blocco svolgerà una particolare operazione. 
+Esistono anche CPU open source in VHDL come la **RISC-V**.
 # Moltiplicatore
 
-Alcune CPU hanno anche il MAC: Multiplier Accumulator.
-$\sum\limits_{i}x_{i}c_{j}$
-Per fare un moltiplicatore possiamo ad esempio usare la lookup table, considerando $A$ e $B$ come indirizzo. Il problema è la grandezza della memoria e anche il tempo richiesto per accedervi. Non è nemmeno possibile includere il concetto di pipeline con questo approccio. 
+Alcune CPU hanno anche il MAC: **Multiplier Accumulator**: $\sum\limits_{i}x_{i}c_{j}$.
+Per fare un moltiplicatore possiamo ad esempio usare la lookup table, considerando $A$ e $B$ come indirizzo ma il problema è la grandezza della memoria e anche il tempo richiesto per accedervi. Inoltre, non è nemmeno possibile includere il concetto di pipeline con questo approccio. 
 
-Un altro approccio è quello di effettuare la moltiplicazione aritmeticamente. L’algoritmo è lo shift and sum (quello delle elementari). 
-Avrò bisogno dei seguenti blocchi:
+Un altro approccio è quello di effettuare la moltiplicazione aritmeticamente. L’algoritmo è lo **Shift and Sum** (quello delle elementari) e il circuito risultate è chiamato **Parallel Multiplier**. 
+In questo caso avrò bisogno dei seguenti blocchi:
 1. Blocco per il prodotto
-2. Half Adder (è un sommatore ma senza carry in)
+2. Half Adder: un sommatore ma senza carry in
 3. Full Adder
 4. Product + Half Adder 
 5. Product + Full Adder
 
-Schema dell’architettura completa sulle slide. 
+![[parallel_mul.webp|center|200]]
 
 In termini di complessità richiede:
 - $N^{2}$ porte AND
-- $N(N-2)$ Full Adder
+- $N\cdot (N-2)$ Full Adder
 - $N$ Half Adder
-E il propagation delay totale sarà:
-- $T_{b}$ single cell propagation delay
-- $T_{tot} = 2(N-1)T_{b}$
 
-
-
-
+E il propagation delay totale sarà $T_{tot} = 2\cdot (N-1)\cdot T_{b}$ con $T_{b}$ il single cell propagation delay.

@@ -23,5 +23,6 @@
 7. [[Timing Issues]]
 8. [[CMOS Dynamic and FF Static Dynamic]]
 9. [[Aritmetica]]
-10. [[Magistrale/Electronics And Communication/Electronics/Domande Esame|Domande Esame]]
+10. [[Low Power]]
+11. [[Magistrale/Electronics And Communication/Electronics/Domande Esame|Domande Esame]]
 
