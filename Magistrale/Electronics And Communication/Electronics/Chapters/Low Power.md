@@ -26,7 +26,37 @@ Noto che potrei diminuire la power supply $V_{DD}$, tuttavia riducendola avrei i
 Potrei invece lavorare sulla switching activity $P_{0\rightarrow 1}$ implementando l'algoritmo in modo da ridurre il numero di switch. 
 L'ultimo elemento su cui si potrebbe lavorare è la frequenza di clock $f_{clock}$ perché più è alto più è alta la power consumption. Per ovviare a ciò si utilizza una tecnica chiamata *just in time computing* che prevede di utilizzare solo clock adeguati all'applicazione che bisogna soddisfare. 
 
-Vediamo ora a migliorare considerando la leakedge power:
+Vediamo ora a migliorare considerando la leakage power:
+$$
+P_{leakage}= V_{DD}\cdot I_{leakage}
+$$
+La corrente di leakageè è dovuta a vari fenomeni:
+- **Drain Junction**: dovuto alla presenza di diodi, infatti, quando esso è OFF, la corrente non è esattamente zero.
+- **Gate**: in un CMOS l'ossido viene assunto come perfetto ma in realtà un po' di corrente passa dovuta all'effetto tunnel. 
+- **Sub-Threshold**: questa è dovuta al fatto che prima di $V_{Tn}$ la corrente non è esattamente zero. Questa è la più importante perché è la più grande tra le tre e quindi la più critica.
 
+![[leakage.webp|center|300]]
 
+Il modo di risolvere questo problema è utilizzare transistor con $V_{Tn}$ grandi. 
+Tuttavia anche qui vale $t_{pHL}= \cfrac{KC_{L}}{\beta_{neq}}\cdot \cfrac{1}{V_{DD}-V_{tn}}$ quindi aumenterà il propagation delay. 
+Un altro aspetto da considerare è che la leakage power cresce con la temperatura quindi in generale va tenuta bassa.
 
+Per ridurre la power consumption si può ridurre la grandezza dei componenti perché aumenta la leakage power. 
+
+Un altro modo è analizzare la $f(x)$ da implementare, ci basiamo sulla probabilità $P_{0\rightarrow 1}$ di transire da 0 ad 1. 
+Ad esempio per una NOR abbiamo 4 configurazioni di bit:
+
+| A | B | Out |
+| ---- | ---- | ---- |
+| 0 | 0 | 1 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 0 |
+Quindi l'output può essere 1 con una probabilità di $\cfrac{1}{4}$ mentre può essere 0 per $\cfrac{3}{4}$. 
+Quindi la probabilità di transire da uno stato all'altro sarà:
+$$
+P_{0\rightarrow 1} = P_{out=0}\cdot P_{out=1} = P_{0}\cdot (1-P_{0})
+$$
+Quindi in questo caso si avrà: $P_{0\rightarrow 1} =\cfrac{3}{4}\cdot \cfrac{1}{4}= \cfrac{3}{16}$.
+Questo se $P_{A=1}= \cfrac{1}{2}$ e $P_{B=1}= \cfrac{1}{2}$ ovvero sono equiprobabili, altrimenti dovrei usare la probabilità condizionata. 
+L'importante è minimizzare la switching activity. 
