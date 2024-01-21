@@ -8,13 +8,13 @@ L'idea della **dynamic logic** nasce del fatto che at the end of the story non a
 Introduco quindi un segnale di clock e divido il comportamento della logica in due fasi: la prima fase, dove il clock è pari a zero, sarà quella di pre ricarica dell'output, la seconda, in cui il clock è pari ad uno, userò solo la pull-down network e a seconda della configurazione di input posso avere che l'output deve rimanere ad 1 oppure deve scaricarsi a zero. 
 Lo schema è il seguente: 
 
-![[dynamic_logic.webp|center|300]]
+![[dynamic_logic.webp|center|200]]
 
 I *vantaggi* sono il risparmio dei MOS perché siamo passati da $2\cdot N$ a $N+2$, e poi non devo duplicare gli ingressi per andare in input anche alla pull-up network. 
 Gli *svantaggi* sono che l'output è valido solo quando il clock è pari ad 1 ed inoltre che gli ingressi devono essere stabili quando il clock è pari ad 1. 
 Questo è un grande svantaggio quando si mettono più logiche in cascata. Il problema nasce dal fatto che la fase di pre ricarica porta l'output ad 1 e ciò influenza la seconda rete. Un modo per risolvere è mettere un **inverter**: 
 
-![[domino_logic.webp|center|300]]
+![[domino_logic.webp|center|250]]
 
 
 # Inverter Chain
@@ -75,7 +75,44 @@ $$
 Q = A \cdot clock + B \cdot \overline{clock}
 $$
 
-![[multiplexer.webp|center|200]]
+![[multiplexer.webp|center|150]]
 
-# Positive Latch 
+# Positive D-Latch 
+
+Il **Positive D-Latch** sfrutta il two ways multiplexer e due inverter:
+
+![[positive_latch.webp|center|250]]
+
+Il Negative D-Latch è uguale ma con i pilotaggi del multiplexer invertiti. 
+Il positive ed il negative possono essere combinati in cascata per formare un Flip-Flop ad architettura *master slave*.
+
+# Confronto
+
+Si può effettuare un confronto in termini di complessità:
+
+| Architecture/# Transistor | FF SR (NAND2) | FF SR (NOR2) | MUX |
+| ---- | ---- | ---- | ---- |
+|  | 34 | 26 | 20 |
+
+# FF Dynamic 
+
+In questo caso basta rimuovere il feedback loop e memorizzare il dato nelle capacità:
+
+![[dynamic_ff.webp|center|300]]
+
+Il vantaggio è che servono solo 8 transistor per realizzarlo, ma lo svantaggio è che serve il *refresh* del dato. 
+
+# Shift Register
+
+Ora manca solo da capire come ottimizzare lo shift register basic cell. 
+In versione dinamica è fatta in questo modo:
+
+![[shift_reg.webp|center|300]]
+
+La parte più critica è quella centrale formata da un inverter ed un passgate poiché bisogna garantire la distanza di area tra le due parti. Quello che potremmo fare sarebbe rimuovere direttamente i contatti in modo da risparmiare area. 
+Questo si può fare in questo modo: 
+
+![[ff_reg_opt.webp|center|250]]
+
+
 
