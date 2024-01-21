@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic and FF Static Dynamic.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic and FF Static Dynamic.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic.md",
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic and FF Static Dynamic.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic.md"
+                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic and FF Static Dynamic.md"
               }
             }
           },
@@ -156,10 +156,12 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "44c489d5e44c8036",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Images/multiplexer.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/flip_flop.webp",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Flip Flop Static and Dynamic.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic and FF Static Dynamic.md",
     "Magistrale/Electronics And Communication/Electronics/Images/domino_logic.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/dynamic_logic.webp",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
@@ -178,7 +180,6 @@
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Images/delay_fanin.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos_example.webp",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Large Scale Databases/Esami Large.md",
     "conflict-files-obsidian-git.md",
@@ -193,7 +194,6 @@
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
     "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
-    "Magistrale/Large Scale Databases/Presentation Speach.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",

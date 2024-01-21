@@ -1,4 +1,6 @@
 
+# CMOS Dynamic 
+
 Lo svantaggio di utilizzare la tecnologia CMOS risiede nel fatto che bisogna utilizzare un totale di $2\cdot N$ MOS: $N$ per la PUN ed $N$ per la PDN (considerando un caso simmetrico). 
 Il vantaggio però è che questa è una soluzione molto robusta perché ci sono percorsi predefiniti per High to Low e Low to High ed è immune agli effetti delle radiazioni esterne in quando l'uscita sarà collegata a $V_{dd}$ oppure ground.
 
@@ -25,4 +27,55 @@ $\tau_{2} = K \cdot \frac{A^{2}\cdot C_{in}}{A \beta_{n}} = A \tau_{m} = \tau_{1
 ...
 $\tau_{tot}= N\cdot A \tau_{m} = \frac{A}{ln(A)}\cdot \tau_{m}\cdot ln\left(\frac{C_{L}}{C_{in}}\right)$
 Il valore di $A$ che minimizza questo delay è $e = 2.71$ e si ottiene facendo la derivata.
+
+# FF Static Dynamic
+
+# Flip Flop
+
+Abbiamo già visto la differenza tra Flip-Flop e Latch, ora vedremo come si costruisce il Flip-Flop. 
+Il Flip-Flop visto a reti logiche è formato da Latch in configurazione master slave implementati tramite architettura **set-reset NOR2**:
+
+![nor2|center|300](https://media.geeksforgeeks.org/wp-content/uploads/20230924154744/Difference-between-SR-Flip---flop-and-RS-Flip---flop-04.png)
+
+Si ha bisogno quindi di 8 transistor. La stessa cosa si può fare utilizzando l'architettura **set-reset NAND2**:
+
+![nand2|center|300](https://media.geeksforgeeks.org/wp-content/uploads/20230924154106/Difference-between-SR-Flip---flop-and-RS-Flip---flop-02.png)
+
+Infine si può aggiungere un enable (o *clock*) che va in AND con set e reset. 
+Questo però non è il modo migliore per farlo, la funzione da implementare è:
+$$
+Y = \overline{Q} = \overline{S\cdot clock + Q}
+$$
+In questo modo ho che la pull-down è:
+$$
+\overline{Y}_{PDN} = S \cdot clock + Q
+$$
+e la pull-up, la duale della precedente. Questo approccio permette di utilizzare 6 transistor. 
+
+Se si vuole utilizzare un D-Latch per ottenere un Flip-Flop, utilizziamo l'architettura master slave:
+
+![master_slave|center|400](https://www.build-electronic-circuits.com/wp-content/uploads/2022/11/Dflipflop-Master-Slave-edge-triggered-2-1024x320.png)
+
+L'unica cosa a cui bisogna stare attenti è che i due clock non siano pari ad 1 allo stesso tempo. Se per fare ciò utilizzassi un inverter non funzionerebbe perché ci sarebbero degli istanti in cui entrambi sono pari ad 1 a causa del ritardo di propagazione.
+
+# Clock 
+
+Un clock che non ha overlap può essere costruito da due NOR e degli inverter, nel seguente modo:
+
+![clock|center|200](https://www.researchgate.net/profile/Hannu-Tenhunen/publication/224651349/figure/fig1/AS:668910529544205@1536492106648/Example-of-a-commonly-used-two-phase-non-overlapping-clock-generator-for-SC-SD-ADCs-1.png)
+
+Utilizzando questo clock si può creare un *Flip-Flop-D Edge Triggered*:
+
+![[flip_flop.webp|center|300]]
+
+## Two ways multiplexer
+
+Questo elemento circuitale implementa la funzione: 
+$$
+Q = A \cdot clock + B \cdot \overline{clock}
+$$
+
+![[multiplexer.webp|center|200]]
+
+# Positive Latch 
 
