@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "55e7a03bcc2986fc",
+        "id": "5ac1dc9ccf59a1d1",
         "type": "tabs",
         "children": [
           {
-            "id": "44c489d5e44c8036",
+            "id": "39d1e0bae67ce787",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Low Power.md",
+                "file": "DiscorsoLarge.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Low Power.md",
+                "file": "DiscorsoLarge.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Low Power.md",
+                "file": "DiscorsoLarge.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Electronics/Chapters/Low Power.md"
+                "file": "DiscorsoLarge.md"
               }
             }
           },
@@ -156,13 +156,15 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "44c489d5e44c8036",
+  "active": "39d1e0bae67ce787",
   "lastOpenFiles": [
+    "SpuntiElectronics.md",
+    "DiscorsoLarge.md",
+    "Magistrale/Electronics And Communication/Electronics/Chapters/Low Power.md",
     "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/probability.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/leakage.webp",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Low Power.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Electronics And Communication/Electronics/Images/parallel_mul.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/adder_substractor.webp",
@@ -171,7 +173,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images/adder_ahead_scheme.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/carry_look_ahead_scheme.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/carry_look_ahead.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/adder_invert.webp",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic and FF Static Dynamic.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Flip Flop Static and Dynamic.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
@@ -187,7 +188,6 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-    "SpuntiElectronics.md",
     "TODO.md",
     "PECSN_Relation.md",
     "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
