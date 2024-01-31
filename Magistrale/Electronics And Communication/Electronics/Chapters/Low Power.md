@@ -59,4 +59,24 @@ P_{0\rightarrow 1} = P_{out=0}\cdot P_{out=1} = P_{0}\cdot (1-P_{0})
 $$
 Quindi in questo caso si avrà: $P_{0\rightarrow 1} =\cfrac{3}{4}\cdot \cfrac{1}{4}= \cfrac{3}{16}$.
 Questo se $P_{A=1}= \cfrac{1}{2}$ e $P_{B=1}= \cfrac{1}{2}$ ovvero sono equiprobabili, altrimenti dovrei usare la probabilità condizionata. 
-L'importante è minimizzare la switching activity. 
+L'importante è minimizzare la switching activity, in questo esempio è migliore la seconda soluzione:
+
+![[probability.webp|center|350]]
+
+## Glitchies
+
+I glitchies sono dovuti ai cambiamenti di stato che provocano un propagation delay e sono un problema soprattutto quando si hanno molti livelli di locica poiché alterano il comportamento della logica temporaneamente.
+È di fatto un valore temporaneo non desiderato che provoca un consumo di energia (nell'immagine quello rosso è il glitch).
+
+![[glitch.webp|center|250]]
+
+## Multi-$V_{dd}$
+
+Si tratta di un modo per ridurre la power consumption in tutti i path non critici. Quello critico infatti non posso toccarlo perché altrimenti aumenterei il propagation delay, quindi riduco tutti gli altri.
+Ovviamente bisogna anche stare attenti a non ridurlo troppo e farlo così diventare il critical path. 
+
+## Multi-$V_{T}$
+
+Qui consideriamo il fatto che possono essere transistor implementati con $V_{TnL}$ e $V_{TnH}$. Poi si fa lo stesso ragionamento di prima, non si tocca il critical path che sarà implementato con $V_{TnL}$ mentre gli altri li sostituisco con $V_{TnH}$ in modo da ridurre il power consumption riducendo la leakage current.
+
+Queste tecniche permettono di ridurre fino all'80% la leakage power.
