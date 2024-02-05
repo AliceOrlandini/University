@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DiscorsoLarge.md",
+                "file": "DiscorsoPECSN.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DiscorsoLarge.md",
+                "file": "DiscorsoPECSN.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DiscorsoLarge.md",
+                "file": "DiscorsoPECSN.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DiscorsoLarge.md"
+                "file": "DiscorsoPECSN.md"
               }
             }
           },
@@ -158,8 +159,9 @@
   },
   "active": "39d1e0bae67ce787",
   "lastOpenFiles": [
-    "SpuntiElectronics.md",
     "DiscorsoLarge.md",
+    "DiscorsoPECSN.md",
+    "SpuntiElectronics.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Low Power.md",
     "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/probability.webp",
@@ -193,7 +195,6 @@
     "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
-    "Magistrale/Large Scale Databases/Chapters/Google Big Table.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
