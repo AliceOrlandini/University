@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "9882bdc8786d973c",
+        "id": "64ab7a04e5dfdff6",
         "type": "tabs",
         "children": [
           {
-            "id": "d39e7ed8d3c71a1b",
+            "id": "2af0658d1645438c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Large Scale Databases/Esami Large.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Esami Large.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Esami Large.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -113,9 +107,7 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {
-            "file": "Magistrale/Large Scale Databases/Esami Large.md"
-          }
+          "state": {}
         }
       },
       {
@@ -140,19 +132,23 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "d39e7ed8d3c71a1b",
+  "active": "47d227c15ee73dd2",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Electronics/Images/design_approach.png",
+    "Magistrale/Cloud Computing",
+    "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/sintesi_tool_table.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/logic_sintesi.webp",
+    "LICENSE",
+    "DiscorsoPECSN.md",
+    "Magistrale/Electronics And Communication/Electronics/Images/logic_sintesi_path.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/probability.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/xilinx_inter_2.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/basic_logic_cell.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos_example.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/interconnection.webp",
+    "Magistrale/Electronics And Communication/Electronics/Images/noise_margin.webp",
     "Magistrale/Large Scale Databases/Esami Large.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/open_jackson.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/burke_example.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/tandem.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/rr_qn.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/buzen_table.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/split_superimposition.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/coxian.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/transactional_server.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/qn_classes.webp",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Images/open_qn_fl.webp",
     "SpuntiElectronics.md",
     "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
     "Magistrale/Large Scale Databases/Presentation Speach.md",
@@ -177,8 +173,6 @@
     "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
     "TODO.md",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
@@ -186,8 +180,6 @@
     "Magistrale/Performance Evaluation/Probability Theory",
     "Magistrale/Electronics And Communication/Electronics/Chapters",
     "Magistrale/Electronics And Communication/Communication/Chapters",
-    "Magistrale/Electronics And Communication/Communication",
-    "Magistrale/Electronics And Communication/Electronics",
     "Grafo.canvas"
   ]
 }

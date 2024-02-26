@@ -18,8 +18,33 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "e41f1ea1ed4c436b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "870e35512e179ff7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -69,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -86,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DiscorsoPECSN.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DiscorsoPECSN.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DiscorsoPECSN.md"
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md"
               }
             }
           },
@@ -157,11 +181,15 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "39d1e0bae67ce787",
+  "active": "870e35512e179ff7",
   "lastOpenFiles": [
+    "Magistrale/Cloud Computing/Table of Contents.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
+    "Untitled",
+    "Magistrale/Cloud Computing/Chapters",
+    "DiscorsoPECSN.md",
     "LICENSE",
     "DiscorsoLarge.md",
-    "DiscorsoPECSN.md",
     "SpuntiElectronics.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Low Power.md",
     "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
@@ -194,7 +222,6 @@
     "TODO.md",
     "PECSN_Relation.md",
     "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
@@ -203,9 +230,6 @@
     "Magistrale/Performance Evaluation/Laboratory/Images",
     "Magistrale/Electronics And Communication/Communication/Images",
     "Magistrale/Performance Evaluation/Laboratory",
-    "Magistrale/Large Scale Databases/Chapters",
-    "Magistrale/Electronics And Communication",
-    "Magistrale/Large Scale Databases",
     "Grafo.canvas"
   ]
 }
