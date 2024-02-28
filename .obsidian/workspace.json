@@ -13,38 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DiscorsoPECSN.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e41f1ea1ed4c436b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "870e35512e179ff7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -181,13 +156,13 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "870e35512e179ff7",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
-    "Magistrale/Cloud Computing/Table of Contents.md",
+    "DiscorsoPECSN.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
+    "Magistrale/Cloud Computing/Table of Contents.md",
     "Untitled",
     "Magistrale/Cloud Computing/Chapters",
-    "DiscorsoPECSN.md",
     "LICENSE",
     "DiscorsoLarge.md",
     "SpuntiElectronics.md",

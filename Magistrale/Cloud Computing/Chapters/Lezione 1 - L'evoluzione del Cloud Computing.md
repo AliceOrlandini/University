@@ -46,11 +46,23 @@ Questo permise anche di superare lo svantaggio dello scaling in tempo reale e de
 ## Web Services
 
 Oltre alla virtualizzazione, si sviluppò anche il servizio web con nuovi protocolli di comunicazione come il World Wide Web che permise di scambiarsi informazioni in luoghi geograficamente distanti. Prima infatti si parlava solo di reti LAN o WAN, mentre ora gli utenti in parti diverse del globo potevano connettersi.  
+## Service Oriented Architecture 
 
-# Service Oriented Architecture 
+Il Service Oriented Architecture (SOA) è una metodologia di programmazione software nata per gestire la programmazione di codice orientato alla gestione di sistemi distribuiti. In questa metodologia ogni servizio è un'entità indipendente che comunica con le altre tramite scambio di messaggi. 
+Questo approccio ricorda molto l'organizzazione del cluster nel sistema grid ma replicato in software. Questa corrispondenza diretta tra hardware e software permette di scrivere codice scalabile, flessibile e più mantenibile nel tempo. 
+## Utility Computing
 
-# Utility Computing
+Abbiamo quindi capito che il cloud computing non è stato inventato ma si è evoluto negli anni:
+mainframe -> PC -> network locale -> parallelizzazione -> clustering -> grid computing -> virtualizzazione, web service, SOA
+Al momento è possibile utilizzare queste risorse computazionali on demand e pagandole all'utilizzo quindi si può dire che si è raggiunto l'obiettivo ideato da 
+McCarthy nel 1960. 
+Infatti le caratteristiche delle moderne architetture sono:
+- scalabilità fatta da computer con configurazioni diverse
+- velocità di comunicazione tra cluster dispersi nel mondo grazie ai netword a banda alta
+- ambiente collaborativo tramite i web services
+- applicazioni flessibili tramite il SOA
+## Cloud Computing
 
-# Autonomic Computing
-
-# Cloud Computing
+L'utility computing si è evoluto in cloud computing in cui ogni "pezzettino" è cruciale per la realizzazione dell'ambiente cloud. 
+Una caratteristica importante del cloud computing è la capacità di scalare dinamicamente e in tempo reale. Infatti, nell'architettura grid ad esempio per rimuovere o aggiungere un nodo bisognava interrompere la rete. Nel cloud invece è il sistema stesso che sa quando aggiungere o togliere nodi per far fronte al carico di lavoro e col vantaggio di non richiedere l'intervento umano. 
+Oggi il cloud computing è dominato da 3 realtà: Amazon Cloud Service, Microsoft Azure e Google Cloud Platform. 
