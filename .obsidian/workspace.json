@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6c4b5eff7f9a501f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 2.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md"
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 2.md"
               }
             }
           },
@@ -156,11 +169,12 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "6c4b5eff7f9a501f",
   "lastOpenFiles": [
-    "DiscorsoPECSN.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 2.md",
     "Magistrale/Cloud Computing/Table of Contents.md",
+    "DiscorsoPECSN.md",
     "Untitled",
     "Magistrale/Cloud Computing/Chapters",
     "LICENSE",
@@ -196,7 +210,6 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "TODO.md",
     "PECSN_Relation.md",
-    "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
