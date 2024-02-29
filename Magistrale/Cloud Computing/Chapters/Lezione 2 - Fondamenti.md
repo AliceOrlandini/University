@@ -65,4 +65,46 @@ Ogni amministratore del servizio ha la completa facoltà di scegliere la propria
 Questo è possibile tramite la Virtualizzazione: una tecnica che consente di creare una versione virtuale di qualsiasi risorsa IT (ad esempio una versione virtuale della RAM, della CPU, dell’intero server…).
 Con l’utilizzo della virtualizzazione si possono creare delle copie virtuali dell’hardware e fare interagire il service owner con tali copie in modo che abbia l’impressione di averne il completo controllo, ma senza che conosca come vengono poi gestire realmente. 
 
-Generalmente si Ogni ambiente virtuale sopra il quale è installato un sistema operativo si chiama Macchina Virtuale. 
+Generalmente si crea una versione virtuale di ogni componente hardware (Hardware Virtualization), poi si crea l’ambiente virtuale sopra il quale è installato un sistema operativo che nel complesso viene chiamato Macchina Virtuale. 
+In questo modo si possono installare più sistemi operativi pur usando un unico hardware perché ognuno di essi avrà l’impressione di avere il proprio hardware dedicato. 
+
+## Hypervisor
+
+L’hypervisor è il cuore del virtualization layer ed è un componente software che permette di amministrare e controllare l’hardware virtuale. 
+La vera macchina sulla quale è in esecuzione l’hypervisor si chiama host. Sopra l’host c’è l’hypervisor che gestisce l’interazione tra l’hardware reale e quello virtuale. Sopra di esso ci sono tutti i sistemi operativi che vengono chiamati guest. 
+
+Oggigiorno, a seconda dei requisiti da soddisfare, sono disponibili diverse tipologie di virtualizzazione: 
+- Full virtualization: colui di cui abbiamo parlato finora
+- Para virtualization
+- Operating System virtualization
+Gli ultimi due li vedremo più avanti, comunque sono utili ai fini della scalabilità perché utilizzano diversi livelli di astrazione. 
+La differenza principale tra i tre riguarda le diverse risorse necessarie per creare l’ambiente virtuale. 
+
+## Cloud Virtualized Infrastructure
+
+Nel cloud si ha una grande quantità di server, connessi tra loro tramite LAN e sopra il quale è in esecuzione un Hypervisor per l’esecuzione delle diverse macchine virtuali. 
+Tali macchine virtuali possono essere create dinamicamente dai Cloud Costumers. 
+
+Tramite il network LAN ogni server può comunicare o con altri server oppure con il mondo esterno. Un Cloud User che interagisce con l’infrastruttura accederà solo ad una macchina virtuale sarà il software di gestione dell’infrastruttura che si occuparà del load balancing delle richieste e di scalare se necessario. 
+
+## Scaling 
+
+ Un grande vantaggio della virtualizzazione consiste nel fatto che è possibile aggiungere on-demand nuove instanze della stessa macchina virtuale oppure rimuoverne alcune, in seguito al cambiamento delle condizioni di carico che il sistema deve gestire.
+ Le due possibilità per lo scaling sono:
+ - Orizzontale: si allocano nuove macchine virtuali su server dello stesso tipo, per esempio se il traffico aumenta si installa lo stesso ambiente su un altro server e lo si affianca al primo per gestire le richieste. 
+ - Verticale: non si aggiungono nuove macchine virtuali ma si aggiungono nuove risorse all’hardware esistente. Ad esempio questo equivale ad aggiungere nuovi banchi di RAM ad un server già operativo.
+
+Nell’ambito Cloud lo scaling orizzontale è quello più utilizzato.
+
+| Scaling Orizzontale                            | Scaling Verticale                                        |
+| ---------------------------------------------- | -------------------------------------------------------- |
+| Meno costoso                                   | Più costoso                                              |
+| Nuove risorse immediatamente disponibili       | Nuove risorse più lente ad essere allocate               |
+| Permette la replicazione e scaling automatico  | Richiede l’intervento dell’uomo e maggiori step di setup |
+| Necessarie nuove risorse IT                    | Non sono necessarie nuove risorse IT                     |
+| Non è limitato dal limite fisico dell’hardware | È limitato dal limite fisico dell’hardware                                                         |
+
+## Misurazione (Metering)
+
+La virtualizzazione ha un altro grandissimo vantaggio cioè quello di permettere di misurare quanto una risorsa è stata effettivamente utilizzata, cosa impossibile senza questo meccanismo.
+Sono infatti sufficienti giusto qualce linea di codice sull’Hypervisor per capire a quanto ammonta il consumo giornaliero di una specifica risorsa hardware.
