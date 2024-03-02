@@ -52,4 +52,4 @@ Gli svantaggi sono minimi se comparati con l'approccio tradizionale ma comunque 
 
 I cloud service owner affidano i dati raccolti ai provider cloud, situati al di fuori dei confini aziendali. Questa pratica presenta vantaggi, poiché l'azienda è sollevata dall'onere della sicurezza, gestita da team specializzati del provider. Tuttavia, rappresenta anche uno svantaggio, poiché in caso di perdita di dati, il proprietario del servizio perde il pieno controllo sulla situazione.
 
-Un modo per assicurare la sicurezza è quello di criptare i dati 
+Un modo per assicurare la sicurezza è quello di criptare i dati.
