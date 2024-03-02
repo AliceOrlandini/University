@@ -39,7 +39,7 @@ I servizi PaaS e SaaS possono essere integrati su un IaaS. È possibile sfruttar
 In altre parole, l'IaaS costituisce la base fondamentale, mentre i livelli successivi di PaaS e SaaS vengono costruiti sopra, creando così una gerarchia di servizi cloud interconnessi.
 
 Altri servizi possibili sono:
-- **Storage as a Service**:
-- **Database as a Service**:
-- **Backup as a Service**:
-- **Desktop as a Service**:
+- **Storage as a Service**: si utilizza l'infrastruttura per memorizzare i dati sfruttando la resistenza ai guasti del cloud. 
+- **Database as a Service**.
+- **Backup as a Service**.
+- **Desktop as a Service**: offrono ambienti desktop personalizzati per gli utenti di un servizio, è di fatto un desktop virtuale. 
