@@ -11,8 +11,12 @@
             "id": "2af0658d1645438c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -107,7 +113,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md"
+          }
         }
       },
       {
@@ -134,6 +142,10 @@
   },
   "active": "47d227c15ee73dd2",
   "lastOpenFiles": [
+    "Magistrale/Cloud Computing/Table of Contents.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
     "Magistrale/Electronics And Communication/Electronics/Images/design_approach.png",
     "Magistrale/Cloud Computing",
     "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
@@ -147,7 +159,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images/basic_logic_cell.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos_example.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/interconnection.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/noise_margin.webp",
     "Magistrale/Large Scale Databases/Esami Large.md",
     "SpuntiElectronics.md",
     "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
@@ -170,9 +181,6 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Large Scale Databases/Table of Contents.md",
-    "Magistrale/Large Scale Databases/Chapters/Graph Databases.md",
-    "TODO.md",
-    "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
