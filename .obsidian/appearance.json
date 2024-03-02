@@ -6,5 +6,5 @@
   "enabledCssSnippets": [
     "text_style"
   ],
-  "textFontFamily": "Hanken Grotesk"
+  "textFontFamily": "Inter,Helvetica,Hanken Grotesk"
 }

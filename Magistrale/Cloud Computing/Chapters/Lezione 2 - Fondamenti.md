@@ -1,7 +1,7 @@
 Il prof inizia la lezione dicendo "who cares about history".
 Io che ieri ho passato un'ora a sistemare gli appunti sulla storia:
 
-![meme|center|200](https://i.kym-cdn.com/photos/images/newsfeed/002/621/521/c0f.gif)
+![meme|center|150](https://i.kym-cdn.com/photos/images/newsfeed/002/621/521/c0f.gif)
 
 La parte che viene invece anche se può sembrare scontata all'esame la chiede quindi non saltatela. 
 ## Definizione di Cloud Computing
@@ -22,18 +22,20 @@ Tali risorse vengono utilizzate per fornire servizi, anch’essi accessibili via
 Quindi, con Cloud Computing si può indicare sia l’infrastruttura fisica, sia i servizi che vengono erogati tramite tali infrastrutture agli utenti finali. 
 Il paradigma utilizzato si chiama XaaS, cioè Everything as a Service, cioè un modello di business in cui si erogano servizi sotto abbonamento.
 
+<div style="page-break-after: always;"></div>
+
 ## Ruoli 
 
 I ruoli principali che individuiamo quando si parla di Cloud Computing sono:
-- Cloud Provider: è il proprietario dell’infrastruttura cloud, cioè colui che investe risorse per acquistare l’hardware necessario per realizzare l’infrastruttura al fine di metterla a disposizione per implementare servizi su di essa. 
-- Cloud Service Owner: è colui che utilizza l’infrastruttura per erogare il proprio servizio, un esempio potrebbe essere Netflix che eroga il servizio di video streaming sull’infrastruttura cloud di Amazon (AWS).
-- Cloud Service User: è l’utente finale che, tramite l’Internet, accede alle API del servizio ospitato sull’infrastruttura cloud. 
+- **Cloud Provider**: è il proprietario dell’infrastruttura cloud, cioè colui che investe risorse per acquistare l’hardware necessario per realizzare l’infrastruttura al fine di metterla a disposizione per implementare servizi su di essa. 
+- **Cloud Service Owner**: è colui che utilizza l’infrastruttura per erogare il proprio servizio, un esempio potrebbe essere Netflix che eroga il servizio di video streaming sull’infrastruttura cloud di Amazon (AWS).
+- **Cloud Service User**: è l’utente finale che, tramite l’Internet, accede alle API del servizio ospitato sull’infrastruttura cloud. 
 Ad esempio se consideriamo Gmail e Google, il cloud provider è anche il cloud service owner perché utilizza la sua stessa infrastruttura per erogare un servizio. 
 I ruoli secondari ma comunque presenti invece sono:
-- Cloud Resource Administrator: è colui che is occupa della manutenzione dell’infrastruttura, è separato dal cloud provider perché quest’ultimo è solo colui che investe e vuole avere un ritorno economico mentre il primo gestisce la piattaforma.
-- Cloud Costumer: è una sorta di service owner solo che invece che erogare servizi agli utenti finali usa l’infrastruttura per ospitare dei servizi personali, un esempio può essere il gestionale interno all’azienda. 
-- Cloud Auditor: è un’ente esterno che si occupa di certificare la qualità del cloud, in termini di sicurezza, performance, e del rispetto delle norme contrattuali.
-- Cloud Carrier: è l’Internet Service Provider, cioè colui che mette a disposizione l’infrastruttura Internet per accedere al Cloud. 
+- **Cloud Resource Administrator**: è colui che is occupa della manutenzione dell’infrastruttura, è separato dal cloud provider perché quest’ultimo è solo colui che investe e vuole avere un ritorno economico mentre il primo gestisce la piattaforma.
+- **Cloud Costumer**: è una sorta di service owner solo che invece che erogare servizi agli utenti finali usa l’infrastruttura per ospitare dei servizi personali, un esempio può essere il gestionale interno all’azienda. 
+- **Cloud Auditor**: è un’ente esterno che si occupa di certificare la qualità del cloud, in termini di sicurezza, performance, e del rispetto delle norme contrattuali.
+- **Cloud Carrier**: è l’Internet Service Provider, cioè colui che mette a disposizione l’infrastruttura Internet per accedere al Cloud. 
 
 ## Il Modello Cloud
 
@@ -48,10 +50,7 @@ Il cloud ha quindi permesso di adottare un nuovo modello di business:
 - Dal punto di vista del Cloud Service Owner, esso fornisce un servizio ai Cloud User sotto abbonamento e fare margine pagando le risorse utilizzate al Cloud Provider. 
 - Il Cloud User utilizza l’Internet messo a disposizione dal Cloud Carrier per accedere all’infrastruttura pagando un abbonamento al Cloud Service Owner. 
 
-L’infrastruttura è realizzata tramite Datacenter, cioè degli spazi dedicati per contenere un grande numero di server e le reti LAN per connetterli tra loro. Tale hardware fornisce risorse IT di tra tipologie: 
-- Computazionali
-- Storage
-- Networking
+L’infrastruttura è realizzata tramite Datacenter, cioè degli spazi dedicati per contenere un grande numero di server e le reti LAN per connetterli tra loro. Tale hardware fornisce risorse IT di tra tipologie: Computazionali, Storage e Networking.
 
 ## Multi-tenancy
 
@@ -69,6 +68,9 @@ Con l’utilizzo della virtualizzazione si possono creare delle copie virtuali d
 
 Generalmente si crea una versione virtuale di ogni componente hardware (Hardware Virtualization), poi si crea l’ambiente virtuale sopra il quale è installato un sistema operativo che nel complesso viene chiamato Macchina Virtuale. 
 In questo modo si possono installare più sistemi operativi pur usando un unico hardware perché ognuno di essi avrà l’impressione di avere il proprio hardware dedicato. 
+
+<div style="page-break-after: always;"></div>
+
 
 ## Hypervisor
 
@@ -93,8 +95,8 @@ Tramite il network LAN ogni server può comunicare o con altri server oppure con
 
  Un grande vantaggio della virtualizzazione consiste nel fatto che è possibile aggiungere on-demand nuove instanze della stessa macchina virtuale oppure rimuoverne alcune, in seguito al cambiamento delle condizioni di carico che il sistema deve gestire.
  Le due possibilità per lo scaling sono:
- - Orizzontale: si allocano nuove macchine virtuali su server dello stesso tipo, per esempio se il traffico aumenta si installa lo stesso ambiente su un altro server e lo si affianca al primo per gestire le richieste. 
- - Verticale: non si aggiungono nuove macchine virtuali ma si aggiungono nuove risorse all’hardware esistente. Ad esempio questo equivale ad aggiungere nuovi banchi di RAM ad un server già operativo.
+ - **Orizzontale**: si allocano nuove macchine virtuali su server dello stesso tipo, per esempio se il traffico aumenta si installa lo stesso ambiente su un altro server e lo si affianca al primo per gestire le richieste. 
+ - **Verticale**: non si aggiungono nuove macchine virtuali ma si aggiungono nuove risorse all’hardware esistente. Ad esempio questo equivale ad aggiungere nuovi banchi di RAM ad un server già operativo.
 
 Nell’ambito Cloud lo scaling orizzontale è quello più utilizzato.
 
@@ -104,7 +106,7 @@ Nell’ambito Cloud lo scaling orizzontale è quello più utilizzato.
 | Nuove risorse immediatamente disponibili       | Nuove risorse più lente ad essere allocate               |
 | Permette la replicazione e scaling automatico  | Richiede l’intervento dell’uomo e maggiori step di setup |
 | Necessarie nuove risorse IT                    | Non sono necessarie nuove risorse IT                     |
-| Non è limitato dal limite fisico dell’hardware | È limitato dal limite fisico dell’hardware                                                         |
+| Non è limitato dal limite fisico dell’hardware | È limitato dal limite fisico dell’hardware               |
 
 ## Misurazione (Metering)
 

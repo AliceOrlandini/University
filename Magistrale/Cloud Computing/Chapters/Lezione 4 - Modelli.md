@@ -16,6 +16,8 @@ I principali attributi del cloud computing, secondo il NIST, sono:
 Gli attori coinvolti quando si tratta il modello sono: Cloud Consumer, Cloud Provider, Cloud Auditor, Cloud Carrier e Cloud Broker. 
 Li abbiamo già visti tutti nella lezione 2 tranne il Cloud Broker che è un un intermediario che facilita l'utilizzo dei servizi cloud. Questo ruolo è nato a causa della crescente complessità del panorama del cloud computing, con una vasta gamma di servizi offerti da diversi fornitori.
 
+<div style="page-break-after: always;"></div>
+
 ## Modelli di Deployment
 
 Le tipologie di deployment cloud individuate dal NIST sono 4:
