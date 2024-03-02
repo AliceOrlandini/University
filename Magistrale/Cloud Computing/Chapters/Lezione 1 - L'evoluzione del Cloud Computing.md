@@ -54,9 +54,9 @@ Questo approccio ricorda molto l'organizzazione del cluster nel sistema grid ma 
 
 Abbiamo quindi capito che il cloud computing non è stato inventato ma si è evoluto negli anni:
 mainframe -> PC -> network locale -> parallelizzazione -> clustering -> grid computing -> virtualizzazione, web service, SOA
-Al momento è possibile utilizzare queste risorse computazionali on demand e pagandole all'utilizzo quindi si può dire che si è raggiunto l'obiettivo ideato da 
+Al momento è possibile utilizzare queste risorse computazionali on demand e pagandole all'utilizzo, si può quindi dire che si è raggiunto l'obiettivo ideato da 
 McCarthy nel 1960. 
-Infatti le caratteristiche delle moderne architetture sono:
+Infatti, le caratteristiche delle moderne architetture sono:
 - scalabilità fatta da computer con configurazioni diverse
 - velocità di comunicazione tra cluster dispersi nel mondo grazie ai netword a banda alta
 - ambiente collaborativo tramite i web services
@@ -64,5 +64,5 @@ Infatti le caratteristiche delle moderne architetture sono:
 ## Cloud Computing
 
 L'utility computing si è evoluto in cloud computing in cui ogni "pezzettino" è cruciale per la realizzazione dell'ambiente cloud. 
-Una caratteristica importante del cloud computing è la capacità di scalare dinamicamente e in tempo reale. Infatti, nell'architettura grid ad esempio per rimuovere o aggiungere un nodo bisognava interrompere la rete. Nel cloud invece è il sistema stesso che sa quando aggiungere o togliere nodi per far fronte al carico di lavoro e col vantaggio di non richiedere l'intervento umano. 
+Una caratteristica importante del cloud computing è la capacità di scalare dinamicamente e in tempo reale. Infatti, nell'architettura grid per rimuovere o aggiungere un nodo bisognava interrompere la rete. Nel cloud invece è il sistema stesso che sa quando aggiungere o togliere nodi per far fronte al carico di lavoro e col vantaggio di non richiedere alcun tipo di intervento umano. 
 Oggi il cloud computing è dominato da 3 realtà: Amazon Cloud Service, Microsoft Azure e Google Cloud Platform. 

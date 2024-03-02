@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6c4b5eff7f9a501f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 2.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -98,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 2.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 2.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 2.md"
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md"
               }
             }
           },
@@ -169,11 +157,14 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "6c4b5eff7f9a501f",
+  "active": "39d1e0bae67ce787",
   "lastOpenFiles": [
+    "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti.md",
+    "Magistrale/Cloud Computing/Table of Contents.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti 2.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 2.md",
-    "Magistrale/Cloud Computing/Table of Contents.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
     "DiscorsoPECSN.md",
     "Untitled",
     "Magistrale/Cloud Computing/Chapters",
@@ -207,9 +198,6 @@
     "conflict-files-obsidian-git.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-    "TODO.md",
-    "PECSN_Relation.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
