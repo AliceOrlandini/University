@@ -76,8 +76,30 @@ Queste chiamate non richiedono traduzione o emulazione da parte dell'hypervisor,
 Tuttavia, questo approccio è vincolato a configurazioni specifiche di componenti hardware.
 ## Operating System Level Virtualization
 
+Questo tipo di virtualizzazione rappresenta una delle soluzioni più rinomate e ampiamente adottate recentemente, caratterizzandosi per l'assenza di un hypervisor. 
+Tale caratteristica si traduce in un notevole aumento delle performance, poiché l'eliminazione dell'overhead diventa possibile. 
 
+In questo approccio, non si verifica la virtualizzazione delle componenti hardware; piuttosto, il kernel del sistema operativo installato sulla macchina fisica è condiviso dai server virtuali (le applicazioni) in esecuzione.
+
+Saranno il kernel e il sistema operativo host a generare istanze logicamente distinte su una singola istanza di sistema operativo.
+
+I vantaggi principali riguardano le migliori prestazioni rispetto a sistemi basati su virtualizzazione tradizionale poiché l'assenza di hypervisor riduce l'overhead. Un secondo vantaggio riguarda il supporto maggiore di macchine virtuali. 
+Per quanto riguarda gli svantaggi, poiché i server virtuali condividono il kernel, esiste un certo grado di interdipendenza. Un problema in un'applicazione può potenzialmente influenzare le altre.
+Inoltre, questo approccio richiede una certa uniformità hardware tra i server virtuali, poiché condividono il kernel del sistema operativo host e poiché c'è una stretta integrazione tra il sistema operativo host e i server virtuali, potrebbe essere più complesso migrare le istanze virtuali su hardware diverso o effettuare upgrade separati.
+
+## Altri tipi di virtualizzazione
+
+La virtualizzazione non si limita esclusivamente ai server, ma coinvolge anche altri aspetti dell'infrastruttura, come lo storage e la rete. 
+
+La virtualizzazione del network è particolarmente utile per clienti che richiedono una comunicazione isolata tra diverse macchine virtuali. 
+
+Nel caso della virtualizzazione dello storage, questa tecnologia permette di virtualizzare lo spazio su hard disk, questi aspetti li vedremo meglio più avanti.
 ## Emulazione
+
+> [!note] Emulazione
+> **L'emulazione** è l'atto di creare un sistema che ne *imita* un altro. 
+
+Quindi un sistema con una precisa architettura può supportare il set di instruzioni 
 
 ## Vantaggi e Svantaggi della Virtualizzazione
 
