@@ -99,7 +99,29 @@ Nel caso della virtualizzazione dello storage, questa tecnologia permette di vir
 > [!note] Emulazione
 > **L'emulazione** è l'atto di creare un sistema che ne *imita* un altro. 
 
-Quindi un sistema con una precisa architettura può supportare il set di instruzioni 
+Un sistema con una specifica architettura può supportare il set di istruzioni di un'altra architettura attraverso l'ausilio di un emulatore.
 
+L'emulatore converte il codice binario prodotto per l'esecuzione su una macchina nel binario equivalente per un'altra macchina. 
+Ci sono due modalità principali di implementazione di un emulatore:
+1. **Binary translation**: conosciuta anche come ricompilazione, questa tecnica comporta la completa conversione del codice binario nell'instruction set della macchina di destinazione. La ricompilazione avviene prima dell'esecuzione del programma.
+2. **Interpretation**: ogni istruzione viene interpretata dall'emulatore ogni volta che viene incontrata. Questo metodo ha un'implementazione più semplice, ma è più lento rispetto alla ricompilazione, poiché la traduzione avviene al momento dell'esecuzione del programma.
+
+NB: Emulazione $\not =$ Virtualizzazione. 
+Ecco alcune differenze:
+- Un emulatore può simulare completamente il funzionamento di uno specifico hardware *in software*, come accade ad esempio nel caso degli emulatori del Nintendo DS che permettono di eseguire giochi senza la presenza della console fisica.
+- L'emulatore crea un ambiente che supporta l'esecuzione di un sistema operativo guest su un host con *architettura differente*, portando a una maggiore compatibilità indipendentemente dall'hardware sottostante. Questo è noto come **emulation-based virtualization**.
+- Nel contesto della virtualizzazione tradizionale, *il set di istruzioni utilizzato dal sistema virtuale è lo stesso di quello supportato dall'hardware*, consentendo l'esecuzione diretta del codice sul sistema fisico senza la necessità di traduzione delle istruzioni. Ciò riduce l'overhead.
+- La virtualizzazione è notevolmente *più veloce* dell'emulazione, poiché evita in gran parte la necessità di tradurre istruzioni e può eseguire direttamente il codice sulla macchina fisica. Talvolta, la virtualizzazione può richiedere l'emulazione di componenti hardware in software, ad esempio, emulando periferiche virtuali.
 ## Vantaggi e Svantaggi della Virtualizzazione
 
+I vantaggi sono:
+1. **Server Consolidation**: l'esecuzione di più macchine virtuali sullo stesso hardware consente un aumento dell'utilizzo dell'hardware.
+2. **Ottimizzazione delle Risorse nei Cloud**: grazie all'ottimizzazione delle risorse, i fornitori di servizi cloud possono sfruttare gli stessi componenti hardware per più utenti, riducendo i costi per gli utenti stessi.
+3. **Semplificazione della Gestione**: il virtualization layer semplifica la gestione, separando il sistema operativo guest da quello dell'host, agevolando gli amministratori.
+4. **Facilità di Installazione**: la virtualizzazione semplifica il processo di installazione grazie alla possibilità di creare nuovi sistemi da "immagini", che sono sistemi preconfigurati con funzionalità specifiche e possono essere facilmente duplicati.
+5. **Aumento della Tolleranza ai Guasti**: la virtualizzazione consente la migrazione delle macchine virtuali su hardware funzionante in caso di guasto, consentendo la riparazione del componente difettoso senza downtime.
+6. **Isolamento e Sicurezza**: L'isolamento delle VM tra loro aumenta la sicurezza complessiva del sistema, garantendo che le violazioni di sicurezza in una VM non si propaghino alle altre.
+
+Gli svantaggi invece sono:
+1. **Singolo Punto di Fallimento**: ogni macchina fisica diventa un potenziale punto di fallimento per tutte le macchine virtuali ospitate su di essa. Se la macchina fisica si guasta, tutte le VM ad essa associate potrebbero subire un'interruzione.
+2. **Prestazioni Inferiori**: l'utilizzo simultaneo dello stesso hardware da parte di più utenti può tradursi in prestazioni generalmente inferiori, poiché le macchine virtuali non possono accedere direttamente all'hardware, causando un livello di indirezione che può incidere sulle performance complessive.
