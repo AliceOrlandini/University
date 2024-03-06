@@ -62,18 +62,22 @@ Nella para-virtualizzazione, parte delle operazioni passa dalla responsabilità 
 In questo contesto, il guest OS è consapevole di operare su un sistema virtualizzato e deve sapere quale hypervisor sarà utilizzato nel livello sottostante.
 
 I vantaggi di questo approccio sono:
-- Maggiore efficienza poiché i guest OS possono comunicare direttamente con le risorse fisiche e ciò riduce l’overhead dell’hypervisor. 
-- Maggiore compatibilità con le periferiche perché il sistema non è vincolato dai driver fornite dall’hypervisor. 
+- Maggiore efficienza, con la possibilità per i guest OS di comunicare direttamente con le risorse fisiche, riducendo l'overhead dell'hypervisor.
+- Maggiore compatibilità con le periferiche, in quanto il sistema non è vincolato ai driver forniti dall'hypervisor.
 
-I contro sono invece:
-- Come detto, i sistemi operativi guest devono essere modificati ma questa operazione per molti sistemi operativi non è sempre consentita (Windows).
-- La sicurezza è inferiore perché si da la possibilità ad una singola macchina virtuale guest di accedere direttamente alle risorse.  
-
-Certamente:
-- Vantaggi:
-  - Maggiore efficienza, con la possibilità per i guest OS di comunicare direttamente con le risorse fisiche, riducendo l'overhead dell'hypervisor.
-  - Maggiore compatibilità con le periferiche, in quanto il sistema non è vincolato ai driver forniti dall'hypervisor.
-- Svantaggi:
-  - Modifica necessaria dei sistemi operativi guest, operazione non sempre consentita per molti sistemi operativi come Windows.
-  - Minore sicurezza, poiché si concede a una singola macchina virtuale guest l'accesso diretto alle risorse.
+Gli svantaggi invece:
+- Modifica necessaria dei sistemi operativi guest, operazione non sempre consentita per molti sistemi operativi come Windows.
+- Minore sicurezza, poiché si concede a una singola macchina virtuale guest l'accesso diretto alle risorse.
 ## Hardware-assisted Virtualization
+
+Dal 2006, i principali produttori di hardware come Intel e AMD hanno introdotto dispositivi appositamente progettati per supportare la virtualizzazione. 
+Nuove primitive sono state integrate, invocabili direttamente dai guest OS e gestite dalla CPU per migliorare significativamente le prestazioni. 
+Queste chiamate non richiedono traduzione o emulazione da parte dell'hypervisor, eliminando così la necessità di para-virtualizzazione. 
+Tuttavia, questo approccio è vincolato a configurazioni specifiche di componenti hardware.
+## Operating System Level Virtualization
+
+
+## Emulazione
+
+## Vantaggi e Svantaggi della Virtualizzazione
+
