@@ -2,3 +2,4 @@
 2. [[Lezione 2 - Fondamenti]]
 3. [[Lezione 3 - Vantaggi]]
 4. [[Lezione 4 - Modelli]]
+5. [[Lezione 5 - Intro Virtualizzazione]]

@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1763f98e1c2e4fbc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Cloud Computing/Table of Contents.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +97,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
+            "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +114,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
+            "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +126,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md"
+            "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md"
           }
         }
       },
@@ -142,9 +154,10 @@
   },
   "active": "2af0658d1645438c",
   "lastOpenFiles": [
-    "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
     "Magistrale/Cloud Computing/Table of Contents.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
     "Magistrale/Electronics And Communication/Electronics/Images/design_approach.png",
@@ -180,7 +193,6 @@
     "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
-    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
