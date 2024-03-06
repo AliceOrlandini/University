@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Recap Multiprogrammazione.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Recap Multiprogrammazione.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Recap Multiprogrammazione.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md"
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Recap Multiprogrammazione.md"
               }
             }
           },
@@ -158,12 +158,13 @@
   },
   "active": "4bc932c0769b044e",
   "lastOpenFiles": [
-    "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
+    "Magistrale/Cloud Computing/Table of Contents.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 6 - Recap Multiprogrammazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
-    "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti 2.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 2.md",
     "DiscorsoPECSN.md",
@@ -196,7 +197,6 @@
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Large Scale Databases/Esami Large.md",
-    "conflict-files-obsidian-git.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
