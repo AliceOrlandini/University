@@ -3,4 +3,4 @@
 3. [[Lezione 3 - Vantaggi]]
 4. [[Lezione 4 - Modelli]]
 5. [[Lezione 5 - Intro Virtualizzazione]]
-6. [[Lezione 6 - Recap Multiprogrammazione]]
+6. [[Lezione 6 - Ripasso Multiprogrammazione]]

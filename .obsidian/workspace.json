@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Recap Multiprogrammazione.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Recap Multiprogrammazione.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Recap Multiprogrammazione.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Recap Multiprogrammazione.md"
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md"
               }
             }
           },
@@ -159,7 +160,7 @@
   "active": "4bc932c0769b044e",
   "lastOpenFiles": [
     "Magistrale/Cloud Computing/Table of Contents.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 6 - Recap Multiprogrammazione.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti.md",
