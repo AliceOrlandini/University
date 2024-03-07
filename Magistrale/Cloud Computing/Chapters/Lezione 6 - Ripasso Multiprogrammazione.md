@@ -11,11 +11,11 @@ Ricordare: il set di istruzioni usato nel sistema virtuale è lo stesso utilizza
 I requisiti che abbiamo delineato sono analoghi a quelli richiesti per la multiprogrammazione, ossia la capacità di un sistema di eseguire *"contemporaneamente"* più processi. 
 
 Attraverso la multiprogrammazione, è possibile simulare una macchina con più di un processore, anche se tale caratteristica non è presente nell'hardware effettivo. Ogni processo viene eseguito su un processore virtuale (VCPU). 
-I processori virtuali diventano effettivi a intervalli di tempo definiti, seguendo un approccio "round robin" molto rapido, garantendo così che il processo abbia l'illusione di avere il controllo completo del processore durante la sua esecuzione.
+I processori virtuali diventano effettivi a intervalli di tempo definiti, seguendo un approccio *"round robin"* molto rapido, garantendo così che il processo abbia l'illusione di avere il controllo completo del processore durante la sua esecuzione.
 
 ## VCPU e Cambio di Contesto
 
-La realizzazione della multiprogrammazione si basa sull'utilizzo di rappresentazioni virtuali del processore, le quali sono materializzate attraverso una struttura dati che conserva lo stato attuale del processore, comprensivo del contenuto dei suoi registri.
+La realizzazione della multiprogrammazione si basa sull'utilizzo di rappresentazioni virtuali del processore (VCPU), le quali sono materializzate attraverso una struttura dati che conserva lo stato attuale del processore, comprensivo del contenuto dei suoi registri.
 
 Il **cambio di contesto** è un'operazione che implica la sospensione di un processo attivo. Tale procedura comporta il salvataggio dello stato corrente del processo e la selezione di un altro processo. 
 Quest'ultimo viene quindi caricato nel processore fisico, permettendogli di proseguire l'esecuzione. In pratica, il cambio di contesto assicura una transizione fluida tra processi, consentendo al sistema di sfruttare al massimo le risorse disponibili e di garantire un'efficace gestione della concorrenza tra processi.
@@ -28,8 +28,8 @@ La multiprogrammazione necessita di supporti hardware fondamentali, tra cui:
 - **Copia stato**: si tratta di un meccanismo automatico che consente la copia dello stato dei registri dalla struttura dati ai registri fisici o viceversa. Quest'operazione viene eseguita a livello hardware per garantire maggiore efficienza, dato che deve essere ripetuta frequentemente.
 - **Protezione**: questo meccanismo è progettato per prevenire accessi non autorizzati alle porzioni di memoria non pertinenti al processo in esecuzione, oltre a scoraggiare l'uso improprio di funzioni riservate a livello di sistema.
 
-I processori moderni offrono il supporto a diversi livelli di privilegio, con un minimo di due: il livello utente e il livello sistema (o kernel), che si distinguono per l'accesso completo alla memoria e a tutte le primitive del sistema. 
-Un processo in esecuzione a livello utente non può autonomamente trasferirsi al livello sistema. Tuttavia, in seguito a un'interruzione, è possibile effettuare una transizione da un livello all'altro per eseguire una specifica routine di sistema, nota come handler, la quale viene eseguita a livello sistema. 
+I processori moderni offrono il supporto a diversi **livelli di privilegio**, con un minimo di due: il livello utente e il livello sistema (o kernel), che si distinguono per l'accesso completo alla memoria e a tutte le primitive del sistema. 
+Un processo in esecuzione a livello utente non può autonomamente passare al livello sistema. Tuttavia, in seguito a un'interruzione, è possibile effettuare una transizione da un livello all'altro per eseguire una specifica routine di sistema, nota come handler, la quale viene eseguita a livello sistema. 
 Questo meccanismo permette l'implementazione efficace del cambio di contesto senza mettere a rischio la sicurezza dei singoli processi.
 
 Le caratteristiche della protezione includono:
