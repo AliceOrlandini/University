@@ -21,6 +21,9 @@ Il **cambio di contesto** è un'operazione che implica la sospensione di un proc
 Quest'ultimo viene quindi caricato nel processore fisico, permettendogli di proseguire l'esecuzione. In pratica, il cambio di contesto assicura una transizione fluida tra processi, consentendo al sistema di sfruttare al massimo le risorse disponibili e di garantire un'efficace gestione della concorrenza tra processi.
 L'operazione di cambio di contesto è implementata sia in hardware che in software.
 
+<div style="page-break-after: always;"></div>
+
+
 ## Supporto alla multiprogrammazione
 
 La multiprogrammazione necessita di supporti hardware fondamentali, tra cui:
@@ -44,6 +47,9 @@ Quando un timer genera un'interruzione, provocando il cambio di contesto, il sis
 
 Nel contesto dei processori moderni, le fasi 1 e 2 di queste operazioni vengono eseguite a livello hardware.
 
+<div style="page-break-after: always;"></div>
+
+
 ## Memoria Virtuale
 
 Per quanto riguarda la memoria, il nostro obiettivo è raggiungere il medesimo obiettivo proposto per la CPU, mirando a fornire al processo la percezione di avere accesso illimitato alla memoria, benché tale risorsa sia limitata nella realtà. 
@@ -64,6 +70,9 @@ Questa configurazione è adottata per ottimizzare la gestione delle Page Table, 
 Il volume dello spazio di memoria virtuale può superare quello della memoria fisica grazie all'impiego del meccanismo di segmentazione e di una memoria secondaria, come ad esempio un hard disk. 
 Questa configurazione consente di allocare temporaneamente le pagine meno utilizzate nella memoria secondaria. Quando necessario, queste pagine possono essere caricare dinamicamente in memoria, generando un'eccezione di *page fault*. 
 L'intero processo è implementato a livello hardware per assicurare un'elevata efficienza.
+
+<div style="page-break-after: always;"></div>
+
 
 ## Interruzioni ed Eccezioni
 
