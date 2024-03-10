@@ -31,7 +31,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +98,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
+            "file": "Magistrale/Cloud Computing/Table of Contents.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -114,7 +115,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
+            "file": "Magistrale/Cloud Computing/Table of Contents.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -126,7 +127,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md"
+            "file": "Magistrale/Cloud Computing/Table of Contents.md"
           }
         }
       },
@@ -152,10 +153,10 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "2af0658d1645438c",
+  "active": "1763f98e1c2e4fbc",
   "lastOpenFiles": [
-    "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
+    "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti.md",
