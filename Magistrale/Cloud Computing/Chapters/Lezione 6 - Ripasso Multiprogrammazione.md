@@ -78,4 +78,5 @@ Una categoria particolare di eccezioni è la **trap**, la quale si distingue per
 $int codice_eccezione
 ```
 
-con 
+Attraverso il codice eccezione, rappresentato da un numero specifico, è possibile interrogare una tabella denominata **IDT** (Interrupt Descriptor Table) utilizzata dal processore per collegare interruzioni ed eccezioni col relativo handler. Questa tabella è popolata dal sistema operativo durante la fase di bootstrap. 
+
