@@ -43,3 +43,39 @@ Quando un timer genera un'interruzione, provocando il cambio di contesto, il sis
 3. Effettua un'istruzione speciale per passare all'indirizzo specificato nel registro ret e ritorna al livello utente.
 
 Nel contesto dei processori moderni, le fasi 1 e 2 di queste operazioni vengono eseguite a livello hardware.
+
+## Memoria Virtuale
+
+Per quanto riguarda la memoria, il nostro obiettivo è raggiungere il medesimo obiettivo proposto per la CPU, mirando a fornire al processo la percezione di avere accesso illimitato alla memoria, benché tale risorsa sia limitata nella realtà. 
+Questo viene realizzato attraverso la creazione di uno spazio di indirizzi "virtuale" dedicato ad ogni processo, il quale crea l'illusione di memorizzare i dati in modo continuo, anche se ciò potrebbe non verificarsi fisicamente. 
+
+La responsabilità di convertire tutti gli spazi virtuali nei rispettivi indirizzi della RAM fisica è attribuita alla **MMU** (Memory Management Unit), implementata in hardware per garantire maggiore velocità. 
+D'altra parte, l'assegnazione e la gestione degli indirizzi virtuali sono compiti del sistema operativo. Questo approccio consente agli indirizzi fisici di essere condivisi, in un certo senso, da più processi, ciascuno con il proprio segmento.
+
+La traduzione degli indirizzi avviene prima di raggiungere la CPU, poiché quest'ultima può operare solo con indirizzi fisici anziché virtuali. Per accelerare il processo di traduzione, è possibile introdurre una cache nota come **TLB** (Translation Lookaside Buffer).
+
+La MMU si occupa della traduzione degli indirizzi utilizzando una struttura dati denominata **Page Table**, caratterizzata da una disposizione gerarchica. 
+La CPU dispone di un registro denominato PTBR (Page Table Base Register), il quale indica l'indirizzo fisico in cui è archiviata la Page Table del processo attualmente in esecuzione.
+
+La memoria virtuale è organizzata in porzioni di dimensioni uniformi, chiamate pagine. 
+La Page Table si struttura in *quattro livelli*, ciascuno apportando informazioni per la ricostruzione dell'indirizzo fisico corrispondente. 
+Questa configurazione è adottata per ottimizzare la gestione delle Page Table, le quali tendono ad assumere dimensioni considerevoli, e per migliorare il controllo della sicurezza nell'accesso alle pagine.
+
+Il volume dello spazio di memoria virtuale può superare quello della memoria fisica grazie all'impiego del meccanismo di segmentazione e di una memoria secondaria, come ad esempio un hard disk. 
+Questa configurazione consente di allocare temporaneamente le pagine meno utilizzate nella memoria secondaria. Quando necessario, queste pagine possono essere caricare dinamicamente in memoria, generando un'eccezione di *page fault*. 
+L'intero processo è implementato a livello hardware per assicurare un'elevata efficienza.
+
+## Interruzioni ed Eccezioni
+
+Le **interruzioni** e le **eccezioni** sono meccanismi che richiedono l'intervento del sistema operativo per eseguire *operazioni privilegiate* (nel caso delle interruzioni) e *risolvere situazioni di errore* per ripristinare il sistema a uno stato coerente (nel caso delle eccezioni). 
+Quando vengono innescate, il sistema operativo assume il controllo tramite un cambio di contesto, e va a eseguire in modo *atomico* una serie di operazioni prima di restituire il controllo ai processi (handler).
+
+Una caratteristica chiave che distingue le due è che le interruzioni sono *asincrone*, il che significa che possono essere sollevate e gestite in un momento successivo, mentre le eccezioni sono *sincrone*, ciò implica che, nel momento in cui vengono sollevate, vengono gestite immediatamente dal sistema operativo.
+
+Una categoria particolare di eccezioni è la **trap**, la quale si distingue per la sua capacità di essere chiamata tramite software mediante il comando:
+
+```c
+$int codice_eccezione
+```
+
+con 
