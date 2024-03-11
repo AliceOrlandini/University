@@ -35,12 +35,37 @@ Questo metodo è denominato **Trap and Emulate**. Alcuni esempi di istruzioni ge
 
 Al fine di ridurre l'overhead complessivo, si cerca di minimizzare le operazioni che richiedono l'intervento dell'hypervisor. L'overhead, infatti, è direttamente proporzionale al numero di system call effettuate.
 
-Ad esempio un'interruzione software eseguita con il comando int causa le seguenti operazioni: 
-1. L'istruzione trigghera un cambio di contesto verso l'hypervisor che viene eseguito in hardware.
-2. L'hypervisor mette in esecuzione l'handler e poi rilascia il controllo alla macchina virtuale. 
-3. L'handler ora è in esecuzione in modalità utente ma per come è fatto includerà istruzioni privilegiate che a sua volta trigghereranno un cambio di contesto per emulare l'istruzione e poi andare di nuovo all'handler. 
-Quindi in definitiva, la IDT del guest OS viene utilizzato per invocare altri handler provocando numerosi cambi di contesto.
+Per esempio, l'esecuzione di un'interruzione software con il comando *int* comporta le seguenti operazioni:
+1. L'istruzione provoca un cambio di contesto verso l'hypervisor, il quale viene effettuato a livello hardware.
+2. L'hypervisor avvia l'esecuzione dell'handler e successivamente restituisce il controllo alla macchina virtuale.
+3. L'handler è ora in esecuzione in modalità utente, ma per natura contiene molte istruzioni privilegiate che, a loro volta, causano un ulteriore cambio di contesto per emulare l'istruzione e successivamente ritornare all'handler.
+
+In definitiva, l'Interrupt Descriptor Table (IDT) del guest OS viene utilizzata per richiamare vari handler, generando di conseguenza numerosi cambi di contesto.
+
 ## Virtualizzazione della memoria
+
+Il secondo aspetto da considerare riguarda la gestione della memoria. 
+In questo contesto, la memoria fisica è suddivisa, ma anziché assegnare i segmenti ai singoli processi, vengono assegnati alle macchine virtuali. 
+In questo modo, la macchina virtuale percepisce di avere il controllo totale, anche se in realtà non è così. È essenziale anche implementare un meccanismo che impedisca gli accessi non autorizzati.
+
+Per mappare la memoria virtuale in quella fisica, si fa nuovamente affidamento sulla Memory Management Unit (MMU) dell'host CPU. 
+Questa viene configurata con i range di indirizzi in memoria fisica assegnati a ciascuna macchina virtuale, e prima di eseguire le istruzioni della VM, i suoi indirizzi vengono tradotti.
+
+Se si verifica un page fault, l'hypervisor assume il controllo e si occupa di recuperare la pagina dalla memoria di massa.
+
+Alcune operazioni del guest OS potrebbero generare eccezioni trap, come ad esempio quelle operazioni che modificano la Page Table. In questi casi, l'hypervisor emula queste operazioni per garantire un corretto funzionamento del sistema.
+
+Per implementare la Virtual Memory Management Unit (Virtual MMU), vengono definite due funzioni eseguite in **cascata**:
+- $G : \text{guest} \rightarrow \text{guest}$, che mappa gli indirizzi *virtuali del guest OS* negli indirizzi *fisici guest* (che, tecnicamente, non corrispondono ancora agli indirizzi reali, ma il guest OS ne è ignaro).
+- $H : \text{guest} \rightarrow \text{host}$, per mappare l'indirizzo *fisico guest* nell'indirizzo *fisico host*, che rappresenta l'indirizzo reale.
+
+Un metodo per implementare le due funzioni è chiamato **Brute Force** e prevede la modifica della Page Table per aggiungere un livello addizionale (denominato **shadow table**). 
+Questo strato implementa la funzione $H$, ovvero la traduzione dall'indirizzo *fisico guest* a quello *fisico host*. Questo approccio assicura anche la sicurezza, poiché ogni accesso non autorizzato da parte del guest OS a una porzione di memoria solleverà un'eccezione.
+
+Tuttavia, il problema di questo metodo è rappresentato da un significativo overhead, poiché richiede numerosi cambi di contesto per una continua traduzione di indirizzi da parte dell'hypervisor.
 
 ## Virtualizzazione dei device I/O
 
+Le **istruzioni di I/O** sono tipicamente istruzioni privilegiate, non consentite nello spazio utente. 
+In un sistema multi-programmato, i processi possono accedere allo spazio di I/O attraverso le system calls. Tuttavia, in un ambiente virtuale, è necessario fornire *all'apparenza* alla macchina virtuale ospite il controllo completo dell'hardware e la capacità di accedervi direttamente. 
+Pertanto, l'hypervisor deve *emulare* l'hardware reale creando la sua rappresentazione mediante un insieme di strutture dati caricate in memoria.
