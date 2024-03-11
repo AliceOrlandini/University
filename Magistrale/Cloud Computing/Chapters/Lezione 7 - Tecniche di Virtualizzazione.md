@@ -69,3 +69,14 @@ Tuttavia, il problema di questo metodo è rappresentato da un significativo over
 Le **istruzioni di I/O** sono tipicamente istruzioni privilegiate, non consentite nello spazio utente. 
 In un sistema multi-programmato, i processi possono accedere allo spazio di I/O attraverso le system calls. Tuttavia, in un ambiente virtuale, è necessario fornire *all'apparenza* alla macchina virtuale ospite il controllo completo dell'hardware e la capacità di accedervi direttamente. 
 Pertanto, l'hypervisor deve *emulare* l'hardware reale creando la sua rappresentazione mediante un insieme di strutture dati caricate in memoria.
+
+Esistono due opzioni per virtualizzare i dispositivi di I/O:
+1. Utilizzare una rappresentazione completamente virtuale, dove non esiste un dispositivo fisico corrispondente, ma tutto è emulato dall'hypervisor.
+2. Impiegare dispositivi virtuali il cui comportamento è emulato dall'hypervisor, ma con la presenza di un dispositivo fisico reale. In questo caso, l'hypervisor si limita a tradurre ed inoltrare i comandi al dispositivo sottostante.
+
+In ogni caso l'hypervisor è l'unico ad avere il controllo dei dispositivi.
+
+## Gestione delle Interruzioni
+
+## QEMU
+
