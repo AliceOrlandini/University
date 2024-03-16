@@ -11,8 +11,12 @@
             "id": "95b876c6c2ca7aed",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Cloud Computing/Laboratory/Lezione 1 -.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "Magistrale/Cloud Computing/Laboratory/Lezione 1 -.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "Magistrale/Cloud Computing/Laboratory/Lezione 1 -.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -107,7 +113,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "Magistrale/Cloud Computing/Laboratory/Lezione 1 -.md"
+          }
         }
       },
       {
@@ -134,6 +142,8 @@
   },
   "active": "95b876c6c2ca7aed",
   "lastOpenFiles": [
+    "Magistrale/Cloud Computing/Laboratory/Lezione 1 -.md",
+    "Magistrale/Cloud Computing/Laboratory",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
     "Magistrale/Cloud Computing/Table of Contents.md",
@@ -172,14 +182,12 @@
     "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
     "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Senza nome",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
     "Magistrale/Large Scale Databases/Chapters",
     "Magistrale/Performance Evaluation/Probability Theory/Chapters",
     "Magistrale/Performance Evaluation/Probability Theory",
     "Magistrale/Electronics And Communication/Electronics/Chapters",
-    "Magistrale/Electronics And Communication/Communication/Chapters",
     "Grafo.canvas"
   ]
 }
