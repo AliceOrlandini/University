@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "d27b9e14eb24a193",
+        "id": "a9484d3c86adc32c",
         "type": "tabs",
         "children": [
           {
-            "id": "2618120aa120f260",
+            "id": "d00d6b5e666590e0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -86,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +98,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,9 +119,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md"
-              }
+              "state": {}
             }
           },
           {
@@ -157,12 +149,12 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "2618120aa120f260",
+  "active": "d00d6b5e666590e0",
   "lastOpenFiles": [
+    "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
     "Magistrale/Cloud Computing/Table of Contents.md",
     "Untitled.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti.md",
