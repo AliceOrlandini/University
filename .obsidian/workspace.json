@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "a9484d3c86adc32c",
+        "id": "86afcb64f708e268",
         "type": "tabs",
         "children": [
           {
-            "id": "d00d6b5e666590e0",
+            "id": "c3216e144cdcf587",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -82,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md"
+              }
             }
           },
           {
@@ -149,13 +156,14 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "d00d6b5e666590e0",
+  "active": "c3216e144cdcf587",
   "lastOpenFiles": [
+    "Magistrale/Cloud Computing/Table of Contents.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
-    "Magistrale/Cloud Computing/Table of Contents.md",
     "Untitled.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
@@ -189,7 +197,6 @@
     "Magistrale/Electronics And Communication/Electronics/Chapters/Design Metrics and Trade-Offs.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/IC Design Styles and Flows.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/VLSI.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/IC-Manufactory Review.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",

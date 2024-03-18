@@ -5,4 +5,5 @@
 5. [[Lezione 5 - Intro Virtualizzazione]]
 6. [[Lezione 6 - Ripasso Multiprogrammazione]]
 7. [[Lezione 7 - Tecniche di Virtualizzazione]]
-8. 
+8. [[Lezione 8 - Hardware Assisted Virtualization]]
+9. 

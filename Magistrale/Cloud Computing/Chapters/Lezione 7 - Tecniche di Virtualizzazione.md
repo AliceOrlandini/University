@@ -42,6 +42,8 @@ Per esempio, l'esecuzione di un'interruzione software con il comando *int* compo
 
 In definitiva, l'Interrupt Descriptor Table (IDT) del guest OS viene utilizzata per richiamare vari handler, generando di conseguenza numerosi cambi di contesto.
 
+<div style="page-break-after: always;"></div>
+
 ## Virtualizzazione della memoria
 
 Il secondo aspetto da considerare riguarda la gestione della memoria. 
@@ -78,5 +80,19 @@ In ogni caso l'hypervisor è l'unico ad avere il controllo dei dispositivi.
 
 ## Gestione delle Interruzioni
 
+L'hypervisor ha il compito di gestire tutte le *interruzioni* provenienti dai dispositivi fisici e di gestirle in modo appropriato per ciascuna macchina virtuale. 
+Per fare ciò, è necessario avere due IDT, una dedicata all'hypervisor con le righe che puntano al codice dell'handler eseguito in modalità privilegiata. La seconda IDT è destinata al guest OS, il quale crede di essere l'unico a operare sulla macchina fisica e le cui righe punteranno all'handler delle interruzioni dal suo punto di vista.
+
+Quindi, l'hypervisor emulerà una *falsa interruzione* proveniente da un dispositivo per scatenare l'interruzione lato guest OS.
+In termini specifici, le operazioni eseguite quando un'interruzione arriva sono le seguenti:
+- salvataggio dello stato corrente della macchina virtuale attualmente in esecuzione.
+- modifica dell'instruction pointer per farlo puntare alla prima istruzione dell'handler associato al guest OS (attraverso la IDT dell'hypervisor e poi la IDT del guest OS).
+- concessione del controllo alla macchina virtuale associata a quell'handler.
+
+Se la macchina virtuale disabilita le interruzioni, l'hypervisor attende fino a quando non vengono riabilitate e quindi emula l'interruzione. 
+
+Il principale problema di questo approccio è rappresentato *dall'overhead* poiché il codice dell'handler effettivo viene eseguito in user mode ma intrinsicamente è ricco di operazioni che richiedono i permessi di sistema.
 ## QEMU
 
+QEMU, acronimo di "Quick EMUlator", è un software open-source per l'emulazione e la virtualizzazione di hardware. 
+La sua principale caratteristica è la capacità di eseguire un sistema operativo ospite con un set di istruzioni diverso da quello dell'host utilizzando la traduzione binaria. Inoltre, QEMU dispone di un acceleratore che consente di aumentare la velocità dell'emulazione.
