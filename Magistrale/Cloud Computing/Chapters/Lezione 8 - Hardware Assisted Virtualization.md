@@ -50,6 +50,9 @@ Invece, i modes root/system e root/user consentono di implementare entrambi i [[
 
 ## Virtual Machine Control Structure
 
+L'Intel VMX ha introdotto una nuova struttura dati chiamata Virtual Machine Control Structure (VMCS), che racchiude tutte le informazioni relative allo stato di ogni macchina virtuale in esecuzione. 
+Questa estensione comprende anche un set di istruzioni per manipolare tale struttura dati, che vengono utilizzate durante il cambio di contesto dalla macchina virtuale all'hypervisor oppure durante il ripristino dello stato della VM.
+
 
 ## Gestione della memoria
 
