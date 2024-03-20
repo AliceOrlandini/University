@@ -32,9 +32,17 @@ Le due operazioni che implementano il cambio di contesto diventano:
 
 ## Gestione delle interruzioni
 
-Con l'introduzione dei nuovi modes, i sistemi operativi guest acquisiscono la capacità di gestire direttamente alcune interruzioni, come quelle software (non quelle di I/O perchè in alcuni casil'emulazione dei dispositivi sia richiesta per le interruzioni di I/O. 
+Con l'introduzione dei nuovi modes, i sistemi operativi guest acquisiscono la capacità di gestire direttamente alcune interruzioni, come quelle software (non quelle di I/O perchè in alcuni casi è richiesta l'emulazione).
 
 Affinché questa gestione delle interruzioni sia efficiente, è necessario introdurre una nuova struttura dati chiamata Interrup Remapping Table (IRT). Questa tabella consente il reindirizzamento dinamico di ciascuna interruzione durante l'esecuzione del sistema.
+La struttura dati IRT contiene un'entrata per ogni possibile richiesta di interruzione. Ciascuna entrata mappa la richiesta alla corrispondente riga dell'IDT (Interrupt Descriptor Table) della macchina virtuale Guest, o verso altre strutture pertinenti che esamineremo in seguito. 
+Pertanto, quando viene sollevata un'interruzione, la IRT determina quale IDT deve effettivamente gestire l'interruzione e redirige la richiesta verso di essa.
+
+### Esempio - Interruzione Software tramite int
+
+Le interruzioni software tramite l'istruzione "int" richiederebbero diversi cambi di contesto tra il sistema operativo guest e l'hypervisor in assenza di supporto hardware. 
+Tuttavia, con il supporto hardware appropriato, possiamo eseguire l'istruzione senza la necessità di intervento da parte dell'hypervisor, migliorando l'efficienza complessiva del processo.
+DA RIVEDERE
 
 ## Virtual Machine Control Structure
 
