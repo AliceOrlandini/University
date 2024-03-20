@@ -40,9 +40,13 @@ Pertanto, quando viene sollevata un'interruzione, la IRT determina quale IDT dev
 
 ### Esempio - Interruzione Software tramite int
 
-Le interruzioni software tramite l'istruzione "int" richiederebbero diversi cambi di contesto tra il sistema operativo guest e l'hypervisor in assenza di supporto hardware. 
+Le interruzioni software tramite l'istruzione INT e la conseguente IRET richiederebbero diversi cambi di contesto tra il sistema operativo guest e l'hypervisor in assenza di supporto hardware. 
 Tuttavia, con il supporto hardware appropriato, possiamo eseguire l'istruzione senza la necessità di intervento da parte dell'hypervisor, migliorando l'efficienza complessiva del processo.
-DA RIVEDERE
+
+Sfruttando i modes root/non-root, è possibile eseguire queste istruzioni senza coinvolgere direttamente l'hypervisor. In particolare, il cambio di contesto avviene da non-root/user a non-root/system per l'istruzione INT e viceversa per l'istruzione IRET, senza la necessità di emulare l'istruzione stessa. Questo approccio permette di ottimizzare l'efficienza del sistema, riducendo al minimo l'overhead e migliorando le prestazioni complessive.
+
+Quindi, per riassumere, i modes non-root vengono utilizzati per mantenere la distinzione tra le applicazioni in user mode e kernel mode all'interno della macchina virtuale. 
+Invece, i modes root/system e root/user consentono di implementare entrambi i [[Lezione 5 - Intro Virtualizzazione#Hypervisor|tipi di hypervisor]], vale a dire l'approccio hosted e bare metal.
 
 ## Virtual Machine Control Structure
 
