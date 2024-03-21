@@ -78,5 +78,14 @@ Nel campo VM enter control, ci sono dei campi che possono essere utilizzati dall
 Dal punto di vista delle singole macchine virtuali, la memoria fisica appare come un'unica entità continua, e ognuna di esse dispone della propria Memory Management Unit (MMU) per tradurre gli indirizzi virtuali in indirizzi fisici. 
 È compito dell'hypervisor fornire questa astrazione in modo da garantire che ciascuna VM possa accedere alla memoria in modo isolato e sicuro, senza interferenze da parte delle altre VM.
 
-Abbiamo visto precedentemente il meccanismo delle Shadow Page Table che però richiede un significativo overhead. Vediamo come è stato risolto il problema con il supporto hardware. 
-Sia AMD che Intel hanno modificato l'hardware per agevolare la virtualizzazione della guest virtual memory. In particolare, hanno introdotto la **extended page table**
+Precedentemente, abbiamo esaminato il meccanismo delle Shadow Page Table, il quale, tuttavia, comportava un notevole overhead. Vediamo ora come tale problema sia stato risolto attraverso il supporto hardware.
+
+Sia AMD che Intel hanno apportato modifiche all'hardware per agevolare la virtualizzazione della memoria virtuale dei guest. In particolare, hanno introdotto la **Extended Page Table** (**EPT**).
+
+Con l'EPT, la MMU dell'host è stata estesa con due registri PTBR: uno per la page table della macchina virtuale guest (per implementare la funzione $G$ che mappa gli indirizzi virtuali del guest agli indirizzi fisici del guest) e un altro che punta alla page table creata dall'hypervisor (implementando la funzione $H$ che mappa gli indirizzi fisici del guest agli indirizzi fisici dell'host).
+
+L'hardware stesso gestirà queste due tabelle in cascata utilizzando i puntatori appropriati, semplificando così il processo di traduzione degli indirizzi e riducendo l'overhead complessivo della virtualizzazione della memoria.
+
+Con questo meccanismo non è necessario eseguire una VM exit ogni volta che il sistema operativo guest modifica la propria page table, poiché può farlo tranquillamente nel mode non-root. 
+
+Tuttavia, uno svantaggio di questo approccio è l'aumento del costo della traduzione degli indirizzi, poiché sono necessari due accessi in memoria per ogni traduzione (per un totale di 24 accessi in memoria aggiuntivi). Per mitigare questo overhead, le MMU più recenti sono dotate di una cache TBL, che riduce il numero di accessi in memoria necessari per le traduzioni degli indirizzi.
