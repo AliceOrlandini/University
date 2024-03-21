@@ -53,6 +53,30 @@ Invece, i modes root/system e root/user consentono di implementare entrambi i [[
 L'Intel VMX ha introdotto una nuova struttura dati chiamata Virtual Machine Control Structure (VMCS), che racchiude tutte le informazioni relative allo stato di ogni macchina virtuale in esecuzione. 
 Questa estensione comprende anche un set di istruzioni per manipolare tale struttura dati, che vengono utilizzate durante il cambio di contesto dalla macchina virtuale all'hypervisor oppure durante il ripristino dello stato della VM.
 
+I principali campi della VMCS sono:
+1. **Guest State**: contiene lo stato dei registri del processore virtuale associato al sistema operativo guest. Durante la fase di lancio della VM, questo stato viene caricato nella CPU effettiva. Al contrario, durante la fase di uscita della VM, il contenuto viene memorizzato per essere utilizzato in seguito.
+2. **Host State**: Questo campo contiene lo stato memorizzato nel processore fisico prima della fase di lancio della VM. Pertanto, può includere la VCPU dell'hypervisor o lo stato di una macchina virtuale che era in esecuzione. Quando viene invocata la VM exit, questo stato può essere ricaricato per consentire alla VM o all'hypervisor di riprendere la normale esecuzione.
+3. **VM Execution Control**: specifica le operazioni e le istruzioni che sono consentite con i privilegi di tipo non-root. Qualsiasi istruzione non consentita provoca una VM exit, ossia un'interruzione che richiede l'intervento dell'hypervisor per gestire l'evento.
+4. **VM Enter Control**: Questo campo contiene dei flag che determinano i comportamenti da assumere durante l'ingresso nella VM, ovvero durante il cambio di contesto da root a non-root. Essi definiscono le condizioni e le operazioni da eseguire per garantire un corretto passaggio dal controllo dell'hypervisor al sistema operativo ospite.
+5. **VM Exit Control**: è il duale del precedente, contiene dei flag che permettono di specificare le operazioni da eseguire durante l'uscita dalla VM, ovvero la transizione da non-root a root.
+6. **VM Exit Reason**: contiene la ragione per cui la VM è uscita dal suo stato in esecuzione, fornendo informazioni utili all'hypervisor per gestire correttamente il cambio di contesto. Tale informazione permette all'hypervisor di comprendere immediatamente il motivo dell'uscita senza dover esaminare lo stato specifico della singola macchina virtuale.
+
+Per quanto riguarda il guest e l'host states, essi contengono l'Instruction Pointer che permette di eseguire la prima istruzione del programma non appena la macchina virtuale o l'hypervisor torneranno in esecuzione. Questo punta all'indirizzo di memoria della prossima istruzione da eseguire dopo il cambio di contesto.
+
+La sezione VM execution control contiene numerosi flag, che includono gestione delle interruzioni e dell'I/O, utilizzati principalmente per il **peripheral passthrough** (lo vedremo meglio in seguito).
+Uno di questi flag determina se la CPU deve gestire direttamente un'interruzione esterna o se deve causare una VM exit affinché l'hypervisor prenda il controllo.
+Un altro flag determina se determinate istruzioni critiche devono provocare un cambio di contesto.
+Infine, un insieme di flag specifica quali operazioni di I/O sono permesse direttamente dalla VM e quali richiedono una VM exit.
+
+Nel campo VM enter control, ci sono dei campi che possono essere utilizzati dall'hypervisor per simulare una falsa interruzione. In particolare, le azioni intraprese includono:
+1. **Salvataggio dello stato nel guest stack**: l'hypervisor salva lo stato corrente della CPU all'interno dello stack del sistema operativo guest per garantire un ripristino sicuro dopo la gestione dell'interruzione.
+2. **Controllo della guest IDT**: per determinare l'indirizzo dell'handler dell'interruzione associato alla falsa interruzione da simulare.
+3. **Modifica dei registri della CPU per eseguire l'handler**: l'hypervisor imposta i registri della CPU in modo appropriato per dirigere l'esecuzione verso l'handler dell'interruzione simulata.
 
 ## Gestione della memoria
 
+Dal punto di vista delle singole macchine virtuali, la memoria fisica appare come un'unica entità continua, e ognuna di esse dispone della propria Memory Management Unit (MMU) per tradurre gli indirizzi virtuali in indirizzi fisici. 
+È compito dell'hypervisor fornire questa astrazione in modo da garantire che ciascuna VM possa accedere alla memoria in modo isolato e sicuro, senza interferenze da parte delle altre VM.
+
+Abbiamo visto precedentemente il meccanismo delle Shadow Page Table che però richiede un significativo overhead. Vediamo come è stato risolto il problema con il supporto hardware. 
+Sia AMD che Intel hanno modificato l'hardware per agevolare la virtualizzazione della guest virtual memory. In particolare, hanno introdotto la **extended page table**
