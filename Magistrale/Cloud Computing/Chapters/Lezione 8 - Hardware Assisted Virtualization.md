@@ -145,5 +145,28 @@ La PID è utilizzata nella Interrupt Remapping Table (IRT).
 Ogni voce della IRT punta o alla IDT se l'interruzione deve essere gestita dall'hypervisor, oppure alla PID che a sua volta punta alla IDT della VM se è attiva. 
 In questo modo, ogniqualvolta viene sollevata un'eccezione, la IRT determina se l'interruzione deve essere gestita dall'IDT o dalla PID.
 
-La struttura dati PID contiene informazioni sullo status della VM e memorizza le informazioni dell'interruzione con lo scopo di utilizzarle come notifica asincrona. 
-Nello sp
+La struttura dati PID contiene informazioni sullo stato della VM e memorizza le informazioni dell'interruzione con l'obiettivo di utilizzarle come notifica asincrona. Nello specifico, presenta i seguenti campi:
+- **Posted Interrupt Request** (PIR): specifica l'interruzione che deve essere gestita successivamente.
+- **Suppress Notification** (SN): un flag che determina se, dopo la gestione post dell'interruzione nel PIR, il controller deve notificare anche la CPU ($SN=0$) o meno ($SN=1$).
+- **Notification Vector** (NV): punta all'effettiva IDT a cui notificare l'interruzione per la VCPU.
+
+In particolare, il controller delle interruzioni esegue le seguenti operazioni:
+1. Imposta il bit della PIR.
+2. Se $SN = 1$, cioè se la VM è in ready state, non esegue ulteriori azioni.
+3. Altrimenti:
+	1. Se la VM è in running state, interrompe il processore utilizzando l'indirizzo contenuto nel vettore NV.
+	2. Se la VM è in halted state, attiva il risveglio della VM.
+
+Quando lo stato della VM cambia, l'hypervisor deve aggiornare correttamente lo stato della PID come segue:
+1. Quando la VM passa al running state, l'hypervisor resetta il valore di SN ($SN = 0$) e imposta NV su un vettore chiamato **Active Notification Vector**, che punta alla IDT della VM.
+2. Quando la VM passa al ready state, l'hypervisor imposta SN ($SN = 1$).
+3. Quando la VM passa al halted state, l'hypervisor resetta SN ($SN = 0$) e NV punta a un vettore speciale chiamato **Wakeup Notification Vector**, che attiva il risveglio della VM.
+
+Quando l'hypervisor modifica lo stato di una VM in esecuzione, deve anche controllare la PID. Se anche solo un bit è impostato nel PIR, deve adeguatamente impostare NV quando la VM entra in esecuzione. In questo modo, il processore elaborerà le interruzioni che sono state posticipate mentre la VM non era in esecuzione.
+
+## Dispositivi DMA
+
+## Nested Virtualization
+
+## KVM
+
