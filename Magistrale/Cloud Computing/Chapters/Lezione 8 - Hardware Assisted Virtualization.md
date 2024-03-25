@@ -112,4 +112,38 @@ Se il bit è pari a zero, si rende necessario un cambio di contesto e il control
 
 ### Interruzioni
 
-La seconda parte del meccanismo riguarda la gestione delle interruzioni, 
+La seconda parte del meccanismo riguarda la gestione delle interruzioni provenienti dalle periferiche.
+Con l'architettura Intel VMX, sono disponibili due opzioni per la gestione delle interruzioni:
+1. L'interruzione causa una VM exit e viene quindi gestita dall'handler dell'hypervisor.
+2. L'interruzione viene gestita direttamente dalla macchina virtuale, eseguendo il proprio handler senza alcun cambio di contesto o VM exit.
+
+Per i dispositivi pass-through, viene utilizzata la seconda opzione, garantendo un'efficiente gestione delle interruzioni senza dover coinvolgere l'hypervisor.
+Ciò è implementato tramite la **Interrupt Remapping Table** (**IRT**), la quale mappa le interruzioni provenienti dai dispositivi pass-through direttamente agli handler corrispondenti nell'IDT del sistema operativo guest, consentendo alla macchina virtuale di gestire le interruzioni senza l'intervento dell'hypervisor.
+
+C'è da considerare che la macchina virtuale potrebbe ricevere interruzioni anche quando non è in esecuzione. Ciò significa che il sistema deve essere in grado di gestire le interruzioni provenienti dai dispositivi pass-through anche quando la VM non è in esecuzione. 
+
+## Stati delle VM
+
+Una macchina virtuale si trova nello stato di **running** quando la VCPU sta effettivamente utilizzando la CPU fisica dell'host. Quando è nello stato di **ready**, la VCPU è stata interrotta per dare la CPU fisica ad un'altra VM o all'hypervisor, ma potrebbe riprendere immediatamente la sua esecuzione. Questo passaggio tra running e ready"può avvenire tramite una VM exit o tramite una decisione dello scheduler.
+
+Quando il software di una macchina virtuale esegue un'istruzione di *halt*, l'hypervisor intercetta l'istruzione e pone la VM in uno stato di **halted** poiché non può più procedere con l'esecuzione (per esempio, se ha completato il suo compito o sta aspettando dati dall'I/O). La VM può tornare nello stato di ready solo se riceve un'interruzione.
+
+Quando è coinvolto un dispositivo pass-through, la gestione delle interruzioni dipende dallo stato della macchina virtuale associata. Abbiamo i seguenti casi:
+1. **VM running**: l'interruzione viene gestita direttamente dalla CPU, la quale controlla l'Interrupt Descriptor Table (IDT) del sistema operativo guest per eseguire l'handler corrispondente, senza l'intervento dell'hypervisor.
+2. **VM ready**: poiché la CPU è utilizzata da un'altra macchina virtuale, la richiesta di interruzione deve essere memorizzata temporaneamente. Quando la macchina virtuale associata tornerà in esecuzione, la CPU gestirà l'interruzione.
+3. **VM halted**: anche in questo caso, l'interruzione deve essere memorizzata e lo stato della VM deve essere cambiato in "VM ready".
+
+Il meccanismo **Posted Interrupts**, presente nelle CPU moderne, permette l'implementazione di questo processo.
+
+## Posted Interrupts
+
+Questo meccanismo consente di conservare i segnali di interruzione per essere successivamente utilizzati come notifica alla macchina virtuale (post), senza richiedere l'intervento dell'hypervisor. 
+
+Per raggiungere questo obiettivo, si fa uso di una struttura dati aggiuntiva associata ad ogni VM denominata **Posted Interrupt Descriptor** (**PID**).
+
+La PID è utilizzata nella Interrupt Remapping Table (IRT). 
+Ogni voce della IRT punta o alla IDT se l'interruzione deve essere gestita dall'hypervisor, oppure alla PID che a sua volta punta alla IDT della VM se è attiva. 
+In questo modo, ogniqualvolta viene sollevata un'eccezione, la IRT determina se l'interruzione deve essere gestita dall'IDT o dalla PID.
+
+La struttura dati PID contiene informazioni sullo status della VM e memorizza le informazioni dell'interruzione con lo scopo di utilizzarle come notifica asincrona. 
+Nello sp
