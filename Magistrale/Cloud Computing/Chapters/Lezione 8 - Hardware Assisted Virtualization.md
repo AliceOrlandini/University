@@ -89,3 +89,27 @@ L'hardware stesso gestirà queste due tabelle in cascata utilizzando i puntatori
 Con questo meccanismo non è necessario eseguire una VM exit ogni volta che il sistema operativo guest modifica la propria page table, poiché può farlo tranquillamente nel mode non-root. 
 
 Tuttavia, uno svantaggio di questo approccio è l'aumento del costo della traduzione degli indirizzi, poiché sono necessari due accessi in memoria per ogni traduzione (per un totale di 24 accessi in memoria aggiuntivi). Per mitigare questo overhead, le MMU più recenti sono dotate di una cache TBL, che riduce il numero di accessi in memoria necessari per le traduzioni degli indirizzi.
+
+## Hardware passthrough
+
+La completa virtualizzazione si impegna a emulare ogni singolo dispositivo di input/output, un processo che inevitabilmente compromette le prestazioni delle macchine virtuali. 
+L'hypervisor era costretto a intervenire in ogni interazione tra la macchina virtuale e il dispositivo per emularlo, generando così numerosi VM exits.
+
+Per superare tali ostacoli, si è adottata la soluzione del **passthrough**, che consiste nell'assegnare un accesso diretto ed esclusivo alle periferiche. Questo approccio permette di mappare direttamente un dispositivo con la relativa macchina virtuale, evitando la necessità di compiere alcuna traduzione tramite emulazione. Questa strategia riduce notevolmente la latenza e migliora le performance complessive del sistema virtuale perché elimina la necessità di VM exits.
+Tuttavia, va notato che questo approccio presenta uno svantaggio significativo: poiché l'hardware non è virtualizzato, il dispositivo può essere utilizzato solo dalla singola VM a cui è stato assegnato e non può essere condiviso con altre istanze virtuali o questo causerebbe inconsistenza. 
+
+Per implementare questo meccanismo, è necessario un hardware specifico che gestisca due aspetti:
+1. **Direct mapping**: una mappatura diretta tra lo spazio di memoria del dispositivo fisico e la macchina virtuale in modo che quest'ultima possa leggere direttamente i registri delle periferiche.
+2. **Direct assignment**: assegnazione diretta di un dispositivo fisico a una singola macchina virtuale senza condivisione. In questo modo, la VM gestisce direttamente le interruzioni provenienti dal dispositivo pass-through, mentre l'hypervisor gestisce tutte le altre operazioni.
+
+### I/O Mapping
+
+L'obiettivo di questo meccanismo è di mappare una porzione dello spazio di I/O, che è reale, verso una porzione virtuale senza l'intervento dell'hypervisor.
+
+Nell'architettura Intel VMX, la struttura dati VMCS include un bit chiamato **I/O bitmap** per ogni possibile dispositivo I/O. 
+Questo bit specifica se il dispositivo è abilitato al pass-through o meno. 
+Se il bit è pari a zero, si rende necessario un cambio di contesto e il controllo viene passato all'hypervisor che emulerà l'operazione. Al contrario, se il bit è pari a uno, lo spazio è accessibile direttamente dalla VM, anche in modalità non-root.
+
+### Interruzioni
+
+La seconda parte del meccanismo riguarda la gestione delle interruzioni, 
