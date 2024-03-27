@@ -122,6 +122,8 @@ Ciò è implementato tramite la **Interrupt Remapping Table** (**IRT**), la qual
 
 C'è da considerare che la macchina virtuale potrebbe ricevere interruzioni anche quando non è in esecuzione. Ciò significa che il sistema deve essere in grado di gestire le interruzioni provenienti dai dispositivi pass-through anche quando la VM non è in esecuzione. 
 
+<div style="page-break-after: always;"></div>
+
 ## Stati delle VM
 
 Una macchina virtuale si trova nello stato di **running** quando la VCPU sta effettivamente utilizzando la CPU fisica dell'host. Quando è nello stato di **ready**, la VCPU è stata interrotta per dare la CPU fisica ad un'altra VM o all'hypervisor, ma potrebbe riprendere immediatamente la sua esecuzione. Questo passaggio tra running e ready"può avvenire tramite una VM exit o tramite una decisione dello scheduler.
@@ -166,7 +168,26 @@ Quando l'hypervisor modifica lo stato di una VM in esecuzione, deve anche contro
 
 ## Dispositivi DMA
 
+Grazie al DMA controller, i dispositivi di I/O possono accedere direttamente alla RAM per operazioni di scrittura e lettura senza dover coinvolgere la CPU. 
+Quest'ultima si occupa semplicemente di indicare al dispositivo la posizione di memoria in cui operare. Di conseguenza, i dispositivi DMA usufruiscono di un accesso diretto alla memoria e, al termine dell'operazione, notificano alla CPU il completamento delle loro attività. Ciò consente alla CPU di dedicarsi ad altre operazioni mentre i dispositivi DMA lavorano autonomamente.
+
+Per tradurre gli indirizzi virtuali in indirizzi fisici, i dispositivi DMA si avvalgono di una MMU dedicata chiamata IOMMU, che si occupa della traduzione degli indirizzi durante le operazioni di lettura o scrittura da e verso la RAM.
+La IOMMU ha anche la capacità di generare page fault nel caso in cui le pagine richieste per la lettura non siano presenti in memoria. A questo punto, sarà il sistema operativo a gestire il recupero delle pagine dall'hard disk.
+
 ## Nested Virtualization
+
+La Nested Virtualization consiste nell'eseguire una macchina virtuale sopra un'altra, quindi si ha un hypervisor in esecuzione all'interno di una VM che a sua volta è eseguita all'interno di un host virtualizzato con il suo hypervisor. 
+Tuttavia, questo approccio presenta limitazioni dovute all'elevato overhead e al fatto che solo l'hypervisor connesso all'host può sfruttare il supporto hardware.
+
+Questo tipo di virtualizzazione è utilizzato principalmente per il testing. Infatti, consente ai consumatori di cloud di configurare la propria infrastruttura IaaS su un insieme di macchine virtuali fornite dal provider.
+
+A causa dell'overhead, questo tipo di virtualizzazione richiede un supporto hardware specifico. Per esempio, Intel e AMD supportano solo un singolo livello di virtualizzazione. 
+Per ridurre questo overhead, si fa in modo che l'hypervisor dell'host emuli le estensioni hardware, abilitando una comunicazione tra l'hypervisor dell'host e quello ospite.
 
 ## KVM
 
+Kernel-based Virtual Machine (KVM) è uno dei software più diffusi per implementare la full virtualization, sfruttando il supporto hardware disponibile. 
+KVM è essenzialmente un programma (un hypervisor) eseguito in ambiente Linux, ma dipende strettamente dal kernel Linux. 
+Pertanto, KVM agisce come un driver che gestisce le funzionalità di virtualizzazione offerte dall'hardware. 
+
+L'interfaccia fornita è situata in /dev/kvm, consentendo ai programmi nello user-space di impostare e configurare l'ambiente per una nuova macchina virtuale. Una versione modificata di QEMU, chiamata kvm-userspace, utilizza le API di KVM per eseguire le guest VM.
