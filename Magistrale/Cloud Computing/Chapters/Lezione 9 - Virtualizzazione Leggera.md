@@ -30,11 +30,22 @@ Con l'avvento del supporto hardware per la virtualizzazione, si è notato che la
 
 Xen, rilasciato nel 2003, è uno degli hypervisor più diffusi per quanto riguarda la para-virtualizzazione. Questo software cerca di trovare un equilibrio tra la riscrittura del kernel del sistema operativo guest e l'emulazione. Inoltre, può essere eseguito su un kernel Linux, fornendo così un ambiente flessibile e adattabile.
 
-Per quanto riguarda la sua 
+Dal punto di vista dell'architettura, Xen è caratterizzato da una struttura snella e leggera. Al di sopra del layer costituito da Xen, a un livello di privilegio inferiore, sono presenti i cosiddetti "domini". 
+Il numero di domini può variare a seconda delle esigenze, e all'interno di ciascun dominio viene eseguito un sistema operativo con le relative applicazioni. I domini sono isolati l'uno dall'altro e vengono utilizzati per implementare le macchine virtuali.
 
-## Overhead della virtualizzazione
+Esiste un dominio speciale chiamato "Dom0" che dispone dell'accesso alle API di Xen, consentendo la creazione e la distruzione di altri domini. All'interno di Dom0 è possibile installare qualsiasi sistema operativo Linux, dotandolo di tool specifici utilizzati per gestire gli altri domini. 
+I domini possono avere accesso diretto a determinati dispositivi di I/O oppure possono utilizzare versioni virtualizzate di tali dispositivi.
 
 ## Virtualizzazione Leggera
+
+Ci sono situazioni in cui è necessario solo un ambiente isolato per distribuire le applicazioni, senza la necessità di un intero sistema operativo. 
+Utilizzando la virtualizzazione classica per lo sviluppo delle applicazioni, l'overhead non è trascurabile, sia in termini di consumo di memoria che di tempo di elaborazione. Inoltre, è comune che diverse macchine virtuali condividano lo stesso sistema operativo guest, portando a istanze multiple dello stesso sistema operativo in esecuzione sull'hardware.
+
+Per evitare questo scenario, sono state recentemente introdotte nuove tecnologie di virtualizzazione chiamate **lightweight virtualization**, ideali per servizi o applicazioni che non richiedono la virtualizzazione dell'intero sistema, pur garantendo gli stessi vantaggi della virtualizzazione, quali:
+- Isolamento
+- Installazione dinamica
+- Ambiente autocontenuto
+
 
 ## Container
 
