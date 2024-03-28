@@ -62,7 +62,7 @@ Inoltre, questa architettura potrebbe non essere facilmente scalabile per gestir
 
 ### Load Balancing Clusters
 
-Per garantire un'ottimale utilizzazione delle risorse senza compromettere l'affidabilità, un'alternativa sono i Load Balancing Clusters. Questi sono progettati per distribuire equamente il carico di lavoro tra i nodi, sfruttando appieno la capacità del cloud di scalare in modo orizzontale.
+Per garantire un'ottimale utilizzazione delle risorse senza compromettere l'affidabilità, un'alternativa sono i Load Balancing Clusters (LB). Questi sono progettati per distribuire equamente il carico di lavoro tra i nodi, sfruttando appieno la capacità del cloud di scalare in modo orizzontale.
 
 Tra i vantaggi di questo approccio vi sono non solo una maggiore efficienza nell'utilizzo delle risorse, ma anche prestazioni migliori, come tempi di risposta ridotti. Ciò è possibile grazie alla distribuzione uniforme delle richieste tra i nodi, evitando sovraccarichi su singoli server.
 
@@ -78,6 +78,25 @@ La scelta tra i due approcci dipende dalle specifiche dell'applicazione e dalla 
 
 ### Compute Intensive Clusters
 
-I Compute Intensive Clusters (CI) sono quelli di cui parla Puliafito a lezione e vengono usati per gestire grandi quantità di dati tramite l'approccio divide et impera:
-1. Il grande task è diviso in piccoli sub-task chiamati anche Jobs.
-2. I dati vengono divisi in piccoli chun
+I Compute Intensive Clusters (CI) sono quelli di cui parla Puliafito a lezione e vengono utilizzati per gestire grandi volumi di dati attraverso l'approccio divide et impera, che comprende i seguenti passaggi:
+1. Il grande task da eseguire viene suddiviso in piccoli sub-task, noti anche come Jobs.
+2. I dati vengono suddivisi in piccoli chunk, ognuno dei quali viene assegnato a un job.
+3. Un job e il relativo chunk di dati vengono assegnati a un singolo server (worker) per l'elaborazione.
+4. Il worker elabora il task nei dati assegnati e restituisce il risultato al collector.
+5. Il collector combina tutti i risultati provenienti dai worker.
+
+Per garantire la scalabilità verso una grande quantità di richieste, anche nei Compute Intensive Clusters, si impiega un Load Balancer Tier. Successivamente, nell'application tier, i dati vengono suddivisi in chunks e viene creata una lista di jobs da eseguire.
+
+Dato che la dimensione del dataset iniziale può essere troppo grande per essere memorizzata nel local storage di diverse macchine virtuali e sincronizzata efficacemente, si conserva il dataset iniziale su un cloud storage. 
+
+I job vengono quindi distribuiti a un insieme di workers appartenenti a un'infrastruttura per l'elaborazione distribuita. Questo approccio consente di processare grandi volumi di dati in parallelo, sfruttando al massimo le risorse disponibili e garantendo una maggiore efficienza e scalabilità.
+
+Per ridurre l'overhead causato dalla comunicazione, gli worker possono accedere direttamente allo storage tier per recuperare i dati necessari per eseguire i compiti assegnati. 
+
+## Dynamic Adaptation
+
+Uno dei vantaggi più significativi delle tecnologie cloud e della virtualizzazione è la scalabilità. Quando il carico di lavoro aumenta, è possibile scalare verticalmente aggiungendo risorse alle macchine virtuali esistenti, oppure scalare orizzontalmente aumentando il numero di macchine virtuali disponibili per gestire le richieste.
+
+Le architetture Load Balancing (LB) e Compute Intensive (CI), sfruttando il tier di bilanciamento del carico, sono in grado di scalare orizzontalmente in risposta all'incremento o alla diminuzione del traffico. Ciò significa che possono aumentare dinamicamente il numero di macchine virtuali per soddisfare la domanda crescente o ridurre le risorse quando il carico diminuisce.
+
+Nelle architetture High Availability (HA), la scalabilità orizzontale viene spesso utilizzata per migliorare la ridondanza e quindi l'affidabilità del sistema, anziché per gestire picchi di traffico. Aggiungendo più nodi, è possibile garantire una maggiore resilienza del sistema, consentendo il failover automatico in caso di guasto di un nodo.
