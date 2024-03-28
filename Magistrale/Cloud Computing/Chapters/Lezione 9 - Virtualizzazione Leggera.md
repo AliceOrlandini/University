@@ -46,9 +46,24 @@ Per evitare questo scenario, sono state recentemente introdotte nuove tecnologie
 - Installazione dinamica
 - Ambiente autocontenuto
 
+Un approccio di tipo lightweight, noto come "Operating System Virtualization" o "Shared Kernel Approaches", è stato proposto di recente. 
+Il suo obiettivo principale è quello di minimizzare l'overhead che si verifica quando vengono eseguite più istanze di macchine virtuali con lo stesso sistema operativo installato.
+
+Con questo approccio, l'hypervisor non è più necessario. Invece, dei server virtuali sono abilitati dal kernel della macchina fisica, che è condiviso da tutti i server virtuali. Poiché il kernel è condiviso, tutte le VM hanno lo stesso sistema operativo, ma devono implementare istanze di spazio utente logicamente distinte.
+
+Un esempio di questo approccio sono i Linux Containers. Questi consentono di creare ambienti virtualizzati isolati, utilizzando il kernel Linux sottostante e condividendo le risorse del sistema in modo efficiente, riducendo così l'overhead rispetto alla virtualizzazione tradizionale.
+
+| Pro                                                                                                                                      | Contro                                                                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| La virtualizzazione del sistema operativo è più leggera in termini di overhead poiché tutti virtual server condividono lo stesso kernel. | Tutte le macchine virtuali devono condividere lo stesso kernel che può portare a problemi di sicurezza e isolamento. |
+| Un singolo sisteme con lo stesso quantitativo di risorse può supportare più macchine virtuali rispetto alla full virtualization.         | Non tutti i sistemi operativi offrono la possibilità di condividere il kernel (Windows...)                           |
 
 ## Container
 
+I container sono un metodo per isolare un insieme di processi e far loro credere di essere gli unici in esecuzione sulla macchina. 
+La rappresentazione della macchina fornita ai container può offrire solo un sottoinsieme delle risorse effettivamente disponibili sull'hardware fisico, ad esempio meno memoria, meno spazio su disco o meno capacità di elaborazione.
+
+È importante notare che i container non sono macchine virtuali. I processi in esecuzione all'interno di un container sono processi normali che sono eseguiti nel kernel dell'host. Di conseguenza, non c'è un kernel ospite in esecuzione nel container. I container condividono il kernel dell'host e sfruttano la virtualizzazione a livello di sistema operativo per creare ambienti isolati e leggeri.
 ## Docker
 
 
