@@ -48,18 +48,36 @@ I design di cluster possibili includono:
 
 ### High-Availability Clusters
 
-Gli High-Availability Cluster (HA) sono cluster progettati per essere fault-tolerant e supportare l'esecuzione di srevizi che richiedono di essere sempre disponibili. 
-I cluster HA per operare utilizzano la ridondanza sui vari nodi per sostenere i fault o failures e avoid single point of failure.
-Il cluster HA più semplice è un clouster con solo 2 nodi ridondanti da utilizzare in sostituzione del principale nel caso si guastasse. 
-Quindi, grande ridondanza garantisce grande availability, e per fare ciò ogni tier deve implementare diverse VM che implementano lo stesso servizio. 
-L'architettura è quindi una master slave e quando un master si guasta si elegge un nuovo server o a priori o tramite una procedura di elezioni.
-Bisogna anche prevedere un meccanismo di replicazione delle informazioni per fare in modo che tutti gli slave siano aggiornati.
+Gli High-Availability Cluster (HA) sono progettati per garantire la tolleranza ai guasti e supportare l'esecuzione di servizi che richiedono un'elevata disponibilità continua. Utilizzano la ridondanza su diversi nodi per gestire i guasti e evitare punti singoli di fallimento.
 
-Ci sono degli svantaggi considerevoli in questo meccanismo come: il fatto che per la maggior parte del tempo gli slave stanno a fare nulla, e che non è un'architettura scalabile.
+Il cluster HA più semplice è costituito da un nodo ridondante che può sostituire il nodo principale in caso di guasto. In questo modo, la ridondanza dei nodi assicura un'alta disponibilità del servizio, consentendo al cluster di continuare a funzionare anche se uno dei nodi dovesse smettere di operare correttamente.
+Per garantire un'elevata disponibilità, ogni tier dell'applicazione deve implementare diverse macchine virtuali che forniscono lo stesso servizio. In questo modo, se una macchina virtuale dovesse fallire, le altre possono continuare a erogare il servizio senza interruzioni.
+
+L'architettura adottata è quella master-slave, dove in caso di guasto del server principale, viene eletto un nuovo server per assumere il ruolo di master, sia mediante una designazione preventiva che tramite una procedura di elezione.
+
+È fondamentale prevedere un meccanismo di replicazione delle informazioni per mantenere aggiornati tutti gli slave con le ultime modifiche effettuate sul master.
+
+Tuttavia, questa configurazione presenta svantaggi significativi. Ad esempio, gli slave possono rimanere inattivi per la maggior parte del tempo, comportando un utilizzo inefficiente delle risorse. 
+Inoltre, questa architettura potrebbe non essere facilmente scalabile per gestire carichi di lavoro in continua crescita.
 
 ### Load Balancing Clusters
 
-Per garantire un migliore utilizzo delle risorse che non trascuri l'availability, un alternativa sono i Load Balancing Clusters.
-Sono progettati per distribuire il carico di lavoro in modo uniforme sui nodi che permette di sfruttare al massimo la proprietà del cloud di essere scalabile in modo orizzontale.
+Per garantire un'ottimale utilizzazione delle risorse senza compromettere l'affidabilità, un'alternativa sono i Load Balancing Clusters. Questi sono progettati per distribuire equamente il carico di lavoro tra i nodi, sfruttando appieno la capacità del cloud di scalare in modo orizzontale.
 
-Un secondo va
+Tra i vantaggi di questo approccio vi sono non solo una maggiore efficienza nell'utilizzo delle risorse, ma anche prestazioni migliori, come tempi di risposta ridotti. Ciò è possibile grazie alla distribuzione uniforme delle richieste tra i nodi, evitando sovraccarichi su singoli server.
+
+Per implementare i Load Balancing Clusters, si introduce un tier aggiuntivo chiamato **balancer tier** tra l'applicazione e i client. Questo tier ha il compito di ricevere le richieste dai client e indirizzarle a una delle macchine virtuali dell'application tier utilizzando una specifica policy di bilanciamento del carico.
+
+Successivamente, si ha generalmente un tier del database in cui ogni istanza è associata a una specifica istanza dell'application tier. Ciò significa che ogni istanza del database è dedicata a servire le richieste provenienti da una particolare istanza dell'applicazione, consentendo una migliore gestione dei dati e delle risorse.
+
+Un aspetto cruciale nell'implementazione dei Load Balancing Clusters è la **sincronizzazione dei dati,** poiché le macchine virtuali possono ricevere e gestire le richieste in parallelo e i dati devono essere sincronizzati tra le istanze dello stesso tier. Ci sono due approcci principali per affrontare questo problema:
+1. **Replicazione dei dati**: questo approccio prevede di replicare i dati su più istanze all'interno dello stesso tier. Tuttavia, questa replicazione può comportare un overhead significativo, in quanto richiede la sincronizzazione costante dei dati tra le varie istanze.
+2. **Utilizzo di un unico Storage tier**: in questo approccio, viene utilizzato un singolo tier di storage al quale accedono tutte le istanze del database tier. Questo assicura che tutti i dati siano memorizzati nello stesso punto, semplificando la sincronizzazione. Tuttavia, questo costituisce anche un unico punto di fallimento, poiché la perdita del tier di storage potrebbe causare la perdita di tutti i dati.
+
+La scelta tra i due approcci dipende dalle specifiche dell'applicazione e dalla quantità di dati da memorizzare. È importante valutare attentamente i requisiti di prestazioni, affidabilità e scalabilità dell'applicazione prima di prendere una decisione.
+
+### Compute Intensive Clusters
+
+I Compute Intensive Clusters (CI) sono quelli di cui parla Puliafito a lezione e vengono usati per gestire grandi quantità di dati tramite l'approccio divide et impera:
+1. Il grande task è diviso in piccoli sub-task chiamati anche Jobs.
+2. I dati vengono divisi in piccoli chun
