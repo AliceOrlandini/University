@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md"
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md"
               }
             }
           },
@@ -158,12 +158,12 @@
   },
   "active": "23568ad746df5cce",
   "lastOpenFiles": [
+    "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 9 - Virtualizzazione Leggera.md",
     "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 9 - Virtualizzazione Leggera.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",

@@ -17,6 +17,8 @@ Questo approccio, tuttavia, non sfrutta appieno le potenzialità del cloud in qu
 Il cloud, oltre a fornire risorse hardware a basso costo, offre vantaggi significativi come la scalabilità, l'affidabilità elevata e la capacità di gestire grandi quantità di dati. 
 Per sfruttare appieno questi vantaggi, è necessario ripensare le applicazioni in ottica cloud, adottando un modello differente in base ai requisiti specifici e agli scenari d'uso previsti.
 
+<div style="page-break-after: always;"></div>
+
 ## Multi-tier Architecture
 
 Le applicazioni cloud sono comunemente implementate seguendo un'architettura **multi-tier**: le diverse funzionalità vengono suddivise tra varie macchine virtuali, ciascuna responsabile di una specifica parte del sistema. Non ci sono regole generali per effettuare la divisione delle funzionalità.
