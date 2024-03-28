@@ -37,8 +37,29 @@ Un insieme di macchine virtuali che appartengono allo stesso tier e che quindi i
 > [!note] Compute Cluster
 > Un **Compute Cluster** è un set di macchine virtuali organizzate per svolgere una computezione collettiva su un singolo grande job o set di singole richieste. 
 
-I nodi del cluster non devono occuparsi di molte operazioni di I/O, eccetto la comunicazione tra i vari nodi.
-Le VM dello stesso cluster generalmente sfruttano un middleware che gestisce la comunicazione sia tra macchine dello stesso cluster sia con quelle all'esterno appartenenti a tier diversi.
+I nodi del cluster sono ottimizzati per gestire principalmente operazioni di comunicazione tra di loro, limitando le operazioni di I/O. Le macchine virtuali all'interno dello stesso cluster di solito utilizzano un middleware per gestire la comunicazione sia tra i nodi interni al cluster che con quelli esterni appartenenti a tier diversi.
 
+L'architettura complessiva dei cluster varia in base ai requisiti specifici dell'applicazione, che a loro volta dipendono dai diversi casi d'uso.
 
+I design di cluster possibili includono:
+1. **High-Availability Clusters**: questi cluster sono progettati per garantire la massima disponibilità del servizio, riducendo al minimo i tempi di inattività. Utilizzano tecniche come la duplicazione dei servizi e il failover automatico per assicurare che il servizio rimanga accessibile anche in caso di guasti hardware o software.
+2. **Load Balancing Clusters**: questi cluster distribuiscono il carico di lavoro tra i nodi in modo equo, consentendo di gestire un elevato numero di richieste senza sovraccaricare alcun nodo specifico. Questo design è particolarmente utile per applicazioni web ad alta traffico o servizi che richiedono una distribuzione uniforme delle risorse.
+3. **Compute Intensive Clusters**: questi cluster sono ottimizzati per eseguire operazioni computazionalmente intensive, come analisi dati complesse o simulazioni scientifiche. Sfruttano risorse hardware potenti e tecniche di parallelizzazione per eseguire rapidamente operazioni complesse.
 
+### High-Availability Clusters
+
+Gli High-Availability Cluster (HA) sono cluster progettati per essere fault-tolerant e supportare l'esecuzione di srevizi che richiedono di essere sempre disponibili. 
+I cluster HA per operare utilizzano la ridondanza sui vari nodi per sostenere i fault o failures e avoid single point of failure.
+Il cluster HA più semplice è un clouster con solo 2 nodi ridondanti da utilizzare in sostituzione del principale nel caso si guastasse. 
+Quindi, grande ridondanza garantisce grande availability, e per fare ciò ogni tier deve implementare diverse VM che implementano lo stesso servizio. 
+L'architettura è quindi una master slave e quando un master si guasta si elegge un nuovo server o a priori o tramite una procedura di elezioni.
+Bisogna anche prevedere un meccanismo di replicazione delle informazioni per fare in modo che tutti gli slave siano aggiornati.
+
+Ci sono degli svantaggi considerevoli in questo meccanismo come: il fatto che per la maggior parte del tempo gli slave stanno a fare nulla, e che non è un'architettura scalabile.
+
+### Load Balancing Clusters
+
+Per garantire un migliore utilizzo delle risorse che non trascuri l'availability, un alternativa sono i Load Balancing Clusters.
+Sono progettati per distribuire il carico di lavoro in modo uniforme sui nodi che permette di sfruttare al massimo la proprietà del cloud di essere scalabile in modo orizzontale.
+
+Un secondo va
