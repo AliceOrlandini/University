@@ -63,7 +63,21 @@ Un esempio di questo approccio sono i Linux Containers. Questi consentono di cre
 I container sono un metodo per isolare un insieme di processi e far loro credere di essere gli unici in esecuzione sulla macchina. 
 La rappresentazione della macchina fornita ai container può offrire solo un sottoinsieme delle risorse effettivamente disponibili sull'hardware fisico, ad esempio meno memoria, meno spazio su disco o meno capacità di elaborazione.
 
-È importante notare che i container non sono macchine virtuali. I processi in esecuzione all'interno di un container sono processi normali che sono eseguiti nel kernel dell'host. Di conseguenza, non c'è un kernel ospite in esecuzione nel container. I container condividono il kernel dell'host e sfruttano la virtualizzazione a livello di sistema operativo per creare ambienti isolati e leggeri.
-## Docker
+È importante notare che i container non sono macchine virtuali. I processi in esecuzione all'interno di un container sono processi normali che sono eseguiti nel kernel dell'host. Di conseguenza, non c'è un kernel ospite in esecuzione nel container. 
+A causa di questa caratteristica, non è possibile eseguire un sistema operativo diverso dall'host all'interno di un container. Poiché il kernel è condiviso con l'host, il sistema operativo all'interno del container deve coincidere con quello dell'host.
 
+Il principale vantaggio dei container rispetto alle macchine virtuali risiede nelle prestazioni. Non c'è alcuna penalità significativa sulle prestazioni nell'esecuzione di un'applicazione all'interno di un container, poiché condividono il kernel dell'host. Al contrario, l'uso delle macchine virtuali comporta una perdita di prestazioni.
+
+## Linux Containers
+
+I Linux containers sono tra i più famosi e ampiamente adottati. Sono implementati utilizzando due funzionalità del kernel: i **namespaces** e i **control groups**. Queste funzionalità garantiscono che ogni container abbia un ambiente di esecuzione isolato e che possano accedere solo alle risorse per le quali hanno i permessi.
+
+I namespace forniscono un mezzo per segregare le risorse di sistema in modo che possano essere nascoste da processi selezionati. 
+Si tratta di un'estensione di una vecchia funzionalità Unix chiamata chroot(), che consentiva di limitare l'accesso a un sottoinsieme di cartelle del sistema. 
+Grazie ai **namespace**, i processi possono essere isolati per operare solo in una parte del sistema, garantendo che accedano solo ai file di cui hanno bisogno. 
+Sono state definite diverse tipologie di namespace, come ad esempio i network namespaces, utilizzati per nascondere le interfacce di rete.
+
+I namespace, tuttavia, non sono da soli sufficienti per isolare un insieme di processi, poiché esiste un secondo modo per interferire con gli altri: prendere il controllo delle risorse per un lungo periodo, sfruttando le risorse del sistema in modo abusivo.
+
+I **control groups**, noti anche come cgroups, sono gruppi di processi in cui il consumo di risorse è controllato ed applicato. Questi gruppi vengono creati dagli utenti con privilegi di root e ciascun processo deve appartenere a un gruppo, dal quale non può fuggire. Ad esempio, se un processo genera un processo figlio, quest'ultimo continuerà comunque a far parte del gruppo del padre.
 
