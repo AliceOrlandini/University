@@ -7,4 +7,6 @@
 7. [[Lezione 7 - Tecniche di Virtualizzazione]]
 8. [[Lezione 8 - Hardware Assisted Virtualization]]
 9. [[Lezione 9 - Virtualizzazione Leggera]]
-10. 
+10. [[Lezione 10 - Architetture Cloud]]
+11. [[Lezione 11 - Design delle applicazioni cloud]]
+12. 
