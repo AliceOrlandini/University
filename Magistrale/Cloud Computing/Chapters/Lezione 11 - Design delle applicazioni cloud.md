@@ -24,9 +24,19 @@ Questo approccio garantisce un alto grado di disaccoppiamento tra i componenti d
 
 ## Ruoli
 
-I ruoli quando si parla di SOA sono principalmente 
-## Broker
+Quando si parla di SOA, i ruoli principali sono principalmente due: **consumer** e **provider**. Il consumer invia una richiesta di servizio a un provider tramite message passing, e il provider restituisce la risposta contenente i risultati richiesti. 
+È importante notare che un service può svolgere sia il ruolo di consumer che di provider.
 
+Di solito, i provider e i consumer non interagiscono direttamente l'uno con l'altro. Invece, viene utilizzato un modulo software addizionale chiamato **broker**. 
+Il broker ha il compito di creare un service catalog, una lista che elenca tutti i servizi disponibili. Quando un consumer desidera richiedere un servizio, contatta il service broker, il quale fornisce tutte le informazioni necessarie sul servizio richiesto, inclusi il formato del messaggio. Una volta ricevute queste informazioni, il consumer può dialogare direttamente con il provider e viceversa. Questo approccio facilita la gestione e la scoperta dei servizi all'interno dell'architettura SOA.
 
 ## Vantaggi 
 
+Come precedentemente menzionato, l'implementazione interna dei servizi rimane privata all'esterno dei confini del servizio stesso. Questo offre il vantaggio di semplificare la correzione di bug senza influenzare gli altri servizi, purché l'interfaccia per lo scambio di messaggi rimanga invariata.
+
+Questa separazione consente una caratteristica chiamata **loose coupling** (accoppiamento debole), che permette di collegare e scollegare servizi specifici dall'applicazione senza sforzo. 
+Questo significa che i servizi possono essere aggiunti, rimossi o sostituiti con facilità, senza causare impatti significativi sugli altri componenti dell'applicazione. 
+
+Questa caratteristica rende il sistema flessibile ai cambiamenti ed espandibile. L'approccio SOA consente anche la composability, poiché un sistema può essere assemblato utilizzando una combinazione di servizi esistenti.
+
+Il paradigma di comunicazione basato su messaggi permette infine che la comunicazione tra servizi avvenga in modo *stateless*: ogni modulo tratta ogni transazione in modo separato, indipendentemente da ogni altra transazione. Questo significa che ogni richiesta è gestita come un'entità isolata e non è necessario mantenere uno stato globale tra le transazioni. Ciò semplifica la gestione delle transazioni e favorisce la scalabilità del sistema, consentendo di gestire un alto volume di richieste in modo efficiente e affidabile.
