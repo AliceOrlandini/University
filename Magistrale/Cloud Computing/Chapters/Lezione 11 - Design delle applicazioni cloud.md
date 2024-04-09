@@ -79,4 +79,33 @@ La struttura di un documento XML è *gerarchica* e si compone di elementi che so
 
 
 La rigorosa sintassi XML consente di determinare se un documento è "well-formed", ma è importante anche verificare che il documento sia valido, ovvero che abbia un significato coerente con la sua rappresentazione. Per garantire la validità, si utilizza un secondo documento chiamato XML Schema.
-Nel caso dell'esempio precedente, la latitudine e la longitudine sono obbligatorie, questo requisito può essere specificato nell'XML Schema, che definirebbe la struttura e le regole che il documento XML deve seguire affinché sia considerato valido.
+Nel caso dell'esempio precedente, la latitudine e la longitudine sono obbligatorie, questo requisito può essere specificato nell'XML Schema, che definirebbe la struttura e le regole che il documento XML deve seguire affinché sia considerato valido. Inoltre, è ampiamente impiegato per favorire l'interoperabilità tra sistemi e applicazioni.
+
+## Web Services Interaction
+
+Un web service possiede un'interfaccia descritta in un formato eseguibile dalle macchine, chiamato Web Services Description Language (WSDL).
+Questo linguaggio è utilizzato per comunicare con il broker, un componente che funge da registro globale per la pubblicizzazione e la scoperta dei web service. 
+Attraverso WSDL, ogni provider di servizi si registra presso il broker, mentre il consumatore di servizi lo utilizza per individuare un servizio specifico di interesse. 
+Infine, il consumatore e il provider interagiscono tramite il protocollo SOAP (Simple Object Access Protocol), che stabilisce uno standard per lo scambio di messaggi tra loro.
+
+## SOAP
+
+SOAP fornisce uno standard per la struttura di impacchettamento per la trasmissione di documenti XML attraverso diversi protocolli Internet. 
+Un messaggio SOAP è composto da un elemento root chiamato *envelope*, che contiene l'header con informazioni come quelle relative alla sicurezza, e un body che contiene il vero payload, che può includere informazioni di request/response, oppure una sezione di fault che contiene errori o eccezioni, se presenti.
+
+La trasmissione effettiva del messaggio avviene attraverso il binding XML, che consente di inviare i messaggi tramite il protocollo HTTP. È possibile utilizzare i metodi HTTP GET o POST per trasmettere i dati.
+
+## WSDL
+
+Il WSDL descrive in un formato standard l'interfaccia e l'insieme di operazioni supportate da un Web Service. Standardizza anche i parametri di input e output per ciascuna operazione del servizio. 
+Attraverso il WSDL, i client possono comprendere automaticamente:
+- Le funzionalità offerte dal servizio
+- La sua posizione
+- Il metodo per invocarlo
+
+Pertanto, ogni volta che un client desidera utilizzare un servizio di cui non ha conoscenza, richiede e analizza il documento WSDL e solo successivamente invoca il servizio tramite SOAP.
+
+Continuare Architettura Messaggio
+
+## REST
+
