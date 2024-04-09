@@ -40,3 +40,43 @@ Questo significa che i servizi possono essere aggiunti, rimossi o sostituiti con
 Questa caratteristica rende il sistema flessibile ai cambiamenti ed espandibile. L'approccio SOA consente anche la composability, poiché un sistema può essere assemblato utilizzando una combinazione di servizi esistenti.
 
 Il paradigma di comunicazione basato su messaggi permette infine che la comunicazione tra servizi avvenga in modo *stateless*: ogni modulo tratta ogni transazione in modo separato, indipendentemente da ogni altra transazione. Questo significa che ogni richiesta è gestita come un'entità isolata e non è necessario mantenere uno stato globale tra le transazioni. Ciò semplifica la gestione delle transazioni e favorisce la scalabilità del sistema, consentendo di gestire un alto volume di richieste in modo efficiente e affidabile.
+
+## Web Services
+
+Il concetto di Web Service (WS) si riferisce a un'applicazione modulare auto-contenuta e auto-descrittiva progettata per essere accessibile tramite il web. 
+In sostanza, i Web Service rappresentano un'implementazione dell'Architettura Orientata ai Servizi (SOA). Il gruppo di lavoro W3C ha definito un Web Service come un sistema software progettato per facilitare l'interazione *interoperabile* e *automatica* tra macchine all'interno di una rete.
+
+Il web offre una serie di meccanismi fondamentali:
+1. **Identificare le risorse nella rete**: attraverso gli URI (in particolare gli URL), è possibile individuare in modo univoco le risorse su Internet, consentendo agli utenti di accedervi facilmente.
+2. **Trasferire dati**: grazie ai protocolli di comunicazione come HTTP e HTTPS, è possibile trasferire dati da un punto all'altro della rete in modo sicuro ed efficiente.
+3. **Linguaggio di markup per codificare le informazion**i: HTML è il linguaggio di markup principale utilizzato per strutturare e visualizzare le informazioni sul web.
+
+## XML
+
+XML, acronimo di eXtensible Markup Language, è un linguaggio di markup basato su testo che stabilisce un insieme di regole per codificare una vasta gamma di informazioni in un formato che può essere letto sia dagli esseri umani che dai computer. 
+Definisce una sintassi e specifica come le informazioni devono essere strutturate all'interno di un documento. Sebbene esistano regole opzionali, non sono obbligatorie per la validità di un documento XML.
+
+Ciò che distingue XML è la sua natura estensibile: il set di tag non è predefinito, il che significa che gli utenti possono creare i propri tag in base alle esigenze specifiche dell'applicazione o del contesto.
+
+La struttura di un documento XML è *gerarchica* e si compone di elementi che sono delimitati da un tag di apertura e uno di chiusura. Tipicamente, il documento inizia con un elemento root, chiamato XML declaration, che fornisce informazioni sulle proprietà del documento.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<GeocodeResponse>
+	<status>OK</status>
+	<result>
+	<type>establishment</type>
+	<type>point_of_interest</type>
+	<geometry>
+		<location type="GPS">
+			<lat>43.7210349</lat>
+			<lng>10.3898890</lng>
+		</location>
+	</geometry>
+	</result>
+</GeocodeResponse>
+```
+
+
+La rigorosa sintassi XML consente di determinare se un documento è "well-formed", ma è importante anche verificare che il documento sia valido, ovvero che abbia un significato coerente con la sua rappresentazione. Per garantire la validità, si utilizza un secondo documento chiamato XML Schema.
+Nel caso dell'esempio precedente, la latitudine e la longitudine sono obbligatorie, questo requisito può essere specificato nell'XML Schema, che definirebbe la struttura e le regole che il documento XML deve seguire affinché sia considerato valido.
