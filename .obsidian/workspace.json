@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DiscorsoCA.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DiscorsoCA.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DiscorsoCA.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DiscorsoCA.md"
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md"
               }
             }
           },
@@ -171,8 +171,8 @@
   },
   "active": "b8ed84b04c5cea14",
   "lastOpenFiles": [
-    "DiscorsoPECSN.md",
     "DiscorsoCA.md",
+    "DiscorsoPECSN.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
