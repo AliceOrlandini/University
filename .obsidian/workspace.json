@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "DiscorsoCA.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "DiscorsoCA.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "DiscorsoCA.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md"
+                "file": "DiscorsoCA.md"
               }
             }
           },
@@ -171,8 +171,11 @@
   },
   "active": "b8ed84b04c5cea14",
   "lastOpenFiles": [
-    "DiscorsoCA.md",
     "DiscorsoPECSN.md",
+    "README.md",
+    "TODO.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+    "DiscorsoCA.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
@@ -207,9 +210,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images/carry_look_ahead.webp",
     "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS Dynamic and FF Static Dynamic.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Flip Flop Static and Dynamic.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/CMOS-Comb.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Timing Issues.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Introduzione.md",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Untitled.canvas",
