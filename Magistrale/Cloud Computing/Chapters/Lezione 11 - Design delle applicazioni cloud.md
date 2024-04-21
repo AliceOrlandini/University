@@ -1,4 +1,3 @@
-
 ## Design di applicazioni cloud
 
 Le applicazioni cloud consistono in sistemi distribuiti composti da molteplici componenti che collaborano per fornire un servizio agli utenti. 
@@ -40,6 +39,8 @@ Questo significa che i servizi possono essere aggiunti, rimossi o sostituiti con
 Questa caratteristica rende il sistema flessibile ai cambiamenti ed espandibile. L'approccio SOA consente anche la composability, poiché un sistema può essere assemblato utilizzando una combinazione di servizi esistenti.
 
 Il paradigma di comunicazione basato su messaggi permette infine che la comunicazione tra servizi avvenga in modo *stateless*: ogni modulo tratta ogni transazione in modo separato, indipendentemente da ogni altra transazione. Questo significa che ogni richiesta è gestita come un'entità isolata e non è necessario mantenere uno stato globale tra le transazioni. Ciò semplifica la gestione delle transazioni e favorisce la scalabilità del sistema, consentendo di gestire un alto volume di richieste in modo efficiente e affidabile.
+
+<div style="page-break-after: always;"></div>
 
 ## Web Services
 
@@ -105,9 +106,39 @@ Attraverso il WSDL, i client possono comprendere automaticamente:
 
 Pertanto, ogni volta che un client desidera utilizzare un servizio di cui non ha conoscenza, richiede e analizza il documento WSDL e solo successivamente invoca il servizio tramite SOAP.
 
-L'architettura di un messaggio WSDL non è complessa perché deve gestire una grande varietà di servizi. Il messaggio è un documento XML composto da 2 sezioni: 
-1. **Service Interface Definition**:
-2. **Service Implementation Definition**:
+Le due sezioni principali di un messaggio WSDL sono:
+1. **Service Interface Definition**: questa sezione definisce l'interfaccia del servizio web in modo astratto. Include informazioni come l'endpoint del servizio, le operazioni supportate, i tipi di dati accettati e restituiti, e i protocolli di comunicazione utilizzati (ad esempio, HTTP, SOAP). Questa parte del WSDL descrive in sostanza "cosa" può fare il servizio web e come accedervi.
+2. **Service Implementation Definition**: questa sezione fornisce dettagli sull'implementazione effettiva del servizio web. Include informazioni su come le operazioni definite nell'interfaccia vengono effettivamente gestite, come vengono trasformati i dati di input e di output, e altre considerazioni tecniche relative alla realizzazione pratica del servizio. Questa parte del WSDL descrive "come" il servizio web viene implementato e fornito.
+
+Insieme, queste due sezioni forniscono una descrizione completa del servizio web, consentendo ad altri sistemi e applicazioni di comprendere come interagire con esso.
 
 ## REST
 
+SOAP è spesso considerato un protocollo complesso perché richiede la creazione di una struttura XML obbligatoria per lo scambio di messaggi.
+Di conseguenza, è comunemente impiegato in progetti di dimensioni grandi, dove la struttura e la formalità sono fondamentali. Tuttavia, in progetti di dimensioni medio-piccole, si preferisce spesso l'uso di REST (Representational State Transfer).
+
+REST fornisce un modello di design orientato ai servizi software che utilizzano un'architettura client-server con protocollo HTTP di comunicazione. In un sistema RESTful, un client invia una richiesta HTTP utilizzando uno dei metodi standard come PUT, GET, POST e DELETE, e il server risponde alle richieste fornendo le risorse richieste. 
+Questo approccio è spesso considerato più semplice e flessibile rispetto a SOAP, in quanto utilizza le convenzioni standard di HTTP e non richiede una struttura XML rigida per gli scambi di dati.
+
+REST permette di utilizzare molti formati standard come XML o JSON.
+
+## JSON
+
+JSON, acronimo di JavaScript Object Notation, è un formato standard leggibile dall'uomo per la trasmissione di dati strutturati. Originariamente, fu definito per applicazioni web per lo scambio di dati in modo asincrono, spesso utilizzato in tecnologie come AJAX.
+
+Il design di JSON è pensato per la leggerezza e la semplicità. Si basa su due principali strutture:
+1. **Collezione di Coppie Nome/Valore**: questa struttura consente di rappresentare i dati come un insieme di coppie "nome/valore". Ogni elemento dei dati ha un nome associato e un valore corrispondente, consentendo una facile identificazione e accesso ai dati.
+2. **Lista Ordinata di Valori**: JSON supporta anche la rappresentazione di dati come una lista ordinata di valori. Questo consente di definire una sequenza di valori senza necessariamente associarli a nomi specifici. Le liste ordinate sono utili per rappresentare collezioni di dati omogenei o dati senza una struttura complessa.
+
+<div style="page-break-after: always;"></div>
+
+## CRUD
+
+L'acronimo CRUD si riferisce alle principali operazioni eseguite su dati all'interno di un sistema di gestione di database relazionali. Queste operazioni sono: Create, Read, Update e Delete.
+Ogniuna di queste operazioni può essere mappata a uno specifico metodo HTTP:
+- **Create**: solitamente mappata al metodo HTTP POST, poiché si sta inviando dati per creare una nuova risorsa.
+- **Read**: mappata al metodo HTTP GET, poiché si sta richiedendo il recupero di dati esistenti.
+- **Update**: di solito mappata al metodo HTTP PUT o PATCH, a seconda della semantica desiderata. PUT viene utilizzato per sostituire completamente una risorsa esistente, mentre PATCH viene utilizzato per apportare modifiche parziali.
+- **Delete**: mappata al metodo HTTP DELETE, poiché si sta richiedendo l'eliminazione di una risorsa esistente.
+
+Questo mapping fornisce una convenzione standard per l'interazione tra client e server nelle operazioni CRUD all'interno di un'architettura RESTful.
