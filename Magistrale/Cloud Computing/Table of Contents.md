@@ -9,4 +9,5 @@
 9. [[Lezione 9 - Virtualizzazione Leggera]]
 10. [[Lezione 10 - Architetture Cloud]]
 11. [[Lezione 11 - Design delle applicazioni cloud]]
-12. 
+12. [[Lezione 12 - Applicazioni Scalabili]]
+13. [[Lezione 13 - Applicazioni geograficamente distribuite]]

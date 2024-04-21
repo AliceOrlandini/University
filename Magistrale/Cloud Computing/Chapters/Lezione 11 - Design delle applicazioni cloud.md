@@ -105,7 +105,9 @@ Attraverso il WSDL, i client possono comprendere automaticamente:
 
 Pertanto, ogni volta che un client desidera utilizzare un servizio di cui non ha conoscenza, richiede e analizza il documento WSDL e solo successivamente invoca il servizio tramite SOAP.
 
-Continuare Architettura Messaggio
+L'architettura di un messaggio WSDL non è complessa perché deve gestire una grande varietà di servizi. Il messaggio è un documento XML composto da 2 sezioni: 
+1. **Service Interface Definition**:
+2. **Service Implementation Definition**:
 
 ## REST
 
