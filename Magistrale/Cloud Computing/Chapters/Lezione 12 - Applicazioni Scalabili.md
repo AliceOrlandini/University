@@ -16,11 +16,13 @@ Nei sistemi backend, dove la scalabilità e l'affidabilità sono prioritari, l'a
 
 ## Comunicazione indiretta
 
-Il paradigma di comunicazione indiretta è richiesta per assicurare:
-- space uncoupling: il sender non sa o non ha bisogno di sapere l'identità del ricevitore e viceversa, quindi questi p
-- time uncoupling: 
+Il paradigma di comunicazione indiretta è fondamentale per garantire due aspetti chiave:
+1. **Space uncoupling**: qui, mittente e destinatario non devono conoscere l'identità reciproca. Questo permette la sostituzione dinamica dei partecipanti alla comunicazione (come la creazione o la rimozione di una VM). Per ottenere ciò, si introduce un intermediario che non ha un accoppiamento diretto tra mittente e destinatario.
+2. **Time uncoupling**: in questo contesto, mittente e destinatario hanno "vite" indipendenti. Ciò significa che possono esistere in tempi diversi durante la comunicazione, anche in un ambiente volatile. Questo è reso possibile dall'utilizzo di una comunicazione asincrona, in cui il mittente invia il messaggio all'intermediario e prosegue senza attendere, consentendo all'intermediario di consegnare il messaggio in modo tempestivo al destinatario. In questo modo, non è necessario che mittente e destinatario si trovino contemporaneamente nello stesso momento.
 
 ## Comunicazione orientata ai messaggi
+
+
 
 ## Coda dei messaggi
 

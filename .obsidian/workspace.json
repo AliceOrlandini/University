@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md"
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md"
               }
             }
           },
@@ -158,11 +158,12 @@
   },
   "active": "23568ad746df5cce",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
     "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "TODO.md",
     "DiscorsoCA.md",
     "DiscorsoPECSN.md",
@@ -189,7 +190,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images/probability.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/leakage.webp",
     "Magistrale/Electronics And Communication/Electronics/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Electronics And Communication/Electronics/Images/parallel_mul.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/adder_substractor.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/substractor.webp",
