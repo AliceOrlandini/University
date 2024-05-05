@@ -463,7 +463,7 @@ da cui si ricava che: $P\{1 < X \le 2 \} = F(2) - F(1) = \frac{1}{e} - \frac{1}{
 
 È sempre valida la *condizione di normalizzazione* che sostiene che $\sum_{-\infty}^{+\infty} p(a) = 1$
 
-Dalla PMF si può passare alla CDF nel seguente modo: $$\sum_{x\le a} p(x)$$
+Dalla PMF si può passare alla CDF nel seguente modo: $$F_{X}(a) = \sum_{x\le a} p(x)$$
 Ma si può fare anche il contrario, dalla CDF si ricava la PMF nel seguente modo: $$p(a) = F(a)-F(a^-)$$
 ## Probability Density Function
 
@@ -483,7 +483,7 @@ Questa operazione presuppone che la CDF sia differenziabile, per i nostri scopi 
 Spesso siamo interessati all'interazione tra due o più variabili aleatorie. Per esempio se consideriamo l'esperimento "lancio di una freccia su un bersaglio" e applichiamo un piano cartesiano in corrispondenza del centro del bersaglio, non è sufficiente conoscere la CDF di $X$ o la CDF di $Y$ ma dovremo studiarle congiuntamente l'una all'altra. 
 
 > [!note] JCDF
-> Date due variabili aleatorie (*discrete* o *continue*), la loro **Joint Comulative Distribution Function** (JCDF) è definita come: $F(x,y) = P\{X \le z, Y \le y\}$
+> Date due variabili aleatorie (*discrete* o *continue*), la loro **Joint Comulative Distribution Function** (JCDF) è definita come: $F(x,y) = P\{X \le x, Y \le y\}$
 
 Dove la virgola sta per *and* logico, infatti si sta considerando l'intersezione degli eventi $X \le x$ e $Y \le y$.
 
@@ -496,7 +496,7 @@ A partire dalla JCDF si possono calcolare le rispettive CDFs, basta osservare ch
 Anche in questo caso, possiamo ottenere le PMFs a partire dalla JPMF: $$p(x) = P\{X = x\} = P\{\bigcup_{i} (X = x, Y = y_{i})\} =$$
 Questi eventi sono *mutuamente disgiunti* quindi dall'unione posso passare alla somma di probabilità:
 $$= \sum_{i} P(X = x, Y = y_{i)}= \sum\limits_{i} p(x, y_i)$$
-Dalla JCDF si può ottenere la JPMF nel seguente modo: $$F(x,y) = P\{X \le x, Y \le y\} = \sum\limits_{x_{i}\le x} \sum\limits_{y_{j} \le y} p(x_{i}, y_{j})$$
+Dalla JPMF si può ottenere la JCDF nel seguente modo: $$F(x,y) = P\{X \le x, Y \le y\} = \sum\limits_{x_{i}\le x} \sum\limits_{y_{j} \le y} p(x_{i}, y_{j})$$
 Le probabilità $P\{X = x\}$ e $P\{Y = y\}$ vengono anche chiamate *probabilità marginali*.
 
 > [!note] JPDF

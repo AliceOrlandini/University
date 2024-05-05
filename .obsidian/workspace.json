@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md"
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md"
               }
             }
           },
@@ -158,6 +159,7 @@
   },
   "active": "23568ad746df5cce",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
@@ -168,7 +170,6 @@
     "DiscorsoCA.md",
     "DiscorsoPECSN.md",
     "README.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 9 - Virtualizzazione Leggera.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
