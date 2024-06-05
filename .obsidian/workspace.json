@@ -11,12 +11,8 @@
             "id": "a9def3bcca035e8e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TODO_CA.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -69,8 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -86,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO_CA.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO_CA.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "TODO_CA.md"
-              }
+              "state": {}
             }
           },
           {
@@ -157,7 +148,7 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "a9def3bcca035e8e",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
     "TODO_CA.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
