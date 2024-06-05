@@ -11,8 +11,12 @@
             "id": "a9def3bcca035e8e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "TODO_LSMSD.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "TODO_LSMSD.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "TODO_LSMSD.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "TODO_LSMSD.md"
+              }
             }
           },
           {
@@ -148,8 +157,9 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "a9def3bcca035e8e",
   "lastOpenFiles": [
+    "TODO_LSMSD.md",
     "TODO_CA.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
@@ -178,7 +188,6 @@
     "Magistrale/Cloud Computing/Chapters",
     "LICENSE",
     "DiscorsoLarge.md",
-    "SpuntiElectronics.md",
     "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/probability.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/leakage.webp",
