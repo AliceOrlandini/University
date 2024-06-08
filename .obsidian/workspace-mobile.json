@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "0ff23f8556ae12e3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Discorso_Cloud.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "TODO_LSMSD.md",
+            "file": "Discorso_Cloud.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "TODO_LSMSD.md",
+            "file": "Discorso_Cloud.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +127,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "TODO_LSMSD.md"
+            "file": "Discorso_Cloud.md"
           }
         }
       },
@@ -140,8 +153,10 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "d3cb1ba1b0343751",
+  "active": "0ff23f8556ae12e3",
   "lastOpenFiles": [
+    "TODO_LSMSD.md",
+    "Discorso_Cloud.md",
     "Magistrale/Cloud Computing/Laboratory/Lezione 1 -.md",
     "Magistrale/Cloud Computing/Laboratory",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
@@ -179,8 +194,6 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
-    "Magistrale/Large Scale Databases/Chapters/MongoDB.md",
-    "Magistrale/Electronics And Communication/Electronics/Project/FIR SRRC.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Senza nome",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
