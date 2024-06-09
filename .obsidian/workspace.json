@@ -13,24 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TODO_LSMSD.md",
+                "file": "Discorso_Cloud.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "c2014ed6f704d62e",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.6.2"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -97,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO_LSMSD.md",
+                "file": "Discorso_Cloud.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO_LSMSD.md",
+                "file": "Discorso_Cloud.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TODO_LSMSD.md"
+                "file": "Discorso_Cloud.md"
               }
             }
           },
@@ -168,7 +157,7 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "c2014ed6f704d62e",
+  "active": "a9def3bcca035e8e",
   "lastOpenFiles": [
     "TODO_LSMSD.md",
     "TODO_CA.md",
