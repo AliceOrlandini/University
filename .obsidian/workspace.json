@@ -18,8 +18,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "c2014ed6f704d62e",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.6.2"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -157,7 +168,7 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "a9def3bcca035e8e",
+  "active": "c2014ed6f704d62e",
   "lastOpenFiles": [
     "TODO_LSMSD.md",
     "TODO_CA.md",
