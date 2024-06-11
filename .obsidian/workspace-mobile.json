@@ -11,28 +11,11 @@
             "id": "d3cb1ba1b0343751",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TODO_LSMSD.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0ff23f8556ae12e3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Discorso_Cloud.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +81,6 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Discorso_Cloud.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -115,7 +97,6 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Discorso_Cloud.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -127,7 +108,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Discorso_Cloud.md"
+            "file": "TODO_LSMSD.md"
           }
         }
       },
@@ -153,7 +134,7 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "0ff23f8556ae12e3",
+  "active": "47d227c15ee73dd2",
   "lastOpenFiles": [
     "TODO_LSMSD.md",
     "Discorso_Cloud.md",
