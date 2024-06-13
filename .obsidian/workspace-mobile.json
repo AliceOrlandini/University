@@ -11,8 +11,12 @@
             "id": "d3cb1ba1b0343751",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Large Scale Databases/Esami Large.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "Magistrale/Large Scale Databases/Esami Large.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "Magistrale/Large Scale Databases/Esami Large.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -108,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "TODO_LSMSD.md"
+            "file": "Magistrale/Large Scale Databases/Esami Large.md"
           }
         }
       },
@@ -134,7 +140,7 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "47d227c15ee73dd2",
+  "active": "d3cb1ba1b0343751",
   "lastOpenFiles": [
     "TODO_LSMSD.md",
     "Discorso_Cloud.md",
