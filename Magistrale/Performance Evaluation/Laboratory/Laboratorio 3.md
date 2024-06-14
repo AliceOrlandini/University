@@ -94,8 +94,8 @@ $$x_{n}= |(a\cdot x_{n-1}+b)|_{m}$$
 dove $0 < m$, $a < m$, $b < m$, $x_{0}< m$
 Per migliorare le performance si divide per $m$.
 Se:
-- b = 0: abbiamo un *multiplicative LCG*
-- b > 0: abbiamo un *mixed LCG*
+- $b = 0$: abbiamo un *multiplicative LCG*
+- $b > 0$: abbiamo un *mixed LCG*
 
 Il periodo sarà per forza al massimo $m$ ma può essere più piccolo. 
 Se $P = m$ allora si dice che ho un *full period*.
@@ -124,18 +124,18 @@ Bisogna fare attenzione ad alcuni effetti collaterali nascosti:
 # Alcune proprietà degli LCGs
 
 Ogni numero può essere calcolato deterministicamente conoscendo $x_0$: 
-$$x_{i}= (a^{i}x_{0}+\frac{b(a^{i}-1)}{a-1})$$
+$$x_{i}= \left(a^{i}x_{0}+\frac{b(a^{i}-1)}{a-1}\right)$$
 Mi serve per dividere gli stream se ho più utenti (più streams).
 Problemi: 
 - $x_{i}$ può assumere valori solo razionali come ad esempio $\frac{1}{m}$, $\frac{2}{m}$, $\frac{3}{m}$, …, $\frac{P}{m}$. 
 - È per esempio impossibile ottenere $\frac{0.8}{m}$ 
 
 C++ mette a disposizione un generatore di numeri casuali: 
-int rand()
-void srand(unsigned seed)
+- int rand(
+- void srand(unsigned seed)
 Il grande problema è che questa funzione è dipendente dal compilatore, è un problema perché la stessa stream non è riproducibile su differenti architetture. Quindi non usare mai questa funzione nei progetti. 
 
-Su omnet++ useremo il generatore Mersenne-Twister che ha un periodo molto lungo ma occupa molta memoria, circa 2KB per istanza.
+Su OmNET++ useremo il generatore Mersenne-Twister che ha un periodo molto lungo ma occupa molta memoria, circa 2KB per istanza.
 
 # Testing RNGs
 

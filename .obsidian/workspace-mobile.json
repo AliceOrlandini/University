@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "f5fb989453018b7d",
+        "id": "891cd26934d048e9",
         "type": "tabs",
         "children": [
           {
-            "id": "d3cb1ba1b0343751",
+            "id": "1309886c1c2e9a24",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Large Scale Databases/Esami Large.md",
+                "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Esami Large.md",
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Esami Large.md",
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Large Scale Databases/Esami Large.md"
+            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md"
           }
         }
       },
@@ -140,8 +140,16 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "d3cb1ba1b0343751",
+  "active": "1309886c1c2e9a24",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
+    "Magistrale/Large Scale Databases/Presentation Speach.md",
+    "Magistrale/Large Scale Databases/Esami Large.md",
     "TODO_LSMSD.md",
     "Discorso_Cloud.md",
     "Magistrale/Cloud Computing/Laboratory/Lezione 1 -.md",
@@ -167,20 +175,12 @@
     "Magistrale/Electronics And Communication/Electronics/Images/basic_logic_cell.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos_example.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/interconnection.webp",
-    "Magistrale/Large Scale Databases/Esami Large.md",
     "SpuntiElectronics.md",
     "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
-    "Magistrale/Large Scale Databases/Presentation Speach.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
-    "Dynamic Load Balancing.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
-    "Magistrale/Electronics And Communication/Electronics/Chapters/Aritmetica.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Senza nome",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
