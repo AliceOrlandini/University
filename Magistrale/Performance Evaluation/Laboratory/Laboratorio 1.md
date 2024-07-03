@@ -90,6 +90,8 @@ Si può modellare un sistema continuo in uno discreto e viceversa ma bisogna sta
 
 Esempio: se voglio prendere un mutuo e voglio sapere quando finirò di pagarlo, se ho un tasso di interesse fisso, sarò in una situazione deterministica e quindi so esattamente quando finirò le rate; mentre, se il tasso di interesse è variabile, non posso saperlo in anticipo. 
 
+<div style="page-break-after: always;"></div>
+
 ### DES (Discrete Event Simulators)
 
 Questi sono una categoria di simulatori che trattano sistemi *dinamici*, *discreti* e *stocastici*. Sono perfetti per noi informatici perché ad esempio se consideriamo un network avrò:

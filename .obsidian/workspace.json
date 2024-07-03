@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "866408de0c4c1fc6",
+        "id": "e48dd766cd9e2488",
         "type": "tabs",
         "children": [
           {
-            "id": "45295e20af7e92c8",
+            "id": "0076cad60da8b45b",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -148,8 +148,18 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "45295e20af7e92c8",
+  "active": "0076cad60da8b45b",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 2.md",
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 1.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
     "Discorso_Cloud.md",
     "TODO_LSMSD.md",
     "TODO_CA.md",
@@ -166,16 +176,6 @@
     "DiscorsoPECSN.md",
     "README.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 9 - Virtualizzazione Leggera.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti 2.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 2.md",
     "Untitled",
     "Magistrale/Cloud Computing/Chapters",
     "LICENSE",
