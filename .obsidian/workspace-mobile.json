@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "021f2046d9244a9a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Scaletta_PECSN.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
+            "file": "Scaletta_PECSN.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
+            "file": "Scaletta_PECSN.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +127,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md"
+            "file": "Scaletta_PECSN.md"
           }
         }
       },
@@ -140,8 +153,9 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "1309886c1c2e9a24",
+  "active": "021f2046d9244a9a",
   "lastOpenFiles": [
+    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 4.md",
@@ -179,7 +193,6 @@
     "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Senza nome",
     "Magistrale/Electronics And Communication/Electronics/Images",
