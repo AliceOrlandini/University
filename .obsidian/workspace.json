@@ -18,19 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "84a5e5ca4c5f0c1c",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.6.5"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -167,7 +156,7 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "84a5e5ca4c5f0c1c",
+  "active": "0076cad60da8b45b",
   "lastOpenFiles": [
     "Scaletta_PECSN.md",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
