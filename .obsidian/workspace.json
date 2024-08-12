@@ -11,12 +11,8 @@
             "id": "0076cad60da8b45b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Scaletta_PECSN.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Scaletta_PECSN.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Scaletta_PECSN.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Scaletta_PECSN.md"
-              }
+              "state": {}
             }
           },
           {
@@ -156,7 +148,7 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "0076cad60da8b45b",
+  "active": "611f52b9f1839d1e",
   "lastOpenFiles": [
     "Scaletta_PECSN.md",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
