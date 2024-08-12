@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "e48dd766cd9e2488",
+        "id": "469f017b421454ac",
         "type": "tabs",
         "children": [
           {
-            "id": "0076cad60da8b45b",
+            "id": "60494b88bb8440dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Scaletta_FOC.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -29,7 +33,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "611f52b9f1839d1e",
+            "id": "3891ae41fb5020c1",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -65,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Scaletta_FOC.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Scaletta_FOC.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Scaletta_FOC.md"
+              }
             }
           },
           {
@@ -148,10 +157,16 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "611f52b9f1839d1e",
+  "active": "60494b88bb8440dc",
   "lastOpenFiles": [
-    "Scaletta_PECSN.md",
+    "TODO.md",
+    "Scaletta_FOC.md",
+    "Untitled Diagram.svg",
+    "Untitled.md",
+    "Untitled.canvas",
+    "2024-08-12.md",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
+    "Scaletta_PECSN.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
@@ -172,10 +187,6 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
     "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
-    "TODO.md",
-    "DiscorsoCA.md",
-    "DiscorsoPECSN.md",
-    "README.md",
     "Untitled",
     "Magistrale/Cloud Computing/Chapters",
     "LICENSE",
@@ -188,10 +199,8 @@
     "Magistrale/Electronics And Communication/Electronics/Images/pipeline.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/adder_ahead_scheme.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/carry_look_ahead_scheme.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/carry_look_ahead.webp",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
-    "Untitled.canvas",
     "Magistrale/Performance Evaluation/Teory/Images",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images",
     "Magistrale/Performance Evaluation/Laboratory/Images",
