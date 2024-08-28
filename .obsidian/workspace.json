@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Scaletta_FOC.md",
+                "file": "Magistrale/Cloud Computing/Table of Contents.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Scaletta_FOC.md",
+                "file": "Magistrale/Cloud Computing/Table of Contents.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Scaletta_FOC.md",
+                "file": "Magistrale/Cloud Computing/Table of Contents.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Scaletta_FOC.md"
+                "file": "Magistrale/Cloud Computing/Table of Contents.md"
               }
             }
           },
@@ -159,8 +158,10 @@
   },
   "active": "60494b88bb8440dc",
   "lastOpenFiles": [
-    "TODO.md",
+    "Magistrale/Cloud Computing/Laboratory/Lezione 1 - Parallel Programming.md",
+    "Magistrale/Cloud Computing/Table of Contents.md",
     "Scaletta_FOC.md",
+    "TODO.md",
     "Untitled Diagram.svg",
     "Untitled.md",
     "Untitled.canvas",
@@ -185,8 +186,6 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
-    "Magistrale/Cloud Computing/Table of Contents.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
     "Untitled",
     "Magistrale/Cloud Computing/Chapters",
     "LICENSE",
