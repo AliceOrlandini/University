@@ -11,11 +11,9 @@
             "id": "60494b88bb8440dc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "Magistrale/Cloud Computing/Table of Contents.md",
-                "mode": "source",
-                "source": false
+                "file": "TODO.md"
               }
             }
           }
@@ -69,7 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Table of Contents.md",
+                "file": "TODO.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Table of Contents.md",
+                "file": "TODO.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Cloud Computing/Table of Contents.md"
+                "file": "TODO.md"
               }
             }
           },
@@ -158,12 +156,13 @@
   },
   "active": "60494b88bb8440dc",
   "lastOpenFiles": [
-    "Magistrale/Cloud Computing/Laboratory/Lezione 1 - Parallel Programming.md",
-    "Magistrale/Cloud Computing/Table of Contents.md",
-    "Scaletta_FOC.md",
+    "Flow Diagram.md",
     "TODO.md",
+    "Scaletta_FOC.md",
+    "Magistrale/Cloud Computing/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+    "Magistrale/Cloud Computing/Laboratory/Lezione 1 - Parallel Programming.md",
     "Untitled Diagram.svg",
-    "Untitled.md",
     "Untitled.canvas",
     "2024-08-12.md",
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
@@ -185,7 +184,6 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
     "Untitled",
     "Magistrale/Cloud Computing/Chapters",
     "LICENSE",
