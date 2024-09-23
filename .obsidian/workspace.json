@@ -11,8 +11,12 @@
             "id": "cea4ddc8fd242bc3",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Intro.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Intro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Intro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Intro.md"
+              }
             }
           },
           {
@@ -150,6 +158,8 @@
   },
   "active": "cea4ddc8fd242bc3",
   "lastOpenFiles": [
+    "Intro.md",
+    "Magistrale/Advanced Networks",
     "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
     "TODO.md",
@@ -177,8 +187,6 @@
     "Scaletta_PECSN.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 5.md",
-    "Untitled",
     "Magistrale/Cloud Computing/Chapters",
     "LICENSE",
     "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
