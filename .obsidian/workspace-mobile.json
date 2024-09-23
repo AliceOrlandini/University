@@ -4,18 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "ac29ccd80d8dd69c",
+        "id": "cd9b3dce84aac7b4",
         "type": "tabs",
         "children": [
           {
-            "id": "dd453667562d1679",
+            "id": "43967d8643822cdc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Scaletta_PECSN.md",
-                "mode": "source",
-                "source": false
+                "file": "Senza nome.canvas",
+                "viewState": {
+                  "x": 0,
+                  "y": -204,
+                  "zoom": 0
+                }
               }
             }
           }
@@ -85,7 +88,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Scaletta_PECSN.md",
+            "file": "Senza nome.canvas",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +105,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Scaletta_PECSN.md",
+            "file": "Senza nome.canvas",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +117,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Scaletta_PECSN.md"
+            "file": "Senza nome.canvas"
           }
         }
       },
@@ -140,8 +143,10 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "dd453667562d1679",
+  "active": "43967d8643822cdc",
   "lastOpenFiles": [
+    "Senza nome.canvas",
+    "Magistrale/Advanced Networks/Chapters/Intro.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
     "Scaletta_PECSN.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
@@ -179,8 +184,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images/interconnection.webp",
     "SpuntiElectronics.md",
     "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Senza nome",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",

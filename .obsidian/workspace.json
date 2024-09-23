@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Intro.md",
+                "file": "Magistrale/Advanced Networks/Chapters/Intro.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Intro.md",
+                "file": "Magistrale/Advanced Networks/Chapters/Intro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Intro.md",
+                "file": "Magistrale/Advanced Networks/Chapters/Intro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Intro.md"
+                "file": "Magistrale/Advanced Networks/Chapters/Intro.md"
               }
             }
           },
@@ -158,7 +158,10 @@
   },
   "active": "cea4ddc8fd242bc3",
   "lastOpenFiles": [
-    "Intro.md",
+    "Magistrale/Advanced Networks/Table of Contents.md",
+    "Magistrale/Cloud Computing/Table of Contents.md",
+    "Magistrale/Advanced Networks/Chapters/Intro.md",
+    "Magistrale/Advanced Networks/Chapters",
     "Magistrale/Advanced Networks",
     "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
@@ -178,7 +181,6 @@
     "README.md",
     "Discorso_FOC.md",
     "Flow Diagram.md",
-    "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Cloud Computing/Laboratory/Lezione 1 - Parallel Programming.md",
     "Untitled Diagram.svg",
     "Untitled.canvas",
@@ -186,7 +188,6 @@
     "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
     "Scaletta_PECSN.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 7.md",
-    "Magistrale/Performance Evaluation/Laboratory/Laboratorio 6.md",
     "Magistrale/Cloud Computing/Chapters",
     "LICENSE",
     "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
@@ -204,7 +205,6 @@
     "Magistrale/Performance Evaluation/Teory/Chapters/Images",
     "Magistrale/Performance Evaluation/Laboratory/Images",
     "Magistrale/Electronics And Communication/Communication/Images",
-    "Magistrale/Performance Evaluation/Laboratory",
     "Grafo.canvas"
   ]
 }
