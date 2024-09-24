@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "773f2b98117148a4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -166,14 +179,14 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "7d79ccbf9b40ca11",
+  "active": "773f2b98117148a4",
   "lastOpenFiles": [
-    "Magistrale/Distributed Systems/Table of Contents.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+    "Magistrale/Distributed Systems/Table of Contents.md",
     "Magistrale/Distributed Systems/Chapters",
     "Magistrale/Distributed Systems",
     "Magistrale/Advanced Networks/Chapters/Intro.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Introduzione.md",
     "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",

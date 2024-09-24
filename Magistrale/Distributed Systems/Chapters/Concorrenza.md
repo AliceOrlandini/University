@@ -37,18 +37,34 @@ Il grafo risultante viene chiamato DAG (Directly Acyclic Graph) poiché è orien
 
 #### Rappresentazione Matematica
 
+##### Partial Order
 Un **partial order** (o ordine parziale) è una relazione che organizza un insieme di elementi in cui non tutti gli elementi sono necessariamente confrontabili tra loro. In altre parole, ci sono alcuni elementi che possono essere messi in ordine rispetto a una relazione, ma per altri elementi non è possibile dire quale precede l'altro.
 
 Per esempio, immagina di avere un gruppo di compiti da fare. Alcuni compiti devono essere fatti in un certo ordine (ad esempio, devi leggere un documento prima di scriverne un riassunto), mentre altri possono essere fatti in qualsiasi ordine, senza dipendenze. Questo insieme di compiti con vincoli di esecuzione è un esempio di ordine parziale.
 
-Le proprietà di un ordine parziale sono:
+Definito matematicamente, un **ordine parziale** su un insieme A è una relazione binaria $\leq_{P} = PC^{+}$.
 
-1. **Riflessività**: Ogni elemento è in relazione con sé stesso. Per esempio, un compito è sempre "prima o uguale" a sé stesso.
-   
-2. **Antisimmetria**: Se un elemento A è in relazione con un elemento B, e B è in relazione con A, allora A e B sono lo stesso elemento.
+##### Non-strict partial order
+Esistono anche altri ordini come il **non-strict partial order** (o ordine parziale non rigoroso), un tipo di relazione d'ordine in cui alcuni elementi possono essere confrontati con altri, ma non è richiesto che tutti gli elementi siano confrontabili tra loro. Questo tipo di ordine è chiamato "non-strict" perché permette la possibilità che un elemento possa essere in relazione con sé stesso.
 
-3. **Transitività**: Se A è in relazione con B e B è in relazione con C, allora A è in relazione con C.
+```mermaid
+graph TD; 
+	A-->A;
+	A-->B; 
+	B-->C;
+	A-->C;
+	D-->C;
+```
 
-Un esempio visivo potrebbe essere un grafo diretto (senza cicli), in cui alcune azioni o elementi sono collegati da frecce che indicano dipendenze, ma non tutte le azioni sono necessariamente collegate tra loro.
+Le proprietà di un non-strict partial order sono:
+1. **Riflessività**: Ogni elemento è in relazione con sé stesso. Per esempio, un compito è sempre "prima o uguale" a sé stesso, $\forall a\in A, a\leq_{P} a$.
+2. **Antisimmetria**: Se un elemento A è in relazione con un elemento B, e B è in relazione con A, allora A e B sono lo stesso elemento, $\forall a, b \in A, (a\leq_{P} b \text{ e } b\leq_{P} a) \Rightarrow a = b$
+3. **Transitività**: Se A è in relazione con B e B è in relazione con C, allora A è in relazione con C, $\forall a, b, c \in A, (a\leq_{P} b \text{ e } b\leq_{P} c) \Rightarrow a \leq_{P} c$
 
-In contrasto, un **total order** è un ordine in cui ogni coppia di elementi può essere confrontata, cioè ogni elemento ha una posizione precisa rispetto a tutti gli altri.
+##### Strict partial order
+Uno **strict partial order** (ordine parziale rigoroso) differisce dal non-strict in quanto:
+- Non è **riflessivo** ma **irriflessivo**: in un ordine rigoroso, $\not\exists \text{ } a < a$ la relazione  per nessun elemento a. In altre parole, nessun elemento è in relazione con sé stesso.
+- La relazione viene spesso indicata con il simbolo $<$ invece di $\leq$, per sottolineare che è rigorosa.
+
+##### Poset
+
