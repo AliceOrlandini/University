@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b88199a46556e132",
+        "id": "a72e70b9cd21c1e4",
         "type": "tabs",
         "children": [
           {
-            "id": "560496bc438beda7",
+            "id": "7d79ccbf9b40ca11",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/Intro.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/Intro.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/Intro.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/Intro.md"
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md"
               }
             }
           },
@@ -156,10 +156,18 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "560496bc438beda7",
+  "active": "7d79ccbf9b40ca11",
   "lastOpenFiles": [
-    "Senza nome.canvas",
+    "Magistrale/Distributed Systems/Table of Contents.md",
+    "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+    "Magistrale/Distributed Systems/Chapters",
+    "Magistrale/Distributed Systems",
     "Magistrale/Advanced Networks/Chapters/Intro.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Introduzione.md",
+    "Magistrale/Performance Evaluation/Teory/Chapters/Teoria della probabilità.md",
+    "Senza nome.canvas",
     "Magistrale/Advanced Networks/Table of Contents.md",
     "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Advanced Networks/Chapters",
@@ -180,14 +188,8 @@
     "Magistrale/Large Scale Databases/Chapters/Document Databases.md",
     "Scaletta_FOC.md",
     "README.md",
-    "Discorso_FOC.md",
-    "Flow Diagram.md",
-    "Magistrale/Cloud Computing/Laboratory/Lezione 1 - Parallel Programming.md",
     "Untitled Diagram.svg",
     "Untitled.canvas",
-    "2024-08-12.md",
-    "Magistrale/Performance Evaluation/Laboratory/OMNeT++.md",
-    "Scaletta_PECSN.md",
     "Magistrale/Cloud Computing/Chapters",
     "LICENSE",
     "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
@@ -203,8 +205,6 @@
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Magistrale/Performance Evaluation/Teory/Images",
     "Magistrale/Performance Evaluation/Teory/Chapters/Images",
-    "Magistrale/Performance Evaluation/Laboratory/Images",
-    "Magistrale/Electronics And Communication/Communication/Images",
     "Grafo.canvas"
   ]
 }

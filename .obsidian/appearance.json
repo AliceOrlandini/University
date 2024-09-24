@@ -2,10 +2,10 @@
   "accentColor": "#4a8af2",
   "theme": "system",
   "cssTheme": "AnuPpuccin",
-  "baseFontSize": 16,
+  "baseFontSize": 20,
   "enabledCssSnippets": [
     "text_style"
   ],
-  "textFontFamily": "Inter,Helvetica,Hanken Grotesk,Apple SD Gothic Neo",
+  "textFontFamily": "Apple SD Gothic Neo",
   "monospaceFontFamily": "Andale Mono"
 }
