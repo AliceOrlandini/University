@@ -136,8 +136,17 @@
               "type": "calendar",
               "state": {}
             }
+          },
+          {
+            "id": "79d07eea8279dff4",
+            "type": "leaf",
+            "state": {
+              "type": "mermaid-toolbar-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -153,7 +162,8 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-full-calendar:Open Full Calendar": false
+      "obsidian-full-calendar:Open Full Calendar": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
   "active": "7d79ccbf9b40ca11",
