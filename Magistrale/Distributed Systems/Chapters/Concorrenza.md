@@ -118,7 +118,7 @@ graph TD;
 Formalmente, date due azioni $a\in A$ e $b\in A$ , esse sono **concorrenti** se e solo se non esiste una relazione $a \leq_{P} b$ o $b \leq_{P} a$. 
 Questo implica che le azioni non sono soggette a vincoli di precedenza e quindi possono essere eseguite in modo indipendente, la concorrenza viene indicata con $a || b$.
 
-Attenzione perché la concorrenza non è legata alla transitività, ecco un esempio per provarlo: 
+Attenzione a non confondere la concorrenza con la transitività, ecco un esempio per provarlo: 
 ```mermaid
 graph TD; 
 	A-->B; 
@@ -127,6 +127,67 @@ graph TD;
 	C-->D;
 	E-->D;
 ```
-In questo caso, $b || c$, $c||e$ ma b non è concorrente ad e, nonostante sia transitivo. 
-La differenza chiave è che nella **concorrenza** non vi è alcuna relazione di dipendenza tra gli elementi, mentre la **transitività** rappresenta una dipendenza derivata da altre relazioni d'ordine già stabilite tra gli elementi.
+In questo caso, $b || c$, $c||e$ ma b non è concorrente ad e, cioè non si può fare il passaggio successivo come si fa con la regola transitiva. 
 
+##### Chain
+
+Una **chain** (catena) in un insieme parzialmente ordinato (POSET) è un sottoinsieme in cui tutti gli elementi sono completamente ordinati rispetto alla relazione d'ordine parziale. In altre parole, ogni coppia di elementi nella catena è confrontabile.
+In una chain vale l'ordine ordine totale ($\leq_{T}$), cioè un partial order ma con la proprietà aggiuntiva di **totalità**.
+
+Formalmente, dato un POSET P, un sottoinsieme $C\subseteq P$ è una chain se $\forall a,b \in C$, o $a\leq_{P} b$ oppure $b \leq_{P} a$. Questo significa che non ci sono elementi incomparabili all'interno di C, questa proprietà è detta totalità.
+
+Esempio.
+Dato il seguente Hasse Diagram:
+```mermaid
+graph TD; 
+	A-->B; 
+	A-->D;
+	B-->C;
+	D-->E;
+	D-->F;
+	C-->J;
+	C-->H;
+	J-->I;
+	H-->I;
+	E-->G;
+	F-->G;
+	G-->H;
+```
+
+Una chain rappresentata con l'Hasse diagram è:
+```mermaid
+graph TD; 
+	A-->D;
+	D-->F;
+	F-->G;
+```
+
+Se le volessi rappresentare senza l'Hasse Diagram dovrei inserire anche gli archi dati dalla proprietà transitiva, cioè:
+```mermaid
+graph TD; 
+	A-->D;
+	D-->F;
+	A-->F;
+	F-->G;
+	D-->G;
+```
+Potenzialmente, anche una singola azione può essere considerata una chain, è di fatto un caso limite.
+
+La **chain più lunga** in un **DAG** corrisponde al **critical path** (cammino critico). Questa chain ci è utile per diversi motivi, tra cui **determinare il tempo di esecuzione minimo**. 
+Il cammino critico rappresenta la sequenza di attività che impone la durata minima totale in termini di tempo di esecuzione per completare tutte le operazioni. Qualsiasi ritardo in questa chain ritarderà l'intera esecuzione perché non c'è possibilità di parallelizzare queste operazioni. 
+
+##### Synchronization Actions
+
+Nell'esempio precedente abbiamo individuato la chain A, D, F, G ma notiamo che prima di eseguire G anche E deve essere completato.
+```mermaid
+graph TD; 
+	A-->D;
+	D-->F;
+	D-.->E;
+	E-.->G;
+	F-->G;
+```
+E è tuttavia fuori dal chain quindi ci serve una relazione con il "mondo esterno" alla chain per evidenziare questo legame. 
+Per fare ciò, ogni volta che abbiamo una chain, si vanno a disegnare tutti gli archi entranti con il relativo nodo, queste vengono chiamate **synchronization actions** da cui si derivano i procedure constraints. 
+
+Un caso particolare è quello in cui abbiamo un solo worker (o un solo core) perché si può semplicemente inserire il nodo E all'interno del chain, prima del nodo G. Questo metodo viene chiamato **topological sorting** o **linear extension** e un modo per realizzarlo è usando l'algoritmo di Kahn.
