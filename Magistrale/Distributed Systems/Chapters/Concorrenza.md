@@ -66,7 +66,7 @@ Uno **strict partial order** (ordine parziale rigoroso) differisce dal non-stric
 - Non è **riflessivo** ma **irriflessivo**: in un ordine rigoroso, $\not\exists \text{ } a < a$ la relazione  per nessun elemento a. In altre parole, nessun elemento è in relazione con sé stesso.
 - La relazione viene spesso indicata con il simbolo $<$ invece di $\leq$, per sottolineare che è rigorosa.
 
-##### Poset (Partially Ordered Set)
+##### POSET (Partially Ordered Set)
 Un **POSET** (insieme parzialmente ordinato) è un insieme di elementi dotato di una relazione d'ordine parziale, che segue tre proprietà fondamentali: **riflessività**, **antisimmetria** e **transitività**.
 
 ##### Hasse Diagram
@@ -178,7 +178,7 @@ Il cammino critico rappresenta la sequenza di attività che impone la durata min
 
 ##### Synchronization Actions
 
-Nell'esempio precedente abbiamo individuato la chain A, D, F, G ma notiamo che prima di eseguire G anche E deve essere completato.
+Nell'esempio precedente abbiamo identificato la chain A, D, F, G. Tuttavia, prima di eseguire l'azione G, è necessario completare anche l'azione E, che non fa parte della chain.
 ```mermaid
 graph TD; 
 	A-->D;
@@ -187,7 +187,7 @@ graph TD;
 	E-.->G;
 	F-->G;
 ```
-E è tuttavia fuori dal chain quindi ci serve una relazione con il "mondo esterno" alla chain per evidenziare questo legame. 
-Per fare ciò, ogni volta che abbiamo una chain, si vanno a disegnare tutti gli archi entranti con il relativo nodo, queste vengono chiamate **synchronization actions** da cui si derivano i procedure constraints. 
 
-Un caso particolare è quello in cui abbiamo un solo worker (o un solo core) perché si può semplicemente inserire il nodo E all'interno del chain, prima del nodo G. Questo metodo viene chiamato **topological sorting** o **linear extension** e un modo per realizzarlo è usando l'algoritmo di Kahn.
+Questo significa che dobbiamo creare una relazione tra la chain e le azioni esterne ad essa, evidenziando la dipendenza tra E e G. Per rappresentare questo legame, ogni volta che identifichiamo una chain, disegniamo tutti gli archi entranti verso il relativo nodo. Queste dipendenze vengono chiamate **synchronization actions**, e da esse si derivano i **procedure constraints**.
+
+Un caso particolare si presenta quando abbiamo un solo worker (o un solo core). In questo scenario, possiamo semplicemente inserire il nodo E all'interno della chain, prima del nodo G, rispettando così le dipendenze. Questo processo è noto come **ordinamento topologico** (topological sorting) o **linear extension**, e può essere realizzato tramite l'algoritmo di Kahn.

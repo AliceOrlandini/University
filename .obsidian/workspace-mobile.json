@@ -11,14 +11,11 @@
             "id": "43967d8643822cdc",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Senza nome.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": -204,
-                  "zoom": 0
-                }
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -88,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Senza nome.canvas",
+            "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -105,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Senza nome.canvas",
+            "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -117,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Senza nome.canvas"
+            "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md"
           }
         }
       },
@@ -133,6 +130,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "mermaid-tools:Open Mermaid Toolbar": false,
       "switcher:Apri selezione rapida": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
@@ -145,6 +143,9 @@
   },
   "active": "43967d8643822cdc",
   "lastOpenFiles": [
+    "TODO.md",
+    "Scaletta_FOC.md",
+    "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Senza nome.canvas",
     "Magistrale/Advanced Networks/Chapters/Intro.md",
     "Magistrale/Performance Evaluation/Laboratory/Laboratorio 3.md",
@@ -182,8 +183,6 @@
     "Magistrale/Electronics And Communication/Electronics/Images/basic_logic_cell.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/complementary_cmos_example.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/interconnection.webp",
-    "SpuntiElectronics.md",
-    "Magistrale/Electronics And Communication/Electronics/Domande Esame.md",
     "Magistrale/Electronics And Communication/Electronics/Chapters/Senza nome",
     "Magistrale/Electronics And Communication/Electronics/Images",
     "Magistrale/Performance Evaluation/Laboratory",
