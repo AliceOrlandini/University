@@ -58,13 +58,75 @@ graph TD;
 
 Le proprietà di un non-strict partial order sono:
 1. **Riflessività**: Ogni elemento è in relazione con sé stesso. Per esempio, un compito è sempre "prima o uguale" a sé stesso, $\forall a\in A, a\leq_{P} a$.
-2. **Antisimmetria**: Se un elemento A è in relazione con un elemento B, e B è in relazione con A, allora A e B sono lo stesso elemento, $\forall a, b \in A, (a\leq_{P} b \text{ e } b\leq_{P} a) \Rightarrow a = b$
-3. **Transitività**: Se A è in relazione con B e B è in relazione con C, allora A è in relazione con C, $\forall a, b, c \in A, (a\leq_{P} b \text{ e } b\leq_{P} c) \Rightarrow a \leq_{P} c$
+2. **Antisimmetria**: Se un elemento A è in relazione con un elemento B, e B è in relazione con A, allora A e B sono lo stesso elemento, $\forall a, b \in A, (a\leq_{P} b \text{ e } b\leq_{P} a) \Rightarrow a = b$.
+3. **Transitività**: Se A è in relazione con B e B è in relazione con C, allora A è in relazione con C, $\forall a, b, c \in A, (a\leq_{P} b \text{ e } b\leq_{P} c) \Rightarrow a \leq_{P} c$.
 
 ##### Strict partial order
 Uno **strict partial order** (ordine parziale rigoroso) differisce dal non-strict in quanto:
 - Non è **riflessivo** ma **irriflessivo**: in un ordine rigoroso, $\not\exists \text{ } a < a$ la relazione  per nessun elemento a. In altre parole, nessun elemento è in relazione con sé stesso.
 - La relazione viene spesso indicata con il simbolo $<$ invece di $\leq$, per sottolineare che è rigorosa.
 
-##### Poset
+##### Poset (Partially Ordered Set)
+Un **POSET** (insieme parzialmente ordinato) è un insieme di elementi dotato di una relazione d'ordine parziale, che segue tre proprietà fondamentali: **riflessività**, **antisimmetria** e **transitività**.
+
+##### Hasse Diagram
+Un **Hasse diagram** è una rappresentazione grafica di un POSET. È un modo conveniente per visualizzare un insieme parzialmente ordinato, semplificando la rappresentazione della relazione d'ordine parziale. 
+In un Hasse diagram:
+- **Nodi** rappresentano gli elementi del POSET.
+- **Archi** rappresentano la relazione d'ordine, ma vengono mostrati solo tra gli elementi immediatamente successivi nel POSET. Gli archi transitivi non sono rappresentati direttamente per evitare ridondanze.
+- Le relazioni riflessive (come $a \leq_{P} a$) non sono mai rappresentate.
+- L'orientamento degli archi è implicito: gli elementi più "alti" nel diagramma sono maggiori rispetto a quelli più "bassi" secondo la relazione d'ordine.
+
+Esempio. 
+Elementi di PC:
+```mermaid
+graph TD; 
+	A-->D;
+	A-->B; 
+	A-->C;
+	B-->D;
+	C-->D;
+	D-->E;
+	C-->E;
+```
+
+Elementi di $PC^{+}$, vado ad aggiungere la proprietà transitiva:
+```mermaid
+graph TD; 
+	A-->D;
+	A-->B; 
+	A-->C;
+	A-->E;
+	B-->D;
+	B-->E;
+	C-->D;
+	D-->E;
+	C-->E;
+```
+Elementi dell'Hasse Diagram, vado a togliere tutte le ridondanze:
+```mermaid
+graph TD; 
+	A-->B; 
+	A-->C;
+	B-->D;
+	C-->D;
+	D-->E;
+```
+
+#### Concorrenza formalizzata
+
+Formalmente, date due azioni $a\in A$ e $b\in A$ , esse sono **concorrenti** se e solo se non esiste una relazione $a \leq_{P} b$ o $b \leq_{P} a$. 
+Questo implica che le azioni non sono soggette a vincoli di precedenza e quindi possono essere eseguite in modo indipendente, la concorrenza viene indicata con $a || b$.
+
+Attenzione perché la concorrenza non è legata alla transitività, ecco un esempio per provarlo: 
+```mermaid
+graph TD; 
+	A-->B; 
+	A-->C;
+	B-->E;
+	C-->D;
+	E-->D;
+```
+In questo caso, $b || c$, $c||e$ ma b non è concorrente ad e, nonostante sia transitivo. 
+La differenza chiave è che nella **concorrenza** non vi è alcuna relazione di dipendenza tra gli elementi, mentre la **transitività** rappresenta una dipendenza derivata da altre relazioni d'ordine già stabilite tra gli elementi.
 
