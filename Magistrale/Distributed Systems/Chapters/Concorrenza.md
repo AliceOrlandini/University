@@ -236,3 +236,37 @@ return S;
 
 Esempio. 
 
+```mermaid
+graph TD; 
+	A-->C;
+	B-->D;
+	C-->E;
+	C-->F;
+	C-->D;
+	D-->F;
+	E-->G;
+	F-->G;
+```
+
+*Stato Iniziale*
+SN = {A, B};
+S = [];
+M = {C, D, E, F, G};
+
+*Passo 1*
+Seleziono un nodo qualsiasi da SN, ad esempio A, e lo aggiungo a S. A ha un solo arco uscente verso C, quindi rimuovo l'arco che va da A a C. A questo punto verifico se C è diventato uno start node. In questo caso lo è, quindi sposto C da M a SN.
+SN = {B, C};
+S = [A];
+M = {D, E, F, G};
+
+*Passo 2*
+Seleziono C da SN e lo aggiungo a S. C ha tre archi uscenti, quindi li rimuovo e verifico se i nodi D, E e F sono diventati start nodes. E lo è, quindi lo sposto in SN, mentre gli altri due rimangono in M.
+SN = {B, E};
+S = [A, C];
+M = {D, F, G};
+
+*Passo 3*
+Seleziono B.
+SN = {B, E};
+S = [A, C];
+M = {D, F, G};
