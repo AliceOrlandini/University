@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "a72e70b9cd21c1e4",
+        "id": "e6fb8589c4f5d8fa",
         "type": "tabs",
         "children": [
           {
-            "id": "773f2b98117148a4",
+            "id": "697f206db2545c77",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -86,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +98,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,9 +119,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md"
-              }
+              "state": {}
             }
           },
           {
@@ -167,10 +159,10 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "773f2b98117148a4",
+  "active": "697f206db2545c77",
   "lastOpenFiles": [
-    "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
+    "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
     "conflict-files-obsidian-git.md",
