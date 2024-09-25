@@ -82,15 +82,38 @@ I requisiti fondamentali per la replicazione dei dati sono:
 - **Consistency**: tutte le repliche devono essere consistenti tra loro, in modo che un'operazione eseguita su una replica produca lo stesso risultato su tutte le altre.
 - **Resiliency**: il sistema deve essere resiliente ai fallimenti delle VM, garantendo continuità del servizio. Si assume che le partizioni di rete non si verifichino, un'ipotesi ragionevole dato che le VM sono generalmente connesse alla stessa LAN.
 
-## System Model 
+### System Model 
 
+In un sistema, i dati sono rappresentati come una collezione di oggetti, ad esempio file, classi o set di record. Ogni oggetto logico è implementato come una collezione di copie fisiche, dette repliche. 
+
+Ciascuna replica è gestita da un *replica manager*, un componente responsabile della memorizzazione di un'istanza della replica. Per garantire la consistenza, le repliche sono trattate come *state machines*, il che significa che non solo i dati, ma anche lo stato della macchina, vengono replicati.
+Ogni replica accetta operazioni di aggiornamento sui dati in modo recuperabile, consentendo il ripristino delle operazioni in caso di fallimento, garantendo così l'affidabilità del sistema.
 
 ## Gestione delle richieste
 
-## Group/Multicast Communication
+Una richiesta viene classificata come *query* se non altera lo stato dell'oggetto, mentre viene considerata un *update* se modifica lo stato.
 
-## Active Replication
+Le fasi principali per gestire le richieste dei client sono:
+1. **Request**: la richiesta viene ricevuta da un modulo di frontend, che la inoltra a uno o più *replica managers* (un'istanza del primo tier del backend).
+2. **Coordinazione**: i *replica managers* si coordinano per preparare l'esecuzione della richiesta. Questo può includere la decisione se la richiesta può essere eseguita immediatamente o deve essere posticipata per garantire la consistenza.
+3. **Esecuzione**: la richiesta viene eseguita dai *replica managers*, in base al tipo di richiesta (query o update).
+4. **Agreement**: i *replica managers* si assicurano di aver raggiunto un consenso sul risultato della richiesta, specialmente per gli *update*, per garantire la consistenza tra le repliche.
+5. **Response**: il risultato della richiesta viene inviato al client tramite il modulo di frontend.
 
-## Gossip
+Per la fase di *coordinazione* e *agreement*, viene utilizzato il **Group/Multicast Communication**, che permette di inviare un messaggio simultaneamente a tutti i membri di un gruppo. Questo meccanismo semplifica la comunicazione collettiva tra i *replica managers*, aumentando l'efficienza nel raggiungere un consenso. Tuttavia, l'adozione di questo approccio introduce maggiore complessità nel sistema, poiché richiede una gestione accurata della sincronizzazione e della consistenza tra tutte le repliche.
+
+Esistono diverse proprietà fondamentali dei sistemi Multicast:
+- **Reliable/Atomic Multicast**: garantisce che tutti i membri di un gruppo ricevano o non ricevano un messaggio, assicurando che nessuno resti in uno stato incoerente. Questo approccio è cruciale per evitare situazioni in cui alcune repliche applicano un aggiornamento e altre no.
+- **Total/Causal Order Multicast**: 
+  - Nel *Total Order Multicast*, tutti i messaggi vengono ricevuti dai membri del gruppo nello stesso ordine, indipendentemente dall'ordine di invio.
+  - Nel *Causal Order Multicast*, l'ordine dei messaggi riflette le dipendenze causali, cioè i messaggi vengono ricevuti in un ordine che rispetta le relazioni causa-effetto.
+- **View-Synchronous Communication**: in questo modello, ogni replica ha una visione condivisa del gruppo, e qualsiasi cambiamento nella composizione del gruppo (ad esempio, l'ingresso o l'uscita di un membro) è noto a tutti i partecipanti prima che possano essere inviati nuovi messaggi, garantendo una comunicazione coerente.
+
+### Primary Backup Replication
+
+La **Passive** o **Primary Backup Replication** è la più semplice strategia di replication e si usa per tutte quelle applicazioni in cui bisogna garantire high availability. 
+### Active Replication
+
+## Gossip Architecture
 
 ## ZooKepeer

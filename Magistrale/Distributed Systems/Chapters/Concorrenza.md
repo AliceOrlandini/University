@@ -166,6 +166,7 @@ Se le volessi rappresentare senza l'Hasse Diagram dovrei inserire anche gli arch
 ```mermaid
 graph TD; 
 	A-->D;
+	A-->G;
 	D-->F;
 	A-->F;
 	D-->G;
