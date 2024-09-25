@@ -9,7 +9,7 @@ La metodologia di design utilizzata è la SOA (Service-Oriented Architecture), i
 
 ## Request-Reply communication
 
-Entrambe SOAP e REST adottano un protocollo di comunicazione Request-Reply, il che implica una comunicazione asincrona in cui il client rimane in attesa fino a ricevere una risposta dal server (*time-coupled*). Questo tipo di comunicazione è affidabile in quanto la risposta funge da conferma di ricezione della richiesta.
+Entrambe SOAP e REST adottano un protocollo di comunicazione Request-Reply, il che implica una comunicazione sincrona in cui il client rimane in attesa fino a ricevere una risposta dal server (*time-coupled*). Questo tipo di comunicazione è affidabile in quanto la risposta funge da conferma di ricezione della richiesta.
 Inoltre, questa comunicazione è diretta, consentendo al client e al server di interagire senza intermediari (*space-coupling*). Tuttavia, questa caratteristica può presentare delle sfide in alcuni contesti, poiché può essere necessario un intermediario per garantire la scalabilità, la sicurezza o altre esigenze di gestione della comunicazione.
 
 Nei sistemi backend, dove la scalabilità e l'affidabilità sono prioritari, l'approccio basato su time e space coupling può compromettere le prestazioni. Una comunicazione sincrona diretta tra client e backend può sovraccaricare il sistema e limitare la flessibilità nel ridimensionamento delle risorse. È preferibile adottare approcci asincroni e a basso accoppiamento per distribuire le richieste in modo efficace su più istanze del backend, garantendo una migliore gestione del carico e una maggiore affidabilità.
@@ -22,9 +22,37 @@ Il paradigma di comunicazione indiretta è fondamentale per garantire due aspett
 
 ## Comunicazione orientata ai messaggi
 
+Per le applicazioni cloud sono stati introdotti nuovi paradigmi di comunicazione di tipo *indiretto* e *message-oriented*. In questi modelli, la sorgente e la destinazione non stabiliscono un canale di comunicazione diretto (come avviene in TCP/UDP), ma il trasmettitore inietta il messaggio in un *bus condiviso*.
 
+Questo bus condiviso è gestito da un intermediario: il trasmettitore invia il messaggio all'intermediario, il quale si occupa di recapitarlo al destinatario. Lo stesso processo avviene in caso di una risposta.
+Nel tempo, sono emersi due principali tipi di intermediari: il **broker** e la **message queue**.
 
-## Coda dei messaggi
+### Broker
+
+La prima implementazione che possiamo considerare è il meccanismo di *publish-subscribe*. In questo modello, i trasmettitori, chiamati *publishers*, inviano strutture dati, solitamente eventi, mentre i ricevitori, detti *subscribers*, si iscrivono per ricevere i messaggi di loro interesse.
+
+Al centro del sistema troviamo il *message broker*, che si occupa di inoltrare i messaggi dai *publishers* ai *subscribers*. Questo modello permette una comunicazione di tipo uno-a-molti (1 → many).
+
+Esistono tre principali modalità di sottoscrizione:
+- **Channel Based**: i subscribers si iscrivono a canali specifici, ricevendo tutti i messaggi che vi transitano, indipendentemente dal contenuto.
+- **Topic Based**: i subscribers si iscrivono a uno o più *topic*, ricevendo solo i messaggi associati a quei *topic*, offrendo una maggiore granularità rispetto al modello basato sui canali.
+- **Type Based**: i subscribers si iscrivono in base al *tipo di dato* o messaggio, ricevendo solo quelli che corrispondono a un certo tipo predefinito.
+### Message Queue
+
+Il secondo approccio implementativo è il *message queue*, che fornisce uno scambio di messaggi di tipo point-to-point tra produttore e consumatore. In questo modello, il trasmettitore inserisce un messaggio in una coda, che verrà poi rimosso e processato dal ricevitore.
+
+Lo scambio avviene all'interno del *Message Queueing System*, dove possono esistere più code. Sia il trasmettitore che il ricevitore possono decidere in quale coda inserire o prelevare i messaggi, garantendo così flessibilità nel flusso di comunicazione.
+
+Il set di operazioni offerte dal *Message Queueing System* è semplice e comprende:
+- **Send**: utilizzato dal produttore per inserire messaggi nella coda.
+- **Blocking Receive**: utilizzato dal consumatore per attendere in modo sincrono fino a quando un messaggio di suo interesse diventa disponibile nella coda.
+- **Non-blocking Receive**: chiamato anche polling, permette al consumatore di verificare lo stato della coda in modo asincrono. Se un messaggio è disponibile, viene restituito, altrimenti non accade nulla.
+- **Notify**: utilizzato dal system message queue per notificare al consumatore la disponibilità di un messaggio nella coda a cui è iscritto.
+
+Ogni messaggio è composto da un identificatore della coda di destinazione e metadata come ad esempio la priorità o la modalità di delivery.
+Il corpo del messaggio è solitamente ignorato dal sistema.
+La politica delle code è generalmente FIFO ma alcune supportano il concetto di priorità.
+Un consumatore può anche selezionare mess
 
 ## Messaggi
 
@@ -34,4 +62,3 @@ Il paradigma di comunicazione indiretta è fondamentale per garantire due aspett
 
 ## Gestione delle richieste
 
-## 
