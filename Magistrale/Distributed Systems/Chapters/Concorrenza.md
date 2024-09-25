@@ -267,6 +267,46 @@ M = {D, F, G};
 
 *Passo 3*
 Seleziono B.
-SN = {B, E};
-S = [A, C];
-M = {D, F, G};
+SN = {E, D};
+S = [A, C, B];
+M = {F, G};
+
+*Passo 4*
+Seleziono D.
+SN = {E, F};
+S = [A, C, B, D];
+M = {G};
+
+*Passo 5*
+Seleziono F.
+SN = {E};
+S = [A, C, B, D, F];
+M = {G};
+
+*Passo 6*
+Seleziono E.
+SN = {G};
+S = [A, C, B, D, F, E];
+M = {};
+
+*Passo 7*
+Seleziono G.
+SN = {};
+S = [A, C, B, D, F, E, G];
+M = {};
+
+Il controllo finale è superato in quanto tutti gli archi sono stati tolti.
+Da notare che la soluzione non è unica e che gli archi da C a B e da F a E non erano presenti nel partial order originale.
+
+```mermaid
+graph TD; 
+	A-->C;
+	C-->B;
+	B-->D;
+	D-->F;
+	F-->E;
+	E-->G;
+```
+
+### Performance con più worker
+
