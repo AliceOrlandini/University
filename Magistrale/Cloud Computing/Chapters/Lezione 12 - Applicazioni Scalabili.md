@@ -111,7 +111,16 @@ Esistono diverse proprietà fondamentali dei sistemi Multicast:
 
 ### Primary Backup Replication
 
-La **Passive** o **Primary Backup Replication** è la più semplice strategia di replication e si usa per tutte quelle applicazioni in cui bisogna garantire high availability. 
+La **Passive** o **Primary Backup Replication** è una delle strategie di replicazione più semplici, utilizzata per garantire alta disponibilità e tolleranza ai guasti. In questo schema, una singola replica viene selezionata come primaria (*master*), mentre le altre fungono da backup (*slave*).
+
+I frontends comunicano esclusivamente con il *primary replica manager*, che gestisce le richieste e si occupa di inviare le copie degli aggiornamenti ai backup. In caso di fallimento del primario, uno dei backup viene eletto come nuovo primario, assicurando la continuità del servizio.
+
+Vediamo le cinque fasi della **Primary Backup Replication**:
+1. **Request**: Il frontend invia una richiesta al primario, includendo un identificatore univoco per evitare duplicati.
+2. **Coordinazione**: Il *primary replica manager* gestisce le richieste nell'ordine di arrivo. Controlla l'identificatore della richiesta e, se è già stata eseguita, restituisce la risposta precedente. Non è necessaria la coordinazione tra i *replica managers* in questa fase.
+3. **Esecuzione**: Il primario esegue la richiesta, memorizzando sia lo stato aggiornato che la risposta.
+4. **Agreement**: Se la richiesta comporta un aggiornamento, il primario invia lo stato aggiornato, la risposta e l'identificatore univoco a tutti i backup. I backup confermano la ricezione inviando un ACK. Per questa fase si può utilizzare l'*atomic multicast* per garantire la consistenza.
+5. **Response**: Il primario risponde al frontend, che inoltra la risposta al client.
 ### Active Replication
 
 ## Gossip Architecture
