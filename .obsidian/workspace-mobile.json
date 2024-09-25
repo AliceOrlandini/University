@@ -1,0 +1,147 @@
+{
+  "main": {
+    "id": "9382dd4afffe3cfa",
+    "type": "split",
+    "children": [
+      {
+        "id": "c32c0ff1ff1e1f78",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9fa5eb758a928069",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "88b22c8dc7142c52",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "1eeb0588d53f1c8f",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "7e642a17b556e52e",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "66eabd0ea66293cb",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "c64a54f8f7e0bdb8",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "512fdaf73e7c5e9c",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "e972cfd4863976a3",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {}
+        }
+      },
+      {
+        "id": "1ae97a568d43cce4",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "206c43064ba96d68",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "92bfed06ca81be44",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-full-calendar:Open Full Calendar": false,
+      "mermaid-tools:Open Mermaid Toolbar": false,
+      "switcher:Apri selezione rapida": false,
+      "graph:Apri vista grafo": false,
+      "canvas:Crea nuova lavagna": false,
+      "daily-notes:Apri nota del giorno": false,
+      "templates:Inserisci modello": false,
+      "command-palette:Apri riquadro comandi": false
+    }
+  },
+  "active": "9fa5eb758a928069",
+  "lastOpenFiles": []
+}
