@@ -12,7 +12,7 @@ La differenza principale tra **processi** e **thread** riguarda la condivisione 
 #### Definizioni
 
 Definiamo i seguenti elementi per descrivere un modello di esecuzione concorrente:
-- **A**: Un insieme di azioni, che rappresenta le operazioni o le attività da eseguire in un sistema. Ogni azione può essere considerata un'entità atomica che, all'interno di un contesto concorrente, può essere eseguita indipendentemente o in coordinamento con altre azioni.
+- **A (Actions)**: Un insieme di azioni, che rappresenta le operazioni o le attività da eseguire in un sistema. Ogni azione può essere considerata un'entità atomica che, all'interno di un contesto concorrente, può essere eseguita indipendentemente o in coordinamento con altre azioni.
 - **PC (Precedence Constraints)**: Un insieme di vincoli di precedenza, che definiscono le dipendenze temporali tra le azioni. Alcune azioni devono necessariamente essere completate prima che altre possano iniziare.
 
 Nel contesto di un grafo, rappresentiamo:
@@ -93,11 +93,11 @@ graph TD;
 Elementi di $PC^{+}$, vado ad aggiungere la proprietà transitiva:
 ```mermaid
 graph TD; 
-	A-->D;
 	A-->B; 
 	A-->C;
-	A-->E;
 	B-->D;
+	A-->D;
+	A-->E;
 	B-->E;
 	C-->D;
 	D-->E;
@@ -168,8 +168,8 @@ graph TD;
 	A-->D;
 	D-->F;
 	A-->F;
-	F-->G;
 	D-->G;
+	F-->G;
 ```
 Potenzialmente, anche una singola azione può essere considerata una chain, è di fatto un caso limite.
 
