@@ -49,16 +49,48 @@ Il set di operazioni offerte dal *Message Queueing System* è semplice e compren
 - **Non-blocking Receive**: chiamato anche polling, permette al consumatore di verificare lo stato della coda in modo asincrono. Se un messaggio è disponibile, viene restituito, altrimenti non accade nulla.
 - **Notify**: utilizzato dal system message queue per notificare al consumatore la disponibilità di un messaggio nella coda a cui è iscritto.
 
-Ogni messaggio è composto da un identificatore della coda di destinazione e metadata come ad esempio la priorità o la modalità di delivery.
-Il corpo del messaggio è solitamente ignorato dal sistema.
-La politica delle code è generalmente FIFO ma alcune supportano il concetto di priorità.
-Un consumatore può anche selezionare mess
+#### Messaggi
 
-## Messaggi
+Ogni messaggio è composto da un identificatore della coda di destinazione e da metadati, come la priorità o la modalità di consegna. Il corpo del messaggio, invece, è solitamente ignorato dal sistema stesso.
+Le code seguono generalmente una politica FIFO (First In, First Out), anche se alcune supportano priorità per gestire l'ordine di consegna dei messaggi. Inoltre, un consumatore può selezionare i messaggi dalla coda in base alle loro proprietà specifiche.
 
-## Scalabilità
+Una caratteristica fondamentale del *message queue system* è la **persistenza** dei messaggi: la coda memorizza i messaggi indefinitamente (finché non vengono consumati) e li salva su disco per garantire una consegna affidabile.
+
+È possibile applicare una trasformazione ai messaggi all'arrivo, una pratica utile soprattutto per facilitare la comunicazione tra sistemi eterogenei. Un esempio comune è la conversione tra formati di notazione come *big-endian* e *little-endian*, permettendo così l'interoperabilità tra dispositivi che utilizzano rappresentazioni dati differenti.
+
+#### Scalabilità
+
+Le code di messaggi sono ideali per i servizi di comunicazione nel backend di un'applicazione cloud, poiché gestiscono efficacemente la dinamicità dell'ambiente. Ad esempio, possono supportare sistemi in cui il numero di VM in un cluster varia per gestire il *load balancing*. 
+In questo scenario, i produttori non devono attendere la creazione o l'attivazione di una VM per elaborare il messaggio; possono semplicemente inserirlo nella coda, consentendo una gestione più flessibile e scalabile dei carichi di lavoro.
+
+### Implementazione
+
+Sia i *Brokers* che i *Message Queuing Systems* possono essere implementati in modo centralizzato o distribuito. Nella versione centralizzata, sono rappresentati da una singola VM, con gli svantaggi di mancanza di resilienza e scalabilità, poiché costituiscono un unico punto di fallimento e possono diventare un collo di bottiglia per le prestazioni.
+
+L'approccio distribuito, sebbene più complesso, offre coordinazione e replica dei dati, garantendo maggiore scalabilità e resilienza. 
+
+L'*Advanced Message Queueing Protocol* (AMQP) è uno dei protocolli più adottati per implementare i *Message Queueing Systems*, grazie alle sue capacità di interoperabilità e affidabilità.
 
 ## Replicazione dati
 
+Nelle applicazioni cloud, ogni *tier* è composto da un cluster di VM che implementano la stessa funzionalità per garantire performance, scalabilità, disponibilità e tolleranza ai guasti. La replicazione dei dati tra le VM all'interno dello stesso *tier* è essenziale per assicurare che tutte possano operare sullo stesso insieme di dati aggiornati.
+
+La replicazione dei dati è solitamente realizzata attraverso lo scambio di messaggi tra le VM del cluster. Quando si gestiscono grandi dataset, si ricorre spesso a uno storage condiviso; tuttavia, anche in questo scenario, lo scambio di messaggi tra VM rimane cruciale per il coordinamento delle operazioni.
+
+I requisiti fondamentali per la replicazione dei dati sono:
+- **Replication Transparency**: la replicazione deve essere trasparente agli utenti, permettendo loro di accedere a copie diverse dei dati senza notare alcuna differenza.
+- **Consistency**: tutte le repliche devono essere consistenti tra loro, in modo che un'operazione eseguita su una replica produca lo stesso risultato su tutte le altre.
+- **Resiliency**: il sistema deve essere resiliente ai fallimenti delle VM, garantendo continuità del servizio. Si assume che le partizioni di rete non si verifichino, un'ipotesi ragionevole dato che le VM sono generalmente connesse alla stessa LAN.
+
+## System Model 
+
+
 ## Gestione delle richieste
 
+## Group/Multicast Communication
+
+## Active Replication
+
+## Gossip
+
+## ZooKepeer
