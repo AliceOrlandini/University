@@ -192,3 +192,47 @@ graph TD;
 Questo significa che dobbiamo creare una relazione tra la chain e le azioni esterne ad essa, evidenziando la dipendenza tra E e G. Per rappresentare questo legame, ogni volta che identifichiamo una chain, disegniamo tutti gli archi entranti verso il relativo nodo. Queste dipendenze vengono chiamate **synchronization actions**, e da esse si derivano i **procedure constraints**.
 
 Un caso particolare si presenta quando abbiamo un solo worker (o un solo core). In questo scenario, possiamo semplicemente inserire il nodo E all'interno della chain, prima del nodo G, rispettando così le dipendenze. Questo processo è noto come **ordinamento topologico** (topological sorting) o **linear extension**, e può essere realizzato tramite l'algoritmo di Kahn.
+
+### Algoritmo di Kahn
+
+L'algoritmo di Kahn risolve il problema di ordinare le actions di un sistema concorrente, affinché vengano eseguite in modo sequenziale da un singolo worker (o una sola CPU). L'ordine delle azioni non può essere casuale, ma deve rispettare i vincoli di precedenza. Vediamo come funziona l'algoritmo.
+
+Le azioni vengono suddivise in tre insiemi:
+1. **Start Nodes (SN)**: insieme di tutti i nodi senza archi entranti, ovvero quelli da cui è possibile iniziare poiché non dipendono da altre azioni precedenti.
+2. **Solution List (S)**: lista ordinata delle actions, che rappresenta la soluzione al problema. Alla fine dell'algoritmo, questa lista conterrà l'ordine con cui il worker eseguirà le operazioni.
+3. **Other Nodes (M)**: tutti gli altri nodi che non appartengono agli altri insiemi.
+
+L'obiettivo dell'algoritmo è spostare gradualmente tutti i nodi da SN e M alla lista S, rispettando i vincoli di precedenza.
+
+```c++
+while(SN != 0) {
+	// preleva un nodo n da SN e aggiungilo 
+	// in append alla lista S
+	n = SN.getOne();
+	S.append(n);
+	// per ogni nodo m raggiungibile da n tramite l'arco r
+	for(m) {
+		// togli l'arco r dal grafo
+		graph.remove(r);
+		// se m togliendo l'arco r è diventato 
+		// uno starting node (cioè non ha archi entranti)
+		if(isStartingNode(m)) {
+			// sposta m da M a SM perché è diventato uno
+			// starting node
+			M.remove(m);
+			SM.append(m);
+		}
+	}
+}
+// quando arrivo qui vuol dire che SN è vuoto
+// se il grafo ha ancora archi vuol dire che 
+// c'è stato un problema, il grafo non era DAG
+if(hasArchs(graph)) {
+	throw e; 
+}
+// altrimenti ritorno la lista con la soluzione
+return S;
+```
+
+Esempio. 
+
