@@ -343,18 +343,42 @@ Facendo il limite per $n \rightarrow \infty$, otteniamo:
 $$
 \lim_{n\to\infty} \cfrac{1}{\alpha + \cfrac{1-\alpha}{n}} = \cfrac{1}{\alpha}
 $$
+Vediamo lo speedup $\sigma$ (asse Y) confrontato con il numero di worker $n$ (asse X).
+Questo primo grafico rappresenta la versione ideale con $\alpha = 0$ ovvero un programma tutto parallelizzabile:
 
 ```chart
-	type: "linechart"
-	labels: ["Ciao", "Ciao", "Ciao"]
-	series:
-		-title: "Ciao"
-		data:
-			[1, 2, 3]
-		
+type: line
+labels: [1, 2, 3, 4, 5]
+series:
+  - title: 1, 2, 3, 4
+    data: [1, 2, 3, 4]
+tension: 0.2
+width: 80%
+labelColors: false
+fill: false
+beginAtZero: false
+bestFit: false
+bestFitTitle: undefined
+bestFitNumber: 0
 ```
 
+Il seguente invece è quello con $\alpha = 1$ ovvero un programma che non è parallelizzabile ma sequenziale, non c'è beneficio a parallelizzare quindi lo speedup è sempre 1:
 
+```chart
+type: line
+labels: [1, 2, 3, 4, 5]
+series:
+  - title: 1, 2, 3, 4
+    data: [1, 1, 1, 1]
+tension: 0.2
+width: 80%
+labelColors: false
+fill: false
+beginAtOne: true
+bestFit: false
+bestFitTitle: undefined
+bestFitNumber: 0
+```
 
 
 
