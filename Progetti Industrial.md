@@ -18,3 +18,10 @@ github.com/enricollen/TravelTales
 ## Secondo Progetto
 
 Risolvere un problema, cercare ad esempio su internet su tecnologie sull'automotive.
+Non ho ben capito ma la macchina si genera un calendario delle cose da fare come ad esempio andare a prendere i figli a scuola oppure se la macchina si accorge che ha una ruota sgonfia prenota il meccanico.
+Si definiscono i functional e non functional requirements, lui di quest'ultimi ne ha definiti diversi a seconda della potenza della connessione ad internet.
+Poi si definisce l'architettura.
+Tutto il resto è analisi dei rischi e cose così.
+
+A questo punto si passa al prototipo, non deve essere per forza come l'idea, può essere una prima versione semplificata.
+Lui ha usato text-to-speech e speech-to-text e le mappe di google.
