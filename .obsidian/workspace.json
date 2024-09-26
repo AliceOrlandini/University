@@ -11,8 +11,12 @@
             "id": "92e4c72d392b6e41",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Progetti Industrial.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Progetti Industrial.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Progetti Industrial.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Progetti Industrial.md"
+              }
             }
           },
           {
@@ -162,6 +170,7 @@
   },
   "active": "92e4c72d392b6e41",
   "lastOpenFiles": [
+    "Progetti Industrial.md",
     "Magistrale/Distributed Systems/Table of Contents.md",
     "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
@@ -192,7 +201,6 @@
     "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Advanced Networks/Chapters",
     "Magistrale/Advanced Networks",
-    "TODO.md",
     "Untitled Diagram.svg",
     "Untitled.canvas",
     "Magistrale/Cloud Computing/Chapters",
