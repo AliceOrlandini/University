@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "354abd15c9db0f91",
+        "id": "fd26becab492005d",
         "type": "tabs",
         "children": [
           {
-            "id": "2a5fd3bab4d85537",
+            "id": "13b28dcddd987453",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -166,13 +166,14 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "2a5fd3bab4d85537",
+  "active": "13b28dcddd987453",
   "lastOpenFiles": [
+    "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
+    "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Advanced Networks/Chapters/Intro.md",
     "Magistrale/Advanced Networks/Table of Contents.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
-    "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
     "conflict-files-obsidian-git.md",
@@ -180,7 +181,6 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 9 - Virtualizzazione Leggera.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
