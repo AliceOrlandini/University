@@ -310,3 +310,54 @@ graph TD;
 
 ### Performance con più worker
 
+Analizziamo come le performance del programma variano quando abbiamo accesso a **più worker** (ovvero, più risorse computazionali). Il nostro obiettivo è eseguire le azioni concorrenti in parallelo.
+Definiamo:
+- $P$: il programma nella sua versione sequenziale.
+- $P^{'}$: il programma nella versione parallelizzata (potenzialmente più efficiente).
+- $T(P)$: il tempo di esecuzione del programma $P$.
+- $T(P^{'})$: il tempo di esecuzione del programma $P^{'}$.
+
+L'obiettivo è ottenere $T(P) \leq T(P^{'})$, ma vedremo che, in alcuni casi, questo non si verifica.
+
+Per misurare le performance utilizziamo lo **speedup**:
+$$
+\sigma = \cfrac{T(P)}{T(P^{'})}
+$$
+Sappiamo che la versione parallela può essere suddivisa in due parti, una sequenziale $s$ e una parallela $p$:
+$$
+T(P^{'}) = s + p
+$$
+Definiamo la **sequential fraction** come il rapporto tra la parte sequenziale e il totale:
+$$
+\alpha = \cfrac{s}{s + p}
+$$
+Se disponiamo di $n$ risorse computazionali, possiamo ridurre la durata della parte parallelizzabile (mentre quella sequenziale rimane invariata). Di conseguenza, $p$ può essere ridotto a $\cfrac{p}{n}$, anche se nella pratica è difficile ottenere questa riduzione esatta a causa di fattori come lo scambio di messaggi e la sincronizzazione. Questo introduce un lavoro aggiuntivo noto come *computational overhead*.
+
+Riscriviamo lo speedup in funzione di $n$ ed $\alpha$:
+$$
+\sigma(n, \alpha) = \cfrac{1}{\alpha + \cfrac{1-\alpha}{n}}
+$$
+conosciuta come **Legge di Amdahl**.
+
+Facendo il limite per $n \rightarrow \infty$, otteniamo:
+$$
+\lim_{n\to\infty} \cfrac{1}{\alpha + \cfrac{1-\alpha}{n}} = \cfrac{1}{\alpha}
+$$
+
+```chart
+	type: "linechart"
+	labels: ["Ciao", "Ciao", "Ciao"]
+	series:
+		-title: "Ciao"
+		data:
+			[1, 2, 3]
+		
+```
+
+
+
+
+
+
+
+
