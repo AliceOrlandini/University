@@ -24,4 +24,10 @@ Poi si definisce l'architettura.
 Tutto il resto è analisi dei rischi e cose così.
 
 A questo punto si passa al prototipo, non deve essere per forza come l'idea, può essere una prima versione semplificata.
-Lui ha usato text-to-speech e speech-to-text e le mappe di google.
+Lui ha usato text-to-speech e speech-to-text e le mappe di google per il tempo per arrivare ad ogni destinazione.
+
+Solo il prototipo si fa a casa, la parte di economia si fa il classe (80% in classe).
+
+## Terzo Progetto
+
+Per la sicurezza del guidatore riducendo il numero di incidenti analizzando le distrazioni e le condizioni mediche.

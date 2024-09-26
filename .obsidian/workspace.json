@@ -138,7 +138,15 @@
             }
           },
           {
-            "id": "79d07eea8279dff4",
+            "id": "2297bd055aa5751f",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "bbf403a35cd8365b",
             "type": "leaf",
             "state": {
               "type": "mermaid-toolbar-view",
@@ -146,7 +154,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
