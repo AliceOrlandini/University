@@ -31,3 +31,4 @@ Solo il prototipo si fa a casa, la parte di economia si fa il classe (80% in cla
 ## Terzo Progetto
 
 Per la sicurezza del guidatore riducendo il numero di incidenti analizzando le distrazioni e le condizioni mediche.
+Tutti i progetti hanno un AI da qualche parte, comunque anche già pronte, non va per forza fatta noi.
