@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+                "file": "Magistrale/Distributed Systems/Table of Contents.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+                "file": "Magistrale/Distributed Systems/Table of Contents.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+                "file": "Magistrale/Distributed Systems/Table of Contents.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md"
+                "file": "Magistrale/Distributed Systems/Table of Contents.md"
               }
             }
           },
@@ -163,13 +163,16 @@
       "command-palette:Open command palette": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "mermaid-tools:Open Mermaid Toolbar": false
+      "mermaid-tools:Open Mermaid Toolbar": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-kanban:Create new board": false
     }
   },
   "active": "13b28dcddd987453",
   "lastOpenFiles": [
-    "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
+    "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
     "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Advanced Networks/Chapters/Intro.md",
     "Magistrale/Advanced Networks/Table of Contents.md",
@@ -198,7 +201,6 @@
     "Magistrale/Advanced Networks/Chapters",
     "Magistrale/Advanced Networks",
     "TODO.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
     "Untitled Diagram.svg",
     "Untitled.canvas",
     "Magistrale/Cloud Computing/Chapters",

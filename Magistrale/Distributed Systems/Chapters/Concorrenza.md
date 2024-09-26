@@ -343,14 +343,15 @@ Facendo il limite per $n \rightarrow \infty$, otteniamo:
 $$
 \lim_{n\to\infty} \cfrac{1}{\alpha + \cfrac{1-\alpha}{n}} = \cfrac{1}{\alpha}
 $$
-Vediamo lo speedup $\sigma$ (asse Y) confrontato con il numero di worker $n$ (asse X).
-Questo primo grafico rappresenta la versione ideale con $\alpha = 0$ ovvero un programma tutto parallelizzabile:
+
+Osserviamo lo **speedup** $\sigma$ (asse Y) in relazione al numero di worker $n$ (asse X).
+Il primo grafico mostra la versione ideale con $\alpha = 0$, ovvero un programma completamente parallelizzabile:
 
 ```chart
 type: line
 labels: [1, 2, 3, 4, 5]
 series:
-  - title: 1, 2, 3, 4
+  - title: alpha = 0
     data: [1, 2, 3, 4]
 tension: 0.2
 width: 80%
@@ -362,14 +363,14 @@ bestFitTitle: undefined
 bestFitNumber: 0
 ```
 
-Il seguente invece è quello con $\alpha = 1$ ovvero un programma che non è parallelizzabile ma sequenziale, non c'è beneficio a parallelizzare quindi lo speedup è sempre 1:
+Il grafico successivo rappresenta il caso con $\alpha = 1$, cioè un programma interamente sequenziale. In questo caso, non si ottiene alcun vantaggio dalla parallelizzazione, quindi lo **speedup** rimane sempre pari a 1:
 
 ```chart
 type: line
-labels: [1, 2, 3, 4, 5]
+labels: [1, 2, 3, 4, 5, 6, 7, 8]
 series:
-  - title: 1, 2, 3, 4
-    data: [1, 1, 1, 1]
+  - title: alpha = 1
+    data: [1, 1, 1, 1, 1, 1, 1]
 tension: 0.2
 width: 80%
 labelColors: false
@@ -380,8 +381,66 @@ bestFitTitle: undefined
 bestFitNumber: 0
 ```
 
+Al variare di $\alpha$ (in aumento verso il basso), il comportamento risultante è il seguente:
 
+```chart
+type: line
+labels: [1,2,3,4]
+series:
+  - title: alpha = 0
+    data: [1,2,3,4]
+  - title: 1/alpha1
+    data: [1,1.8,2.7,3.2]
+  - title: 1/alpha2
+    data: [1,1.6,2.5,3]
+tension: 0.2
+width: 80%
+labelColors: false
+fill: false
+beginAtZero: false
+bestFit: false
+bestFitTitle: undefined
+bestFitNumber: 0
+```
 
+In un sistema reale, invece, la situazione è diversa: non si raggiunge il massimo **speedup** a causa dell'overhead:
 
+```chart
+type: line
+labels: [1,2,3,4,5,6,7,8,9,10]
+series:
+  - title: alpha = 0 ideale
+    data: [1,2,3,4,5,6,7,8,9,10]
+  - title: alpha = 0 reale
+    data: [1,1.9,2.9,3.9,4.9,5.9,4,3,2,1]
+tension: 0.2
+width: 80%
+labelColors: false
+fill: false
+beginAtZero: false
+bestFit: false
+bestFitTitle: undefined
+bestFitNumber: 0
+```
 
+Come si può osservare, superato un certo numero di worker, la parallelizzazione non offre più vantaggi, anzi, le performance iniziano a peggiorare.
 
+Infine, esiste un ultimo caso chiamato **superlinear behavior**. Questo fenomeno si verifica quando il programma e il working set risiedono interamente nella cache, migliorando significativamente le performance. Tuttavia, se si verificano **cache miss**, le performance possono peggiorare.
+
+```chart
+type: line
+labels: [1,2,3,4,5,6,7,8,9,10]
+series:
+  - title: alpha = 0 ideale
+    data: [1,2,3,4,5,6,7,8,9,10]
+  - title: alpha = 0 reale superlinear behavior
+    data: [1,2.2,3.2,4.2,5.2,6.2,4,3,2,1]
+tension: 0.2
+width: 80%
+labelColors: false
+fill: false
+beginAtZero: false
+bestFit: false
+bestFitTitle: undefined
+bestFitNumber: 0
+```
