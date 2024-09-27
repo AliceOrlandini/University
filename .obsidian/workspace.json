@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "a037d0a104813114",
+        "id": "e797012e8d3ec77d",
         "type": "tabs",
         "children": [
           {
-            "id": "92e4c72d392b6e41",
+            "id": "8d5427bb3ec8bcca",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Progetti Industrial.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Progetti Industrial.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Progetti Industrial.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Progetti Industrial.md"
-              }
+              "state": {}
             }
           },
           {
@@ -176,7 +168,7 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "92e4c72d392b6e41",
+  "active": "8d5427bb3ec8bcca",
   "lastOpenFiles": [
     "Progetti Industrial.md",
     "Magistrale/Distributed Systems/Table of Contents.md",
