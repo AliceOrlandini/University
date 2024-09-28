@@ -8,7 +8,7 @@ Un'altra innovazione di IPv6 è stata l'eliminazione del protocollo ARP (Address
 
 IPv6 è diventato uno standard ufficiale nel 2017 e, sebbene la sua adozione sia ancora in corso, sta gradualmente diffondendosi in tutto il mondo. Attualmente, circa il 45% degli utenti globali utilizza IPv6 per accedere ai servizi Google, segno di una crescente adozione di questo nuovo protocollo.
 
-## Da quali campi è composto il Base Header di IPv6?
+### Da quali campi è composto il Base Header di IPv6?
 
 Il base header di IPv6 è composto dai seguenti campi:
 1. **Version** (4 bit): Indica la versione del protocollo Internet, che per IPv6 è 6.
@@ -20,7 +20,7 @@ Il base header di IPv6 è composto dai seguenti campi:
 7. **Source Address** (128 bit): L'indirizzo IPv6 del mittente.
 8. **Destination Address** (128 bit): L'indirizzo IPv6 del destinatario.
 
-## Quali sono i possibili valori del campo next header?
+### Quali sono i possibili valori del campo next header?
 
 Il campo **Next Header** dell'header IPv6 può assumere diversi valori, a seconda del protocollo o del tipo di header che segue l'header IPv6 di base. Ecco alcuni dei valori più comuni:
 
@@ -35,5 +35,20 @@ Il campo **Next Header** dell'header IPv6 può assumere diversi valori, a second
 9. **59**: No Next Header (indica che non ci sono altri header successivi)
 10. **60**: Destination Options Header (usato per informazioni aggiuntive specifiche del destinatario)
 
-## A cosa serve l'hop-by-hop options header?
+### A cosa serve l'hop-by-hop options header?
+
+L'**Hop-by-Hop Options Header** di IPv6 serve per trasportare informazioni che devono essere elaborate da ogni router lungo il percorso del pacchetto, non solo dal destinatario finale. È utilizzato per opzioni che richiedono una gestione particolare a ogni hop (salto) che il pacchetto compie sulla rete.
+
+Alcuni esempi di utilizzo del Hop-by-Hop Options Header includono:
+
+- **Jumbo Payload**: Permette di inviare pacchetti con payload di dimensioni superiori a 65.535 byte.
+- **Router Alert**: Segnala ai router lungo il percorso che devono ispezionare il pacchetto, utile per protocolli come RSVP (Resource Reservation Protocol).
+
+Poiché ogni router deve elaborare questo header, il suo uso può introdurre un overhead e potenzialmente rallentare il routing, per cui viene utilizzato con parsimonia e solo per casi specifici.
+
+### A cosa serve il routing header?
+
+
+
+### A cosa serve il fragment header?
 
