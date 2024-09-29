@@ -57,7 +57,7 @@ graph TD;
 ```
 
 Le proprietà di un non-strict partial order sono:
-1. **Riflessività**: Ogni elemento è in relazione con sé stesso. Per esempio, un compito è sempre "prima o uguale" a sé stesso, $\forall a\in A, a\leq_{P} a$.
+1. **Riflessività**: Ogni elemento è in relazione con sé stesso. Per esempio, un compito è sempre "prima o uguale" a sé stesso, $\forall a\in A$,  $a\leq_{P} a$.
 2. **Antisimmetria**: Se un elemento A è in relazione con un elemento B, e B è in relazione con A, allora A e B sono lo stesso elemento, $\forall a, b \in A, (a\leq_{P} b \text{ e } b\leq_{P} a) \Rightarrow a = b$.
 3. **Transitività**: Se A è in relazione con B e B è in relazione con C, allora A è in relazione con C, $\forall a, b, c \in A, (a\leq_{P} b \text{ e } b\leq_{P} c) \Rightarrow a \leq_{P} c$.
 
@@ -132,8 +132,8 @@ In questo caso, $b || c$, $c||e$ ma b non è concorrente ad e, cioè non si può
 ##### Chain
 
 Una **chain** (catena) in un insieme parzialmente ordinato (POSET) è un sottoinsieme in cui tutti gli elementi sono completamente ordinati rispetto alla relazione d'ordine parziale. In altre parole, ogni coppia di elementi nella catena è confrontabile.
-In una chain vale l'ordine ordine totale ($\leq_{T}$), cioè un partial order ma con la proprietà aggiuntiva di **totalità**.
 
+In una chain vale **l'ordine totale** ($\leq_{T}$), cioè un partial order ma con la proprietà aggiuntiva di **totalità**.
 Formalmente, dato un POSET P, un sottoinsieme $C\subseteq P$ è una chain se $\forall a,b \in C$, o $a\leq_{P} b$ oppure $b \leq_{P} a$. Questo significa che non ci sono elementi incomparabili all'interno di C, questa proprietà è detta totalità.
 
 Esempio.

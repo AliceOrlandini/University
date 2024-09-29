@@ -23,7 +23,6 @@ Il base header di IPv6 è composto dai seguenti campi:
 ### Quali sono i possibili valori del campo next header?
 
 Il campo **Next Header** dell'header IPv6 può assumere diversi valori, a seconda del protocollo o del tipo di header che segue l'header IPv6 di base. Ecco alcuni dei valori più comuni:
-
 1. **6**: TCP (Transmission Control Protocol)
 2. **17**: UDP (User Datagram Protocol)
 3. **1**: ICMPv4 (Internet Control Message Protocol for IPv4)
@@ -40,7 +39,6 @@ Il campo **Next Header** dell'header IPv6 può assumere diversi valori, a second
 L'**Hop-by-Hop Options Header** di IPv6 serve per trasportare informazioni che devono essere elaborate da ogni router lungo il percorso del pacchetto, non solo dal destinatario finale. È utilizzato per opzioni che richiedono una gestione particolare a ogni hop (salto) che il pacchetto compie sulla rete.
 
 Alcuni esempi di utilizzo del Hop-by-Hop Options Header includono:
-
 - **Jumbo Payload**: Permette di inviare pacchetti con payload di dimensioni superiori a 65.535 byte.
 - **Router Alert**: Segnala ai router lungo il percorso che devono ispezionare il pacchetto, utile per protocolli come RSVP (Resource Reservation Protocol).
 
@@ -48,7 +46,23 @@ Poiché ogni router deve elaborare questo header, il suo uso può introdurre un 
 
 ### A cosa serve il routing header?
 
+Il **Routing Header** in IPv6 è utilizzato per specificare un percorso alternativo che un pacchetto deve seguire per raggiungere la destinazione. In pratica, consente di indicare una o più tappe (nodi intermedi) che il pacchetto deve attraversare lungo il suo percorso verso la destinazione finale. Questo processo è chiamato **source routing**.
 
+Il campo "Next Header" dell'header IPv6 di base indica la presenza di un **Routing Header**, e il **Routing Header** stesso contiene una lista di indirizzi IPv6 (nodi intermedi) che il pacchetto dovrà attraversare.
+
+Esistono vari tipi di Routing Header (RH), i più comuni sono:
+- **RH0 (obsoleto)**: Permetteva di specificare più tappe intermedie. È stato deprecato a causa di problemi di sicurezza (vulnerabilità a "routing loops").
+- **RH2**: Usato principalmente con il protocollo **Mobile IPv6**, consente a un pacchetto di raggiungere un dispositivo mobile tramite un nodo intermedio (come il suo "home agent").
 
 ### A cosa serve il fragment header?
 
+Il **Fragment Header** in IPv6 è utilizzato per gestire la **frammentazione dei pacchetti**. A differenza di IPv4, in cui la frammentazione può essere eseguita da qualsiasi router lungo il percorso, in IPv6 la frammentazione può essere fatta solo dal **mittente**. Il Fragment Header viene quindi inserito dal nodo sorgente quando un pacchetto supera la dimensione massima supportata dalla rete di destinazione, nota come **MTU (Maximum Transmission Unit)**.
+
+Il Fragment Header permette di:
+1. **Frammentare pacchetti** troppo grandi per essere trasmessi in una singola unità sulla rete, rispettando l'MTU.
+2. **Ricostruire i frammenti** una volta che raggiungono il destinatario, che riassembla il pacchetto completo.
+
+Il Fragment Header contiene i seguenti campi principali:
+- **Fragment Offset**: Indica la posizione del frammento all'interno del pacchetto originale.
+- **Identification**: Identifica in modo univoco i frammenti che appartengono allo stesso pacchetto originale.
+- **More Fragments Flag (M flag)**: Indica se il frammento è l'ultimo o se ci sono altri frammenti successivi.
