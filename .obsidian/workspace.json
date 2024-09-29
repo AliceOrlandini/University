@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md"
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md"
               }
             }
           },
@@ -178,12 +178,12 @@
   },
   "active": "8d5427bb3ec8bcca",
   "lastOpenFiles": [
+    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Progetti Industrial.md",
     "Magistrale/Distributed Systems/Table of Contents.md",
     "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
-    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Advanced Networks/Chapters/Intro.md",
     "Magistrale/Advanced Networks/Table of Contents.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
