@@ -4,20 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "9a823ca94b14ab30",
+        "id": "f225e1551d2cbbee",
         "type": "tabs",
         "children": [
           {
-            "id": "cb8aa1444405d4c7",
+            "id": "6c76ee99b97a6c35",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "TODO.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": []
-                }
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
+                "mode": "preview",
+                "source": false
               }
             }
           }
@@ -71,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 298.5
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -87,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TODO.md"
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md"
               }
             }
           },
@@ -178,8 +176,18 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "cb8aa1444405d4c7",
+  "active": "6c76ee99b97a6c35",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
+    "Magistrale/Cloud Computing/Table of Contents.md",
+    "TODO.md",
     "Magistrale/Industrial Applications/Progetti Industrial.md",
     "Magistrale/Industrial Applications",
     "Untitled.md",
@@ -197,17 +205,8 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 9 - Virtualizzazione Leggera.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 3 - Vantaggi.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 2 - Fondamenti.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 1 - L'evoluzione del Cloud Computing.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Queueing Theory.md",
     "Magistrale/Distributed Systems/Chapters",
     "Magistrale/Distributed Systems",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Analisi Dati.md",
-    "Magistrale/Performance Evaluation/Teory/Chapters/Introduzione.md",
     "Senza nome.canvas",
     "Magistrale/Advanced Networks/Chapters",
     "Magistrale/Advanced Networks",
