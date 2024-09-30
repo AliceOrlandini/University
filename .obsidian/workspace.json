@@ -81,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5,
-    "collapsed": true
+    "width": 298.5
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -191,8 +190,10 @@
   },
   "active": "465f788fd4381aa9",
   "lastOpenFiles": [
-    "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+    "Magistrale/Distributed Systems/Images/Tail Call Optimization.png",
     "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
+    "Magistrale/Distributed Systems/Images",
+    "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Distributed Systems/Table of Contents.md",
     "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
     "Magistrale/Advanced Networks/Chapters/IPv6.md",
@@ -217,7 +218,6 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
     "conflict-files-obsidian-git.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
     "Magistrale/Distributed Systems/Chapters",
     "Magistrale/Distributed Systems",
     "Senza nome.canvas",
@@ -235,10 +235,8 @@
     "Magistrale/Electronics And Communication/Electronics/Images/substractor.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/pipeline.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/adder_ahead_scheme.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/carry_look_ahead_scheme.webp",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
-    "Magistrale/Performance Evaluation/Teory/Images",
     "Grafo.canvas"
   ]
 }
