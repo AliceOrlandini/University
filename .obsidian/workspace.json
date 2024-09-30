@@ -4,31 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "c3c0eaf1f280e8b7",
+        "id": "625f97bbaf3744a6",
         "type": "tabs",
         "children": [
           {
-            "id": "465f788fd4381aa9",
+            "id": "71823b25cc8e2c10",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2858e6d78196f067",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -97,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md"
-              }
+              "state": {}
             }
           },
           {
@@ -188,12 +168,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "465f788fd4381aa9",
+  "active": "71823b25cc8e2c10",
   "lastOpenFiles": [
-    "Magistrale/Distributed Systems/Images/Tail Call Optimization.png",
     "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
-    "Magistrale/Distributed Systems/Images",
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+    "Magistrale/Distributed Systems/Images/Tail Call Optimization.png",
+    "Magistrale/Distributed Systems/Images",
     "Magistrale/Distributed Systems/Table of Contents.md",
     "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
     "Magistrale/Advanced Networks/Chapters/IPv6.md",

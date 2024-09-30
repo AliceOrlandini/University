@@ -76,6 +76,32 @@ Alcuni linguaggi, come Python, non implementano questa ottimizzazione, limitando
 Nei linguaggi funzionali, dove la ricorsione è l'unico modo per ripetere computazioni, le **strutture dati ricorsive** come le liste diventano particolarmente utili. Una lista può essere vista come composta da due parti: una *"testa"*, che rappresenta il primo elemento, e una *"coda"*, che è il resto della lista. Poiché la coda è anch'essa una lista, questa definizione è intrinsecamente ricorsiva.
 
 Questo approccio ricorsivo alle strutture dati si adatta perfettamente alla logica funzionale, dove non esiste uno stato mutabile. Ad esempio, non possiamo utilizzare strutture come gli array che mantengono uno stato interno mutabile, perché ciò violerebbe il principio di assenza di effetti collaterali. Le liste, invece, permettono di costruire e manipolare dati in modo sicuro e senza mutazione, garantendo che ogni nuova operazione produca una nuova lista senza alterare quella originale.
+
+#### Addressing Concurrency
+
+Il principale problema della concorrenza riguarda i **data races**, fenomeno legato alla mutabilità dei dati. Un data race si verifica quando più thread accedono simultaneamente a una variabile condivisa, con almeno uno di essi che modifica il valore, portando a *comportamenti non deterministici*.
+
+Un esempio di questo è illustrato nel seguente diagramma, dove l'ordine in cui avvengono le operazioni influisce sul risultato finale:
+
+```mermaid
+flowchart TD 
+	A[x = 0] --> B[x = x + 1]
+	A[x = 0] --> C[x = x + 1]
+	B --> D[print x]
+	C --> D
+```
+
+In questo caso, il risultato della stampa `print x` dipende da quale thread esegue prima l'operazione di lettura o scrittura. Se due thread accedono contemporaneamente alla stessa variabile `x`, il valore stampato può variare, creando un comportamento non prevedibile.
+
+Per risolvere questo problema, esistono due principali strategie:
+- **Usare variabili immutabili**: in questo modo, non ci sono modifiche simultanee alla stessa variabile, eliminando la possibilità di data races.
+- **Utilizzare meccanismi di sincronizzazione**: tecniche come mutex o semafori assicurano che solo un thread alla volta possa accedere alla variabile condivisa, garantendo l'ordine corretto delle operazioni e prevenendo data races. Questo metodo tuttavia limita l'utilizzazione delle risorse.
+
+#### Message Passing
+
+Il **message passing** è un meccanismo che può essere utilizzato anche nella programmazione funzionale, dove i **processi** fungono da componenti di base. In questo contesto, i processi non sono necessariamente unità di esecuzione fisiche, ma *entità astratte* che possono essere mappate su unità computazionali reali, ed eventualmente distribuite su diversi nodi o macchine.
+
+Questo modello è adottato da linguaggi come **Erlang**, che implementa una visione di concorrenza basata su processi che comunicano tra loro attraverso lo scambio di messaggi. Ogni processo è *isolato* e *non condivide memoria* con gli altri, prevenendo i problemi legati alla mutabilità e ai data races. I processi reagiscono alla ricezione dei messaggi, attivando comportamenti specifici in risposta a determinati eventi. 
 ### Introduzione ad Erlang
 
 ### Il modello Actor
