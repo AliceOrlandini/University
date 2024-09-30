@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "f225e1551d2cbbee",
+        "id": "ef4918611efacb68",
         "type": "tabs",
         "children": [
           {
-            "id": "6c76ee99b97a6c35",
+            "id": "6e861fe1ab505491",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
-                "mode": "preview",
+                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
+                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
+                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md"
+                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md"
               }
             }
           },
@@ -176,8 +176,9 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "6c76ee99b97a6c35",
+  "active": "6e861fe1ab505491",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
@@ -204,7 +205,6 @@
     "conflict-files-obsidian-git.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 9 - Virtualizzazione Leggera.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
     "Magistrale/Distributed Systems/Chapters",
     "Magistrale/Distributed Systems",
     "Senza nome.canvas",
