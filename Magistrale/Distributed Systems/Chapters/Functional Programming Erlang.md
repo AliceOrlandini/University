@@ -104,6 +104,48 @@ Il **message passing** è un meccanismo che può essere utilizzato anche nella p
 Questo modello è adottato da linguaggi come **Erlang**, che implementa una visione di concorrenza basata su processi che comunicano tra loro attraverso lo scambio di messaggi. Ogni processo è *isolato* e *non condivide memoria* con gli altri, prevenendo i problemi legati alla mutabilità e ai data races. I processi reagiscono alla ricezione dei messaggi, attivando comportamenti specifici in risposta a determinati eventi. 
 ### Introduzione ad Erlang
 
+#### Visione Generale
+
+Ora che abbiamo compreso i principi generali della programmazione funzionale, possiamo esplorare le principali caratteristiche di **Erlang**.
+
+Il codice Erlang viene eseguito su **ERTS** (Erlang Run-Time System), ma prima deve essere compilato in un linguaggio intermedio. Successivamente, il **bytecode** generato viene eseguito su una **virtual machine** dedicata chiamata **BEAM**. Questo processo di compilazione e interpretazione permette a Erlang di essere portabile ed efficiente su diverse piattaforme.
+
+I file Erlang hanno estensione `.erl` e contengono il **modulo** principale, che definisce le funzioni e la logica del programma.
+
+Un aspetto cruciale è che la **BEAM** si comporta come un singolo processo del sistema operativo (OS), quindi tutta la concorrenza è gestita internamente dalla virtual machine stessa. Erlang utilizza uno o più **scheduler** (uno per ogni core della CPU) per distribuire l'esecuzione dei processi Erlang su tutti i thread del core. Questa gestione permette a Erlang di sfruttare appieno le capacità multicore, distribuendo i processi in modo efficiente senza che il programmatore debba preoccuparsi della gestione di thread o processi OS.
+
+È importante notare che un **processo Erlang** non corrisponde né a un processo del sistema operativo né a un thread. I processi Erlang sono entità leggere e indipendenti gestite dalla virtual machine, consentendo una concorrenza massiva e una gestione ottimizzata delle risorse.
+
+#### Work Stealing
+
+Per migliorare il **load balancing**, è possibile utilizzare una tecnica chiamata **work stealing**.
+
+Il work stealing funziona nel seguente modo: ogni scheduler ha una propria coda di processi da eseguire. Quando uno scheduler esaurisce il lavoro da fare nella sua coda, invece di rimanere inattivo, *'ruba'* processi dalla coda di un altro scheduler che ha ancora processi da eseguire. In questo modo, il carico di lavoro viene bilanciato dinamicamente tra tutti i scheduler disponibili, evitando che alcuni scheduler rimangano sovraccarichi mentre altri sono inattivi.
+
+#### OTP (Open Telecom Platform)
+
+**OTP** (Open Telecom Platform) è un set completo di strumenti, componenti, librerie e pattern progettati per semplificare e migliorare lo sviluppo di applicazioni in **Erlang**. Funziona come un middleware, fornendo strutture e meccanismi standard per gestire aspetti cruciali dello sviluppo software, come la concorrenza, la tolleranza ai guasti, il bilanciamento del carico e la distribuzione dei processi.
+
+È stato chiamato "Open Telecom Platform" perché originariamente sviluppato per essere utilizzato in applicazioni di *telecomunicazioni*, come sistemi di controllo per router, dove affidabilità e prestazioni erano critiche.
+
+#### Espressioni, Variabili, Pattern Match, Atoms
+
+In **Erlang**, le *espressioni* vengono valutate sequenzialmente, una dopo l'altra. La forma più semplice di espressione è il **term**, ovvero un dato di qualsiasi tipo (numeri, stringhe, liste, ecc.), che viene valutato per restituire se stesso.
+
+Le espressioni possono essere composte da *sotto-espressioni*, combinate tramite *operatori*. Anche le variabili sono considerate espressioni: ogni variabile è associata a un valore e la sua valutazione restituisce quel valore.
+
+In Erlang, le **variabili** seguono una convenzione specifica: devono iniziare con una *lettera maiuscola* oppure con un underscore (`_`). Il linguaggio è **dinamicamente tipato**, il che significa che quando una variabile viene creata, non ha un tipo predefinito. Tuttavia, non appena le viene assegnato un valore, la variabile assume il tipo di quell'oggetto e non può più cambiare né tipo né valore.
+
+Il **pattern matching** in Erlang è un meccanismo che consente di *confrontare* una struttura dati con uno *schema* (pattern) e, se c'è una corrispondenza, di associare automaticamente le variabili ai valori all'interno di quella struttura. Viene utilizzato per destrutturare dati complessi, come tuple o liste, senza bisogno di istruzioni condizionali esplicite. Questo processo non è solo un confronto, ma anche un'assegnazione: le variabili nel pattern vengono legate ai valori corrispondenti se la struttura coincide.
+
+Un **atom** in Erlang rappresenta un valore costante e unico all'interno del programma, simile agli enumerati di altri linguaggi di programmazione. Il valore di un atom è l'atom stesso, cioè non ha un valore associato oltre al suo nome. Gli atom iniziano con una lettera **minuscola** (non maiuscola) e, se contengono caratteri speciali o spazi, possono essere racchiusi tra **singoli apici** (`' '`).
+
+#### Tuple
+
+La tupla è un compound data type con un numero fisso di terms (elementi). Le tuple vengono usate per raggruppare elementi, sono simili alle strutture in C, senza però il nome del campo.
+Il delimitatore è le parentesi graffe e gli elementi vengono separati dalle virgole.
+I valori possono essere estratti dalle tuple usando il pattern matching.
+
 ### Il modello Actor
 
 ### Going concurrent & distributed actually
