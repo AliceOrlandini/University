@@ -190,8 +190,9 @@
   },
   "active": "71823b25cc8e2c10",
   "lastOpenFiles": [
-    "Magistrale/Distributed Systems/Images/Middleware.webp",
+    "Magistrale/Distributed Systems/Images/Bounded Buffer.webp",
     "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
+    "Magistrale/Distributed Systems/Images/Middleware.webp",
     "Magistrale/Distributed Systems/Images/Schermata 2024-10-01 alle 10.39.39.webp",
     "Magistrale/Distributed Systems/Images/Resource Management.webp",
     "Magistrale/Distributed Systems/Images/Channels.png",
@@ -234,7 +235,6 @@
     "LICENSE",
     "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
     "Magistrale/Electronics And Communication/Electronics/Images/probability.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/leakage.webp",
     "Magistrale/Electronics And Communication/Electronics/Project",
     "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Grafo.canvas"

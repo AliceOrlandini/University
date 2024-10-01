@@ -65,4 +65,21 @@ Esistono due principali tipi di **modelli astratti** per descrivere la comunicaz
 - **Modello Synchronous**: in questo modello, tutti i processi compiono i loro passi in maniera simultanea, seguendo lo stesso ritmo temporale. Le comunicazioni e le operazioni sono sincronizzate, il che rende il modello molto semplice da capire e da analizzare. Tuttavia, questo approccio è poco realistico per la maggior parte dei sistemi distribuiti, poiché nella realtà i processi raramente operano esattamente nello stesso tempo, a causa di variabili come la latenza della rete o la diversa velocità di elaborazione.
 - **Modello Asynchronous**: in questo modello, *non ci sono vincoli di tempo* precisi per l'esecuzione dei processi. Le comunicazioni possono subire **unbounded delays** (ritardi indefiniti), e non esiste un **orologio globale** che sincronizzi le operazioni tra i processi. Ciò rende il modello più realistico, poiché riflette meglio la natura dei sistemi distribuiti reali, dove la latenza della rete e i tempi di elaborazione possono variare notevolmente. Tuttavia, questa mancanza di sincronizzazione introduce complessità nella gestione della coerenza e della sincronizzazione dei dati.
 
+Le primitive di comunicazione **send** e **receive** in un sistema distribuito possono comportarsi in due modi:
+- **Blocking**: in questo caso, durante l'esecuzione di una delle due primitive, il processo si blocca fino a quando l'operazione non viene completata.
+- **Non-blocking**: qui, l'operazione viene avviata ("lanciata") e il processo continua la sua esecuzione senza aspettare che l'invio o la ricezione siano completati. Spesso, in questo modello, i messaggi vengono bufferizzati in coda fino a quando non possono essere processati.
 
+L'implementazione di queste primitive richiede generalmente l'uso di **mailboxes**, ovvero delle **code di invio e ricezione**, esse permettono ai processi di continuare a eseguire altre operazioni mentre i messaggi vengono gestiti in background.
+
+Nel caso specifico della primitiva **send**, se la modalità è **bloccante**, il processo invia il messaggio alla destinazione e continua la sua esecuzione solo dopo aver verificato che il messaggio è stato effettivamente ricevuto dal destinatario. Questo comportamento implica l'uso di un **handshake**. 
+Nella modalità **non bloccante**, invece, il messaggio viene inviato senza attendere conferme, un approccio chiamato *"inviato e dimenticato"*.
+
+Per quanto riguarda la primitiva **receive**, in modalità **bloccante** il processo resta in attesa finché non arriva un messaggio nella incoming queue. In modalità **non bloccante**, il processo controlla se c'è un messaggio disponibile nella coda. Se c'è un messaggio, lo preleva; se non c'è, il processo riceve un messaggio di errore o un'indicazione di coda vuota e continua la sua esecuzione senza bloccarsi.
+
+Quando si utilizzano coppie di primitive **bloccanti** e **non bloccanti**, bisogna prestare molta attenzione, perché una gestione errata di queste operazioni può portare a **deadlock**, ossia situazioni in cui i processi si bloccano aspettando indefinitamente risposte o risorse che non arriveranno mai.
+
+Per evitare tali problemi, esiste un costrutto chiamato **guarded command**, in cui una condizione viene verificata prima di eseguire un blocco di codice bloccante. Se la condizione è soddisfatta, il codice bloccante viene eseguito; altrimenti, l'operazione viene saltata, evitando così blocchi non necessari.
+
+Ecco un esempio di utilizzo delle primitive:
+
+![[Bounded Buffer.webp|center|500]]
