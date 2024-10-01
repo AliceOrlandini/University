@@ -82,16 +82,19 @@ Poiché ogni router deve elaborare questo header, il suo uso può introdurre un 
 
 Il **Routing Header** in IPv6 è utilizzato per specificare un percorso preciso che un pacchetto deve seguire per raggiungere la destinazione. In pratica, consente di indicare una o più tappe (nodi intermedi) che il pacchetto deve attraversare lungo il suo percorso verso la destinazione finale. Questo processo è chiamato **source routing**.
 
-Il campo "Next Header" dell'header IPv6 di base indica la presenza di un **Routing Header**, e il **Routing Header** stesso contiene una lista di indirizzi IPv6 (nodi intermedi) che il pacchetto dovrà attraversare.
+Il **Routing Header** è composto dai seguenti campi:
+- **Routing type**: Specifica il tipo di routing da utilizzare (0: default, 2: Mobile IPv6, 3: RPL).
+- **Segment left**: Indica il numero di nodi intermedi rimanenti che il pacchetto deve ancora attraversare.
+- **Address**: Elenca gli indirizzi IPv6 dei nodi intermedi da attraversare.
 
-Questo header è composto da:
-- Routing type:
-- Segment left:
-- Address:
+Durante l'elaborazione del pacchetto, i router precedenti non vengono rimossi dall'header, consentendo al destinatario finale di ricostruire il percorso seguito dal pacchetto.
 
+Tuttavia, l'utilizzo di questo header presenta alcuni svantaggi:
+- Non tiene conto dello stato di congestione dei router lungo il percorso. Una soluzione adottata è il *"loose control"*, dove si specifica solo un nodo obbligatorio da attraversare, lasciando più flessibilità per il percorso.
+- Alcuni nodi intermedi potrebbero essere malevoli, introducendo rischi per la sicurezza.
+- Può essere sfruttato per attacchi DoS (Denial of Service), in cui tutti i pacchetti vengono forzati a passare attraverso un singolo router, causando sovraccarico.
 
-
-
+A causa di questi problemi, il **Routing Header** è stato deprecato nelle implementazioni moderne di IPv6.
 ### A cosa serve il fragment header?
 
 Il **Fragment Header** in IPv6 è utilizzato per gestire la **frammentazione dei pacchetti**. A differenza di IPv4, in cui la frammentazione può essere eseguita da qualsiasi router lungo il percorso, in IPv6 la frammentazione può essere fatta solo dal **mittente**. Il Fragment Header viene quindi inserito dal nodo sorgente quando un pacchetto supera la dimensione massima supportata dalla rete di destinazione, nota come **MTU (Maximum Transmission Unit)**.
