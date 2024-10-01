@@ -18,24 +18,24 @@ Ecco i cambiamenti più significativi nel passaggio da IPv4 a IPv6:
 Il base header di IPv6 è composto dai seguenti campi:
 1. **Versione** (4 bit): Indica la versione del protocollo Internet, che per IPv6 è 6.
 2. **Classe di Traffico** (8 bit):  Simile al campo TOS di IPv4, viene usato per indicare la priorità e la gestione del traffico (QoS).
-3. **Flow Label (etichetta di flusso)** (20 bit): Si tratta di un numero generato casualmente usato per identificare un flusso di datagrammi appartenenti a una stessa sessione o flusso.
+3. **Flow Label (etichetta di flusso)** (20 bit): Si tratta di un numero generato casualmente usato per identificare un flusso di datagrammi appartenenti a una stessa sessione o flusso. Senza questo campo i pacchetti venivano identificati come appartenenti allo stesso flusso in base all'indirizzo sorgente e destinazione, ora abbiamo un modo più esplicito e veloce per fare ciò. Da notare inoltre che il vecchio metodo con il NAT non era praticabile in quanto l'indirizzo sorgente viene mascherato dal NAT.
 4. **Lunghezza del Payload** (16 bit): Indica la dimensione del payload (dati) che segue l'header.
 5. **Next Header** (8 bit): Specifica il tipo di header successivo, che può essere un header di trasporto (es. TCP, UDP) o un header di estensione.
-6. **Hop Limit** (8 bit): Indica il numero massimo di salti che il pacchetto può attraversare prima di essere scartato. Ogni volta che il datagramma raggiunge un router, il valore di questo campo viene decrementato di 1. Lo scopo è quello di non lasciare datagrammi che vagano senza meta per l'Internet.
+6. **Hop Limit** (8 bit): Indica il numero massimo di salti che il pacchetto può attraversare prima di essere scartato. Ogni volta che il datagramma raggiunge un router, il valore di questo campo viene decrementato di 1 fino a quando non arriva a zero, momento in cui viene scartato. Lo scopo è quello di non lasciare datagrammi che vagano senza meta per l'Internet.
 7. **Source Address** (128 bit): L'indirizzo IPv6 del mittente.
 8. **Destination Address** (128 bit): L'indirizzo IPv6 del destinatario.
 
 Confrontando il formato IPv6 con IPv4 notiamo che sono stati tolti alcuni campi: 
-- **Frammentazione/Riassemblaggio**: IPv6 non consente frammentazione né riassemblaggio nei router intermedi, queste operazioni devono essere effettuate solo dal sorgente e solo dal destinatario. Il motivo di tale scelta è che le operazioni di frammentazione e riassemblaggio consumano tempo e demandarle ai router dei sistemi periferici è molto più efficiente. 
+- **Frammentazione/Riassemblaggio**: IPv6 non consente frammentazione né riassemblaggio nei router intermedi, queste operazioni devono essere effettuate solo dal sorgente e solo dal destinatario. Il motivo di tale scelta è che le operazioni di frammentazione e riassemblaggio consumano tempo e demandarle ai router dei sistemi periferici è molto più efficiente. In IPv6 infatti un pacchetto che supera l'MTU (maximum trasmission unit) del router viene scartato.
 - **Checksum di intestazione**: Considerando che i protocolli a livello di trasporto (come TCP) calcolano il loro checksum, i progettisti di IPv6 hanno ritenuto ridondante il checksum sull'header del datagramma. Ancora una volta la principale preoccupazione è stata la veloce elaborazione del datagramma nei router. 
 - **Opzioni**: Si è trovato un modo più efficiente di aggiungere opzioni usando gli extension header. 
 
 ![IPv6|center|400](https://www.networkacademy.io/sites/default/files/inline-images/comparing-ipv4-and-ipv6-headers.png)
 
 
-### Oltre al base header com'è composto un datagramma IPv6?
+### Oltre al base header da cosa è composto un datagramma IPv6?
 
-In un datagramma IPv6 abbiamo un base header di 40 byte e poi zero o più extension header di dimensione variabile che vengono processati nell'ordine in cui compaiono.
+Un datagramma IPv6 è costituito da un header di base di 40 byte, seguito da zero o più header di estensione di dimensione variabile. Gli header di estensione vengono elaborati nell'ordine in cui appaiono all'interno del datagramma.
 
 ![Extension Header|center|400](https://lh4.googleusercontent.com/proxy/hxQ2VNajIhduFByP3T3G14Ekf0c8BB1eyIm1exQXBBIQhiyodxSZqpgq5Iy6AWGSN_IjeHjYZnTTz5P8_LSymL9o3qDcwwnIrpr_YzU)
 
@@ -43,7 +43,9 @@ In un datagramma IPv6 abbiamo un base header di 40 byte e poi zero o più extens
 
 ### Quali sono i possibili valori del campo next header?
 
-Il campo **Next Header** dell'header IPv6 può assumere diversi valori, a seconda del protocollo o del tipo di header che segue l'header IPv6 di base. Ecco alcuni dei valori più comuni:
+Il campo **Next Header** del base header di IPv6 contiene al suo interno le informazioni riguardo al tipo di dati contenuti nel prossimo header. 
+Esso può assumere diversi valori, a seconda del protocollo o del tipo di header che segue l'header IPv6 di base. 
+Ecco alcuni dei valori più comuni:
 1. **6**: TCP (Transmission Control Protocol)
 2. **17**: UDP (User Datagram Protocol)
 3. **1**: ICMPv4 (Internet Control Message Protocol for IPv4)
@@ -55,25 +57,40 @@ Il campo **Next Header** dell'header IPv6 può assumere diversi valori, a second
 9. **59**: No Next Header (indica che non ci sono altri header successivi)
 10. **60**: Destination Options Header (usato per informazioni aggiuntive specifiche del destinatario)
 
+Oltre al campo che specifica il tipo del prossimo header, ogni header di estensione include un campo denominato **Header Extension Length**. Questo campo indica la lunghezza dell'header di estensione corrente, permettendo di determinare la posizione del prossimo header da processare.
+
+Nel caso in cui il campo Next Header indichi che il prossimo header è un altro pacchetto IPv6, si parla di *"tunneling"*. Il tunneling consente di incapsulare un datagramma IPv6 all'interno di un altro datagramma IPv6.
+
 ### A cosa serve l'hop-by-hop options header?
 
-L'**Hop-by-Hop Options Header** di IPv6 serve per trasportare informazioni che devono essere elaborate da ogni router lungo il percorso del pacchetto, non solo dal destinatario finale. È utilizzato per opzioni che richiedono una gestione particolare a ogni hop (salto) che il pacchetto compie sulla rete.
+L'**Hop-by-Hop Options Header** di IPv6 serve per trasportare informazioni che devono essere elaborate da ogni router lungo il percorso del pacchetto, non solo dal destinatario finale. Se il datagramma ha più header questo dovrà essere il primo, questo perché visto che deve essere elaborato da ogni router in questo modo è più facile trovarlo e processarlo.
 
-Alcuni esempi di utilizzo del Hop-by-Hop Options Header includono:
-- **Jumbo Payload**: Permette di inviare pacchetti con payload di dimensioni superiori a 65.535 byte.
-- **Router Alert**: Segnala ai router lungo il percorso che devono ispezionare il pacchetto, utile per protocolli come RSVP (Resource Reservation Protocol).
+Questo header è composto da due sezioni principali: la parte *Option Type* e la parte *Option Data*.
+
+La sezione *Option Type* si suddivide in tre campi:
+1. **Action**: Definisce come i nodi che non riconoscono l'opzione devono trattare il pacchetto. (ad esempio: 01 scarta il pacchetto)
+2. **C**: Indica se l'opzione può essere modificata durante il transito del pacchetto.
+3. **Type**: Specifica il tipo di opzione presente nell'header.
+
+Esempi di tipi di opzione includono:
+- **Jumbo Payload (type = 194)**: Consente di inviare pacchetti con un payload superiore a 65.535 byte, utile per trasferimenti di dati molto grandi. Quando viene impostato il campo payload del pacchetto IPv6 è impostato a zero byte ed il payload viene messo nel payload dell'header. 
+- **Router Alert (type = 5)**: Informa i router lungo il percorso che devono ispezionare il pacchetto, utilizzato da protocolli come RSVP (Resource Reservation Protocol) per la gestione delle risorse di rete.
 
 Poiché ogni router deve elaborare questo header, il suo uso può introdurre un overhead e potenzialmente rallentare il routing, per cui viene utilizzato con parsimonia e solo per casi specifici.
 
 ### A cosa serve il routing header?
 
-Il **Routing Header** in IPv6 è utilizzato per specificare un percorso alternativo che un pacchetto deve seguire per raggiungere la destinazione. In pratica, consente di indicare una o più tappe (nodi intermedi) che il pacchetto deve attraversare lungo il suo percorso verso la destinazione finale. Questo processo è chiamato **source routing**.
+Il **Routing Header** in IPv6 è utilizzato per specificare un percorso preciso che un pacchetto deve seguire per raggiungere la destinazione. In pratica, consente di indicare una o più tappe (nodi intermedi) che il pacchetto deve attraversare lungo il suo percorso verso la destinazione finale. Questo processo è chiamato **source routing**.
 
 Il campo "Next Header" dell'header IPv6 di base indica la presenza di un **Routing Header**, e il **Routing Header** stesso contiene una lista di indirizzi IPv6 (nodi intermedi) che il pacchetto dovrà attraversare.
 
-Esistono vari tipi di Routing Header (RH), i più comuni sono:
-- **RH0 (obsoleto)**: Permetteva di specificare più tappe intermedie. È stato deprecato a causa di problemi di sicurezza (vulnerabilità a "routing loops").
-- **RH2**: Usato principalmente con il protocollo **Mobile IPv6**, consente a un pacchetto di raggiungere un dispositivo mobile tramite un nodo intermedio (come il suo "home agent").
+Questo header è composto da:
+- Routing type:
+- Segment left:
+- Address:
+
+
+
 
 ### A cosa serve il fragment header?
 
