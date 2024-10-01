@@ -18,7 +18,7 @@ Ecco i cambiamenti più significativi nel passaggio da IPv4 a IPv6:
 Il base header di IPv6 è composto dai seguenti campi:
 1. **Versione** (4 bit): Indica la versione del protocollo Internet, che per IPv6 è 6.
 2. **Classe di Traffico** (8 bit):  Simile al campo TOS di IPv4, viene usato per indicare la priorità e la gestione del traffico (QoS).
-3. **Flow Label (etichetta di flusso)** (20 bit): Usato per identificare un flusso di datagrammi appartenenti a una stessa sessione o flusso.
+3. **Flow Label (etichetta di flusso)** (20 bit): Si tratta di un numero generato casualmente usato per identificare un flusso di datagrammi appartenenti a una stessa sessione o flusso.
 4. **Lunghezza del Payload** (16 bit): Indica la dimensione del payload (dati) che segue l'header.
 5. **Next Header** (8 bit): Specifica il tipo di header successivo, che può essere un header di trasporto (es. TCP, UDP) o un header di estensione.
 6. **Hop Limit** (8 bit): Indica il numero massimo di salti che il pacchetto può attraversare prima di essere scartato. Ogni volta che il datagramma raggiunge un router, il valore di questo campo viene decrementato di 1. Lo scopo è quello di non lasciare datagrammi che vagano senza meta per l'Internet.
@@ -27,7 +27,19 @@ Il base header di IPv6 è composto dai seguenti campi:
 
 Confrontando il formato IPv6 con IPv4 notiamo che sono stati tolti alcuni campi: 
 - **Frammentazione/Riassemblaggio**: IPv6 non consente frammentazione né riassemblaggio nei router intermedi, queste operazioni devono essere effettuate solo dal sorgente e solo dal destinatario. Il motivo di tale scelta è che le operazioni di frammentazione e riassemblaggio consumano tempo e demandarle ai router dei sistemi periferici è molto più efficiente. 
-- **Checksum di intestazione**: considerando che i protocolli a livello di tra
+- **Checksum di intestazione**: Considerando che i protocolli a livello di trasporto (come TCP) calcolano il loro checksum, i progettisti di IPv6 hanno ritenuto ridondante il checksum sull'header del datagramma. Ancora una volta la principale preoccupazione è stata la veloce elaborazione del datagramma nei router. 
+- **Opzioni**: Si è trovato un modo più efficiente di aggiungere opzioni usando gli extension header. 
+
+![IPv6|center|400](https://www.networkacademy.io/sites/default/files/inline-images/comparing-ipv4-and-ipv6-headers.png)
+
+
+### Oltre al base header com'è composto un datagramma IPv6?
+
+In un datagramma IPv6 abbiamo un base header di 40 byte e poi zero o più extension header di dimensione variabile che vengono processati nell'ordine in cui compaiono.
+
+![Extension Header|center|400](https://lh4.googleusercontent.com/proxy/hxQ2VNajIhduFByP3T3G14Ekf0c8BB1eyIm1exQXBBIQhiyodxSZqpgq5Iy6AWGSN_IjeHjYZnTTz5P8_LSymL9o3qDcwwnIrpr_YzU)
+
+
 
 ### Quali sono i possibili valori del campo next header?
 
