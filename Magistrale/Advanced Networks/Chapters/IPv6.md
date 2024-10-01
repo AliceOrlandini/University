@@ -134,6 +134,6 @@ Gli **ACL basati sull'upper layer** invece guardano oltre l'header IPv6 e contro
 ### Quali sono le categorie alle quali può appartenere un IPv6?
 
 Dato un indirizzo IPv6 abbiamo 3 possibilità:
-1. **Unicast**: un indirizzo 
-2. **Multicast**:
-3. **Anycast**:
+1. **Unicast**: un indirizzo unicast identifica univocamente un'interfaccia di un nodo IPv6. Un pacchetto inviato ad un indirizzo di questo tipo è recapitato al nodo con tale indirizzo.
+2. **Multicast**: un indirizzo multicast identifica un gruppo di interfacce IPv6. Un pacchetto inviato ad un indirizzo di questo tipo è recapitato e processato a tutti i nodi del gruppo.
+3. **Anycast**:  un indirizzo anycast è assegnato a più interfacce. Un pacchetto inviato ad un indirizzo di questo tipo è recapitato e processato solo da un nodo con questo indirizzo. La differenza con il multicast è che solo un nodo lo riceverà e processerà. 
