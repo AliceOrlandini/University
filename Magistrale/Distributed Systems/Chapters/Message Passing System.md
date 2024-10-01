@@ -20,9 +20,49 @@ In entrambi i modelli, ogni arco può essere **unidirezionale** o **bidirezional
 
 Un altro aspetto da considerare è l'ordine in cui vengono recapitati i messaggi. In alcuni sistemi, i messaggi seguono un ordine **FIFO**, cioè i messaggi inviati per primi vengono ricevuti per primi. In altri sistemi, questo ordine potrebbe non essere garantito, e i messaggi potrebbero arrivare fuori sequenza, richiedendo ulteriori meccanismi per garantire la coerenza della comunicazione.
 
-#### 
+#### Tipi di Modelli
 
-### Addressing dei Processi
+Possiamo categorizzare i modelli di sistemi distribuiti in base al **livello di astrazione** che vogliamo adottare:
+- **Modelli Fisici**: questi modelli si concentrano sugli aspetti hardware del sistema distribuito, come la configurazione delle reti fisiche, la disposizione delle CPU, le memorie, e le interconnessioni.
+- **Modelli Architetturali**: a un livello di astrazione più alto, questi modelli descrivono la struttura del sistema in termini di **componenti** e delle loro **relazioni**. Esempi tipici sono architetture **client-server** o **peer-to-peer**, dove tutte le unità hanno ruoli simili. In questo contesto, è comune l'uso di un **middleware** per gestire la comunicazione e coordinazione tra i componenti, nascondendo i dettagli di implementazione e rendendo più semplice lo sviluppo di applicazioni distribuite.
+- **Modelli Fondamentali (abstract)**: questi modelli si concentrano sulle proprietà essenziali e sui **principi base** che governano i sistemi distribuiti, come la comunicazione, la sincronizzazione, la coerenza dei dati e i possibili fallimenti. Non descrivono dettagli specifici dell'architettura o dell'hardware, ma evidenziano le caratteristiche teoriche del sistema, come la tolleranza ai guasti, i limiti di consistenza e la gestione dei ritardi nella comunicazione.
+
+#### Messaggi
+
+Il **passaggio di informazioni** tra i nodi di un sistema distribuito avviene tramite lo scambio di **messaggi**. Il contenuto principale del messaggio è noto come **payload**, e rappresenta i dati effettivi che devono essere trasferiti dalla memoria locale di un processo a quella di un altro.
+
+Oltre al payload, il messaggio può includere **informazioni aggiuntive**, come: tipo di messaggio, metadati, mittente, ecc.
+Le primitive fondamentali utilizzate per lo scambio di messaggi in un sistema distribuito sono: *send* e *receive*.
+
+#### Resource Management
+
+In un sistema che utilizza il **message passing**, le risorse possono essere associate a un processo dedicato, incaricato di interagire con esse. Se una risorsa deve essere condivisa tra più processi, il processo che ne ha la proprietà agisce come **manager** della risorsa. Questo manager è responsabile di coordinare e controllare l'accesso alla risorsa, garantendo che tutte le interazioni avvengano in modo sicuro e ordinato.
+
+![[Resource Management.webp|center|300]]
+
+### Indirizzamento dei Processi
+
+Un processo in un'applicazione distribuita è identificato da un **PID** (Process Identifier), un identificatore univoco che lo rende *"trovabile"* dagli altri nodi, in modo che i messaggi possano essergli recapitati correttamente. Per questo, l'infrastruttura di un sistema distribuito ha bisogno di un sistema di **indirizzamento** che permetta ai processi di localizzarsi a vicenda.
+
+Un approccio comune è l'uso delle **Overlay Networks**, un livello applicativo che si sovrappone a una rete di comunicazione reale. In altre parole, è una rete virtuale che consente la comunicazione tra processi o nodi su un'infrastruttura sottostante esistente. Un esempio pratico è l'architettura peer-to-peer utilizzata da applicazioni come Skype.
+
+Esistono due principali tipologie di **indirizzamento** nei sistemi distribuiti:
+- **Indirizzamento esplicito**: in questo caso, i messaggi vengono inviati direttamente a un PID o a un identificatore noto. Il processo destinatario è esplicitamente specificato e identificabile da chi invia il messaggio.
+- **Indirizzamento implicito**: qui il mittente non ha bisogno di conoscere il PID del processo destinatario. Un esempio comune è l'uso delle **REST API**, dove si specifica un endpoint, e il mittente non sa né ha bisogno di sapere quale processo gestirà la richiesta. L'infrastruttura si occupa di instradare il messaggio al processo corretto.
+
+#### Middleware
+
+L'implementazione della comunicazione in un sistema distribuito tende a nascondere i dettagli legati alla rete, rendendo l'interazione tra processi o nodi più semplice e astratta. Questo viene realizzato utilizzando un **Middleware**, ovvero un software che opera sopra il sistema operativo e fornisce le funzionalità necessarie per abilitare la comunicazione tra le applicazioni.
+
+Il **Middleware** agisce come un livello intermedio che si occupa di gestire le complessità della rete, come il routing, il trasporto e la sincronizzazione dei messaggi. Grazie a questo, le applicazioni possono comunicare tra loro senza preoccuparsi dei dettagli tecnici del network sottostante.
+Un aspetto cruciale del middleware è la sua capacità di fornire **interoperabilità** tra applicazioni eseguite su diversi sistemi operativi o piattaforme hardware.
+
+![[Middleware.webp|center|400]]
 
 ### Semantica della Send e Receive
+
+Esistono due principali tipi di **modelli astratti** per descrivere la comunicazione e il comportamento nei sistemi distribuiti:
+- **Modello Synchronous**: in questo modello, tutti i processi compiono i loro passi in maniera simultanea, seguendo lo stesso ritmo temporale. Le comunicazioni e le operazioni sono sincronizzate, il che rende il modello molto semplice da capire e da analizzare. Tuttavia, questo approccio è poco realistico per la maggior parte dei sistemi distribuiti, poiché nella realtà i processi raramente operano esattamente nello stesso tempo, a causa di variabili come la latenza della rete o la diversa velocità di elaborazione.
+- **Modello Asynchronous**: in questo modello, *non ci sono vincoli di tempo* precisi per l'esecuzione dei processi. Le comunicazioni possono subire **unbounded delays** (ritardi indefiniti), e non esiste un **orologio globale** che sincronizzi le operazioni tra i processi. Ciò rende il modello più realistico, poiché riflette meglio la natura dei sistemi distribuiti reali, dove la latenza della rete e i tempi di elaborazione possono variare notevolmente. Tuttavia, questa mancanza di sincronizzazione introduce complessità nella gestione della coerenza e della sincronizzazione dei dati.
+
 
