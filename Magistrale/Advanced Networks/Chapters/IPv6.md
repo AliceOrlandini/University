@@ -99,11 +99,41 @@ A causa di questi problemi, il **Routing Header** è stato deprecato nelle imple
 
 Il **Fragment Header** in IPv6 è utilizzato per gestire la **frammentazione dei pacchetti**. A differenza di IPv4, in cui la frammentazione può essere eseguita da qualsiasi router lungo il percorso, in IPv6 la frammentazione può essere fatta solo dal **mittente**. Il Fragment Header viene quindi inserito dal nodo sorgente quando un pacchetto supera la dimensione massima supportata dalla rete di destinazione, nota come **MTU (Maximum Transmission Unit)**.
 
-Il Fragment Header permette di:
-1. **Frammentare pacchetti** troppo grandi per essere trasmessi in una singola unità sulla rete, rispettando l'MTU.
-2. **Ricostruire i frammenti** una volta che raggiungono il destinatario, che riassembla il pacchetto completo.
+Un aspetto cruciale che ora ricade sulla responsabilità del mittente è determinare l'MTU (Maximum Transmission Unit) lungo il percorso del pacchetto. Esistono due modi per conoscerla:
+1. È stato impostato dallo standard un valore fisso per la **Minimum Transmission Unit** pari a 1028 byte, che garantisce una dimensione di pacchetto accettabile per la maggior parte delle reti. È stato impostato a 1028 byte e non ad esempio a 2500 byte perché siamo in una fase di transizione in cui spesso i pacchetti IPv6 vengono incapsulati in pacchetti IPv4 e quindi la loro dimensione può aumentare durante il percorso. 
+2. Un metodo più dinamico consiste nell'usare i pacchetti ICMPv6 con il messaggio di errore "Packet Too Big". Questo fa parte del protocollo noto come **Path MTU Discovery**, utilizzato principalmente prima di inviare pacchetti di grandi dimensioni, poiché può rallentare la trasmissione. Il funzionamento si basa sull'invio di pacchetti di dimensioni elevate: se questi raggiungono la destinazione senza problemi, significa che l'MTU è sufficiente. In caso contrario, il mittente riceve un pacchetto ICMPv6 di errore contenente l'informazione sull'MTU del router che ha bloccato il pacchetto, permettendo così di adattare la dimensione dei pacchetti successivi.
 
 Il Fragment Header contiene i seguenti campi principali:
 - **Fragment Offset**: Indica la posizione del frammento all'interno del pacchetto originale.
 - **Identification**: Identifica in modo univoco i frammenti che appartengono allo stesso pacchetto originale.
 - **More Fragments Flag (M flag)**: Indica se il frammento è l'ultimo o se ci sono altri frammenti successivi.
+Grazie a questo header i router non sanno di star trasmettendo un frammento intermedio e sarà il destinatario a riassemblarli.
+
+### Come avviene la processazione degli header IPv6?
+
+Per l'elaborazione degli header IPv6, esistono diversi metodi. 
+Se è presente un header **hop-by-hop**, questo deve essere *processato a livello software*, poiché ogni nodo lungo il percorso deve esaminare questo tipo di header. 
+
+![With Hop-by-Hop|center|500](https://www.cisco.com/en/US/technologies/tk648/tk872/images/technologies_white_paper0900aecd8054d37d-07.jpg)
+
+
+In assenza dell'header hop-by-hop, l'intero pacchetto può essere elaborato *direttamente dall'hardware* di rete, senza coinvolgere il software. Questo è il motivo per cui l'uso dell'header hop-by-hop dovrebbe essere limitato e usato solo quando strettamente necessario, poiché aumenta il carico di elaborazione sui router lungo il percorso.
+
+![Without Hop-by-Hop|center|500](https://www.cisco.com/en/US/technologies/tk648/tk872/images/technologies_white_paper0900aecd8054d37d-10.jpg)
+
+Quando è presente un **Access Control List (ACL)**, ogni pacchetto viene confrontato con una serie di regole definite nell'ACL. Queste regole specificano quali pacchetti devono essere permessi o bloccati in base a criteri come indirizzi IP, protocolli o porte. 
+
+Gli **ACL basati sull'header type** controllano il tipo di header IPv6 (come hop-by-hop, routing header, ecc.) per decidere se consentire o bloccare un pacchetto. Sono quindi focalizzati sui campi specifici degli header IPv6.
+
+![ACL type|center|500](https://www.cisco.com/en/US/technologies/tk648/tk872/images/technologies_white_paper0900aecd8054d37d-12.jpg)
+
+Gli **ACL basati sull'upper layer** invece guardano oltre l'header IPv6 e controllano le informazioni presenti nei protocolli di livello superiore, come TCP o UDP. Ad esempio, potrebbero esaminare le porte TCP/UDP, il numero di sequenza o altri dati del livello di trasporto o applicazione.
+
+![ACL upper layers|center|500](https://www.cisco.com/en/US/technologies/tk648/tk872/images/technologies_white_paper0900aecd8054d37d-14.jpg)
+
+### Quali sono le categorie alle quali può appartenere un IPv6?
+
+Dato un indirizzo IPv6 abbiamo 3 possibilità:
+1. **Unicast**: un indirizzo 
+2. **Multicast**:
+3. **Anycast**:
