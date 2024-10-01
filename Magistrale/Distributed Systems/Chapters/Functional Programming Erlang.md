@@ -26,7 +26,7 @@ Altri paradigmi, come quello logico o orientato agli oggetti, si trovano tra que
 
 Vediamo ora alcuni concetti della programmazione funzionale che non sono comuni in quella imperativa.
 
-#### Expression & Referential Transparency
+#### Espressioni & Referential Transparency
 
 Le computazioni in ambito funzionale consistono nella *valutazione di espressioni*. Un'espressione si definisce **referentially transparent** se può essere sostituita dal suo valore risultante senza alterare il comportamento del programma. In questo caso, l'espressione è priva di effetti collaterali (*side effects*).
 
@@ -142,9 +142,30 @@ Un **atom** in Erlang rappresenta un valore costante e unico all'interno del pro
 
 #### Tuple
 
-La tupla è un compound data type con un numero fisso di terms (elementi). Le tuple vengono usate per raggruppare elementi, sono simili alle strutture in C, senza però il nome del campo.
-Il delimitatore è le parentesi graffe e gli elementi vengono separati dalle virgole.
-I valori possono essere estratti dalle tuple usando il pattern matching.
+La **tupla** in Erlang è un tipo di dato composto con un numero fisso di elementi, detti **terms**. Viene utilizzata per raggruppare dati diversi in un'unica struttura, simile alle strutture in C, ma senza nomi di campo. Le tuple sono delimitate da **parentesi graffe** e i loro elementi sono separati da **virgole**.
+
+Un esempio di una tupla potrebbe essere `{Name, Age, City}`. I valori contenuti in una tupla possono essere facilmente estratti usando il **pattern matching**. Ecco un esempio:
+
+```erlang
+Person = {john, 30, london},
+{Name, Age, City} = Person.
+Age.
+30
+```
+
+#### Liste
+
+Una **lista** in Erlang è un tipo di dato composto utilizzato per memorizzare un numero arbitrario di elementi, detti **terms**. Le liste sono delimitate da **parentesi quadre** e gli elementi sono separati da **virgole**. A differenza delle tuple, le liste sono ricorsive per natura, composte da una **testa** (il primo elemento) e una **coda**, che è a sua volta un'altra lista. Questo le rende adatte per l'elaborazione tramite *ricorsione*.
+
+In Erlang, è possibile utilizzare le **List Comprehensions**, una notazione compatta per generare e filtrare elementi in una lista in base a regole specifiche, simile alla sintassi di Python. Ecco un semplice esempio:
+
+```erlang
+Squares = [X * X || X <- [1, 2, 3, 4, 5]].
+```
+
+In questo caso, la list comprehension genera una nuova lista contenente i quadrati dei numeri da 1 a 5. Il risultato sarà la seguente lista: `[1, 4, 9, 16, 25]`.
+
+Il pattern `X * X || X <- [1, 2, 3, 4, 5]` significa "per ogni `X` nella lista `[1, 2, 3, 4, 5]`, calcola `X * X` e inserisci il risultato nella nuova lista".
 
 ### Il modello Actor
 
