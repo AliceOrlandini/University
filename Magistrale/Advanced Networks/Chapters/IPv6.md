@@ -151,3 +151,15 @@ Il **link** rappresenta l'insieme di nodi che appartengono alla stessa rete e ch
 - **Stabilità nel tempo**: Il network address rimane costante per garantire connessioni affidabili.
 - **Single link-layer broadcast domain**: Ogni nodo all'interno dello stesso dominio di broadcast non può avere un indirizzo IP duplicato. Questo semplifica il rilevamento di eventuali conflitti di indirizzo nella rete.
 - **Transitività**: Se il nodo A può comunicare con il nodo B e B può comunicare con C, allora A può comunicare anche con C. La transitività è cruciale per garantire che tutti i nodi all'interno dello stesso network possano comunicare tra loro senza problemi.
+
+
+### Quale notazione si utilizza per gli indirizzi IPv6?
+
+### Da quali campi è composto il Global Unicast Address?
+
+### Come si ricava l'interface ID?
+
+### Da quali campi sono composti il Link-Local Address e l'Unique Local?
+
+### Com'è strutturato l'anycast address?
+
