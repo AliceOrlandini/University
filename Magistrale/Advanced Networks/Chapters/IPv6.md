@@ -133,7 +133,21 @@ Gli **ACL basati sull'upper layer** invece guardano oltre l'header IPv6 e contro
 
 ### Quali sono le categorie alle quali può appartenere un IPv6?
 
-Dato un indirizzo IPv6 abbiamo 3 possibilità:
-1. **Unicast**: un indirizzo unicast identifica univocamente un'interfaccia di un nodo IPv6. Un pacchetto inviato ad un indirizzo di questo tipo è recapitato al nodo con tale indirizzo.
-2. **Multicast**: un indirizzo multicast identifica un gruppo di interfacce IPv6. Un pacchetto inviato ad un indirizzo di questo tipo è recapitato e processato a tutti i nodi del gruppo.
-3. **Anycast**:  un indirizzo anycast è assegnato a più interfacce. Un pacchetto inviato ad un indirizzo di questo tipo è recapitato e processato solo da un nodo con questo indirizzo. La differenza con il multicast è che solo un nodo lo riceverà e processerà. 
+Dato un indirizzo IPv6, esistono tre modalità principali di indirizzamento:
+1. **Unicast**: Un indirizzo unicast identifica univocamente *un'interfaccia* su un nodo IPv6. Un pacchetto inviato a un indirizzo unicast viene recapitato direttamente al nodo associato a quell'indirizzo specifico.
+2. **Multicast**: Un indirizzo multicast rappresenta un *gruppo di interfacce* IPv6, generalmente distribuite su più nodi. Un pacchetto inviato a un indirizzo multicast viene ricevuto e processato da tutti i nodi appartenenti al gruppo.
+3. **Anycast**: Un indirizzo anycast viene assegnato a *più interfacce*, solitamente su nodi diversi. A differenza del multicast, un pacchetto inviato a un indirizzo anycast viene recapitato solo al nodo più vicino (in termini di routing) che condivide quell'indirizzo. È utile in sistemi distribuiti come DNS o DHCP, poiché garantisce che solo un nodo processi il pacchetto.
+
+Infine, va notato che l'indirizzamento **broadcast**, presente in IPv4, non esiste più in IPv6. È stato sostituito dal concetto di multicast, che permette di raggiungere gruppi specifici di nodi.
+
+### Quali sono gli scope di validità di IPv6?
+
+Gli indirizzi IPv6 includono un **scope di validità**, che specifica l'ambito topologico all'interno del quale un indirizzo può essere utilizzato come identificatore unico. Questo ambito è codificato in una parte dell'indirizzo e determina dove l'indirizzo è valido. I principali scope sono:
+- **Global scope**: L'indirizzo è valido in tutto Internet, ed è utilizzabile per comunicazioni globali.
+- **Link-local**: L'indirizzo è valido solo all'interno di un singolo link. La comunicazione in questo ambito è più efficiente grazie alla "On Link Determination", che permette di identificare velocemente i nodi all'interno del link stesso.
+- **Unique-local**: Questo indirizzo ha una visibilità più ampia rispetto ai link-local, ma è limitato a una rete privata, simile alle VPN. A differenza di IPv4, dove gli indirizzi privati potevano essere duplicati, gli indirizzi unique-local in IPv6 sono comunque unici, anche nelle reti private.
+
+Il **link** rappresenta l'insieme di nodi che appartengono alla stessa rete e che possono comunicare direttamente tra loro. Le caratteristiche principali del link sono:
+- **Stabilità nel tempo**: Il network address rimane costante per garantire connessioni affidabili.
+- **Single link-layer broadcast domain**: Ogni nodo all'interno dello stesso dominio di broadcast non può avere un indirizzo IP duplicato. Questo semplifica il rilevamento di eventuali conflitti di indirizzo nella rete.
+- **Transitività**: Se il nodo A può comunicare con il nodo B e B può comunicare con C, allora A può comunicare anche con C. La transitività è cruciale per garantire che tutti i nodi all'interno dello stesso network possano comunicare tra loro senza problemi.
