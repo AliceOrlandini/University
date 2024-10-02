@@ -123,6 +123,24 @@ Vediamo le cinque fasi della **Primary Backup Replication**:
 5. **Response**: Il primario risponde al frontend, che inoltra la risposta al client.
 ### Active Replication
 
+**Active Replication** è un approccio per garantire bilanciamento del carico e disponibilità. In questo modello, i replica managers sono organizzati in gruppi e il frontend invia le richieste in multicast direttamente a tutto il gruppo. Ogni replica esegue la richiesta in modo indipendente e restituisce una risposta identica. Se una delle repliche va in crash, non ci sono impatti significativi sulle prestazioni, poiché le repliche rimanenti possono continuare a rispondere.
+
+Le cinque fasi dell'**Active Replication** sono:
+1. **Richiesta**: Il frontend aggiunge un identificatore univoco alla richiesta e la invia in multicast a tutti i replica managers.
+2. **Coordinazione**: Non è necessaria coordinazione esplicita, poiché il multicast si occupa di distribuire la richiesta a tutte le repliche. È essenziale utilizzare un _total order multicast_ per garantire che le richieste vengano ricevute nello stesso ordine da tutti i replica managers.
+3. **Esecuzione**: Ogni replica manager esegue la richiesta in modo autonomo.
+4. **Accordo**: Grazie al _total order multicast_, non è richiesto alcun accordo aggiuntivo tra le repliche.
+5. **Risposta**: Ogni replica manager invia la propria risposta al frontend. Poiché il frontend riceve le risposte in ordine determinato dal _total order multicast_, può utilizzare la prima risposta ricevuta.
+
+### Approccio alternativo
+
+Gli approcci passivi e attivi si concentrano principalmente nel garantire **alta disponibilità (high availability)**. Tuttavia, esiste un approccio alternativo che mira a garantire sia **alta disponibilità** che **scalabilità** contemporaneamente.
+
+In questo modello, diversi replica managers gestiscono le richieste provenienti dal frontend in parallelo (non solo uno che riceve le richieste o tutti che le elaborano), ottimizzando così l’utilizzo delle risorse. Gli aggiornamenti tra i replica managers non vengono propagati immediatamente, ma sono differiti quando possibile, mentre il controllo viene restituito al client il più rapidamente possibile.
 ## Gossip Architecture
+
+Nell'architettura gossip, i replica manager scambiano messaggi di gossip periodicamente con lo scopo di convey gli aggiormantenti che hanno ricevuto dai client.
+I client sono assegnati a specifici Frontend instances per load balancing, possono essere cambiati se l'instanza a loro assegnata crasha.
+
 
 ## ZooKepeer

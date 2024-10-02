@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md"
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md"
               }
             }
           },
@@ -179,8 +179,8 @@
   },
   "active": "96e2c78984f41f06",
   "lastOpenFiles": [
-    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Advanced Networks/Chapters/IPv6.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Distributed Systems/Images/Bounded Buffer.webp",
