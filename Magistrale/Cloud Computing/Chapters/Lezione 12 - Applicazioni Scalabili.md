@@ -158,11 +158,25 @@ Le cinque fasi del **Gossip** sono:
 
 #### Timestamps
 
-Per mantenere l'ordine delle richieste, vengono utilizzati i **timestamp**, il che richiede la sincronizzazione degli orologi di tutti i frontend. Ogni frontend mantiene un vettore di timestamp che rappresenta la versione dell'ultimo valore a cui ha avuto accesso. Questo timestamp viene inviato ai replica manager insieme alla query. Il replica manager fornisce un nuovo timestamp insieme alla risposta, e i timestamp ritornati vengono combinati con quelli precedenti.
+Per mantenere l'ordine delle richieste, vengono utilizzati i **timestamp**, il che richiede la sincronizzazione degli orologi di tutti i frontend. 
+Ogni frontend mantiene un vettore di timestamp che rappresenta la versione dell'ultimo valore a cui ha avuto accesso. 
+Questo timestamp viene inviato ai replica manager insieme alla query. Il replica manager fornisce un nuovo timestamp insieme alla risposta, e i timestamp ritornati vengono combinati con quelli precedenti.
 
 #### Processazione di una query
 
-Il timestamp associato ad una query riflette l'ultima versione del valore che il frontend ha letto o 
+Il timestamp associato a una query riflette l'ultima versione del valore che il frontend ha letto o aggiornato. 
+Pertanto, per ogni query ricevuta, il replica manager deve restituire un valore che sia almeno tanto recente quanto il timestamp fornito nella query. 
+Se il timestamp dell'ultimo aggiornamento della replica locale è più vecchio di quello presente nella query, la richiesta viene posticipata e inserita in una lista di operazioni pendenti, in attesa dell'aggiornamento mancante. 
+Quando la query può essere elaborata, il replica manager restituisce al frontend il valore con il timestamp dell'ultimo aggiornamento.
 
 #### Processazione di un Update
+
+Quando un replica manager riceve una richiesta di aggiornamento da un frontend, innanzitutto controlla l'ID della richiesta per verificare se è stata già ricevuta e processata. 
+Se la richiesta non è duplicata, il replica manager genera un nuovo timestamp incrementando il valore del timestamp ricevuto dal frontend, e invia la risposta con il timestamp aggiornato. Inoltre, aggiunge una nuova voce nel log locale per le operazioni di aggiornamento in sospeso.
+Se la condizione del timestamp della query è soddisfatta, l'operazione di aggiornamento viene eseguita; altrimenti, l'aggiornamento viene posticipato fino a quando la condizione non è soddisfatta.
 ## ZooKepeer
+
+Zookeeper è un servizio altamente disponibile, utilizzato principalmente per lo scambio di piccole quantità di dati tra servizi diversi. 
+Può essere impiegato per memorizzare informazioni di configurazione, creare directory distribuite o sistemi di naming. 
+Zookeeper è un servizio replicato e richiede che la maggioranza dei nodi sia operativa per funzionare correttamente. I server che si arrestano vengono automaticamente esclusi, ma possono rientrare nel sistema una volta ripristinati. 
+Zookeeper utilizza uno schema _primary-backup_ per le operazioni e implementa un algoritmo di broadcast atomico chiamato Zab.

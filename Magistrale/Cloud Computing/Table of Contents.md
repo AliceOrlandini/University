@@ -11,4 +11,6 @@
 11. [[Lezione 11 - Design delle applicazioni cloud]]
 12. [[Lezione 12 - Applicazioni Scalabili]]
 13. [[Lezione 13 - Applicazioni geograficamente distribuite]]
+14. [[Lezione 14 - Cloud Platforms]]
+15. [[Lezione 15 - Cloud Storage]]
 
