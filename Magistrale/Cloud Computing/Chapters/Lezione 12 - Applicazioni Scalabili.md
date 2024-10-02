@@ -139,8 +139,30 @@ Gli approcci passivi e attivi si concentrano principalmente nel garantire **alta
 In questo modello, diversi replica managers gestiscono le richieste provenienti dal frontend in parallelo (non solo uno che riceve le richieste o tutti che le elaborano), ottimizzando così l’utilizzo delle risorse. Gli aggiornamenti tra i replica managers non vengono propagati immediatamente, ma sono differiti quando possibile, mentre il controllo viene restituito al client il più rapidamente possibile.
 ## Gossip Architecture
 
-Nell'architettura gossip, i replica manager scambiano messaggi di gossip periodicamente con lo scopo di convey gli aggiormantenti che hanno ricevuto dai client.
-I client sono assegnati a specifici Frontend instances per load balancing, possono essere cambiati se l'instanza a loro assegnata crasha.
+Nell'architettura **gossip**, i replica managers si scambiano periodicamente messaggi di gossip per trasmettere gli aggiornamenti ricevuti dai client. I client vengono assegnati a istanze specifiche del frontend per bilanciare il carico (_load balancing_), ma possono essere riassegnati se l'istanza a cui sono collegati subisce un crash.
 
+I **service provider** eseguono due operazioni di base:
+- **Query**: operazioni di sola lettura.
+- **Update**: modificano lo stato dell'oggetto, ma non leggono lo stato corrente prima di eseguire l'aggiornamento.
 
+Il sistema gossip garantisce due aspetti fondamentali:
+1. **Consistenza nel tempo per il client**: ogni client otterrà una visione consistente del sistema. La risposta a una query verrà fornita da un replica manager i cui dati riflettono l'ultimo aggiornamento osservato dal client (o il suo stesso aggiornamento).
+2. **Consistenza tra le repliche**: le repliche possono raggiungere la consistenza nel tempo grazie allo scambio frequente di messaggi di gossip. Ciò significa che un client potrebbe ricevere una versione leggermente più vecchia ma comunque consistente delle informazioni quando esegue una query. È garantita la **sequential consistency**.
+
+Le cinque fasi del **Gossip** sono:
+1. **Richiesta**: Il frontend invia solitamente le richieste a un singolo replica manager alla volta.
+2. **Coordinazione**: Il replica manager che riceve la richiesta non la processa immediatamente, ma attende che vengano soddisfatti i vincoli di ordine. Questo potrebbe richiedere di ricevere aggiornamenti da altri replica manager attraverso i messaggi gossip. Non è necessario alcun coordinamento aggiuntivo tra i replica managers. 
+3. **Esecuzione**: Il replica manager esegue la richiesta non appena i vincoli sono rispettati.
+4. **Agreement**: Dopo l'esecuzione, il replica manager aggiorna i dati inviando e ricevendo messaggi gossip contenenti l'aggiornamento più recente. Questi aggiornamenti vengono scambiati in modo ritardato (_lazy fashion_).
+5. **Risposta**: Se la richiesta è una query, il replica manager invia una risposta al frontend subito dopo l'esecuzione. Se invece è un'operazione di aggiornamento, risponde una volta che l'aggiornamento è stato ricevuto.
+
+#### Timestamps
+
+Per mantenere l'ordine delle richieste, vengono utilizzati i **timestamp**, il che richiede la sincronizzazione degli orologi di tutti i frontend. Ogni frontend mantiene un vettore di timestamp che rappresenta la versione dell'ultimo valore a cui ha avuto accesso. Questo timestamp viene inviato ai replica manager insieme alla query. Il replica manager fornisce un nuovo timestamp insieme alla risposta, e i timestamp ritornati vengono combinati con quelli precedenti.
+
+#### Processazione di una query
+
+Il timestamp associato ad una query riflette l'ultima versione del valore che il frontend ha letto o 
+
+#### Processazione di un Update
 ## ZooKepeer
