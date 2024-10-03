@@ -167,6 +167,28 @@ In questo caso, la list comprehension genera una nuova lista contenente i quadra
 
 Il pattern `X * X || X <- [1, 2, 3, 4, 5]` significa "per ogni `X` nella lista `[1, 2, 3, 4, 5]`, calcola `X * X` e inserisci il risultato nella nuova lista".
 
+#### Stringhe
+
+In Erlang, le stringhe non hanno un tipo di dato speciale, ma sono rappresentate come liste di interi. È possibile definire una stringa utilizzando le doppie virgolette (`""`).
+
+#### Moduli
+
+Un modulo in Erlang ha generalmente lo stesso nome del file che lo contiene. Esso è composto da metadati, che includono informazioni come il nome del modulo e le funzioni esportate, seguiti dalla definizione delle funzioni vere e proprie.
+
+La sintassi di un modulo può essere esemplificata con il classico "Hello World":
+```erlang
+-module(hello).
+-export([world/0]).
+
+world() ->
+    io:format("Hello, world!~n").
+```
+
+I moduli possono essere compilati direttamente nella CLI di Erlang usando il comando `c(nome_modulo).`. Una volta compilato, un modulo può essere importato in altri moduli tramite la clausola `-import(hello, [world/0])`.
+
+#### Funzioni
+
+
 ### Il modello Actor
 
 ### Going concurrent & distributed actually

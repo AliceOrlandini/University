@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "7965ae05c23a6941",
+        "id": "a52923a9431543ee",
         "type": "tabs",
         "children": [
           {
-            "id": "697b9993b3b57cf8",
+            "id": "b4dfcc4fa98188e9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5,
-    "collapsed": true
+    "width": 298.5
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md"
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md"
               }
             }
           },
@@ -185,12 +184,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "697b9993b3b57cf8",
+  "active": "b4dfcc4fa98188e9",
   "lastOpenFiles": [
+    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Advanced Networks/Images/Link Local and Local.png",
     "Magistrale/Advanced Networks/Images/Global Unicast Address.webp",
     "Magistrale/Advanced Networks/Images/Stateless Interface ID.png",
-    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Advanced Networks/Images/Stateless ID.png",
     "Magistrale/Advanced Networks/Images",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
@@ -214,7 +213,6 @@
     "Magistrale/Distributed Systems/Images/Resource Management.webp",
     "Magistrale/Distributed Systems/Images/Channels.png",
     "Magistrale/Distributed Systems/Images/Shared Memory to Msg Passing.webp",
-    "Magistrale/Distributed Systems/Images/Tail Call Optimization.png",
     "Magistrale/Distributed Systems/Images",
     "Magistrale/Distributed Systems/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
