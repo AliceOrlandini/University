@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5,
-    "collapsed": true
+    "width": 298.5
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -187,11 +186,16 @@
   },
   "active": "697b9993b3b57cf8",
   "lastOpenFiles": [
+    "Magistrale/Advanced Networks/Images/Link Local and Local.png",
+    "Magistrale/Advanced Networks/Images/Global Unicast Address.webp",
+    "Magistrale/Advanced Networks/Images/Stateless Interface ID.png",
+    "Magistrale/Advanced Networks/Chapters/IPv6.md",
+    "Magistrale/Advanced Networks/Images/Stateless ID.png",
+    "Magistrale/Advanced Networks/Images",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
-    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "TODO.md",
     "Scaletta_FOC.md",
@@ -221,20 +225,15 @@
     "Magistrale/Industrial Applications/Progetti Industrial.md",
     "Magistrale/Industrial Applications",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
-    "Magistrale/Advanced Networks/Chapters/Intro.md",
     "Magistrale/Distributed Systems/Chapters",
     "Magistrale/Distributed Systems",
     "Senza nome.canvas",
     "Magistrale/Advanced Networks/Chapters",
     "Magistrale/Advanced Networks",
-    "Untitled Diagram.svg",
     "Untitled.canvas",
     "Magistrale/Cloud Computing/Chapters",
     "LICENSE",
-    "Magistrale/Electronics And Communication/Electronics/Images/glitch.webp",
-    "Magistrale/Electronics And Communication/Electronics/Images/probability.webp",
     "Magistrale/Electronics And Communication/Electronics/Project",
-    "Magistrale/Electronics And Communication/Electronics/Laboratory",
     "Grafo.canvas"
   ]
 }

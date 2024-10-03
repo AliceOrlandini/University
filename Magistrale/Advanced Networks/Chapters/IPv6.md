@@ -181,15 +181,46 @@ Alcuni prefissi permettono di capire la tipologia di indirizzo:
 
 ### Da quali campi è composto il Global Unicast Address?
 
-![Global Unicast Address|center|400](https://service.snom.com/download/attachments/234345347/image2018-7-24_15-53-29.png?version=1&modificationDate=1710679542924&api=v2)
+![[Global Unicast Address.webp|center|400]]
 
-Come abbiamo detto il prefisso del Global Unicast Address è 2001
+Come accennato, il prefisso degli **indirizzi Global Unicast** in IPv6 è **2000::/3**, il che significa che qualsiasi indirizzo che inizia con **2000** a **3fff** è un indirizzo unicast globale. Per esempio, un indirizzo che inizia con **2001** è coerente con questo prefisso.
+Le sezioni successive dell'indirizzo IPv6 permettono di identificare diversi elementi:
+1. **Registro e prefisso dell'ISP**: Questi campi indicano l'autorità di registrazione e l'Internet Service Provider (ISP) che ha assegnato l'indirizzo.
+2. **Prefisso del sito**: Un "sito" in questo contesto è una rete o organizzazione che ha un insieme di indirizzi IPv6 assegnati dall'ISP.
+3. **Subnet**: Sono dedicati 16 bit per definire eventuali subnet interne al sito, facilitando la suddivisione logica delle reti.
+4. **Interface ID**: Questa parte dell'indirizzo, composta dagli ultimi 64 bit, corrisponde all'**host** di IPv4 e identifica un'interfaccia univoca all'interno della rete.
 
-
+Per motivi di ottimizzazione e prestazioni, è stato stabilito che il prefisso degli indirizzi IPv6 sarà di *64 bit*. Questo permette ai router di gestire più velocemente il routing degli indirizzi, dato che possono utilizzare l'hardware per processare il prefisso senza coinvolgere la CPU.
 
 ### Come si ricava l'interface ID?
 
+Ogni host all'interno di un link IPv6 deve avere un **interface ID** univoco, e ci sono tre metodi principali per assegnarlo:
+1. **Manuale**: L'interface ID viene configurato manualmente dall'amministratore di rete.
+2. **Dinamico**: L'ID viene assegnato tramite **DHCPv6**.
+3. **Stateless**: L'ID viene generato automaticamente dall'host.
+
+Vediamo in particolare come si ottiene un interface ID in modo *stateless*.
+Quando si genera un **interface ID** in modo stateless, il metodo più comune è utilizzare il **MAC Address** dell'interfaccia di rete, che è generalmente unico (salvo errori di produzione) e ha una lunghezza di 48 bit. Per ottenere i 64 bit richiesti per l'**interface ID**, si combinano i bit del MAC Address con alcuni bit fissi. L'indirizzo così generato è noto come **SLAAC (Stateless Address Autoconfiguration) Address**.
+
+![[Stateless Interface ID.png|center|400]]
+
+Un problema significativo con questo metodo è legato alla privacy. Poiché l'**interface ID** è derivato dal MAC Address, rimane invariato anche quando l'host si sposta tra reti diverse. Ciò significa che, anche se il prefisso della rete cambia (per esempio passando dalla rete dell'università a quella di casa), l'**interface ID** rimane lo stesso. Questo consente a servizi come Google di tracciare gli spostamenti di un utente, associando l'ID univoco ai vari link.
+
+Per risolvere questo problema, sono stati introdotti due nuovi metodi:
+- **Temporary Transient Addresses**: Questi indirizzi sono generati in modo casuale e si aggiornano periodicamente. Il vantaggio è che l'ID cambia regolarmente, rendendo più difficile il tracciamento. Tuttavia, un lato negativo è che, cambiando l'ID, l'host non è più riconoscibile all'interno dello stesso link, il che può creare problemi di identificazione locale.
+- **Stable Privacy Addresses**: In questo metodo, l'interface ID non è basato su un identificatore hardware come il MAC Address, ma viene generato in modo stabile per ogni link al quale ci si connette. Ciò significa che, all'interno di uno stesso link, l'interface ID rimane costante, ma cambia quando l'host si sposta su una rete diversa. In questo modo, l'host è riconoscibile all'interno del link senza esporre la sua identità su reti differenti, proteggendo la privacy dell'utente.
+
 ### Da quali campi sono composti il Link-Local Address e l'Unique Local?
+
+Gli **indirizzi link-local** in IPv6 vengono assegnati automaticamente tramite auto-configurazione. Per questi indirizzi, 54 bit sono fissati a zero, lasciando i restanti 64 bit per l'**interface ID**.
+
+Per quanto riguarda invece gli **indirizzi unique-local**, essi includono un flag **L** che indica se l'indirizzo è stato assegnato ufficialmente o se è ancora in fase di generazione. 
+Questi indirizzi, pur essendo locali, devono essere unici all'interno della rete. Per garantire questa univocità senza dover ricorrere a un'autorità centrale, vengono generati casualmente 40 bit, che costituiscono il **Global ID**. Questo meccanismo permette di assegnare indirizzi unici senza richiedere un registro globale, poiché i 40 bit generati casualmente hanno una bassa probabilità di duplicazione.
+
+Infine, l'indirizzo include un **Subnet ID**, che consente di suddividere ulteriormente la rete interna.
+
+![[Link Local and Local.png|center|500]]
+
 
 ### Com'è strutturato l'anycast address?
 
