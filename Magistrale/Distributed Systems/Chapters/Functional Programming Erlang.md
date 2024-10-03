@@ -188,7 +188,127 @@ I moduli possono essere compilati direttamente nella CLI di Erlang usando il com
 
 #### Funzioni
 
+La struttura di una funzione in Erlang è:
 
+```erlang
+function_name(Pattern1, Pattern2, ..., PatternN) when [guard] -> Body.
+```
+
+Il nome della funzione è un `atom`, mentre i parametri sono dei pattern. L'arity, ossia il numero di parametri della funzione, deve essere specificata quando si esporta la funzione. 
+Nel body si possono inserire espressioni che verranno valutate in sequenza, separate da virgole.
+
+Un guard è un'espressione che restituisce un valore booleano. Se presente, il guard viene valutato prima di eseguire il corpo della funzione. Alcuni guard comuni includono `is_number(X)`, che verifica se `X` è un numero.
+
+#### Case expression
+
+Se dobbiamo eseguire pattern matching con molte clausole, è conveniente utilizzare l'espressione `case`. La sintassi è:
+
+```erlang
+case Expression of
+    P1 [when C1] -> E1;
+    P2 [when C2] -> E2;
+    ...
+    Pn [when Cn] -> En;
+end
+```
+
+Il funzionamento è il seguente:
+1. Viene valutata l'espressione e si cerca un match nell'ordine in cui appaiono i pattern.
+2. Se si verifica un match, viene controllato se il guard associato passa.
+3. Se il guard è vero, viene eseguita l'espressione corrispondente e viene ritornato il valore.
+
+È sempre consigliabile inserire una clausola di default per evitare che venga sollevata un'eccezione in caso nessun match sia valido.
+#### IF expression
+
+Un'altra espressione condizionale in Erlang è l'`if`, con la seguente sintassi:
+
+```erlang
+if
+    Guard1 -> E1;
+    Guard2 -> E2;
+    ...
+    Guardn -> En;
+end
+```
+
+Per evitare il sollevamento di eccezioni, si aggiunge spesso una clausola `true` finale. Tuttavia, il professore sconsiglia l'uso degli `if`, suggerendo di utilizzare il `case`.
+#### Loop
+
+Come già detto, nei linguaggi funzionali non esiste uno stato, quindi l'unico modo per eseguire dei loop è tramite la ricorsione. Ecco un esempio di loop in Erlang che stampa "hello world" 5 volte:
+
+```erlang
+-module(helloworld).
+-export([loop/1]).
+
+loop(0) -> ok;
+loop(N) ->
+    io:format("Hello, world!~n"),
+    loop(N - 1).
+```
+
+In questo esempio, la funzione `loop/1` continua a chiamare sé stessa riducendo il valore di `N` fino a raggiungere 0, momento in cui il loop termina.
+
+#### Fun (Lambda)
+
+In Erlang, le `fun` sono l'equivalente delle *lambda function* in Python: funzioni anonime che possono essere definite e utilizzate senza avere un nome. Le `fun` sono molto utili quando si vuole definire una funzione temporanea o passare una funzione come argomento.
+
+La sintassi base per creare una `fun` è:
+
+```erlang
+FunName = fun(Param1, Param2, ..., ParamN) -> Body end.
+```
+
+Ad esempio, una `fun` che somma due numeri può essere scritta così:
+
+```erlang
+Sum = fun(X, Y) -> X + Y end.
+Result = Sum(3, 5). % Risultato: 8
+```
+
+Le `fun` possono anche avere un numero variabile di pattern o condizioni, come nelle funzioni normali. Ad esempio:
+
+```erlang
+Max = fun(X, Y) when X > Y -> X;
+              (_, Y) -> Y
+        end.
+Result = Max(4, 10). % Risultato: 10
+```
+
+##### Esempio 
+
+![[Esempio Lambda.png|center|700]]
+
+Definiamo un modulo chiamato `mycontrols` con due funzioni esportate: `myfor/3` e `test/0`. 
+
+La funzione `myfor/3` è una ricorsione che simula un loop `for`, iterando da un valore iniziale `I` fino a un valore massimo `Max`, applicando un'operazione data a ciascun valore.
+La sintassi di `myfor/3` è la seguente:
+
+```erlang
+myfor(Max, Max, Oper) -> [Oper(Max)];
+myfor(I, Max, Oper) -> [Oper(I) | myfor(I+1, Max, Oper)].
+```
+
+- **Caso base**: quando `I` è uguale a `Max`, la funzione applica l'operazione `Oper` su `Max` e restituisce una lista con il risultato: `[Oper(Max)]`.
+  
+- **Caso ricorsivo**: quando `I` è diverso da `Max`, la funzione applica l'operazione `Oper` su `I` e poi richiama sé stessa incrementando `I` (`I+1`) fino a raggiungere `Max`. Il risultato viene costruito concatenando (con `|`) l'elemento corrente con il resto della lista.
+
+La funzione `test/0` chiama `myfor/3` per eseguire un ciclo che va da 1 a 5, applicando una funzione anonima che moltiplica ciascun numero per 2.
+
+```erlang
+test() -> myfor(1, 5, fun(X) -> 2*X end).
+```
+
+- Qui viene passato `fun(X) -> 2*X end` come operazione da applicare. Questa `fun` moltiplica ogni valore per 2.
+- La funzione restituisce una lista di risultati: `[2, 4, 6, 8, 10]`.
+
+Il secondo esempio sulla destra effettua un'altra chiamata a `myfor/3` è mostrata per un intervallo da 1 a 3, con una funzione anonima che esegue il calcolo `(Z * Z) / 2`, cioè il quadrato di `Z` diviso per 2:
+
+```erlang
+myfor(1, 3, fun(Z) -> Z*Z/2 end).
+```
+
+- La funzione anonima qui eleva `Z` al quadrato e divide il risultato per 2.
+- I valori elaborati sono 1, 2, 3, e la funzione restituisce la lista: `[0.5, 2.0, 4.5]`.
 ### Il modello Actor
 
 ### Going concurrent & distributed actually
