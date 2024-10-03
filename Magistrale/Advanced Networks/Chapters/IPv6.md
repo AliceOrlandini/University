@@ -155,7 +155,37 @@ Il **link** rappresenta l'insieme di nodi che appartengono alla stessa rete e ch
 
 ### Quale notazione si utilizza per gli indirizzi IPv6?
 
+Gli indirizzi IPv6 sono rappresentati con una notazione composta da 8 blocchi di 16 bit separati da due punti, nella forma **x:x:x:x:x:x:x:x**, dove ogni blocco è espresso in *4 cifre esadecimali*. 
+Esistono delle regole di abbreviazione per rendere la notazione più compatta:
+1. Gli zeri iniziali di ogni blocco possono essere omessi. Ad esempio, `0012` può essere scritto come `12`.
+2. Blocchi consecutivi di zeri (anche più di due) possono essere sostituiti da `::`. Questa abbreviazione può però essere utilizzata solo una volta all'interno dell'indirizzo, altrimenti si creerebbero ambiguità. Ad esempio l'indirizzo `2001:0db8:0000:0000:0000:ff00:0000:0042` se venisse abbreviato diventerebbe `2001::ff00::42` ma non si può sapere quanti blocchi di zeri mancano nel primo `::` e nel secondo `::`, rendendo l'indirizzo ambiguo. Potrebbe essere un indirizzo completamente diverso perché non c'è un modo chiaro per determinare dove esattamente si trovano gli zeri omessi.
+
+Esistono anche due indirizzi IPv6 particolari:
+- **0:0:0:0:0:0:0:0** o semplicemente **::**, è l'indirizzo non specificato, utilizzato ad esempio quando un dispositivo si connette per la prima volta a una rete e richiede un indirizzo tramite DHCP.
+- **0:0:0:0:0:0:0:1** o **::1**, è l'indirizzo di loopback, usato per riferirsi a sé stessi (localhost).
+
+Come in IPv4, anche in IPv6 gli indirizzi sono suddivisi in una parte di rete (prefisso) e una parte dedicata agli host all'interno della rete. La parte di rete viene indicata usando la notazione **/lunghezza_prefisso** (ad esempio, **/64** per indicare un prefisso di rete lungo 64 bit).
+
+Alcuni prefissi permettono di capire la tipologia di indirizzo:
+
+| Allocation            | Prefisso in binario | Prefisso in esadecimale | Frazione dello spazio di indirizzamento |
+| --------------------- | ------------------- | ----------------------- | --------------------------------------- |
+| Non assegnato         | 0000 0000           | ::0/8                   | 1/256                                   |
+| Riservato             | 0000 001            | ::1/7                   | 1/128                                   |
+| Global Unicast (GUA)  | 001                 | 2000::/3                | 1/8                                     |
+| Link-Local Unicast    | 1111 1110 10        | FE80::/10               | 1/1024                                  |
+| Riservato             | 1111 1110 11        | FEC0::/10* deprecato    | 1/1024                                  |
+| Unique Local (ULA)    | 1111 110            | FC00::/7                |                                         |
+| Amministratore Locale | 1111 1101           | FD00::/8                |                                         |
+| Multicast             | 1111 1111           | FF00::/8                | 1/256                                   |
+
 ### Da quali campi è composto il Global Unicast Address?
+
+![Global Unicast Address|center|400](https://service.snom.com/download/attachments/234345347/image2018-7-24_15-53-29.png?version=1&modificationDate=1710679542924&api=v2)
+
+Come abbiamo detto il prefisso del Global Unicast Address è 2001
+
+
 
 ### Come si ricava l'interface ID?
 
