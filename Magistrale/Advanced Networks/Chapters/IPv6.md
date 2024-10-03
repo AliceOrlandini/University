@@ -224,3 +224,8 @@ Infine, l'indirizzo include un **Subnet ID**, che consente di suddividere ulteri
 
 ### Com'è strutturato l'anycast address?
 
+Un indirizzo **Anycast** è assegnato a più interfacce, solitamente su nodi diversi. Quando un pacchetto viene inviato in modalità anycast, esso è destinato a più interfacce, ma viene recapitato a una sola di esse, generalmente quella più vicina in termini di routing.
+
+Questa modalità è stata progettata per garantire **load balancing** e **ridondanza**, poiché più nodi o router possono fornire lo stesso servizio. Se uno di questi nodi è sovraccarico o non disponibile, un altro può rispondere alla richiesta, migliorando l'affidabilità e l'efficienza del servizio. Nel contesto del **CAP theorem**, questa tipologia di invio rientra nel modello **AP** (Availability e Partition Tolerance), garantendo che un servizio sia sempre disponibile, anche in caso di partizioni di rete.
+
+L'implementazione del routing anycast avviene a livello di rete: il mittente non ha controllo su quale interfaccia o nodo riceverà effettivamente il pacchetto, e generalmente non è interessato a saperlo, poiché il comportamento desiderato è ottenere una risposta dal nodo più appropriato (di solito il più vicino).
