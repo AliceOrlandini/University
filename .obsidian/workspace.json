@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "f32d1ac6efa62d25",
+        "id": "22a6ff419c19f23e",
         "type": "tabs",
         "children": [
           {
-            "id": "8044d8b3afd4e7c3",
+            "id": "220686e76a30be49",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -65,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 298.5,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md"
+              }
             }
           },
           {
@@ -176,7 +185,7 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "8044d8b3afd4e7c3",
+  "active": "220686e76a30be49",
   "lastOpenFiles": [
     "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "Magistrale/Distributed Systems/Images/Esempio Lambda.png",

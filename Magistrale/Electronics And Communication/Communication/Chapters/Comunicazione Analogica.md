@@ -3,7 +3,7 @@
 La modulazione di ampiezza sfrutta la proprietà dei segnali *reali* di avere una trasformata di Fourier con *simmetria hermitiana*.
 Ad esempio dato $m(t)$, esso avrà una $M(f)$ tale che: $$M(-f) = M^*(f)$$Quello che possiamo fare è moltiplicare $m(t)$ per $cos(2\pi f_ct)$ al fine di ottenere il segnale modulato. Nel dominio della frequenza, questa operazione corrisponde a duplicare il segnale a destra e ha sinistra come in figura: 
 
-![Modulazione | center | 500](https://electronicspost.com/wp-content/uploads/2020/05/1-4.png)
+![Modulazione | center | 500](https://i.sstatic.net/NURvo.png)
 
 Il segnale modulato, nel dominio della frequenza sarà: $$S(f) = \frac{M(f - f_c)}{2} + \frac{M(f + f_c)}{2}$$E la sua banda sarà il doppio della banda del segnale di partenza, quindi passerà da $w$ a $2w$.
 Questo processo non è quindi efficiente in termini di consumo dello spettro ma ha il grande vantaggio di permetterci di realizzare il segnale in banda base (frequenze intorno allo zero) per poi andarlo a modulare alla frequenza che ci è stata assegnata subito prima dell’invio del segnale. 
