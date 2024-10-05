@@ -97,14 +97,14 @@ Il problema è che se il BackOff è grande avrò un amplificatore che non viene 
 
 Per risolvere questo problema, introduciamo un tipo di modulazione che invece di modulare in ampiezza lo fa *in fase*.
 
-In questo tipo di modulazione il segnale $m(t)$ viene modulato nel seguente modo: $$s_{FM}(t) = cos(2\pi f_c t + 2 \pi k_f \int_{-\infty}^{t}m(\tau) d\tau)$$Domanda: che tipo di segnale è? 
+In questo tipo di modulazione il segnale $m(t)$ viene modulato nel seguente modo: $$s_{FM}(t) = cos\left(2\pi f_c t + 2 \pi k_f \int_{-\infty}^{t}m(\tau) d\tau\right)$$Domanda: che tipo di segnale è? 
 È un segnale *passa banda* perché compare $f_c$ quindi ha un inviluppo complesso che vale: $$\tilde{s}_{FM}(t) = e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau}$$Facciamo una riprova sostituendo l'inviluppo complesso nella definizione di segnale passa banda, se l'inviluppo che abbiamo scritto è corretto dovremmo trovare la definizione di $s_{FM}(t)$:
 $$
 \begin{align*}
 s(t) &= Re\{\tilde{s}_{FM}(t) e^{j2\pi f_c t}\} = \\[4pt]
 &= Re\{e^{j2\pi f_c t}e^{j2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau}\} =\\[4pt]
 &= Re\{e^{j(2\pi f_c t+ 2\pi k_f \int_{-\infty}^{t}m(\tau)d\tau)}\} =\\[4pt]
-&= cos(2\pi f_c t + 2\pi k_f \int_{-infty}^{t}m(\tau)d\tau) = s_{FM}(t)\\[4pt]
+&= cos\left(2\pi f_c t + 2\pi k_f \int_{-infty}^{t}m(\tau)d\tau\right) = s_{FM}(t)\\[4pt]
 \end{align*}$$
 Proviamo ora a studiare la banda occupata dal segnale modulato in FM, *but, there is a but (cit. Moretti)* questa non si può calcolare con la trasformata di Fourier perché quest'ultima non ha una forma chiusa. Quindi ne cercheremo un’approssimazione. 
 
