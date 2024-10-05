@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "a52923a9431543ee",
+        "id": "f32d1ac6efa62d25",
         "type": "tabs",
         "children": [
           {
-            "id": "b4dfcc4fa98188e9",
+            "id": "8044d8b3afd4e7c3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md"
-              }
+              "state": {}
             }
           },
           {
@@ -184,8 +176,9 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "3891ae41fb5020c1",
+  "active": "8044d8b3afd4e7c3",
   "lastOpenFiles": [
+    "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "Magistrale/Distributed Systems/Images/Esempio Lambda.png",
     "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Advanced Networks/Images/Link Local and Local.png",
@@ -197,7 +190,6 @@
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
-    "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "TODO.md",
     "Scaletta_FOC.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 15 - Cloud Storage.md",
@@ -213,7 +205,6 @@
     "Magistrale/Distributed Systems/Images/Schermata 2024-10-01 alle 10.39.39.webp",
     "Magistrale/Distributed Systems/Images/Resource Management.webp",
     "Magistrale/Distributed Systems/Images/Channels.png",
-    "Magistrale/Distributed Systems/Images/Shared Memory to Msg Passing.webp",
     "Magistrale/Distributed Systems/Images",
     "Magistrale/Distributed Systems/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
