@@ -18,6 +18,18 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "d89d8e34a787a347",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ]
       }
@@ -69,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5,
-    "collapsed": true
+    "width": 298.5
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -187,17 +198,17 @@
   },
   "active": "220686e76a30be49",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "Magistrale/Distributed Systems/Images/Esempio Lambda.png",
-    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Advanced Networks/Images/Link Local and Local.png",
     "Magistrale/Advanced Networks/Images/Global Unicast Address.webp",
     "Magistrale/Advanced Networks/Images/Stateless Interface ID.png",
     "Magistrale/Advanced Networks/Images/Stateless ID.png",
     "Magistrale/Advanced Networks/Images",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "TODO.md",
     "Scaletta_FOC.md",
