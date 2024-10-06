@@ -317,7 +317,7 @@ Definiamo:
 - $T(P)$: il tempo di esecuzione del programma $P$.
 - $T(P^{'})$: il tempo di esecuzione del programma $P^{'}$.
 
-L'obiettivo è ottenere $T(P) \leq T(P^{'})$, ma vedremo che, in alcuni casi, questo non si verifica.
+L'obiettivo è ottenere $T(P') \leq T(P)$, ma vedremo che, in alcuni casi, questo non si verifica.
 
 Per misurare le performance utilizziamo lo **speedup**:
 $$
