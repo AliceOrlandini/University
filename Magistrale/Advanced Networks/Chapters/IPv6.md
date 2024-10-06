@@ -342,3 +342,4 @@ Quando un nodo genera il proprio **Interface ID**, l'indirizzo può trovarsi in 
    - Quando il **Valid Lifetime** di un indirizzo scade, l'indirizzo passa allo stato **Invalid**. In questo stato, l'indirizzo non può più essere utilizzato per inviare o ricevere pacchetti.
 
 ![[Lifetime Address.webp|center|500]]
+
