@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "eacfb3d6377bf3a3",
+        "id": "309e203ddd3fdea2",
         "type": "tabs",
         "children": [
           {
-            "id": "33e79957e8f3bd17",
+            "id": "b23b82cf768ce013",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
-                "mode": "preview",
+                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
+                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
+                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md"
+                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md"
               }
             }
           },
@@ -184,8 +184,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "33e79957e8f3bd17",
+  "active": "3891ae41fb5020c1",
   "lastOpenFiles": [
+    "Magistrale/Advanced Networks/Images/Global address.webp",
+    "Magistrale/Advanced Networks/Images/Anycast address.png",
+    "Magistrale/Advanced Networks/Images/Link Local and Local.png",
+    "Magistrale/Advanced Networks/Chapters/IPv6.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 9 - Virtualizzazione Leggera.md",
@@ -197,11 +202,9 @@
     "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
-    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Distributed Systems/Images/Esempio Lambda.png",
-    "Magistrale/Advanced Networks/Images/Link Local and Local.png",
     "Magistrale/Advanced Networks/Images/Global Unicast Address.webp",
     "Magistrale/Advanced Networks/Images/Stateless Interface ID.png",
     "Magistrale/Advanced Networks/Images/Stateless ID.png",
@@ -212,18 +215,15 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 15 - Cloud Storage.md",
     "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 14 - Cloud Platforms.md",
     "Magistrale/Distributed Systems/Images/Bounded Buffer.webp",
     "Magistrale/Distributed Systems/Images/Middleware.webp",
     "Magistrale/Distributed Systems/Images/Schermata 2024-10-01 alle 10.39.39.webp",
     "Magistrale/Distributed Systems/Images/Resource Management.webp",
-    "Magistrale/Distributed Systems/Images/Channels.png",
     "Magistrale/Distributed Systems/Images",
     "Magistrale/Distributed Systems/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
     "Magistrale/Industrial Applications",
     "Magistrale/Distributed Systems/Chapters",
     "Magistrale/Distributed Systems",

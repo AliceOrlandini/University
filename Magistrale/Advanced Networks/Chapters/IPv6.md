@@ -230,4 +230,66 @@ Questa modalità è stata progettata per garantire **load balancing** e **ridond
 
 L'implementazione del routing anycast avviene a livello di rete: il mittente non ha controllo su quale interfaccia o nodo riceverà effettivamente il pacchetto, e generalmente non è interessato a saperlo, poiché il comportamento desiderato è ottenere una risposta dal nodo più appropriato (di solito il più vicino).
 
-Per realizzarlo si sfrutta il protocollo routing IP, è infatti sufficiente inserire nella tabella di routing la destinazione e il pacchetto giungerà alla destinazione più vicino. 
+L'implementazione degli indirizzi **Anycast** si basa sul protocollo di routing IP. È sufficiente inserire la destinazione nella tabella di routing e il pacchetto verrà instradato verso il nodo più vicino che condivide quell'indirizzo anycast. Questo meccanismo funziona sia con **IPv6** che con **IPv4**, rendendo l'uso di indirizzi anycast flessibile e compatibile con entrambe le versioni del protocollo.
+
+Uno dei principali utilizzi degli indirizzi anycast è nei **CDN (Content Delivery Networks)**. I CDN replicano contenuti, come video o file multimediali, su diversi nodi distribuiti in tutto il mondo. Quando un utente richiede un contenuto, il pacchetto viene instradato al nodo più vicino geograficamente o topologicamente, migliorando la velocità di accesso e riducendo la latenza. Questo meccanismo è simile a una cache distribuita su Internet.
+
+Quando un indirizzo è di tipo anycast, la procedura di **Duplicate Address Detection (DAD)** non viene eseguita. Questo perché la duplicazione degli indirizzi è intenzionale e voluta: più nodi devono condividere lo stesso indirizzo anycast per garantire la distribuzione del servizio.
+
+Un indirizzo **Anycast** è composto da **n bit di prefisso** che identificano la sottorete, mentre i restanti **128 - n bit** sono impostati a zero. Questo garantisce che l'indirizzo sia interpretabile correttamente e facilmente riconoscibile all'interno delle tabelle di routing.
+
+![[Anycast address.png|center|500]]
+
+
+### Com'è strutturato il multicast address?
+
+Un pacchetto inviato a un **multicast address** viene ricevuto e processato da tutti i nodi che fanno parte del gruppo multicast associato a quell'indirizzo. Un singolo nodo può appartenere a più gruppi multicast contemporaneamente.
+
+Un **multicast address** inizia con il prefisso **ff00::/8**, dove i primi 8 bit indicano che si tratta di un indirizzo multicast. La struttura di un indirizzo multicast è composta da:
+- **8 bit** di prefisso fisso (ff),
+- **4 bit** di flag che indicano il tipo di indirizzo multicast,
+- **4 bit** per specificare l'ambito (scope) del multicast, che indica la portata del gruppo multicast (ad esempio, link-local, site-local, o globale),
+- **112 bit** utilizzati per identificare il gruppo multicast specifico.
+
+![[Global address.webp|center|700]]
+
+Esistono alcuni multicast address predefiniti, utilizzati per scopi specifici. Ecco alcuni esempi:
+- **ff02::1**: Tutti i nodi sul link locale. 
+- **ff02::2**: Tutti i router sul link locale.
+- **ff02::5** e **ff02::6**: Utilizzati rispettivamente da tutti i router OSPF (Open Shortest Path First) e OSPF-designated routers.
+- **ff02::1:2**: Utilizzato dai nodi che inviano richieste DHCPv6 per trovare un server DHCPv6 sulla rete locale.
+
+### Che cos'è ICMPv6?
+
+**ICMPv6** (Internet Control Message Protocol for IPv6) è un protocollo utilizzato per gestire errori e fornire funzioni di diagnostica nelle reti IPv6. Con l'introduzione di IPv6, ICMPv6 è stato esteso per includere funzioni che, in IPv4, venivano gestite da protocolli separati o esterni. Questo ha reso ICMPv6 più completo e integrato nella gestione delle reti.
+
+Tra queste nuove funzioni troviamo: 
+- **Trovare tutti i router in un link**: ICMPv6 permette di scoprire i router presenti sulla rete locale, facilitando la configurazione e il routing.
+- **Address Resolution Protocol (ARP)**: In IPv6, la funzione ARP è integrata in ICMPv6 attraverso il Neighbor Discovery Protocol (NDP), che risolve gli indirizzi IP in indirizzi MAC.
+- **Tenere traccia dei vicini raggiungibili**: Simile alla ARP cache di IPv4, ICMPv6 gestisce le informazioni sui nodi vicini e i loro stati di raggiungibilità attraverso il NDP.
+- **Controllare IP duplicati**: ICMPv6 include il processo di **Duplicate Address Detection (DAD)**, che verifica se un indirizzo IP è già in uso all'interno della rete, evitando conflitti.
+
+Un pacchetto ICMPv6 ha la seguente struttura:
+1. **Type (8 bit)**: Specifica il tipo di messaggio ICMPv6 (ad esempio, messaggi di errore o di informazione). Alcuni esempi di tipi includono:
+	- Tipo 1: Messaggio di destinazione irraggiungibile.
+	- Tipo 2: Packet Too Big (utile per l'MTU).
+	- Tipo 3: Time Exceeded (usato nell'hop by hop).
+	- Tipo 4: Parameter Problem (il formato del pacchetto è errato).
+1. **Code (8 bit)**: Specifica ulteriori dettagli sul tipo di messaggio, indicando la sottocategoria dell'errore o dell'informazione.
+2. **Checksum (16 bit)**: Controlla l'integrità del pacchetto ICMPv6, verificando eventuali errori nei dati. Questo campo è necessario perché ora il checksum è responsabilità dei layer superiori visto che è stato rimosso da IPv6.
+3. **Message-specific data**: Ogni tipo di messaggio può avere dati specifici.
+
+![ICMPv6|center|400](https://notes.shichao.io/tcpv1/figure_8-10.png)
+
+### Come funziona il Neighbour Discovery Protocol?
+
+Il **Neighbour Discovery Protocol (NDP)** è un protocollo in IPv6, utilizzato per gestire la comunicazione tra nodi sulla stessa rete locale (link-local) e per sostituire alcune delle funzionalità che, in IPv4, erano gestite da altri protocolli.
+
+Le sue funzioni principali sono:
+1. **Risoluzione degli indirizzi**: NDP risolve gli indirizzi IPv6 in indirizzi MAC, simile a come ARP funziona in IPv4. Quando un nodo vuole comunicare con un altro nodo all'interno della stessa rete, invia una richiesta di **Neighbor Solicitation** per ottenere l'indirizzo MAC corrispondente all'indirizzo IPv6.
+2. **Raggiungibilità dei vicini**: NDP tiene traccia della raggiungibilità dei vicini utilizzando una tabella di vicini, che registra lo stato di ciascun nodo nella rete. Quando un nodo vuole comunicare con un vicino, invia periodicamente messaggi di **Neighbor Solicitation** per verificare che il vicino sia ancora raggiungibile.
+3. **Autoconfigurazione degli indirizzi**: Utilizzando **Router Solicitation** e **Router Advertisement**, NDP consente ai nodi di ottenere le informazioni di configurazione della rete, come il prefisso della rete e l'indirizzo del router predefinito. Questo permette agli host di configurare i propri indirizzi IPv6 in modo autonomo tramite **SLAAC (Stateless Address Autoconfiguration)**.
+4. **Rilevamento di router**: NDP consente agli host di scoprire i router disponibili nella rete tramite messaggi di **Router Solicitation** (RS) inviati dall'host ai router locali. I router rispondono con messaggi di **Router Advertisement** (RA), fornendo informazioni di configurazione come prefissi di rete, MTU e gateway predefinito.
+5. **Redirect**: Quando un router scopre che esiste un percorso più ottimale per raggiungere una destinazione, invia un messaggio di **Redirect** al nodo, informandolo del nuovo router da utilizzare per quel percorso.
+6. **Duplicate Address Detection (DAD)**: Prima di assegnare un indirizzo IPv6 a una rete, NDP verifica che tale indirizzo non sia già in uso nella rete locale. Questo processo di controllo avviene tramite messaggi di **Neighbor Solicitation** e **Neighbor Advertisement**.
+
