@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md"
+                "file": "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md"
               }
             }
           },
@@ -186,6 +186,10 @@
   },
   "active": "33e79957e8f3bd17",
   "lastOpenFiles": [
+    "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 9 - Virtualizzazione Leggera.md",
+    "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
@@ -210,8 +214,6 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 14 - Cloud Platforms.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
     "Magistrale/Distributed Systems/Images/Bounded Buffer.webp",
     "Magistrale/Distributed Systems/Images/Middleware.webp",
     "Magistrale/Distributed Systems/Images/Schermata 2024-10-01 alle 10.39.39.webp",
@@ -222,8 +224,6 @@
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Laboratorio.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
     "Magistrale/Industrial Applications",
     "Magistrale/Distributed Systems/Chapters",
     "Magistrale/Distributed Systems",
