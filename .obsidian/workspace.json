@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
-                "mode": "source",
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md"
+                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md"
               }
             }
           },
@@ -186,10 +186,12 @@
   },
   "active": "60a0fb43136aaf2e",
   "lastOpenFiles": [
+    "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
+    "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
+    "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
+    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
-    "Magistrale/Advanced Networks/Chapters/IPv6.md",
-    "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "Magistrale/Distributed Systems/Images/Esempio Lambda.png",
     "Magistrale/Advanced Networks/Images/Link Local and Local.png",
     "Magistrale/Advanced Networks/Images/Global Unicast Address.webp",
@@ -207,7 +209,6 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 14 - Cloud Platforms.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
-    "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
     "Magistrale/Distributed Systems/Images/Bounded Buffer.webp",
     "Magistrale/Distributed Systems/Images/Middleware.webp",
     "Magistrale/Distributed Systems/Images/Schermata 2024-10-01 alle 10.39.39.webp",
