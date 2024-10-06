@@ -281,7 +281,7 @@ Un pacchetto ICMPv6 ha la seguente struttura:
 
 ![ICMPv6|center|400](https://notes.shichao.io/tcpv1/figure_8-10.png)
 
-### Come funziona il Neighbour Discovery Protocol?
+### Come funziona il Neighbour Discovery Protocol (NDP)?
 
 Il **Neighbour Discovery Protocol (NDP)** è un protocollo in IPv6, utilizzato per gestire la comunicazione tra nodi sulla stessa rete locale (link-local) e per sostituire alcune delle funzionalità che, in IPv4, erano gestite da altri protocolli.
 
@@ -289,7 +289,56 @@ Le sue funzioni principali sono:
 1. **Risoluzione degli indirizzi**: NDP risolve gli indirizzi IPv6 in indirizzi MAC, simile a come ARP funziona in IPv4. Quando un nodo vuole comunicare con un altro nodo all'interno della stessa rete, invia una richiesta di **Neighbor Solicitation** per ottenere l'indirizzo MAC corrispondente all'indirizzo IPv6.
 2. **Raggiungibilità dei vicini**: NDP tiene traccia della raggiungibilità dei vicini utilizzando una tabella di vicini, che registra lo stato di ciascun nodo nella rete. Quando un nodo vuole comunicare con un vicino, invia periodicamente messaggi di **Neighbor Solicitation** per verificare che il vicino sia ancora raggiungibile.
 3. **Autoconfigurazione degli indirizzi**: Utilizzando **Router Solicitation** e **Router Advertisement**, NDP consente ai nodi di ottenere le informazioni di configurazione della rete, come il prefisso della rete e l'indirizzo del router predefinito. Questo permette agli host di configurare i propri indirizzi IPv6 in modo autonomo tramite **SLAAC (Stateless Address Autoconfiguration)**.
-4. **Rilevamento di router**: NDP consente agli host di scoprire i router disponibili nella rete tramite messaggi di **Router Solicitation** (RS) inviati dall'host ai router locali. I router rispondono con messaggi di **Router Advertisement** (RA), fornendo informazioni di configurazione come prefissi di rete, MTU e gateway predefinito.
+4. **Router Discovery**: NDP consente agli host di scoprire i router disponibili nella rete tramite messaggi di **Router Solicitation** (RS) inviati dall'host ai router locali. I router rispondono con messaggi di **Router Advertisement** (RA), fornendo informazioni di configurazione come prefissi di rete, MTU e gateway predefinito.
 5. **Redirect**: Quando un router scopre che esiste un percorso più ottimale per raggiungere una destinazione, invia un messaggio di **Redirect** al nodo, informandolo del nuovo router da utilizzare per quel percorso.
 6. **Duplicate Address Detection (DAD)**: Prima di assegnare un indirizzo IPv6 a una rete, NDP verifica che tale indirizzo non sia già in uso nella rete locale. Questo processo di controllo avviene tramite messaggi di **Neighbor Solicitation** e **Neighbor Advertisement**.
 
+I Tipi di messaggi usati da NDP circolano solo all'interno dello stesso link e mai all'esterno, per assicurarci di ciò si utilizzano indirizzi link-local o multicast ma limitati al link, i principali sono:
+- **Neighbor Solicitation (NS)**: Usato per richiedere l'indirizzo MAC di un nodo sulla rete locale o per verificare la raggiungibilità di un vicino.
+- **Neighbor Advertisement (NA)**: La risposta a un NS, contenente l'indirizzo MAC del nodo richiesto.
+- **Router Solicitation (RS)**: Inviato dagli host per richiedere informazioni ai router locali.
+- **Router Advertisement (RA)**: Inviato dai router per fornire informazioni di configurazione agli host (ad esempio, prefissi di rete, gateway predefiniti).
+- **Redirect**: Inviato dai router per informare un nodo su un percorso migliore verso una destinazione.
+
+### A cosa serve il pacchetto ICMPv6 di tipo Router Advertisement?
+
+Tutti i router presenti su un link IPv6 inviano pacchetti di tipo **Router Advertisement (RA)** (tipo 134) a intervalli regolari, utilizzando l'indirizzo multicast **FF02::1**, che corrisponde a "tutti i nodi" sul link locale. Questi pacchetti contengono informazioni che aiutano gli host a configurarsi automaticamente all'interno della rete.
+
+I pacchetti Router Advertisement sono composti da:
+1. **Flag M (Managed)**: se è impostato a 1 indica che nel link è disponibile un server DHCPv6. Se invece è impostato a **0**, l'host può utilizzare la **stateless autoconfiguration (SLAAC)**.
+2. **MTU (Maximum Transmission Unit)**.
+4. **Prefisso**: include il prefisso e la lunghezza del prefisso.
+5. **Router predefinito**: gli host useranno questo router come gateway per inviare pacchetti verso altre reti.
+6. **Cur Hop Limit**: specifica il Current Hop Limit, cioè il valore da usare come "hop limit" per i pacchetti inviati dall'host. Questo campo aiuta a controllare quanto lontano può viaggiare un pacchetto nella rete.
+7. **Lifetime e tempi di validità**: include informazioni sul tempo di vita del prefisso e del router di default. Questo tempo indica per quanto tempo queste informazioni saranno valide, dopo di che l'host dovrà ricevere nuovi RAs o configurarsi diversamente.
+8. **Flag L (On-Link)**: indica se il prefisso incluso nel messaggio è **on-link** quindi l'host può inviare pacchetti direttamente all'altro host senza passare per un router. 
+9. **Flag A (Autonomous)**: quando è impostato a **1**, gli host possono utilizzare il prefisso contenuto nel RA per generare automaticamente un indirizzo IPv6. 
+10. **Address Lifetime**: è suddiviso in due componenti:
+	- **Preferred Lifetime**: indica per quanto tempo l'indirizzo IPv6 generato utilizzando il prefisso può essere considerato utilizzabile per nuove connessioni. Scaduto questo tempo, l'indirizzo diventa deprecato ma può ancora essere usato per connessioni esistenti.
+	- **Valid Lifetime**: Indica il periodo totale durante il quale l'indirizzo rimane valido. Scaduto il **valid lifetime**, l'indirizzo non è più utilizzabile e deve essere rimosso dalla configurazione dell'host.
+
+### A cosa serve il pacchetto ICMPv6 di tipo Router Solicitation?
+
+Come accennato precedentemente, i pacchetti di tipo **Router Advertisement (RA)** vengono inviati dai router a intervalli regolari. Tuttavia, se un nodo non vuole attendere il prossimo RA, può inviare un pacchetto di tipo **Router Solicitation (RS)** (tipo 133) all'indirizzo multicast **FF02::2**, che è riservato a tutti i router presenti nel link locale.
+
+Quando un router riceve un messaggio di **Router Solicitation**, risponde inviando un **Router Advertisement** immediato, fornendo così al nodo le informazioni necessarie per configurarsi (come prefissi, indirizzo di router predefinito, MTU, ecc.) senza dover aspettare l'intervallo periodico dei RA.
+
+Questo meccanismo permette agli host di configurarsi più rapidamente al momento dell'accesso alla rete, migliorando l'efficienza della scoperta del router e dell'autoconfigurazione.
+
+### Quali sono i possibili stati di un indirizzo all'interno di un link?
+
+Quando un nodo genera il proprio **Interface ID**, l'indirizzo può trovarsi in diversi stati, ciascuno dei quali rappresenta una fase o condizione dell'indirizzo nel ciclo di vita. Questi stati sono:
+
+1. **Tentative**:
+   - Lo stato iniziale di un indirizzo appena assegnato. In questa fase, il nodo deve verificare che l'indirizzo non sia già in uso da un altro nodo nella rete locale, utilizzando il processo di **Duplicate Address Detection (DAD)**. Durante il DAD, l'interfaccia può inviare e ricevere pacchetti di tipo **Neighbor Solicitation (NS)** per determinare se l'indirizzo è unico.
+   - Anche se l'indirizzo è "tentative", l'interfaccia accetta il pacchetto **Neighbor Discovery**. Se un altro nodo risponde al DAD segnalando che l'indirizzo è già in uso, l'indirizzo non può essere utilizzato.
+2. **Preferred**:
+   - Una volta confermata l'unicità dell'indirizzo, l'indirizzo entra nello stato **Preferred**. In questo stato, l'indirizzo è valido e può essere utilizzato per inviare e ricevere pacchetti senza restrizioni.
+3. **Deprecated**:
+   - Quando l'indirizzo si avvicina alla fine del suo ciclo di vita ma non è ancora scaduto, entra nello stato **Deprecated**. In questo stato, l'uso dell'indirizzo è **scoraggiato** per nuove connessioni, ma può ancora essere utilizzato per le connessioni già esistenti.
+4. **Valid**:
+   - Un indirizzo è considerato **Valid** se è nello stato **Preferred** o **Deprecated**.
+5. **Invalid**:
+   - Quando il **Valid Lifetime** di un indirizzo scade, l'indirizzo passa allo stato **Invalid**. In questo stato, l'indirizzo non può più essere utilizzato per inviare o ricevere pacchetti.
+
+![[Lifetime Address.webp|center|500]]
