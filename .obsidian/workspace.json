@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 298.5,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md"
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md"
               }
             }
           },
@@ -184,13 +185,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "3891ae41fb5020c1",
+  "active": "b23b82cf768ce013",
   "lastOpenFiles": [
+    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Advanced Networks/Images/Lifetime Address.webp",
     "Magistrale/Advanced Networks/Images/Global address.webp",
     "Magistrale/Advanced Networks/Images/Anycast address.png",
     "Magistrale/Advanced Networks/Images/Link Local and Local.png",
-    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 12 - Applicazioni Scalabili.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 11 - Design delle applicazioni cloud.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 10 - Architetture Cloud.md",
@@ -219,7 +220,6 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 14 - Cloud Platforms.md",
     "Magistrale/Distributed Systems/Images/Bounded Buffer.webp",
     "Magistrale/Distributed Systems/Images/Middleware.webp",
-    "Magistrale/Distributed Systems/Images/Schermata 2024-10-01 alle 10.39.39.webp",
     "Magistrale/Distributed Systems/Images",
     "Magistrale/Distributed Systems/Table of Contents.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
