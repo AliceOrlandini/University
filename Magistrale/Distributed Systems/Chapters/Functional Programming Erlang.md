@@ -338,18 +338,55 @@ Ogni processo ha una propria *mailbox* (una coda) per conservare i messaggi rice
 
 In questo esempio, vengono definiti due processi concorrenti, `alice` e `bob`, che comunicano tra loro tramite messaggi.
 La funzione `alice` agisce in questo modo: 
+
 ```erlang
-alice(0, Other_PID) ->  % Caso base: quando N = 0, ho finito
+% caso base: quando N = 0, ho finito
+alice(0, Other_PID) ->
+	% invia l'atom finished
     Other_PID ! finished,
     io:format("Alice finished~n");
 
-alice(N, Other_PID) ->  % Caso ricorsivo: quando N > 0
-    Other_PID ! {ping_msg, self()},  % Manda un messaggio 'ping_msg' insieme al proprio PID a Bob
+% caso ricorsivo: quando N > 0
+alice(N, Other_PID) ->
+	% invia una tupla con il proprio PID in modo che Bob
+	% possa rispondere al messaggio
+    Other_PID ! {ping_msg, self()},
     receive
-        pong_msg ->  % Attende un messaggio di risposta 'pong_msg'
-            io:format("Alice received pong~n")  % Stampa che Alice ha ricevuto il pong
+	    % riceve il messaggio pong
+        pong_msg ->
+            io:format("Alice received pong~n")
     end,
-    alice(N - 1, Other_PID).  % Richiama se stessa con N decrementato di 1 (ottimizzazione della tail recursion)
+    % richiama se stessa con N decrementato di 1
+    alice(N - 1, Other_PID).
 ```
 
+Invece `bob` funziona nel seguente modo:
+
+```erlang
+bob() ->
+    receive
+	    % ricezione dell'atom finished
+        finished -> 
+            io:format("Bob finished~n");
+
+		% ricezione della tupla
+        {ping_msg, Other_PID} ->
+            io:format("Bob received ping~n"),
+            % usa il PID della tupla per inviare pong
+            Other_PID ! pong_msg,
+            % richiama se stesso ricorsivamente
+            bob()
+    end.
+```
+
+Infine, abbiamo la funzione `start` che prima, crea un nuovo processo che esegue la funzione `bob` usando `spawn(?MODULE, bob, [])`, e salva il PID del processo Bob in `Bob_PID`. Poi, crea un processo che esegue la funzione `alice` con un valore iniziale di 2 e passa il PID di Bob come parametro.
+
+```erlang
+start() ->
+	% crea il processo Bob
+    Bob_PID = spawn(?MODULE, bob, []),
+    % crea il processo Alice e passa il PID di Bob
+    spawn(?MODULE, alice, [2, Bob_PID]).
+
+```
 ### Going concurrent & distributed actually
