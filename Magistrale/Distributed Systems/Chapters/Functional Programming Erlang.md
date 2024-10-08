@@ -311,4 +311,45 @@ myfor(1, 3, fun(Z) -> Z*Z/2 end).
 - I valori elaborati sono 1, 2, 3, e la funzione restituisce la lista: `[0.5, 2.0, 4.5]`.
 ### Il modello Actor
 
+Un modello possibile per un sistema concorrente è quello degli **attori** (Actor). 
+In questo modello, l'unità fondamentale è l'attore, e una computazione può essere eseguita da *uno o più attori*. 
+Un aspetto cruciale è che ogni attore non condivide lo stato con altri attori, anche quando eseguono lo stesso compito. La comunicazione tra attori avviene tramite il passaggio di messaggi asincroni, specificando l'ActorID e il messaggio da inviare. 
+Gli attori vengono creati da altri attori, e il loro avanzamento dipende dalla ricezione di nuovi messaggi.
+
+Il **comportamento** di un attore si definisce in base a come reagisce alla ricezione di un messaggio. Le azioni possibili sono:
+1. Inviare un numero finito di messaggi ad altri attori.
+2. Creare un numero finito di nuovi attori.
+3. Definire il comportamento da adottare per gestire i messaggi successivi.
+
+#### Concorrenza in Erlang
+
+In Erlang, un attore è chiamato processo, ma non ha alcuna relazione con il concetto tradizionale di processo. Questo termine è stato scelto per motivi storici. In Erlang, esistono tre principali costrutti concorrenti:
+1. **Creazione di un processo (o attore)**: tramite `spawn(module_name, function, [params])`, che restituisce il PID del processo appena creato.
+2. **Invio di un messaggio**: il simbolo `!`, chiamato "bang", viene utilizzato in questo modo: `PID ! message` e ritorna il messaggio stesso.
+3. **Ricezione di un messaggio**: il costrutto `receive ... end`, la cui sintassi è simile a uno switch case.
+
+Come detto, in Erlang la comunicazione avviene tramite *segnali asincroni* (i più comuni sono i messaggi). Un messaggio è costituito da un destinatario e un contenuto, che può essere qualsiasi termine di Erlang, anche se il più utilizzato è la tupla. 
+L'ordine di ricezione dei messaggi segue una logica **FIFO** per tutti i segnali. 
+Oltre ai messaggi, esistono altri tipi di segnali, come Exit, Link/Unlink, Monitor/Demonitor, che verranno approfonditi successivamente.
+
+Ogni processo ha una propria *mailbox* (una coda) per conservare i messaggi ricevuti. La mailbox può essere ispezionata tramite la funzione `process_info(PID, messages)`. Per estrarre un messaggio dalla mailbox, si utilizza il costrutto `receive`, che è *bloccante* fino a quando non arriva un nuovo messaggio.
+
+##### Esempio: Ping Pong
+
+In questo esempio, vengono definiti due processi concorrenti, `alice` e `bob`, che comunicano tra loro tramite messaggi.
+La funzione `alice` agisce in questo modo: 
+```erlang
+alice(0, Other_PID) ->  % Caso base: quando N = 0, ho finito
+    Other_PID ! finished,
+    io:format("Alice finished~n");
+
+alice(N, Other_PID) ->  % Caso ricorsivo: quando N > 0
+    Other_PID ! {ping_msg, self()},  % Manda un messaggio 'ping_msg' insieme al proprio PID a Bob
+    receive
+        pong_msg ->  % Attende un messaggio di risposta 'pong_msg'
+            io:format("Alice received pong~n")  % Stampa che Alice ha ricevuto il pong
+    end,
+    alice(N - 1, Other_PID).  % Richiama se stessa con N decrementato di 1 (ottimizzazione della tail recursion)
+```
+
 ### Going concurrent & distributed actually
