@@ -1,4 +1,4 @@
-### Quali sono le motivazioni che hanno portato ad adottare IPv6?
+### 1. Quali sono le motivazioni che hanno portato ad adottare IPv6?
 
 Il principale motivo che ha portato alla migrazione da IPv4 a IPv6 è stato il *limitato spazio di indirizzamento* di IPv4. Nel 1994, l'IETF (Internet Engineering Task Force) aveva previsto l'esaurimento degli indirizzi IPv4 tra il 2005 e il 2011, cosa che effettivamente si è verificata. Per risolvere questo problema, è stato sviluppato un nuovo standard, **IPv6**, che utilizza indirizzi di *128 bit*, garantendo così uno spazio di indirizzamento praticamente inesauribile per il futuro.
 
@@ -8,7 +8,7 @@ Un'altra innovazione di IPv6 è stata l'eliminazione del protocollo ARP (Address
 
 IPv6 è diventato uno standard ufficiale nel 2017 e, sebbene la sua adozione sia ancora in corso, sta gradualmente diffondendosi in tutto il mondo. Attualmente, circa il 45% degli utenti globali utilizza IPv6 per accedere ai servizi Google, segno di una crescente adozione di questo nuovo protocollo.
 
-### Da quali campi è composto il Base Header di IPv6?
+### 2. Da quali campi è composto il Base Header di IPv6?
 
 Ecco i cambiamenti più significativi nel passaggio da IPv4 a IPv6:
 1. **Indirizzamento esteso**: la dimensione dell'indirizzo IP è passata da 32 bit a 128 bit, diventando praticamente inesauribili.
@@ -33,7 +33,7 @@ Confrontando il formato IPv6 con IPv4 notiamo che sono stati tolti alcuni campi:
 ![IPv6|center|400](https://www.networkacademy.io/sites/default/files/inline-images/comparing-ipv4-and-ipv6-headers.png)
 
 
-### Oltre al base header da cosa è composto un datagramma IPv6?
+### 3. Oltre al base header da cosa è composto un datagramma IPv6?
 
 Un datagramma IPv6 è costituito da un header di base di 40 byte, seguito da zero o più header di estensione di dimensione variabile. Gli header di estensione vengono elaborati nell'ordine in cui appaiono all'interno del datagramma.
 
@@ -41,7 +41,7 @@ Un datagramma IPv6 è costituito da un header di base di 40 byte, seguito da zer
 
 
 
-### Quali sono i possibili valori del campo next header?
+### 4. Quali sono i possibili valori del campo next header?
 
 Il campo **Next Header** del base header di IPv6 contiene al suo interno le informazioni riguardo al tipo di dati contenuti nel prossimo header. 
 Esso può assumere diversi valori, a seconda del protocollo o del tipo di header che segue l'header IPv6 di base. 
@@ -61,7 +61,7 @@ Oltre al campo che specifica il tipo del prossimo header, ogni header di estensi
 
 Nel caso in cui il campo Next Header indichi che il prossimo header è un altro pacchetto IPv6, si parla di *"tunneling"*. Il tunneling consente di incapsulare un datagramma IPv6 all'interno di un altro datagramma IPv6.
 
-### A cosa serve l'hop-by-hop options header?
+### 5. A cosa serve l'hop-by-hop options header?
 
 L'**Hop-by-Hop Options Header** di IPv6 serve per trasportare informazioni che devono essere elaborate da ogni router lungo il percorso del pacchetto, non solo dal destinatario finale. Se il datagramma ha più header questo dovrà essere il primo, questo perché visto che deve essere elaborato da ogni router in questo modo è più facile trovarlo e processarlo.
 
@@ -78,7 +78,7 @@ Esempi di tipi di opzione includono:
 
 Poiché ogni router deve elaborare questo header, il suo uso può introdurre un overhead e potenzialmente rallentare il routing, per cui viene utilizzato con parsimonia e solo per casi specifici.
 
-### A cosa serve il routing header?
+### 6. A cosa serve il routing header?
 
 Il **Routing Header** in IPv6 è utilizzato per specificare un percorso preciso che un pacchetto deve seguire per raggiungere la destinazione. In pratica, consente di indicare una o più tappe (nodi intermedi) che il pacchetto deve attraversare lungo il suo percorso verso la destinazione finale. Questo processo è chiamato **source routing**.
 
@@ -95,7 +95,7 @@ Tuttavia, l'utilizzo di questo header presenta alcuni svantaggi:
 - Può essere sfruttato per attacchi DoS (Denial of Service), in cui tutti i pacchetti vengono forzati a passare attraverso un singolo router, causando sovraccarico.
 
 A causa di questi problemi, il **Routing Header** è stato deprecato nelle implementazioni moderne di IPv6.
-### A cosa serve il fragment header?
+### 7. A cosa serve il fragment header?
 
 Il **Fragment Header** in IPv6 è utilizzato per gestire la **frammentazione dei pacchetti**. A differenza di IPv4, in cui la frammentazione può essere eseguita da qualsiasi router lungo il percorso, in IPv6 la frammentazione può essere fatta solo dal **mittente**. Il Fragment Header viene quindi inserito dal nodo sorgente quando un pacchetto supera la dimensione massima supportata dalla rete di destinazione, nota come **MTU (Maximum Transmission Unit)**.
 
@@ -109,7 +109,7 @@ Il Fragment Header contiene i seguenti campi principali:
 - **More Fragments Flag (M flag)**: Indica se il frammento è l'ultimo o se ci sono altri frammenti successivi.
 Grazie a questo header i router non sanno di star trasmettendo un frammento intermedio e sarà il destinatario a riassemblarli.
 
-### Come avviene la processazione degli header IPv6?
+### 8. Come avviene la processazione degli header IPv6?
 
 Per l'elaborazione degli header IPv6, esistono diversi metodi. 
 Se è presente un header **hop-by-hop**, questo deve essere *processato a livello software*, poiché ogni nodo lungo il percorso deve esaminare questo tipo di header. 
@@ -131,7 +131,7 @@ Gli **ACL basati sull'upper layer** invece guardano oltre l'header IPv6 e contro
 
 ![ACL upper layers|center|500](https://www.cisco.com/en/US/technologies/tk648/tk872/images/technologies_white_paper0900aecd8054d37d-14.jpg)
 
-### Quali sono le categorie alle quali può appartenere un IPv6?
+### 9. Quali sono le categorie alle quali può appartenere un IPv6?
 
 Dato un indirizzo IPv6, esistono tre modalità principali di indirizzamento:
 1. **Unicast**: Un indirizzo unicast identifica univocamente *un'interfaccia* su un nodo IPv6. Un pacchetto inviato a un indirizzo unicast viene recapitato direttamente al nodo associato a quell'indirizzo specifico.
@@ -140,7 +140,7 @@ Dato un indirizzo IPv6, esistono tre modalità principali di indirizzamento:
 
 Infine, va notato che l'indirizzamento **broadcast**, presente in IPv4, non esiste più in IPv6. È stato sostituito dal concetto di multicast, che permette di raggiungere gruppi specifici di nodi.
 
-### Quali sono gli scope di validità di IPv6?
+### 10. Quali sono gli scope di validità di IPv6?
 
 Gli indirizzi IPv6 includono un **scope di validità**, che specifica l'ambito topologico all'interno del quale un indirizzo può essere utilizzato come identificatore unico. Questo ambito è codificato in una parte dell'indirizzo e determina dove l'indirizzo è valido. I principali scope sono:
 - **Global scope**: L'indirizzo è valido in tutto Internet, ed è utilizzabile per comunicazioni globali.
@@ -153,7 +153,7 @@ Il **link** rappresenta l'insieme di nodi che appartengono alla stessa rete e ch
 - **Transitività**: Se il nodo A può comunicare con il nodo B e B può comunicare con C, allora A può comunicare anche con C. La transitività è cruciale per garantire che tutti i nodi all'interno dello stesso network possano comunicare tra loro senza problemi.
 
 
-### Quale notazione si utilizza per gli indirizzi IPv6?
+### 11. Quale notazione si utilizza per gli indirizzi IPv6?
 
 Gli indirizzi IPv6 sono rappresentati con una notazione composta da 8 blocchi di 16 bit separati da due punti, nella forma **x:x:x:x:x:x:x:x**, dove ogni blocco è espresso in *4 cifre esadecimali*. 
 Esistono delle regole di abbreviazione per rendere la notazione più compatta:
@@ -179,7 +179,7 @@ Alcuni prefissi permettono di capire la tipologia di indirizzo:
 | Amministratore Locale | 1111 1101           | FD00::/8                |                                         |
 | Multicast             | 1111 1111           | FF00::/8                | 1/256                                   |
 
-### Da quali campi è composto il Global Unicast Address?
+### 12. Da quali campi è composto il Global Unicast Address?
 
 ![[Global Unicast Address.webp|center|400]]
 
@@ -192,7 +192,7 @@ Le sezioni successive dell'indirizzo IPv6 permettono di identificare diversi ele
 
 Per motivi di ottimizzazione e prestazioni, è stato stabilito che il prefisso degli indirizzi IPv6 sarà di *64 bit*. Questo permette ai router di gestire più velocemente il routing degli indirizzi, dato che possono utilizzare l'hardware per processare il prefisso senza coinvolgere la CPU.
 
-### Come si ricava l'interface ID?
+### 13. Come si ricava l'interface ID?
 
 Ogni host all'interno di un link IPv6 deve avere un **interface ID** univoco, e ci sono tre metodi principali per assegnarlo:
 1. **Manuale**: L'interface ID viene configurato manualmente dall'amministratore di rete.
@@ -210,7 +210,7 @@ Per risolvere questo problema, sono stati introdotti due nuovi metodi:
 - **Temporary Transient Addresses**: Questi indirizzi sono generati in modo casuale e si aggiornano periodicamente. Il vantaggio è che l'ID cambia regolarmente, rendendo più difficile il tracciamento. Tuttavia, un lato negativo è che, cambiando l'ID, l'host non è più riconoscibile all'interno dello stesso link, il che può creare problemi di identificazione locale.
 - **Stable Privacy Addresses**: In questo metodo, l'interface ID non è basato su un identificatore hardware come il MAC Address, ma viene generato in modo stabile per ogni link al quale ci si connette. Ciò significa che, all'interno di uno stesso link, l'interface ID rimane costante, ma cambia quando l'host si sposta su una rete diversa. In questo modo, l'host è riconoscibile all'interno del link senza esporre la sua identità su reti differenti, proteggendo la privacy dell'utente.
 
-### Da quali campi sono composti il Link-Local Address e l'Unique Local?
+### 14. Da quali campi sono composti il Link-Local Address e l'Unique Local?
 
 Gli **indirizzi link-local** in IPv6 vengono assegnati automaticamente tramite auto-configurazione. Per questi indirizzi, 54 bit sono fissati a zero, lasciando i restanti 64 bit per l'**interface ID**.
 
@@ -222,7 +222,7 @@ Infine, l'indirizzo include un **Subnet ID**, che consente di suddividere ulteri
 ![[Link Local and Local.png|center|500]]
 
 
-### Com'è strutturato l'anycast address?
+### 15. Com'è strutturato l'anycast address?
 
 Un indirizzo **Anycast** è assegnato a più interfacce, solitamente su nodi diversi. Quando un pacchetto viene inviato in modalità anycast, esso è destinato a più interfacce, ma viene recapitato a una sola di esse, generalmente quella più vicina in termini di routing.
 
@@ -241,7 +241,7 @@ Un indirizzo **Anycast** è composto da **n bit di prefisso** che identificano l
 ![[Anycast address.png|center|500]]
 
 
-### Com'è strutturato il multicast address?
+### 16. Com'è strutturato il multicast address?
 
 Un pacchetto inviato a un **multicast address** viene ricevuto e processato da tutti i nodi che fanno parte del gruppo multicast associato a quell'indirizzo. Un singolo nodo può appartenere a più gruppi multicast contemporaneamente.
 
@@ -259,7 +259,7 @@ Esistono alcuni multicast address predefiniti, utilizzati per scopi specifici. E
 - **ff02::5** e **ff02::6**: Utilizzati rispettivamente da tutti i router OSPF (Open Shortest Path First) e OSPF-designated routers.
 - **ff02::1:2**: Utilizzato dai nodi che inviano richieste DHCPv6 per trovare un server DHCPv6 sulla rete locale.
 
-### Che cos'è ICMPv6?
+### 17. Che cos'è ICMPv6?
 
 **ICMPv6** (Internet Control Message Protocol for IPv6) è un protocollo utilizzato per gestire errori e fornire funzioni di diagnostica nelle reti IPv6. Con l'introduzione di IPv6, ICMPv6 è stato esteso per includere funzioni che, in IPv4, venivano gestite da protocolli separati o esterni. Questo ha reso ICMPv6 più completo e integrato nella gestione delle reti.
 
@@ -281,7 +281,7 @@ Un pacchetto ICMPv6 ha la seguente struttura:
 
 ![ICMPv6|center|400](https://notes.shichao.io/tcpv1/figure_8-10.png)
 
-### Come funziona il Neighbour Discovery Protocol (NDP)?
+### 18. Come funziona il Neighbour Discovery Protocol (NDP)?
 
 Il **Neighbour Discovery Protocol (NDP)** è un protocollo in IPv6, utilizzato per gestire la comunicazione tra nodi sulla stessa rete locale (link-local) e per sostituire alcune delle funzionalità che, in IPv4, erano gestite da altri protocolli.
 
@@ -300,7 +300,7 @@ I Tipi di messaggi usati da NDP circolano solo all'interno dello stesso link e m
 - **Router Advertisement (RA)**: Inviato dai router per fornire informazioni di configurazione agli host (ad esempio, prefissi di rete, gateway predefiniti).
 - **Redirect**: Inviato dai router per informare un nodo su un percorso migliore verso una destinazione.
 
-### A cosa serve il pacchetto ICMPv6 di tipo Router Advertisement?
+### 19. A cosa serve il pacchetto ICMPv6 di tipo Router Advertisement?
 
 Tutti i router presenti su un link IPv6 inviano pacchetti di tipo **Router Advertisement (RA)** (tipo 134) a intervalli regolari, utilizzando l'indirizzo multicast **FF02::1**, che corrisponde a "tutti i nodi" sul link locale. Questi pacchetti contengono informazioni che aiutano gli host a configurarsi automaticamente all'interno della rete.
 
@@ -317,7 +317,7 @@ I pacchetti Router Advertisement sono composti da:
 	- **Preferred Lifetime**: indica per quanto tempo l'indirizzo IPv6 generato utilizzando il prefisso può essere considerato utilizzabile per nuove connessioni. Scaduto questo tempo, l'indirizzo diventa deprecato ma può ancora essere usato per connessioni esistenti.
 	- **Valid Lifetime**: Indica il periodo totale durante il quale l'indirizzo rimane valido. Scaduto il **valid lifetime**, l'indirizzo non è più utilizzabile e deve essere rimosso dalla configurazione dell'host.
 
-### A cosa serve il pacchetto ICMPv6 di tipo Router Solicitation?
+### 20. A cosa serve il pacchetto ICMPv6 di tipo Router Solicitation?
 
 Come accennato precedentemente, i pacchetti di tipo **Router Advertisement (RA)** vengono inviati dai router a intervalli regolari. Tuttavia, se un nodo non vuole attendere il prossimo RA, può inviare un pacchetto di tipo **Router Solicitation (RS)** (tipo 133) all'indirizzo multicast **FF02::2**, che è riservato a tutti i router presenti nel link locale.
 
@@ -325,7 +325,7 @@ Quando un router riceve un messaggio di **Router Solicitation**, risponde invian
 
 Questo meccanismo permette agli host di configurarsi più rapidamente al momento dell'accesso alla rete, migliorando l'efficienza della scoperta del router e dell'autoconfigurazione.
 
-### Quali sono i possibili stati di un indirizzo all'interno di un link?
+### 21. Quali sono i possibili stati di un indirizzo all'interno di un link?
 
 Quando un nodo genera il proprio **Interface ID**, l'indirizzo può trovarsi in diversi stati, ciascuno dei quali rappresenta una fase o condizione dell'indirizzo nel ciclo di vita. Questi stati sono:
 

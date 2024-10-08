@@ -13,7 +13,31 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
+                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "61b245eadf762ac0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bbecb9882e361534",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Magistrale/Advanced Networks/Chapters/Intro.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5,
-    "collapsed": true
+    "width": 298.5
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -86,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
+                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
+                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md"
+                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md"
               }
             }
           },
@@ -188,6 +211,11 @@
   "active": "b23b82cf768ce013",
   "lastOpenFiles": [
     "Magistrale/Advanced Networks/Chapters/IPv6.md",
+    "Magistrale/Advanced Networks/Images/Label Switching.png",
+    "Magistrale/Advanced Networks/Chapters/MPLS.md",
+    "Magistrale/Advanced Networks/Chapters/Intro.md",
+    "Magistrale/Advanced Networks/Table of Contents.md",
+    "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "Magistrale/Advanced Networks/Images/Lifetime Address.webp",
     "Magistrale/Advanced Networks/Images/Global address.webp",
     "Magistrale/Advanced Networks/Images/Anycast address.png",
@@ -200,7 +228,6 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
-    "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
     "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
@@ -219,11 +246,7 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 14 - Cloud Platforms.md",
     "Magistrale/Distributed Systems/Images/Bounded Buffer.webp",
-    "Magistrale/Distributed Systems/Images/Middleware.webp",
     "Magistrale/Distributed Systems/Images",
-    "Magistrale/Distributed Systems/Table of Contents.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
     "Magistrale/Industrial Applications",
     "Magistrale/Distributed Systems/Chapters",
     "Magistrale/Distributed Systems",
