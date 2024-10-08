@@ -23,4 +23,38 @@ Il **label switching** si basa su due azioni fondamentali:
 
 ![[Label Switching.png|center|600]]
 
-Il protocollo IP può implementare questo modello
+#### Protocollo IP
+
+Il protocollo IP può implementare il modello di **label switching** basandosi *sull'indirizzo di destinazione* del pacchetto, utilizzando tecniche che coinvolgono la **routing table** di ciascun router. Ecco come funziona il processo.
+
+La **Forwarding Equivalent Class (FEC)** può essere vista come l'insieme delle **entries** presenti nella **routing table**. In altre parole, ogni entry della tabella di routing rappresenta una possibile classe di forwarding per un pacchetto con una determinata destinazione. Formalmente, possiamo esprimere questa relazione come:
+$$\{FEC_{i} = \text{le entries della routing table}\}$$
+
+Una caratteristica fondamentale del protocollo IP è che *tutti i router nella rete condividono lo stesso insieme di entries*, cioè hanno una visione coerente delle destinazioni di rete, il che garantisce la consistenza delle FEC tra tutti i router.
+
+| prefix     | next hop |
+| ---------- | -------- |
+| a.b.c.d/24 | C        |
+
+- **$f_{1}$ Longest Prefix Match (LPM)**: Quando un pacchetto arriva a un router, il router esamina la destinazione del pacchetto e cerca il prefisso più lungo nella sua routing table che corrisponde all'indirizzo di destinazione. Questa operazione permette di selezionare la entry di routing più specifica.
+- **$f_{2}$: OSPF**: Garantisce che tutti i router abbiano una visione completa e aggiornata della topologia di rete. Questo significa che tutti i router possono *autonomamente* calcolare il percorso più breve verso una destinazione utilizzando l'algoritmo di **Dijkstra**. Inoltre, anche se ci sono diversi next hop corrispondenti allo stesso indirizzo di destinazione, tutti i router calcolano la stessa shortest path grazie alla consistenza della topologia.
+
+Questo approccio, in cui ogni router, sia **edge** che **core**, esegue le operazioni di **LPM** e **OSPF** per ogni pacchetto, rappresenta una soluzione completamente distribuita. Un tempo, l'idea era che questa modalità distribuita fosse la migliore opzione.
+Tuttavia, con il tempo, è diventato chiaro che questo approccio **non è scalabile né efficiente** in reti di grandi dimensioni. Il motivo è che richiede che ogni router, indipendentemente dalla sua posizione nella rete, debba eseguire tutte le operazioni di routing in modo indipendente per ogni pacchetto, il che aumenta significativamente la complessità e i tempi di calcolo. Questo è uno dei motivi per cui modelli più centralizzati e ottimizzati, come **MPLS (Multiprotocol Label Switching)**, sono diventati più popolari per ottimizzare il routing e gestire meglio il traffico.
+
+#### MPLS
+
+Con **MPLS (Multiprotocol Label Switching)**, vogliamo basarci sullo stesso modello di instradamento ma in modo più efficiente e scalabile rispetto a IProuting. La differenza chiave sta nel fatto che, in MPLS, gran parte delle decisioni di instradamento e classificazione dei pacchetti viene spostata agli **edge routers**, mentre i **core routers** si limitano a inoltrare i pacchetti basandosi su etichette già assegnate.
+
+- **$f_{1}$ Classificazione**: Avviene tramite una *policy* configurata solo negli edge routers. Questa policy determina quante e quali classi di pacchetti verranno generate. A differenza del routing IP tradizionale, in cui la classificazione è fissa e basata esclusivamente sugli indirizzi di destinazione, MPLS permette una maggiore flessibilità, poiché la policy può essere configurata in modo più ampio. La classificazione può, ad esempio, basarsi non solo sulla destinazione IP, ma anche su parametri come il tipo di servizio o altre caratteristiche del traffico.
+- **$f_{2}$: Mapping e Labeling**: Anche il processo di mapping avviene solo sugli edge routers. Gli edge routers calcolano il percorso del pacchetto (come farebbe un router IP usando OSPF o altri algoritmi), e aggiungono un'etichetta al pacchetto. Questa label rappresenta la classe del pacchetto e il percorso che dovrà seguire attraverso la rete. In questo modo i **core routers** non devono ricalcolare la classificazione o il percorso; si limitano a leggere la label associata al pacchetto e a consultare una tabella di forwarding basata sulle label.
+
+Quindi per ogni core router avremo una tabella fatta in questo modo: 
+
+| label | next hop |
+| ----- | -------- |
+| Lj    | C        |
+
+E vediamo che il numero di entries della tabella sarà pari al numero di path e non al numero di prefissi. In questo modo garantiamo: 
+1. Flessibilità: Garantita da $f_{1}$ infatti gli edge routers possono utilizzare politiche specifiche per assegnare le classi in base a una varietà di criteri, come QoS, tipi di traffico o criteri di sicurezza.
+2. Scalabilità: I core routers non devono più scalare in base al numero di **prefissi IP**, che può essere estremamente grande in reti complesse. Invece, devono solo scalare in base al numero di **path**, che è significativamente inferiore rispetto ai prefissi IP. Questo riduce la complessità della tabella di forwarding nei core routers e rende la rete molto più scalabile.
