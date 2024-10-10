@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -122,7 +122,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Magistrale/Distributed Systems/Chapters/Concorrenza.md"
+            "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md"
           }
         }
       }
@@ -131,6 +131,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-kanban:Crea nuova bacheca": false,
+      "obsidian-git:Open Git source control": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-full-calendar:Open Full Calendar": false,
       "mermaid-tools:Open Mermaid Toolbar": false,
@@ -143,5 +145,8 @@
     }
   },
   "active": "9fa5eb758a928069",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
+    "Magistrale/Distributed Systems/Chapters/Concorrenza.md"
+  ]
 }

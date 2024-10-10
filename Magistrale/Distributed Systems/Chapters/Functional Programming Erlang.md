@@ -389,4 +389,130 @@ start() ->
     spawn(?MODULE, alice, [2, Bob_PID]).
 
 ```
+
+
+##### Applicazione Client-Server
+
+In Erlang è possibile implementare un'applicazione che segue il paradigma Client-Server utilizzando la comunicazione tramite messaggi asincroni. 
+Il processo server si comporta nel seguente modo: 
+- **Aspetta una richiesta dal client**.
+- **Calcola la risposta**.
+- **Invia la risposta al client**.
+Un esempio di codice è:
+
+```erlang
+-module(server).
+-export([start/0, loop/0]).
+
+start() -> 
+	spawn(?MODULE, loop, []).
+
+loop() -> 
+	receive
+		{From, {plus, X, Y}} ->
+			From ! {self(), X+Y},
+			loop();
+		{From, {minus, X, Y}} ->
+			From ! {self(), X-Y},
+			loop();
+		% nel caso in cui il server venga killato
+		stop ->
+			ok;
+		% nel caso in cui si riceve un messaggio sconosciuto
+		_Unexpected -> 
+			loop();
+	end.
+```
+
+Il processo client invece si comporta come segue:
+- **Invia una richiesta al server**.
+- **Aspetta e riceve la risposta**.
+Un esempio di codice è:
+
+```erlang
+-module(client).
+-export([start/4, body/4]).
+
+start(ServerID, OperationID, X, Y) ->
+	spawn(?MODULE, body, [ServerID, OperationID, X, Y]).
+	
+body(ServerID, OperationID, X, Y) ->
+	ServerID ! {self(), {OperationID, X, Y}},
+	receive
+		{ServerID, Result} ->
+			io:format("Result: ~p~n", [Result])
+	end.
+```
+
+Il codice del client può essere astratto tramite l'uso di funcitons:
+
+```erlang
+-module(client).
+-export([start/4, body/4]).
+
+start(ServerID, OperationID, X, Y) ->
+	spawn(?MODULE, body, [ServerID, OperationID, X, Y]).
+
+request(ServerID, Msg) ->
+	ServerID ! {self(), Msg},
+	receive
+		{ServerID, Result} -> Result
+	end.
+body(ServerID, OperationID, X, Y) ->
+	Result = request(ServerID, {OperationID, X, Y}),
+	io:format("Result: ~p~n", [Result]).
+```
+
+Se il server viene killato mentre il client è in attesa di una risposta, il client rimarrebbe bloccato all'infinito, aspettando un messaggio che non arriverà mai. Per evitare questo problema, possiamo usare la clausola `after` all'interno del blocco `receive`. Questa clausola consente di specificare un timeout: se la risposta non arriva entro un certo periodo di tempo, il client smette di aspettare e può gestire l'errore o eseguire altre operazioni.
+
+```erlang
+-module(client).
+-export([start/4, body/4]).
+
+start(ServerID, OperationID, X, Y) ->
+	spawn(?MODULE, body, [ServerID, OperationID, X, Y]).
+	
+body(ServerID, OperationID, X, Y) ->
+	ServerID ! {self(), {OperationID, X, Y}},
+	receive
+		{ServerID, Result} ->
+			io:format("Result: ~p~n", [Result])
+	after 5000 -> % (5 secondi)
+		io:format("Timeout: nessuna risposta dal server entro il tempo limite.~n")
+	end.
+```
+
+Un timeout pari a zero può essere molto utile, ad esempio, per svuotare tutti i messaggi presenti nella mailbox di un processo, senza bloccare il programma in attesa di nuovi messaggi. In questo caso, il client esamina immediatamente la mailbox e, se non ci sono messaggi, procede senza attendere.
+
+D'altra parte, il valore `infinity` come timeout significa che il processo aspetterà indefinitamente finché non riceve un messaggio, senza mai scadere.
+
+##### Publish dei processi
+
+Molto spesso, invece di riferirsi ai processi tramite il loro PID, è più conveniente utilizzare un nome simbolico (un atom), soprattutto quando si desidera un meccanismo semplice e leggibile per l'identificazione dei processi. In Erlang, è possibile associare un nome a un processo registrandolo in un *repository* accessibile globalmente da tutti i processi. 
+
+Le funzioni principali per gestire i nomi dei processi sono:
+- `register(atom, PID)`: Registra il processo identificato dal PID con un determinato nome (un atom).
+- `unregister(atom)`: Rimuove la registrazione di un processo associato a un nome (atomo).
+- `whereis(atom)`: Restituisce il PID del processo registrato con un determinato nome (se esiste).
+- `registered() -> [atom]`: Restituisce una lista di tutti i nomi registrati attualmente.
+
+##### Mantenere lo stato del server
+
+Nei linguaggi funzionali come Erlang, *non esiste lo stato mutabile*, ma è possibile mantenere una sorta di "stato" utilizzando la ricorsione e passando i parametri da una chiamata all'altra. Questo approccio viene spesso utilizzato nei server per gestire dati persistenti tra le chiamate, come un contatore di richieste.
+
+```erlang
+-module(staticserver).
+-export([start/0, loop/1]).
+
+start() ->
+	spawn(?MODULE, loop, [0]).
+loop(N) ->
+	io:format("Loop number: ~p~n", [N]),
+	receive
+	...
+		loop(N+1);
+	end.
+	
+```
+
 ### Going concurrent & distributed actually

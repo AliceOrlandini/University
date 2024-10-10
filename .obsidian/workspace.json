@@ -4,40 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "309e203ddd3fdea2",
+        "id": "0e391fd8d7f99a72",
         "type": "tabs",
         "children": [
           {
-            "id": "b23b82cf768ce013",
+            "id": "255436cde63f0941",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "61b245eadf762ac0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/IPv6.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bbecb9882e361534",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/Intro.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 298.5,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -109,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md"
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md"
               }
             }
           },
@@ -208,12 +185,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "b23b82cf768ce013",
+  "active": "255436cde63f0941",
   "lastOpenFiles": [
-    "Magistrale/Advanced Networks/Chapters/IPv6.md",
-    "Magistrale/Advanced Networks/Images/Label Switching.png",
-    "Magistrale/Advanced Networks/Chapters/MPLS.md",
     "Magistrale/Advanced Networks/Chapters/Intro.md",
+    "Magistrale/Advanced Networks/Chapters/IPv6.md",
+    "Magistrale/Advanced Networks/Chapters/MPLS.md",
+    "Magistrale/Advanced Networks/Images/Label Switching.png",
     "Magistrale/Advanced Networks/Table of Contents.md",
     "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "Magistrale/Advanced Networks/Images/Lifetime Address.webp",
