@@ -58,3 +58,78 @@ Quindi per ogni core router avremo una tabella fatta in questo modo:
 E vediamo che il numero di entries della tabella sarà pari al numero di path e non al numero di prefissi. In questo modo garantiamo: 
 1. Flessibilità: Garantita da $f_{1}$ infatti gli edge routers possono utilizzare politiche specifiche per assegnare le classi in base a una varietà di criteri, come QoS, tipi di traffico o criteri di sicurezza.
 2. Scalabilità: I core routers non devono più scalare in base al numero di **prefissi IP**, che può essere estremamente grande in reti complesse. Invece, devono solo scalare in base al numero di **path**, che è significativamente inferiore rispetto ai prefissi IP. Questo riduce la complessità della tabella di forwarding nei core routers e rende la rete molto più scalabile.
+
+Esempi di regole che possono essere applicate sono: 
+
+| Regola                                 | Classe | Label |
+| -------------------------------------- | ------ | ----- |
+| prefisso 10.1.0.0/16 && DSCP=101110    | FEC1   | 14    |
+| prefisso 10.1.0.0/16 \|\| 10.1.0.0/16  | FEC2   | 16    |
+| prefisso 10.1.0.0/16 && TCP Protocol   | FEC3   | 23    |
+| prefisso 10.1.0.0/16 && INport=Se0/0/0 | FEC4   | 15    |
+
+
+#### Source Routing
+
+Nel **source routing**, si utilizza il **Routing Header** per indicare al pacchetto quali router specifici deve attraversare. Tuttavia, codificare l'intero percorso in questo modo non è efficiente perché ogni volta che il pacchetto arriva a un router, il Routing Header deve essere aggiornato per indicare il prossimo router, il che richiede una modifica del pacchetto aggiungendo overhead e rallentando l'instradamento.
+
+Al contrario, la versione basata su **label switching** (come in **MPLS**) è molto più efficiente in quanto può essere realizzata in hardware. 
+
+### 5. Quali sono i possibili scope di MPLS?
+
+Se una **label** è valida per tutta la rete, si dice che è **domain-wide**. Questo significa che tutti i router all'interno della rete utilizzano la stessa label per le stesse **FEC**. Tuttavia, questa soluzione presenta alcuni svantaggi:
+- **Scalabilità limitata** nel **data plane**, poiché ogni label deve essere coordinata e mantenuta in modo consistente tra tutti i router della rete.
+- È necessario garantire la **consistenza delle label** tra tutti i router, il che può essere complesso e oneroso.
+In questo caso, **non c'è label switching** lungo il percorso: una volta assegnata una label a una FEC, questa label rimane invariata per l'intero percorso del pacchetto, riducendo la flessibilità del sistema.
+
+Nell'approccio **local-scope**, invece, le label vengono cambiate a ogni router. Questo ha diversi vantaggi:
+- Ogni router può assegnare e gestire le proprie label senza dover coordinarsi con gli altri router per mantenere la consistenza. Ciò riduce la necessità di accordi tra i router e permette una gestione più autonoma.
+- **Migliore scalabilità**: Poiché le label sono locali a ciascun router, non è necessario garantire la coerenza delle label in tutta la rete, semplificando la gestione e migliorando la scalabilità.
+
+In questo approccio, ogni router mantiene una tabella che associa la **label in ingresso** a una **label in uscita** e al **next hop**. Questo processo introduce il vero **label switching**, poiché ogni router sostituisce la label in ingresso con una nuova label prima di inoltrare il pacchetto al router successivo. In questo modo, la rete può scalare più facilmente e gestire il traffico in modo più efficiente, con ogni router che opera in modo indipendente.
+
+### 6. Come funziona il data plane di MPLS?
+
+Il **data plane** di **MPLS (Multiprotocol Label Switching)** è caratterizzato dall'uso di uno **stack di label** e da una serie di operazioni che possono essere effettuate su di esso:
+- **Push**: Inserisce una nuova label sopra lo stack di label esistente. Questa operazione viene usata quando il pacchetto attraversa una sottorete MPLS.
+- **Swap**: Sostituisce la label in cima allo stack con una nuova label. La nuova label dipende dalla tabella di forwarding MPLS del router, che associa le label in ingresso con quelle in uscita.
+- **Pop**: Rimuove la label in cima allo stack. L'operazione di pop può essere eseguita o quando il pacchetto raggiunge il penultimo router prima della destinazione o all'ultimo router, eliminando l'header MPLS e permettendo al pacchetto di essere trattato come un normale pacchetto IP.
+
+Le **label MPLS** sono inserite tra il **layer 2** e il **layer 3**, ovvero tra l'header del livello data link (ad esempio Ethernet o PPP) e l'header del protocollo di rete (ad esempio IP). Questo è il motivo per cui nel data plane MPLS non si aggiornano più gli header IP, ma solo l'**header MPLS**.
+
+### 7. Da quali campi è composto l'header MPLS?
+
+L'header MPLS è composto dai seguenti campi:
+- **Label**: È il campo principale, di dimensione fissa pari a **20 bit**, utilizzato per identificare la FEC, cioè il gruppo di pacchetti che condividono lo stesso percorso e trattamento di forwarding.
+- **Traffic Class (TC)**: Un campo di **3 bit** usato per la gestione della **qualità del servizio (QoS)** e per la priorità del traffico. Questo campo può essere utilizzato per classificare i pacchetti e fornire un trattamento differenziato in base alla loro classe di traffico.
+- **TTL (Time to Live)**: Un campo di **8 bit** simile al TTL nel protocollo IP, utilizzato per limitare il numero di hop che un pacchetto può attraversare nella rete MPLS. Infatti, ad ogni hop lungo il percorso, non viene aggiornato l'header IP, ma solo l'**header MPLS** quindi è necessario un campo **TTL** anche in questo header per garantire che il pacchetto non circoli indefinitamente nella rete.
+- **S (Bottom of Stack)**: Un campo di **1 bit** che indica se la label corrente è l'ultima nello stack di label. Se il bit **S** è impostato a 1, significa che quella label è in fondo allo stack e che il pacchetto MPLS non ha altre label da elaborare.
+
+![[MPLS header.png|center|600]]
+
+### 8. Quali operazioni vengono svolte quando un pacchetto arriva ad un router in MPLS?
+
+Se un **router MPLS** riceve un pacchetto **senza label** (probabilmente proveniente dall'esterno della rete MPLS), segue il seguente processo:
+1. **Classificazione**: Il router esamina la **tabella di classificazione** per determinare a quale **Forwarding Equivalent Class (FEC)** appartiene il pacchetto.
+2. **PUSH**: Una volta determinata la FEC, il router controlla la **Next Hop Label Forwarding Entry (NHLFE)**. L'operazione di **PUSH** viene eseguita per inserire la **label** MPLS nello stack del pacchetto. Il pacchetto, ora etichettato, viene inoltrato al **next hop**.
+
+Se invece il router riceve un **pacchetto con una label** già presente, il processo è diverso:
+1. **Incoming Label Map (ILM)**: Il router consulta la **Incoming Label Map (ILM)**, che associa ogni label in ingresso a un puntatore verso la **Next Hop Label Forwarding Entry (NHLFE)**. Questo contiene le istruzioni su come gestire il pacchetto, basate sulla label ricevuta.
+2. **SWAP**: Se la NHLFE specifica un'operazione di **SWAP**, la label in cima allo stack viene sostituita con una nuova label, che rappresenta il percorso successivo. Il pacchetto viene quindi inoltrato al **next hop** con la nuova label.
+
+Infine, se il pacchetto con una label arriva al router e la **Next Hop Label Forwarding Entry (NHLFE)** indica un'operazione di **POP**:
+1. **POP**: La label in cima allo stack viene rimossa. Se il pacchetto non ha altre label nello stack dopo la rimozione, il pacchetto torna a essere un normale pacchetto IP.
+2. **Routing IP**: Il pacchetto senza label viene passato al **piano di routing IP** del router, che esegue un'operazione di instradamento tradizionale per determinare la destinazione finale. In questo caso, il pacchetto viene processato due volte: una volta per la rimozione della label e un'altra per il routing IP.
+
+### 9. In cosa consiste il Penultimate Hop Popping?
+
+Come accennato, se un pacchetto MPLS giunge all'**ultimo router** della rete MPLS, questo router dovrà eseguire due processi: prima rimuovere l'ultima **label** con una POP e poi instradare il pacchetto utilizzando il tradizionale **IP routing**. Questo comporta una doppia elaborazione.
+
+Esiste un metodo più efficiente per gestire questa situazione, noto come **Penultimate Hop Popping (PHP)**. Con PHP, l'operazione di POP viene eseguita dal **penultimo router** lungo il percorso, anziché dall'ultimo router. In altre parole, il penultimo router rimuove la label MPLS dal pacchetto e lo inoltra al router finale **senza label**, pronto per essere processato come un normale pacchetto IP.
+
+In questo modo il pacchetto arriva all'ultimo router già privo della label MPLS, quindi non deve essere processato due volte (prima per rimuovere la label e poi per il routing IP). Inoltre, si ha una riduzione del carico sugli edge routers.
+
+Il penultimo router deve però essere "consapevole" di essere il penultimo nodo prima dell'edge router finale. 
+
+### 10. In cosa consiste il Label Stacking?
+
