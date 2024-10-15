@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "0e391fd8d7f99a72",
+        "id": "8b40f4716f011ce5",
         "type": "tabs",
         "children": [
           {
-            "id": "255436cde63f0941",
+            "id": "447bcf91a6d89dce",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md"
+                "file": "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md"
               }
             }
           },
@@ -184,10 +184,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "255436cde63f0941",
+  "active": "3891ae41fb5020c1",
   "lastOpenFiles": [
-    "Magistrale/Advanced Networks/Chapters/IPv6.md",
+    "Magistrale/Distributed Systems/Images/Noded and Machines.png",
     "Magistrale/Advanced Networks/Chapters/MPLS.md",
+    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
+    "Magistrale/Advanced Networks/Chapters/IPv6.md",
     "Magistrale/Advanced Networks/Images/MPLS header.png",
     "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "Magistrale/Advanced Networks/Chapters/Intro.md",
@@ -215,13 +218,11 @@
     "Magistrale/Advanced Networks/Images/Stateless Interface ID.png",
     "Magistrale/Advanced Networks/Images/Stateless ID.png",
     "Magistrale/Advanced Networks/Images",
-    "Magistrale/Electronics And Communication/Communication/Table of Contents.md",
     "TODO.md",
     "Scaletta_FOC.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 15 - Cloud Storage.md",
     "Magistrale/Cloud Computing/Table of Contents.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 13 - Applicazioni geograficamente distribuite.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 14 - Cloud Platforms.md",
     "Magistrale/Distributed Systems/Images",
     "Magistrale/Industrial Applications",
     "Magistrale/Distributed Systems/Chapters",

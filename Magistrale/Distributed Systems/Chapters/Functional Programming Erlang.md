@@ -516,3 +516,103 @@ loop(N) ->
 ```
 
 ### Going concurrent & distributed actually
+
+L'implementazione di un sistema distribuito in Erlang è resa possibile dalla capacità di creare processi su nodi e macchine remote. In particolare, esistono due approcci principali per realizzare un sistema distribuito:
+1. **Distributed Erlang**: la modalità nativa per distribuire processi su più nodi.
+2. **Socket Based Distribution**: un approccio alternativo che non tratteremo.
+
+In un sistema distribuito, ci sono diverse macchine, ciascuna delle quali può ospitare uno o più nodi Erlang. Su ogni nodo possono essere eseguiti uno o più processi concorrenti.
+
+![[Noded and Machines.png|center|500]]
+
+I nodi devono avere nomi univoci per poter essere contattati, e il formato utilizzato è `Name@Host`, dove "Name" è il nome del nodo e "Host" è il nome della macchina. Per facilitare la comunicazione tra nodi, esiste un processo demone chiamato **EPMD** (Erlang Port Mapper Daemon), che viene eseguito su ogni cluster. L'EPMD agisce come un name server, permettendo ai nodi di registrarsi e di essere trovati e contattati da altri nodi all'interno del sistema distribuito.
+
+Prima che due nodi possano comunicare, devono stabilire una connessione utilizzando il comando `net_kernel:connect_node(tom@localhost)`, che restituisce `true` o `false` a seconda del successo o fallimento della connessione. 
+Una caratteristica importante dei nodi in Erlang è la **connessione transitiva**: quando un nodo si connette a un altro, eredita automaticamente tutte le connessioni del nodo a cui si è connesso. Questo facilita la comunicazione tra più nodi in un sistema distribuito, poiché una volta stabilita una connessione, i nodi possono formare una rete di comunicazioni interconnesse.
+
+Per implementare un sistema distribuito in Erlang, Joe Armstrong, l'inventore di Erlang, suggerisce il seguente approccio:
+1. **Scrivere e testare il programma su un solo nodo**.
+2. **Testare il programma su due nodi sulla stessa macchina**.
+3. **Testare il programma su due nodi su macchine diverse**.
+
+Per mantenere i cluster separati anche quando i nodi si trovano fisicamente sulla stessa macchina, si utilizza il concetto di **Cookie** (differente dal concetto di cookie web che conosciamo). In Erlang, un **Cookie** è una stringa segreta condivisa tra i nodi, e solo i nodi con lo stesso cookie possono comunicare tra loro. Se i nodi hanno cookie diversi, non potranno stabilire una connessione, garantendo così la separazione tra i diversi cluster di nodi.
+
+Se si desidera creare un processo su un nodo che si trova su una macchina diversa, si utilizza ancora la funzione `spawn`, ma occorre specificare il nome completo del nodo (formato `Name@Host`). Ad esempio: `spawn(tom@localhost, Module, Function, Args)`.
+Inoltre:
+- **`receive`**: Il formato della funzione `receive` rimane lo stesso.
+- **`send`**: Quando si invia un messaggio a un processo su un nodo remoto, il nome completo del nodo deve essere incluso nell'invio. Ad esempio: `{Pid, tom@localhost} ! Message`
+
+
+Una **funzione di callback** è una funzione che viene definita ma eseguita solo in risposta a un determinato evento o condizione. In Erlang, le callback permettono di delegare il comportamento a una funzione esterna, rendendo il codice più flessibile e modulare. Esistono due tipi principali di callback:
+1. **Synchronous callbacks**: Queste funzioni vengono chiamate immediatamente e bloccano l'esecuzione del programma fino a quando non restituiscono un valore. Il flusso del programma attende la loro conclusione prima di procedere.
+2. **Deferred callbacks**: Queste funzioni vengono registrate per essere eseguite in un momento successivo, solitamente in risposta a un evento, e non bloccano l'esecuzione del programma principale.
+Le funzioni di callback possono essere utilizzate per parametrizzare il comportamento di un server. Ad esempio, si può passare una funzione di callback che definisce come il server dovrebbe rispondere a determinate richieste o gestire determinati dati.
+Esempio: 
+
+```erlang
+server(Callback) ->
+    receive
+        {request, Client_PID, Data} ->
+	        % Esegue la funzione di callback sul dato
+            Response = Callback(Data),
+            Client_PID ! {response, Response},
+            % Ricorsione con la stessa callback
+            server(Callback)
+    end.
+```
+
+Qui, la funzione `server/1` accetta una funzione di callback come parametro. Quando il server riceve una richiesta, invoca la callback sul dato ricevuto (`Callback(Data)`) e invia la risposta al client. Questo approccio permette di cambiare facilmente il comportamento del server modificando semplicemente la funzione di callback passata.
+
+#### Data Storing
+
+Per memorizzare informazioni in Erlang, ci sono diverse opzioni:
+- **ETS (Erlang Term Storage)**: una soluzione in-memory, adatta per archiviare dati in modo rapido e accessibile durante l'esecuzione del programma.
+- **DETS (Disk Erlang Term Storage)**: simile a ETS, ma con archiviazione su disco, utile quando è necessario persistere i dati anche dopo l'arresto del sistema.
+Entrambi i sistemi (ETS e DETS) sono organizzati in formato **key-value** e consentono di memorizzare qualsiasi **term** di Erlang.
+
+Le strutture di dati supportate sono:
+- **Sets**: Ogni chiave è unica, e ogni chiave ha un singolo valore associato.
+- **Bags**: Una chiave può essere associata a più valori, permettendo di memorizzare duplicati.
+
+Le operazioni principali sono:
+1. **Creation/Opening**: Creazione o apertura di un'area di memorizzazione (tabella ETS o DETS).
+2. **Insertion**: Inserimento di dati (key-value) nella tabella.
+3. **Lookup**: Ricerca di valori in base alla chiave.
+4. **Disposal**: Cancellazione o chiusura della tabella.
+
+Esiste anche una terza opzione chiamata **Mnesia**, un database distribuito integrato in Erlang, che organizza i dati in tabelle e supporta transazioni. A differenza di ETS e DETS, Mnesia è più simile a un database relazionale, ma con sintassi nativa Erlang. Il suo vantaggio principale è la capacità di memorizzare qualsiasi struttura dati presente in Erlang, gestendo sia dati volatili (in-memory) che persistenti (su disco). Mnesia è particolarmente utile in sistemi distribuiti dove si richiede la gestione di transazioni e la replica dei dati tra nodi.
+
+#### Gestione degli errori
+
+La gestione degli errori in Erlang avviene su due livelli distinti:
+1. **Programma sequenziale**: In questo caso, è necessario identificare quando una funzione genera un errore e crasha e specificare come gestire la situazione. 
+2. **Programma concorrente**: In un contesto concorrente, gli errori avvengono a livello di processo. Se un processo fallisce, è importante che un altro processo se ne accorga e possa eseguire azioni di **recovery**. Questo è gestito tramite meccanismi di monitoraggio e collegamento tra processi, come le *supervisor trees*, che permettono a un processo di supervisionare altri e agire in caso di fallimento.
+
+I modi per sollevare un errore sono:
+- **`error(Why)`**: Solleva un errore e genera un crash. È usato tipicamente per errori critici del server o del programma che dovrebbero causare il fallimento del processo.
+- **`throw(Why)`**: Genera un'eccezione che può essere intercettata dal chiamante con un blocco `try/catch`. Questo è utile quando si vuole segnalare condizioni che non sono necessariamente critiche, ma che richiedono un trattamento specifico da parte del chiamante.
+- **`exit(Why)`**: Termina un processo e invia un segnale di terminazione. Questo comando è utilizzato per interrompere intenzionalmente un processo o segnalare il fallimento a un processo collegato, in modo che possa reagire di conseguenza.
+
+Un esempio di gestione tramite `try/catch` è il seguente:
+
+```erlang
+try Expr of
+	okPattern1 [Guards] -> Expr1;
+	okPattern2 [Guards] -> Expr2
+catch
+	TypeOfError:ExcPattern1 -> Expr3;
+	TypeOfError:ExcPattern2 -> Expr4
+after % è come finally in altri linguaggi
+	Expr5
+end.
+```
+
+È possibile instaurare una relazione speciale tra processi tramite **link**, che permette di far terminare tutti i processi collegati in caso di fallimento di uno di essi. Quando un processo termina con un errore, un **exit signal** viene inviato agli altri processi collegati. Ogni processo può decidere come gestire questo segnale: ad esempio, può convertirlo in un normale messaggio e intraprendere azioni come il riavvio del processo fallito.
+
+Esiste anche un'altra relazione speciale tra processi, chiamata **monitor**, che offre più flessibilità rispetto ai link. Le principali differenze tra monitor e link sono:
+
+- **Unidirezionali**: A differenza dei link, che sono bidirezionali (entrambi i processi sono collegati), i monitor sono unidirezionali. Solo il processo che imposta il monitor riceverà notifiche in caso di fallimento del processo monitorato.
+- **Stacked (impilabili)**: È possibile impostare più monitor su un singolo processo, permettendo a vari processi di monitorare lo stesso processo senza interferenze.
+
+Monitor e link sono utilizzati per implementare sistemi di controllo più complessi come i **Supervisors** e le **Supervisors Tree**. Questi meccanismi consentono di avere un controllo completo sul sistema, definendo gerarchie di processi in cui un processo supervisore monitora uno o più processi figli. In caso di fallimento, il supervisore può decidere se riavviare i processi, sostituirli o eseguire altre azioni di recupero.
+

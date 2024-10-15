@@ -99,11 +99,11 @@ $$
 \end{align*}$$
 L'approssimazione è valida perché la frequenza di campionamento è molto alta ($f_{m} = 2\cdot (1+m_{f}) \cdot B_{m}$).
 Scriviamo ora la formula del campione precedente: 
-$$\tilde{v}(k-1) = e^{j2 \pi k_{f}\sum\limits_{l=-\infty}^{k-1} m(lT_{s})T_{s}}$$
+$$\tilde{v}(k-1) = e^{j2 \pi k_{f}\sum\limits_{l=-\infty}^{k-1} m(l)T_{s}}$$
 E facciamo la seguente operazione: 
 $$
 \begin{align*}
-\tilde{v}(k) \cdot \tilde{v}^{*(k-1)} & \approx e^{j2 \pi k_{f}\sum\limits_{l = -\infty}^{k}m(l)T_{s}} \cdot e^{-j2 \pi k_{f}\sum\limits_{l = -\infty}^{k-1}m(l)T_{s}}\\[4pt]
+\tilde{v}(k) \cdot \tilde{v}^{*}(k-1) & \approx e^{j2 \pi k_{f}\sum\limits_{l = -\infty}^{k}m(l)T_{s}} \cdot e^{-j2 \pi k_{f}\sum\limits_{l = -\infty}^{k-1}m(l)T_{s}}\\[4pt]
 &= e^{j2\pi k_{f}m(k) T_{s}}
 \end{align*}
 $$

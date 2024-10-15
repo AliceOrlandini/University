@@ -9,7 +9,9 @@
 	3. [[Software Defined Radio#Programmare un RTL-SDR con MATLAB|Programmare un RTL-SDR con MATLAB]]
 4. [[Comunicazione Digitale]]
 5. [[Wireless Propagation Channel]]
-6. 
+6. [[Multi-Carrier Signals]]
+7. [[Diversity techniques for wireless communications]]
+8. [[Frequency diversity]]
 
 # Extra
 - [[Laboratorio]]
