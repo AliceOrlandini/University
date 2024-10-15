@@ -1,5 +1,7 @@
 # Processi Stocastici
 
+## Tipi di Processi
+
 I processi di dividono in:
 - **Deterministici**: il processo è rappresentato da una relazione matematica esplicita. In questo caso, dato un input si conosce esattamente l'output. 
 - **Stocastici**: è un processo aleatorio ovvero un processo in funzione di variabili aleatorie. In fisica, ci sono molti parametri che influenzano il risultato di un esperimento e per questo il risultato non è predicibile a priori. 
@@ -94,7 +96,7 @@ Da questo teorema deriva che la potenza di un processo $X(t)$ può essere calcol
 
 Vedremo la differenza tra la modulazione analogica e quella digitale, infatti la modulazione rimane analogica ma il segnale era originariamente digitale e solo dopo convertito.
 
-## Pulse Amplitude Modulation PAM
+# PAM
 
 Una sorgente genera i bit $d_{k}$ che vengono mappati nel mappatore in simboli $a_{i}$ che vengono usati per realizzare un segnale tempo continuo (analogico) di questo tipo: $$\tilde{s}_{PAM} (t) = \sum\limits_{i} a_{i} g_{T}(t-iT)$$
 E: 
@@ -108,88 +110,122 @@ Da ora in poi useremo sempre l’inviluppo complesso ma per motivi di notazione 
 Studiamo nel dettaglio i blocchi:
 ## Mappatore
 
-Lo scopo del mappatore è quello di convertire i bit $d_{k} \in \{0,1\}$ in simboli $a_{i}$.
-L’expectation dei bit è $E[d_{k}] = 1/2$ quindi vado a mappare 0 in -1 ed 1 in +1 quindi $a_{i} \in \{-1,+1\}$
-I bit sono un processo stocastico discreto nel tempo e con stato discreto.
-Il mappatore non ha solo lo scopo di spostare il mean value in zero ma anche di compressare l’informazione perché un insieme di bit può essere compresso in un solo simbolo. 
-$M$ è la grandezza della costellazione dei simboli. Nel caso di prima $M = 2$ e il numero di simboli è $m = log_{2}M = 2$.
-Anche i simboli sono processi stocastici.
-Questi processi possiamo assumere che siano stazionari e indipendenti. 
-Un altra cosa che deve fare il mappatore è migliorare il più possibile la banda occupata. (ridire meglio)
-La sorgente genera simboli con un rate $R_{b}= \frac{1}{T_{b}}$. Ogni $m$ bit si ottiene un simbolo, se un simbolo mappa più di un bit l’efficienza spettrale aumenta. 
-$T = mT_{b}$ con $T$ il periodo del simbolo.
-Quindi $R = \frac{1}{T} = \frac{1}{mT_{b}}=\frac{R_{b}}{m}= \frac{R_{b}}{log_{2}M}$
-Dobbiamo misurare l’efficenza spettrale andando a considerare la banda occupata. 
-$B \inverse \frac{1}{T}$ quindi più è grande M più è piccola la banda occupata.
+Lo scopo del **mappatore** è convertire i bit $d_k \in \{0,1\}$ in simboli $a_i$. 
+I bit $d_k$ possono essere sia 0 che 1, e la loro aspettativa matematica è $E[d_k] = \frac{1}{2}$. Per mantenere il valore medio a zero, il mappatore assegna 0 a -1 e 1 a +1, quindi i simboli $a_i$ appartengono all'insieme $\{-1,+1\}$.
 
-Energy Efficenty
-Spectral Efficenty
-ad esempio FM è buona in termini di Energy Efficenty ma non in Spectral
-Generalmente sono sempre uno l’opposto dell’altro, anche nella PAM succede. 
-Calcoliamo l’energia minima per trasmettere un bit.
-$s_{PAM}(t) = \sum\limits_{i} a_{i}g_{T}(t-iT)$ quest’ultima è continua in tempo e in stato. Non è stazionaria ma cyclostationary (perché la stazionarietà è periodica di periodo $T$, comunque non più stazionario). Non è nemmeno più indipendente perché dal disegno si nota che il prossimo sample dipenderà dal precedente. 
-$R_{a}(\tau) = E[a^{2}]\delta (\tau)$ 
-dopo il campionamento: $R_{a}[\tau] = E[a^{2}]\delta [\tau]$
-$S_{a}(f) = E[a^2]$ 
-Filtriamo con un filtro lineare:
-$S_{s}(f)= \frac{1}{T} S_{a}(f)|G_{T}(f)^{2}|$
+I bit generati sono un processo stocastico discreto nel tempo e con stati discreti. Oltre a riportare la media a zero, il mappatore ha il compito di comprimere l'informazione, in quanto un insieme di bit può essere rappresentato da un singolo simbolo.
 
-$A = E[a_{i}^{2}]$
-Noi assumeremo che $E[a_{i}] = 0$
+$M$ indica la dimensione della *costellazione dei simboli*. Nell'esempio precedente, $M = 2$, quindi il numero di bit per simbolo è $m = \log_2 M = 1$. Anche i simboli, come i bit, possono essere considerati processi stocastici, che spesso assumiamo essere stazionari e indipendenti.
 
-La funzione di autocorrelazione è deterministica e per questo calcoliamo la densità spettrale di potenza. Quest’ultima dipende solo dal filtro. Quindi scegliendo il filtro di partenza con cui realizzo il segnale, cambia la densità spettrale di potenza.
-Scegliamo per esempio una rect $g_{T}(t) = rect(\frac{t-T/2}{t})$ 
-che in frequenza è una sinc e quindi avrà uno spettro esteso.
-Se vogliamo uno spettro ristretto segliamo una rect: $G_{T}(f) = rect(fT)$ che ha $g_{T}(t) = \frac{1}{T}sinc(\frac{t}{T})$
-Generalmente si trova un compromesso.
+Un'altra funzione importante del mappatore è ottimizzare l'uso della banda occupata. La sorgente genera bit con una velocità (rate) di trasmissione $R_b = \cfrac{1}{T_b}$, dove $T_b$ è il tempo tra due bit consecutivi. Se un simbolo rappresenta più di un bit, l'efficienza spettrale aumenta, cioè si trasmette più informazione con meno banda. Il tempo associato a ciascun simbolo è $T = m T_b$, e la velocità di trasmissione dei simboli è $R = \cfrac{1}{T} = \cfrac{1}{m T_b} = \cfrac{R_b}{m} = \cfrac{R_b}{\log_2 M}$.
 
-Ora vediamo la struttura del ricevitore. 
-Il segnale passa attraverso il canale e otteniamo $y(t) = h(t) conv s(t)$
-$r(t) = y(t)+n(t)$ 
-$h(t)$ rappresenta l’effetto del canale sul segnale, può essere visto come un linear time invariant filter. (LTI)
-In questo tipo di segnali $y(t) = x(t) \circledast h(t)$ che in frequenza diventa $Y(f) = X(f)\cdot H(f)$
-Se $h(t) = \delta (t)$ l’effetto del segnale non si nota. 
+**L'efficienza spettrale** può essere valutata considerando la banda occupata $B$, che è inversamente proporzionale alla durata di un simbolo: $B \propto \cfrac{1}{T}$. Di conseguenza, aumentando $M$, la banda occupata diminuisce, migliorando l'efficienza complessiva.
 
-$w(t)$ è il rumore termico, veniva modellato come gaussiano bianco $\mathbb{N}(0,\frac{N_{0}}{2})$ quindi ha $S_{w}(f) = \frac{N_{0}}{2}$. 
+### Efficienza Energetica e Spettrale
 
-Infine, la struttura della PAM in ricezione.
-Dato il segnale $r(t)$ esso è in banda base (perché consideriamo l’inviluppo complesso)
-La prima cosa che troviamo è il filtro passa basso $g_{R}(t)$ 
-$r(t) = s(t) \circledast h(t) + w(t) = s(t)+w(t)$
-L’output del filtro passa basso sarà $x(t) = r(t) \circledast g_{R}(t) = s(t) \circledast g_{R}(t) + w(t) \circledast g_{R}(t)= \sum\limits_{i}a_{i}g(t-iT)+n(t)$
-Con $g(t) = g_{T}(t) \circledast g_R(t)$.
-L’unico elemento di disturbo per ora è il rumor $n(t) = w(t) \circledast g_{R}(t)$ di cui poi parleremo.
+L'efficienza energetica e l'efficienza spettrale sono due concetti spesso in contrasto tra loro. Ad esempio, la modulazione FM (Frequency Modulation) è buona in termini di efficienza energetica, ma non in termini di efficienza spettrale. In generale, un miglioramento nell'efficienza spettrale porta a una riduzione dell'efficienza energetica, e viceversa. Questo avviene anche in tecniche come la PAM (Pulse Amplitude Modulation).
 
-Subito dopo c’è il campionatore, il suo scopo è estrapolare un campione.
-$x(m)|_{t=mT} = x[mT] = \sum\limits_{i}a_{i}g(mT-iT) +n[mT] = \sum\limits_{i}g((m-i)T)+n[m]$
-poniamo $m-i = l$ da cui ottengo $i = m- l$ e $m-i = l$
-Sostituendo: $\sum\limits_{l}a_{m-l}g(lT)+n[m] = a_{m}g(0) + …$
-Ho estratto il primo elemento. Gli altri elementi sono l’interferenza intersimbolica, si origina quando il filtro $g_{T}(t)$ non è una rect (perché le sinc si annullano nei multipli del periodo). 
-$g(t) = g_{T}(t) \circledast g_{R}(t)$ è un triangolo.
-Il problema della rect è che è illimitata in frequenza quindi si ha uno spettro illimitato che non si usa in realtà. Quindi si ha interferenza intersimbolica. 
-La condizione per non avere ISI è $g(lT) = 1$ se $l=0$ e $g(lT) = 0$ se $l \not= 0$ perché così $x(m) = a_{m}+n(mT)$
-L’importante è che in multipli interi di T sia nulla, non deve essere necessariamente una rect. 
-Da notare che la condizione non basta perché trasmettitore e ricevitore devono essere perfettamente sincronizzati. 
+#### Calcolo dell'energia minima per trasmettere un bit
 
-La stessa condizione può essere ricavata con Nyquist nel dominio della frequenza: $F(g(l)) = \sum\limits_{l}g(l)e^{-j2\pi flT} = \frac{1}{T}\sum\limits_{k}G(f-\frac{k}{T})$
-Bisogna scegliere la $g(t)$ in modo che $G(f)$ sia pari a 1 perché così ottengo T. (calcoli sulle slide)
+Il segnale PAM può essere espresso come:
+$$ s_{PAM}(t) = \sum\limits_{i} a_{i} g_{T}(t - iT) $$
+Dove:
+- $a_i$ sono i simboli PAM.
+- $g_T(t)$ è la forma d'onda del simbolo.
+- $T$ è il periodo simbolo.
 
-La funzione coseno rialzato ha una banda $B_{RC}= \frac{1+\alpha}{2T}$ con $\alpha$ detto fattore di roll-off. 
-Se $\alpha$ è pari a zero si ottiene una rect. 
-In frequenza si ottengono delle sinc. 
+Questo segnale è continuo nel tempo e nello stato. Tuttavia, non è stazionario, bensì ciclostazionario, poiché la stazionarietà (cioè le proprietà statistiche) è periodica con periodo $T$. Inoltre, i campioni non sono più indipendenti tra loro: il prossimo campione dipenderà dal precedente.
 
-Non dobbiamo dimenticarci che c’è sempre rumore bianco additivo, anche $w(t)$ è l’inviluppo complesso del rumore gaussiano bianco. L’equivalente in banda base del rumore è il rumore bianco in banda perché in teoria è bianco ovunque ma noi filtriamo in banda base quindi tagliamo tutte le altre parti.  
-$S_{\tilde{w}}(f) = 2N_{0}$ densità spettrale di potenza del rumore bianco in banda. 
-$E[w_{I}(n) \cdot w_{Q}(n)] = E[w_{I}(n)]\cdot E[w_{Q}(n)] = 0$ perché il valor medio del rumore bianco è zero. 
-Ora concentriamoci su $n(t)$, la sua densità spettrale di potenza sarà $S_{n}(f) = S_{w}(f)|G_{R}(f)|^{2}$ che *non* è bianco non essendo costante in frequenza ma dipendente dal filtro.
-Questo ci serve per integrarla e ottenere la potenza.
-Dobbiamo capire qual è la strategia migliore per filtrare il rumore in modo da toglierne il più possibile. Possiamo usare ancora una volta un coseno rialzato (filtro adattato).
+La funzione di autocorrelazione per i simboli $a_i$ è:
+$$ R_{a}(\tau) = E[a^2]\delta(\tau) $$
+Dopo il campionamento, la funzione di autocorrelazione discreta diventa:
+$$ R_{a}[\tau] = E[a^2]\delta[\tau] $$
+La densità spettrale di potenza dei simboli è:
+$$ S_{a}(f) = E[a^2] $$
+Quando il segnale passa attraverso un filtro lineare, la densità spettrale del segnale filtrato è:
+$$ S_{s}(f) = \frac{1}{T} S_{a}(f) |G_T(f)|^2 $$
+Dove $G_T(f)$ è la trasformata di Fourier della forma d'onda $g_T(t)$.
 
-Ora possiamo mettere delle condizioni sui filtri, una soluzione buona è quella di usare $H_{RRC}(f,\alpha) = \sqrt{H_{RC}(f,\alpha)}$
-di modo che $G_{R}(t) = G_{T}(t)$
+Infine, definiamo l'energia dei simboli come:
+$$ A = E[a_i^2] $$
+E, in questo contesto, assumiamo che la media dei simboli sia nulla:
+$$ E[a_i] = 0 $$
+Questa assunzione facilita i calcoli e riflette che il segnale è bilanciato intorno a zero.
 
-Infine, possiamo definire la banda della PAM: $$B_{PAM}^{(PB)}= 2B_{PAM}^{(BB)} = \frac{1+\alpha}{T}= (1 + \alpha) \frac{R_{b}}{log_{2}M}$$
-# MATLAB RRC Filter Design
+Immaginiamo di avere un segnale e di voler capire come si comporta nel tempo e nello spettro delle frequenze. La **funzione di autocorrelazione** misura quanto il segnale è simile a se stesso in momenti diversi, ma non ci dice molto su come il segnale si distribuisce in frequenza. Per questo, usiamo la **densità spettrale di potenza**, che ci mostra quanta energia del segnale è presente a diverse frequenze.
+
+Questa densità spettrale dipende dal tipo di filtro che applichiamo al segnale. Scegliendo un filtro diverso, otteniamo una diversa distribuzione dell'energia sulle frequenze. Un esempio è il filtro `rect`, che ha una forma a rettangolo. In frequenza, questo filtro si comporta come una funzione `sinc` (che si estende molto in frequenza), quindi ha uno spettro ampio, cioè occupa molte frequenze.
+
+Se invece vogliamo limitare lo spettro, possiamo scegliere un altro tipo di filtro che ha uno spettro più stretto. Ad esempio, il filtro rettangolare in frequenza ($G_T(f) = rect(fT)$) produce una funzione `sinc` in tempo. Il trucco è trovare un equilibrio tra il tipo di segnale che vogliamo trasmettere e quanta banda (frequenza) vogliamo occupare: si cerca un compromesso.
+
+#### Segnale attraverso un canale
+
+Ora vediamo cosa succede quando il segnale viaggia attraverso un canale. 
+Il canale agisce come un **filtro lineare** $h(t)$, che può modificare il segnale in modo prevedibile. Quindi, il segnale che riceviamo, $y(t)$, è il risultato del segnale trasmesso $s(t)$ convoluto con l’effetto del canale. Matematicamente, scriviamo questa operazione come:
+$$ y(t) = s(t) \circledast h(t) $$
+In frequenza, diventa una moltiplicazione:
+$$ Y(f) = S(f) \cdot H(f) $$
+Se il canale non altera il segnale, possiamo dire che $h(t) = \delta(t)$, che è come se il segnale passasse attraverso il canale senza essere toccato.
+
+Ma c'è un'altra cosa da considerare: *il rumore*. Quando il segnale attraversa il canale, c'è sempre del **rumore termico** che interferisce. Questo rumore può essere modellato come un *rumore bianco gaussiano* (una distribuzione normale con media zero). Ha una densità spettrale di potenza costante:
+$$ S_w(f) = \frac{N_0}{2} $$
+Il rumore è sempre presente, ma possiamo ridurre i suoi effetti con buoni filtri e tecniche di elaborazione.
+
+#### Struttura della PAM in ricezione
+
+Il segnale trasmesso è ricevuto come $r(t)$, che è il segnale originale più il rumore. Consideriamo che questo segnale si trovi in banda base, cioè non è modulato a frequenze alte, ma è già pronto per essere elaborato.
+
+Il primo passo nel ricevitore è far passare il segnale attraverso un **filtro passa basso** $g_R(t)$. Questo filtro serve a eliminare tutte le componenti di frequenza che non ci interessano. Quindi, il segnale ricevuto è dato da:
+$$ r(t) = s(t) \circledast h(t) + w(t) = s(t) + w(t) $$
+In parole semplici, questo significa che il segnale $r(t)$ è una combinazione del segnale trasmesso $s(t)$, l'effetto del canale $h(t)$ (che qui trascuriamo) e del rumore $w(t)$.
+
+Dopo il filtro, l'output è:
+$$ x(t) = r(t) \circledast g_R(t) = s(t) \circledast g_R(t) + w(t) \circledast g_R(t) $$
+Questo output può essere riscritto come:
+$$ x(t) = \sum\limits_{i}a_{i} g(t - iT) + n(t) $$
+Dove $g(t)$ è la combinazione del filtro del trasmettitore $g_T(t)$ e del filtro del ricevitore $g_R(t)$, cioè:
+$$ g(t) = g_T(t) \circledast g_R(t) $$
+L'unico elemento che disturba il segnale è il rumore $n(t) = w(t) \circledast g_R(t)$, che affronteremo più avanti.
+
+Dopo il filtro, c'è il **campionatore**, che ha il compito di prendere un campione del segnale a intervalli regolari, precisamente ai tempi $t = mT$, dove $T$ è il periodo simbolo. Il campionatore ci fornisce:
+$$ x(mT) = \sum\limits_{i} a_{i} g(mT - iT) + n(mT) $$
+A questo punto, facciamo un cambio di variabile, ponendo $m - i = l$, quindi otteniamo:
+$$ \sum\limits_{l} a_{m-l} g(lT) + n[m] $$
+Il termine $a_m g(0)$ è il simbolo desiderato, mentre i termini successivi rappresentano l'**interferenza intersimbolica (ISI)**, cioè l'effetto dei simboli vicini che disturbano il simbolo attuale.
+
+L'ISI si verifica quando il filtro $g_T(t)$ non ha una forma perfetta, come ad esempio una rect, che avrebbe eliminato l'ISI perché le sinc si annullano nei multipli del periodo $T$. In pratica, il filtro ideale sarebbe un filtro che fa in modo che $g(lT) = 1$ quando $l = 0$ (cioè quando si tratta del simbolo desiderato) e $g(lT) = 0$ per tutti gli altri $l \neq 0$, in modo da evitare che i simboli vicini interferiscano.
+
+Il problema della rect è che occupa uno spettro di frequenze illimitato, il che non è pratico. Quindi, in realtà, si tollera una certa ISI. Tuttavia, la condizione per eliminare l'ISI è quella descritta sopra, e per far sì che il ricevitore funzioni correttamente, il trasmettitore e il ricevitore devono essere **perfettamente sincronizzati**. Se non lo sono, anche con un buon filtro, ci sarà comunque disturbo.
+
+La condizione di **Nyquist** nel dominio delle frequenze ci aiuta a evitare l'**interferenza intersimbolica (ISI)**. Utilizzando Nyquist, possiamo esprimere il segnale $g(t)$ nel dominio della frequenza come:
+$$ F(g(l)) = \sum\limits_{l} g(l) e^{-j2\pi flT} = \frac{1}{T} \sum\limits_{k} G(f - \frac{k}{T}) $$
+Qui, scegliamo la funzione $g(t)$ in modo tale che la sua trasformata $G(f)$ sia pari a 1 nelle bande di frequenza di interesse. Questo ci garantisce che il segnale abbia un periodo $T$ che soddisfi le condizioni di Nyquist e che riduca al minimo l'ISI.
+
+#### Coseno rialzato e banda
+
+Un filtro comunemente utilizzato è il **coseno rialzato**, che ha una banda di frequenza definita come:
+$$ B_{RC} = \frac{1 + \alpha}{2T} $$
+Dove $\alpha$ è il **fattore di roll-off**. Se $\alpha = 0$, otteniamo un filtro `rect`, che ha un comportamento ideale in termini di riduzione dell'ISI, ma occupa una banda infinita (che non è praticabile). Quando $\alpha$ aumenta, il filtro ha una banda più larga, ma diminuisce l'occupazione spettrale.
+
+#### Rumore bianco additivo
+
+Non dobbiamo dimenticare che nel canale c'è sempre del **rumore bianco additivo**. Il rumore $w(t)$ rappresenta il rumore gaussiano bianco, che ha una potenza distribuita uniformemente su tutte le frequenze. Tuttavia, quando filtriamo il segnale, il rumore che ci rimane in banda base ha una densità spettrale di potenza data da:
+$$ S_{\tilde{w}}(f) = 2N_0 $$
+Questo significa che in banda base, dopo il filtro, il rumore non è più perfettamente bianco, ma dipende dal filtro utilizzato. La densità spettrale del rumore filtrato $n(t)$ è:
+$$ S_{n}(f) = S_{w}(f) |G_{R}(f)|^2 $$
+Poiché $|G_{R}(f)|^2$ non è costante, il rumore risultante non è più uniforme, ma varia in base alla frequenza del filtro.
+
+Per ridurre al massimo l'effetto del rumore, scegliamo un buon filtro. Una strategia è utilizzare ancora una volta un filtro **coseno rialzato**, ma in questo caso nella sua forma adattata, cioè:
+$$ H_{RRC}(f, \alpha) = \sqrt{H_{RC}(f, \alpha)} $$
+Questo filtro è scelto in modo che il filtro di ricezione $G_R(t)$ sia uguale a quello di trasmissione $G_T(t)$, garantendo una perfetta corrispondenza tra trasmettitore e ricevitore e migliorando la capacità di filtrare il rumore.
+
+#### Banda della PAM
+
+Infine, possiamo definire la banda occupata dalla modulazione PAM. La banda della PAM a banda passante (PB) è il doppio di quella a banda base (BB) e viene data da:
+$$ B_{PAM}^{(PB)} = 2 B_{PAM}^{(BB)} = \frac{1 + \alpha}{T} = (1 + \alpha) \frac{R_b}{\log_2 M} $$
+Qui, $R_b$ è la velocità di trasmissione dei bit, $M$ è il numero di simboli nella costellazione, e $\alpha$ è il fattore di roll-off del filtro coseno rialzato. Questo ci fornisce una misura diretta della banda necessaria per trasmettere i dati usando la modulazione PAM.
+
+### MATLAB RRC Filter Design
 
 Innanzitutto capiamo come è fatto un filtro a coseno rialzato in matlab. 
 $g = rcosdesign(\beta, SPAN, SPS, SHAPE)$ 
@@ -199,199 +235,212 @@ La risposta in frequenza sarà limitata perché lo spettro $H_{RC}(f,\beta)$ è 
 $SPS$ è il sampling time(sample per simbols), ad esempio $SPS = 4$ allora $\frac{T}{T_{s}} = 4$ con $f_{s}= \frac{1}{T_{s}}$.
 L’$SPS$ minimo è 1 se il roll off è diverso da zero altrimenti è 2.
 
-# Power of a pam simbol
+### Potenza di una PAM
 
-Si integra la densità spettrale di potenza: $$P_{S}^{(BB)}) \frac{A}{T}\int_{-\infty}^{+\infty} H_{RC}(f,\alpha) df$$ ma visto che $\int_{-\infty}^{+\infty} H_{RC}(f,\alpha) df = h_{RC}(t,\alpha)|_{t=0} = 1$ quindi $$P_{S}= \frac{1}{2}P_{S}^{(BB)} = \frac{A}{2T}$$
-L’energia per trasmettere un simbolo è $$E_{S}^{(BB)} = P^{(BB)}\cdot T$$
-con $A = E[a_{i}^{2}] = \frac{M^{2}-1}{3}$ se $M$ è fissato abbiamo i simboli simmetrici ed equidistanti con una distanza pari a 2. 
-L’energia necessaria per trasmettere un simbolo è: $$E_{S}^{(PB)}= P_{S}T = \frac{A}{2T}T = \frac{M^{2}-1}{6}$$
-# Rumore additivo gaussiano bianco
+Quando abbiamo un segnale che occupa una certa banda di frequenze, possiamo calcolare la potenza totale del segnale integrando la sua densità spettrale su tutte le frequenze.
+In questo caso, l'integrazione della densità spettrale di potenza a banda base ($P_S^{(BB)}$) si esprime come:
+$$ P_S^{(BB)} = \frac{A}{T} \int_{-\infty}^{+\infty} H_{RC}(f, \alpha) df $$
+Qui, $H_{RC}(f, \alpha)$ rappresenta la risposta in frequenza del filtro coseno rialzato, con $\alpha$ che è il fattore di roll-off. L'integrale di questa funzione su tutte le frequenze dà 1, quindi possiamo semplificare il calcolo della potenza utilizzando il valore della funzione al tempo $t=0$:
+$$ \int_{-\infty}^{+\infty} H_{RC}(f, \alpha) df = h_{RC}(t, \alpha)|_{t=0} = 1 $$
+Di conseguenza, la potenza complessiva a banda passante ($P_S$) è la metà di quella a banda base:
+$$ P_S = \frac{1}{2} P_S^{(BB)} = \frac{A}{2T} $$
+### Energia per trasmettere un simbolo
 
-Anche per il rumore dovremo calcolare la potenza.
-$n(m)$ è una variabile aleatoria perché è ottenuta campionando il processo aleatorio quindi può essere scritto come:
-$n(m) = n(t)|_{t=mT} = n_{I}(m)+jn_{Q}(m)$.
-Per trovare la densità spettrale di potenza devo calcolare:
-$\sigma^{2}_{n}= E[|n(m)|^{2}] = \int_{-\infty}^{+\infty} S_{n}(f) df = 2N_{0}\int_{-\infty}^{+\infty} |G_{R}(f)|^{2}df = 2N_{0}$
-perché $\int |G_{R}(f|^{2}df = 1$.
+L'energia necessaria per trasmettere un simbolo a banda base è data dalla potenza a banda base moltiplicata per il tempo del simbolo $T$:
+$$ E_S^{(BB)} = P_S^{(BB)} \cdot T $$
+Ora, per il caso di simboli simmetrici ed equidistanti (come nella modulazione PAM), possiamo definire l'energia media dei simboli, dove $A = E[a_i^2]$ rappresenta l'energia media dei simboli. Se $M$ è il numero di simboli nella costellazione, possiamo calcolare $A$ come:
+$$ A = \frac{M^2 - 1}{3} $$
+Questo valore viene dalla somma delle potenze dei simboli nel caso di una costellazione simmetrica ed equidistante, con una distanza tra i simboli pari a 2.
 
-# Strategia di Decisione
+### Energia per trasmettere un simbolo a banda passante
 
-La variabile sulla quale bisogna prendere una decisione è $x(m) = a_{m}+n(m)$
-$n(m) \thicksim \mathcal{N}(0,N_{0})$ rumore gaussiamo bianco
+Infine, l'energia necessaria per trasmettere un simbolo a banda passante si ottiene moltiplicando la potenza a banda passante per il tempo del simbolo $T$:
+$$ E_S^{(PB)} = P_S T = \frac{A}{2T} T = \frac{M^2 - 1}{6} $$
+Questo risultato mostra quanta energia serve per trasmettere un simbolo, tenendo conto della potenza del segnale e della struttura della costellazione dei simboli.
+### Potenza del rumore
 
-$x(m)$ è ottenuta facendo la somma di valori costanti più una variabile aleatoria e quindi anche $x(m)$ sarà una variabile aleatoria con media e varianza uguale a quella variabile aleatoria che fa parte della somma:  $x(m) \thicksim N(a_{m}, \sigma^{2})$
+Il rumore in un ricevitore digitale è una *variabile aleatoria* che cambia con il tempo. Quando campioniamo il segnale, anche il rumore viene campionato, quindi $n(m)$ rappresenta il rumore al momento $t = mT$.
 
-La decisione sarà $a_{m}=\text{arg max}_{a^{(i)}\in \mathcal{A}} p(a^{(i)}|x(m))$
-ma per il teorema di Bayes: 
-$p(a_{m}|x(m))p(x(m)) = p(x(m)|a_{m})p(a_{m})$
+Il rumore campionato può essere rappresentato come:
+$$ n(m) = n(t)|_{t=mT} = n_I(m) + jn_Q(m) $$
+Qui, $n_I(m)$ è la componente in fase e $n_Q(m)$ è la componente in quadratura del rumore.
 
-$$
-\begin{align*}
-p(a_{m}|x(m)) &= \frac{p(x(m)|a_{m})p(a_{m})}{p(x_{m})} =\\
-&= \frac{1}{M}\frac{p(x(m)|a_{m})}{p(x_{m})}
-\end{align*}
-$$
-quinid mi basta massimizzare $p(x(m))$.
-$a_{m}$ simbolo trasmesso durante l’m-esimo intervallo.
-$a^{(i)}$ identifica un simbolo specifico della costellazione.
-Se $M = 2$ allora $a^{(0)} = -1$ e $a^{(1)} = 1$.
-I simboli sono equiprobabili quindi la probabilità per simbolo è $\frac{1}{M}$.
+Per misurare la potenza del rumore, dobbiamo calcolare la **varianza** del rumore campionato, $\sigma^2_n$. La varianza rappresenta l'energia media del rumore e può essere trovata tramite l'**aspettativa del valore quadrato del rumore**:
+$$ \sigma^2_n = E[|n(m)|^2] $$
+Questo è equivalente all'integrazione della **densità spettrale di potenza** del rumore $S_n(f)$ su tutte le frequenze:
+$$ \sigma^2_n = \int_{-\infty}^{+\infty} S_n(f) df $$
+La densità spettrale di potenza del rumore dopo il filtro passa-basso è data da:
+$$ S_n(f) = 2N_0 |G_R(f)|^2 $$
+Dove $N_0$ è la densità spettrale di potenza del rumore bianco e $G_R(f)$ è la risposta in frequenza del filtro di ricezione. Integrando questa espressione:
+$$ \sigma^2_n = 2N_0 \int_{-\infty}^{+\infty} |G_R(f)|^2 df $$
+Poiché il filtro è normalizzato in modo che l'integrale della sua risposta in frequenza $|G_R(f)|^2$ su tutte le frequenze sia 1:
+$$ \int_{-\infty}^{+\infty} |G_R(f)|^2 df = 1 $$
+Otteniamo:
+$$ \sigma^2_n = 2N_0 $$
+Questo significa che la **varianza del rumore** campionato è proporzionale alla densità spettrale di potenza del rumore bianco e al fattore 2, che tiene conto delle componenti in fase e in quadratura.
 
-$a_{m} = \text{arg max } p(x(m)|a_{m}=a^{(i)})$
-che conosciamo perché $p(x(m)|a_{m}=a^{(i)}) = \frac{1}{\sqrt{2\pi}\sigma}\cdot e^{-\frac{x(m-a^{(i)})^{2}}{2\sigma^{2}}}$
-e il valore massimo è quello che minimizza la distanza tra $x(m)$ e la distanza:
-$a^{(i)} = \text{arg min} (x(m)-a^{(i)})^{2}$
-Questo metodo si chiama **criterio di massima verosimiglianza**.
-Abbiamo fatto però varie assunzioni:
-1. il canale genera solo rumore gaussiano bianco
-2. la convoluzione non genera interferenze
-3. il ricevitore e il trasmettitore sono sincronizzati
-4. i simboli sono equiprobabili
+## Strategia di Decisione
 
-Praticamente, per decidere un simbolo si guarda in quale area “casca”, detto formalmente: 
-$$
-Z^{(i)}= \{x|d(x,a^{(i)}) < d(x,a^{(j)}), j\not =i, j=1,…,M\}
-$$
+Immagina di dover prendere una decisione su quale simbolo è stato trasmesso, basandoti su un segnale ricevuto $x(m)$. Il segnale ricevuto è composto dal simbolo trasmesso $a_m$ più del rumore $n(m)$, che è un rumore gaussiano bianco, indicato come $\mathcal{N}(0, N_0)$.
 
-# Probabilità di errore di una PAM
+Quindi, la variabile $x(m)$ rappresenta la somma di un valore fisso (il simbolo trasmesso) e una variabile aleatoria (il rumore). Questo significa che anche $x(m)$ sarà una variabile aleatoria, distribuita in modo normale con media pari al simbolo trasmesso $a_m$ e varianza pari a quella del rumore:
+$$ x(m) \thicksim \mathcal{N}(a_m, \sigma^2) $$
+Il nostro obiettivo è decidere quale simbolo è stato trasmesso durante l'intervallo $m$. Per fare questo, usiamo una regola basata sulla probabilità. Vogliamo trovare il simbolo $a_m$ che massimizza la probabilità che quel simbolo sia stato trasmesso, dato il valore di $x(m)$. Questo viene formalizzato come:
+$$ a_m = \text{arg max}_{a^{(i)} \in \mathcal{A}} p(a^{(i)} | x(m)) $$
+Per semplificare il calcolo, applichiamo il **teorema di Bayes**, che ci dice che:
+$$ p(a_m | x(m)) p(x(m)) = p(x(m) | a_m) p(a_m) $$
+Se i simboli sono tutti *equiprobabili* (cioè, ognuno ha la stessa probabilità di essere trasmesso), possiamo ignorare $p(a_m)$ e ci basta massimizzare la probabilità $p(x(m) | a_m)$. In altre parole, scegliamo il simbolo $a_m$ che rende più probabile il valore di $x(m)$.
 
-$a_{m} = 1$
-$x(m) = -0.1 \Rightarrow a_{m} = -1$ 
-$x(m) = a_{m}+n(m)$ se $n(m) = -1.1 \Rightarrow x(m) = -0.1$ che è un errore. 
+Per esempio, se $M = 2$, abbiamo due simboli possibili: $a^{(0)} = -1$ e $a^{(1)} = 1$. La probabilità condizionata $p(x(m) | a_m = a^{(i)})$ segue una distribuzione normale, che conosciamo:
+$$ p(x(m) | a_m = a^{(i)}) = \frac{1}{\sqrt{2\pi} \sigma} \cdot e^{-\frac{(x(m) - a^{(i)})^2}{2\sigma^2}} $$
+Il simbolo più probabile sarà quello che minimizza la distanza tra $x(m)$ e il simbolo $a^{(i)}$. Quindi scegliamo il simbolo che minimizza l'espressione:
+$$ a^{(i)} = \text{arg min} (x(m) - a^{(i)})^2 $$
+Questo metodo è chiamato **criterio di massima verosimiglianza** perché sceglie il simbolo che rende il valore di $x(m)$ più probabile.
 
-$P(e|a^{(i)})$ probabilità di sbagliare un simbolo.
-$P_{e} = \sum\limits P(e|a^{(i)})P(a^{(i)}) = \lim_{N_{s}\rightarrow \infty} \frac{N_{e}}{N_{s}}$ probabilità di errore. 
-noi calcoleremo la prima perché è impossibile trasmettere infiniti simboli e calcolare il rapporto.
-Inoltre i simboli sono equiprobabili quindi $P(a^{(i)})$ è la stessa.
-$P_{e}= \frac{1}{M}\sum\limits_{i=0}^{M-1}P(e|a^{(i)})$
-e quella probabilità non è difficile da calcolare, ad esempio:
-$P(e|a^{(i)}=1)$ la calcolo con la Q-function calcolata nel valor medio meno il treshold fratto la deviazione standard. $$Q(\frac{m_{x}-t_{1}}{\sigma_{x}})$$
-che nel nostro caso diventa $Q(\frac{1}{\sigma})$.
-Se aumento la distanza tra simboli aumenta l’energia per trasmettere quel simbolo però commetto meno errori. 
+Ci sono però alcune **assunzioni** che stiamo facendo:
+1. Il canale introduce solo rumore gaussiano bianco.
+2. La convoluzione del segnale con il canale non genera interferenze.
+3. Il ricevitore e il trasmettitore sono perfettamente sincronizzati.
+4. I simboli trasmessi sono equiprobabili (hanno la stessa probabilità di essere scelti).
 
-$Q(x) = \int_{-\infty}^{x}e^{\frac{-t^{2}}{2}} dt$:
-$Q(-\infty) = 0$
-$Q(+\infty) = 1$
-$Q(0) = 0.5$
-$Q(-x) = 1-Q(x)$
+In pratica, per decidere quale simbolo è stato trasmesso, controlliamo in quale "area" cade $x(m)$. Ogni simbolo ha una regione associata, definita come:
+$$ Z^{(i)} = \{ x \mid d(x, a^{(i)}) < d(x, a^{(j)}), \text{ per ogni } j \neq i \} $$
+Quindi, scegliamo il simbolo la cui distanza da $x(m)$ è la più piccola rispetto agli altri simboli.
+## Probabilità di errore di una PAM
 
-$P_{e}^{2-PAM}=Q(\frac{1}{\sigma})$
-$P_{e}^{4-PAM}=\frac{3}{2}Q(\frac{1}{\sigma})$
+Immagina di trasmettere un simbolo $a_m = 1$, ma a causa del rumore, il segnale ricevuto $x(m)$ risulta diverso. Ad esempio, se il rumore $n(m) = -1.1$, allora il segnale ricevuto sarà:
+$$ x(m) = a_m + n(m) = 1 + (-1.1) = -0.1 $$
+Questo valore di $x(m)$ potrebbe indurre il ricevitore a decidere che è stato trasmesso $a_m = -1$, il che costituisce un errore.
 
-È più utile esprimere la probabilità di errore in termini di energia per simbolo $E_{s}$ ed $N_{0}$.
-$E_{s}= \frac{M^{2}-1}{6}$
-Se $M=2$ allora $E_{s}=\frac{1}{2} \Rightarrow 2E_{s} = 1$
-$P_{e}^{2-PAM}= Q\left(\frac{1}{\sigma}\right)= Q(\sqrt{\frac{1}{\sigma^{2}}})= Q(\sqrt{\frac{2E_{s}}{N_{0}}})$
+Ora, vogliamo capire qual è la probabilità di commettere un errore quando si trasmette un simbolo, chiamata **probabilità di errore simbolo**. Questa probabilità viene indicata come $P(e|a^{(i)})$, cioè la probabilità di sbagliare dato che il simbolo trasmesso è $a^{(i)}$. Per calcolare la probabilità complessiva di errore, sommiamo queste probabilità per tutti i simboli trasmessi, ponderate per la probabilità che ogni simbolo venga effettivamente trasmesso.
 
-# Mappa di Gray e Bit Error Rate
+Dato che non possiamo trasmettere infiniti simboli e calcolare direttamente la probabilità di errore (come sarebbe il caso ideale), usiamo la seguente formula per stimare la **probabilità di errore complessiva**:
+$$ P_e = \frac{1}{M} \sum\limits_{i=0}^{M-1} P(e | a^{(i)}) $$
+Qui $M$ è il numero di simboli nella costellazione, e poiché i simboli sono **equiprobabili** (cioè, tutti hanno la stessa probabilità di essere trasmessi), possiamo semplificare il calcolo.
 
-È una strategia che mappa i bit in modo che i simboli corrispondenti siano tali che simboli adiacenti differiscano solo per un bit. 
-Questa è una strategia iterativa:
-Se $M=2 \Rightarrow \{0,1\}$ 
-Se $M=4 \Rightarrow \{00,01,11,10\}$
-È utile per calcolare la bit error probability (BER), per calcolarla dobbiamo prima calcolare l'energia necessaria per trasmettere un bit:
-$$E_{b}=\frac{E_{s}}{log_{2}M}$$
-È praticamente l'energia per simbolo diviso il numero di bit per simbolo.
+### Funzione Q
 
-Per calcolare la probabilità di errore per bit sfruttando la definizione di probabilità di errore per simbolo $P_{e}^{(s)}$.
-Si trascura il caso in cui il bit ricevuto sia due o più regioni di decisione distante da quella corretta. In questo modo posso assumere che un errore sul simbolo corrisponde ad un errore sul bit. 
-Quindi, le due assunzioni che si fanno sono:
-1. Utilizzare la mappatura di gray
-2. La potenza del rumore non è troppo elevata, quindi al massimo si sbaglia un bit
-Sotto queste ipotesi posso scrivere:
-$$
-\begin{align*}
-P_{e}^{(b)} &= \lim_{N^{(b)}\rightarrow \infty} \frac{N_{e}^{(b)}}{N^{(b)}} \approx \\
-&\approx \lim_{N^{(s)}\rightarrow \infty} \frac{N_{e}^{(b)}}{log_{2}MN^{(s)}} =\\
-&= \frac{1}{log_{2}M} \lim_{N^{(s)}\rightarrow \infty} \frac{N_{e}^{(s)}}{N^{(s)}} =\\
-&= \frac{1}{log_{2}M}\cdot P_{e}^{(s)}
-\end{align*}
-$$
-L'approssimazione è dovuta alla seconda assunzione in cui il rumore non è elevato.
+La **probabilità di errore** per ogni simbolo si può calcolare usando la **funzione Q**. La funzione Q rappresenta la probabilità che una variabile casuale con distribuzione normale superi un certo valore soglia. Per calcolare $P(e|a^{(i)} = 1)$, usiamo:
+$$ Q\left( \frac{m_x - t_1}{\sigma_x} \right) $$
+Dove:
+- $m_x$ è la media del segnale,
+- $t_1$ è la soglia di decisione (il valore al quale decidiamo tra simboli),
+- $\sigma_x$ è la deviazione standard del rumore.
 
-Ora convertiamola in bit error probability:
-$M=2 \Rightarrow \frac{1}{log_{2}2}= 1$ quindi $E_{s}= E_{b} \Rightarrow P_{e}^{(b)} = Q(\sqrt{\frac{2E_{b}}{N_{0}}})$
-$M=4 \Rightarrow \frac{1}{log_{2}2}= 2$ quindi $E_{s}=2E_{b}$ perché un simbolo contiene 2 bit inoltre, $P_{e}^{(s)} = \frac{3}{2} Q\left(\sqrt{\frac{2E_{s}}{5N_{0}}}\right)$ e sostituendo $simbolo contiene 2 bit inoltre, $P_{e}^{(b)} \approx \frac{3}{2} Q\left(\sqrt{\frac{4E_{b}}{5N_{0}}}\right)$ 
+Nel nostro caso, la media $m_x = 1$ e la soglia è zero, quindi la formula diventa:
+$$ P(e|a^{(i)} = 1) = Q\left( \frac{1}{\sigma} \right) $$
+Se aumentiamo la distanza tra i simboli trasmessi (cioè facciamo sì che i simboli siano più distanti tra loro), riduciamo la probabilità di errore, perché è meno probabile che il rumore porti a una decisione errata. Tuttavia, aumentare la distanza tra i simboli richiede più energia per trasmetterli.
+
+La funzione Q ha alcune proprietà utili da ricordare:
+- $Q(-\infty) = 0$ (nessuna probabilità di errore per valori estremamente negativi),
+- $Q(+\infty) = 1$ (certezza di errore per valori estremamente positivi),
+- $Q(0) = 0.5$ (probabilità del 50% di errore a metà del range),
+- $Q(-x) = 1 - Q(x)$.
+
+### Probabilità di errore per 2-PAM e 4-PAM
+
+Nel caso di modulazioni a 2 livelli (2-PAM), la probabilità di errore è data da:
+$$ P_e^{2-PAM} = Q\left( \frac{1}{\sigma} \right) $$
+Per la modulazione a 4 livelli (4-PAM), la probabilità di errore è leggermente più alta:
+$$ P_e^{4-PAM} = \frac{3}{2} Q\left( \frac{1}{\sigma} \right) $$
+### Probabilità di errore in termini di energia
+
+È utile esprimere la probabilità di errore in termini di energia per simbolo $E_s$ e densità spettrale del rumore $N_0$. Per 2-PAM, l'energia per simbolo è:
+$$ E_s = \frac{M^2 - 1}{6} $$
+Se $M = 2$, allora:
+$$ E_s = \frac{1}{2} $$
+La probabilità di errore diventa quindi:
+$$ P_e^{2-PAM} = Q\left( \sqrt{\frac{2 E_s}{N_0}} \right) $$
+Questo ci dice che la probabilità di errore dipende dalla **relazione tra l'energia del simbolo** e il rumore di fondo $N_0$.
+
+## Mappa di Gray e Bit Error Rate
+
+Questo paragrafo descrive una strategia utilizzata per ridurre gli errori durante la trasmissione dei bit, chiamata **mappatura di Gray**. Questa tecnica associa ai simboli trasmessi delle sequenze di bit in modo che i simboli adiacenti differiscano solo per un bit. Questo è utile perché se un errore si verifica durante la trasmissione, è più probabile che coinvolga solo un bit, riducendo la probabilità di errore globale.
+
+Vediamo come funziona questa mappatura:
+- Se $M = 2$, abbiamo solo due simboli possibili: $\{0, 1\}$.
+- Se $M = 4$, possiamo avere quattro simboli $\{00, 01, 11, 10\}$, dove notiamo che ogni simbolo differisce da quello vicino solo per un bit.
+
+### Energia per bit
+
+Per calcolare l'energia necessaria a trasmettere un singolo bit, partiamo dall'**energia per simbolo**, $E_s$, e la dividiamo per il numero di bit trasmessi per simbolo, che è $\log_2 M$:
+$$ E_b = \frac{E_s}{\log_2 M} $$
+L'energia per bit $E_b$ rappresenta quanta energia è necessaria per trasmettere ogni singolo bit del simbolo.
+
+### Probabilità di errore per bit (BER)
+
+Per determinare la **bit error probability** (BER), usiamo la probabilità di errore per simbolo $P_e^{(s)}$. In pratica, si assume che un errore sul simbolo comporti un errore su un solo bit. Questo si basa su due assunzioni:
+1. Si utilizza la mappatura di Gray, dove i simboli vicini differiscono solo per un bit.
+2. La potenza del rumore non è troppo elevata, quindi al massimo si sbaglia solo un bit.
+
+Con queste assunzioni, la probabilità di errore per bit è approssimativamente:
+$$ P_e^{(b)} \approx \frac{1}{\log_2 M} P_e^{(s)} $$
+Questa formula mostra che la probabilità di errore per bit è legata alla probabilità di errore per simbolo, ma normalizzata in base al numero di bit per simbolo.
+
+### Esempi pratici
+
+1. **Caso $M = 2$**: Se abbiamo solo due simboli, allora $\log_2 2 = 1$, quindi l'energia per bit è uguale all'energia per simbolo, $E_b = E_s$. In questo caso, la probabilità di errore per bit diventa:
+   $$ P_e^{(b)} = Q\left(\sqrt{\frac{2E_b}{N_0}}\right) $$
+2. **Caso $M = 4$**: Se abbiamo quattro simboli (quindi due bit per simbolo), $\log_2 4 = 2$, quindi l'energia per simbolo è il doppio dell'energia per bit, $E_s = 2E_b$. La probabilità di errore per simbolo $P_e^{(s)}$ è leggermente più complessa e viene espressa come:
+   $$ P_e^{(s)} = \frac{3}{2} Q\left(\sqrt{\frac{2E_s}{5N_0}}\right) $$
+   Sostituendo $E_s = 2E_b$, otteniamo la probabilità di errore per bit:
+   $$ P_e^{(b)} \approx \frac{3}{2} Q\left(\sqrt{\frac{4E_b}{5N_0}}\right) $$
+In sintesi, la **mappatura di Gray** aiuta a ridurre gli errori trasmettendo i bit in modo che i simboli adiacenti differiscano solo per un bit, il che riduce la possibilità di errori gravi. La probabilità di errore per bit è poi legata alla probabilità di errore per simbolo e all'energia utilizzata per trasmettere ogni bit.
 
 # QAM
 
-È lo stesso concetto della QAM vista in campo analogico ma applicata al campo digitale in cui trasmetteremo 2 segnali PAM.
-$$s_{QAM}(t) = \sum\limits_{i}a_{i}g_{T}(t-iT) + j \sum\limits_{i}b_{i}g_{T}(t-iT)$$
-Il primo è l'elemento in fase e il secondo è quello in quadratura. 
-Sviluppando possiamo ottenere uno schema semplificato: $$s_{QAM}(t) = \sum\limits_{i}(a_{i}+jb_{i})g_{T}(t-iT)= \sum\limits_{i}c_{i}g_{T}(t-iT)$$
-Schema a blocchi sulle slide. 
+La modulazione **QAM (Quadrature Amplitude Modulation)** è una tecnica molto simile alla modulazione analogica vista con la QAM, ma qui applicata in campo digitale. La modulazione QAM combina due segnali **PAM**, uno in fase e uno in quadratura, che possiamo rappresentare come:
+$$ s_{QAM}(t) = \sum\limits_{i} a_{i} g_T(t - iT) + j \sum\limits_{i} b_{i} g_T(t - iT) $$
+- Il primo termine, $a_i$, rappresenta la componente **in fase**.
+- Il secondo termine, $b_i$, rappresenta la componente **in quadratura**.
 
-Il numero di simboli nella QAM è $M_{QAM}= M_{PAM}^{2}$.
+Sviluppando ulteriormente, possiamo semplificare l’espressione come:
+$$ s_{QAM}(t) = \sum\limits_{i} (a_i + j b_i) g_T(t - iT) = \sum\limits_{i} c_i g_T(t - iT) $$
+Dove $c_i$ è il simbolo complesso che combina le componenti in fase e in quadratura.
 
-$E\{c_{m}\} = E\{a_{m}+jb_{m}\} = E\{a_{m}\} + jE\{b_{m}\} = 0$ perché per design $a_{m}$ e $b_{m}$ sono equiprobabili e simmetrici quindi hanno valor medio nullo. 
-Mean Square Value: 
+## Numero di simboli nella QAM
+
+Il numero di simboli nella costellazione QAM è $M_{QAM}$, che è il quadrato del numero di simboli della modulazione PAM, ossia:
+$$ M_{QAM} = M_{PAM}^2 $$
+### Energia del simbolo
+
+L’energia media di un simbolo $c_m$ è calcolata considerando le componenti in fase e in quadratura. 
+Poiché $a_m$ e $b_m$ sono distribuiti in modo simmetrico ed equiprobabile, il loro valor medio è zero, e possiamo calcolare il **Mean Square Value**:
 $$
 \begin{align*}
-A &= E\{c_{m}\cdot c_{m}^{*}\} =\\[4pt]
-&= E\{(a_{m}+jb_{m}) \cdot (a_{m}-jb_{m})\} =\\[4pt]
-&= E\{a_{m}^{2}+ b_{m}^{2}\} =\\[4pt]
-&= E\{a_{m}^{2}\} + E\{b_{m}^{2}\} =\\[4pt]
-&= 2\cdot \frac{M_{PAM}^{2}-1}{3} =\\[4pt]
-&= 2 \cdot \frac{M_{QAM}-1}{3}
+A &= E\{ c_m \cdot c_m^{*} \} = E\{ (a_m + j b_m) \cdot (a_m - j b_m) \} \\
+  &= E\{ a_m^2 + b_m^2 \} \\
+  &= E\{ a_m^2 \} + E\{ b_m^2 \} \\
+  &= 2 \cdot \frac{M_{PAM}^2 - 1}{3} = 2 \cdot \frac{M_{QAM} - 1}{3}
 \end{align*}
 $$
-L'energia per simbolo sarà: $$E_{s}= \frac{A}{2}= \frac{M_{QAM}- 1}{3}$$
-Il grande vantaggio è che l'energia necessaria per trasmettere lo stesso quantitativo di dati è molto minore rispetto alla PAM. 
+L'**energia per simbolo** per la modulazione QAM diventa quindi:
+$$ E_s = \frac{A}{2} = \frac{M_{QAM} - 1}{3} $$
+## Vantaggio della QAM
 
-Calcoliamo la probabilità di errore.
-Banda occupata dalla QAM rispetto alla PAM:
-$S_{s}^{(PAM)}(f) = \frac{A}{T}|G_{T}(f)|^{2}$
-$S_{s}^{(QAM)}(f) = \frac{A^{(QAM)}}{T}|G_{T}(f)|^{2}$
-Non fa alcuna differenza sulla banda se abbiamo la stessa costellazione perché $A$ è solo un fattore moltiplicativo
-Assumiamo di avere un filtro a coseno rialzato:
-$B^{(PAM)} = \frac{1+\alpha}{T}= \frac{1+\alpha}{log_{2}M^{(PAM)}T_{b}} = \frac{1+\alpha}{log_{2}M}R_{b}$
+Uno dei grandi vantaggi della QAM rispetto alla PAM è che l'energia necessaria per trasmettere la stessa quantità di dati è inferiore. Questo significa che la QAM è più efficiente dal punto di vista energetico.
 
-Il simbolo (complesso) sul quale si vuole calcolare la probabilità di errore è:
-$$
-\begin{align*}
-x(m) &= c_{m}+n(m) =\\[4pt]
-&= (a_{m}+jb_{m})+(n_{I}(m)+jn_{Q}(m)) =\\[4pt]
-&= a_{m}+n_{I}(m) +j(b_{m}+n_{Q}(m))
-\end{align*}
-$$
-Ripasso sull'unione:
-$A\cup B = A + B - A\cap B$
-$P(A\cup B) = P(A) + P(B) - P(A\cap B)$
-che è sempre positiva quindi posso scrivere:
-$P(A\cup B) \le P(A)+P(B)$
-che può essere usato come bound.
+## Probabilità di errore e banda occupata
 
-L'evento $\epsilon^{(i)} = \{\text{error}|c^{(i)}\}$ è l'evento in cui si commette un errore avendo trasmesso il simbolo $c^{(i)}$ e può essere calcolato come l'unione di due eventi:
-$\epsilon_{I}^{(i)} = \{\text{errore nel canale I}|c^{(i)}\}$
-$\epsilon_{Q}^{(i)} = \{\text{errore nel canale Q}|c^{(i)}\}$
-da cui:
-$\epsilon^{(i)} = \epsilon_{I}^{(i)}\cup \epsilon_{Q}^{(i)}$
-il cui limite superiore è:
-$P(e|c^{(i)}) = P(\epsilon^{(i)}) \le P(\epsilon_{I}^{(i)}) + P(\epsilon_{Q}^{(i)})$
-e possiamo calcolarli in modo distinto perché le componenti di rumore sono indipendenti.
-$P_{e}^{M-QAM} < 2P_{e}^{(\sqrt{M}-PAM)}$
+La banda occupata dalla QAM è la stessa della PAM se si utilizza la stessa costellazione. La densità spettrale di potenza per la QAM è data da:
+$$ S_s^{(QAM)}(f) = \frac{A^{(QAM)}}{T} |G_T(f)|^2 $$
+E se si utilizza un filtro a coseno rialzato, la banda sarà:
+$$ B^{(PAM)} = \frac{1 + \alpha}{T} = \frac{1 + \alpha}{\log_2 M^{(PAM)} T_b} = \frac{1 + \alpha}{\log_2 M} R_b $$
+Dove $\alpha$ è il fattore di roll-off, e $R_b$ è il rate di trasmissione.
 
-Nel caso specifico della 4-QAM:
-$P_{e}^{(4-QAM)} = \frac{1}{4}\sum\limits_{i=0}^{3}P(e|c^{(i)}) = P(e|c^{(0)})$
-$P(e|c^{(0)}) < Q(\frac{d(1,0)}{\sigma_{n_{I}}})+Q\left(\frac{d(1,0)}{\sigma_{n_{Q}}}\right)= 2Q\left(\frac{1}{\sigma}\right)= 2P_{e}^{(2-PAM)}$
-il minore stretto c'è perché è un'approssimazione.
-La $\sigma$ è quella della PAM ovvero $N_{0}$.
+## Probabilità di errore simbolo
 
-Simbol Error Probability per QAM:
-$E_{s}= \frac{A}{2} \Rightarrow E_{s}= 2 \cdot \frac{M-1}{3} \cdot \frac{1}{2} = \frac{M-1}{3}$.
-$P_{e}^{(QAM)}= 2\cdot Q\left(\frac{1}{\sigma}\right)= 2\cdot Q\left(\sqrt\frac{1}{\sigma^{2}}\right)$
-ma $\frac{3E_{s}}{M-1} = 1$ quindi posso sostituirlo:
-$P_{e}^{(QAM)}= 2\cdot Q(\sqrt\frac{E_{s}}{N_{0}})$
+Per calcolare la **probabilità di errore simbolo** della QAM, dobbiamo considerare che il simbolo complesso ricevuto è dato da:
+$$ x(m) = c_m + n(m) = (a_m + j b_m) + (n_I(m) + j n_Q(m)) $$
+Quindi, l'errore può verificarsi sia nella componente in fase che in quella in quadratura. Poiché le due componenti del rumore sono indipendenti, possiamo calcolare la probabilità di errore totale come la somma delle probabilità di errore delle due componenti:
+$$ P(e | c^{(i)}) \leq P(\epsilon_I^{(i)}) + P(\epsilon_Q^{(i)}) $$
+Per la modulazione 4-QAM, la probabilità di errore simbolo è approssimativamente:
+$$ P_e^{(4-QAM)} = 2 Q\left( \frac{1}{\sigma} \right) = 2 P_e^{(2-PAM)} $$
+La **probabilità di errore simbolo** per una modulazione QAM è:
+$$ P_e^{(QAM)} = 2 Q\left( \sqrt{\frac{E_s}{N_0}} \right) $$
+## Probabilità di errore bit (BER)
 
-Infine la Bit Error Probability assumendo di star considerando la mappa di Gray:
-$m_{QAM}=log_{2}M = 2log_{2}\sqrt{M}$
-$$
-\begin{align*}
-P_{e}^{(M-QAM,b)} &= \lim_{N^{(b)}\rightarrow \infty} \frac{N_{e}^{(b)}}{N^{(b)}} \approx\\
-&\approx \lim_{N^{(s)}\rightarrow \infty}\frac{N_{e}^{(s)}}{log_{2}MN^{(s)}} =\\
-&= \frac{1}{log_{2}M}\lim_{N^{(s)}\rightarrow \infty} \frac{N_{e}^{(s)}}{N^{(s)}} =\\
-&= \frac{1}{log_{2}M} P_{e}^{(M-QAM)} =\\
-&= \frac{1}{2log_{2}\sqrt{M}}2P_{e}^{(\sqrt{M}-PAM)} =\\
-&= P_{e}^{(\sqrt{M}-PAM,b)}
-\end{align*}
-$$
+Infine, la **bit error probability** (BER) per la modulazione QAM, assumendo la mappatura di Gray, si calcola come:
+$$ P_e^{(M-QAM, b)} = \frac{1}{\log_2 M} P_e^{(M-QAM)} $$
+Per la modulazione $\sqrt{M}$-PAM, possiamo esprimere la BER come:
+$$ P_e^{(\sqrt{M}-PAM, b)} = P_e^{(M-QAM, b)} $$
