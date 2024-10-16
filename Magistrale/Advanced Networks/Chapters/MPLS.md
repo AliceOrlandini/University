@@ -162,5 +162,60 @@ I modi per assegnare la label sono:
 - **Per-interface scope**: La label assegnata dipende dall'interfaccia attraverso cui il pacchetto viene ricevuto. Ogni interfaccia può avere un'associazione diversa tra FEC e label.
 - **Per-LSR (Label Switching Router) scope**: La label è valida all'interno di un singolo router, indipendentemente dall'interfaccia attraverso cui il pacchetto è ricevuto. Questo significa che la stessa label può essere usata su più interfacce dello stesso router per la stessa FEC.
 
-Per quanto riguarda invece la distribuzione delle informazioni abbiamo:
+Per quanto riguarda invece la distribuzione delle informazioni, abbiamo:
+- **Downstream-assignment**: il router downstream assegna autonomamente una label per una determinata FEC e la invia al router upstream.
+- **Downstream-on-demand**: il router upstream, che vuole sapere la label per una determinata FEC, la richiede esplicitamente al router downstream.
+- **Unsolicited downstream**: un router downstream è abilitato a distribuire le associazioni di label che ha creato a tutti gli altri router, senza che ci sia stata una richiesta esplicita.
 
+Le possibili **retention modes** nel contesto dell'assegnazione delle label sono:
+- **Liberal**: Il router mantiene tutte le associazioni di label che riceve, anche se non le utilizza immediatamente. Se ha due alternative di label, sceglie quella che ritiene migliore e tiene l'altra come backup per un possibile utilizzo futuro, senza scartarla.
+- **Conservative**: In questa modalità, il router salva solo l'associazione di label necessaria per il percorso corrente. Non mantiene associazioni inutilizzate, riducendo la complessità della tabella. Se un'alternativa non è necessaria, viene scartata, mantenendo solo una label primaria e le altre solo come backup se richiesto.
+
+### 12. Come avviene il setup del control plane dei router?
+
+Una possibile soluzione è utilizzare la **user-defined configuration**, dove le configurazioni sono definite *manualmente* dall'amministratore di rete, ad esempio basandosi sugli indirizzi di destinazione o su altre informazioni specifiche, e impostandole su ogni router individualmente.
+
+Un'altra opzione è *automatizzare* il processo. In questo caso, le partizioni di rete potrebbero essere preconfigurate dai fornitori e adottate di default da tutti i router. 
+Un primo passo in questa direzione è assegnare un **indirizzo /30** a ogni collegamento. I router collegati tramite quel link avranno un indirizzo all'interno di quella sottorete. Ad esempio, se il link ha l'indirizzo **172.16.0.4/30**, i due router collegati a quel link avranno rispettivamente gli indirizzi **172.16.0.5/30** e **172.16.0.6/30**, garantendo una configurazione coerente e automatica per i collegamenti tra i router. Tali indirizzi saranno privati in quanto non siamo interessati a collegarli alla rete Internet. 
+
+Nella tabella di routing, ad esempio di R1, abbiamo elencato tutti gli indirizzi **interni** del sistema che abbiamo creato, come mostrato nell'esempio seguente:
+
+| PREFIX        | NEXT HOP |
+| ------------- | -------- |
+| 172.16.0.0/30 | R3       |
+| 172.16.0.4/30 | R2       |
+| ...           | ...      |
+Ad esempio, la prima entry indica che tutto il traffico destinato alla sottorete **172.16.0.0/30** deve essere inoltrato al router **R3**.
+
+Ora è necessario gestire gli **indirizzi esterni**, cioè gli indirizzi delle reti al di fuori del network locale. La tabella di routing aggiornata includerà anche questi indirizzi:
+
+| PREFIX        | NEXT HOP |
+| ------------- | -------- |
+| 172.16.0.0/30 | R3       |
+| 172.16.0.4/30 | R2       |
+| ...           | ...      |
+| a.b.c.d/n     | R6       |
+
+In questo esempio, l'indirizzo **R6** rappresenta un router che gestisce il traffico verso la rete esterna **a.b.c.d/n**. Tuttavia, il router **R6** nella tabella verrà sostituito con il suo **indirizzo interno** (ad esempio **172.16.0.6/30**). 
+Quando il router **R1** riceve un pacchetto destinato a **a.b.c.d/n**, cercherà l'indirizzo **172.16.0.6/30** nella sua tabella di routing. Non trovandolo direttamente, ricontrollerà la tabella e vedrà che deve inoltrare il pacchetto a **R2** per raggiungere **R6**.
+
+Il problema con l'uso dell'indirizzo interno **172.16.0.6** è che, se il **link** tra **R2** e **R6** è rotto, **R6** non sarà raggiungibile tramite quel percorso. Anche se **R6** è ancora raggiungibile in generale (ad esempio tramite un percorso alternativo), il router **R1** non sarà in grado di inoltrare il pacchetto correttamente e potrebbe scartarlo, poiché la tabella di routing indicherebbe che il percorso a **R6** è bloccato. Questo può causare la perdita del pacchetto invece di cercare un percorso alternativo.
+
+Per risolvere il problema descritto, invece di utilizzare gli indirizzi IP delle interfacce fisiche per identificare i router, si utilizza un **ID univoco per i router**. Questo ID non è legato a una singola interfaccia fisica, ma piuttosto a un indirizzo IP che rimane sempre attivo e raggiungibile, indipendentemente dallo stato delle interfacce di rete fisiche.
+La soluzione è utilizzare l'**interfaccia di loopback** di ciascun router. L'interfaccia di loopback è un'interfaccia virtuale che non è associata a una connessione fisica e rimane sempre attiva, anche se tutte le altre interfacce del router sono disconnesse. Poiché l'indirizzo di loopback è stabile e non cambia in base alle connessioni fisiche, rappresenta un modo affidabile per identificare un router.
+In questo modo, se un link fisico tra i router fallisce, il routing continuerà a funzionare correttamente utilizzando il **loopback IP**, garantendo che i pacchetti possano essere instradati tramite percorsi alternativi senza essere scartati.
+
+Quindi nella tabella di routing di R1 troverò anche tutte le interfacce di loopback:
+
+| PREFIX        | NEXT HOP |
+| ------------- | -------- |
+| 172.16.0.0/30 | R3       |
+| 172.16.0.4/30 | R2       |
+| ...           | ...      |
+| a.b.c.d/n     | R6       |
+| ...           |          |
+| 10.0.0.4/32   | R2       |
+| 10.0.0.6/32   | R3       |
+Questa rappresenta la terza ricorsione nella tabella di routing.
+
+Ma torniamo alla domanda iniziale.
