@@ -92,14 +92,11 @@ Esiste un teorema che lega la densità spettrale di potenza con la trasformata d
 > 
 
 Da questo teorema deriva che la potenza di un processo $X(t)$ può essere calcolata come: $$P_{X}= R_{XX}(0) = \int_{-\infty}^{+\infty}S_{XX}(f)df$$
-# Comunicazione Digitale
+# PAM
 
 Vedremo la differenza tra la modulazione analogica e quella digitale, infatti la modulazione rimane analogica ma il segnale era originariamente digitale e solo dopo convertito.
 
-# PAM
-
-Una sorgente genera i bit $d_{k}$ che vengono mappati nel mappatore in simboli $a_{i}$ che vengono usati per realizzare un segnale tempo continuo (analogico) di questo tipo: $$\tilde{s}_{PAM} (t) = \sum\limits_{i} a_{i} g_{T}(t-iT)$$
-E: 
+Una sorgente genera i bit $d_{k}$ che vengono mappati nel mappatore in simboli $a_{i}$ che vengono usati per realizzare un segnale tempo continuo (analogico) di questo tipo: $$\tilde{s}_{PAM} (t) = \sum\limits_{i} a_{i} g_{T}(t-iT)$$E:
 $$
 \begin{align*}
 s_{PAM}(t) &= Re\{\tilde{s}_{PAM}(t)e^{j2 \pi f_{c}t}\} \\
@@ -279,7 +276,7 @@ Otteniamo:
 $$ \sigma^2_n = 2N_0 $$
 Questo significa che la **varianza del rumore** campionato è proporzionale alla densità spettrale di potenza del rumore bianco e al fattore 2, che tiene conto delle componenti in fase e in quadratura.
 
-## Strategia di Decisione
+## Decisore
 
 Immagina di dover prendere una decisione su quale simbolo è stato trasmesso, basandoti su un segnale ricevuto $x(m)$. Il segnale ricevuto è composto dal simbolo trasmesso $a_m$ più del rumore $n(m)$, che è un rumore gaussiano bianco, indicato come $\mathcal{N}(0, N_0)$.
 

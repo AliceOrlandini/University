@@ -133,3 +133,34 @@ Il penultimo router deve però essere "consapevole" di essere il penultimo nodo 
 
 ### 10. In cosa consiste il Label Stacking?
 
+Il **label stacking** è una delle caratteristiche distintive di **MPLS**, ed è ciò che ha contribuito a renderlo famoso. Anche se MPLS fu originariamente progettato per migliorare la **scalabilità** delle reti, è stato adottato principalmente per la **flessibilità** che offre grazie al label stacking.
+
+Il **label stacking** permette di inserire più di una **label** tra il **layer 2** e il **layer 3**, organizzandole come una pila. Ogni label nello stack rappresenta una parte differente del percorso che il pacchetto deve attraversare, e i router possono manipolare lo stack per instradare i pacchetti in modo dinamico.
+Un **pacchetto senza label** o con una sola label ha il **bit S**  impostato a **1**, indicando che la label corrente è l'ultima o l'unica nello stack.
+
+Le operazioni sullo stack sono le stesse ma vengono applicate alla label in cima alla pila. Inoltre, è consentito **processare il pacchetto più volte** senza dover riscrivere l'header IP. Un'operazione comune è la combinazione di **swap + push**, dove il router sostituisce la label in cima alla pila e ne aggiunge una nuova, creando così uno stack più profondo.
+
+#### Esempio:
+
+Supponiamo che un pacchetto attraversi una rete MPLS in cui sono presenti **due livelli di routing**: una rete principale (backbone) e una rete locale.
+1. **Prima fase (ingresso nella rete)**: Un pacchetto IP entra nella rete MPLS attraverso un edge router, che esegue un'operazione di **push** per aggiungere una label che instraderà il pacchetto attraverso la rete principale (backbone).
+2. **Seconda fase (instradamento nel backbone)**: Il pacchetto viaggia attraverso i router del backbone, che eseguono operazioni di **swap** sulle label per instradare il pacchetto lungo il percorso. A un certo punto, il pacchetto può raggiungere un router che esegue una combinazione di **swap + push**, aggiungendo una seconda label per il routing nella rete locale.
+3. **Terza fase (uscita dal backbone e instradamento locale)**: Quando il pacchetto raggiunge il penultimo router del backbone, viene eseguito un **pop** della prima label (utilizzando il Penultimate Hop Popping), lasciando solo la seconda label nello stack, che verrà usata per instradare il pacchetto all'interno della rete locale.
+4. **Quarta fase (routing locale)**: Il pacchetto ora viene inoltrato all'interno della rete locale utilizzando la label rimanente, fino a raggiungere la destinazione finale.
+
+Il vantaggio del **label stacking** è che consente di creare **tunnel** all'interno della rete, simili a sottoreti, facilitando il **fast rerouting** in caso di guasto di un nodo, permettendo al traffico di essere rapidamente reindirizzato su un altro percorso senza interruzioni significative.
+La prima label inserita è chiamata **transport label** mentre le altre **service label**.
+
+### 11. Quali funzioni implementa il control plane di MPLS?
+
+Nel **control plane** di MPLS, i router devono eseguire diverse funzioni:
+1. **Creare collegamenti tra FEC e label**: Si definisce come i pacchetti appartenenti a una certa FEC saranno etichettati.
+2. **Informare gli altri router**: Dopo aver creato i collegamenti FEC-label, il router deve informare gli altri router nella rete di queste associazioni, in modo che tutti possano instradare i pacchetti correttamente.
+3. **Costruire e mantenere la tabella di forwarding**: I router combinano le informazioni ricevute dagli altri router per costruire e mantenere la tabella di forwarding, che sarà utilizzata dal **label switching component** per instradare i pacchetti in modo efficiente.
+
+I modi per assegnare la label sono:
+- **Per-interface scope**: La label assegnata dipende dall'interfaccia attraverso cui il pacchetto viene ricevuto. Ogni interfaccia può avere un'associazione diversa tra FEC e label.
+- **Per-LSR (Label Switching Router) scope**: La label è valida all'interno di un singolo router, indipendentemente dall'interfaccia attraverso cui il pacchetto è ricevuto. Questo significa che la stessa label può essere usata su più interfacce dello stesso router per la stessa FEC.
+
+Per quanto riguarda invece la distribuzione delle informazioni abbiamo:
+

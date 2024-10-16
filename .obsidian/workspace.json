@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
+                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md"
+                "file": "Magistrale/Advanced Networks/Chapters/MPLS.md"
               }
             }
           },
@@ -186,6 +186,7 @@
   },
   "active": "8ff2e61011efd7f7",
   "lastOpenFiles": [
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "Magistrale/Distributed Systems/Images/Noded and Machines.png",
