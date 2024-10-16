@@ -218,4 +218,16 @@ Quindi nella tabella di routing di R1 troverò anche tutte le interfacce di loop
 | 10.0.0.6/32   | R3       |
 Questa rappresenta la terza ricorsione nella tabella di routing.
 
-Ma torniamo alla domanda iniziale.
+Per rispondere alla domanda iniziale, abbiamo due opzioni per gestire la configurazione delle FEC e il routing:
+1. **FEC basato sugli external addresses**: In questo caso, il set di FEC sarà costituito dagli **indirizzi esterni** (a.b.c.d/n). Ogni router nella rete avrà le stesse entry per le FEC, ma il **next hop** sarà diverso in base al router e alla sua posizione nella rete. Questa soluzione è semplice, ma non scala bene quando il numero di indirizzi esterni aumenta.
+2. **FEC basato sugli indirizzi di loopback**: Invece di usare gli external addresses, si utilizza il set di **indirizzi di loopback** dei border routers. Questo approccio permette di scalare meglio perché il routing si basa sul numero di **border routers** (che è inferiore rispetto al numero di external addresses). I loopback addresses rimangono costanti e garantiscono un instradamento più robusto e flessibile.
+La scelta tra questi due metodi è solitamente decisa dal **venditore del router** in base all'architettura e alla scalabilità della rete da gestire.
+
+### 13. Quali sono i possibili modi di distribuire le label?
+
+Abbiamo due possibilità: ordered control e independent control.
+Nell'ordered control troviamo:
+- Unsolicited downstream
+- Downstream on-demand
+Mentre nell'independent control c'è solo la possibilità unsolicited downstream.
+
