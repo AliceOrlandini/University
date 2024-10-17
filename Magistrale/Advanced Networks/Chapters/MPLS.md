@@ -225,9 +225,121 @@ La scelta tra questi due metodi è solitamente decisa dal **venditore del router
 
 ### 13. Quali sono i possibili modi di distribuire le label?
 
-Abbiamo due possibilità: ordered control e independent control.
-Nell'ordered control troviamo:
-- Unsolicited downstream
-- Downstream on-demand
-Mentre nell'independent control c'è solo la possibilità unsolicited downstream.
+Nel **MPLS** esistono due principali modalità di controllo per la distribuzione delle **label** ai router: **ordered control** e **independent control**.
+
+Nell'approccio **Ordered Control** la distribuzione delle label segue un ordine preciso, partendo dal router di confine o da un altro router specifico. Ci sono due sottocategorie:
+- **Unsolicited downstream**:
+   - Il router di frontiera assegna una label a una **FEC** e invia un **advertisement** ai router vicini.
+   - Il router vicino riceve l'adv, assegna una label a sua volta e propaga l'informazione agli altri router vicini.
+   - Se un router riceve due label per la stessa FEC, sceglie quella che ritiene migliore in base al suo algoritmo di routing.
+
+- **Downstream on-demand**:
+   - In questo caso, l'assegnazione delle label non parte automaticamente dal router di confine. Invece, l'invio dell'adv viene attivato da un router interno che richiede la label.
+   - Ad esempio, se **R1** ha bisogno di sapere quale label utilizzare per una FEC, invierà una richiesta a **R2**, che è sul best path verso il router di frontiera. Se **R2** non conosce la label, chiederà al prossimo router sul best path, fino a raggiungere il router di confine.
+   - Una volta che l'informazione ritorna, tutti i router lungo il percorso assegnano una label.
+   - Rispetto all'**unsolicited downstream**, questo approccio memorizza le label solo sui router che si trovano lungo il best path, evitando di propagare label inutilmente a tutta la rete.
+
+Nell'approccio **independent control**, ogni router può assegnare una label senza seguire un ordine preciso o aspettare istruzioni da un edge router. L'unica modalità utilizzabile qui è l'**unsolicited downstream**:
+- Un router interno, ad esempio **R3**, assegna una label per una FEC e invia l'adv ai suoi vicini.
+- **R3** potrebbe assegnare una label per una FEC e fare un'operazione di **pop** sul next hop che è se stesso, e poi invia l'adv ai router vicini.
+- Quando i vicini ricevono l'informazione, se non hanno già una label assegnata, possono eseguire un'operazione di **swap** o **pop**, propagando l'informazione ai router successivi.
+
+### 14. Che cosa fa il Label Distribution Protocol?
+
+Finora abbiamo discusso in generale dei vari metodi possibili per distribuire le label. Il **Label Distribution Protocol (LDP)** è invece un'implementazione concreta di questi metodi all'interno di una rete **MPLS**.
+
+LDP dipende da un **Interior Gateway Protocol (IGP)**, come OSPF o IS-IS, per tutte le decisioni di routing. L'IGP è responsabile del calcolo del percorso migliore tra i router all'interno della rete. LDP si basa su queste informazioni di routing per assegnare e distribuire le **label** lungo i percorsi calcolati dall'IGP. In altre parole, LDP non calcola i percorsi da solo, ma utilizza i percorsi già determinati dall'IGP e li associa a delle label.
+
+Le sue funzioni principali sono;
+1. **Neighbour discovery**: Utilizza **UDP** per scoprire i router vicini. I router scambiano messaggi LDP per individuare altri router con cui possono stabilire una connessione.
+2. **Stabilire e mantenere una connessione**: Dopo aver scoperto un vicino, LDP stabilisce una connessione tra i router utilizzando **TCP**. Questa connessione è affidabile e viene utilizzata per scambiare le informazioni di routing e le label.
+3. **Label advertisement**: Una volta stabilita la connessione TCP, i router scambiano messaggi di **label advertisement**, in cui si pubblicano le label assegnate per le diverse **FEC**. Queste label vengono propagate attraverso la rete, permettendo ai router di instradare i pacchetti MPLS.
+4. **Notification**: LDP include un meccanismo di **notifica** per segnalare eventi o errori che possono influenzare la connessione o il processo di distribuzione delle label.
+
+Un'altra opzione per la distribuzione delle label è **RSVP**, che segue un approccio basato su **ordered control** e **downstream on-demand**. Con RSVP, le label vengono distribuite in modo più coordinato e vengono memorizzate solo sui router che si trovano lungo il **best path**. RSVP è anche utilizzato per garantire la **prenotazione delle risorse** lungo il percorso, assicurando che il traffico abbia una qualità del servizio (QoS) garantita.
+
+### 15. In cosa consiste il Traffic Engineering?
+
+Il **traffic engineering** ha come obiettivo quello di controllare e ottimizzare il percorso seguito da un flusso di pacchetti in una rete, in modo che non sia necessariamente lo **shortest path**. 
+I motivi principali per influenzare i percorsi sono:
+- **Aumentare l'utilizzo delle risorse di rete** ed evitare la congestione bilanciando il traffico su percorsi alternativi, migliorando così l'efficienza della rete.
+- **Garantire che il percorso rispetti determinate caratteristiche**, come la latenza, per assicurare la qualità del servizio richiesto da alcune applicazioni o clienti.
+- **Gestire le priorità del traffico in caso di guasti**: Quando una parte della rete fallisce, il traffic engineering può determinare quale traffico ha la priorità, assegnando le risorse rimanenti ai flussi più critici.
+
+Questi aspetti sono cruciali per un **network operator** perché migliorano l'efficienza della rete, aumentano la qualità del servizio e offrono opportunità di nuovi servizi, con un impatto positivo sui guadagni e sulla soddisfazione del cliente.
+
+Tuttavia, è importante notare che il **traffic engineering** non è sempre necessario, poiché la sua implementazione e gestione sono complesse e comportano costi aggiuntivi. Le aziende devono valutare attentamente il **ritorno sull'investimento (ROI)** prima di adottarlo. Di conseguenza, non tutte le reti **MPLS** sono utilizzate per il traffic engineering e non tutti i network MPLS possono offrire il supporto per TE, poiché richiede risorse e capacità specifiche che non sono sempre giustificabili.
+
+Vediamo alcuni esempi di scenari in cui IP routing non supporta il Traffic Engineering.
+#### Esempio 1
+
+In questa **fish network**, il cliente **A** ha acquistato un servizio che garantisce **bassa latenza**, mentre il cliente **B** non ha tale priorità. 
+
+Il collegamento tra G e D è di tipo satellitare e quindi ha un'alta latenza. 
+
+```mermaid
+graph LR; 
+	A --- C;
+	B --- C;
+	C --- G;
+	C --- E;
+	G --- D;
+	E --- F;
+	F --- D;
+```
+
+Il problema è che con l'**IP routing tradizionale**, che utilizza lo shortest path senza distinguere tra i clienti, tutto il traffico passerà "da sotto" (da **C** → **E** → **F** → **D**), ignorando la priorità di **A** per bassa latenza.
+
+#### Esempio 2
+
+Il cliente **A** invia traffico a una velocità media di **120 Mbps**, mentre il cliente **B** invia a **40 Mbps**. La capacità di tutti i link è di **150 Mbps**, e il costo di ciascun link è **1**. Questo significa che, secondo l'**IP routing tradizionale**, tutto il traffico diretto verso la stessa destinazione seguirà lo stesso percorso, il che può portare a congestione nella rete.
+
+Una soluzione proposta dall'**IP routing** per questo problema è l'**Equal-Cost Multi-Path (ECMP)**. Questo approccio bilancia il traffico su più percorsi quando i link hanno lo stesso costo, manipolando il costo dei link in modo che esistano percorsi alternativi con lo stesso costo totale. Così, è possibile distribuire il traffico su più percorsi.
+
+```mermaid
+graph LR; 
+	A -- 1 --- C;
+	B -- 1 --- C;
+	C -- 1.5 --- G;
+	C -- 1 --- E;
+	G -- 1.5 --- D;
+	E -- 1 --- F;
+	F -- 1 --- D;
+```
+
+Tuttavia, se i link nella rete hanno **capacità diverse**, l'ECMP non è applicabile, poiché funziona solo quando i percorsi hanno costi identici. In reti con capacità variabile, questa tecnica non può essere utilizzata per bilanciare efficacemente il traffico.
+
+#### Esempio 3
+
+Il cliente **A** invia traffico a **100 Mbps**, mentre il cliente **B** invia a **40 Mbps**. Tuttavia, **B** ha acquistato un servizio aggiuntivo che gli garantisce maggiore affidabilità in caso di guasti nella rete.
+
+Tutti i link hanno una capacità di **150 Mbps**, tranne il collegamento tra **E** ed **F**, che ha una capacità di **50 Mbps**. In condizioni normali, il percorso superiore sarebbe in grado di gestire il traffico di entrambi i clienti. Tuttavia, se il collegamento tra **G** e **D** si guastasse, tutto il traffico verrebbe instradato attraverso il percorso inferiore (**C** → **E** → **F** → **D**), che non ha abbastanza capacità per supportare contemporaneamente il traffico di **A** e **B**.
+
+Questo porterebbe a congestione, con il rischio di non rispettare la priorità del cliente **B**, che ha acquistato un servizio con garanzie aggiuntive. Il traffico verrebbe instradato senza considerare le priorità, creando un sovraccarico su quel percorso e riducendo la qualità del servizio di **B**.
+
+### 16. Che cos'è il Constraint-based routing?
+
+Il **Constraint-Based Routing** è un insieme di algoritmi e protocolli che permette ai router di calcolare un percorso verso una destinazione tenendo conto di due fattori principali:
+- **Ottimizzazione rispetto a metriche scalari**, che sono generalmente stabilite dagli amministratori di rete (ad esempio, costo, latenza, capacità).
+- **Rispetto di un insieme di vincoli**, garantendo che il percorso non violi i requisiti imposti, come larghezza di banda minima o latenza massima.
+Anche l'**IP routing tradizionale** rispetta alcuni vincoli, ma questi sono limitati al calcolo del **shortest path** basato su un'unica metrica, come il costo del link.
+
+I tipi di vincoli sono divisi in:
+1. **Performance**: legati alla qualità del servizio (QoS), come larghezza di banda.
+2. **Administrative**: imposti da policy aziendali o di sicurezza, come evitare determinati link o preferire altri per motivi di regolamentazione o gestione.
+3. **Combinazioni Complesse**: mix di vincoli di performance e amministrativi, che richiedono decisioni basate su più parametri simultaneamente.
+
+Invece gli elementi necessari per implementare il Constraint-Based Routing sono:
+1. **Link Characterization**: Ogni link nella rete deve essere descritto con diverse priorità e attributi. Ad esempio, mentre nel routing IP tradizionale si considerava solo il costo del link, ora possiamo aggiungere attributi come larghezza di banda, latenza, affidabilità, ecc.
+2. **Extended Routing Protocol**: Poiché dobbiamo distribuire queste informazioni aggiuntive in tutta la rete, il protocollo di routing esistente (come OSPF o IS-IS) deve essere **esteso** per includere le nuove informazioni sui vincoli, senza rimpiazzarlo completamente.
+3. **Constraint-Based Path Computation Algorithm**: Sono necessari un nuovi algoritmi per calcolare il percorso migliore, tenendo conto di tutti i vincoli. Un esempio è il **Constrained Shortest Path First (CSPF)**, una versione estesa dell'algoritmo di Dijkstra che non solo calcola il percorso più breve, ma anche quello che soddisfa i vincoli imposti.
+
+Per caratterizzare la banda su un link, utilizziamo tre parametri:
+1. **Banda massima**: La banda effettivamente utilizzabile sul link, che rappresenta la capacità totale del link.
+2. **Banda massima riservabile**: La quantità di banda che può essere riservata per specifici flussi di traffico. Ad esempio, si potrebbe riservare solo il **50%** della banda massima, lasciando la restante banda non allocata per gestire eventuali situazioni di failover, come il guasto di un altro link, per evitare la congestione sugli altri percorsi.
+3. **Banda non riservata**: La quantità di banda che è ancora disponibile e non utilizzata sul link in un dato momento. Questo parametro varia nel tempo, in base al traffico attuale sulla rete.
+
+Gli ultimi due parametri, **banda massima riservabile** e **banda non riservata**, sono particolarmente importanti per il **traffic engineering**, poiché consentono di gestire la distribuzione del traffico e l'allocazione delle risorse in modo dinamico.
+
+Oltre alla banda, ogni link può essere associato a un **gruppo amministrativo** per indicare le politiche o le caratteristiche amministrative a cui appartiene il link. Per rappresentare questi gruppi, vengono utilizzati **colori** e stringhe di **32 bit**, che permettono di gestire e identificare le diverse categorie di link (ad esempio, per indicare percorsi preferiti, backup o link con politiche speciali).
 
