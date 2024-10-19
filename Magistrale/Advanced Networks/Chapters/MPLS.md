@@ -343,3 +343,33 @@ Gli ultimi due parametri, **banda massima riservabile** e **banda non riservata*
 
 Oltre alla banda, ogni link può essere associato a un **gruppo amministrativo** per indicare le politiche o le caratteristiche amministrative a cui appartiene il link. Per rappresentare questi gruppi, vengono utilizzati **colori** e stringhe di **32 bit**, che permettono di gestire e identificare le diverse categorie di link (ad esempio, per indicare percorsi preferiti, backup o link con politiche speciali).
 
+### 17. Come funziona OSPF e qual è il suo limite?
+
+Il protocollo **Open Shortest Path First (OSPF)** è definito "Open" perché la sua specifica è stata resa pubblica, a differenza di protocolli come **Cisco EIGRP**, che è stato aperto al pubblico solo vent'anni dopo la sua introduzione.
+
+OSPF è un protocollo di routing **link-state**, che utilizza il metodo di **flooding** (inondazione) per inviare in broadcast le informazioni sullo stato dei collegamenti. Per determinare i percorsi a costo minimo, OSPF sfrutta l'algoritmo di **Dijkstra**. Ogni router crea una mappa topologica completa dell'intero **sistema autonomo** e esegue localmente l'algoritmo per costruire un **albero dei cammini minimi** verso tutte le sottoreti, dove il router stesso è la radice dell'albero.
+
+I costi dei collegamenti vengono definiti dall'amministratore di rete. Quando si verifica un cambiamento nello stato di un collegamento, il router invia aggiornamenti di instradamento in broadcast a tutti gli altri router del sistema. Inoltre, anche in assenza di modifiche, i router trasmettono periodicamente lo stato dei collegamenti ogni **30 minuti**.
+
+L'header del link state advertisement (LSA) ha il seguente formato: 
+
+![LSA|center|500](https://lh3.googleusercontent.com/proxy/bbhouGe9KoLf03cvnkACavEShXFq7UpmKISBWVp1Gevg6_JsSRy0VWGlrMejwyJymlFtsdTQrpt9JpPfDXZjTw)
+
+Dove il body dipende dal valore del campo LS Type.
+
+![[OSPF.png|center|600]]
+
+Il protocollo OSPF funziona nel seguente modo:
+1. **Generazione del Link State Advertisement (LSA)**: Ogni router crea uno o più **LSA** basati sulle informazioni locali. Uno dei più comuni è il tipo 1, che descrive la connettività locale della rete (cioè i vicini). Il body sarà quindi fatto così:
+
+| Router  | Costo       |
+| ------- | ----------- |
+| $R_{1}$ | $C_{R_{1}}$ |
+| $R_{2}$ | $C_{R_{2}}$ |
+
+2. **Flooding degli LSA**: Il LSA viene inoltrato a tutti gli altri router, che a loro volta lo propagano. Questo processo può essere rischioso in presenza di loop, poiché potrebbe generare molti pacchetti duplicati. Per prevenire questo problema, si utilizza un **sequence number** nell'header del pacchetto: se il numero di sequenza corrisponde a un LSA già presente, il router lo aggiorna o lo scarta, implementando il cosiddetto **selected flooding**. A questo punto, ogni router costruisce il proprio database OSPF e conosce la topologia della rete.
+3. **Annuncio della connettività esterna**: Per informare gli altri router che un router è un **PE router** e connesso a una rete esterna (ad esempio, a.b.c.d/n), viene utilizzato un **LSA di tipo 5**.
+
+Il protocollo OSPF è veloce, ma non scala bene perché i router devono gestire un grande volume di **LSA** in arrivo e processarli. Inoltre, con un database di grandi dimensioni, l'algoritmo di Dijkstra richiede più tempo per eseguire, nonostante al router interessi solo determinare il **next hop**.
+
+La soluzione a questo problema è suddividere la rete in **aree** e introdurre router speciali chiamati **Area Border Routers (ABR)**, che fungono da ponte tra le aree. In questo modo, Dijkstra viene applicato solo all'interno di ciascuna area, con database separati che descrivono la topologia locale. La comunicazione tra le aree utilizza un approccio **distance vector** anziché **link-state**, riducendo il carico computazionale.
