@@ -96,7 +96,7 @@ Da questo teorema deriva che la potenza di un processo $X(t)$ può essere calcol
 
 Vedremo la differenza tra la modulazione analogica e quella digitale, infatti la modulazione rimane analogica ma il segnale era originariamente digitale e solo dopo convertito.
 
-Una sorgente genera i bit $d_{k}$ che vengono mappati nel mappatore in simboli $a_{i}$ che vengono usati per realizzare un segnale tempo continuo (analogico) di questo tipo: $$\tilde{s}_{PAM} (t) = \sum\limits_{i} a_{i} g_{T}(t-iT)$$E:
+Una sorgente genera i bit $d_{k}$ che vengono mappati nel mappatore in simboli $a_{i}$ che vengono usati per realizzare un segnale tempo continuo (analogico) di questo tipo: $$s_{PAM} (t) = \sum\limits_{i=-\infty}^{+\infty} a_{i} g_{T}(t-iT)$$E:
 $$
 \begin{align*}
 s_{PAM}(t) &= Re\{\tilde{s}_{PAM}(t)e^{j2 \pi f_{c}t}\} \\
@@ -118,14 +118,14 @@ Un'altra funzione importante del mappatore è ottimizzare l'uso della banda occu
 
 **L'efficienza spettrale** può essere valutata considerando la banda occupata $B$, che è inversamente proporzionale alla durata di un simbolo: $B \propto \cfrac{1}{T}$. Di conseguenza, aumentando $M$, la banda occupata diminuisce, migliorando l'efficienza complessiva.
 
-### Efficienza Energetica e Spettrale
+## Efficienza Energetica e Spettrale
 
 L'efficienza energetica e l'efficienza spettrale sono due concetti spesso in contrasto tra loro. Ad esempio, la modulazione FM (Frequency Modulation) è buona in termini di efficienza energetica, ma non in termini di efficienza spettrale. In generale, un miglioramento nell'efficienza spettrale porta a una riduzione dell'efficienza energetica, e viceversa. Questo avviene anche in tecniche come la PAM (Pulse Amplitude Modulation).
 
 #### Calcolo dell'energia minima per trasmettere un bit
 
 Il segnale PAM può essere espresso come:
-$$ s_{PAM}(t) = \sum\limits_{i} a_{i} g_{T}(t - iT) $$
+$$ s_{PAM}(t) = \sum\limits_{i=-\infty}^{+\infty} a_{i} g_{T}(t - iT) $$
 Dove:
 - $a_i$ sono i simboli PAM.
 - $g_T(t)$ è la forma d'onda del simbolo.
@@ -222,7 +222,7 @@ Infine, possiamo definire la banda occupata dalla modulazione PAM. La banda dell
 $$ B_{PAM}^{(PB)} = 2 B_{PAM}^{(BB)} = \frac{1 + \alpha}{T} = (1 + \alpha) \frac{R_b}{\log_2 M} $$
 Qui, $R_b$ è la velocità di trasmissione dei bit, $M$ è il numero di simboli nella costellazione, e $\alpha$ è il fattore di roll-off del filtro coseno rialzato. Questo ci fornisce una misura diretta della banda necessaria per trasmettere i dati usando la modulazione PAM.
 
-### MATLAB RRC Filter Design
+## MATLAB RRC Filter Design
 
 Innanzitutto capiamo come è fatto un filtro a coseno rialzato in matlab. 
 $g = rcosdesign(\beta, SPAN, SPS, SHAPE)$ 
@@ -232,7 +232,7 @@ La risposta in frequenza sarà limitata perché lo spettro $H_{RC}(f,\beta)$ è 
 $SPS$ è il sampling time(sample per simbols), ad esempio $SPS = 4$ allora $\frac{T}{T_{s}} = 4$ con $f_{s}= \frac{1}{T_{s}}$.
 L’$SPS$ minimo è 1 se il roll off è diverso da zero altrimenti è 2.
 
-### Potenza di una PAM
+## Potenza di una PAM
 
 Quando abbiamo un segnale che occupa una certa banda di frequenze, possiamo calcolare la potenza totale del segnale integrando la sua densità spettrale su tutte le frequenze.
 In questo caso, l'integrazione della densità spettrale di potenza a banda base ($P_S^{(BB)}$) si esprime come:
@@ -241,7 +241,7 @@ Qui, $H_{RC}(f, \alpha)$ rappresenta la risposta in frequenza del filtro coseno 
 $$ \int_{-\infty}^{+\infty} H_{RC}(f, \alpha) df = h_{RC}(t, \alpha)|_{t=0} = 1 $$
 Di conseguenza, la potenza complessiva a banda passante ($P_S$) è la metà di quella a banda base:
 $$ P_S = \frac{1}{2} P_S^{(BB)} = \frac{A}{2T} $$
-### Energia per trasmettere un simbolo
+## Energia per trasmettere un simbolo
 
 L'energia necessaria per trasmettere un simbolo a banda base è data dalla potenza a banda base moltiplicata per il tempo del simbolo $T$:
 $$ E_S^{(BB)} = P_S^{(BB)} \cdot T $$
@@ -249,12 +249,12 @@ Ora, per il caso di simboli simmetrici ed equidistanti (come nella modulazione P
 $$ A = \frac{M^2 - 1}{3} $$
 Questo valore viene dalla somma delle potenze dei simboli nel caso di una costellazione simmetrica ed equidistante, con una distanza tra i simboli pari a 2.
 
-### Energia per trasmettere un simbolo a banda passante
+## Energia per trasmettere un simbolo a banda passante
 
 Infine, l'energia necessaria per trasmettere un simbolo a banda passante si ottiene moltiplicando la potenza a banda passante per il tempo del simbolo $T$:
 $$ E_S^{(PB)} = P_S T = \frac{A}{2T} T = \frac{M^2 - 1}{6} $$
 Questo risultato mostra quanta energia serve per trasmettere un simbolo, tenendo conto della potenza del segnale e della struttura della costellazione dei simboli.
-### Potenza del rumore
+## Potenza del rumore
 
 Il rumore in un ricevitore digitale è una *variabile aleatoria* che cambia con il tempo. Quando campioniamo il segnale, anche il rumore viene campionato, quindi $n(m)$ rappresenta il rumore al momento $t = mT$.
 

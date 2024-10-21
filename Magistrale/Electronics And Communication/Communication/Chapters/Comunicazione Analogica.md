@@ -185,7 +185,7 @@ In ambito commerciale si ha una $B_{FM} \approx 180kHz$ perché:
 - $B = 2(2+5)= 15 kHz$ (non lo so da dove escono questi numeri)
 - $\Delta f = 75kHz$
 - $m_f = \frac{\Delta f}{B} = 5$
-Quindi $B_{FM} = 2\cdot(1 + 5) \cdot 15 = 2 \cdot 6 \cdot 16 = 180 kHz$ (all’esame questi numeri li chiede).
+Quindi $B_{FM} = 2\cdot(1 + 5) \cdot 15 = 2 \cdot 6 \cdot 15 = 180 kHz$ (all’esame questi numeri li chiede).
 
 In AM la banda occupata era $B_{AM} = 2B$, quindi in FM tecnicamente la banda occupata è maggiore. Il vantaggio di questa modulazione però sono due:
 1. posso usare l’amplificatore molto vicino alla zona di saturazione perché amplificando in fase non ci sarà mai il rischio di entrare nella zona di saturazione dell'amplificatore. 
