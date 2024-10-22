@@ -216,7 +216,7 @@ $$
     Y = F y = F \overline{\mathcal{H}} \mathbf{s} = F F^{H} H F \mathbf{s} = H S
     $$
 
-    dove $S = F \mathbf{s}$ è la DFT del segnale trasmesso e $Y$ è la DFT del segnale ricevuto.
+dove $S = F \mathbf{s}$ è la DFT del segnale trasmesso e $Y$ è la DFT del segnale ricevuto.
   - Poiché $H$ è diagonale, non c'è interferenza tra i simboli (niente ISI), e ogni sottoportante può essere trattata indipendentemente.
 
 - **Semplificazione del Ricevitore:**
@@ -249,13 +249,11 @@ Il sistema OFDM può essere rappresentato come segue:
 
 - **Riduzione dell'ISI:** Aumentando la durata del simbolo (grazie alla suddivisione in sottoportanti), il sistema diventa meno sensibile al delay spread del canale ($T > \sigma_{\tau}$).
 - **Efficienza Spettrale:** Le sottoportanti sono ortogonali e possono sovrapporsi in frequenza senza interferire tra loro, ottimizzando l'uso dello spettro disponibile.
-
 - **Semplicità di Equalizzazione:** L'equalizzazione si riduce a una semplice divisione nel dominio della frequenza, senza la necessità di complessi equalizzatori nel dominio del tempo.
 
 ### Considerazioni sul Tasso di Trasmissione
 
 - **Tasso di Simbolo:** Ogni vettore di $N$ simboli viene trasmesso in $N T$ secondi, dove $T$ è la durata del simbolo su ciascuna sottoportante.
-
 - **Vantaggio sul Delay Spread:** Poiché la durata del simbolo è aumentata, l'effetto del delay spread del canale è ridotto, minimizzando l'ISI.
 
 ### Utilizzo di Repliche per il Controllo degli Errori
@@ -279,69 +277,318 @@ Nel contesto dell'OFDM, l'uso di repliche del segnale per il controllo degli err
      - L'utilizzo di più antenne trasmittenti e riceventi introduce diversità spaziale, migliorando la robustezza del sistema.
 
 
-# OFDM interpretation
+# Interpretazione dell'OFDM
 
-formule e grafici sulle slide.
+L'**Orthogonal Frequency Division Multiplexing (OFDM)** è una tecnica di modulazione che divide il flusso di dati ad alta velocità in flussi paralleli più lenti, ognuno dei quali modula una sottoportante diversa. Questa tecnica è efficace nel combattere l'**interferenza intersimbolica (ISI)** causata dal **frequency-selective fading** nei canali wireless.
 
-La banda del singolo segnale sarà $\Delta f = \frac{B_{s}}{N}$.
-23/11
-Nel dominio del tempo, i samples del segnale sono: $$s = F^{H}S$$
-generato tramite il CP insertion. 
-Il sample $k$-esimo sarà: $$s(k) = \frac{1}{\sqrt{N}}\sum\limits_{n=0}^{N-1}S(n)e^{j2\pi n \frac{k}{N}} = \frac{1}{\sqrt{N}}\sum\limits_{n=0}^{N-1} S_{n}(k)$$
-$B_{s}$ è la banda occupata dal segnale OFDM e si approssima con $B_{S}\approx \frac{1}{T_{s}}$ per cui $B_{s}\cdot T_{s} = 1$. Quindi, sostituendo nella formula posso scrivere: 
+## Generazione del Segnale OFDM nel Dominio del Tempo
+
+Nel dominio del tempo, i campioni del segnale OFDM si ottengono applicando la **Trasformata di Fourier Inversa Discreta (IDFT)** ai simboli modulati in frequenza. Se $S(n)$ rappresenta il simbolo trasmesso sulla $n$-esima sottoportante, allora i campioni del segnale nel dominio del tempo sono dati da:
+$$
+s(k) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} S(n) e^{j 2\pi n \frac{k}{N}}
+$$
+
+per $k = 0, 1, \dots, N-1$, dove:
+- $N$ è il numero totale di sottoportanti.
+- $S(n)$ è il simbolo complesso modulato (ad esempio, QAM) sulla sottoportante $n$.
+- $s(k)$ è il $k$-esimo campione nel dominio del tempo.
+
+Possiamo anche scrivere:
+$$
+s(k) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} S_n(k)
+$$
+
+dove $S_n(k) = S(n) e^{j 2\pi n \frac{k}{N}}$ è il contributo del simbolo $S(n)$ al campione $s(k)$.
+
+La **banda totale occupata** dal segnale OFDM è approssimativamente:
+$$
+B_s \approx \frac{1}{T_s}
+$$
+
+dove $T_s$ è la durata del simbolo su ciascuna sottoportante (anche chiamata durata del campione OFDM). Questo significa che:
+$$
+B_s \cdot T_s = 1
+$$
+
+La banda di ciascuna sottoportante è:
+$$
+\Delta f = \frac{B_s}{N} = \frac{1}{N T_s}
+$$
+
+Questo assicura che le sottoportanti siano ortogonali tra loro, poiché la separazione in frequenza $\Delta f$ è l'inverso della durata totale del simbolo OFDM $T = N T_s$.
+
+### Forma d'Onda del Segnale OFDM
+
+Il segnale associato alla $n$-esima sottoportante nel dominio del tempo è:
+$$
+s_n(t) = S(n) e^{j 2\pi n \Delta f t} \cdot \text{rect}\left(\frac{t}{T}\right)
+$$
+
+dove:
+- $\Delta f = \frac{1}{T}$ è la separazione in frequenza tra le sottoportanti.
+- $\text{rect}\left(\frac{t}{T}\right)$ è una funzione rettangolare di durata $T = N T_s$.
+
+Il segnale totale è la somma dei segnali sulle singole sottoportanti:
+$$
+s(t) = \sum_{n=0}^{N-1} s_n(t)
+$$
+
+### Spettro del Segnale OFDM
+
+Il segnale $s_n(t)$ ha uno spettro dato dalla convoluzione della trasformata di Fourier della funzione rettangolare (una sinc) e una delta centrata in $n \Delta f$:
+$$
+S_{s_n}(f) = S(n) T \cdot \text{sinc}\left[(f - n \Delta f) T\right]
+$$
+
+Le funzioni sinc associate alle diverse sottoportanti si sovrappongono in frequenza, ma grazie all'ortogonalità, non interferiscono tra loro nei punti di campionamento.
+
+## Introduzione del Prefisso Ciclico (Cyclic Prefix)
+
+Per combattere l'ISI causata dal **multipath**, si aggiunge un **prefisso ciclico** al segnale OFDM. Il prefisso ciclico è una copia degli ultimi $N_{\text{cp}}$ campioni del simbolo OFDM, aggiunti all'inizio del simbolo stesso:
+- **Durata totale del simbolo trasmesso**: $T_{\text{tot}} = T + T_{\text{cp}}$, dove $T_{\text{cp}} = N_{\text{cp}} T_s$.
+- **Scopo del prefisso ciclico**: Convertire la convoluzione lineare del canale in una convoluzione circolare, permettendo di utilizzare la trasformata di Fourier per la demodulazione senza interferenza tra simboli.
+
+L'aggiunta del prefisso ciclico non modifica la periodicità del segnale in frequenza. Nel dominio del tempo, il segnale viene esteso, ma nel dominio della frequenza, questo si traduce in una leggera riduzione dell'efficienza spettrale a causa dell'overhead introdotto dal prefisso.
+
+## Propagazione del Segnale attraverso il Canale
+
+Quando il segnale OFDM si propaga attraverso un canale multipath con risposta impulsiva $h(l)$, l'output ricevuto $y(k)$ è dato da:
+$$
+y(k) = \sum_{l=0}^{L-1} h(l) s(k - l) + n(k)
+$$
+
+dove:
+- $L$ è la lunghezza del canale (numero di campioni non nulli in $h(l)$).
+- $n(k)$ è il rumore additivo.
+
+Grazie al prefisso ciclico, la convoluzione lineare diventa una convoluzione circolare, e possiamo esprimere $y(k)$ nel dominio della frequenza.
+
+### Trasformazione nel Dominio della Frequenza
+
+Applichiamo la Trasformata di Fourier Discreta (DFT) all'output ricevuto:
+$$
+Y(n) = \sum_{k=0}^{N-1} y(k) e^{-j 2\pi n \frac{k}{N}}
+$$
+Sostituendo $y(k)$:
+$$
+Y(n) = H(n) S(n) + N(n)
+$$
+
+dove:
+- $H(n)$ è la risposta in frequenza del canale sulla $n$-esima sottoportante.
+- $N(n)$ è il rumore nel dominio della frequenza.
+
+Questo mostra che ogni sottoportante può essere trattata indipendentemente, e l'ISI è eliminata.
+
+## Ortogonalità delle Sottoportanti
+
+L'ortogonalità delle sottoportanti è mantenuta grazie alla scelta della separazione in frequenza $\Delta f = \frac{1}{T}$ e all'uso del prefisso ciclico. Questo assicura che, nonostante la sovrapposizione spettrale, le sottoportanti non interferiscano tra loro.
+
+### Dimostrazione dell'Ortogonalità
+
+Consideriamo l'espressione per il contributo della $n$-esima sottoportante dopo il passaggio attraverso il canale:
 $$
 \begin{align*}
-s_{n}(k) &= S(n)e^{\frac{j2\pi nk}{N}} =\\
-&= 
+y_n(k) &= \sum_{l=0}^{L-1} h(l) S(n) e^{j 2\pi n \frac{(k - l)}{N}} \\
+&= S(n) e^{j 2\pi n \frac{k}{N}} \left( \sum_{l=0}^{L-1} h(l) e^{-j 2\pi n \frac{l}{N}} \right)
 \end{align*}
 $$
-Grafico di cosa si vede nel tempo. 
 
-Quando facciamo il *cycling prefix* si prende la prima parte e la si ritrasmette. In frequenza questa aggiunta non inficia sulla periodicità del segnale perché rimane una sinusoide. 
+L'ultimo termine dipende solo dal canale e dalla sottoportante $n$, e l'esponenziale $e^{j 2\pi n \frac{k}{N}}$ rappresenta una sinusoide complessa a frequenza $n \Delta f$.
 
-Quando il segnale si propaga nel canale avremo: $$y(k) = \sum\limits_{l=0}^{L-1}h(l)\cdot s(k-l) = \frac{1}{\sqrt{N}}\sum\limits Y_{n}(k)$$proprio perché essendo il canale lineare tempo invariante non cambia la frequenza. 
-Formule su one note.
+### Importanza del Prefisso Ciclico
 
-$k-l$ $= \sum\limits_{l=0}^{L-1}h(l)e^{\frac{j2\pi (k-l)}{N}}$ all'esponente possiamo scriverlo perché stiamo applicando un ciclo quindi non sarà mai negativo perché se $k-l$ fosse negativo e non ci fosse cycling prefix allora: $$y^{b}_{n}(k) = \sum\limits_{l=0}^{k}h(l)S^{b}(n)e^{j2\pi \frac{k-l}{N}}+\sum\limits_{l=k+1}^{L-1} h(l)S^{(b-1)}(n)e^{j2\pi \frac{k-l}{N}}$$perché è come se fossero due blocchi uniti. Questa è la motivazione per cui OFDM è ortogonale. 
-Io davvero non sto capendo nulla, quando parte con le formule non gli sto dietro. 
+Se non ci fosse il prefisso ciclico, la convoluzione lineare con il canale introdurrebbe interferenza tra i simboli, rompendo l'ortogonalità delle sottoportanti. Il prefisso ciclico garantisce che la convoluzione sia circolare, preservando l'ortogonalità.
 
-Altre proprietà:
+## Chiarimenti sui passaggi matematici
+### Passaggio sull'Ortogonalità
+
+Quando abbiamo:
+$$
+y_n(k) = \sum_{l=0}^{L-1} h(l) S(n) e^{j 2\pi n \frac{k - l}{N}}
+$$
+Possiamo riscriverlo come:
+
 $$
 \begin{align*}
-y_{n}(k) &= \sum\limits_{l=0}^{L-1}h(l)S(n)e^{j2\pi n \frac{k-l}{N}} =\\
-&= \sum\limits_{l=0}^{L-1}h(l)S(n)e^{j2\pi n \frac{k}{N}}e^{-j2\pi n \frac{l}{N}} =\\
-&= e^{j2\pi n \frac{k}{N}} \sum\limits_{l=0}^{L-1}h(l)S(n)e^{-j2\pi n \frac{l}{N}}???
-\end{align*} 
+y_n(k) &= S(n) e^{j 2\pi n \frac{k}{N}} \sum_{l=0}^{L-1} h(l) e^{-j 2\pi n \frac{l}{N}} \\
+&= S(n) e^{j 2\pi n \frac{k}{N}} H(n)
+\end{align*}
+$$
+dove:
+
+$$
+H(n) = \sum_{l=0}^{L-1} h(l) e^{-j 2\pi n \frac{l}{N}}
 $$
 
-Relazione tra il sampling time e la bandwidth.
-$T = NT_{s}$
-Per essere precisi nel campionamento bisogna che sia:
-$s_{n}(t) = S(n)e^{j2\pi n \Delta f t} rect(\frac{t}{NT_{s}})$
-è un processo stocastico perché $S(n)$ è una VA, poi c'è un prodotto quindi una convoluzione e infine l'esponenziale è una delta e la rect una sinc. Quindi il risultato è una sinc shiftata nel tempo: 
-$S_{s_{n}} = A sinc^{2}((f-n\Delta f)NT_{s})(NT_{s})^{2}$
-tutte le sinc delle repliche sono ortogonali quindi per ogni campionamento la sinc sarà zero (perché sono tutte sovrapposte)
-La distanza tra due repliche sarà $\Delta f$ quindi la banda può essere approssimata sapendo che: boh non ho capito, ha fatto tutto un discorso e poi ha concluso che è pari a $B_{OFDM}\approx N\cdot \frac{1}{NT_{s}} = \frac{1}{T_{s}}$.
-Da questa si ricava anche che $B_{s}= 1$. (?)
+Questo mostra che l'effetto del canale su ciascuna sottoportante è un semplice fattore moltiplicativo $H(n)$.
 
-$T_{s}$ in OFDM system is $T$ in PAM system. (invio dei simboli)
+### Importanza del Ciclo
 
-## WiFi - IEEE 802.11
+Il fatto che $k - l$ possa essere negativo non è un problema grazie al prefisso ciclico, che estende il segnale in modo che la convoluzione lineare possa essere trattata come circolare.
 
-Lo chiede all'esame.
-In questo WiFi si ha $B_{s} = 20$ MHz con $f_{c}= 2.4\cdot 10^{3}$ Hz oppure $f_{c}= 5\cdot 10^{3}$ Hz.
-$N = 64$, se si fanno i calcoli si ottiene $\Delta f = \frac{20\cdot 10^{6}}{64} = 312.5\cdot 10^{3}$ Hz.
+# WiFi - IEEE 802.11
 
-12 sono null subcarriers. vanno sacrificate per un motivo che non ho capito. oggi non è giornata via. 
+La tecnologia Wi-Fi basata sullo standard **IEEE 802.11** utilizza l'**OFDM** (Orthogonal Frequency Division Multiplexing) come tecnica di modulazione per migliorare l'efficienza spettrale e la robustezza contro il fading selettivo in frequenza.
 
-domande varie sulle percentuali. 
-calcolo del data rate: $R = B\cdot n$, in una Q-PAM $n=4$ e $R = 48$ Mb/s.
+I parametri di base sono:
+- **Banda del segnale $B_s$**: 20 MHz.
+- **Frequenza portante $f_c$**:
+  - **2.4 GHz** (per le bande 802.11b/g/n).
+  - **5 GHz** (per le bande 802.11a/n/ac).
+- **Numero totale di sottoportanti ($N$)**: 64.
 
-## Error Probability of OFDM
+La spaziatura in frequenza tra le sottoportanti ($\Delta f$) è data da:
+$$
+\Delta f = \frac{B_s}{N} = \frac{20 \times 10^6 \text{ Hz}}{64} = 312.5 \times 10^3 \text{ Hz} = 312.5 \text{ kHz}
+$$
 
-È uguale a quella della PAM.
+Questo significa che ogni sottoportante è separata in frequenza di 312.5 kHz dalla successiva.
+
+## Sottoportanti Utilizzate
+
+- **Sottoportanti totali**: 64.
+- **Sottoportanti utilizzate per la trasmissione dei dati**: 52.
+  - **48 sottoportanti** per i dati effettivi.
+  - **4 sottoportanti** per i piloti (**pilot subcarriers**), utilizzati per la sincronizzazione e la stima del canale.
+- **Sottoportanti nulle**: 12.
+  - **DC Subcarrier**: Una sottoportante centrale (n° 0) è nulla per evitare problemi di leakage e per facilitare la conversione da banda base a banda passante.
+  - **Guard Bands**: Le restanti 11 sottoportanti nulle sono posizionate ai bordi dello spettro OFDM per fungere da bande di guardia e ridurre l'interferenza con canali adiacenti.
+
+## Motivo delle Sottoportanti Nulle
+
+Le sottoportanti nulle sono utilizzate per:
+1. **DC Subcarrier (Sottoportante a Frequenza Zero)**:
+   - Evitare problemi dovuti a offset DC nel convertitore analogico-digitale (ADC).
+   - Ridurre l'interferenza tra le componenti in banda base e quelle in banda passante.
+2. **Guard Bands (Bande di Guardia)**:
+   - Ridurre l'interferenza con canali adiacenti.
+   - Permettere l'uso di filtri pratici con roll-off non ideale senza causare interferenza tra canali.
+
+## Calcolo del Data Rate
+
+Il **data rate** dipende dalla modulazione utilizzata e dal numero di bit per simbolo $n$.
+
+Le modulazioni utilizzate sono:
+- **BPSK**: $n = 1$ bit per simbolo.
+- **QPSK**: $n = 2$ bit per simbolo.
+- **16-QAM**: $n = 4$ bit per simbolo.
+- **64-QAM**: $n = 6$ bit per simbolo.
+
+### Esempio con 16-QAM
+
+Supponiamo di utilizzare la modulazione **16-QAM**, dove $n = 4$ bit per simbolo:
+
+- **Tempo utile del simbolo ($T_u$)**:
+$$
+  T_u = \frac{1}{\Delta f} = \frac{1}{312.5 \times 10^3 \text{ Hz}} = 3.2 \ \mu s
+  $$
+- **Cyclic Prefix ($T_{cp}$)**:
+  - Tipicamente, il prefisso ciclico è il 25% del tempo utile:
+$$
+    T_{cp} = 0.25 \times T_u = 0.8 \ \mu s
+    $$
+- **Tempo totale del simbolo OFDM ($T_{\text{sym}}$)**:
+$$
+  T_{\text{sym}} = T_u + T_{cp} = 3.2 \ \mu s + 0.8 \ \mu s = 4 \ \mu s
+  $$
+
+#### Calcolo del Data Rate
+
+- **Data rate per sottoportante**:
+$$
+  R_{\text{subcarrier}} = \frac{n}{T_{\text{sym}}} = \frac{4 \ \text{bit}}{4 \ \mu s} = 1 \ \text{Mbps}
+  $$
+- **Data rate totale** (considerando le 48 sottoportanti dati):
+$$
+  R = R_{\text{subcarrier}} \times \text{numero di sottoportanti dati} = 1 \ \text{Mbps} \times 48 = 48 \ \text{Mbps}
+  $$
+
+Questo calcolo mostra come si ottiene un data rate di **48 Mbps** utilizzando 16-QAM in un sistema Wi-Fi con $B_s = 20$ MHz.
+
+## Calcolo del Data Rate per Diverse Modulazioni
+
+### BPSK (n = 1)
+
+- **Data rate per sottoportante**:
+$$
+  R_{\text{subcarrier}} = \frac{1}{4 \ \mu s} = 0.25 \ \text{Mbps}
+  $$
+- **Data rate totale**:
+$$
+  R = 0.25 \ \text{Mbps} \times 48 = 12 \ \text{Mbps}
+  $$
+
+### QPSK (n = 2)
+
+- **Data rate per sottoportante**:
+$$
+  R_{\text{subcarrier}} = \frac{2}{4 \ \mu s} = 0.5 \ \text{Mbps}
+  $$
+- **Data rate totale**:
+$$
+  R = 0.5 \ \text{Mbps} \times 48 = 24 \ \text{Mbps}
+  $$
+
+## Percentuali e Overhead
+
+### Efficienza Spettrale
+
+- **Sottoportanti per i dati**: 48 su 64, cioè il **75%** delle sottoportanti totali.
+- **Efficienza temporale**:
+  - A causa del prefisso ciclico, l'efficienza temporale è:
+$$
+    \frac{T_u}{T_{\text{sym}}} = \frac{3.2 \ \mu s}{4 \ \mu s} = 0.8 \ (\text{80\%})
+    $$
+- **Efficienza complessiva**:
+$$
+  \text{Efficienza} = \frac{\text{sottoportanti dati}}{\text{sottoportanti totali}} \times \frac{T_u}{T_{\text{sym}}} = 0.75 \times 0.8 = 0.6 \ (\text{60\%})
+  $$
+
+Questo significa che l'efficienza spettrale complessiva è del **60%**, tenendo conto sia delle sottoportanti nulle che dell'overhead del prefisso ciclico.
+
+## Note Aggiuntive
+
+- **Modulazione Adattiva**: I sistemi Wi-Fi possono adattare la modulazione in base alle condizioni del canale. In ambienti con elevato rapporto segnale-rumore (SNR), possono utilizzare modulazioni ad alto ordine come 64-QAM per massimizzare il throughput. In condizioni di SNR basso, utilizzano modulazioni più robuste come BPSK o QPSK.
+- **Codifica di Canale (FEC)**: Viene utilizzata la codifica convoluzionale o altri schemi di codifica per la correzione degli errori, che introducono un ulteriore overhead ma migliorano l'affidabilità della comunicazione.
+- **Domande Sulle Percentuali**: Potrebbero essere poste domande sugli esami riguardo alle percentuali di efficienza, l'overhead introdotto dalle sottoportanti nulle e dal prefisso ciclico, e come questi influenzano il data rate.
+
+## Riassunto dei Parametri Chiave
+
+- **Banda del segnale ($B_s$)**: 20 MHz.
+- **Frequenza portante ($f_c$)**:
+  - 2.4 GHz o 5 GHz.
+- **Numero totale di sottoportanti ($N$)**: 64.
+- **Spaziatura tra le sottoportanti ($\Delta f$)**: 312.5 kHz.
+- **Sottoportanti utilizzate per i dati**: 48.
+- **Sottoportanti pilota**: 4.
+- **Sottoportanti nulle**: 12 (DC Subcarrier + Guard Bands).
+- **Tempo utile del simbolo ($T_u$)**: 3.2 μs.
+- **Cyclic Prefix ($T_{cp}$)**: 0.8 μs.
+- **Tempo totale del simbolo OFDM ($T_{\text{sym}}$)**: 4 μs.
+
+# Probabilità di Errore dell'OFDM
+
+La **probabilità di errore** in un sistema OFDM può essere considerata **uguale a quella di un sistema PAM** per ciascuna sottoportante, a condizione che il canale sia ideale o che gli effetti del fading e del rumore siano adeguatamente compensati.
+
+La **probabilità di errore di simbolo** per una modulazione PAM su un canale AWGN è data da:
+$$
+P_e = 2 \left(1 - \frac{1}{M}\right) Q\left( \sqrt{\frac{6 \log_2 M}{M^2 - 1} \cdot \frac{E_b}{N_0}} \right)
+$$
+
+Dove:
+- $M$ è l'ordine della modulazione (ad esempio, $M = 4$ per 4-PAM).
+- $Q(\cdot)$ è la funzione Q di Gauss.
+- $E_b/N_0$ è il rapporto tra l'energia per bit e la densità spettrale di rumore.
+
+In un sistema OFDM, questa formula può essere applicata a ciascuna sottoportante, considerando l'SNR effettivo su quella sottoportante.
 
 
+## Esempio Pratico
 
+Supponiamo di utilizzare una modulazione 16-PAM su ciascuna sottoportante in un sistema OFDM. La probabilità di errore per ciascuna sottoportante sarà:
+$$
+P_e = 2 \left(1 - \frac{1}{16}\right) Q\left( \sqrt{\frac{6 \log_2 16}{16^2 - 1} \cdot \frac{E_b}{N_0}} \right)
+$$
 
-
+Questo calcolo è identico a quello che faremmo per un sistema 16-PAM su un canale AWGN.
