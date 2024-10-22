@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "9458458d5c5cc130",
+        "id": "99e8f0313c52e343",
         "type": "tabs",
         "children": [
           {
-            "id": "50525bced9974c7b",
+            "id": "7a511efd72857cd3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Distributed Systems/Chapters/Java.md",
+                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Java"
+              "title": "Multi-Carrier Signals"
             }
           }
         ]
@@ -208,13 +208,18 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "50525bced9974c7b",
+  "active": "7a511efd72857cd3",
   "lastOpenFiles": [
-    "Magistrale/Distributed Systems/Images/Thread Pool.png",
-    "Magistrale/Distributed Systems/Chapters/Java.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
+    "Untitled.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
+    "Magistrale/Distributed Systems/Chapters/Java.md",
+    "Magistrale/Distributed Systems/Images/Thread Pool.png",
     "Magistrale/Advanced Networks/Chapters/MPLS.md",
     "Magistrale/Advanced Networks/Images/OSPF.png",
     "Magistrale/Advanced Networks/Images/MPLS header.png",
@@ -240,12 +245,8 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
-    "Magistrale/Distributed Systems/Chapters/Message Passing System.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 4 - Modelli.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Introduzione.md",
     "Magistrale/Distributed Systems/Images/Esempio Lambda.png",
     "Magistrale/Advanced Networks/Images",
-    "TODO.md",
     "Magistrale/Distributed Systems/Images",
     "Magistrale/Industrial Applications",
     "Magistrale/Distributed Systems/Chapters",

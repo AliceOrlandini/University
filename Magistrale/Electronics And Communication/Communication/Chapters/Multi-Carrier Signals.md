@@ -1,66 +1,283 @@
 
-Questa tecnologia è la soluzione alla frequency selecting fading, è alla base dei sistemi LTE, 5G e Wi-Fi. 
+I **segnali multiportante** rappresentano una tecnologia fondamentale per affrontare il problema del **frequency-selective fading** nei canali wireless. Questa tecnologia è alla base di sistemi di comunicazione avanzati come **LTE**, **5G** e **Wi-Fi**, dove sono richieste elevate velocità di trasmissione, affidabilità e efficienza spettrale.
 
-Il primo motivo per cui viene impiegata in queste applicaizoni sono:
-1. Robustezza
-2. Efficienza spettrale
-3. Flessibile riguardo all’occupazione di risorse OFDMA
+I principali motivi per cui i segnali multiportante sono impiegati in queste applicazioni sono:
+1. **Robustezza**: I segnali multiportante sono intrinsecamente più resistenti al fading selettivo in frequenza e all'interferenza intersimbolica (ISI). Dividendo la banda totale in molte sottoportanti strette, ciascuna affetta da flat fading, è possibile mitigare gli effetti negativi del canale.
+2. **Efficienza Spettrale**: L'uso di segnali multiportante consente di utilizzare la banda di frequenza disponibile in modo più efficiente. Tecniche come l'**OFDM** (Orthogonal Frequency Division Multiplexing) permettono una sovrapposizione spettrale delle sottoportanti senza interferenza interportante grazie all'ortogonalità, massimizzando l'uso dello spettro.
+3. **Flessibilità nell'Allocazione delle Risorse (OFDMA)**: La tecnologia multiportante permette un'allocazione dinamica e flessibile delle risorse di frequenza e tempo tra diversi utenti, caratteristica fondamentale nell'**OFDMA** (Orthogonal Frequency Division Multiple Access). Questo è particolarmente utile in sistemi cellulari come LTE e 5G, dove la banda deve essere condivisa efficacemente tra molti utenti con esigenze diverse.
 
 # OFDM technology
 
-Quando abbiamo il frequency selective fading, la probabilità di errore $P_{e}$ decresce con l’SNR fino ad un asintoto orizzontale dato dall’error floor.
-$B_{s}>B_{c}\approx \frac{1}{5\cdot6\tau}$
-Dividiamo la banda del segnale originale in $N$ parti che occupano meno banda della cohearence bandwidth: $\frac{B_{s}}{N}<B_{c}$.
-In questo modo si risolve il problema del frequency selecting fading. 
-Un modo per fare la divisione della banda del segnale è usare dei filtri passa banda e poi sommare i segnali generati. Questo però è molto complicato da fare perché i filtri non saranno mai perfettamente ortogonali quindi ci sarà interferenza non essendo molto precisi.
+Quando si ha a che fare con il **frequency selective fading**, la **probabilità di errore** $P_e$ diminuisce con l'aumento del rapporto segnale-rumore (SNR) fino a raggiungere un **asintoto orizzontale**, noto come **error floor**. Questo significa che, nonostante l'aumento della potenza del segnale, l'errore non può essere ridotto oltre un certo limite a causa dell'interferenza intersimbolica (ISI) introdotta dal canale.
 
-Facciamo un passo indietro al multipath propagation channel:
-il segnale generato è la somma delle repliche del segnale $$h(t) = A_{LS}\sum\limits_{l=0}^{N_{C}-1}\alpha_{l}e^{j\phi_{l}}\delta(t-\tau_{l})$$ che ha come trasformata: $$H(f) = \sum\limits \alpha_{l}e^{j\phi_{l}}e^{-j2\pi f\tau_{l}}$$ e $Y(t) = H(f)\cdot S(f)$ con $S(f)$ il filtro applicato.
-Ciò che si vuol sapere è solo il segnale filtrato, visto che tutto ciò che è all’esterno verrà tagliato. La banda del filtro sarà $B_{S}\approx \frac{1}{T}$
-Portando il segnale in banda base si vede che il sampling time (tempo di campionamento) sarà $T$. (grafico sulle slide)
-Campioniamo solo l’equivalente in banda base $$h_{eq}(t) = \sum\limits_{l=0}^{L-1}h(l)\delta(t-lT)$$
-e il segnale sarà: $$y(t) = $$
-avrò un solo campionamneto ogni $T$ secondi che è molto più semplice di utilizzare la rappresentazione fisica del segnale (?).
-
-Consideriamo cosa otteniamo all’output del canale, sarà la somma del segnale desiderato $s(k)$ più dell’interferenza: $$y(k) = $$ i samples vanno da zero a $N-1$ per un totale di $N$ samples. L’output può essere quindi calcolato nel seguente modo: $$y(k) = \sum\limits_{l=0}^{L-1}h(l)s(k-l) = h(0)s(k) + …+h(L-1)s(k-L+1)$$
-Quando: $k=0 \Rightarrow y(0) = h(0)s(0)+h(1)s(-1)+…+h(L-1)s(-L+1) = s(0)h(0)$ questo per l’operazione di convoluzione (?). Ma i termini a partire da $s(-1)$ sono tutti zero quindi l’espressione si riduce. 
-$k=1 \Rightarrow y(1) = h(0)s(1)+h(1)s(0)+h(2)s(-1) + … = h(0)s(1) + h(1)s(0)$
-e così via…
-
-Troviamo una rappresentazione matriciale dell’operazione $y = \mathcal{H}s$ che avrà $N\text{x}N$: (matrice sulle slide)
-Ogni diagonale avrà sempre lo stesso valore il valore di $h(k)$
-La matrice $\mathcal{H}$ è chiamata **Matrice di Toeplitz** e vogliamo renderla circolare (non ho capito perché) cycling extentions. 
-
-Ricordiamoci che stiamo inviando un vettore di $N$ samples quindi posso prendere gli ultimi sample $N_{cp}$ e appenderlo in testa al vettore dei samples in modo da avere un nuovo vettore $\overline{s}$ di lunghezza $N+N_{cp}$. In questo vettore, l’elemento $\overline{s}(-1) = s(N-1)$.
-Abbiamo quindi creato sample con indici negativi e possiamo riscrivere l’equazione come: 
+Il **frequency selective fading** si verifica quando la **banda del segnale** $B_s$ è maggiore della **coherence bandwidth** $B_c$ del canale:
 $$
-\begin{align*}
-y(0) &= h(0)\overline{s}(0)+h(1)\overline{s}(-1)+…+h(L-1)\overline{s}(-L+1) =\\[4pt]
-&= h(0)s(0)+h(1)s(N-1)+…+h(L-1)s(N-L+1)
-\end{align*}$$
+B_s > B_c \approx \frac{1}{5 \cdot \sigma_{\tau}}
+$$
 
-Quindi ora la matrice $\overline{\mathcal{H}}$, che è ancora di **Toeplitz**, non ha più gli zeri nel triangolo superiore. Ogni riga della matrice può essere ottenuta da tutte le altre facendo uno shift circolare verticale. 
-Questa proprietà rende la matrice **Circulant**.
+dove $\sigma_{\tau}$ è il **delay spread** del canale.
 
-Il prezzo da pagare è la banda e l’energia occupata per trasmettere più volte lo stesso sample.
+Per risolvere questo problema, si può dividere la banda del segnale originale in $N$ sottobande, ciascuna delle quali occupa meno banda della coherence bandwidth:
+$$
+\frac{B_s}{N} < B_c
+$$
 
-La matrice può essere diagonalizzata come $\overline{\mathcal{H}} = F^{H}HF$ con $F$ unitaria con e normalizzata di Fourier e $H$ una matrice diagolane.
-Se una matrice è unitaria allora $A^{H}A = AA^{H} = I$ e quindi $A^{-1}=A^{H}$.
-Discrete Fourier Transform: $[F]_{k,n} = \frac{1}{\sqrt{N}}e^{-\frac{j2\pi kn}{N}}$
+In questo modo, ogni sottobanda sperimenta **flat fading** anziché frequency selective fading, riducendo significativamente l'ISI e migliorando le prestazioni del sistema.
 
-Vediamo perché questa proprietà è importante.
-Definiamo $Y = Fy$ e $S = Fs$. 
-Sviluppando si ottiene $Y = Fy = F\overline{\mathcal{H}}s = FF^{H}HFs = HS$
-Visto che $H$ è una matrice diagonale allora non c’è l’ISI perché non c’è più quel termine a sommare. Ecco perché è così potente, risolve il problema principale del canale di comunicazione pagando il costo di energia e banda occupata.
+Una possibile implementazione di questa divisione è l'uso di **filtri passa banda** per separare il segnale in diverse sottobande, per poi sommare i segnali generati. Tuttavia, questo approccio presenta diverse limitazioni:
+- **Complessità**: La progettazione e la realizzazione di filtri passa banda precisi per ciascuna sottobanda aumentano la complessità del sistema.
+- **Interferenza tra Sottobande**: I filtri reali non possono essere perfettamente ortogonali, causando **interferenza tra sottobande** dovuta alle imperfezioni dei filtri.
+- **Efficienza Spettrale Ridotta**: Per evitare l'interferenza tra sottobande, è necessario introdurre dei **guard band** tra le sottobande, riducendo l'efficienza spettrale.
 
-Schema a blocchi sulle slide. 
+Per superare queste limitazioni, si utilizza la tecnica dell'**Orthogonal Frequency Division Multiplexing (OFDM)**. L'OFDM permette di:
+- **Suddividere la banda del segnale** in numerose **sottoportanti ortogonali** tra loro, senza la necessità di filtri fisici separati.
+- **Mantenere l'ortogonalità** tra le sottoportanti utilizzando trasformate di Fourier discrete (DFT e IDFT), evitando l'interferenza interportante.
+- **Ridurre l'ISI** aumentando la durata del simbolo su ciascuna sottoportante, dato che la velocità di simbolo è ridotta.
 
-Possiamo dimenticare tranquillamente PAM & co ma resta valida la mappa di Gray e tutto ciò che si è detto sui simboli e sul decisore.
-Il vettore di simboli viene creato in frequenza e poi si converte nel tempo.
+## Modello del Canale di Propagazione Multipath
 
-$Y(n) = H(n)S(n) +N(n)$ non ha interferenza intersimbolica. 
-$NT$ è il trasmission rate del vettore, trasmetto $N$ simboli ogni $NT$ secondi. Il vantaggio è nel delay $T > \sigma_{\tau}$ quindi l’ISI si riduce.
-on the receiver side, can we use replicas for checking errors? 
+Facciamo un passo indietro e analizziamo il **canale di propagazione multipath**. Il canale può essere modellato come la somma delle repliche del segnale trasmesso, ciascuna con attenuazione, fase e ritardo differenti.
+
+La risposta Impulsiva del canale è:
+$$
+h(t) = A_{LS} \sum_{l=0}^{N_c - 1} \alpha_{l} e^{j\phi_{l}} \delta(t - \tau_{l})
+$$
+
+dove:
+- $A_{LS}$ è l'attenuazione dovuta al **large scale fading**.
+- $\alpha_{l}$ è l'attenuazione del percorso $l$.
+- $\phi_{l}$ è la fase associata al percorso $l$.
+- $\tau_{l}$ è il ritardo del percorso $l$.
+- $N_c$ è il numero di percorsi multipli considerati.
+- $\delta(\cdot)$ è la funzione delta di Dirac.
+
+Applicando la trasformata di Fourier alla risposta impulsiva, otteniamo la **risposta in frequenza** del canale:
+$$
+H(f) = \sum_{l=0}^{N_c - 1} \alpha_{l} e^{j\phi_{l}} e^{-j2\pi f \tau_{l}}
+$$
+
+Il segnale ricevuto nel dominio della frequenza è dato da:
+$$
+Y(f) = H(f) \cdot S(f)
+$$
+
+dove $S(f)$ è la trasformata di Fourier del segnale trasmesso $s(t)$.
+
+### Filtraggio del Segnale
+
+Nel sistema di comunicazione, il segnale passa attraverso un filtro che limita la banda del segnale. La **banda del filtro** è approssimativamente:
+$$
+B_s \approx \frac{1}{T}
+$$
+
+dove $T$ è la durata del simbolo.
+
+Poiché il filtro attenua le componenti al di fuori della sua banda passante, siamo interessati solo alla parte del segnale compresa in questa banda. Questo ci permette di semplificare l'analisi concentrandoci sul segnale filtrato.
+
+Per semplificare ulteriormente l'analisi, si porta il segnale in **banda base**. La conversione in banda base permette di rappresentare il segnale come un segnale complesso a frequenza zero, facilitando il trattamento matematico.
+Il **tempo di campionamento** necessario per rappresentare completamente il segnale in banda base è:
+$$
+T_s = T
+$$
+
+cioè, il segnale deve essere campionato almeno una volta ogni $T$ secondi per soddisfare il criterio di Nyquist.
+Il canale in banda base equivalente può essere rappresentato come:
+$$
+h_{\text{eq}}(t) = \sum_{l=0}^{L - 1} h(l) \delta(t - lT)
+$$
+
+dove:
+- $h(l)$ è il coefficiente del canale al tempo $lT$.
+- $L$ è il numero di campioni del canale considerati.
+
+Il segnale ricevuto in banda base è dato da:
+
+$$
+y(t) = \sum_{k} s(t - kT) h_{\text{eq}}(kT) + n(t)
+$$
+dove:
+- $s(t)$ è il segnale trasmesso in banda base.
+- $h_{\text{eq}}(kT)$ sono i coefficienti del canale campionati.
+- $n(t)$ è il rumore additivo.
+
+I vantaggi della rappresentazione in banda base sono:
+- **Semplificazione del Modello**: Campionando il canale e il segnale a intervalli di $T$ secondi, si semplifica l'analisi e la simulazione del sistema.
+- **Riduzione della Complessità Computazionale**: Lavorare in banda base permette di utilizzare segnali a bassa frequenza, riducendo la complessità del processamento digitale.
+- **Facilità di Implementazione**: Molti algoritmi di elaborazione del segnale, come l'equalizzazione e la demodulazione, sono più facilmente implementabili in banda base.
+
+## Analisi del Canale e della Trasmissione OFDM
+
+Quando trasmettiamo un segnale attraverso un canale di comunicazione affetto da **multipath**, il segnale ricevuto è una convoluzione del segnale trasmesso con la risposta impulsiva del canale. Questa convoluzione introduce **interferenza intersimbolica** (ISI), che può degradare significativamente le prestazioni del sistema.
+
+### Segnale Ricevuto e Convoluzione Discreta
+
+Consideriamo un segnale discreto $s(k)$ composto da $N$ campioni, con $k$ che varia da 0 a $N - 1$. Il segnale ricevuto $y(k)$ può essere espresso come:
+$$
+y(k) = \sum_{l=0}^{L-1} h(l) s(k - l)
+$$
+
+dove:
+- $h(l)$ è la risposta impulsiva discreta del canale, con $L$ campioni.
+- $s(k - l)$ è il segnale trasmesso ritardato di $l$ campioni.
+
+Questa equazione rappresenta la convoluzione discreta tra il segnale trasmesso e la risposta del canale.
+
+Un esempio di di calcolo è:
+- **Per $k = 0$:**
+$$
+  \begin{align*}
+  y(0) &= h(0) s(0) + h(1) s(-1) + h(2) s(-2) + \dots + h(L-1) s(-(L-1)) \\
+       &= h(0) s(0)
+  \end{align*}
+  $$
+
+  Poiché i termini $s(-1), s(-2), \dots$ sono tutti zero (non esistono campioni precedenti a $s(0)$), l'espressione si semplifica.
+
+- **Per $k = 1$:**
+$$
+  \begin{align*}
+  y(1) &= h(0) s(1) + h(1) s(0) + h(2) s(-1) + \dots + h(L-1) s(-(L-2)) \\
+       &= h(0) s(1) + h(1) s(0)
+  \end{align*}
+  $$
+
+  Ancora una volta, i termini con indici negativi di $s$ sono zero.
+
+Possiamo rappresentare l'operazione di convoluzione come una moltiplicazione matriciale:
+$$
+\mathbf{y} = \mathcal{H} \mathbf{s}
+$$
+
+dove:
+- $\mathbf{y}$ è il vettore dei campioni ricevuti.
+- $\mathbf{s}$ è il vettore dei campioni trasmessi.
+- $\mathcal{H}$ è una matrice $N \times N$ **di Toeplitz**, costruita in modo tale che ogni diagonale parallela alla principale contiene lo stesso elemento $h(l)$.
+
+**Esempio di Matrice di Toeplitz:**
+
+$$
+\mathcal{H} = \begin{bmatrix}
+h(0) & 0 & \dots & 0 \\
+h(1) & h(0) & \dots & 0 \\
+\vdots & \ddots & \ddots & \vdots \\
+h(L-1) & \dots & h(1) & h(0) \\
+0 & \dots & h(L-1) & h(1) \\
+\vdots & \ddots & \ddots & \vdots \\
+0 & \dots & 0 & h(L-1)
+\end{bmatrix}
+$$
+
+Notiamo che la matrice $\mathcal{H}$ è **non circolare**, poiché i termini fuori dai limiti (con indici negativi) vengono trattati come zero.
+
+Per trasformare la matrice $\mathcal{H}$ in una **matrice circolante**, introduciamo un **prefisso ciclico** (Cyclic Prefix, CP) al segnale trasmesso.
+La procedura è:
+1. **Aggiunta del Prefisso Ciclico:**
+   - Prendiamo gli ultimi $N_{\text{cp}}$ campioni del segnale $\mathbf{s}$ e li aggiungiamo all'inizio del vettore, creando un nuovo vettore $\overline{\mathbf{s}}$ di lunghezza $N + N_{\text{cp}}$.
+   - Questo implica che i campioni con indici negativi sono definiti come $\overline{s}(-l) = s(N - l)$ per $l = 1, 2, \dots, L - 1$.
+
+2. **Nuova Espressione del Segnale Ricevuto:**
+   - Per $k = 0$:
+$$
+     \begin{align*}
+     y(0) &= h(0) \overline{s}(0) + h(1) \overline{s}(-1) + \dots + h(L-1) \overline{s}(-L+1) \\
+          &= h(0) s(0) + h(1) s(N - 1) + \dots + h(L-1) s(N - L + 1)
+     \end{align*}
+     $$
+
+3. **Matrice Circolante $\overline{\mathcal{H}}$:**
+   - La nuova matrice $\overline{\mathcal{H}}$ è ora **circolante**, poiché ogni riga è una versione ciclicamente shiftata della precedente.
+   - Le proprietà delle matrici circolanti consentono una diagonalizzazione efficiente tramite trasformate di Fourier.
+
+**Nota:** L'introduzione del prefisso ciclico comporta un **overhead** in termini di banda e potenza, poiché si trasmettono campioni aggiuntivi che non contengono nuove informazioni.
+
+### Diagonalizzazione della Matrice Circolante
+
+Le matrici circolanti possono essere diagonalizzate utilizzando la **Trasformata di Fourier Discreta (DFT)**.
+Le sue proprietà sono:
+- **Matrice di Fourier $F$:**
+$$
+  [F]_{k,n} = \frac{1}{\sqrt{N}} e^{-j \frac{2\pi k n}{N}}
+  $$
+
+  - $F$ è una matrice unitaria normalizzata, cioè $F^{H} F = I$.
+
+- **Diagonalizzazione:**
+$$
+  \overline{\mathcal{H}} = F^{H} H F
+  $$
+
+  dove $H$ è una matrice diagonale i cui elementi sono le componenti spettrali della risposta del canale.
+
+La diagonalizzazione della matrice del canale ha effetti benefici significativi:
+
+- **Eliminazione dell'ISI:**
+  - Dopo la trasformazione, l'operazione tra il segnale e il canale diventa una moltiplicazione elemento per elemento nel dominio della frequenza:
+$$
+    Y = F y = F \overline{\mathcal{H}} \mathbf{s} = F F^{H} H F \mathbf{s} = H S
+    $$
+
+    dove $S = F \mathbf{s}$ è la DFT del segnale trasmesso e $Y$ è la DFT del segnale ricevuto.
+  - Poiché $H$ è diagonale, non c'è interferenza tra i simboli (niente ISI), e ogni sottoportante può essere trattata indipendentemente.
+
+- **Semplificazione del Ricevitore:**
+  - Il ricevitore può effettuare una semplice equalizzazione dividendo ogni componente di $Y$ per il corrispondente elemento di $H$.
+
+### Schema a Blocchi del Sistema OFDM
+
+Il sistema OFDM può essere rappresentato come segue:
+
+1. **Trasmettitore:**
+   - **Mappatura dei Simboli:**
+     - I dati binari vengono mappati in simboli complessi utilizzando tecniche di modulazione digitale (es. QAM, PSK), seguendo la **mappatura di Gray** per minimizzare gli errori.
+   - **Trasformata Inversa di Fourier (IFFT):**
+     - I simboli vengono raggruppati in vettori di lunghezza $N$ e trasformati nel dominio del tempo tramite IFFT.
+   - **Aggiunta del Prefisso Ciclico:**
+     - Si aggiunge il prefisso ciclico per rendere il canale circolante.
+2. **Canale:**
+   - Il segnale attraversa il canale multipath, modellato dalla matrice circolante $\overline{\mathcal{H}}$, e viene aggiunto rumore $N(k)$.
+3. **Ricevitore:**
+   - **Rimozione del Prefisso Ciclico:**
+     - Si elimina il prefisso ciclico per ripristinare il vettore originale di lunghezza $N$.
+   - **Trasformata di Fourier (FFT):**
+     - Si applica la FFT per trasformare il segnale nel dominio della frequenza.
+   - **Equalizzazione:**
+     - Si divide ogni componente del vettore ricevuto per il corrispondente elemento di $H$ per compensare l'effetto del canale.
+   - **Demodulazione e Decodifica:**
+     - Si demodulano i simboli ottenuti e si decodificano i dati binari.
+
+### Vantaggi dell'OFDM
+
+- **Riduzione dell'ISI:** Aumentando la durata del simbolo (grazie alla suddivisione in sottoportanti), il sistema diventa meno sensibile al delay spread del canale ($T > \sigma_{\tau}$).
+- **Efficienza Spettrale:** Le sottoportanti sono ortogonali e possono sovrapporsi in frequenza senza interferire tra loro, ottimizzando l'uso dello spettro disponibile.
+
+- **Semplicità di Equalizzazione:** L'equalizzazione si riduce a una semplice divisione nel dominio della frequenza, senza la necessità di complessi equalizzatori nel dominio del tempo.
+
+### Considerazioni sul Tasso di Trasmissione
+
+- **Tasso di Simbolo:** Ogni vettore di $N$ simboli viene trasmesso in $N T$ secondi, dove $T$ è la durata del simbolo su ciascuna sottoportante.
+
+- **Vantaggio sul Delay Spread:** Poiché la durata del simbolo è aumentata, l'effetto del delay spread del canale è ridotto, minimizzando l'ISI.
+
+### Utilizzo di Repliche per il Controllo degli Errori
+
+Nel ricevitore, possiamo utilizzare repliche per il controllo degli errori?
+Nel contesto dell'OFDM, l'uso di repliche del segnale per il controllo degli errori non è una pratica comune. Tuttavia, esistono tecniche per migliorare l'affidabilità del sistema:
+
+1. **Codici di Correzione d'Errore (FEC):**
+   - **Codici a Ridondanza:** Si aggiungono dati ridondanti al flusso di dati tramite codici come Reed-Solomon, Turbo Codes o LDPC, permettendo al ricevitore di rilevare e correggere errori senza la necessità di ritrasmissioni.
+
+2. **Diversità in Frequenza:**
+   - **Pilot Symbols:**
+     - Si inseriscono simboli noti (piloti) all'interno delle sottoportanti per stimare e tracciare le variazioni del canale.
+   - **Interleaving:**
+     - I simboli vengono distribuiti su diverse sottoportanti e intervalli di tempo, in modo che gli errori causati dal fading selettivo siano resi più indipendenti e correggibili dai codici FEC.
+
+3. **Diversità in Tempo e Spazio:**
+   - **Trasmissioni Ripetute:**
+     - In alcuni sistemi, si può decidere di trasmettere lo stesso simbolo più volte (repliche) in momenti diversi per combattere il fading rapido.
+   - **MIMO (Multiple Input Multiple Output):**
+     - L'utilizzo di più antenne trasmittenti e riceventi introduce diversità spaziale, migliorando la robustezza del sistema.
+
 
 # OFDM interpretation
 
