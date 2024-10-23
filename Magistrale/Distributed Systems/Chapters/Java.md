@@ -272,14 +272,56 @@ Un design pattern è il seguente:
 I Futures vengono utilizzati per raccogliere risultati da calcoli che verranno eseguiti in futuro e sono utili per gestire operazioni asincrone. Le Promise, invece, sono funzioni che permettono di impostare un valore che sarà disponibile in un momento successivo.
 #### Java Synchronizers
 
-Certe volte i thread devono essere tra loro sincronizzati al fine di continuare con la loro esecuzione. Esistono varie classi per fare la sincronizzazione:
-- Latches: Un latch fa aspettare un gruppo di thread finché tutti non hanno raggiunto lo stato terminale, poi tutti i thread vengono rilasciati. Lo stato del countdown latch è il counter, come se fosse un conto alla rovescia, a quel punto vengono tutti sbloccati. Si può specificare anche quanto tempo massimo aspettare. 
-- Barriers: fa sì che un gruppo di thread aspettare ad una barriera, quando l'ultimo arriva tutti sono autorizzati a procedere. Si può usare una CyclicBarrier che può essere resettata e quindi riutilizzata più volte. Lo stato interno è il numero di thread che devono arrivare alla barriera.
-- Phasers: è una versione avanzata delle barriers.
-- Semaphores: questi sono gli stessi che abbiamo visto a sistemi operativi solo che hanno un livello di astrazione superiore. Permette di implementare la mutual exclusion o la sincronizzazione tra produttore e consumatore. In Java wait diventa acquire e signal diventa relesase. 
-- Exchangers: fa sì che due thread si aspettino vicendevolmente e quando arriva il momento della sincronizzazione si scambiano gli oggetti. 
+A volte, i thread devono essere sincronizzati tra loro per coordinare l'esecuzione e garantire che procedano solo quando determinate condizioni sono soddisfatte. Esistono diverse classi in Java per gestire la sincronizzazione:
+- **Latches**: Un latch permette a un gruppo di thread di attendere fino a quando tutti non hanno raggiunto uno stato terminale. Un esempio è il `CountDownLatch`, che ha un contatore interno che viene decrementato ogni volta che un thread raggiunge il traguardo. Quando il contatore arriva a zero, tutti i thread vengono rilasciati. È anche possibile specificare un *timeout*, dopo il quale i thread vengono sbloccati indipendentemente dal raggiungimento della condizione.
+- **Barriers**: Una barriera (`Barrier`) fa sì che un gruppo di thread si blocchi finché tutti i thread non hanno raggiunto la barriera. Un esempio comune è la `CyclicBarrier`, che può essere resettata e riutilizzata più volte. Il suo stato interno tiene traccia di quanti thread devono raggiungere la barriera prima che tutti possano procedere.
+- **Phasers**: Un phaser è una versione avanzata delle `Barriers` che offre maggiore flessibilità e controllo su più fasi di sincronizzazione. I thread possono registrarsi per partecipare e procedere insieme attraverso più fasi di esecuzione.
+- **Semaphores**: I semafori sono simili a quelli visti nei sistemi operativi, ma con un livello di astrazione superiore in Java. Possono essere utilizzati per implementare la mutua esclusione o per coordinare la sincronizzazione tra produttore e consumatore. In Java, il metodo `wait` diventa `acquire`, e `signal` diventa `release`, fornendo un meccanismo per limitare l'accesso a risorse condivise.
+- **Exchangers**: Un exchanger permette a due thread di sincronizzarsi e scambiarsi dati. Quando entrambi i thread raggiungono il punto di sincronizzazione, si scambiano gli oggetti e possono procedere con la loro esecuzione.
 
 #### Thread-Safe Data Structures
 
-Si chiamano così perché è safe usarle in un sistema con thread. Safe significa che non c'è corruzione o problemi nell'usarle coi thread.
-Per fare ciò si usa il Decorator Pattern.
+Le **thread-safe data structures** sono strutture dati progettate per essere sicure da utilizzare in ambienti *multithread*. "Safe" significa che l'accesso concorrente da parte di più thread non causa corruzione dei dati o problemi di sincronizzazione. L'uso di queste strutture evita la necessità di gestire manualmente la sincronizzazione, riducendo il rischio di bug legati alla concorrenza.
+
+Per rendere sicure le strutture dati in un sistema multithread, spesso si utilizza il **Decorator Pattern**. Questo pattern permette di aggiungere dinamicamente comportamenti (come la sincronizzazione) a oggetti esistenti senza modificare il loro codice originale. 
+
+Una delle classi più comuni che utilizza il **Decorator Pattern** per creare versioni thread-safe di strutture dati standard è `Collections.synchronizedList()`. Questa funzione restituisce una lista decorata con meccanismi di sincronizzazione:
+
+```java
+List<String> threadSafeList = 
+	Collections.synchronizedList(new ArrayList<>());
+```
+
+In questo caso, la lista originale viene decorata con sincronizzazione automatica, rendendola sicura per l'uso in un ambiente multithread.
+
+Le collezioni di tipo **synchronized** possono avere prestazioni scarse in condizioni di **high contention** (alta contesa) a causa del livello di **coarse-grained synchronization**. Questo significa che la sincronizzazione avviene su un livello "granuloso", cioè bloccando l'intera collezione o grandi porzioni di essa ogni volta che viene eseguita un'operazione. Questo approccio porta a un significativo **overhead**, poiché solo un thread alla volta può accedere alla struttura dati, e quindi altri thread devono aspettare, riducendo l'efficienza in scenari di alto accesso concorrente.
+
+Per ridurre l'**overhead di sincronizzazione**, si utilizza un approccio **concurrent** invece di **synchronized**. Questo permette a più thread di accedere alla struttura dati contemporaneamente senza compromettere l'integrità dei dati. Un esempio è l'interfaccia `ConcurrentMap<K, V>`, che fornisce *operazioni atomiche* di lettura e scrittura. Tuttavia, iterare su collezioni concorrenti può essere rischioso, poiché più thread possono accedere e modificare la struttura dati contemporaneamente.
+
+Per risolvere il problema dell'iterazione sicura su collezioni concorrenti, sono stati introdotti diversi tipi di iteratori con semantiche specifiche:
+1. **Fail-Fast**:
+   - Utilizzato principalmente nelle collezioni non concorrenti.
+   - Permette di attraversare una collezione, ma se un altro thread tenta di modificarla durante l'iterazione, viene sollevata una **`ConcurrentModificationException`**.
+   - Per rimuovere un elemento durante l'iterazione, è necessario utilizzare il metodo `remove()` dell'**iteratore** anziché quello della collezione, per evitare l'eccezione.
+   - È un meccanismo che garantisce che le modifiche concorrenti vengano rilevate, ma non sono consentite.
+
+2. **Weakly-consistent**:
+   - Utilizzato nella maggior parte delle collezioni concorrenti.
+   - Non solleva eccezioni quando la collezione viene modificata durante l'iterazione.
+   - L'iteratore garantisce di attraversare tutti gli elementi presenti nel momento della sua creazione, esattamente una volta. Tuttavia, potrebbe o non potrebbe riflettere le modifiche apportate alla collezione dopo la sua creazione.
+   - È più flessibile per ambienti concorrenti, ma non garantisce un'istantanea coerente della collezione.
+
+3. **Snapshot**:
+   - Utilizzato in collezioni **copy-on-write**, dove viene effettuata una copia degli elementi ogni volta che la collezione viene modificata.
+   - Quando si itera su una collezione con uno snapshot iterator, è come se si scattasse una "foto" della collezione al momento dell'iterazione, senza riflettere modifiche successive.
+   - Non è necessaria la sincronizzazione durante l'iterazione, ma non supporta operazioni mutative come `remove()` sull'iteratore.
+   - Adatto a collezioni in cui si privilegiano letture rapide e consistenti, come `CopyOnWriteArrayList`.
+
+4. **Blocking queues**:
+   - Questi iteratori sono utilizzati nelle **code bloccanti**, che sono strutture dati thread-safe molto performanti, come i **bounded buffer**.
+   - Supportano operazioni di inserimento, estrazione e ispezione in vari modi.
+   - Sono ideali per implementare il paradigma **produttore-consumatore**, dove i thread produttori inseriscono elementi nella coda e i thread consumatori li rimuovono, con meccanismi di attesa e notifica.
+   - Le **blocking queues** gestiscono in modo efficiente la sincronizzazione e il passaggio di dati tra thread.
+
+#### Memory Consistency Rules
+

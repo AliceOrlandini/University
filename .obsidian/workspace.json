@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "99e8f0313c52e343",
+        "id": "48a4fb35f4096307",
         "type": "tabs",
         "children": [
           {
-            "id": "7a511efd72857cd3",
+            "id": "0ed19b126735cef2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
+                "file": "Magistrale/Distributed Systems/Chapters/Java.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Diversity techniques for wireless communications"
+              "title": "Java"
             }
           }
         ]
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 298.5,
+    "collapsed": true
   },
   "right": {
     "id": "f9f3ecc287144cb5",
@@ -208,23 +209,24 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "7a511efd72857cd3",
+  "active": "0ed19b126735cef2",
   "lastOpenFiles": [
+    "TODO.md",
+    "Magistrale/Distributed Systems/Chapters/Java.md",
+    "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
+    "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Multi-Carrier Signals.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Frequency diversity.md",
-    "Magistrale/Electronics And Communication/Communication/Chapters/Diversity techniques for wireless communications.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Digitale.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Software Defined Radio.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Comunicazione Analogica.md",
     "Magistrale/Electronics And Communication/Communication/Chapters/Wireless Propagation Channel.md",
     "Untitled.md",
-    "Magistrale/Distributed Systems/Chapters/Java.md",
     "Magistrale/Distributed Systems/Images/Thread Pool.png",
     "Magistrale/Advanced Networks/Chapters/MPLS.md",
     "Magistrale/Advanced Networks/Images/OSPF.png",
     "Magistrale/Advanced Networks/Images/MPLS header.png",
     "Idee_IA.md",
-    "Magistrale/Distributed Systems/Chapters/Concorrenza.md",
     "Magistrale/Advanced Networks/Chapters/Intro.md",
     "Magistrale/Distributed Systems/Chapters/Functional Programming Erlang.md",
     "Magistrale/Distributed Systems/Table of Contents.md",
@@ -244,7 +246,6 @@
     "Magistrale/Cloud Computing/Chapters/Lezione 8 - Hardware Assisted Virtualization.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 7 - Tecniche di Virtualizzazione.md",
     "Magistrale/Cloud Computing/Chapters/Lezione 6 - Ripasso Multiprogrammazione.md",
-    "Magistrale/Cloud Computing/Chapters/Lezione 5 - Intro Virtualizzazione.md",
     "Magistrale/Distributed Systems/Images/Esempio Lambda.png",
     "Magistrale/Advanced Networks/Images",
     "Magistrale/Distributed Systems/Images",
